@@ -1,21 +1,10 @@
-const colors = require('tailwindcss/colors');
-
 module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	plugins: [
 		require('@tailwindcss/typography'),
 		require('@tailwindcss/aspect-ratio'),
-		require('@tailwindcss/forms')
+		require('@tailwindcss/forms'),
+		require('./src/lib/plugin.cjs')
 	],
-	'headwind.runOnSave': true,
-	theme: {
-		extend: {
-			colors: {
-				primary: colors.blue[600],
-				'primary-hover': colors.blue[700],
-				danger: colors.red[600],
-				'danger-hover': colors.red[700]
-			}
-		}
-	}
+	'headwind.runOnSave': true
 };

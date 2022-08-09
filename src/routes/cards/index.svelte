@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Card from '@components/card';
 	import Media from '@components/media';
-	import Description from '@components/media/Description.svelte';
 </script>
 
 <div class="m-auto max-w-xl p-8 border border-gray-300 bg-white">
@@ -73,14 +72,14 @@
 				alt="cover"
 				class="object-cover object-center w-full h-full"
 			/>
-			<Card.Body class="absolute bottom-0 left-0 right-0">
-				<Media>
+			<Card.Cover.Overlay>
+				<Media class="absolute bottom-0 left-0 right-0 bg-black opacity-50 px-4 py-5">
 					<Media.Content>
-						<Media.Title>Europe Street beat</Media.Title>
-						<Media.Description>www.instagram.com</Media.Description>
+						<Media.Title class="text-white">Europe Street beat</Media.Title>
+						<Media.Description class="text-gray-200">www.instagram.com</Media.Description>
 					</Media.Content>
 				</Media>
-			</Card.Body>
+			</Card.Cover.Overlay>
 		</Card.Cover>
 	</Card>
 </div>

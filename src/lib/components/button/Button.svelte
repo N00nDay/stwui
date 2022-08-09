@@ -47,6 +47,8 @@
 	class:text-xs={size === 'xs'}
 	class:text-sm={size === 'sm' || size === 'md'}
 	class:text-base={size === 'lg' || size === 'xl'}
+	class:active:hover:scale-100={disabled}
+	class:opacity-60={disabled}
 >
 	{#if loading}
 		<ButtonLoader
