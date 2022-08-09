@@ -1,6 +1,6 @@
 // @ts-nocheck
 const plugin = require('tailwindcss/plugin');
-const customColors = require('./_colors.cjs');
+const customColors = require('./colors.cjs');
 
 const namedStyles = {};
 
