@@ -8,6 +8,22 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
-		"strict": true
-	}
+		"strict": true,
+		"baseUrl": ".",
+		"paths": {
+			"@components/*": ["src/lib/components/*"],
+			"@utils/*": ["src/lib/utils/*"],
+			"@database/*": ["src/lib/database/*"],
+			"@types/*": ["src/types/*"],
+			"@styles/*": ["src/styles/*"],
+			"$app": [".svelte-kit/dev/runtime/app"],
+			"$app/*": [".svelte-kit/dev/runtime/app"],
+			"@lib/*": ["src/lib/*"],
+			"$lib": ["src/lib"],
+			"$lib/*": ["src/lib/*"]
+		},
+		"typeRoots": ["node_modules/@types"],
+		"lib": ["es5", "es6", "dom", "dom.Iterable"]
+	},
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
 }
