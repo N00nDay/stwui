@@ -57,5 +57,9 @@
 	"type": "module",
 	"dependencies": {
 		"dayjs": "^1.11.4"
+	},
+	"exports": {
+		".": "./index.js",
+		"./styles.css": "./styles.css"
 	}
 }

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Button from '@components/button';
-	import Card from '@components/card';
+	import Button from '@components/button/_index';
+	import Card from '@components/card/_index';
 </script>
 
 <Card class="m-auto max-w-xl p-8" bordered>

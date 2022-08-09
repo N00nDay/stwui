@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Card from '@components/card';
-	import Media from '@components/media';
+	import Card from '@components/card/_index';
+	import Media from '@components/media/_index';
 </script>
 
 <div class="m-auto max-w-xl p-8 border border-gray-300 bg-white">
