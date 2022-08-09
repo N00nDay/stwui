@@ -4,7 +4,7 @@ module.exports = {
 		require('@tailwindcss/typography'),
 		require('@tailwindcss/aspect-ratio'),
 		require('@tailwindcss/forms'),
-		require('./src/lib/plugin.cjs')
+		require('./src/lib/_plugin.cjs')
 	],
 	'headwind.runOnSave': true
 };
