@@ -27,6 +27,8 @@
 	class:bg-danger={type === 'danger'}
 	class:hover:bg-danger-hover={type === 'danger'}
 	class:bg-white={type === 'default'}
+	class:border={type === 'default'}
+	class:border-gray-200={type === 'default'}
 	class:hover:text-primary-hover={type === 'default' || type === 'link'}
 	class:hover:border-primary={type === 'default'}
 	class:bg-transparent={type === 'ghost' || type === 'link'}
@@ -48,7 +50,12 @@
 	class:text-sm={size === 'sm' || size === 'md'}
 	class:text-base={size === 'lg' || size === 'xl'}
 	class:active:hover:scale-100={disabled}
+	class:hover:bg-primary={disabled && type === 'primary'}
+	class:hover:bg-danger={disabled && type === 'danger'}
+	class:hover:inherit={disabled}
+	class:hover:border-inherit={disabled}
 	class:opacity-60={disabled}
+	class:hover:bg-transparent={disabled && type === 'ghost'}
 >
 	{#if loading}
 		<ButtonLoader

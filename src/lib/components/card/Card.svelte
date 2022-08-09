@@ -9,7 +9,7 @@
 
 <div
 	on:click
-	class="{$$props.class} bg-white rounded-md divide-y divide-gray-200"
+	class="{$$props.class ? $$props.class : ''} bg-white rounded-md"
 	class:hover:shadow-lg={hoverable}
 	class:hover:bg-gray-100={hoverable}
 	class:cursor-pointer={hoverable}
