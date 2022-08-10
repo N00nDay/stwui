@@ -1,0 +1,6 @@
+{
+	"name": "sveltekit-tailwind-components-plugin",
+	"description": "Tailwindcss plugin for sveltekit-tailwind-components",
+	"version": "0.0.1",
+   "main": "index.js"
+}

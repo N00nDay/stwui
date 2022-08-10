@@ -25,5 +25,5 @@
 		"typeRoots": ["node_modules/@types"],
 		"lib": ["es5", "es6", "dom", "dom.Iterable"]
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "plugin/index.ts"]
 }
