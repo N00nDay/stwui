@@ -13,3 +13,32 @@
 	<circle class="fill-transparent opacity-25" stroke={loaderColor} cx="50" cy="50" r="20" />
 	<circle class="fill-transparent stc-animated" stroke={loaderColor} cx="50" cy="50" r="20" />
 </svg>
+
+<style>
+	.stc-animated {
+		stroke-dasharray: 1, 200;
+		stroke-dashoffset: 0;
+		stroke-linecap: round;
+		animation: stc-stretch calc(2s * 0.75) ease-in-out infinite;
+	}
+
+	@keyframes stc-rotate-loader {
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	@keyframes stc-stretch {
+		0% {
+			stroke-dasharray: 1, 200;
+			stroke-dashoffset: 0;
+		}
+		50% {
+			stroke-dasharray: 90, 200;
+			stroke-dashoffset: -35px;
+		}
+		100% {
+			stroke-dashoffset: -124px;
+		}
+	}
+</style>
