@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.styles.css';
-	import '../lib/styles.css';
+	// import '../lib/styles.css';
 </script>
 
 <div class="w-full bg-white flex flex-row items-center justify-start gap-4 p-4 shadow-md">

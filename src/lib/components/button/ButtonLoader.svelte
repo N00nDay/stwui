@@ -4,18 +4,29 @@
 	export let loaderColor: string;
 </script>
 
-<svg
-	transition:scale|local
-	class="stc-button-loader mr-2 border-none outline-none h-[18px] w-[18px] align-top origin-center"
-	viewBox="25 25 50 50"
-	stroke-width="5"
->
-	<circle class="fill-transparent opacity-25" stroke={loaderColor} cx="50" cy="50" r="20" />
-	<circle class="fill-transparent stc-animated" stroke={loaderColor} cx="50" cy="50" r="20" />
+<svg transition:scale|local class="button-loader" viewBox="25 25 50 50" stroke-width="5">
+	<circle class="background-circle" stroke={loaderColor} cx="50" cy="50" r="20" />
+	<circle class="animated" stroke={loaderColor} cx="50" cy="50" r="20" />
 </svg>
 
 <style>
-	.stc-animated {
+	.button-loader {
+		margin-right: 0.5rem;
+		border: none;
+		outline: none;
+		height: 18px;
+		width: 18px;
+		vertical-align: top;
+		transform-origin: center;
+		animation: stc-rotate-loader 2s linear infinite;
+	}
+
+	.background-circle {
+		fill: none;
+		opacity: 0.25;
+	}
+	.animated {
+		fill: none;
 		stroke-dasharray: 1, 200;
 		stroke-dashoffset: 0;
 		stroke-linecap: round;
