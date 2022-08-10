@@ -18,24 +18,27 @@
 	{disabled}
 	class="{$$props.class
 		? $$props.class
-		: ''} border inline-flex justify-center font-medium text-white transition-all duration-200 active:hover:animate-none active:hover:scale-95"
-	class:bg-blue-600={type === 'primary'}
-	class:hover:bg-blue-700={type === 'primary'}
-	class:text-white={type === 'primary' || type === 'danger'}
+		: ''} border inline-flex justify-center font-medium text-white transition-all duration-150 active:hover:animate-none active:hover:scale-95"
+	class:bg-primary={type === 'primary'}
+	class:hover:bg-primary-hover={type === 'primary'}
+	class:text-primary-content={type === 'primary'}
+	class:text-danger-content={type === 'danger'}
 	class:shadow-md={type !== 'text' && type !== 'link' && type !== 'ghost'}
 	class:border-transparent={type === 'text' || type === 'link' || type === 'ghost'}
-	class:bg-red-600={type === 'danger'}
-	class:hover:bg-red-700r={type === 'danger'}
-	class:bg-white={type === 'default'}
+	class:bg-danger={type === 'danger'}
+	class:hover:bg-danger-hover={type === 'danger'}
+	class:text-default-content={type === 'default' || type === 'ghost'}
+	class:bg-default={type === 'default'}
 	class:border={type === 'default'}
 	class:border-gray-200={type === 'default'}
-	class:hover:text-blue-600={type === 'default' || type === 'link'}
-	class:hover:border-blue-600={type === 'default'}
+	class:hover:border-gray-200={disabled && type === 'default'}
+	class:hover:text-primary={type === 'default' || type === 'link'}
+	class:hover:border-primary={type === 'default'}
 	class:bg-transparent={type === 'ghost' || type === 'link'}
 	class:border-none={type === 'ghost' || type === 'link'}
 	class:hover:bg-gray-100={type === 'ghost'}
 	class:shadow-none={type === 'ghost' || type === 'link'}
-	class:text-blue-600={type === 'link'}
+	class:text-primary={type === 'link'}
 	class:rounded-md={shape === 'default'}
 	class:rounded-full={shape === 'circle'}
 	class:w-full={block}
@@ -50,10 +53,10 @@
 	class:text-sm={size === 'sm' || size === 'md'}
 	class:text-base={size === 'lg' || size === 'xl'}
 	class:active:hover:scale-100={disabled}
-	class:hover:bg-blue-600={disabled && type === 'primary'}
-	class:hover:bg-red-600={disabled && type === 'danger'}
-	class:hover:inherit={disabled}
-	class:hover:border-inherit={disabled}
+	class:hover:bg-primary={disabled && type === 'primary'}
+	class:hover:bg-danger={disabled && type === 'danger'}
+	class:hover:text-initial={disabled}
+	class:hover:text-default-content={disabled && type === 'default'}
 	class:opacity-60={disabled}
 	class:hover:bg-transparent={disabled && type === 'ghost'}
 >
@@ -65,6 +68,8 @@
 				? '#ffffff'
 				: type === 'danger'
 				? '#ffffff'
+				: type === 'link'
+				? '#2563eb'
 				: '#000000'}
 		/>
 	{/if}

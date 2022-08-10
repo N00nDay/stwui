@@ -1,1 +1,1 @@
-<h4 class="{$$props.class} text-lg font-bold"><slot /></h4>
+<h4 class="{$$props.class ? $$props.class : ''} text-lg font-bold"><slot /></h4>

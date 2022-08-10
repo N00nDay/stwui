@@ -1,1 +1,1 @@
-<p class="{$$props.class} mt-1"><slot /></p>
+<p class="{$$props.class ? $$props.class : ''} mt-1"><slot /></p>

@@ -16,7 +16,7 @@
 	class:active:hover:scale-95={hoverable}
 	class:active:hover:animate-none={hoverable}
 	class:transition-all={hoverable}
-	class:duration-200={hoverable}
+	class:duration-150={hoverable}
 	class:border={bordered}
 	class:border-gray-100={bordered}
 	class:shadow-none={elevation === 'none'}
