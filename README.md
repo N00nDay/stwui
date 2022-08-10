@@ -1,6 +1,8 @@
 `npm install sveltekit-tailwind-components`
 
-Then add `import 'sveltekit-tailwind-components'` to your top `layout` component.
+Add `require('sveltekit-tailwind-components/plugin.cjs')` to `tailwind.config.cjs`.
+
+Add `import 'sveltekit-tailwind-components'` to your top `layout` component.
 
 The list:
 
