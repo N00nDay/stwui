@@ -18,7 +18,7 @@
 
 <Card class="m-auto max-w-xl p-8" bordered>
 	<h1>Loading</h1>
-	<Button lodading>Default button</Button>
+	<Button loading>Default button</Button>
 
 	<Button type="primary" loading>I am primary</Button>
 

@@ -15,10 +15,10 @@
 <button
 	on:click
 	type={htmlType}
-	{disabled}
+	disabled={disabled || loading}
 	class="{$$props.class
 		? $$props.class
-		: ''} border inline-flex justify-center font-medium text-white transition-all duration-150 active:hover:animate-none active:hover:scale-95"
+		: ''} border inline-flex justify-center font-medium transition-all duration-150 active:hover:animate-none active:hover:scale-95"
 	class:bg-primary={type === 'primary'}
 	class:hover:bg-primary-hover={type === 'primary'}
 	class:text-primary-content={type === 'primary'}
@@ -31,9 +31,9 @@
 	class:bg-default={type === 'default'}
 	class:border={type === 'default'}
 	class:border-gray-200={type === 'default'}
-	class:hover:border-gray-200={disabled && type === 'default'}
+	class:hover:border-gray-200={(disabled || loading) && type === 'default'}
 	class:hover:text-primary={type === 'default' || type === 'link'}
-	class:hover:border-primary={type === 'default'}
+	class:hover:border-primary={type === 'default' && !(disabled || loading)}
 	class:bg-transparent={type === 'ghost' || type === 'link'}
 	class:border-none={type === 'ghost' || type === 'link'}
 	class:hover:bg-gray-100={type === 'ghost'}
@@ -52,13 +52,14 @@
 	class:text-xs={size === 'xs'}
 	class:text-sm={size === 'sm' || size === 'md'}
 	class:text-base={size === 'lg' || size === 'xl'}
-	class:active:hover:scale-100={disabled}
-	class:hover:bg-primary={disabled && type === 'primary'}
-	class:hover:bg-danger={disabled && type === 'danger'}
-	class:hover:text-initial={disabled}
-	class:hover:text-default-content={disabled && type === 'default'}
-	class:opacity-60={disabled}
-	class:hover:bg-transparent={disabled && type === 'ghost'}
+	class:active:hover:scale-100={disabled || loading}
+	class:hover:bg-primary={(disabled || loading) && type === 'primary'}
+	class:hover:bg-danger={(disabled || loading) && type === 'danger'}
+	class:hover:text-initial={disabled || loading}
+	class:hover:text-default-content={(disabled || loading) && type === 'default'}
+	class:opacity-70={disabled || loading}
+	class:hover:bg-transparent={(disabled || loading) && type === 'ghost'}
+	class:cursor-wait={loading}
 >
 	{#if loading}
 		<ButtonLoader

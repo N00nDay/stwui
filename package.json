@@ -19,7 +19,7 @@
 	"scripts": {
 		"dev": "vite dev --open --host --port 5555",
 		"build": "vite build",
-		"package": "svelte-kit package",
+		"package": "svelte-kit package && find package/ -type f -exec sed -i '' -e 's/process.env.NODE_ENV/\"production\"/' {} \\;",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -36,8 +36,8 @@
 		"@tailwindcss/forms": "^0.5.2",
 		"@tailwindcss/typography": "^0.5.4",
 		"@types/cookie": "^0.5.1",
-		"@typescript-eslint/eslint-plugin": "^5.32.0",
-		"@typescript-eslint/parser": "^5.32.0",
+		"@typescript-eslint/eslint-plugin": "^5.33.0",
+		"@typescript-eslint/parser": "^5.33.0",
 		"autoprefixer": "^10.4.8",
 		"eslint": "^8.21.0",
 		"eslint-config-prettier": "^8.5.0",
@@ -52,7 +52,7 @@
 		"tailwindcss": "^3.1.8",
 		"tslib": "^2.4.0",
 		"typescript": "^4.7.4",
-		"vite": "^3.0.4"
+		"vite": "^3.0.5"
 	},
 	"type": "module",
 	"dependencies": {
