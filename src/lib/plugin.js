@@ -1,6 +1,6 @@
-const plugin = require('tailwindcss/plugin');
+import plugin from 'tailwindcss/plugin';
 
-module.exports = plugin(function () {}, {
+export default plugin(function () {}, {
 	theme: {
 		extend: {
 			colors: {

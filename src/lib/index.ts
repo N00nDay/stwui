@@ -1,4 +1,4 @@
-import plugin from './plugin.cjs';
+import plugin from './plugin.js';
 
 import Card from './components/card/index';
 import Button from './components/button/index';
