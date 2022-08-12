@@ -1,8 +1,8 @@
 <script lang="ts">
-	// import { current_component } from 'svelte/internal';
-	// import { forwardEventsBuilder } from '@utils/forwardEventsBuilder';
-	// import { useActions, type ActionArray } from '@utils/useActions';
-	// import { exclude } from '@utils/exclude';
+	import { current_component } from 'svelte/internal';
+	import { forwardEventsBuilder } from '@utils/forwardEventsBuilder';
+	import { useActions, type ActionArray } from '@utils/useActions';
+	import { exclude } from '@utils/exclude';
 
 	import type MaterialIcons from '@lib/types/material-icons';
 
@@ -22,7 +22,7 @@
 	export let leading: MaterialIcons | undefined = undefined;
 	export let trailing: MaterialIcons | undefined = undefined;
 	export let swap: MaterialIcons | undefined = undefined;
-	// export let use: ActionArray = [];
+	export let use: ActionArray = [];
 
 	let classes =
 		'border inline-flex justify-center items-center font-medium transition-all duration-150 active:hover:animate-none active:hover:scale-95';
@@ -50,7 +50,7 @@
 			iconSize = '';
 	}
 
-	// const forwardEvents = forwardEventsBuilder(current_component);
+	const forwardEvents = forwardEventsBuilder(current_component);
 
 	const buttonLoaderColor = loaderColor
 		? loaderColor
@@ -73,12 +73,7 @@
 	// when progress hits 100 it swaps to a check_circle material-icon
 </script>
 
-<!-- use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])} -->
-
 <button
-	on:click
 	type={htmlType}
 	{disabled}
 	class="{classes}{$$props.class ? ` ${$$props.class}` : ''}"
@@ -96,6 +91,9 @@
 	class:md={size === 'md'}
 	class:lg={size === 'lg'}
 	class:xl={size === 'xl'}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
 >
 	{#if loading && !icon && !leading && !trailing}
 		<ButtonLoader color={buttonLoaderColor} />
