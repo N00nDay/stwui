@@ -46,7 +46,7 @@
 	<slot />
 </div>
 
-<style>
+<style lang="postcss">
 	.hoverable {
 		@apply hover:shadow-lg;
 		@apply hover:bg-gray-100;

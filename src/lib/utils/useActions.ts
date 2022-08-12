@@ -1,5 +1,3 @@
-// This file taken from hperrin/svelte-material-ui
-// Copyright 2020-present Hunter Perrin
 export type SvelteActionReturnType<P> = {
 	update?: (newParams?: P) => void;
 	destroy?: () => void;
@@ -7,24 +5,20 @@ export type SvelteActionReturnType<P> = {
 
 export type SvelteHTMLActionType<P> = (node: HTMLElement, params?: P) => SvelteActionReturnType<P>;
 
-export type HTMLActionEntry<P extends any = any> =
-	| SvelteHTMLActionType<P>
-	| [SvelteHTMLActionType<P>, P];
+export type HTMLActionEntry<P = any> = SvelteHTMLActionType<P> | [SvelteHTMLActionType<P>, P];
 
 export type HTMLActionArray = HTMLActionEntry[];
 
 export type SvelteSVGActionType<P> = (node: SVGElement, params?: P) => SvelteActionReturnType<P>;
 
-export type SVGActionEntry<P extends any = any> =
-	| SvelteSVGActionType<P>
-	| [SvelteSVGActionType<P>, P];
+export type SVGActionEntry<P = any> = SvelteSVGActionType<P> | [SvelteSVGActionType<P>, P];
 
 export type SVGActionArray = SVGActionEntry[];
 
 export type ActionArray = HTMLActionArray | SVGActionArray;
 
 export function useActions(node: HTMLElement | SVGElement, actions: ActionArray) {
-	let actionReturns: SvelteActionReturnType<any>[] = [];
+	const actionReturns: SvelteActionReturnType<any>[] = [];
 
 	if (actions) {
 		for (let i = 0; i < actions.length; i++) {

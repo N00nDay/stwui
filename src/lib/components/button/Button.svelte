@@ -149,7 +149,7 @@
 	{/if}
 </button>
 
-<style>
+<style lang="postcss">
 	.xs {
 		@apply px-2.5;
 		@apply py-1.5;

@@ -17,7 +17,9 @@ export function forwardEventsBuilder(component: SvelteComponent) {
 	// And we override the $on function to forward all bound events.
 	component.$on = (fullEventType: string, callback: (event: unknown) => void) => {
 		const eventType = fullEventType;
-		let destructor = () => {};
+		let destructor = () => {
+			return;
+		};
 		if ($on) {
 			// The event was bound programmatically.
 			destructor = $on(eventType, callback);

@@ -5,5 +5,5 @@
 	"printWidth": 100,
 	"tabWidth": 2,
 	"bracketSpacing": true,
-	"svelteSortOrder": "scripts-markup-styles"
+	"svelteSortOrder": "options-scripts-markup-styles"
 }

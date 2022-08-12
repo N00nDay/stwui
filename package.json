@@ -28,7 +28,8 @@
 		"format": "prettier --write --plugin-search-dir=. .",
 		"patch-package": "npm version patch && svelte-kit package",
 		"minor-package": "npm version minor && svelte-kit package",
-		"major-package": "npm version major && svelte-kit package"
+		"major-package": "npm version major && svelte-kit package",
+		"prepare-git": "npm run format && npm run lint"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.24.2",
