@@ -6,7 +6,7 @@
 	export function useCardActionsContext(component: string) {
 		let context = getContext(CARD_ACTIONS_CONTEXT_NAME);
 		if (context === undefined) {
-			throw new Error(`<${component} /> is missing a parent <CardActions /> component.`);
+			console.warn(`<${component} /> is missing a parent <CardActions /> component.`);
 		}
 		return context;
 	}

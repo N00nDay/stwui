@@ -6,7 +6,7 @@
 	export function useMediaContext(component: string) {
 		let context = getContext(MEDIA_CONTEXT_NAME);
 		if (context === undefined) {
-			throw new Error(`<${component} /> is missing a parent <Media /> component.`);
+			console.warn(`<${component} /> is missing a parent <Media /> component.`);
 		}
 		return context;
 	}

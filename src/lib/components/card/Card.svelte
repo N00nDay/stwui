@@ -6,7 +6,7 @@
 	export function useCardContext(component: string) {
 		let context = getContext(CARD_CONTEXT_NAME);
 		if (context === undefined) {
-			throw new Error(`<${component} /> is missing a parent <Card /> component.`);
+			console.warn(`<${component} /> is missing a parent <Card /> component.`);
 		}
 		return context;
 	}

@@ -1,43 +1,23 @@
-// This is a modified version of code from hperrin/svelte-material-ui
 import type { SvelteComponent } from 'svelte';
 import { bubble, listen, prevent_default, stop_propagation } from 'svelte/internal';
 
-const MODIFIER_DIVIDER = '!';
-const modifierRegex = new RegExp(
-	`^[^${MODIFIER_DIVIDER}]+(?:${MODIFIER_DIVIDER}(?:preventDefault|stopPropagation|passive|nonpassive|capture|once|self))+$`
-);
+// Match old modifiers. (only works on DOM events)
+const oldModifierRegex =
+	/^[a-z]+(?::(?:preventDefault|stopPropagation|passive|nonpassive|capture|once|self))+$/;
+// Match new modifiers.
+const newModifierRegex =
+	/^[^$]+(?:\$(?:preventDefault|stopPropagation|passive|nonpassive|capture|once|self))+$/;
 
-type ForwardException = string | { name: string; shouldExclude: () => boolean };
-export function forwardEventsBuilder(component: SvelteComponent, except: ForwardException[] = []) {
+export function forwardEventsBuilder(component: SvelteComponent) {
 	// This is our pseudo $on function. It is defined on component mount.
-	let $on: (eventType: string, callback: (event: any) => void) => () => void;
+	let $on: (eventType: string, callback: (event: unknown) => void) => () => void;
 	// This is a list of events bound before mount.
-	let events: [string, (event: any) => void][] = [];
+	const events: [string, (event: unknown) => void][] = [];
 
 	// And we override the $on function to forward all bound events.
-	component.$on = (fullEventType: string, callback: (event: any) => void) => {
-		let eventType = fullEventType;
+	component.$on = (fullEventType: string, callback: (event: unknown) => void) => {
+		const eventType = fullEventType;
 		let destructor = () => {};
-		for (let exception of except) {
-			if (typeof exception === 'string' && exception === eventType) {
-				// Bail out of the event forwarding and run the normal Svelte $on() code
-				const callbacks =
-					component.$$.callbacks[eventType] || (component.$$.callbacks[eventType] = []);
-				callbacks.push(callback);
-				return () => {
-					const index = callbacks.indexOf(callback);
-					if (index !== -1) callbacks.splice(index, 1);
-				};
-			}
-			if (typeof exception === 'object' && exception['name'] === eventType) {
-				let oldCallback = callback;
-				callback = (...props) => {
-					if (!(typeof exception === 'object' && exception['shouldExclude']())) {
-						oldCallback(...props);
-					}
-				};
-			}
-		}
 		if ($on) {
 			// The event was bound programmatically.
 			destructor = $on(eventType, callback);
@@ -45,6 +25,17 @@ export function forwardEventsBuilder(component: SvelteComponent, except: Forward
 			// The event was bound before mount by Svelte.
 			events.push([eventType, callback]);
 		}
+		const oldModifierMatch = eventType.match(oldModifierRegex);
+
+		if (oldModifierMatch && console) {
+			console.warn(
+				'Event modifiers in SMUI now use "$" instead of ":", so that ' +
+					'all events can be bound with modifiers. Please update your ' +
+					'event binding: ',
+				eventType
+			);
+		}
+
 		return () => {
 			destructor();
 		};
@@ -66,7 +57,26 @@ export function forwardEventsBuilder(component: SvelteComponent, except: Forward
 			let handler = callback;
 			// DOM addEventListener options argument.
 			let options: boolean | AddEventListenerOptions = false;
-			const modifierMatch = eventType.match(modifierRegex);
+			const oldModifierMatch = eventType.match(oldModifierRegex);
+			const newModifierMatch = eventType.match(newModifierRegex);
+			const modifierMatch = oldModifierMatch || newModifierMatch;
+			if (eventType.match(/^SMUI:\w+:/)) {
+				const newEventTypeParts = eventType.split(':');
+				let newEventType = '';
+				for (let i = 0; i < newEventTypeParts.length; i++) {
+					newEventType +=
+						i === newEventTypeParts.length - 1
+							? ':' + newEventTypeParts[i]
+							: newEventTypeParts[i]
+									.split('-')
+									.map((value) => value.slice(0, 1).toUpperCase() + value.slice(1))
+									.join('');
+				}
+				console.warn(
+					`The event ${eventType.split('$')[0]} has been renamed to ${newEventType.split('$')[0]}.`
+				);
+				eventType = newEventType;
+			}
 			if (modifierMatch) {
 				// Parse the event modifiers.
 				// Supported modifiers:
@@ -76,7 +86,7 @@ export function forwardEventsBuilder(component: SvelteComponent, except: Forward
 				// - nonpassive
 				// - capture
 				// - once
-				const parts = eventType.split(MODIFIER_DIVIDER);
+				const parts = eventType.split(oldModifierMatch ? ':' : '$');
 				eventType = parts[0];
 				const eventOptions: {
 					passive?: true;
@@ -143,7 +153,7 @@ export function forwardEventsBuilder(component: SvelteComponent, except: Forward
 				}
 
 				// Remove all event forwarders.
-				for (let entry of Object.entries(forwardDestructors)) {
+				for (const entry of Object.entries(forwardDestructors)) {
 					entry[1]();
 				}
 			}

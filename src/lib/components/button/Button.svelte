@@ -63,7 +63,7 @@
 		: '#000000';
 
 	if (icon && $$slots.default) {
-		throw new Error(
+		console.warn(
 			"<Button /> 'icon' property is to be used by itself. Use 'leading' or 'trailing' in conjunction with text in the default slot"
 		);
 	}

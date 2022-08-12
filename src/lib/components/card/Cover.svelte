@@ -6,7 +6,7 @@
 	export function useCardCoverContext(component: string) {
 		let context = getContext(CARD_COVER_CONTEXT_NAME);
 		if (context === undefined) {
-			throw new Error(`<${component} /> is missing a parent <CardCover /> component.`);
+			console.warn(`<${component} /> is missing a parent <CardCover /> component.`);
 		}
 		return context;
 	}
