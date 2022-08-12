@@ -10,7 +10,7 @@
 	export let loading: false | true | undefined = undefined;
 	export let swapped: false | true | undefined = undefined;
 
-	$: isChecked = loading ? loading : swapped ? swapped : false;
+	// $: isChecked = loading ? loading : swapped ? swapped : false;
 </script>
 
 <!-- use:useActions={use}
@@ -23,7 +23,7 @@
 	class:swap-rotate={type === 'rotate'}
 	class:swap-flip={type === 'flip'}
 >
-	<input type="checkbox" class="invisible" checked={isChecked} disabled />
+	<input type="checkbox" class="invisible" checked={loading || swapped} disabled />
 	<span class="swap-on absolute inset-0">
 		<slot name="icon1" />
 	</span>
