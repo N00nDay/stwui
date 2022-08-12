@@ -63,5 +63,8 @@
 	},
 	"peerDependencies": {
 		"svelte": "^3.49.0"
-	}
+	},
+	"exports": {
+		"./index.js": "./index.js"
+	 }
 }
