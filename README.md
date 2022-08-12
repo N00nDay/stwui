@@ -1,12 +1,15 @@
 `npm install sveltekit-tailwind-components`
 
-Add `require('sveltekit-tailwind-components/plugin')` to the plugins section of your `tailwind.config.cjs`
+Add `require('sveltekit-tailwind-components/plugin')` to the `plugins` section of your `tailwind.config.cjs`
+
+Add `'./node_modules/sveltekit-tailwind-components/**/*.{svelte,js,ts,html}'` to the `content` array of your `tailwind.config.cjs`
 
 The list:
 
-- [x] Card
+- [ ] Card
 - [x] Button
-- [x] Media
+- [ ] Media
+- [ ] Swap
 - [ ] Loading
 - [ ] Alert
 - [ ] Avatar

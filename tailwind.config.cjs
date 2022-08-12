@@ -6,5 +6,8 @@ module.exports = {
 		require('@tailwindcss/forms'),
 		require('./src/lib/plugin')
 	],
-	'headwind.runOnSave': true
+	'headwind.runOnSave': true,
+	theme: {
+		extend: {}
+	}
 };

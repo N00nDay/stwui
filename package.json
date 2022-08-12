@@ -19,13 +19,16 @@
 	"scripts": {
 		"dev": "vite dev --open --host --port 5555",
 		"build": "vite build",
-		"package": "svelte-kit package && find package/ -type f -exec sed -i '' -e 's/process.env.NODE_ENV/\"production\"/' {} \\;",
+		"package": "svelte-kit package;",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
-		"format": "prettier --write --plugin-search-dir=. ."
+		"format": "prettier --write --plugin-search-dir=. .",
+		"patch-package": "npm version patch && svelte-kit package",
+		"minor-package": "npm version minor && svelte-kit package",
+		"major-package": "npm version major && svelte-kit package"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.24.2",
@@ -58,8 +61,7 @@
 	"dependencies": {
 		"dayjs": "^1.11.4"
 	},
-	"exports": {
-		".": "./index.js",
-		"./styles.css": "./styles.css"
+	"peerDependencies": {
+		"svelte": "^3.49.0"
 	}
 }

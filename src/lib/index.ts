@@ -1,5 +1,4 @@
-import Card from './components/card/index';
-import Button from './components/button/index';
-import Media from './components/media/index';
-
-export { Card, Button, Media };
+export * from './components/card';
+export * from './components/button';
+export * from './components/media';
+export * from './components/swap';

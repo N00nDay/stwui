@@ -1,29 +1,64 @@
+<script lang="ts" context="module">
+	import { setContext, getContext } from 'svelte';
+
+	export const CARD_CONTEXT_NAME = 'card-context-name';
+
+	export function useCardContext(component: string) {
+		let context = getContext(CARD_CONTEXT_NAME);
+		if (context === undefined) {
+			throw new Error(`<${component} /> is missing a parent <Card /> component.`);
+		}
+		return context;
+	}
+</script>
+
 <script lang="ts">
+	import { current_component } from 'svelte/internal';
+	import { forwardEventsBuilder } from '@utils/forwardEventsBuilder';
+	import { useActions, type ActionArray } from '@utils/useActions';
+	import { exclude } from '@utils/exclude';
+
 	export let bordered = true;
 	export let hoverable = false;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+	export let use: ActionArray = [];
 
-	// TODO: add loading - needs skeleton
-	// TODO: handle tabs
+	const forwardEvents = forwardEventsBuilder(current_component);
+
+	setContext(CARD_CONTEXT_NAME, {
+		card: true
+	});
 </script>
 
 <div
-	on:click
-	class="{$$props.class ? $$props.class : ''} bg-white rounded-md"
-	class:hover:shadow-lg={hoverable}
-	class:hover:bg-gray-100={hoverable}
-	class:cursor-pointer={hoverable}
-	class:active:hover:scale-95={hoverable}
-	class:active:hover:animate-none={hoverable}
-	class:transition-all={hoverable}
-	class:duration-150={hoverable}
-	class:border={bordered}
-	class:border-gray-100={bordered}
+	class="bg-white rounded-md{$$props.class ? ` ${$$props.class}` : ''}"
+	class:hoverable
+	class:bordered
 	class:shadow-none={elevation === 'none'}
 	class:shadow-sm={elevation === 'sm'}
 	class:shadow-md={elevation === 'md'}
 	class:shadow-lg={elevation === 'lg'}
 	class:shadow-xl={elevation === 'xl'}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
 </div>
+
+<style>
+	.hoverable {
+		@apply hover:shadow-lg;
+		@apply hover:bg-gray-100;
+		@apply cursor-pointer;
+		@apply active:hover:scale-95;
+		@apply active:hover:animate-none;
+		@apply transition-all;
+		@apply duration-150;
+	}
+
+	.bordered {
+		@apply border;
+		@apply border-gray-100;
+	}
+</style>
