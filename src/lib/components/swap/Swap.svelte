@@ -32,7 +32,7 @@
 	</span>
 </div>
 
-<style>
+<style lang="postcss">
 	.swap {
 		@apply cursor-pointer;
 	}
