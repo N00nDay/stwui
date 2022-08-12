@@ -26,10 +26,10 @@
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
 		"format": "prettier --write --plugin-search-dir=. .",
-		"patch-package": "npm version patch && svelte-kit package",
-		"minor-package": "npm version minor && svelte-kit package",
-		"major-package": "npm version major && svelte-kit package",
-		"prepare-git": "npm run format && npm run lint && git add -u"
+		"package:patch": "npm version patch && svelte-kit package",
+		"package:minor": "npm version minor && svelte-kit package",
+		"package:major": "npm version major && svelte-kit package",
+		"prepare:git": "npm run format && npm run lint && git add -u"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.25.0",
