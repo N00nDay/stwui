@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder } from '@utils/forwardEventsBuilder';
-	import { useActions, type ActionArray } from '@utils/useActions';
-	import { exclude } from '@utils/exclude';
+	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
+	import { useActions, type ActionArray } from '../../utils/useActions';
+	import { exclude } from '../../utils/exclude';
 
 	import type MaterialIcons from '@lib/types/material-icons';
 
 	import ButtonLoader from './ButtonLoader.svelte';
-	import Swap from '@components/swap/Swap.svelte';
+	import Swap from '../swap/Swap.svelte';
 
 	export let disabled: false | true = false;
 	export let htmlType: 'button' | 'submit' | 'reset' = 'button';
