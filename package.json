@@ -65,7 +65,10 @@
 		"svelte": "^3.49.0"
 	},
 	"exports": {
-		"./index.js": "./index.js"
+		"./index.js": "./index.js",
+		"./components/cards/index.js": "./components/cards/index.js",
+		"./components/button/index.js": "./components/button/index.js",
+		"./components/swap/index.js": "./components/swap/index.js"
 	},
 	"svelte": "./index.js"
 }
