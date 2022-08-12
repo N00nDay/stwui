@@ -13,24 +13,29 @@
 </script>
 
 <script lang="ts">
-	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder } from '@utils/forwardEventsBuilder';
-	import { useActions, type ActionArray } from '@utils/useActions';
-	import { exclude } from '@utils/exclude';
+	// import { current_component } from 'svelte/internal';
+	// import { forwardEventsBuilder } from '@utils/forwardEventsBuilder';
+	// import { useActions, type ActionArray } from '@utils/useActions';
+	// import { exclude } from '@utils/exclude';
 
 	export let bordered = true;
 	export let hoverable = false;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-	export let use: ActionArray = [];
+	// export let use: ActionArray = [];
 
-	const forwardEvents = forwardEventsBuilder(current_component);
+	// const forwardEvents = forwardEventsBuilder(current_component);
 
 	setContext(CARD_CONTEXT_NAME, {
 		card: true
 	});
 </script>
 
+<!-- use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])} -->
+
 <div
+	on:click
 	class="bg-white rounded-md{$$props.class ? ` ${$$props.class}` : ''}"
 	class:hoverable
 	class:bordered
@@ -39,9 +44,6 @@
 	class:shadow-md={elevation === 'md'}
 	class:shadow-lg={elevation === 'lg'}
 	class:shadow-xl={elevation === 'xl'}
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
 </div>

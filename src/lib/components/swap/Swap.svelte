@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder } from '@utils/forwardEventsBuilder';
-	import { useActions, type ActionArray } from '@utils/useActions';
-	import { exclude } from '@utils/exclude';
-	const forwardEvents = forwardEventsBuilder(current_component);
-	export let use: ActionArray = [];
+	// import { current_component } from 'svelte/internal';
+	// import { forwardEventsBuilder } from '@utils/forwardEventsBuilder';
+	// import { useActions, type ActionArray } from '@utils/useActions';
+	// import { exclude } from '@utils/exclude';
+	// const forwardEvents = forwardEventsBuilder(current_component);
+	// export let use: ActionArray = [];
 
 	export let type: 'rotate' | 'flip' = 'rotate';
 	export let loading: false | true | undefined = undefined;
@@ -13,13 +13,15 @@
 	$: isChecked = loading ? loading : swapped ? swapped : false;
 </script>
 
+<!-- use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])} -->
+
 <div
+	on:click
 	class="swap relative inset-0 {$$props.class ? ` ${$$props.class}` : ''}"
 	class:swap-rotate={type === 'rotate'}
 	class:swap-flip={type === 'flip'}
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
 >
 	<input type="checkbox" class="invisible" checked={isChecked} disabled />
 	<span class="swap-on absolute inset-0">
