@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Button } from '@components/button';
-	import { Card } from '@components/card';
+	import { Button } from '../../lib/components/button';
+	import { Card } from '../../lib/components/card';
 
 	let loading = false;
 

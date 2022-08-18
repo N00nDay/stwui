@@ -27,7 +27,7 @@
 	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
 	import { useActions, type ActionArray } from '../../utils/useActions';
 	import { exclude } from '../../utils/exclude';
-	import HoverBackground from '@components/HoverBackground.svelte';
+	import HoverBackground from '../HoverBackground.svelte';
 
 	export let icon: string | undefined = undefined;
 	export let label: string | undefined = undefined;

@@ -21,15 +21,6 @@ const config = {
 			files: (filepath) => {
 				return !filepath.endsWith('.text.ts');
 			}
-		},
-		alias: {
-			'@components/*': 'src/lib/components/*',
-			'@utils/*': 'src/lib/utils/*',
-			'@stores/*': 'src/lib/stores/*',
-			'@database/*': 'src/lib/database/*',
-			'@types/*': 'src/types/*',
-			'@styles/*': 'src/styles/*',
-			'@lib/*': 'src/lib/*'
 		}
 	}
 };

@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	import type MaterialIcons from '@lib/types/material-icons';
+	import type MaterialIcons from '../../types/material-icons';
 
 	interface Items {
 		icon: MaterialIcons;
@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import HoverBackground from '@components/HoverBackground.svelte';
+	import HoverBackground from '../HoverBackground.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { LAYOUT_CONTEXT_ID } from './Layout.svelte';
 

@@ -8,8 +8,8 @@
 		CardHeader,
 		CardFooter,
 		CardCoverOverlay
-	} from '@components/card';
-	import { Media, MediaTitle, MediaContent, MediaDescription } from '@components/media';
+	} from '../../lib/components/card';
+	import { Media, MediaTitle, MediaContent, MediaDescription } from '../../lib/components/media';
 </script>
 
 <div class="m-auto max-w-xl p-8 border border-gray-300 bg-white">
@@ -64,12 +64,8 @@
 			/>
 		</CardCover>
 		<CardActions>
-			<CardAction>
-				<span class="material-icons h-6 w-6"> settings </span>
-			</CardAction>
-			<CardAction>
-				<span class="material-icons h-6 w-6"> description </span>
-			</CardAction>
+			<CardAction icon="settings" />
+			<CardAction icon="description" />
 		</CardActions>
 	</Card>
 

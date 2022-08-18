@@ -11,14 +11,8 @@
 		"strict": true,
 		"baseUrl": ".",
 		"paths": {
-			"@components/*": ["src/lib/components/*"],
-			"@utils/*": ["src/lib/utils/*"],
-			"@database/*": ["src/lib/database/*"],
-			"@types/*": ["src/types/*"],
-			"@styles/*": ["src/styles/*"],
 			"$app": [".svelte-kit/dev/runtime/app"],
 			"$app/*": [".svelte-kit/dev/runtime/app"],
-			"@lib/*": ["src/lib/*"],
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"]
 		},

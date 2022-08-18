@@ -11,7 +11,7 @@
 		BottomNavigationItem,
 		BottomNavigationCreateItem,
 		BottomNavigation
-	} from '@components/layout';
+	} from '../lib/components/layout';
 	import {
 		Card,
 		CardCover,
@@ -21,14 +21,14 @@
 		CardContent,
 		CardHeader,
 		CardFooter
-	} from '@components/card';
-	import { Media, MediaContent, MediaDescription, MediaTitle } from '@components/media';
-	import { Portal } from '@components/portal';
-	import { CommandPalette, type SearchResult } from '@components/command-palette';
-	import { Button } from '@components/button';
-	import type MaterialIcons from '@lib/types/material-icons';
-	import { Dropdown, DropdownItem } from '@components/dropdown';
-	import { Row, Col } from '@components/grid';
+	} from '../lib/components/card';
+	import { Media, MediaContent, MediaDescription, MediaTitle } from '../lib/components/media';
+	import { Portal } from '../lib/components/portal';
+	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
+	import { Button } from '../lib/components/button';
+	import type MaterialIcons from '../lib/types/material-icons';
+	import { Dropdown, DropdownItem } from '../lib/components/dropdown';
+	import { Row, Col } from '../lib/components/grid';
 
 	const sidbarItems = [
 		{
