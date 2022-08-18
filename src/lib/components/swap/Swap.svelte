@@ -15,6 +15,7 @@
 	class="swap relative inset-0{$$props.class ? ` ${$$props.class}` : ''}"
 	class:swap-rotate={type === 'rotate'}
 	class:swap-flip={type === 'flip'}
+	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}

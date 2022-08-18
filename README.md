@@ -6,10 +6,10 @@ Add `'./node_modules/sveltekit-tailwind-components/**/*.{svelte,js,ts,html}'` to
 
 The list:
 
-- [ ] Card
+- [x] Card
 - [x] Button
-- [ ] Media
-- [ ] Swap
+- [x] Media
+- [x] Swap
 - [ ] Loading
 - [ ] Alert
 - [ ] Avatar
@@ -18,15 +18,18 @@ The list:
 - [ ] Carousel
 - [ ] Checkbox
 - [ ] Collapse
+- [x] Command Palette
 - [ ] DatePicker
 - [ ] Divider
 - [ ] Drawer
 - [ ] Dropdown
 - [ ] Empty
 - [ ] FormField
+- [x] Layout
 - [ ] Menu
-- [ ] Modal
+- [x] Modal
 - [ ] Header
+- [x] Portal
 - [ ] Progress
 - [ ] Radio
 - [ ] Rate

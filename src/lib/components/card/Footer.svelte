@@ -1,13 +1,29 @@
 <script lang="ts">
-	import { useCardContext } from './Card.svelte';
+	import { CARD_CONTEXT_ID } from './Card.svelte';
+	import { useContext } from '../../utils/useContext';
 
-	useCardContext('CardFooter');
+	import { current_component } from 'svelte/internal';
+	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
+	import { useActions, type ActionArray } from '../../utils/useActions';
+	import { exclude } from '../../utils/exclude';
+	export let use: ActionArray = [];
+	const forwardEvents = forwardEventsBuilder(current_component);
+
+	useContext({
+		context_id: CARD_CONTEXT_ID,
+		parent: 'Card',
+		component: 'CardFooter'
+	});
 </script>
 
 <div
-	class="px-4 py-5 sm:px-6 first:rounded-t-md last:rounded-b-rounded-b-md last:border-t last:border-gray-200 only:border-none{$$props.class
+	class="px-4 py-5 sm:px-6 h-16 first:rounded-t-md last:rounded-b-md{$$props.class
 		? ` ${$$props.class}`
 		: ''}"
+	style={$$props.style}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
 </div>

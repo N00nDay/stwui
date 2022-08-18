@@ -1,30 +1,38 @@
 <script lang="ts" context="module">
-	import { setContext, getContext } from 'svelte';
-
-	export const CARD_COVER_CONTEXT_NAME = 'card-cover-context-name';
-
-	export function useCardCoverContext(component: string) {
-		let context = getContext(CARD_COVER_CONTEXT_NAME);
-		if (context === undefined) {
-			console.warn(`<${component} /> is missing a parent <CardCover /> component.`);
-		}
-		return context;
-	}
+	export const CARD_COVER_CONTEXT_ID = 'card-cover-context-id';
 </script>
 
 <script lang="ts">
-	import { useCardContext } from './Card.svelte';
+	import { setContext } from 'svelte';
+	import { useContext } from '../../utils/useContext';
+	import { CARD_CONTEXT_ID } from './Card.svelte';
 
-	useCardContext('CardConver');
-	setContext(CARD_COVER_CONTEXT_NAME, {
+	import { current_component } from 'svelte/internal';
+	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
+	import { useActions, type ActionArray } from '../../utils/useActions';
+	import { exclude } from '../../utils/exclude';
+	export let use: ActionArray = [];
+	const forwardEvents = forwardEventsBuilder(current_component);
+
+	useContext({
+		context_id: CARD_CONTEXT_ID,
+		parent: 'Card',
+		component: 'CardCover'
+	});
+
+	setContext(CARD_COVER_CONTEXT_ID, {
 		cover: true
 	});
 </script>
 
 <div
-	class="mt-[-1px] mr-[-1px] ml-[-1px] last:h-[calc(100%+2px)] first:rounded-t-md last:rounded-b-rounded-b-md overflow-hidden{$$props.class
+	class="mt-[-1px] mr-[-1px] ml-[-1px] last:h-[calc(100%+2px)] first:rounded-t-md last:rounded-b-md overflow-hidden{$$props.class
 		? ` ${$$props.class}`
 		: ''}"
+	style={$$props.style}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
 </div>

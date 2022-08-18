@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CARD_CONTEXT_ID } from './Card.svelte';
+	import { DROPDOWN_CONTEXT_ID } from './Dropdown.svelte';
 	import { useContext } from '../../utils/useContext';
 
 	import { current_component } from 'svelte/internal';
@@ -10,21 +10,20 @@
 	const forwardEvents = forwardEventsBuilder(current_component);
 
 	useContext({
-		context_id: CARD_CONTEXT_ID,
-		parent: 'Card',
-		component: 'CardHeader'
+		context_id: DROPDOWN_CONTEXT_ID,
+		parent: 'Dropdown',
+		component: 'DropdownItem'
 	});
 </script>
 
-<div
-	class="first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 h-16{$$slots.extras
-		? ' flex flex-row items-center justify-between'
-		: ''}{$$props.class ? ` ${$$props.class}` : ''}"
+<button
+	class="w-full group flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-light-secondary-content dark:text-dark-secondary-content dark:hover:bg-dark-icon-background-hover hover:bg-light-icon-background-hover hover:text-light-content dark:hover:text-dark-content transition-all duration-150{$$props.class
+		? ` ${$$props.class}`
+		: ''}"
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
-	<slot name="extras" />
-</div>
+</button>

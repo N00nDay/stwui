@@ -1,8 +1,3 @@
-// export * from './components/card';
-// export * from './components/button';
-// export * from './components/media';
-// export * from './components/swap';
-
 import {
 	Card,
 	CardHeader,
@@ -16,6 +11,19 @@ import {
 import { Button } from './components/button';
 import { Media, MediaAvatar, MediaContent, MediaDescription, MediaTitle } from './components/media';
 import { Swap } from './components/swap';
+import { CommandPalette } from './components/command-palette';
+import { Dropdown, DropdownItem } from './components/dropdown';
+import {
+	LayoutBody,
+	LayoutContent,
+	LayoutHeader,
+	Layout,
+	LayoutSidebar,
+	BottomNavigation,
+	BottomNavigationItem,
+	BottomNavigationCreateItem,
+	LayoutHeaderExtras
+} from './components/layout';
 
 export {
 	Card,
@@ -32,5 +40,17 @@ export {
 	MediaContent,
 	MediaDescription,
 	MediaTitle,
-	Swap
+	Swap,
+	CommandPalette,
+	Dropdown,
+	DropdownItem,
+	LayoutBody,
+	LayoutContent,
+	LayoutHeader,
+	Layout,
+	LayoutSidebar,
+	BottomNavigation,
+	BottomNavigationItem,
+	BottomNavigationCreateItem,
+	LayoutHeaderExtras
 };

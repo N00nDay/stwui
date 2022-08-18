@@ -1,9 +1,35 @@
 <script lang="ts">
-	import { useMediaContext } from './Media.svelte';
-	import { useMediaContentContext } from './Content.svelte';
+	import { MEDIA_CONTEXT_ID } from './Media.svelte';
+	import { MEDIA_CONTENT_CONTEXT_ID } from './Content.svelte';
+	import { useContext } from '../../utils/useContext';
 
-	useMediaContext('MediaTitle');
-	useMediaContentContext('MediaTitle');
+	import { current_component } from 'svelte/internal';
+	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
+	import { useActions, type ActionArray } from '../../utils/useActions';
+	import { exclude } from '../../utils/exclude';
+	export let use: ActionArray = [];
+	const forwardEvents = forwardEventsBuilder(current_component);
+
+	useContext({
+		context_id: MEDIA_CONTEXT_ID,
+		parent: 'Media',
+		component: 'MediaContentDescription'
+	});
+	useContext({
+		context_id: MEDIA_CONTENT_CONTEXT_ID,
+		parent: 'MediaContent',
+		component: 'MediaContentDescription'
+	});
 </script>
 
-<h4 class="text-lg font-bold{$$props.class ? ` ${$$props.class}` : ''}"><slot /></h4>
+<h4
+	class="font-bold text-light-content dark:text-dark-content transition-all duration-150{$$props.class
+		? ` ${$$props.class}`
+		: ''}"
+	style={$$props.style}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
+	<slot />
+</h4>

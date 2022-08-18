@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { CARD_CONTEXT_ID } from './Card.svelte';
+	import { LAYOUT_CONTEXT_ID } from './Layout.svelte';
+	import { LAYOUT_HEADER_CONTEXT_ID } from './Header.svelte';
 	import { useContext } from '../../utils/useContext';
 
 	import { current_component } from 'svelte/internal';
@@ -10,21 +11,23 @@
 	const forwardEvents = forwardEventsBuilder(current_component);
 
 	useContext({
-		context_id: CARD_CONTEXT_ID,
-		parent: 'Card',
-		component: 'CardHeader'
+		context_id: LAYOUT_CONTEXT_ID,
+		parent: 'Layout',
+		component: 'HeaderExtras'
+	});
+	useContext({
+		context_id: LAYOUT_HEADER_CONTEXT_ID,
+		parent: 'LayoutHeader',
+		component: 'HeaderExtras'
 	});
 </script>
 
 <div
-	class="first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 h-16{$$slots.extras
-		? ' flex flex-row items-center justify-between'
-		: ''}{$$props.class ? ` ${$$props.class}` : ''}"
+	class=" flex-grow flex flex-row items-center justify-end"
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
-	<slot name="extras" />
 </div>

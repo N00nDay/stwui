@@ -1,23 +1,15 @@
 <script lang="ts" context="module">
-	import { setContext, getContext } from 'svelte';
-
-	export const CARD_CONTEXT_NAME = 'card-context-name';
-
-	export function useCardContext(component: string) {
-		let context = getContext(CARD_CONTEXT_NAME);
-		if (context === undefined) {
-			console.warn(`<${component} /> is missing a parent <Card /> component.`);
-		}
-		return context;
-	}
+	export const CARD_CONTEXT_ID = 'card-context-name';
 </script>
 
 <script lang="ts">
+	import { setContext } from 'svelte';
 	import { current_component } from 'svelte/internal';
 	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
 	import { useActions, type ActionArray } from '../../utils/useActions';
 	import { exclude } from '../../utils/exclude';
 
+	export let divided = false;
 	export let bordered = true;
 	export let hoverable = false;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
@@ -25,13 +17,15 @@
 
 	const forwardEvents = forwardEventsBuilder(current_component);
 
-	setContext(CARD_CONTEXT_NAME, {
+	setContext(CARD_CONTEXT_ID, {
 		card: true
 	});
 </script>
 
 <div
-	class="bg-white rounded-md{$$props.class ? ` ${$$props.class}` : ''}"
+	class="bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content transition-all duration-150 rounded-md{$$props.class
+		? ` ${$$props.class}`
+		: ''}"
 	class:hoverable
 	class:bordered
 	class:shadow-none={elevation === 'none'}
@@ -39,6 +33,11 @@
 	class:shadow-md={elevation === 'md'}
 	class:shadow-lg={elevation === 'lg'}
 	class:shadow-xl={elevation === 'xl'}
+	class:dark:shadow-black={elevation !== 'none'}
+	class:divide-y={divided}
+	class:divide-gray-200={divided}
+	class:dark:divide-gray-700={divided}
+	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
