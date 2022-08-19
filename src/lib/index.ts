@@ -24,6 +24,9 @@ import {
 	BottomNavigationCreateItem,
 	LayoutHeaderExtras
 } from './components/layout';
+import { Portal } from './components/portal';
+import { Modal } from './components/modal';
+import { Row, Col } from './components/grid';
 
 export {
 	Card,
@@ -52,5 +55,9 @@ export {
 	BottomNavigation,
 	BottomNavigationItem,
 	BottomNavigationCreateItem,
-	LayoutHeaderExtras
+	LayoutHeaderExtras,
+	Portal,
+	Modal,
+	Row,
+	Col
 };

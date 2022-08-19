@@ -29,6 +29,8 @@
 	import type MaterialIcons from '../lib/types/material-icons';
 	import { Dropdown, DropdownItem } from '../lib/components/dropdown';
 	import { Row, Col } from '../lib/components/grid';
+	import { Input } from '../lib/components/input';
+	import { Currency } from '../lib/components/currency';
 
 	const sidbarItems = [
 		{
@@ -301,11 +303,41 @@
 							</Card>
 						</Col>
 
-						<Col class="col-24 md:col-6">
-							<Card bordered={false} class="h-60">Some Card</Card>
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[22rem]" divided>
+								<CardHeader>Inputs</CardHeader>
+								<CardContent class="p-4">
+									<Input name="input-1" placeholder="Basic" />
+									<br />
+									<Input name="input-2" label="Label" leading="email" trailing="phone" />
+									<br />
+									<Input
+										name="input-3"
+										label="Label"
+										leading="email"
+										trailing="phone"
+										error="There has been an error"
+									/>
+								</CardContent>
+							</Card>
 						</Col>
-						<Col class="col-24 md:col-6">
-							<Card bordered={false} class="h-60">Some Card</Card>
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[22rem]" divided>
+								<CardHeader>Currency Input</CardHeader>
+								<CardContent class="p-4">
+									<Currency name="currency-1" placeholder="Basic" />
+									<br />
+									<Currency name="currency-2" label="Label" leading="email" trailing="phone" />
+									<br />
+									<Currency
+										name="currency-3"
+										label="Label"
+										leading="email"
+										trailing="phone"
+										error="There has been an error"
+									/>
+								</CardContent>
+							</Card>
 						</Col>
 						<Col class="col-24 md:col-6">
 							<Card bordered={false} class="h-60">Some Card</Card>
