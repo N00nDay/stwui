@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { getContext } from 'svelte';
 	import { CARD_CONTEXT_ID } from './Card.svelte';
 	import { useContext } from '../../utils/useContext';
 
@@ -14,12 +15,16 @@
 		parent: 'Card',
 		component: 'CardFooter'
 	});
+	const { divided } = getContext(CARD_CONTEXT_ID);
 </script>
 
 <div
-	class="px-4 py-5 sm:px-6 h-16 first:rounded-t-md last:rounded-b-md{$$props.class
+	class="px-4 py-5 sm:px-6 h-16 first:rounded-t-md last:rounded-b-md transition-all duration-150 border border-l-0 border-b-0 border-r-0{$$props.class
 		? ` ${$$props.class}`
 		: ''}"
+	class:border-t-light-icon-background={divided}
+	class:dark:border-t-dark-icon-background={divided}
+	class:last:border-t-none={divided}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

@@ -221,7 +221,7 @@
 		@apply text-default-content;
 		@apply bg-default;
 		@apply border;
-		@apply border-gray-200;
+		@apply border-light-icon-background;
 		@apply hover:border-primary-hover;
 		@apply hover:bg-gray-100;
 		@apply hover:text-primary-hover;
@@ -277,13 +277,13 @@
 
 	.default:disabled {
 		@apply hover:text-default-content;
-		@apply hover:border-gray-200;
+		@apply hover:border-light-icon-background;
 		@apply shadow-md;
 		@apply dark:shadow-black;
 		@apply text-default-content;
 		@apply bg-default;
 		@apply border;
-		@apply border-gray-200;
+		@apply border-light-icon-background;
 		@apply active:hover:scale-100;
 		@apply opacity-70;
 	}

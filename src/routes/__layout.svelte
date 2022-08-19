@@ -210,7 +210,7 @@
 						slot="trigger"
 						on:click={handleDropdown}
 						type="button"
-						class="bg-white flex text-sm rounded-full h-10 w-10 shadow-md dark:shadow-black transition-all duration-150 active:hover:animate-none active:hover:scale-95"
+						class="bg-white flex text-sm rounded-full h-10 w-10 transition-all duration-150 active:hover:animate-none active:hover:scale-95"
 						id="user-menu-button"
 						aria-expanded="false"
 						aria-haspopup="true"
@@ -296,7 +296,7 @@
 							</Card>
 						</Col>
 						<Col class="col-24 md:col-6">
-							<Card class="h-[240px]" divided bordered={false}>
+							<Card class="h-[240px]" bordered={false}>
 								<CardHeader>Card Header</CardHeader>
 								<CardContent class="h-[calc(100%-8rem)]">Card Content</CardContent>
 								<CardFooter>Card Footer</CardFooter>
@@ -304,7 +304,7 @@
 						</Col>
 
 						<Col class="col-24 md:col-12">
-							<Card bordered={false} class="h-[22rem]" divided>
+							<Card bordered={false} class="h-[22rem]">
 								<CardHeader>Inputs</CardHeader>
 								<CardContent class="p-4">
 									<Input name="input-1" placeholder="Basic" />
@@ -322,7 +322,7 @@
 							</Card>
 						</Col>
 						<Col class="col-24 md:col-12">
-							<Card bordered={false} class="h-[22rem]" divided>
+							<Card bordered={false} class="h-[22rem]">
 								<CardHeader>Currency Input</CardHeader>
 								<CardContent class="p-4">
 									<Currency name="currency-1" placeholder="Basic" />
@@ -339,6 +339,15 @@
 								</CardContent>
 							</Card>
 						</Col>
+
+						<!-- TODO: TextArea -->
+						<!-- TODO: Select -->
+						<!-- TODO: Radio -->
+						<!-- TODO: Checkbox -->
+						<!-- TODO: Toggle -->
+						<!-- TODO: Combobox -->
+						<!-- TODO: Upload -->
+
 						<Col class="col-24 md:col-6">
 							<Card bordered={false} class="h-60">Some Card</Card>
 						</Col>

@@ -46,13 +46,15 @@
 			{autocomplete}
 			{name}
 			{id}
-			class="block w-full outline-none ring-0 focus:ring-0 sm:text-sm rounded-md"
+			class="block w-full outline-none ring-0 focus:ring-0 sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
 			class:border-red-300={error}
 			class:text-red-900={error}
 			class:placeholder-red-300={error}
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
-			class:border-gray-300={!error}
+			class:dark:focus:border-primary={!error}
+			class:border-light-icon-background={!error}
+			class:dark:border-dark-icon-background={!error}
 			class:pl-10={leading}
 			class:pr-10={trailing || error}
 			{placeholder}

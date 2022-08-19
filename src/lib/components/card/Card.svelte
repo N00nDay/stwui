@@ -9,7 +9,7 @@
 	import { useActions, type ActionArray } from '../../utils/useActions';
 	import { exclude } from '../../utils/exclude';
 
-	export let divided = false;
+	export let divided = true;
 	export let bordered = true;
 	export let hoverable = false;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
@@ -18,7 +18,8 @@
 	const forwardEvents = forwardEventsBuilder(current_component);
 
 	setContext(CARD_CONTEXT_ID, {
-		card: true
+		card: true,
+		divided
 	});
 </script>
 
@@ -34,9 +35,6 @@
 	class:shadow-lg={elevation === 'lg'}
 	class:shadow-xl={elevation === 'xl'}
 	class:dark:shadow-black={elevation !== 'none'}
-	class:divide-y={divided}
-	class:divide-gray-200={divided}
-	class:dark:divide-gray-700={divided}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

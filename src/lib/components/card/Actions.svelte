@@ -26,7 +26,7 @@
 </script>
 
 <div
-	class="flex flex-row h-14 justify-evenly divide-x divide-gray-200 dark:divide-gray-700 first:rounded-t-md last:rounded-b-md{$$props.class
+	class="flex flex-row h-14 justify-evenly divide-x divide-light-icon-background dark:divide-dark-icon-background first:rounded-t-md last:rounded-b-md{$$props.class
 		? ` ${$$props.class}`
 		: ''}"
 	style={$$props.style}
