@@ -27,10 +27,13 @@
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
 	import { Button } from '../lib/components/button';
 	import type MaterialIcons from '../lib/types/material-icons';
-	import { Dropdown, DropdownItem } from '../lib/components/dropdown';
+	import { Dropdown, DropdownItems, DropdownItem } from '../lib/components/dropdown';
 	import { Row, Col } from '../lib/components/grid';
 	import { Input } from '../lib/components/input';
 	import { Currency } from '../lib/components/currency';
+	import { TextArea } from '../lib/components/textarea';
+	import { Select } from '../lib/components/select';
+	import { DatePicker } from '../lib/components/date-picker';
 
 	const sidbarItems = [
 		{
@@ -70,18 +73,10 @@
 		}
 	];
 
-	import { tweened } from 'svelte/motion';
-	import { quintIn as easing } from 'svelte/easing';
-
 	const sidebarFullWidth = 218;
 	let active = false;
 
-	const tweenedOptions = {
-		duration: 200,
-		easing
-	};
-
-	const sidebarWidth = tweened(sidebarFullWidth, tweenedOptions);
+	let sidebarWidth = 218;
 
 	// TODO: should be a store
 	let darkMode = false;
@@ -148,16 +143,19 @@
 	}
 
 	function toggleSidebarWidth() {
-		if ($sidebarWidth === sidebarFullWidth) {
-			sidebarWidth.set(72);
+		if (sidebarWidth === sidebarFullWidth) {
+			sidebarWidth = 72;
 		} else {
-			sidebarWidth.set(sidebarFullWidth);
+			sidebarWidth = sidebarFullWidth;
 		}
 	}
 
 	function handleSearchChange(e: Event) {
 		console.log('e', e);
 	}
+
+	const date2Max = new Date(2022, 7, 30);
+	const date2Min = new Date(2022, 7, 3);
 </script>
 
 <div class="h-full">
@@ -198,7 +196,7 @@
 				<Button
 					shape="circle"
 					icon="notifications"
-					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-nonev"
+					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
 				/>
 
 				<Dropdown
@@ -222,13 +220,13 @@
 							alt=""
 						/>
 					</button>
-					<svelte:fragment slot="dropdown-items">
+					<DropdownItems slot="items" style="margin-top: 1rem;">
 						<DropdownItem on:click={handleToggleTheme}>Toggle Theme</DropdownItem>
 						<DropdownItem on:click={handleCollapseUncollapse}>Collapse/Uncollapse</DropdownItem>
 						<DropdownItem on:click={handleCloseDropdown}>View Profile</DropdownItem>
 						<DropdownItem on:click={handleCloseDropdown}>Settings</DropdownItem>
 						<DropdownItem on:click={handleCloseDropdown}>Logout</DropdownItem>
-					</svelte:fragment>
+					</DropdownItems>
 				</Dropdown>
 			</LayoutHeaderExtras>
 		</LayoutHeader>
@@ -236,11 +234,15 @@
 		<LayoutContent
 			class="h-[calc(100%-4rem)] bg-light-background dark:bg-dark-background transition-all duration-150"
 		>
-			<LayoutSidebar logo="/full-dark-theme.png" items={sidbarItems} sidebarWidth={$sidebarWidth} />
+			<LayoutSidebar logo="/full-dark-theme.png" items={sidbarItems} {sidebarWidth} />
 			<LayoutBody
 				class="relative lg:pl-0 overflow-x-hidden overflow-y-auto pt-[var(--sat)] pb-[var(--sab)] pr-[var(--sar)] pl-[var(--sal)]"
 			>
-				<div class="p-3">
+				<div
+					class="p-3 transition-all duration-150 {sidebarWidth !== sidebarFullWidth
+						? 'lg:pl-0'
+						: ''}"
+				>
 					<Row gutter="3">
 						<Col class="col-24 md:col-6">
 							<Card class="h-[240px]" bordered={false}>
@@ -304,7 +306,7 @@
 						</Col>
 
 						<Col class="col-24 md:col-12">
-							<Card bordered={false} class="h-[22rem]">
+							<Card bordered={false} class="h-[29rem]">
 								<CardHeader>Inputs</CardHeader>
 								<CardContent class="p-4">
 									<Input name="input-1" placeholder="Basic" />
@@ -317,6 +319,14 @@
 										leading="email"
 										trailing="phone"
 										error="There has been an error"
+									/>
+									<br />
+									<Input
+										type="password"
+										name="input-4"
+										label="Password"
+										leading="lock"
+										showPasswordToggle
 									/>
 								</CardContent>
 							</Card>
@@ -340,24 +350,77 @@
 							</Card>
 						</Col>
 
-						<!-- TODO: TextArea -->
-						<!-- TODO: Select -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[33rem]">
+								<CardHeader>TextArea</CardHeader>
+								<CardContent class="p-4">
+									<TextArea name="input-1" placeholder="Basic" />
+									<br />
+									<TextArea name="input-2" label="Label" leading="email" trailing="phone" />
+									<br />
+									<TextArea
+										name="input-3"
+										label="Label"
+										leading="email"
+										trailing="phone"
+										error="There has been an error"
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Select</CardHeader>
+								<CardContent class="p-4">
+									<Select
+										name="select-1"
+										placeholder="Basic"
+										options={['Option 1', 'Option 2', 'Option 3']}
+									/>
+									<br />
+									<Select
+										name="select-2"
+										label="Label"
+										leading="email"
+										trailing="phone"
+										options={['Option 1', 'Option 2', 'Option 3']}
+									/>
+									<br />
+									<Select
+										name="select-3"
+										label="Label"
+										leading="email"
+										trailing="phone"
+										error="There has been an error"
+										options={['Option 1', 'Option 2', 'Option 3']}
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[22rem]">
+								<CardHeader>DatePicker</CardHeader>
+								<CardContent class="p-4">
+									<DatePicker name="date-1" />
+									<br />
+									<DatePicker name="date-2" label="Date" max={date2Max} min={date2Min} />
+									<br />
+									<DatePicker
+										name="date-3"
+										label="Date"
+										min={date2Min}
+										error="Your doing it wrong"
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+
 						<!-- TODO: Radio -->
 						<!-- TODO: Checkbox -->
 						<!-- TODO: Toggle -->
-						<!-- TODO: Combobox -->
+						<!-- TODO: Autocomplete -->
 						<!-- TODO: Upload -->
 
-						<Col class="col-24 md:col-6">
-							<Card bordered={false} class="h-60">Some Card</Card>
-						</Col>
-						<Col class="col-24 md:col-6">
-							<Card bordered={false} class="h-60">Some Card</Card>
-						</Col>
-
-						<Col class="col-24 md:col-6">
-							<Card bordered={false} class="h-60">Some Card</Card>
-						</Col>
 						<Col class="col-24 md:col-6">
 							<Card bordered={false} class="h-60">Some Card</Card>
 						</Col>

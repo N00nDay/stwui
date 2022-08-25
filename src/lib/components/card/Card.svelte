@@ -28,7 +28,9 @@
 		? ` ${$$props.class}`
 		: ''}"
 	class:hoverable
-	class:bordered
+	class:border={bordered}
+	class:border-light-icon-background={bordered}
+	class:dark:border-dark-icon-background={bordered}
 	class:shadow-none={elevation === 'none'}
 	class:shadow-sm={elevation === 'sm'}
 	class:shadow-md={elevation === 'md'}
@@ -54,8 +56,9 @@
 		@apply duration-150;
 	}
 
-	.bordered {
+	/* .bordered {
 		@apply border;
-		@apply border-gray-100;
-	}
+		@apply border-light-border;
+		@apply dark:border-dark-border;
+	} */
 </style>

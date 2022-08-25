@@ -1,4 +1,5 @@
 import Dropdown from './Dropdown.svelte';
+import DropdownItems from './DropdownItems.svelte';
 import DropdownItem from './DropdownItem.svelte';
 
-export { Dropdown, DropdownItem };
+export { Dropdown, DropdownItems, DropdownItem };

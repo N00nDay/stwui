@@ -31,10 +31,7 @@
 		: ''}"
 	style={$$props.style}
 >
-	<div
-		class="flex flex-col transition-all duration-150 ease-in-out"
-		style="width: {sidebarWidth}px;"
-	>
+	<div class="flex flex-col transition-all duration-150" style="width: {sidebarWidth}px;">
 		<div class="flex-1 flex flex-col min-h-0 transition-all duration-150">
 			<div class="flex-1 flex flex-col pt-3 pb-4 overflow-y-auto overflow-x-hidden">
 				<nav class="flex-1" aria-label="Sidebar">

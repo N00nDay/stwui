@@ -36,7 +36,7 @@
 	export let swap: MaterialIcons | undefined = undefined;
 
 	let classes =
-		'border inline-flex justify-center items-center font-medium transition-all duration-150 active:hover:animate-none active:hover:scale-95 outline-none';
+		'inline-flex justify-center items-center font-medium transition-all duration-150 active:hover:animate-none active:hover:scale-95 outline-none';
 	if (block) classes += ' w-full';
 	if (loading) classes += ' cursor-wait';
 	let iconSize: string;
@@ -93,6 +93,14 @@
 	class:danger={type === 'danger'}
 	class:default={type === 'default'}
 	class:ghost={type === 'ghost'}
+	class:border-transparent={type === 'ghost'}
+	class:text-light-secondary-content={type === 'ghost'}
+	class:hover:text-light-content={type === 'ghost'}
+	class:shadow-none={type === 'ghost'}
+	class:border-none={type === 'ghost'}
+	class:bg-transparent={type === 'ghost'}
+	class:dark:text-dark-secondary-content={type === 'ghost'}
+	class:dark:hover:text-dark-content={type === 'ghost'}
 	class:link={type === 'link'}
 	class:text={type === 'text'}
 	class:dark={type === 'dark'}
@@ -170,17 +178,6 @@
 				? 'rounded-md'
 				: 'rounded-none'}
 		/>
-		<!-- <div
-			class="absolute inset-0 bg-transparent transition-all duration-150 hover:bg-light-icon-background-hover dark:hover:bg-dark-icon-background-hover h-full w-full"
-			class:circle={shape === 'circle'}
-			class:rounded={shape === 'rounded'}
-			class:square={shape === 'square'}
-			class:xs={size === 'xs'}
-			class:sm={size === 'sm'}
-			class:md={size === 'md'}
-			class:lg={size === 'lg'}
-			class:xl={size === 'xl'}
-		/> -->
 	{/if}
 </button>
 
@@ -245,13 +242,16 @@
 		@apply border-none;
 	}
 
-	.ghost {
+	/* .ghost {
 		@apply border-transparent;
-		@apply text-default-content;
+		@apply text-light-secondary-content;
+		@apply hover:text-light-content;
 		@apply shadow-none;
 		@apply border-none;
 		@apply bg-transparent;
-	}
+		@apply dark:text-dark-secondary-content;
+		@apply dark:hover:text-dark-content;
+	} */
 
 	.link {
 		@apply border-transparent;

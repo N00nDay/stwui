@@ -6,42 +6,44 @@ Add `'./node_modules/sveltekit-tailwind-components/**/*.{svelte,js,ts,html}'` to
 
 The list:
 
-- [x] Card
-- [x] Button
-- [x] Media
-- [x] Swap
-- [ ] Loading
 - [ ] Alert
 - [ ] Avatar
 - [ ] AutoComplete
 - [ ] Badge
+- [x] BottomNavigation
+- [x] Button
+- [x] Card
 - [ ] Carousel
 - [ ] Checkbox
 - [ ] Collapse
+- [ ] Combobox
 - [x] Command Palette
-- [ ] DatePicker
+- [x] DatePicker
 - [ ] Divider
 - [ ] Drawer
-- [ ] Dropdown
+- [x] Dropdown
 - [ ] Empty
-- [ ] FormField
 - [x] Layout
+- [ ] Loading
+- [x] Media
 - [ ] Menu
 - [x] Modal
-- [ ] Header
+- [x] Header
 - [x] Portal
 - [ ] Progress
 - [ ] Radio
 - [ ] Rate
-- [ ] Select
-- [ ] Combobox
+- [x] Select
+- [x] Sidebar
 - [ ] Skeleton
 - [ ] Slider
 - [ ] Steps
+- [x] Swap
 - [ ] Switch
 - [ ] Table
 - [ ] Tabs
 - [ ] Tag
+- [x] TextArea
 - [ ] Timeline
 - [ ] Upload
 - And more when I have time!

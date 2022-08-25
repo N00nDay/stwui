@@ -19,7 +19,7 @@
 </script>
 
 <div
-	class="px-4 py-5 sm:px-6 h-16 first:rounded-t-md last:rounded-b-md transition-all duration-150 border border-l-0 border-b-0 border-r-0{$$props.class
+	class="px-4 py-5 sm:px-6 h-16 first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0{$$props.class
 		? ` ${$$props.class}`
 		: ''}"
 	class:border-t-light-icon-background={divided}

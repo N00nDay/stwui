@@ -4,7 +4,6 @@
 
 	export let trailing: MaterialIcons | undefined = undefined;
 	export let name: string;
-	export let id: string | undefined = undefined;
 	export let label: string | undefined = undefined;
 	export let srOnly = false;
 	export let error: string | undefined = undefined;
@@ -14,6 +13,8 @@
 	export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
 	export let autofocus = false;
 	export let disabled = false;
+	export let handleLeadingClick: (() => void) | undefined = undefined;
+	export let handleTrailingClick: (() => void) | undefined = undefined;
 
 	function setTwoNumberDecimal(e: Event) {
 		const el = e.target as HTMLInputElement;
@@ -39,9 +40,14 @@
 	{/if}
 	<div class="mt-1 relative rounded-md shadow-sm">
 		<span
+			on:click={handleLeadingClick}
 			transition:scale|local
-			class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-			class:text-gray-400={!error}
+			class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10"
+			class:text-light-secondary-content={!error}
+			class:dark:text-dark-secondary-content={!error}
+			class:pointer-events-none={!handleLeadingClick}
+			class:pointer-events-auto={handleLeadingClick}
+			class:cursor-pointer={handleLeadingClick}
 			class:text-red-600={error}>attach_money</span
 		>
 		<input
@@ -50,10 +56,11 @@
 			{autocapitalize}
 			{autocomplete}
 			{name}
-			{id}
+			id={name}
 			class="block w-full pl-10 outline-none ring-0 focus:ring-0 sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
-			class:border-red-300={error}
-			class:text-red-900={error}
+			class:border-red-400={error}
+			class:text-red-700={error}
+			class:dark:text-red-300={error}
 			class:placeholder-red-300={error}
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
@@ -69,9 +76,14 @@
 		/>
 		{#if trailing && !error}
 			<span
+				on:click={handleTrailingClick}
 				transition:scale|local
-				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
-				class:text-gray-400={!error}
+				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center z-10"
+				class:pointer-events-none={!handleTrailingClick}
+				class:pointer-events-auto={handleTrailingClick}
+				class:cursor-pointer={handleTrailingClick}
+				class:text-light-secondary-content={!error}
+				class:dark:text-dark-secondary-content={!error}
 				class:text-red-600={error}>{trailing}</span
 			>
 		{:else if error}
