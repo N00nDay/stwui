@@ -5,7 +5,7 @@
 const plugin = require('tailwindcss/plugin');
 
 module.exports = plugin(
-	function ({ addComponents }) {
+	function ({ addComponents, addBase }) {
 		addComponents({
 			'.col': {
 				'min-height': '1px',
@@ -91,6 +91,116 @@ module.exports = plugin(
 			},
 			'.col-24': {
 				width: '100%'
+			}
+		});
+		addBase({
+			"[type='text']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='email']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='url']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='password']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='number']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='date']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='datetime-local']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='month']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='search']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='tel']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='time']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='week']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			'[multiple]:focus': {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			'textarea:focus': {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			'select:focus': {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='checkbox']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='radio']:focus": {
+				outline: 'unset',
+				'outline-offset': 'unset',
+				'box-shadow': 'unset',
+				'border-color': 'unset'
+			},
+			"[type='checkbox']:checked:focus": {
+				'border-color': '#2563eb'
+			},
+			"[type='radio']:checked:focus": {
+				'border-color': '#2563eb'
 			}
 		});
 	},

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type MaterialIcons from '../../types/material-icons';
-	import { slide, scale } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 
 	export let name: string;
 	export let label: string | undefined = undefined;

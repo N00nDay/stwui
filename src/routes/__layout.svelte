@@ -34,6 +34,10 @@
 	import { TextArea } from '../lib/components/textarea';
 	import { Select } from '../lib/components/select';
 	import { DatePicker } from '../lib/components/date-picker';
+	import { RadioGroup } from '../lib/components/radio';
+	import { CheckboxGroup } from '../lib/components/checkbox';
+	import { Toggle } from '../lib/components/toggle';
+	import { Autocomplete } from '../lib/components/autocomplete';
 
 	const sidbarItems = [
 		{
@@ -74,12 +78,9 @@
 	];
 
 	const sidebarFullWidth = 218;
-	let active = false;
 
 	let sidebarWidth = 218;
 
-	// TODO: should be a store
-	let darkMode = false;
 	let openMenu = false;
 	let createOpen = false;
 	let dropdownOpen = false;
@@ -103,10 +104,6 @@
 
 	function handleCloseCreate() {
 		createOpen = false;
-	}
-
-	function handleCreateChange(e: Event) {
-		console.log('handleCreateChange e', e);
 	}
 
 	function handleSearchOpen() {
@@ -134,10 +131,8 @@
 		const htmlElement = document.documentElement;
 		if (htmlElement.classList.contains('dark')) {
 			htmlElement.classList.remove('dark');
-			darkMode = false;
 		} else {
 			htmlElement.classList.add('dark');
-			darkMode = true;
 		}
 		handleCloseDropdown();
 	}
@@ -305,13 +300,14 @@
 							</Card>
 						</Col>
 
+						<!-- Input -->
 						<Col class="col-24 md:col-12">
 							<Card bordered={false} class="h-[29rem]">
 								<CardHeader>Inputs</CardHeader>
 								<CardContent class="p-4">
-									<Input name="input-1" placeholder="Basic" />
+									<Input name="input-1" placeholder="Basic" allowClear />
 									<br />
-									<Input name="input-2" label="Label" leading="email" trailing="phone" />
+									<Input name="input-2" label="Label" leading="email" trailing="phone" allowClear />
 									<br />
 									<Input
 										name="input-3"
@@ -331,6 +327,8 @@
 								</CardContent>
 							</Card>
 						</Col>
+
+						<!-- Currency Input -->
 						<Col class="col-24 md:col-12">
 							<Card bordered={false} class="h-[22rem]">
 								<CardHeader>Currency Input</CardHeader>
@@ -350,6 +348,7 @@
 							</Card>
 						</Col>
 
+						<!-- TextArea -->
 						<Col class="col-24 md:col-12">
 							<Card bordered={false} class="h-[33rem]">
 								<CardHeader>TextArea</CardHeader>
@@ -368,6 +367,8 @@
 								</CardContent>
 							</Card>
 						</Col>
+
+						<!-- Select -->
 						<Col class="col-24 md:col-12">
 							<Card bordered={false} class="h-[29rem]">
 								<CardHeader>Select</CardHeader>
@@ -397,6 +398,8 @@
 								</CardContent>
 							</Card>
 						</Col>
+
+						<!-- DatePicker -->
 						<Col class="col-24 md:col-12">
 							<Card bordered={false} class="h-[22rem]">
 								<CardHeader>DatePicker</CardHeader>
@@ -415,32 +418,144 @@
 							</Card>
 						</Col>
 
-						<!-- TODO: Radio -->
-						<!-- TODO: Checkbox -->
-						<!-- TODO: Toggle -->
-						<!-- TODO: Autocomplete -->
+						<!-- Radio -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[30rem]">
+								<CardHeader>Radio</CardHeader>
+								<CardContent class="p-4">
+									<RadioGroup
+										radioGroup="group-1"
+										options={[
+											{ label: 'Radio-1', name: 'radio-1', value: 'radio-1' },
+											{ label: 'Radio-2', name: 'radio-2', value: 'radio-2' },
+											{ label: 'Radio-3', name: 'radio-3', value: 'radio-3' },
+											{ label: 'Radio-4', name: 'radio-4', value: 'radio-4' }
+										]}
+									/>
+									<br />
+									<RadioGroup
+										type="pill"
+										radioGroup="group-2"
+										options={[
+											{ label: 'Radio-1', name: 'radio-5', value: 'radio-1' },
+											{ label: 'Radio-2', name: 'radio-6', value: 'radio-2' },
+											{ label: 'Radio-3', name: 'radio-7', value: 'radio-3' },
+											{ label: 'Radio-4', name: 'radio-8', value: 'radio-4' }
+										]}
+									/>
+									<br />
+									<RadioGroup
+										type="pill"
+										label="Radio-Group 3"
+										radioGroup="group-3"
+										columns="grid-cols-2"
+										options={[
+											{ label: 'Radio-1', name: 'radio-9', value: 'radio-1' },
+											{ label: 'Radio-2', name: 'radio-10', value: 'radio-2' },
+											{ label: 'Radio-3', name: 'radio-11', value: 'radio-3' },
+											{ label: 'Radio-4', name: 'radio-12', value: 'radio-4' }
+										]}
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+
+						<!-- Checkbox -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[44rem]">
+								<CardHeader>Checkbox</CardHeader>
+								<CardContent class="p-4">
+									<CheckboxGroup
+										options={[
+											{ label: 'Checkbox-1', name: 'cb-1', value: 'cb-1' },
+											{ label: 'Checkbox-2', name: 'cb-2', value: 'cb-2' },
+											{ label: 'Checkbox-3', name: 'cb-3', value: 'cb-3' },
+											{ label: 'Checkbox-4', name: 'cb-4', value: 'cb-4' }
+										]}
+									/>
+									<br />
+									<CheckboxGroup
+										label="Checkbox Group"
+										options={[
+											{ label: 'Checkbox-1', name: 'cb-5', value: 'cb-1', description: 'desc-1' },
+											{ label: 'Checkbox-2', name: 'cb-6', value: 'cb-2', description: 'desc-2' },
+											{ label: 'Checkbox-3', name: 'cb-7', value: 'cb-3', description: 'desc-3' },
+											{ label: 'Checkbox-4', name: 'cb-8', value: 'cb-4', description: 'desc-4' }
+										]}
+									/>
+									<br />
+									<CheckboxGroup
+										label="Checkbox Group"
+										inline
+										options={[
+											{ label: 'Checkbox-1', name: 'cb-9', value: 'cb-1', description: 'desc-1' },
+											{ label: 'Checkbox-2', name: 'cb-10', value: 'cb-2', description: 'desc-2' },
+											{ label: 'Checkbox-3', name: 'cb-11', value: 'cb-3', description: 'desc-3' },
+											{ label: 'Checkbox-4', name: 'cb-12', value: 'cb-4', description: 'desc-4' }
+										]}
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+
+						<!-- Toggle -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Toggle</CardHeader>
+								<CardContent class="p-4">
+									<Toggle name="toggle-1" />
+									<br />
+									<Toggle name="toggle-2" labelLeft="Left Label" />
+									<br />
+									<Toggle name="toggle-3" labelRight="Right Label" />
+									<br />
+									<Toggle name="toggle-4" labelLeft="Left Label" labelRight="Right Label" />
+									<br />
+									<Toggle name="toggle-5" labelRight="Right Label" descriptionRight="(10% off)" />
+								</CardContent>
+							</Card>
+						</Col>
+
+						<!-- Autocomplete -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Autocomplete</CardHeader>
+								<CardContent class="p-4">
+									<Autocomplete
+										name="select-1"
+										placeholder="Basic"
+										options={['Option 1', 'Option 2', 'Option 3']}
+									/>
+									<br />
+									<Autocomplete
+										name="select-2"
+										label="Label"
+										leading="email"
+										trailing="phone"
+										options={['Option 1', 'Option 2', 'Option 3']}
+									/>
+									<br />
+									<Autocomplete
+										name="select-3"
+										label="Label"
+										leading="email"
+										trailing="phone"
+										error="There has been an error"
+										options={['Option 1', 'Option 2', 'Option 3']}
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+
 						<!-- TODO: Upload -->
-
-						<Col class="col-24 md:col-6">
-							<Card bordered={false} class="h-60">Some Card</Card>
-						</Col>
-						<Col class="col-24 md:col-6">
-							<Card bordered={false} class="h-60">Some Card</Card>
-						</Col>
-						<Col class="col-24 md:col-6">
+						<Col class="col-24 md:col-12">
 							<Card bordered={false} class="h-60">Some Card</Card>
 						</Col>
 
-						<Col class="col-24 md:col-6">
+						<Col class="col-24 md:col-12">
 							<Card bordered={false} class="h-60">Some Card</Card>
 						</Col>
-						<Col class="col-24 md:col-6">
-							<Card bordered={false} class="h-60">Some Card</Card>
-						</Col>
-						<Col class="col-24 md:col-6">
-							<Card bordered={false} class="h-60">Some Card</Card>
-						</Col>
-						<Col class="col-24 md:col-6">
+						<Col class="col-24 md:col-12">
 							<Card bordered={false} class="h-60">Some Card</Card>
 						</Col>
 					</Row>

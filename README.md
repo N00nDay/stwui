@@ -8,15 +8,14 @@ The list:
 
 - [ ] Alert
 - [ ] Avatar
-- [ ] AutoComplete
+- [x] AutoComplete
 - [ ] Badge
 - [x] BottomNavigation
 - [x] Button
 - [x] Card
 - [ ] Carousel
-- [ ] Checkbox
+- [x] Checkbox
 - [ ] Collapse
-- [ ] Combobox
 - [x] Command Palette
 - [x] DatePicker
 - [ ] Divider
@@ -31,7 +30,7 @@ The list:
 - [x] Header
 - [x] Portal
 - [ ] Progress
-- [ ] Radio
+- [x] Radio
 - [ ] Rate
 - [x] Select
 - [x] Sidebar
@@ -39,11 +38,11 @@ The list:
 - [ ] Slider
 - [ ] Steps
 - [x] Swap
-- [ ] Switch
 - [ ] Table
 - [ ] Tabs
 - [ ] Tag
 - [x] TextArea
 - [ ] Timeline
+- [x] Toggle
 - [ ] Upload
 - And more when I have time!

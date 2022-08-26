@@ -86,11 +86,19 @@
 			visible = false;
 		}
 	}
+
+	function handleClose() {
+		visible = false;
+	}
+
+	function handleOpen() {
+		visible = true;
+	}
 </script>
 
 <Dropdown
-	handleClose={() => (visible = false)}
-	on:click={() => (visible = true)}
+	{handleClose}
+	on:click={handleOpen}
 	on:focusout={onFocusOut}
 	on:keydown={keydown}
 	{visible}
@@ -108,8 +116,8 @@
 			{placeholder}
 			type="text"
 			bind:value={text}
-			on:focus={() => (visible = true)}
-			on:mousedown={() => (visible = true)}
+			on:focus={handleOpen}
+			on:mousedown={handleOpen}
 			on:keydown={keydown}
 			{trailing}
 			{error}
