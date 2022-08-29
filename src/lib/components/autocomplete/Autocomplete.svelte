@@ -100,7 +100,7 @@
 			{#if leading}
 				<span
 					on:click|stopPropagation={handleLeadingClick}
-					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center"
+					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center transition-all duration-150"
 					class:pointer-events-none={!handleLeadingClick}
 					class:pointer-events-auto={handleLeadingClick}
 					class:cursor-pointer={handleLeadingClick}
@@ -139,7 +139,11 @@
 					class="absolute inset-y-0 z-10 right-8 items-center cursor-pointer hidden group-focus-within:flex"
 					on:click={handleClear}
 				>
-					<span class="material-icons text-light-icon dark:text-dark-icon text-base"> clear </span>
+					<span
+						class="material-icons text-light-icon dark:text-dark-icon text-base transition-all duration-150"
+					>
+						clear
+					</span>
 				</span>
 			{/if}
 
@@ -151,7 +155,11 @@
 				>
 			{:else}
 				<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-					<span class="material-icons text-light-icon dark:text-dark-icon"> unfold_more </span>
+					<span
+						class="material-icons text-light-icon dark:text-dark-icon transition-all duration-150"
+					>
+						unfold_more
+					</span>
 				</span>
 			{/if}
 		</button>

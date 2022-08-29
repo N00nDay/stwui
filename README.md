@@ -6,43 +6,46 @@ Add `'./node_modules/sveltekit-tailwind-components/**/*.{svelte,js,ts,html}'` to
 
 The list:
 
-- [ ] Alert
-- [ ] Avatar
-- [x] AutoComplete
-- [ ] Badge
-- [x] BottomNavigation
-- [x] Button
-- [x] Card
-- [ ] Carousel
-- [x] Checkbox
-- [ ] Collapse
-- [x] Command Palette
-- [x] DatePicker
-- [ ] Divider
-- [ ] Drawer
-- [x] Dropdown
-- [ ] Empty
-- [x] Layout
-- [ ] Loading
-- [x] Media
-- [ ] Menu
-- [x] Modal
-- [x] Header
-- [x] Portal
-- [ ] Progress
-- [x] Radio
-- [ ] Rate
-- [x] Select
-- [x] Sidebar
-- [ ] Skeleton
-- [ ] Slider
-- [ ] Steps
-- [x] Swap
-- [ ] Table
-- [ ] Tabs
-- [ ] Tag
-- [x] TextArea
-- [ ] Timeline
-- [x] Toggle
-- [ ] Upload
+- [x] 1. Alert
+- [x] 2. Avatar
+- [x] 3. AvatarGroup
+- [x] 4. AutoComplete
+- [x] 5. Badge
+- [x] 6. BottomNavigation
+- [x] 7. Button
+- [x] 8. ButtonGroup
+- [x] 9. Card
+- [ ] 10. Carousel
+- [x] 11. Checkbox
+- [ ] 12. Collapse
+- [x] 13. Command Palette
+- [x] 14. DatePicker
+- [x] 15. Divider
+- [ ] 16. Drawer
+- [x] 17. Dropdown
+- [ ] 18. Empty
+- [ ] 19. Feed
+- [x] 20. Layout
+- [ ] 21. List
+- [ ] 22. Loading
+- [x] 23. Media
+- [ ] 24. Menu
+- [x] 25. Modal
+- [x] 26. Header
+- [x] 27. Portal
+- [ ] 28. Progress
+- [x] 29. Radio
+- [ ] 30. Rate
+- [x] 31. Select
+- [x] 32. Sidebar
+- [ ] 33. Skeleton
+- [ ] 34. Slider
+- [ ] 35. Steps
+- [x] 36. Swap
+- [ ] 37. Table
+- [ ] 38. Tabs
+- [ ] 39. Tag
+- [x] 40. TextArea
+- [ ] 41. Timeline
+- [x] 42. Toggle
 - And more when I have time!

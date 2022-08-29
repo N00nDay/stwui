@@ -38,18 +38,17 @@
 		<button
 			on:click={toggle}
 			type="button"
-			class="bg-light-icon-background dark:bg-dark-background relative inline-flex flex-shrink-0 h-full w-full border-2 border-transparent rounded-full cursor-pointer transition-all ease-in-out duration-200 outline-none focus:outline-none"
+			class="relative inline-flex flex-shrink-0 h-full w-full border-2 border-transparent rounded-full cursor-pointer transition-all ease-in-out duration-200 outline-none focus:outline-none"
+			class:bg-light-icon-background={!on}
+			class:dark:bg-dark-background={!on}
 			class:bg-primary={on}
 			role="switch"
 		>
 			<span
 				aria-hidden="true"
-				class="inline-block h-5 w-5 rounded-full shadow transform ring-0 transition ease-in-out duration-200 border border-light-icon-background dark:border-dark-icon-background"
+				class="inline-block bg-light-surface dark:bg-dark-surface h-5 w-5 rounded-full shadow transform ring-0 transition ease-in-out duration-200 border border-light-icon-background dark:border-dark-icon-background"
 				class:translate-x-5={on}
 				class:translate-x-0={!on}
-				class:bg-primary={on}
-				class:bg-light-surface={!on}
-				class:dark:bg-dark-surface={!on}
 			/>
 			<input type="checkbox" class="hidden" {name} id={name} checked={on} />
 		</button>

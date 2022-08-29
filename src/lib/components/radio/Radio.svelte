@@ -14,7 +14,7 @@
 </script>
 
 {#if type === 'default'}
-	<div class="relative flex items-start" on:click={() => handleSelect(value)}>
+	<div class="group relative flex items-start" on:click={() => handleSelect(value)}>
 		<div class="flex items-center justify-center h-6 w-6 relative group">
 			<input
 				id={name}
@@ -22,7 +22,7 @@
 				type="radio"
 				{value}
 				{checked}
-				class="radio bg-light-surface dark:bg-dark-surface text-light-surface dark:text-dark-surface border-light-icon-background dark:border-dark-icon-background checked:bg-none border checked:border-primary hover:border-primary dark:checked:border-primary dark:hover:border-primary rounded-full cursor-pointer h-6 w-6 transition-all duration-150"
+				class="radio bg-light-surface dark:bg-dark-surface text-light-surface dark:text-dark-surface border-light-icon-background dark:border-dark-icon-background checked:bg-none border checked:border-primary group-hover:border-primary dark:checked:border-primary dark:group-hover:border-primary group-focus:border-primary dark:group-focus:border-primary active:border-primary dark:active:border-primary focus:active:border-primary dark:focus:active:border-primary rounded-full cursor-pointer h-6 w-6 transition-all duration-150"
 			/>
 			<div
 				class="absolute rounded-full h-0 w-0 bg-primary transition-all duration-200 z-10"

@@ -38,6 +38,11 @@
 	import { CheckboxGroup } from '../lib/components/checkbox';
 	import { Toggle } from '../lib/components/toggle';
 	import { Autocomplete } from '../lib/components/autocomplete';
+	import { Alert } from '../lib/components/alert';
+	import { Avatar, AvatarGroup } from '../lib/components/avatar';
+	import { Badge } from '../lib/components/badge';
+	import { Divider } from '../lib/components/divider';
+	import ButtonGroup from '$lib/components/button/ButtonGroup.svelte';
 
 	const sidbarItems = [
 		{
@@ -462,7 +467,7 @@
 
 						<!-- Checkbox -->
 						<Col class="col-24 md:col-12">
-							<Card bordered={false} class="h-[44rem]">
+							<Card bordered={false} class="h-[46rem]">
 								<CardHeader>Checkbox</CardHeader>
 								<CardContent class="p-4">
 									<CheckboxGroup
@@ -547,16 +552,331 @@
 							</Card>
 						</Col>
 
-						<!-- TODO: Upload -->
+						<!-- Alert -->
 						<Col class="col-24 md:col-12">
-							<Card bordered={false} class="h-60">Some Card</Card>
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Alert</CardHeader>
+								<CardContent class="p-4">
+									<Alert title="Title" />
+									<br />
+									<Alert title="Title" type="warn" />
+									<br />
+									<Alert
+										title="Title"
+										description="I am a description"
+										type="error"
+										extra={{
+											label: 'Details',
+											trailing: 'arrow_forward',
+											onClick: () => {
+												console.log('Extra clicked!');
+											}
+										}}
+									/>
+									<br />
+									<Alert
+										title="Title"
+										description="I am a description"
+										type="success"
+										onClose={() => console.log('Close clicked!')}
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+
+						<!-- Avatar -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Avatar</CardHeader>
+								<CardContent class="p-4">
+									<Avatar
+										size="xs"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+									/>
+									<Avatar
+										size="sm"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+									/>
+									<Avatar src="noimage.jpg" />
+									<Avatar
+										size="lg"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+									/>
+									<Avatar
+										size="xl"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+									/>
+									<br />
+									<br />
+									<Avatar
+										size="xs"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										indicator
+									/>
+									<Avatar
+										size="sm"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										indicator
+									/>
+									<Avatar
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										indicator
+									/>
+									<Avatar
+										size="lg"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										indicator
+									/>
+									<Avatar
+										size="xl"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										indicator
+									/>
+									<br />
+									<br />
+									<Avatar
+										size="xs"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										shape="rounded"
+										indicator
+										indicatorLocation="bottom-right"
+									/>
+									<Avatar
+										size="sm"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										shape="rounded"
+										indicator
+										indicatorLocation="bottom-right"
+									/>
+									<Avatar
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										shape="rounded"
+										indicator
+										indicatorLocation="bottom-right"
+									/>
+									<Avatar
+										size="lg"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										shape="rounded"
+										indicator
+										indicatorLocation="bottom-right"
+									/>
+									<Avatar
+										size="xl"
+										src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+										shape="rounded"
+										indicator
+										indicatorLocation="bottom-right"
+									/>
+									<br />
+									<br />
+									<Avatar size="xs" initials="CH" />
+									<Avatar size="sm" initials="CH" />
+									<Avatar initials="CH" />
+									<Avatar size="lg" initials="CH" />
+									<Avatar size="xl" initials="CH" />
+								</CardContent>
+							</Card>
+						</Col>
+
+						<!-- AvatarGroup -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Avatar Group</CardHeader>
+								<CardContent class="p-4">
+									<AvatarGroup
+										size="xs"
+										group={[
+											'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+										]}
+									/>
+									<br />
+									<AvatarGroup
+										size="sm"
+										group={[
+											'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+										]}
+									/>
+									<br />
+									<AvatarGroup
+										group={[
+											'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+										]}
+									/>
+									<br />
+									<AvatarGroup
+										size="lg"
+										group={[
+											'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+										]}
+									/>
+									<br />
+									<AvatarGroup
+										size="xl"
+										group={[
+											'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
+											'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+										]}
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+
+						<!-- Badge -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Badge</CardHeader>
+								<CardContent class="p-4">
+									<Badge content="Badge" />
+									<Badge content="Badge" type="success" />
+									<Badge content="Badge" type="warn" />
+									<Badge content="Badge" type="error" />
+									<br />
+									<Badge content="Badge" size="large" />
+									<Badge content="Badge" type="success" size="large" />
+									<Badge content="Badge" type="warn" size="large" />
+									<Badge content="Badge" type="error" size="large" />
+									<br />
+									<Badge content="Badge" withDot />
+									<Badge content="Badge" type="success" withDot />
+									<Badge content="Badge" type="warn" withDot />
+									<Badge content="Badge" type="error" withDot />
+									<br />
+									<Badge content="Badge" shape="rounded" />
+									<Badge content="Badge" type="success" shape="rounded" />
+									<Badge content="Badge" type="warn" shape="rounded" />
+									<Badge content="Badge" type="error" shape="rounded" />
+									<br />
+									<Badge content="Badge" onClose={() => console.log('clicked badge close')} />
+									<Badge
+										content="Badge"
+										type="success"
+										onClose={() => console.log('clicked badge close')}
+									/>
+									<Badge
+										content="Badge"
+										type="warn"
+										onClose={() => console.log('clicked badge close')}
+									/>
+									<Badge
+										content="Badge"
+										type="error"
+										onClose={() => console.log('clicked badge close')}
+									/>
+								</CardContent>
+							</Card>
 						</Col>
 
 						<Col class="col-24 md:col-12">
-							<Card bordered={false} class="h-60">Some Card</Card>
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Divider</CardHeader>
+								<CardContent class="p-4">
+									<Divider label="Divider" />
+									<Divider icon="add" />
+									<Divider label="Divider" position="left" />
+									<Divider label="Divider" position="right" />
+									<Divider label="Divider" labelStyle="title" />
+
+									<Divider>
+										<Button type="primary">I am a Button</Button>
+									</Divider>
+								</CardContent>
+							</Card>
 						</Col>
+
 						<Col class="col-24 md:col-12">
-							<Card bordered={false} class="h-60">Some Card</Card>
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Button Group</CardHeader>
+								<CardContent class="p-4">
+									<ButtonGroup
+										buttons={[
+											{
+												label: 'Button 1',
+												onClick: () => console.log('clicked button!')
+											},
+											{
+												label: 'Button 2',
+												onClick: () => console.log('clicked button!')
+											},
+											{
+												label: 'Button 3',
+												onClick: () => console.log('clicked button!')
+											}
+										]}
+									/>
+									<br />
+									<ButtonGroup
+										allowDeselect
+										buttons={[
+											{
+												label: 'Button 1',
+												onClick: () => console.log('clicked button!')
+											},
+											{
+												label: 'Button 2',
+												onClick: () => console.log('clicked button!')
+											},
+											{
+												label: 'Button 3',
+												onClick: () => console.log('clicked button!')
+											}
+										]}
+									/>
+									<br />
+									<ButtonGroup
+										allowDeselect
+										buttons={[
+											{
+												icon: 'home',
+												onClick: () => console.log('clicked button!')
+											},
+											{
+												icon: 'description',
+												onClick: () => console.log('clicked button!')
+											},
+											{
+												icon: 'question_answer',
+												onClick: () => console.log('clicked button!')
+											}
+										]}
+									/>
+									<br />
+									<ButtonGroup
+										allowDeselect
+										buttons={[
+											{
+												label: 'Label',
+												icon: 'home',
+												onClick: () => console.log('clicked button!')
+											},
+											{
+												label: 'Label',
+												icon: 'description',
+												onClick: () => console.log('clicked button!')
+											},
+											{
+												label: 'Label',
+												icon: 'question_answer',
+												onClick: () => console.log('clicked button!')
+											}
+										]}
+									/>
+								</CardContent>
+							</Card>
 						</Col>
 					</Row>
 				</div>

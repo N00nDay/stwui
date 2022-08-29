@@ -84,7 +84,7 @@
 							tabindex="-1"
 						>
 							<div
-								class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-light-primary-button"
+								class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-primary"
 							>
 								<span class="material-icons h-6 w-6 text-white">{result.icon}</span>
 							</div>

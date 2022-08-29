@@ -234,9 +234,6 @@ module.exports = plugin(
 					'light-icon-background-hover': 'rgba(0, 0, 0, 0.05)',
 					'light-border': '#e5e7eb',
 
-					'light-primary-button': '#1B74E4',
-					'light-primary-button-hover': '#77A7FF',
-
 					'dark-surface': '#242526',
 					'dark-background': '#18191A',
 					'dark-content': '#ffffff',
@@ -244,7 +241,35 @@ module.exports = plugin(
 					'dark-icon': '#ffffff',
 					'dark-icon-background': 'rgba(255,255,255,.1)',
 					'dark-icon-background-hover': 'rgba(255, 255, 255, 0.1)',
-					'dark-border': '#374151'
+					'dark-border': '#374151',
+
+					'info-content': '#1d4ed8',
+					'dark-info-content': '#eff6ff',
+					'info-background': '#3b82f6',
+					'info-secondary-content': '#2563eb',
+					'dark-info-secondary-content': '#bfdbfe',
+					'info-icon': '#60a5fa',
+
+					'success-content': '#166534',
+					'dark-success-content': '#f0fdf4',
+					'success-background': '#22c55e',
+					'success-secondary-content': '#15803d',
+					'dark-success-secondary-content': '#bbf7d0',
+					'success-icon': '#4ade80',
+
+					'error-content': '#991b1b',
+					'dark-error-content': '#fef2f2',
+					'error-background': '#ef4444',
+					'error-secondary-content': '#b91c1c',
+					'dark-error-secondary-content': '#fecaca',
+					'error-icon': '#f87171',
+
+					'warn-content': '#854d0e',
+					'dark-warn-content': '#fefce8',
+					'warn-background': '#eab308',
+					'warn-secondary-content': '#a16207',
+					'dark-warn-secondary-content': '#fef08a',
+					'warn-icon': '#facc15'
 				}
 			}
 		}
