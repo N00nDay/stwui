@@ -28,7 +28,7 @@
 
 <div class="relative z-10 pointer-events-none" role="dialog" aria-modal="true" transition:fade>
 	<div
-		class="fixed inset-0 bg-light-background dark:bg-dark-background bg-opacity-60 dark:bg-opacity-50 transition-opacity pointer-events-auto"
+		class="fixed inset-0 bg-dark-background dark:bg-light-background bg-opacity-10 dark:bg-opacity-10 backdrop-blur-sm transition-all duration-150 pointer-events-auto"
 		transition:fade
 		on:click={handleClose}
 	/>
@@ -38,8 +38,9 @@
 		in:scale={{ start: 0.9, duration: 250, delay: 150 }}
 		out:scale={{ start: 0.95, duration: 150 }}
 	>
+		<!-- TODO: divide-y align with .light-border and .dark-border -->
 		<div
-			class="mx-auto max-w-xl transform divide-y divide-gray-100 dark:divide-gray-700 overflow-hidden rounded-xl bg-light-surface dark:bg-dark-surface shadow-2xl dark:shadow-black transition-all duration-150 pointer-events-auto"
+			class="mx-auto max-w-xl transform divide-y divide-gray-100 dark:divide-gray-700 overflow-hidden rounded-md bg-light-surface dark:bg-dark-surface shadow-2xl dark:shadow-black transition-all duration-150 pointer-events-auto"
 		>
 			{#if onChange}
 				<div class="relative">
@@ -78,7 +79,7 @@
 					<!-- Active: "bg-gray-100" -->
 					{#each results as result}
 						<li
-							class="group flex cursor-pointer select-none rounded-xl p-3 hover:bg-light-icon-background-hover dark:hover:bg-dark-icon-background-hover duration-150 transition-all"
+							class="group outline-none focus:outline-none flex cursor-pointer select-none rounded-md p-3 hover:bg-light-icon-background-hover dark:hover:bg-dark-icon-background-hover duration-150 transition-all"
 							id="option-1"
 							role="option"
 							tabindex="-1"

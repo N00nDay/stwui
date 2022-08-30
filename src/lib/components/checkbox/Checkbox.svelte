@@ -13,7 +13,7 @@
 			{name}
 			type="checkbox"
 			{value}
-			class="checkbox checked:bg-primary dark:checked:bg-primary hover:border-primary dark:hover:border-primary bg-light-surface dark:bg-dark-surface h-6 w-6 text-primary border-light-icon-background dark:border-dark-icon-background rounded-md cursor-pointer transition-all duration-150"
+			class="checkbox checked:bg-primary dark:checked:bg-primary hover:border-primary dark:hover:border-primary bg-light-surface dark:bg-dark-surface h-6 w-6 text-primary light-border dark:dark-border rounded-md cursor-pointer transition-all duration-150"
 		/>
 	</div>
 	<div class="ml-3 text-sm">

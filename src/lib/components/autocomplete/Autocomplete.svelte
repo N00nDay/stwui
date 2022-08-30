@@ -67,6 +67,7 @@
 	}
 
 	function handleClear() {
+		console.log('handleClear Fired!');
 		input.value = '';
 		value = undefined;
 		filteredOptions = options;
@@ -87,15 +88,15 @@
 			class="block text-sm font-medium transition-all duration-150{srOnly ? ' sr-only' : ''}"
 			class:text-light-secondary-content={!error}
 			class:dark:text-dark-secondary-content={!error}
-			class:text-red-600={error}>{label}</label
+			class:text-danger={error}>{label}</label
 		>
 	{/if}
-	<div class="mt-1 relative rounded-md">
+	<div class="mt-1 relative rounded-md h-[2.5rem]">
 		<button
 			bind:this={button}
 			type="button"
 			on:click={handleOpen}
-			class="group relative cursor-pointer min-h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
+			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150 shadow-sm dark:shadow-black"
 		>
 			{#if leading}
 				<span
@@ -106,7 +107,7 @@
 					class:cursor-pointer={handleLeadingClick}
 					class:text-light-secondary-content={!error}
 					class:dark:text-dark-secondary-content={!error}
-					class:text-red-600={error}>{leading}</span
+					class:text-danger={error}>{leading}</span
 				>
 			{/if}
 			<input
@@ -120,23 +121,23 @@
 				autocomplete="off"
 				role="presentation"
 				aria-controls="options"
-				class="bg-transparent w-full h-full pl-3 pr-10 py-2 shadow-sm border rounded-md transition-all duration-150 outline-none"
+				class="bg-transparent w-full h-[2.5rem] pl-3 pr-10 py-2 shadow-sm dark:shadow-black border rounded-md transition-all duration-150 outline-none"
 				class:border-red-400={error}
-				class:text-red-700={error}
-				class:dark:text-red-300={error}
+				class:text-danger={error}
+				class:dark:text-danger={error}
 				class:placeholder-red-300={error}
 				class:focus:border-red-500={error}
 				class:focus:border-primary={!error}
 				class:dark:focus:border-primary={!error}
-				class:border-light-icon-background={!error}
-				class:dark:border-dark-icon-background={!error}
+				class:light-border={!error}
+				class:dark:dark-border={!error}
 				class:pl-10={leading}
 			/>
 
 			{#if value && value.length > 0}
 				<span
 					transition:scale
-					class="absolute inset-y-0 z-10 right-8 items-center cursor-pointer hidden group-focus-within:flex"
+					class="absolute inset-y-0 z-10 right-8 items-center cursor-pointer hidden group-focus-within:flex active:flex"
 					on:click={handleClear}
 				>
 					<span
@@ -150,7 +151,7 @@
 			{#if error}
 				<span
 					transition:scale|local
-					class="material-icons absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-red-600"
+					class="material-icons absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-danger"
 					>error</span
 				>
 			{:else}
@@ -166,7 +167,7 @@
 
 		{#if visible}
 			<ul
-				class="origin-top-right absolute z-10 border border-light-icon-background dark:border-dark-icon-background left-0 right-0 w-full p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface transition transform duration-150{$$props.class
+				class="origin-top-right absolute mt-1 z-10 border light-border dark:dark-border left-0 right-0 w-full p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface transition transform duration-150{$$props.class
 					? ` ${$$props.class}`
 					: ''}"
 				style={$$props.style}
@@ -226,6 +227,6 @@
 		{/if}
 	</div>
 	{#if error}
-		<p transition:slide|local class="mt-2 text-sm text-red-600" id="{name}-error">{error}</p>
+		<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
 	{/if}
 </div>

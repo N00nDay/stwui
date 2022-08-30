@@ -21,7 +21,7 @@
 			class="block text-sm font-medium transition-all duration-150{srOnly ? ' sr-only' : ''}"
 			class:text-light-secondary-content={!error}
 			class:dark:text-dark-secondary-content={!error}
-			class:text-red-600={error}>{label}</label
+			class:text-danger={error}>{label}</label
 		>
 	{/if}
 	<div class="mt-1">
@@ -32,21 +32,21 @@
 			{autocomplete}
 			{name}
 			id={name}
-			class="block w-full outline-none ring-0 focus:ring-0 sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
+			class="block w-full outline-none focus:outline-none shadow-sm dark:shadow-black sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface light-border dark:dark-border transition-all duration-150"
 			class:border-red-400={error}
-			class:text-red-700={error}
-			class:dark:text-red-300={error}
+			class:text-danger={error}
+			class:dark:text-danger={error}
 			class:placeholder-red-300={error}
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
 			class:dark:focus:border-primary={!error}
-			class:border-light-icon-background={!error}
-			class:dark:border-dark-icon-background={!error}
+			class:light-border={!error}
+			class:dark:dark-border={!error}
 			{placeholder}
 			bind:value
 		/>
 	</div>
 	{#if error}
-		<p transition:slide|local class="mt-2 text-sm text-red-600" id="{name}-error">{error}</p>
+		<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
 	{/if}
 </div>

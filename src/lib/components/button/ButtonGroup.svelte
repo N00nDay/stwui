@@ -26,13 +26,13 @@
 	}
 </script>
 
-<span class="relative z-0 inline-flex shadow-sm rounded-md">
+<span class="relative z-0 inline-flex shadow-sm dark:shadow-black rounded-md">
 	{#each buttons as button, i}
 		{#if i !== 0}
 			<button
 				on:click={() => handleClick(i, button.onClick)}
 				type="button"
-				class="group overflow-hidden transition-all duration-150 -ml-px relative inline-flex items-center px-4 py-2 border border-light-icon-background dark:border-dark-icon-background text-sm font-medium text-light-content dark:text-dark-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md"
+				class="group overflow-hidden transition-all duration-150 -ml-px relative inline-flex items-center px-4 py-2 border light-border dark:dark-border text-sm font-medium text-light-content dark:text-dark-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md"
 				class:bg-primary={i === activeIndex}
 				class:dark:bg-primary={i === activeIndex}
 				class:text-primary-content={i === activeIndex}
@@ -57,7 +57,7 @@
 			<button
 				on:click={() => handleClick(i, button.onClick)}
 				type="button"
-				class="group overflow-hidden transition-all duration-150 relative inline-flex items-center px-4 py-2 border border-light-icon-background dark:border-dark-icon-background text-sm font-medium text-light-content dark:text-dark-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md"
+				class="group overflow-hidden transition-all duration-150 relative inline-flex items-center px-4 py-2 border light-border dark:dark-border text-sm font-medium text-light-content dark:text-dark-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md"
 				class:bg-primary={i === activeIndex}
 				class:dark:bg-primary={i === activeIndex}
 				class:text-primary-content={i === activeIndex}

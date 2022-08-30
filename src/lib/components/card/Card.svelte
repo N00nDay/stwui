@@ -29,8 +29,8 @@
 		: ''}"
 	class:hoverable
 	class:border={bordered}
-	class:border-light-icon-background={bordered}
-	class:dark:border-dark-icon-background={bordered}
+	class:light-border={bordered}
+	class:dark:dark-border={bordered}
 	class:shadow-none={elevation === 'none'}
 	class:shadow-sm={elevation === 'sm'}
 	class:shadow-md={elevation === 'md'}
@@ -47,18 +47,18 @@
 
 <style lang="postcss">
 	.hoverable {
-		@apply hover:shadow-lg;
-		@apply hover:bg-gray-100;
 		@apply cursor-pointer;
-		@apply active:hover:scale-95;
-		@apply active:hover:animate-none;
 		@apply transition-all;
 		@apply duration-150;
 	}
 
-	/* .bordered {
-		@apply border;
-		@apply border-light-border;
-		@apply dark:border-dark-border;
-	} */
+	.hoverable:hover {
+		@apply shadow-lg;
+		@apply bg-gray-100;
+	}
+
+	.hoverable:active:hover {
+		@apply scale-95;
+		@apply animate-none;
+	}
 </style>

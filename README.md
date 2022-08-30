@@ -12,40 +12,42 @@ The list:
 - [x] 4. AutoComplete
 - [x] 5. Badge
 - [x] 6. BottomNavigation
-- [x] 7. Button
-- [x] 8. ButtonGroup
-- [x] 9. Card
-- [ ] 10. Carousel
-- [x] 11. Checkbox
-- [ ] 12. Collapse
-- [x] 13. Command Palette
-- [x] 14. DatePicker
-- [x] 15. Divider
-- [ ] 16. Drawer
-- [x] 17. Dropdown
-- [ ] 18. Empty
-- [ ] 19. Feed
-- [x] 20. Layout
-- [ ] 21. List
-- [ ] 22. Loading
-- [x] 23. Media
-- [ ] 24. Menu
-- [x] 25. Modal
-- [x] 26. Header
-- [x] 27. Portal
-- [ ] 28. Progress
-- [x] 29. Radio
-- [ ] 30. Rate
-- [x] 31. Select
-- [x] 32. Sidebar
-- [ ] 33. Skeleton
-- [ ] 34. Slider
-- [ ] 35. Steps
-- [x] 36. Swap
-- [ ] 37. Table
-- [ ] 38. Tabs
-- [ ] 39. Tag
-- [x] 40. TextArea
-- [ ] 41. Timeline
-- [x] 42. Toggle
+- [x] 7. Breadcrumbs
+- [x] 8. Button
+- [x] 9. ButtonGroup
+- [x] 10. Card
+- [ ] 11. Carousel
+- [x] 12. Checkbox
+- [ ] 13. Collapse
+- [x] 14. Command Palette
+- [x] 15. DatePicker
+- [x] 16. Divider
+- [ ] 17. Drawer
+- [x] 18. Dropdown
+- [x] 19. Empty
+- [ ] 20. Feed
+- [x] 21. Layout
+- [ ] 22. List
+- [ ] 23. Loading
+- [x] 24. Media
+- [ ] 25. Menu
+- [x] 26. Modal
+- [x] 27. Header
+- [x] 28. Notification
+- [ ] 29. Pagination
+- [x] 30. Portal
+- [x] 31. Progress
+- [x] 32. Radio
+- [ ] 33. Rate
+- [x] 34. Select
+- [x] 35. Sidebar
+- [ ] 36. Skeleton
+- [ ] 37. Slider
+- [ ] 38. Steps
+- [x] 39. Swap
+- [ ] 40. Table
+- [ ] 41. Tabs
+- [x] 42. TextArea
+- [ ] 43. Timeline
+- [x] 44. Toggle
 - And more when I have time!

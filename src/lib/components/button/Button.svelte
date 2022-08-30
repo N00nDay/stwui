@@ -88,7 +88,9 @@
 <button
 	type={htmlType}
 	{disabled}
-	class="group relative {classes}{$$props.class ? ` ${$$props.class}` : ''}"
+	class="group transition-all duration-150 relative {classes}{$$props.class
+		? ` ${$$props.class}`
+		: ''}"
 	class:primary={type === 'primary'}
 	class:danger={type === 'danger'}
 	class:default={type === 'default'}
@@ -218,7 +220,8 @@
 		@apply text-default-content;
 		@apply bg-default;
 		@apply border;
-		@apply border-light-icon-background;
+		@apply light-border;
+		@apply dark:dark-border;
 		@apply hover:border-primary-hover;
 		@apply hover:bg-gray-100;
 		@apply hover:text-primary-hover;

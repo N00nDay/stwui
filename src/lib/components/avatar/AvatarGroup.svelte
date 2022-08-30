@@ -8,6 +8,7 @@
 
 <div
 	class="flex overflow-hidden"
+	class:h-[1.65rem]={size === 'xs'}
 	class:-space-x-1={size === 'xs'}
 	class:-space-x-2={size === 'sm' || size === 'md'}
 	class:-space-x-3={size === 'lg' || size === 'xl'}

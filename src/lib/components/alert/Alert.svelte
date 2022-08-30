@@ -15,7 +15,6 @@
 	import Button from '../button/Button.svelte';
 
 	export let type: 'info' | 'warn' | 'success' | 'error' = 'info';
-	export let icon: 'info' | 'warning' | 'cancel' | 'check_circle' = 'info';
 	export let onClose: (() => void) | undefined = undefined;
 	export let title: string;
 	export let description: string | undefined = undefined;
@@ -23,14 +22,15 @@
 
 	let closeClass = 'text-info-icon dark:text-dark-info-icon';
 
+	let typeIcon = 'info';
 	if (type === 'warn') {
-		icon = 'warning';
+		typeIcon = 'warning';
 		closeClass = 'text-warn-icon dark:text-dark-warn-icon';
 	} else if (type === 'success') {
-		icon = 'check_circle';
+		typeIcon = 'check_circle';
 		closeClass = 'text-success-icon dark:text-dark-success-icon';
 	} else if (type === 'error') {
-		icon = 'cancel';
+		typeIcon = 'cancel';
 		closeClass = 'text-error-icon dark:text-dark-error-icon';
 	}
 </script>
@@ -49,7 +49,7 @@
 				class:text-info-icon={type === 'info'}
 				class:text-warn-icon={type === 'warn'}
 				class:text-success-icon={type === 'success'}
-				class:text-error-icon={type === 'error'}>{icon}</span
+				class:text-error-icon={type === 'error'}>{typeIcon}</span
 			>
 		</div>
 		<div class="ml-3 flex items-start justify-start flex-col w-full">

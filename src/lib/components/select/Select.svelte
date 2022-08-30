@@ -51,39 +51,38 @@
 			class="block text-sm font-medium transition-all duration-150{srOnly ? ' sr-only' : ''}"
 			class:text-light-secondary-content={!error}
 			class:dark:text-dark-secondary-content={!error}
-			class:text-red-600={error}>{label}</label
+			class:text-danger={error}>{label}</label
 		>
 	{/if}
-	<div class="mt-1 relative rounded-md shadow-sm">
+	<div class="mt-1 relative rounded-md h-[2.5rem]">
 		<button
 			bind:this={button}
 			type="button"
 			on:click={toggleVisible}
-			class="relative border shadow-sm cursor-pointer pl-3 pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
+			class="relative border shadow-sm dark:shadow-black h-[2.5rem] cursor-pointer pl-3 pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
 			class:border-red-400={error}
-			class:text-red-700={error}
-			class:dark:text-red-300={error}
+			class:text-danger={error}
+			class:dark:text-danger={error}
 			class:placeholder-red-300={error}
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
 			class:dark:focus:border-primary={!error}
-			class:border-light-icon-background={!error}
-			class:dark:border-dark-icon-background={!error}
+			class:light-border={!error}
+			class:dark:dark-border={!error}
 			class:pl-10={leading}
 			aria-haspopup="listbox"
-			aria-expanded="true"
 			aria-labelledby="listbox-label"
 		>
 			{#if leading}
 				<span
 					on:click|stopPropagation={handleLeadingClick}
-					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center"
+					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center transition-all duration-150"
 					class:pointer-events-none={!handleLeadingClick}
 					class:pointer-events-auto={handleLeadingClick}
 					class:cursor-pointer={handleLeadingClick}
 					class:text-light-secondary-content={!error}
 					class:dark:text-dark-secondary-content={!error}
-					class:text-red-600={error}>{leading}</span
+					class:text-danger={error}>{leading}</span
 				>
 			{/if}
 
@@ -108,7 +107,7 @@
 			{#if error}
 				<span
 					transition:scale|local
-					class="material-icons absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-red-600"
+					class="material-icons absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-danger"
 					>error</span
 				>
 			{:else}
@@ -120,7 +119,7 @@
 
 		{#if visible}
 			<ul
-				class="origin-top-right absolute z-10 border border-light-icon-background dark:border-dark-icon-background left-0 right-0 w-full mt-1 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface transition transform duration-150{$$props.class
+				class="origin-top-right absolute z-10 border light-border dark:dark-border left-0 right-0 w-full mt-1 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface transition-all transform duration-150{$$props.class
 					? ` ${$$props.class}`
 					: ''}"
 				style={$$props.style}
@@ -169,6 +168,6 @@
 		{/if}
 	</div>
 	{#if error}
-		<p transition:slide|local class="mt-2 text-sm text-red-600" id="{name}-error">{error}</p>
+		<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
 	{/if}
 </div>

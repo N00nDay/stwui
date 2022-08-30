@@ -59,21 +59,23 @@
 			class="block text-sm font-medium transition-all duration-150{srOnly ? ' sr-only' : ''}"
 			class:text-light-secondary-content={!error}
 			class:dark:text-dark-secondary-content={!error}
-			class:text-red-600={error}>{label}</label
+			class:text-danger={error}>{label}</label
 		>
 	{/if}
-	<div class="mt-1 relative rounded-md shadow-sm ">
+	<div
+		class="mt-1 relative rounded-md shadow-sm h-[2.5rem] dark:shadow-black transition-all duration-150"
+	>
 		{#if leading}
 			<span
 				transition:scale|local
 				on:click={handleLeadingClick}
-				class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10"
+				class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10 transition-all duration-150"
 				class:pointer-events-none={!handleLeadingClick}
 				class:pointer-events-auto={handleLeadingClick}
 				class:cursor-pointer={handleLeadingClick}
 				class:text-light-secondary-content={!error}
 				class:dark:text-dark-secondary-content={!error}
-				class:text-red-600={error}>{leading}</span
+				class:text-danger={error}>{leading}</span
 			>
 		{/if}
 		<input
@@ -86,10 +88,12 @@
 			id={name}
 			{readonly}
 			{tabindex}
-			class="block w-full outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
+			class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
+			class:light-border={!error}
+			class:dark:dark-border={!error}
 			class:border-red-400={error}
-			class:text-red-700={error}
-			class:dark:text-red-300={error}
+			class:text-danger={error}
+			class:dark:text-danger={error}
 			class:placeholder-red-300={error}
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
@@ -100,8 +104,6 @@
 			class:group-active:border-red-500={error}
 			class:group-active:border-primary={!error}
 			class:dark:group-active:border-primary={!error}
-			class:border-light-icon-background={!error}
-			class:dark:border-dark-icon-background={!error}
 			class:pl-10={leading}
 			class:pr-10={trailing || error || allowClear}
 			{placeholder}
@@ -119,7 +121,11 @@
 				class:right-3={!showPasswordToggle && !trailing && !error}
 				on:click={handleClear}
 			>
-				<span class="material-icons text-light-icon dark:text-dark-icon text-base"> clear </span>
+				<span
+					class="material-icons text-light-icon dark:text-dark-icon text-base transition-all duration-150"
+				>
+					clear
+				</span>
 			</span>
 		{/if}
 
@@ -133,13 +139,13 @@
 			>
 				<span
 					slot="icon1"
-					class="material-icons pr-3 text-light-secondary-content dark:text-dark-secondary-content"
+					class="material-icons pr-3 text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
 				>
 					visibility
 				</span>
 				<span
 					slot="icon2"
-					class="material-icons pr-3 text-light-secondary-content dark:text-dark-secondary-content"
+					class="material-icons pr-3 text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
 				>
 					visibility_off
 				</span>
@@ -148,23 +154,23 @@
 			<span
 				on:click={handleTrailingClick}
 				transition:scale|local
-				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center z-10"
+				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center z-10 transition-all duration-150"
 				class:pointer-events-none={!handleTrailingClick}
 				class:pointer-events-auto={handleTrailingClick}
 				class:cursor-pointer={handleTrailingClick}
 				class:text-light-secondary-content={!error}
 				class:dark:text-dark-secondary-content={!error}
-				class:text-red-600={error}>{trailing}</span
+				class:text-danger={error}>{trailing}</span
 			>
 		{:else if error}
 			<span
 				transition:scale|local
-				class="material-icons absolute inset-y-0 right-3 flex items-center pointer-events-none text-red-600"
+				class="material-icons absolute inset-y-0 right-3 flex items-center pointer-events-none text-danger"
 				>error</span
 			>
 		{/if}
 	</div>
 	{#if error}
-		<p transition:slide|local class="mt-2 text-sm text-red-600" id="{name}-error">{error}</p>
+		<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
 	{/if}
 </div>

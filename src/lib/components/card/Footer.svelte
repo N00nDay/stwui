@@ -22,8 +22,9 @@
 	class="px-4 py-5 sm:px-6 h-16 first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0{$$props.class
 		? ` ${$$props.class}`
 		: ''}"
-	class:border-t-light-icon-background={divided}
-	class:dark:border-t-dark-icon-background={divided}
+	class:border-t={divided}
+	class:light-border={divided}
+	class:dark:dark-border={divided}
 	class:last:border-t-none={divided}
 	style={$$props.style}
 	use:useActions={use}

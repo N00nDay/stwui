@@ -22,8 +22,9 @@
 	class="first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 h-16 border border-l-0 border-t-0 border-r-0{$$slots.extras
 		? ' flex flex-row items-center justify-between'
 		: ''}{$$props.class ? ` ${$$props.class}` : ''}"
-	class:border-b-light-icon-background={divided}
-	class:dark:border-b-dark-icon-background={divided}
+	class:border-b={divided}
+	class:light-border={divided}
+	class:dark:dark-border={divided}
 	class:last:border-b-none={divided}
 	style={$$props.style}
 	use:useActions={use}

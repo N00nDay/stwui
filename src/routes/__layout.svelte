@@ -25,7 +25,7 @@
 	import { Media, MediaContent, MediaDescription, MediaTitle } from '../lib/components/media';
 	import { Portal } from '../lib/components/portal';
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
-	import { Button } from '../lib/components/button';
+	import { Button, ButtonGroup } from '../lib/components/button';
 	import type MaterialIcons from '../lib/types/material-icons';
 	import { Dropdown, DropdownItems, DropdownItem } from '../lib/components/dropdown';
 	import { Row, Col } from '../lib/components/grid';
@@ -42,7 +42,11 @@
 	import { Avatar, AvatarGroup } from '../lib/components/avatar';
 	import { Badge } from '../lib/components/badge';
 	import { Divider } from '../lib/components/divider';
-	import ButtonGroup from '$lib/components/button/ButtonGroup.svelte';
+	import { Empty } from '../lib/components/empty';
+	import { Breadcrumbs } from '../lib/components/breadcrumbs';
+	import { Progress } from '../lib/components/progress';
+	import { Notification } from '../lib/components/notification';
+	import { Modal } from '../lib/components/modal';
 
 	const sidbarItems = [
 		{
@@ -90,6 +94,9 @@
 	let createOpen = false;
 	let dropdownOpen = false;
 	let searchOpen = false;
+
+	let modal1Open = false;
+	let modal2Open = false;
 
 	let createResults: SearchResult[] = [
 		{
@@ -154,6 +161,22 @@
 		console.log('e', e);
 	}
 
+	function openModal1() {
+		modal1Open = true;
+	}
+
+	function closeModal1() {
+		modal1Open = false;
+	}
+
+	function openModal2() {
+		modal2Open = true;
+	}
+
+	function closeModal2() {
+		modal2Open = false;
+	}
+
 	const date2Max = new Date(2022, 7, 30);
 	const date2Min = new Date(2022, 7, 3);
 </script>
@@ -161,7 +184,7 @@
 <div class="h-full">
 	<Layout>
 		<div
-			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-primary dark:bg-dark-surface shadow-md dark:shadow-black"
+			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-primary dark:bg-dark-surface shadow-md dark:shadow-black transition-all duration-150"
 		/>
 		<LayoutHeader title="Dashboard" {toggleSidebarWidth}>
 			<Button
@@ -781,6 +804,7 @@
 							</Card>
 						</Col>
 
+						<!-- Divider -->
 						<Col class="col-24 md:col-12">
 							<Card bordered={false} class="h-[29rem]">
 								<CardHeader>Divider</CardHeader>
@@ -798,6 +822,7 @@
 							</Card>
 						</Col>
 
+						<!-- Button Group -->
 						<Col class="col-24 md:col-12">
 							<Card bordered={false} class="h-[29rem]">
 								<CardHeader>Button Group</CardHeader>
@@ -878,6 +903,131 @@
 								</CardContent>
 							</Card>
 						</Col>
+
+						<!-- Empty -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Empty</CardHeader>
+								<CardContent class="p-4">
+									<Empty
+										icon="edit_document"
+										title="No projects"
+										description="Get started by creating a new project."
+										button={{
+											label: 'New Project',
+											icon: 'add',
+											onClick: () => console.log('clicked new project!')
+										}}
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+
+						<!-- Breadcrumbs -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Breadcrumbs</CardHeader>
+								<CardContent class="p-4">
+									<Breadcrumbs
+										crumbs={[
+											{ icon: 'home', href: '/' },
+											{ label: 'Projects', href: '/projecs' },
+											{ label: 'Project Nero', href: '/projects/project-nero' }
+										]}
+									/>
+									<br />
+									<br />
+									<Breadcrumbs
+										type="solid"
+										crumbs={[
+											{ icon: 'home', href: '/' },
+											{ label: 'Projects', href: '/projecs' },
+											{ label: 'Project Nero', href: '/projects/project-nero' }
+										]}
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+
+						<!-- Progress -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[38rem]">
+								<CardHeader>Progress</CardHeader>
+								<CardContent class="p-4">
+									<Progress value={25} />
+									<br />
+									<Progress value={50} />
+									<br />
+									<Progress value={75} displayValue />
+									<br />
+									<Progress value={100} />
+									<br />
+									<Progress value={25} radial size="xs" />
+									<Progress value={50} radial size="sm" />
+									<Progress value={75} radial />
+									<Progress value={85} radial size="lg" />
+									<Progress value={100} radial size="xl" />
+									<br />
+									<Progress value={75} radial type="error" />
+									<Progress value={75} radial type="success" />
+									<Progress value={75} radial type="warn" />
+									<Progress value={75} radial />
+								</CardContent>
+							</Card>
+						</Col>
+
+						<!-- Notification -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[33rem]">
+								<CardHeader>Notification</CardHeader>
+								<CardContent class="p-4">
+									<Notification
+										title="Successfully Saved!"
+										description="Anyone with a link can now view this file."
+										icon="check_circle"
+										onClose={() => console.log('notification closed!')}
+									/>
+									<br />
+									<Notification
+										type="success"
+										title="Successfully Saved!"
+										description="Anyone with a link can now view this file."
+										onClose={() => console.log('notification closed!')}
+									/>
+									<br />
+									<Notification
+										type="info"
+										title="Successfully Saved!"
+										description="Anyone with a link can now view this file."
+										onClose={() => console.log('notification closed!')}
+									/>
+									<br />
+									<Notification
+										description="Form submitted"
+										extra={{
+											label: 'Details',
+											trailing: 'arrow_forward',
+											onClick: () => {
+												console.log('Extra clicked!');
+											}
+										}}
+									/>
+								</CardContent>
+							</Card>
+						</Col>
+
+						<!-- Modal -->
+						<Col class="col-24 md:col-12">
+							<Card bordered={false} class="h-[29rem]">
+								<CardHeader>Modal</CardHeader>
+								<CardContent class="p-4">
+									<Button type="primary" on:click={openModal1}>Open Modal</Button>
+									<br />
+									<br />
+									<Button type="primary" on:click={openModal2}>Open Modal</Button>
+								</CardContent>
+							</Card>
+						</Col>
 					</Row>
 				</div>
 			</LayoutBody>
@@ -930,5 +1080,27 @@
 <Portal>
 	{#if searchOpen}
 		<CommandPalette handleClose={handleCloseSearch} results={[]} onChange={handleSearchChange} />
+	{/if}
+</Portal>
+
+<Portal>
+	{#if modal1Open}
+		<Modal handleClose={closeModal1}>
+			<Card>
+				<CardHeader>Modal 1</CardHeader>
+				<CardContent>I am the content</CardContent>
+			</Card>
+		</Modal>
+	{/if}
+</Portal>
+
+<Portal>
+	{#if modal2Open}
+		<Modal handleClose={closeModal2}
+			><Card bordered={false}>
+				<CardHeader>Modal 2</CardHeader>
+				<CardContent>I am the content</CardContent>
+			</Card></Modal
+		>
 	{/if}
 </Portal>
