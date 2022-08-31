@@ -115,7 +115,7 @@
 
 		{#if allowClear && value && value.length > 0}
 			<span
-				transition:scale
+				transition:scale|local
 				class="absolute inset-y-0 z-10 items-center cursor-pointer hidden group-focus-within:flex active:flex"
 				class:right-10={showPasswordToggle || trailing || error}
 				class:right-3={!showPasswordToggle && !trailing && !error}

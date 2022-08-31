@@ -25,7 +25,7 @@
 </script>
 
 <div
-	class="w-full h-16 sticky bottom-0 left-0 right-0 bg-light-surface dark:bg-dark-surface shadow-negative dark:shadow-black z-10 transition-all duration-150 md:hidden flex items-center justify-evenly"
+	class="w-full h-16 sticky bottom-0 left-0 right-0 bg-light-surface dark:bg-dark-surface shadow-negative-md dark:shadow-black z-10 transition-all duration-150 md:hidden flex items-center justify-evenly"
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

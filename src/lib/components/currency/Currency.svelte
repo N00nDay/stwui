@@ -47,7 +47,6 @@
 	<div class="mt-1 relative rounded-md shadow-sm dark:shadow-black h-[2.5rem]">
 		<span
 			on:click={handleLeadingClick}
-			transition:scale|local
 			class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10 transition-all duration-150"
 			class:text-light-secondary-content={!error}
 			class:dark:text-dark-secondary-content={!error}

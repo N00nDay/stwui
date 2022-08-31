@@ -4,6 +4,7 @@
 	export let radial = false;
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 	export let displayValue = false;
+	export let indeterminate = false;
 
 	let radius =
 		size === 'xs' ? 30 : size === 'sm' ? 34 : size === 'md' ? 40 : size === 'lg' ? 46 : 50;
@@ -24,9 +25,10 @@
 			class:h-1={size === 'xs'}
 			class:h-2.5={size === 'lg'}
 			class:h-3={size === 'xl'}
+			class:relative={indeterminate}
 		>
 			<div
-				class="transition-all duration-150 h-full"
+				class="transition-all duration-150 h-full rounded-xl"
 				class:bg-info-background={type === 'info'}
 				class:dark:bg-info-background={type === 'info'}
 				class:bg-info-warn={type === 'warn'}
@@ -35,10 +37,11 @@
 				class:dark:bg-error-background={type === 'error'}
 				class:bg-success-background={type === 'success'}
 				class:dark:bg-success-background={type === 'success'}
-				style="width: {value}%"
+				class:indeterminate
+				style="width: {indeterminate ? 30 : value}%"
 			/>
 		</div>
-		{#if displayValue}
+		{#if displayValue && !indeterminate}
 			<span class="flex-shrink">{value}%</span>
 		{/if}
 	</div>
@@ -99,3 +102,19 @@
 		</span>
 	</div>
 {/if}
+
+<style>
+	.indeterminate {
+		@apply absolute;
+		animation: progress-loading 2s infinite;
+	}
+
+	@keyframes progress-loading {
+		0% {
+			left: -30%;
+		}
+		100% {
+			left: 100%;
+		}
+	}
+</style>

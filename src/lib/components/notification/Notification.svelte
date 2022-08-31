@@ -24,6 +24,7 @@
 	export let onClose: (() => void) | undefined = undefined;
 	export let type: 'info' | 'warn' | 'error' | 'success' | undefined = undefined;
 	export let extra: IExtra | undefined = undefined;
+	export let iconColor: string | undefined = undefined;
 
 	let typeIcon = 'info';
 	if (type === 'warn') {
@@ -41,7 +42,7 @@
 >
 	<div class="p-4" class:p-2={!title}>
 		<div class="flex items-start" class:items-center={!title}>
-			<div class="flex-shrink-0">
+			<div class="flex-shrink-0 text-light-content dark:text-dark-content">
 				{#if type}
 					<span
 						class="material-icons transition-all duration-150"
@@ -51,9 +52,7 @@
 						class:text-error-icon={type === 'error'}>{typeIcon}</span
 					>
 				{:else if icon}
-					<!-- TODO: need to define icon color -->
-					<span
-						class="material-icons text-light-content dark:text-dark-content transition-all duration-150"
+					<span class="material-icons transition-all duration-150{iconColor ? ` ${iconColor}` : ''}"
 						>{icon}</span
 					>
 				{:else if avatar}

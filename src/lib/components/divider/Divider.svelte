@@ -9,7 +9,9 @@
 
 <div class="relative">
 	<div class="absolute inset-0 flex items-center" aria-hidden="true">
-		<div class="w-full border-t light-border dark:dark-border transition-all duration-150" />
+		<div
+			class="w-full border-t light-border-base dark:dark-border-base transition-all duration-150"
+		/>
 	</div>
 	{#if label || icon || $$slots.default}
 		<div

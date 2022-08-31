@@ -203,9 +203,15 @@ module.exports = plugin(
 				'border-color': '#2563eb'
 			},
 			'.light-border': {
-				'border-color': 'rgba(25,25,25,0.1)'
+				'border-color': 'rgba(25,25,25,0.05)'
 			},
 			'.dark-border': {
+				'border-color': 'rgba(89,90,92,0.35)'
+			},
+			'.light-border-base': {
+				'border-color': 'rgba(25,25,25,0.1)'
+			},
+			'.dark-border-base': {
 				'border-color': 'rgba(89,90,92,0.4)'
 			}
 		});
@@ -215,7 +221,12 @@ module.exports = plugin(
 		theme: {
 			extend: {
 				boxShadow: {
-					negative: '0 -10px 15px -3px rgb(0 0 0 / 0.1), 0 -4px 6px -4px rgb(0 0 0 / 0.1);'
+					'negative-sm': '0 -1px 2px 0 rgb(0 0 0 / 0.05);',
+					negative: '0 -1px 3px 0 rgb(0 0 0 / 0.1), 0 -1px 2px -1px rgb(0 0 0 / 0.1);',
+					'negative-md': '0 -4px 6px -1px rgb(0 0 0 / 0.1), 0 -2px 4px -2px rgb(0 0 0 / 0.1);',
+					'negative-lg': '0 -10px 15px -3px rgb(0 0 0 / 0.1), 0 -4px 6px -4px rgb(0 0 0 / 0.1);',
+					'negative-xl': '0 -20px 25px -5px rgb(0 0 0 / 0.1), 0 -8px 10px -6px rgb(0 0 0 / 0.1);',
+					'negative-2xl': '0 -25px 50px -12px rgb(0 0 0 / 0.25);'
 				},
 				colors: {
 					transparent: 'transparent',

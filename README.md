@@ -22,7 +22,7 @@ The list:
 - [x] 14. Command Palette
 - [x] 15. DatePicker
 - [x] 16. Divider
-- [ ] 17. Drawer
+- [x] 17. Drawer
 - [x] 18. Dropdown
 - [x] 19. Empty
 - [ ] 20. Feed
@@ -43,11 +43,12 @@ The list:
 - [x] 35. Sidebar
 - [ ] 36. Skeleton
 - [ ] 37. Slider
-- [ ] 38. Steps
-- [x] 39. Swap
-- [ ] 40. Table
-- [ ] 41. Tabs
-- [x] 42. TextArea
-- [ ] 43. Timeline
-- [x] 44. Toggle
+- [ ] 38. Statistic
+- [ ] 39. Steps
+- [x] 40. Swap
+- [ ] 41. Table
+- [ ] 42. Tabs
+- [x] 43. TextArea
+- [ ] 44. Timeline
+- [x] 45. Toggle
 - And more when I have time!
