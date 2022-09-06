@@ -19,16 +19,16 @@
 	"scripts": {
 		"dev": "vite dev --open --host --port 5555",
 		"build": "vite build",
-		"package": "svelte-kit package;",
+		"package": "svelte-package;",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"package:patch": "npm version patch && svelte-kit package",
-		"package:minor": "npm version minor && svelte-kit package",
-		"package:major": "npm version major && svelte-kit package",
+		"package:patch": "npm version patch && svelte-package",
+		"package:minor": "npm version minor && svelte-package",
+		"package:major": "npm version major && svelte-package",
 		"prepare:git": "npm run format && npm run lint && git add -u"
 	},
 	"devDependencies": {
@@ -36,7 +36,6 @@
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
-		"@sveltejs/package": "^1.0.0-next.3",
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.7",
