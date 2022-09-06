@@ -9,6 +9,8 @@
 	export let use: ActionArray = [];
 	const forwardEvents = forwardEventsBuilder(current_component);
 
+	export let noPadding = false;
+
 	useContext({
 		context_id: CARD_CONTEXT_ID,
 		parent: 'Card',
@@ -17,9 +19,11 @@
 </script>
 
 <div
-	class="px-4 py-5 sm:px-6 first:rounded-t-md last:rounded-b-md{$$props.class
-		? ` ${$$props.class}`
-		: ''}"
+	class="first:rounded-t-md last:rounded-b-md{$$props.class ? ` ${$$props.class}` : ''}"
+	class:px-4={!noPadding}
+	class:py-5={!noPadding}
+	class:sm:px-6={!noPadding}
+	class:p-0={noPadding}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

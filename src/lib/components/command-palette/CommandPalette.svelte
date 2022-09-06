@@ -38,9 +38,8 @@
 		in:scale={{ start: 0.9, duration: 250, delay: 150 }}
 		out:scale={{ start: 0.95, duration: 150 }}
 	>
-		<!-- TODO: divide-y align with .light-border and .dark-border -->
 		<div
-			class="mx-auto max-w-xl transform divide-y divide-gray-100 dark:divide-gray-700 overflow-hidden rounded-md bg-light-surface dark:bg-dark-surface shadow-2xl dark:shadow-black transition-all duration-150 pointer-events-auto"
+			class="mx-auto max-w-xl transform divide-y divide-light-border dark:divide-dark-border overflow-hidden rounded-md bg-light-surface dark:bg-dark-surface shadow-2xl dark:shadow-black transition-all duration-150 pointer-events-auto"
 		>
 			{#if onChange}
 				<div class="relative">

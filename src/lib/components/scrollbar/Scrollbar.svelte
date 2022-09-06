@@ -2,6 +2,7 @@
 	import { Svrollbar } from 'svrollbar';
 
 	export let twMaxHeight = 'max-h-full';
+	export let id: string;
 
 	let viewport: Element;
 	let contents: Element;
@@ -10,13 +11,14 @@
 <div class="wrapper {twMaxHeight} bg-transparent">
 	<div
 		bind:this={viewport}
+		{id}
 		class="viewport {twMaxHeight}{$$props.class ? ` ${$$props.class}` : ''}"
 	>
 		<div bind:this={contents} class="contents {twMaxHeight}">
 			<slot />
 		</div>
 	</div>
-	<Svrollbar {viewport} {contents} initiallyVisible />
+	<Svrollbar {viewport} {contents} />
 </div>
 
 <style>

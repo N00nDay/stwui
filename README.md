@@ -27,14 +27,14 @@ The list:
 - [x] 19. Empty
 - [ ] 20. Feed
 - [x] 21. Layout
-- [ ] 22. List
+- [x] 22. List
 - [ ] 23. Loading
 - [x] 24. Media
 - [ ] 25. Menu
 - [x] 26. Modal
 - [x] 27. Header
 - [x] 28. Notification
-- [ ] 29. Pagination
+- [x] 29. Pagination
 - [x] 30. Portal
 - [x] 31. Progress
 - [x] 32. Radio
@@ -43,10 +43,10 @@ The list:
 - [x] 35. Sidebar
 - [ ] 36. Skeleton
 - [ ] 37. Slider
-- [ ] 38. Statistic
+- [x] 38. Statistic
 - [ ] 39. Steps
 - [x] 40. Swap
-- [ ] 41. Table
+- [x] 41. Table
 - [ ] 42. Tabs
 - [x] 43. TextArea
 - [ ] 44. Timeline

@@ -73,12 +73,20 @@
 			href: './input'
 		},
 		{
+			title: 'List',
+			href: './list'
+		},
+		{
 			title: 'Modal',
 			href: './modal'
 		},
 		{
 			title: 'Notification',
 			href: './notification'
+		},
+		{
+			title: 'Pagination',
+			href: './pagination'
 		},
 		{
 			title: 'Progress',
@@ -93,8 +101,16 @@
 			href: './select'
 		},
 		{
+			title: 'Statistic',
+			href: './statistic'
+		},
+		{
 			title: 'Swap',
 			href: './swap'
+		},
+		{
+			title: 'Table',
+			href: './table?orderBy=created_at&order=asc&page=1'
 		},
 		{
 			title: 'Toggle',
@@ -260,14 +276,14 @@
 		>
 			<LayoutSidebar logo="/full-dark-theme.png" items={sidbarItems} {sidebarWidth} />
 			<LayoutBody
-				class="relative lg:pl-0 overflow-x-hidden overflow-y-auto pt-[var(--sat)] pb-[var(--sab)] pr-[var(--sar)] pl-[var(--sal)]"
+				class="relative h-full lg:pl-0 overflow-x-hidden overflow-y-auto pt-[var(--sat)] pb-[var(--sab)] pr-[var(--sar)] pl-[var(--sal)]"
 			>
 				<div
-					class="p-3 transition-all duration-150 {sidebarWidth !== sidebarFullWidth
+					class="p-3 transition-all duration-150 h-full {sidebarWidth !== sidebarFullWidth
 						? 'lg:pl-0'
 						: ''}"
 				>
-					<Row gutter="3">
+					<Row gutter="3" class="h-full">
 						<slot />
 					</Row>
 				</div>

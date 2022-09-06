@@ -28,7 +28,7 @@
 		| undefined = undefined;
 	export let block: true | false = false;
 	export let loaderColor: string | undefined = undefined;
-	export let shape: 'square' | 'circle' | 'rounded' = 'rounded';
+	export let shape: 'square' | 'circle' | 'rounded' | 'pill' = 'rounded';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fab' = 'md';
 	export let icon: MaterialIcons | undefined = undefined;
 	export let leading: MaterialIcons | undefined = undefined;
@@ -109,6 +109,7 @@
 	class:circle={shape === 'circle'}
 	class:rounded={shape === 'rounded'}
 	class:square={shape === 'square'}
+	class:pill={shape === 'pill'}
 	class:xs={size === 'xs'}
 	class:sm={size === 'sm'}
 	class:md={size === 'md'}
@@ -121,10 +122,10 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	{#if loading && !icon && !leading && !trailing}
-		<ButtonLoader class=" relative z-10" color={buttonLoaderColor} />
+		<ButtonLoader class=" relative" color={buttonLoaderColor} />
 	{/if}
 	{#if leading}
-		<div class="mr-2 flex justify-center items-center relative z-10">
+		<div class="mr-2 flex justify-center items-center relative">
 			<Swap {loading} {swapped}>
 				<svelte:fragment slot="icon1">
 					<span class="material-icons {iconSize}"> {leading} </span>
@@ -140,7 +141,7 @@
 		</div>
 	{/if}
 	{#if icon}
-		<Swap {loading} {swapped} class=" relative z-10">
+		<Swap {loading} {swapped} class=" relative">
 			<svelte:fragment slot="icon1">
 				<span class="material-icons {iconSize}"> {icon} </span>
 			</svelte:fragment>
@@ -157,7 +158,7 @@
 		<slot />
 	{/if}
 	{#if trailing}
-		<div class="ml-2 flex justify-center items-center  relative z-10">
+		<div class="ml-2 flex justify-center items-center relative">
 			<Swap {loading} {swapped}>
 				<svelte:fragment slot="icon1">
 					<span class="material-icons {iconSize}"> {trailing} </span>
@@ -178,6 +179,8 @@
 				? 'rounded-full'
 				: shape === 'rounded'
 				? 'rounded-md'
+				: shape === 'pill'
+				? 'rounded-3xl'
 				: 'rounded-none'}
 		/>
 	{/if}
@@ -348,6 +351,10 @@
 
 	.rounded {
 		@apply rounded-md;
+	}
+
+	.pill {
+		@apply rounded-3xl;
 	}
 
 	.circle.xs {

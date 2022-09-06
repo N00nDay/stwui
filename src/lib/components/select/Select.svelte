@@ -140,7 +140,7 @@
 
 							{#if option === value}
 								<span
-									transition:scale
+									transition:scale|local
 									class="text-primary absolute inset-y-0 right-0 flex items-center pr-4"
 								>
 									<!-- Heroicon name: solid/check -->

@@ -36,7 +36,7 @@
 >
 	<div class="flex flex-col transition-all duration-150" style="width: {sidebarWidth}px;">
 		<div class="flex-1 flex flex-col min-h-0 transition-all duration-150">
-			<Scrollbar class="flex-1 flex flex-col pt-3 pb-4">
+			<Scrollbar id="sidebar" class="flex-1 flex flex-col pt-3 pb-4">
 				<nav class="flex-1">
 					<div class="px-3 space-y-1">
 						{#each items as item}

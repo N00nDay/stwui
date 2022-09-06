@@ -10,22 +10,20 @@
 		"sourceMap": true,
 		"strict": true,
 		"baseUrl": ".",
-		"paths": {
-			"$app": [".svelte-kit/dev/runtime/app"],
-			"$app/*": [".svelte-kit/dev/runtime/app"],
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"]
-		},
 		"typeRoots": ["node_modules/@types"],
-		// "lib": ["es5", "es6", "dom", "dom.Iterable"],
-
 		"importsNotUsedAsValues": "error",
 		"preserveValueImports": true,
 		"isolatedModules": true,
 		"moduleResolution": "node",
 		"module": "es2020",
 		"lib": ["es2020", "DOM"],
-		"target": "es2020"
+		"target": "es2020",
+		"paths": {
+			"$app": [".svelte-kit/dev/runtime/app"],
+			"$app/*": [".svelte-kit/dev/runtime/app"],
+			"$lib": ["src/lib"],
+			"$lib/*": ["src/lib/*"]
+		}
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "plugin/index.ts"]
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
 }

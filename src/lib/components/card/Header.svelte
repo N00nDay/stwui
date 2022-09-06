@@ -19,7 +19,7 @@
 </script>
 
 <div
-	class="first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 h-16 border border-l-0 border-t-0 border-r-0{$$slots.extras
+	class="first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 h-16{$$slots.extras
 		? ' flex flex-row items-center justify-between'
 		: ''}{$$props.class ? ` ${$$props.class}` : ''}"
 	class:border-b={divided}

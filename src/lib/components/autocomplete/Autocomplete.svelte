@@ -136,7 +136,7 @@
 
 			{#if value && value.length > 0}
 				<span
-					transition:scale
+					transition:scale|local
 					class="absolute inset-y-0 z-10 right-8 items-center cursor-pointer hidden group-focus-within:flex active:flex"
 					on:click={handleClear}
 				>
@@ -189,7 +189,7 @@
 
 								{#if option === value}
 									<span
-										transition:scale
+										transition:scale|local
 										class="text-primary absolute inset-y-0 right-0 flex items-center pr-4"
 									>
 										<!-- Heroicon name: solid/check -->

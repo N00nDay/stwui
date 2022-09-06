@@ -47,7 +47,9 @@
 </script>
 
 <div
-	class="relative h-auto mr-0 ml-0 block box-border before:table before:content-[''] after:table after:content-[''] after:clear-both"
+	class="relative mr-0 ml-0 block box-border before:table before:content-[''] after:table after:content-[''] after:clear-both{$$props.class
+		? ` ${$$props.class}`
+		: ''}"
 	class:flex={justify !== undefined}
 	class:flex-row={justify !== undefined}
 	class:flex-wrap={justify !== undefined}

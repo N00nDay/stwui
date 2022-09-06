@@ -24,7 +24,7 @@
 	<span class="swap-on absolute inset-0">
 		<slot name="icon1" />
 	</span>
-	<span class="swap-off absolute inset-0">
+	<span class="swap-off absolute inset-0 {loading || swapped ? 'isOn' : 'isOff'}">
 		<slot name="icon2" />
 	</span>
 </div>

@@ -1,30 +1,33 @@
 <script lang="ts">
-	export let content: string;
 	export let type: 'info' | 'success' | 'warn' | 'error' = 'info';
 	export let size: 'default' | 'large' = 'default';
 	export let withDot = false;
 	export let shape: 'default' | 'rounded' | 'square' = 'default';
 	export let onClose: (() => void) | undefined = undefined;
+	export let background: string | undefined = undefined;
+	export let color: string | undefined = undefined;
 </script>
 
 <span
-	class="inline-flex items-center py-0.5 font-medium bg-opacity-20 dark:bg-opacity-20"
-	class:bg-info-background={type === 'info'}
-	class:dark:bg-dark-info-background={type === 'info'}
-	class:text-info-content={type === 'info'}
-	class:dark:text-dark-info-content={type === 'info'}
-	class:bg-success-background={type === 'success'}
-	class:dark:bg-dark-success-background={type === 'success'}
-	class:text-success-content={type === 'success'}
-	class:dark:text-dark-success-content={type === 'success'}
-	class:bg-warn-background={type === 'warn'}
-	class:dark:bg-dark-warn-background={type === 'warn'}
-	class:text-warn-content={type === 'warn'}
-	class:dark:text-dark-warn-content={type === 'warn'}
-	class:bg-error-background={type === 'error'}
-	class:dark:bg-dark-error-background={type === 'error'}
-	class:text-error-content={type === 'error'}
-	class:dark:text-dark-error-content={type === 'error'}
+	class="inline-flex items-center py-0.5 font-medium bg-opacity-20 dark:bg-opacity-20{background
+		? ` ${background}`
+		: ''}{color ? ` ${color}` : ''}"
+	class:bg-info-background={type === 'info' && !background}
+	class:dark:bg-dark-info-background={type === 'info' && !background}
+	class:text-info-content={type === 'info' && !color}
+	class:dark:text-dark-info-content={type === 'info' && !color}
+	class:bg-success-background={type === 'success' && !background}
+	class:dark:bg-dark-success-background={type === 'success' && !background}
+	class:text-success-content={type === 'success' && !color}
+	class:dark:text-dark-success-content={type === 'success' && !color}
+	class:bg-warn-background={type === 'warn' && !background}
+	class:dark:bg-dark-warn-background={type === 'warn' && !background}
+	class:text-warn-content={type === 'warn' && !color}
+	class:dark:text-dark-warn-content={type === 'warn' && !color}
+	class:bg-error-background={type === 'error' && !background}
+	class:dark:bg-dark-error-background={type === 'error' && !background}
+	class:text-error-content={type === 'error' && !color}
+	class:dark:text-dark-error-content={type === 'error' && !color}
 	class:px-2.5={size === 'default'}
 	class:px-3={size === 'large'}
 	class:text-xs={size === 'default'}
@@ -50,7 +53,7 @@
 			<circle cx="4" cy="4" r="3" />
 		</svg>
 	{/if}
-	{content}
+	<slot />
 	{#if onClose}
 		<button
 			on:click={onClose}

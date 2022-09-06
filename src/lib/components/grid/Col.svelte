@@ -15,7 +15,7 @@
 		parent: 'Row',
 		component: 'Col'
 	});
-	const { padding } = getContext(ROW_CONTEXT_ID);
+	const { padding }: { padding: string } = getContext(ROW_CONTEXT_ID);
 </script>
 
 <div

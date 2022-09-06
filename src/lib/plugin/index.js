@@ -249,7 +249,8 @@ module.exports = plugin(
 					'light-icon': '#050505',
 					'light-icon-background': '#E4E6EB',
 					'light-icon-background-hover': 'rgba(0, 0, 0, 0.05)',
-					'light-border': '#E4E6EB',
+					'light-border': 'rgba(25,25,25,0.05)',
+					'light-border-base': 'rgba(25,25,25,0.1)',
 
 					'dark-surface': '#242526',
 					'dark-background': '#18191A',
@@ -257,10 +258,9 @@ module.exports = plugin(
 					'dark-secondary-content': 'rgba(255, 255, 255, .85)',
 					'dark-icon': '#ffffff',
 					'dark-icon-background': '#404040',
-					// 'dark-icon-background-hover': '#404040',
-					// 'dark-icon-background': 'rgba(255,255,255,.1)',
 					'dark-icon-background-hover': 'rgba(255, 255, 255, 0.1)',
-					'dark-border': '#404040',
+					'dark-border': 'rgba(89,90,92,0.35)',
+					'dark-border-base': 'rgba(89,90,92,0.4)',
 
 					'info-content': '#1d4ed8',
 					'dark-info-content': '#eff6ff',
@@ -289,6 +289,9 @@ module.exports = plugin(
 					'warn-secondary-content': '#a16207',
 					'dark-warn-secondary-content': '#fef08a',
 					'warn-icon': '#facc15'
+				},
+				scale: {
+					flip: '-1'
 				}
 			}
 		}

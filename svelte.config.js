@@ -13,15 +13,15 @@ const config = {
 	],
 
 	kit: {
-		adapter: vercel(),
-		package: {
-			exports: (filepath) => {
-				return filepath.endsWith('index.js');
-			},
-			files: (filepath) => {
-				return !filepath.endsWith('.text.ts');
-			}
-		}
+		adapter: vercel()
+		// package: {
+		// 	exports: (filepath) => {
+		// 		return filepath.endsWith('index.js');
+		// 	},
+		// 	files: (filepath) => {
+		// 		return !filepath.endsWith('.text.ts');
+		// 	}
+		// }
 	}
 };
 
