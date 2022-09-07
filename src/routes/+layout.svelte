@@ -69,6 +69,10 @@
 			href: './empty'
 		},
 		{
+			title: 'Feed',
+			href: './feed'
+		},
+		{
 			title: 'Input',
 			href: './input'
 		},
@@ -105,12 +109,24 @@
 			href: './statistic'
 		},
 		{
+			title: 'Steps',
+			href: './steps'
+		},
+		{
 			title: 'Swap',
 			href: './swap'
 		},
 		{
+			title: 'Tabs',
+			href: './tabs'
+		},
+		{
 			title: 'Table',
 			href: './table?orderBy=created_at&order=asc&page=1'
+		},
+		{
+			title: 'Timeline',
+			href: './timeline'
 		},
 		{
 			title: 'Toggle',

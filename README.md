@@ -25,7 +25,7 @@ The list:
 - [x] 17. Drawer
 - [x] 18. Dropdown
 - [x] 19. Empty
-- [ ] 20. Feed
+- [x] 20. Feed
 - [x] 21. Layout
 - [x] 22. List
 - [ ] 23. Loading
@@ -44,11 +44,11 @@ The list:
 - [ ] 36. Skeleton
 - [ ] 37. Slider
 - [x] 38. Statistic
-- [ ] 39. Steps
+- [x] 39. Steps
 - [x] 40. Swap
 - [x] 41. Table
-- [ ] 42. Tabs
-- [x] 43. TextArea
-- [ ] 44. Timeline
+- [x] 42. Tabs
+- [x] 43. Timeline
+- [x] 44. TextArea
 - [x] 45. Toggle
 - And more when I have time!

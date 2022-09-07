@@ -15,7 +15,7 @@
 		parent: 'Card',
 		component: 'CardHeader'
 	});
-	const { divided } = getContext(CARD_CONTEXT_ID);
+	const { divided }: { divided: boolean } = getContext(CARD_CONTEXT_ID);
 </script>
 
 <div

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 
 	export let src: string | undefined = undefined;
 	export let alt = 'avatar';
@@ -30,7 +30,7 @@
 			class="inline-block {size} relative z-10{$$props.class ? ` ${$$props.class}` : ''}"
 			class:rounded-full={shape === 'circle'}
 			class:rounded-md={shape === 'rounded'}
-			src={browser && src}
+			src={(browser && src) || ''}
 			{alt}
 			on:error={handleError}
 		/>
@@ -68,7 +68,7 @@
 			class="{size}{$$props.class ? ` ${$$props.class}` : ''}"
 			class:rounded-full={shape === 'circle'}
 			class:rounded-md={shape === 'rounded'}
-			src={browser && src}
+			src={(browser && src) || ''}
 			{alt}
 			on:error={handleError}
 		/>
