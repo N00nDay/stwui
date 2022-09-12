@@ -6,7 +6,7 @@
 
 	export let open = false;
 	export let slides: Slide[] = [];
-	export let activeSlide: number = 0;
+	export let activeSlide = 0;
 	export let handleClose: () => void;
 	export let allowDownload = true;
 	export let allowShare = true;

@@ -7,7 +7,7 @@
 	export let allowShare = true;
 
 	let slides: Slide[] = [];
-	let activeSlide: number = 0;
+	let activeSlide = 0;
 	let open = false;
 
 	for (const image of images) {
