@@ -17,7 +17,7 @@
 	/>
 </Col>
 <Col class="col-24 md:col-8">
-	<Statistic title="New Users" value={82} type="percent" showProgress />
+	<Statistic title="New Users" value={82001} goal={100000} />
 </Col>
 
 <Col class="col-24 md:col-8">
@@ -38,5 +38,5 @@
 	/>
 </Col>
 <Col class="col-24 md:col-8">
-	<Statistic title="New Users" value={82} type="percent" showProgress />
+	<Statistic title="New Users" value={82001} goal={100000} />
 </Col>

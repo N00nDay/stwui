@@ -213,6 +213,113 @@ module.exports = plugin(
 			},
 			'.dark-border-base': {
 				'border-color': 'rgba(89,90,92,0.4)'
+			},
+			"input[type='range']": {
+				'-webkit-appearance': 'none',
+				position: 'relative',
+				'border-radius': '1.5rem',
+				'background-color': 'transparent',
+				overflow: 'hidden',
+				width: '100%'
+			},
+			"input[type='range']::before": {
+				content: '',
+				width: '100%',
+				height: '0.5rem',
+				'border-radius': '0.5rem',
+				position: 'absolute',
+				'background-color': 'rgb(240, 242, 245)',
+				top: '50%',
+				transform: 'translateY(-50%)',
+				'transition-property': 'all',
+				'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				'transition-duration': '150ms'
+			},
+			".dark input[type='range']::before": {
+				'background-color': 'rgb(24, 25, 26)'
+			},
+			"input[type='range']::-webkit-slider-runnable-track": {
+				height: '1.5rem',
+				width: '100%',
+				'border-radius': '0.5rem'
+			},
+			"input[type='range']::-moz-range-track": {
+				height: '1.5rem',
+				width: '100%',
+				'border-radius': '0.5rem'
+			},
+			"input[type='range']::-webkit-slider-thumb": {
+				'background-color': 'rgb(255, 255, 255)',
+				position: 'relative',
+				height: '1.5rem',
+				width: '1.5rem',
+				border: 'none',
+				'border-radius': '9999px',
+				'-webkit-appearance': 'none',
+				top: '50%',
+				transform: 'translateY(-50%)',
+				cursor: 'pointer',
+				'transition-property': 'all',
+				'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				'transition-duration': '150ms'
+			},
+			".dark input[type='range']::-webkit-slider-thumb": {
+				'background-color': 'rgb(36, 37, 38)'
+			},
+			"input[type='range']::-moz-range-thumb": {
+				'background-color': 'rgb(255, 255, 255)',
+				position: 'relative',
+				height: '1.5rem',
+				width: '1.5rem',
+				border: 'none',
+				'border-radius': '9999px',
+				'-webkit-appearance': 'none',
+				top: '50%',
+				transform: 'translateY(-50%)',
+				cursor: 'pointer'
+			},
+			".dark input[type='range']::-moz-range-thumb": {
+				'background-color': 'rgb(36, 37, 38)'
+			},
+			"input[type='range'].info::-webkit-slider-thumb": {
+				color: '#3b82f6',
+				'box-shadow':
+					'0 0 0 3px #3b82f6 inset, var(--focus-shadow, 0 0), calc(100rem * -1 - 0.5rem) 0 0 100rem'
+			},
+			"input[type='range'].warn::-webkit-slider-thumb": {
+				color: '#eab308',
+				'box-shadow':
+					'0 0 0 3px #eab308 inset, var(--focus-shadow, 0 0), calc(100rem * -1 - 0.5rem) 0 0 100rem'
+			},
+			"input[type='range'].error::-webkit-slider-thumb": {
+				color: '#ef4444',
+				'box-shadow':
+					'0 0 0 3px #ef4444 inset, var(--focus-shadow, 0 0), calc(100rem * -1 - 0.5rem) 0 0 100rem'
+			},
+			"input[type='range'].success::-webkit-slider-thumb": {
+				color: '#22c55e',
+				'box-shadow':
+					'0 0 0 3px #22c55e inset, var(--focus-shadow, 0 0), calc(100rem * -1 - 0.5rem) 0 0 100rem'
+			},
+			"input[type='range'].info::-moz-range-thumb": {
+				color: '#3b82f6',
+				'box-shadow':
+					'0 0 0 3px #3b82f6 inset, var(--focus-shadow, 0 0), calc(100rem * -1 - 0.5rem) 0 0 100rem'
+			},
+			"input[type='range'].warn::-moz-range-thumb": {
+				color: '#eab308',
+				'box-shadow':
+					'0 0 0 3px #eab308 inset, var(--focus-shadow, 0 0), calc(100rem * -1 - 0.5rem) 0 0 100rem'
+			},
+			"input[type='range'].error::-moz-range-thumb": {
+				color: '#ef4444',
+				'box-shadow':
+					'0 0 0 3px #ef4444 inset, var(--focus-shadow, 0 0), calc(100rem * -1 - 0.5rem) 0 0 100rem'
+			},
+			"input[type='range'].success::-moz-range-thumb": {
+				color: '#22c55e',
+				'box-shadow':
+					'0 0 0 3px #22c55e inset, var(--focus-shadow, 0 0), calc(100rem * -1 - 0.5rem) 0 0 100rem'
 			}
 		});
 	},

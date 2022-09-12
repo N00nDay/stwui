@@ -21,6 +21,10 @@
 
 	const sidbarItems = [
 		{
+			title: 'Accordion',
+			href: './accordion'
+		},
+		{
 			title: 'Alert',
 			href: './alert'
 		},
@@ -49,8 +53,16 @@
 			href: './card'
 		},
 		{
+			title: 'Carousel',
+			href: './carousel'
+		},
+		{
 			title: 'Checkbox',
 			href: './checkbox'
+		},
+		{
+			title: 'Chip',
+			href: './chip'
 		},
 		{
 			title: 'Datepicker',
@@ -81,6 +93,10 @@
 			href: './list'
 		},
 		{
+			title: 'Menu',
+			href: './menu'
+		},
+		{
 			title: 'Modal',
 			href: './modal'
 		},
@@ -93,6 +109,10 @@
 			href: './pagination'
 		},
 		{
+			title: 'Post',
+			href: './post'
+		},
+		{
 			title: 'Progress',
 			href: './progress'
 		},
@@ -103,6 +123,10 @@
 		{
 			title: 'Select',
 			href: './select'
+		},
+		{
+			title: 'Slider',
+			href: './slider'
 		},
 		{
 			title: 'Statistic',

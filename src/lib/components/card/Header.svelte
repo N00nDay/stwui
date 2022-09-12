@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
 	import { getContext } from 'svelte';
 	import { CARD_CONTEXT_ID } from './Card.svelte';
 	import { useContext } from '../../utils/useContext';
@@ -16,16 +17,20 @@
 		component: 'CardHeader'
 	});
 	const { divided }: { divided: boolean } = getContext(CARD_CONTEXT_ID);
+
+	let defaultClass = 'first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 h-16';
+	if ($$props.extras) {
+		defaultClass += ' flex flex-row items-center justify-between';
+	}
+	if (divided) {
+		defaultClass += ' border-b light-border dark:dark-border last:border-b-none';
+	}
+
+	defaultClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class="first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 h-16{$$slots.extras
-		? ' flex flex-row items-center justify-between'
-		: ''}{$$props.class ? ` ${$$props.class}` : ''}"
-	class:border-b={divided}
-	class:light-border={divided}
-	class:dark:dark-border={divided}
-	class:last:border-b-none={divided}
+	class={defaultClass}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

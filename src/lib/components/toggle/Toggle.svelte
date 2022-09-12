@@ -42,7 +42,6 @@
 			class:bg-light-icon-background={!on}
 			class:dark:bg-dark-background={!on}
 			class:bg-primary={on}
-			role="switch"
 		>
 			<span
 				aria-hidden="true"

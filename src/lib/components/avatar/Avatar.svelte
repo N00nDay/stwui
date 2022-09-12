@@ -25,15 +25,6 @@
 		class:rounded-full={shape === 'circle'}
 		class:rounded-md={shape === 'rounded'}
 	>
-		<img
-			bind:this={img}
-			class="inline-block {size} relative z-10{$$props.class ? ` ${$$props.class}` : ''}"
-			class:rounded-full={shape === 'circle'}
-			class:rounded-md={shape === 'rounded'}
-			src={(browser && src) || ''}
-			{alt}
-			on:error={handleError}
-		/>
 		{#if withPlaceholder}
 			<div
 				class="absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden transition-all duration-150 bg-light-icon-background dark:bg-dark-icon-background{$$props.class
@@ -56,6 +47,16 @@
 				</span>
 			</div>
 		{/if}
+
+		<img
+			bind:this={img}
+			class="inline-block {size} absolute {$$props.class ? ` ${$$props.class}` : ''}"
+			class:rounded-full={shape === 'circle'}
+			class:rounded-md={shape === 'rounded'}
+			src={(browser && src) || ''}
+			{alt}
+			on:error={handleError}
+		/>
 	</span>
 {:else if indicator && src}
 	<span

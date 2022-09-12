@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { CARD_CONTEXT_ID } from './Card.svelte';
 	import { useContext } from '../../utils/useContext';
+	import { getContext } from 'svelte';
 
 	import { current_component } from 'svelte/internal';
 	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
@@ -16,6 +17,7 @@
 		parent: 'Card',
 		component: 'CardContent'
 	});
+	const { divided }: { divided: boolean } = getContext(CARD_CONTEXT_ID);
 </script>
 
 <div
@@ -24,6 +26,10 @@
 	class:py-5={!noPadding}
 	class:sm:px-6={!noPadding}
 	class:p-0={noPadding}
+	class:border-b={divided}
+	class:light-border={divided}
+	class:dark:dark-border={divided}
+	class:last:border-b-none={divided}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

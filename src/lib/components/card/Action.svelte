@@ -28,7 +28,7 @@
 </script>
 
 <div
-	class="group relative z-10 transition-all duration-150 w-full h-full cursor-pointer first:rounded-bl-md last:rounded-br-md overflow-hidden{$$props.class
+	class="group relative transition-all duration-150 w-full h-full cursor-pointer first:rounded-bl-md last:rounded-br-md overflow-hidden{$$props.class
 		? ` ${$$props.class}`
 		: ''}"
 	style={$$props.style}
@@ -37,7 +37,7 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<div
-		class="group relative z-10 flex flex-col items-center justify-center h-full w-full transition-all duration-150 group-active:hover:animate-none group-active:hover:scale-90"
+		class="group relative flex flex-col items-center justify-center h-full w-full transition-all duration-150 group-active:hover:animate-none group-active:hover:scale-90"
 	>
 		<span
 			class="material-icons h-6 w-6 transition-all duration-150 text-light-icon dark:text-dark-icon group-hover:text-primary"

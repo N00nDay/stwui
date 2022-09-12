@@ -6,49 +6,50 @@ Add `'./node_modules/sveltekit-tailwind-components/**/*.{svelte,js,ts,html}'` to
 
 The list:
 
-- [x] 1. Alert
-- [x] 2. Avatar
-- [x] 3. AvatarGroup
-- [x] 4. AutoComplete
-- [x] 5. Badge
-- [x] 6. BottomNavigation
-- [x] 7. Breadcrumbs
-- [x] 8. Button
-- [x] 9. ButtonGroup
-- [x] 10. Card
-- [ ] 11. Carousel
-- [x] 12. Checkbox
-- [ ] 13. Collapse
-- [x] 14. Command Palette
-- [x] 15. DatePicker
-- [x] 16. Divider
-- [x] 17. Drawer
-- [x] 18. Dropdown
-- [x] 19. Empty
-- [x] 20. Feed
-- [x] 21. Layout
-- [x] 22. List
-- [ ] 23. Loading
-- [x] 24. Media
-- [ ] 25. Menu
-- [x] 26. Modal
-- [x] 27. Header
-- [x] 28. Notification
-- [x] 29. Pagination
-- [x] 30. Portal
-- [x] 31. Progress
-- [x] 32. Radio
-- [ ] 33. Rate
-- [x] 34. Select
-- [x] 35. Sidebar
-- [ ] 36. Skeleton
-- [ ] 37. Slider
-- [x] 38. Statistic
-- [x] 39. Steps
-- [x] 40. Swap
-- [x] 41. Table
-- [x] 42. Tabs
-- [x] 43. Timeline
-- [x] 44. TextArea
-- [x] 45. Toggle
+- [x] 1. Accordion
+- [x] 2. Alert
+- [x] 3. Avatar
+- [x] 4. AvatarGroup
+- [x] 5. AutoComplete
+- [x] 6. Badge
+- [x] 7. BottomNavigation
+- [x] 8. Breadcrumbs
+- [x] 9. Button
+- [x] 10. ButtonGroup
+- [x] 11. Card
+- [x] 12. Carousel
+- [x] 13. Checkbox
+- [x] 14. Chip
+- [x] 15. Command Palette
+- [x] 16. DatePicker
+- [x] 17. Divider
+- [x] 18. Drawer
+- [x] 19. Dropdown
+- [x] 20. Empty
+- [x] 21. Feed
+- [x] 22. Layout
+- [x] 23. LightBox
+- [x] 24. List
+- [x] 25. Media
+- [x] 26. Menu
+- [x] 27. Modal
+- [x] 28. Header
+- [x] 29. Notification
+- [x] 30. Pagination
+- [x] 31. Portal
+- [x] 32. Progress
+- [x] 33. Post
+- [x] 34. Radio
+- [ ] 35. Rate
+- [x] 36. Select
+- [x] 37. Sidebar
+- [x] 38. Slider
+- [x] 39. Statistic
+- [x] 40. Steps
+- [x] 41. Swap
+- [x] 42. Table
+- [x] 43. Tabs
+- [x] 44. Timeline
+- [x] 45. TextArea
+- [x] 46. Toggle
 - And more when I have time!

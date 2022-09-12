@@ -1,16 +1,14 @@
 <script lang="ts">
 	import type MaterialIcons from '../../types/material-icons';
-	import numberShortner from '../../utils/numberShortner';
-	import percentFormatter from '../../utils/numberFormatter';
+	import numberFormatter from '../../utils/numberFormatter';
 	import { Progress } from '../progress';
 	import { Badge } from '../badge';
 
 	export let title: string;
 	export let icon: MaterialIcons | undefined = undefined;
 	export let value: number;
-	export let type: 'currency' | 'number' | 'percent' = 'number';
-	export let goal = 100;
-	export let showProgress = false;
+	export let type: 'currency' | 'decimal' | 'percent' = 'decimal';
+	export let goal: number | undefined = undefined;
 	export let background: string | undefined = undefined;
 	export let emphasis: string | undefined = undefined;
 	export let light = false;
@@ -21,9 +19,11 @@
 	export let trendColor: string | undefined = undefined;
 
 	let trendValue = !lastYear ? value : value - lastYear;
-	let trendPercent = !lastYear || lastYear === 0 ? 100 : (trendValue / lastYear) * 100;
+	let trendPercent = !lastYear || lastYear === 0 ? 100 : trendValue / lastYear;
 	let trendIcon =
 		trendValue === 0 ? 'trending_flat' : trendValue > 0 ? 'trending_up' : 'trending_down';
+
+	let progress = !goal || goal === 0 ? 100 : (value / goal) * 100;
 </script>
 
 <div
@@ -69,13 +69,16 @@
 		class:text-dark-content={dark}
 		class:dark:text-dark-content={dark || (!dark && !light && !emphasis)}
 	>
-		{#if type === 'currency'}$ {/if}{type === 'percent'
-			? percentFormatter(value)
-			: numberShortner(value, 1)}
+		{numberFormatter(value, {
+			style: type,
+			notation: 'compact',
+			maximumFractionDigits: 1,
+			minimumFractionDigits: 1
+		})}
 	</dd>
-	{#if showProgress}
+	{#if goal}
 		<dd class="mt-2">
-			<Progress value={type === 'percent' && showProgress ? value : value / goal} />
+			<Progress value={progress} />
 		</dd>
 	{/if}
 	{#if lastYear}
@@ -89,9 +92,12 @@
 				class:text-dark-secondary-content={dark}
 				class:dark:text-dark-secondary-content={dark || (!dark && !light && !emphasis)}
 			>
-				Last Year: {#if type === 'currency'}$ {/if}{type === 'percent'
-					? percentFormatter(lastYear)
-					: numberShortner(lastYear, 1)}
+				Last Year: {numberFormatter(lastYear, {
+					style: type,
+					notation: 'compact',
+					maximumFractionDigits: 1,
+					minimumFractionDigits: 1
+				})}
 			</div>
 			{#if showTrend}
 				<Badge
@@ -104,7 +110,14 @@
 					color={trendColor}
 				>
 					<span class="material-icons text-sm">{trendIcon}</span>
-					<span>{numberShortner(trendValue)} ({percentFormatter(trendPercent)})</span>
+					<span
+						>{numberFormatter(trendValue, {
+							style: type,
+							notation: 'compact',
+							maximumFractionDigits: 1,
+							minimumFractionDigits: 1
+						})} ({numberFormatter(trendPercent, { style: 'percent' })})</span
+					>
 				</Badge>
 			{/if}
 		</dd>
