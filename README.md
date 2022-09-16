@@ -40,7 +40,7 @@ The list:
 - [x] 32. Progress
 - [x] 33. Post
 - [x] 34. Radio
-- [ ] 35. Rate
+- [x] 35. Rating
 - [x] 36. Select
 - [x] 37. Sidebar
 - [x] 38. Slider
@@ -52,4 +52,5 @@ The list:
 - [x] 44. Timeline
 - [x] 45. TextArea
 - [x] 46. Toggle
+- [x] 47. Tooltip
 - And more when I have time!

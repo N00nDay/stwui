@@ -37,7 +37,7 @@
 	$: pagination = pageRange(currentPage, totalPages);
 
 	$: previousRoute =
-		`${$page.url.pathname}?` +
+		`${$page.url.pathname}` +
 		encodeSearchParams({
 			orderBy,
 			order,
@@ -45,7 +45,7 @@
 		});
 
 	$: nextRoute =
-		`${$page.url.pathname}?` +
+		`${$page.url.pathname}` +
 		encodeSearchParams({
 			orderBy,
 			order,

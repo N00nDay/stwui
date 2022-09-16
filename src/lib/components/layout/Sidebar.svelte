@@ -13,7 +13,6 @@
 	import HoverBackground from '../HoverBackground.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { LAYOUT_CONTEXT_ID } from './Layout.svelte';
-	import { Svrollbar } from 'svrollbar';
 	import Scrollbar from '../scrollbar/Scrollbar.svelte';
 
 	export let items: Items[] = [];

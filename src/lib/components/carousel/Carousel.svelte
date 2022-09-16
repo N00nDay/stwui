@@ -67,25 +67,25 @@
 	</div>
 	<button
 		on:click={handlePrevious}
-		class="group absolute z-10 top-0 bottom-0 flex items-center justify-center px-4 text-center border-0 hover:outline-none hover:no-underline duration-150 focus:outline-none focus:no-underline left-0"
+		class="group absolute z-10 bg-black bg-opacity-5 top-0 bottom-0 flex items-center justify-center px-4 text-center border-0 outline-none hover:outline-none hover:no-underline duration-150 focus:outline-none focus:no-underline shadow-md left-0"
 		type="button"
 	>
 		<div
 			class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-10 rounded-full scale-95 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95 transition-all duration-150"
 		>
-			<span class="material-icons text-3xl text-light-surface"> arrow_back </span>
+			<span class="material-icons text-3xl text-dark-content"> arrow_back </span>
 			<span class="sr-only">Previous</span>
 		</div>
 	</button>
 	<button
 		on:click={handleNext}
-		class="group absolute z-10 top-0 bottom-0 flex items-center justify-center px-4 text-center border-0 hover:outline-none hover:no-underline duration-150 focus:outline-none focus:no-underline right-0"
+		class="group absolute z-10 bg-black bg-opacity-5 top-0 bottom-0 flex items-center justify-center px-4 text-center border-0 outline-none hover:outline-none hover:no-underline duration-150 focus:outline-none focus:no-underline shadow-md right-0"
 		type="button"
 	>
 		<div
 			class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-10 rounded-full scale-95 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95 transition-all duration-150"
 		>
-			<span class="material-icons text-3xl text-light-surface"> arrow_forward </span>
+			<span class="material-icons text-3xl text-dark-content"> arrow_forward </span>
 			<span class="sr-only">Next</span>
 		</div>
 	</button>

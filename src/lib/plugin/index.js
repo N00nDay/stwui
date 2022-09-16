@@ -320,6 +320,20 @@ module.exports = plugin(
 				color: '#22c55e',
 				'box-shadow':
 					'0 0 0 3px #22c55e inset, var(--focus-shadow, 0 0), calc(100rem * -1 - 0.5rem) 0 0 100rem'
+			},
+			'body .tippy-box': {
+				'background-color': 'rgba(242, 242, 242, 0.85)',
+				color: '#050505',
+				border: '1px solid rgba(25,25,25,0.05)',
+				'box-shadow':
+					'var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
+			},
+			'.dark body .tippy-box': {
+				'background-color': 'rgba(64, 64, 64, 0.7)',
+				color: '#ffffff',
+				border: '1px solid rgba(89,90,92,0.35)',
+				'box-shadow':
+					'var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), #000'
 			}
 		});
 	},

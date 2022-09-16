@@ -9,16 +9,21 @@
 	import { Avatar } from '../avatar';
 
 	export let details: Details;
-	export let type: 'info' | 'success' | 'warn' | 'error' = 'info';
+	export let type: 'info' | 'success' | 'warn' | 'error' | 'default' = 'default';
 	export let onClose: (() => void) | undefined = undefined;
+	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 	export let background: string | undefined = undefined;
 	export let color: string | undefined = undefined;
 </script>
 
 <span
-	class="inline-flex items-center py-0.5 pr-3 text-sm font-medium transition-all duration-150 bg-opacity-20 dark:bg-opacity-20 rounded-full{background
+	class="inline-flex items-center pr-3 text-sm font-medium transition-all duration-150 border border-light-border dark:border-dark-border dark:shadow-black shadow-md bg-opacity-20 dark:bg-opacity-20 rounded-full{background
 		? ` ${background}`
 		: ''}{color ? ` ${color}` : ''}{$$props.class ? ` ${$$props.class}` : ''}"
+	class:bg-light-surface={type === 'default' && !background}
+	class:dark:bg-dark-surface={type === 'default' && !background}
+	class:text-light-content={type === 'default' && !color}
+	class:dark:text-dark-content={type === 'default' && !color}
 	class:bg-info-background={type === 'info' && !background}
 	class:dark:bg-dark-info-background={type === 'info' && !background}
 	class:text-info-content={type === 'info' && !color}
@@ -37,13 +42,17 @@
 	class:dark:text-dark-error-content={type === 'error' && !color}
 	class:pr-1.5={onClose}
 >
-	<Avatar src={details.avatar} alt="user-avatar" />
+	<Avatar src={details.avatar} alt="user-avatar" {size} />
 	<span class="pl-2">{details.name}</span>
 	{#if onClose}
 		<button
 			on:click={onClose}
 			type="button"
-			class="flex-shrink-0 ml-2 h-8 w-8 rounded-full inline-flex items-center justify-center focus:outline-none active:text-white hover:text-white dark:hover:text-white transition-all duration-150"
+			class="flex-shrink-0 ml-2 h-8 w-8 rounded-full inline-flex items-center justify-center outline-none focus:outline-none active:text-white hover:text-white dark:hover:text-white transition-all duration-150"
+			class:hover:bg-light-background={type === 'default'}
+			class:dark:hover:bg-dark-background={type === 'default'}
+			class:text-light-content={type === 'default'}
+			class:dark:text-dark-content={type === 'default'}
 			class:hover:bg-info-background={type === 'info'}
 			class:dark:hover:bg-dark-info-background={type === 'info'}
 			class:text-info-content={type === 'info'}

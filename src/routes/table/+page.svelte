@@ -60,7 +60,7 @@
 
 <Col class="col-24 h-full">
 	<Card bordered={false} class="h-full">
-		<CardHeader class="font-bold text-lg"
+		<CardHeader class="font-bold text-lg flex justify-between items-center py-3"
 			>Card Header
 			<Button slot="extras" type="primary" leading="add">New Item</Button>
 		</CardHeader>

@@ -22,7 +22,14 @@
 <Col class="col-24">
 	<Card bordered={false}>
 		<CardHeader>Carousel</CardHeader>
-		<CardContent class="p-4">
+		<CardContent class="p-4 h-96 bg-black">
+			<Carousel {slides} />
+		</CardContent>
+	</Card>
+
+	<Card bordered={false}>
+		<CardHeader>Carousel</CardHeader>
+		<CardContent class="p-4 h-[30rem] bg-black">
 			<Carousel {slides} />
 		</CardContent>
 	</Card>

@@ -14,10 +14,11 @@
 	<Card bordered={false}>
 		<CardHeader>Chip</CardHeader>
 		<CardContent class="p-4">
-			<Chip {details} />
-			<Chip {details} type="success" />
+			<Chip {details} size="xs" />
+			<Chip {details} size="sm" type="success" />
 			<Chip {details} type="warn" />
-			<Chip {details} type="error" />
+			<Chip {details} size="lg" type="error" />
+			<Chip {details} size="xl" />
 		</CardContent>
 	</Card>
 </Col>
@@ -26,7 +27,7 @@
 	<Card bordered={false}>
 		<CardHeader>Chip</CardHeader>
 		<CardContent class="p-4">
-			<Chip {details} onClose={() => console.log('chip closed!')} />
+			<Chip type="info" {details} onClose={() => console.log('chip closed!')} />
 			<Chip {details} onClose={() => console.log('chip closed!')} />
 		</CardContent>
 	</Card>

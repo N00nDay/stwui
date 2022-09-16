@@ -59,7 +59,7 @@
 	</h2>
 	{#if $openItems.includes(label)}
 		<div
-			transition:slide
+			transition:slide|local
 			class="border-t border-light-border dark:border-dark-border text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150{$$props.class
 				? ` ${$$props.class}`
 				: ''}"

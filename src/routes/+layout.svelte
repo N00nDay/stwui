@@ -121,6 +121,10 @@
 			href: './radio'
 		},
 		{
+			title: 'Rating',
+			href: './rating'
+		},
+		{
 			title: 'Select',
 			href: './select'
 		},
@@ -155,6 +159,10 @@
 		{
 			title: 'Toggle',
 			href: './toggle'
+		},
+		{
+			title: 'Tooltip',
+			href: './tooltip'
 		}
 	];
 
@@ -243,7 +251,7 @@
 		<div
 			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-primary dark:bg-dark-surface shadow-md dark:shadow-black transition-all duration-150"
 		/>
-		<LayoutHeader title="Dashboard" {toggleSidebarWidth}>
+		<LayoutHeader {toggleSidebarWidth}>
 			<Button
 				shape="circle"
 				icon="menu"
