@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-	import { Avatar } from '../avatar';
+	import Avatar from '../avatar';
 
 	export let details: Details;
 	export let type: 'info' | 'success' | 'warn' | 'error' | 'default' = 'default';

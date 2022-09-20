@@ -3,10 +3,13 @@
 </script>
 
 <script lang="ts">
+	import { validateSlots } from '$lib/utils/validateSlots';
+
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
+	import { twMerge } from 'tailwind-merge';
 
-	export let openItems: string[] = [];
+	export let openItems: number[] = [];
 	export let onlyOne = false;
 
 	let activeItems = writable(openItems);
@@ -16,8 +19,13 @@
 		openItems: activeItems,
 		onlyOne
 	});
+
+	validateSlots($$slots, ['default'], 'Accordion');
+
+	const defaultClass = 'rounded-md';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class="rounded-md">
+<div class={finalClass} style={$$props.style}>
 	<slot />
 </div>

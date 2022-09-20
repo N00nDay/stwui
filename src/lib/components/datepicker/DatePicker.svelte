@@ -4,8 +4,8 @@
 	import type { Locale } from './locale';
 	import dayjs, { Dayjs } from 'dayjs';
 	import { fly } from 'svelte/transition';
-	import { Card } from '../card';
-	import { Button } from '../button';
+	import Card from '../card';
+	import Button from '../button';
 
 	export let value: Dayjs | null = null;
 	export let handleSelect: (d: Dayjs) => void;

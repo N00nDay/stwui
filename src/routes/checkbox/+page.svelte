@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import { CheckboxGroup } from '../../lib/components/checkbox';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Checkbox</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Checkbox</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<CheckboxGroup
 				options={[
 					{ label: 'Checkbox-1', name: 'cb-1', value: 'cb-1' },
@@ -37,6 +37,6 @@
 					{ label: 'Checkbox-4', name: 'cb-12', value: 'cb-4', description: 'desc-4' }
 				]}
 			/>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

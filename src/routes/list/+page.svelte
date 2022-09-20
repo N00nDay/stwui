@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { IListItem } from '../../lib/components/list/Item.svelte';
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import { List, ListItem } from '../../lib/components/list';
 
 	const items: IListItem[] = [
@@ -48,34 +48,34 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>List Basic</CardHeader>
-		<CardContent>
+		<Card.Header slot="header">List Basic</Card.Header>
+		<Card.Content slot="content">
 			<List>
 				{#each items as item}
 					<ListItem avatar={item.avatar} title={item.title} description={item.description} />
 				{/each}
 			</List>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>List No Dividers</CardHeader>
-		<CardContent>
+		<Card.Header slot="header">List No Dividers</Card.Header>
+		<Card.Content slot="content">
 			<List divided={false}>
 				{#each items as item}
 					<ListItem avatar={item.avatar} title={item.title} description={item.description} />
 				{/each}
 			</List>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>List With Extra</CardHeader>
-		<CardContent>
+		<Card.Header slot="header">List With Extra</Card.Header>
+		<Card.Content slot="content">
 			<List>
 				{#each items as item}
 					<ListItem
@@ -86,84 +86,84 @@
 					/>
 				{/each}
 			</List>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>List Edge To Edge</CardHeader>
-		<CardContent noPadding>
+		<Card.Header slot="header">List Edge To Edge</Card.Header>
+		<Card.Content slot="content" noPadding>
 			<List edgeToEdge>
 				{#each items as item}
 					<ListItem avatar={item.avatar} title={item.title} description={item.description} />
 				{/each}
 			</List>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>List Bordered</CardHeader>
-		<CardContent>
+		<Card.Header slot="header">List Bordered</Card.Header>
+		<Card.Content slot="content">
 			<List bordered>
 				{#each items as item}
 					<ListItem avatar={item.avatar} title={item.title} description={item.description} />
 				{/each}
 			</List>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>List No Avatar</CardHeader>
-		<CardContent>
+		<Card.Header slot="header">List No Avatar</Card.Header>
+		<Card.Content slot="content">
 			<List bordered>
 				{#each items as item}
 					<ListItem title={item.title} description={item.description} />
 				{/each}
 			</List>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>List No Description</CardHeader>
-		<CardContent>
+		<Card.Header slot="header">List No Description</Card.Header>
+		<Card.Content slot="content">
 			<List bordered>
 				{#each items as item}
 					<ListItem avatar={item.avatar} title={item.title} />
 				{/each}
 			</List>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>List Title Only</CardHeader>
-		<CardContent>
+		<Card.Header slot="header">List Title Only</Card.Header>
+		<Card.Content slot="content">
 			<List bordered>
 				{#each items as item}
 					<ListItem title={item.title} />
 				{/each}
 			</List>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>List Description Only</CardHeader>
-		<CardContent>
+		<Card.Header slot="header">List Description Only</Card.Header>
+		<Card.Content slot="content">
 			<List bordered>
 				{#each items as item}
 					<ListItem description={item.description} />
 				{/each}
 			</List>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

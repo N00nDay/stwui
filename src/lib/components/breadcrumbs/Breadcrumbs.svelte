@@ -9,13 +9,18 @@
 </script>
 
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
+
 	export let crumbs: ICrumb[] = [];
 	export let type: 'solid' | 'ghost' = 'ghost';
+
+	const defaultClass = 'flex items-center space-x-4 transition-all duration-150';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <nav class="flex" aria-label="Breadcrumb">
 	<ol
-		class="flex items-center space-x-4 transition-all duration-150"
+		class={finalClass}
 		class:border={type === 'solid'}
 		class:light-border={type === 'solid'}
 		class:dark:dark-border={type === 'solid'}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 
 	import { Col } from '../../lib/components/grid';
 	import { Steps } from '../../lib/components/steps';
@@ -25,36 +25,36 @@
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<CardHeader>Simple</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Simple</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Steps steps={steps1} currentStep={2} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<CardHeader>Bullets</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Bullets</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Steps variant="bullets" steps={steps1} currentStep={2} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<CardHeader>Bullets & Text</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Bullets & Text</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Steps variant="bullets-text" steps={steps1} currentStep={2} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<CardHeader>Circles & Text</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Circles & Text</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Steps variant="circles-text" steps={steps1} currentStep={2} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

@@ -1,3 +1,3 @@
 import Breadcrumbs from './Breadcrumbs.svelte';
 
-export { Breadcrumbs };
+export default Breadcrumbs;

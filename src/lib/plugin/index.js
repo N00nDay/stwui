@@ -334,6 +334,9 @@ module.exports = plugin(
 				border: '1px solid rgba(89,90,92,0.35)',
 				'box-shadow':
 					'var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), #000'
+			},
+			'.isOff': {
+				animation: 'none !important'
 			}
 		});
 	},

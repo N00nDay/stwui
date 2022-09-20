@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 
 	import { Col } from '../../lib/components/grid';
 	import { Timeline, type TimelineItem } from '../../lib/components/timeline';
@@ -54,9 +54,9 @@
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<CardHeader>Default</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Default</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Timeline {timeline} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

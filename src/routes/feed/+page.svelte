@@ -1,8 +1,13 @@
 <script lang="ts">
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 
 	import { Col } from '../../lib/components/grid';
 	import { Feed, type FeedItem } from '../../lib/components/feed';
+
+	const dateFormat2: Intl.DateTimeFormatOptions = {
+		day: 'numeric',
+		month: 'short'
+	};
 
 	const feed1: FeedItem[] = [
 		{
@@ -93,18 +98,18 @@
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<CardHeader>Simple</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Simple</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Feed feed={feed1} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<CardHeader>Stacked</CardHeader>
-		<CardContent noPadding>
-			<Feed feed={feed2} variant="stacked" />
-		</CardContent>
+		<Card.Header slot="header">Stacked</Card.Header>
+		<Card.Content slot="content" noPadding>
+			<Feed feed={feed2} variant="stacked" dateFormat={dateFormat2} />
+		</Card.Content>
 	</Card>
 </Col>

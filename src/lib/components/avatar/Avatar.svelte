@@ -94,14 +94,12 @@
 	</span>
 {:else if initials}
 	<span
-		class="inline-flex items-center justify-center align-middle {size} bg-gray-500{$$props.class
-			? ` ${$$props.class}`
-			: ''}"
+		class="inline-flex items-center justify-center align-middle transition-all duration-150 {size} bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content"
 		class:rounded-full={shape === 'circle'}
 		class:rounded-md={shape === 'rounded'}
 	>
 		<span
-			class="font-medium leading-none text-white"
+			class="font-bold leading-none text-current"
 			class:text-xs={size === 'xs'}
 			class:text-sm={size === 'sm'}
 			class:text-xl={size === 'lg'}

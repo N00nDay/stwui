@@ -25,7 +25,7 @@
 	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
 	import type MaterialIcons from '../../types/material-icons';
-	import { Button } from '../button';
+	import Button from '../button';
 
 	export let avatar: string | undefined = undefined;
 	export let title: string | undefined = undefined;
@@ -37,7 +37,7 @@
 		parent: 'List',
 		component: 'ListItem'
 	});
-	const { bordered } = getContext(LIST_CONTEXT_ID);
+	const { bordered }: { bordered: boolean } = getContext(LIST_CONTEXT_ID);
 </script>
 
 <li
@@ -88,7 +88,7 @@
 				shape={extra.shape}
 				size={extra.size}
 				class={extra.class}
-				>{#if extra.label}{extra.label}{/if}</Button
+				>{#if extra.label && extra.label !== null}{extra.label}{/if}</Button
 			>
 		</div>
 	{/if}

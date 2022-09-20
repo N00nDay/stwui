@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
-	import { Avatar, AvatarGroup } from '../../lib/components/avatar';
+	import Card from '../../lib/components/card';
+	import Avatar from '../../lib/components/avatar';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Avatar</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Avatar</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Avatar
 				size="xs"
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -94,15 +94,15 @@
 			<Avatar initials="CH" />
 			<Avatar size="lg" initials="CH" />
 			<Avatar size="xl" initials="CH" />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false} class="h-[27rem]">
-		<CardHeader>Avatar Group</CardHeader>
-		<CardContent class="p-4">
-			<AvatarGroup
+		<Card.Header slot="header">Avatar Group</Card.Header>
+		<Card.Content slot="content" class="p-4">
+			<Avatar.Group
 				size="xs"
 				group={[
 					'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -112,7 +112,7 @@
 				]}
 			/>
 			<br />
-			<AvatarGroup
+			<Avatar.Group
 				size="sm"
 				group={[
 					'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -122,7 +122,7 @@
 				]}
 			/>
 			<br />
-			<AvatarGroup
+			<Avatar.Group
 				group={[
 					'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 					'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -131,7 +131,7 @@
 				]}
 			/>
 			<br />
-			<AvatarGroup
+			<Avatar.Group
 				size="lg"
 				group={[
 					'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -141,7 +141,7 @@
 				]}
 			/>
 			<br />
-			<AvatarGroup
+			<Avatar.Group
 				size="xl"
 				group={[
 					'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -150,6 +150,6 @@
 					'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
 				]}
 			/>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

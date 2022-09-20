@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from '../../lib/components/drawer';
-	import { Button } from '../../lib/components/button';
+	import Button from '../../lib/components/button';
 	import { Portal } from '../../lib/components/portal';
 
 	let drawerRightOpen = false;
@@ -45,8 +45,8 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Drawer</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Drawer</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Button type="primary" on:click={openDrawerRight}>Open Right</Button>
 			<br />
 			<br />
@@ -57,7 +57,7 @@
 			<br />
 			<br />
 			<Button type="primary" on:click={openDrawerBottom}>Open Bottom</Button>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 

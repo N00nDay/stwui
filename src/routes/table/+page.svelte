@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import {
 		Table,
 		TableBody,
@@ -9,7 +9,7 @@
 		TableRow,
 		TableCell
 	} from '../../lib/components/table';
-	import { Button } from '../../lib/components/button';
+	import Button from '../../lib/components/button';
 	import { Pagination } from '../../lib/components/pagination';
 	import type { ITableColumn } from '../../lib/components/table/Table.svelte';
 
@@ -60,11 +60,11 @@
 
 <Col class="col-24 h-full">
 	<Card bordered={false} class="h-full">
-		<CardHeader class="font-bold text-lg flex justify-between items-center py-3"
+		<Card.Header slot="header" class="font-bold text-lg flex justify-between items-center py-3"
 			>Card Header
 			<Button slot="extras" type="primary" leading="add">New Item</Button>
-		</CardHeader>
-		<CardContent noPadding style="height: calc(100% - 64px);">
+		</Card.Header>
+		<Card.Content slot="content" noPadding style="height: calc(100% - 64px);">
 			<Table class="rounded-md overflow-hidden h-full" {columns}>
 				<TableHeader />
 				<TableBody>
@@ -82,6 +82,6 @@
 					<Pagination start={data.start} end={data.end} total={data.total} />
 				</TableFooter>
 			</Table>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

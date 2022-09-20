@@ -2,7 +2,7 @@
 	import type MaterialIcons from '../../types/material-icons';
 	import numberFormatter from '../../utils/numberFormatter';
 	import { Progress } from '../progress';
-	import { Badge } from '../badge';
+	import Badge from '../badge';
 
 	export let title: string;
 	export let icon: MaterialIcons | undefined = undefined;

@@ -13,18 +13,22 @@
 </script>
 
 <script lang="ts">
-	import dayjs from 'dayjs';
-	import { Avatar } from '../avatar';
+	import Avatar from '../avatar';
 
 	export let variant: 'simple' | 'stacked' = 'simple';
 	export let feed: FeedItem[] = [];
-	export let dateFormat = 'MMM d';
+	export let dateFormat: Intl.DateTimeFormatOptions = {
+		month: 'short',
+		day: 'numeric',
+		year: 'numeric'
+	};
 </script>
 
 {#if variant === 'simple'}
 	<div class="flow-root">
 		<ul class="-mb-8">
 			{#each feed as f, i}
+				{@const date = new Intl.DateTimeFormat('default', dateFormat).format(f.date)}
 				<li>
 					<div class="relative pb-8">
 						{#if feed.length !== i + 1}
@@ -67,7 +71,7 @@
 								<div
 									class="whitespace-nowrap text-right text-sm text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
 								>
-									<time datetime={f.date.toISOString()}>{dayjs(f.date).format(dateFormat)}</time>
+									<time datetime={f.date.toISOString()}>{date}</time>
 								</div>
 							</div>
 						</div>
@@ -80,6 +84,7 @@
 	<div>
 		<ul class="divide-y divide-light-border dark:divide-dark-border transition-all duration-150">
 			{#each feed as f, i}
+				{@const date = new Intl.DateTimeFormat('default', dateFormat).format(f.date)}
 				<li class="py-4 px-4">
 					<div class="flex space-x-3">
 						<Avatar src={f.avatar} alt="user-avatar" size="xs" />
@@ -93,7 +98,7 @@
 								<p
 									class="text-sm text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
 								>
-									{dayjs(f.date).format('MMM d')}
+									{date}
 								</p>
 							</div>
 							<p

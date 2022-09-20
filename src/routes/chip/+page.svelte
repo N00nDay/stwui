@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import { Chip } from '../../lib/components/chip';
 
 	const details = {
@@ -12,23 +12,23 @@
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<CardHeader>Chip</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Chip</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Chip {details} size="xs" />
 			<Chip {details} size="sm" type="success" />
 			<Chip {details} type="warn" />
 			<Chip {details} size="lg" type="error" />
 			<Chip {details} size="xl" />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<CardHeader>Chip</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Chip</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Chip type="info" {details} onClose={() => console.log('chip closed!')} />
 			<Chip {details} onClose={() => console.log('chip closed!')} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

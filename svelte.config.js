@@ -18,9 +18,6 @@ const config = {
 	package: {
 		exports: (filepath) => {
 			return filepath.endsWith('index.js');
-		},
-		files: (filepath) => {
-			return !filepath.endsWith('.text.ts');
 		}
 	}
 };

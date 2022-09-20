@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
 	import { current_component } from 'svelte/internal';
 	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
 	import { useActions, type ActionArray } from '../../utils/useActions';
@@ -8,7 +9,7 @@
 
 	import type MaterialIcons from '../../types/material-icons';
 
-	import ButtonLoader from './ButtonLoader.svelte';
+	import ButtonLoader from './Loader.svelte';
 	import HoverBackground from '../HoverBackground.svelte';
 	import Swap from '../swap/Swap.svelte';
 
@@ -75,10 +76,13 @@
 		: '#000000';
 
 	if (icon && $$slots.default) {
-		console.warn(
+		console.error(
 			"<Button /> 'icon' property is to be used by itself. Use 'leading' or 'trailing' in conjunction with text in the default slot"
 		);
 	}
+
+	const defaultClass = `group transition-all duration-150 relative ${classes}`;
+	const finalClass = twMerge(defaultClass, $$props.class);
 
 	// TODO: add progress
 	// progress will show radial progress that fills
@@ -88,9 +92,7 @@
 <button
 	type={htmlType}
 	{disabled}
-	class="group transition-all duration-150 relative {classes}{$$props.class
-		? ` ${$$props.class}`
-		: ''}"
+	class={finalClass}
 	class:primary={type === 'primary'}
 	class:danger={type === 'danger'}
 	class:default={type === 'default'}
@@ -141,7 +143,7 @@
 		</div>
 	{/if}
 	{#if icon}
-		<Swap {loading} {swapped} class=" relative">
+		<Swap {loading} {swapped} class="relative">
 			<svelte:fragment slot="icon1">
 				<span class="material-icons {iconSize}"> {icon} </span>
 			</svelte:fragment>

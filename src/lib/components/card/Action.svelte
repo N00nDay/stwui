@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
 	import { CARD_CONTEXT_ID } from './Card.svelte';
 	import { CARD_ACTIONS_CONTEXT_ID } from './Actions.svelte';
 	import { useContext } from '../../utils/useContext';
@@ -25,12 +26,14 @@
 		parent: 'CardActions',
 		component: 'CardAction'
 	});
+
+	const defaultClass =
+		'group relative transition-all duration-150 w-full h-full cursor-pointer first:rounded-bl-md last:rounded-br-md overflow-hidden';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class="group relative transition-all duration-150 w-full h-full cursor-pointer first:rounded-bl-md last:rounded-br-md overflow-hidden{$$props.class
-		? ` ${$$props.class}`
-		: ''}"
+	class={finalClass}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

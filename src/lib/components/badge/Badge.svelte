@@ -1,33 +1,40 @@
 <script lang="ts">
-	export let type: 'info' | 'success' | 'warn' | 'error' = 'info';
+	import { twMerge } from 'tailwind-merge';
+
+	export let type: 'info' | 'success' | 'warn' | 'error' | undefined = undefined;
 	export let size: 'default' | 'large' = 'default';
 	export let withDot = false;
 	export let shape: 'default' | 'rounded' | 'square' = 'default';
 	export let onClose: (() => void) | undefined = undefined;
-	export let background: string | undefined = undefined;
-	export let color: string | undefined = undefined;
+
+	const defaultClass =
+		'inline-flex items-center py-0.5 font-medium transition-all duration-150 bg-opacity-20 dark:bg-opacity-20 dark:text-dark-content text-light-content bg-dark-icon-background bg-light-icon-background';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <span
-	class="inline-flex items-center py-0.5 font-medium transition-all duration-150 bg-opacity-20 dark:bg-opacity-20{background
-		? ` ${background}`
-		: ''}{color ? ` ${color}` : ''}{$$props.class ? ` ${$$props.class}` : ''}"
-	class:bg-info-background={type === 'info' && !background}
-	class:dark:bg-dark-info-background={type === 'info' && !background}
-	class:text-info-content={type === 'info' && !color}
-	class:dark:text-dark-info-content={type === 'info' && !color}
-	class:bg-success-background={type === 'success' && !background}
-	class:dark:bg-dark-success-background={type === 'success' && !background}
-	class:text-success-content={type === 'success' && !color}
-	class:dark:text-dark-success-content={type === 'success' && !color}
-	class:bg-warn-background={type === 'warn' && !background}
-	class:dark:bg-dark-warn-background={type === 'warn' && !background}
-	class:text-warn-content={type === 'warn' && !color}
-	class:dark:text-dark-warn-content={type === 'warn' && !color}
-	class:bg-error-background={type === 'error' && !background}
-	class:dark:bg-dark-error-background={type === 'error' && !background}
-	class:text-error-content={type === 'error' && !color}
-	class:dark:text-dark-error-content={type === 'error' && !color}
+	class={finalClass}
+	class:bg-opacity-20={type === 'info' || type === 'success' || type === 'warn' || type === 'error'}
+	class:dark:bg-opacity-20={type === 'info' ||
+		type === 'success' ||
+		type === 'warn' ||
+		type === 'error'}
+	class:bg-info-background={type === 'info'}
+	class:dark:bg-dark-info-background={type === 'info'}
+	class:text-info-content={type === 'info'}
+	class:dark:text-dark-info-content={type === 'info'}
+	class:bg-success-background={type === 'success'}
+	class:dark:bg-dark-success-background={type === 'success'}
+	class:text-success-content={type === 'success'}
+	class:dark:text-dark-success-content={type === 'success'}
+	class:bg-warn-background={type === 'warn'}
+	class:dark:bg-dark-warn-background={type === 'warn'}
+	class:text-warn-content={type === 'warn'}
+	class:dark:text-dark-warn-content={type === 'warn'}
+	class:bg-error-background={type === 'error'}
+	class:dark:bg-dark-error-background={type === 'error'}
+	class:text-error-content={type === 'error'}
+	class:dark:text-dark-error-content={type === 'error'}
 	class:px-2.5={size === 'default'}
 	class:px-3={size === 'large'}
 	class:text-xs={size === 'default'}
@@ -58,7 +65,7 @@
 		<button
 			on:click={onClose}
 			type="button"
-			class="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none focus:text-white hover:text-white dark:hover:text-white transition-all duration-150"
+			class="flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:focus:text-white hover:text-white dark:hover:text-white transition-all duration-150"
 			class:hover:bg-info-background={type === 'info'}
 			class:dark:hover:bg-dark-info-background={type === 'info'}
 			class:text-info-content={type === 'info'}

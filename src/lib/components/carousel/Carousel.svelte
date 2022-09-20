@@ -1,11 +1,11 @@
-<script lang="ts" context="module">
+<!-- <script lang="ts" context="module">
 	export interface Slide {
 		src: string;
 		alt?: string;
 	}
-</script>
-
+</script> -->
 <script lang="ts">
+	import type { Slide } from './carousel';
 	export let slides: Slide[] = [];
 	export let activeSlide = 0;
 	export let rotation = 0;
@@ -33,9 +33,9 @@
 
 <div class="relative h-full">
 	{#if $$slots.controls}
-		<div class="fixed z-20 top-2 left-2 flex flex-row gap-2">
-			<slot name="controls" />
-		</div>
+		<!-- <div class="fixed z-20 top-2 left-2 flex flex-row gap-2"> -->
+		<slot name="controls" />
+		<!-- </div> -->
 	{/if}
 
 	<div class="absolute z-10 right-0 bottom-0 left-0 flex gap-2 justify-center p-0 mb-4">

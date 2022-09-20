@@ -15,7 +15,7 @@
 	} from '../lib/components/layout';
 	import { Portal } from '../lib/components/portal';
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
-	import { Button } from '../lib/components/button';
+	import Button from '../lib/components/button';
 	import { Dropdown, DropdownItems, DropdownItem } from '../lib/components/dropdown';
 	import { Row } from '../lib/components/grid';
 

@@ -1,9 +1,13 @@
+<script lang="ts" context="module">
+	export let AUTOCOMPLETE_CONTEXT_ID = 'autocomplete-context-id';
+</script>
+
 <script lang="ts">
 	import type MaterialIcons from '../../types/material-icons';
 	import { slide, scale } from 'svelte/transition';
 	import { clickOutside } from '../../utils/clickOutside';
-	import HoverBackground from '../HoverBackground.svelte';
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
+	import { validateSlots } from '$lib/utils/validateSlots';
 
 	export let leading: MaterialIcons | undefined = undefined;
 	export let name: string;
@@ -12,16 +16,10 @@
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
-	// export let autocomplete: string | undefined = undefined;
-	// export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
 	export let autofocus = false;
 	export let handleLeadingClick: (() => void) | undefined = undefined;
-	export let visible: true | false = false;
-	export let options: string[] = [];
-	export let handleChange: ((e: string) => void) | undefined = undefined;
 
-	let filteredOptions: string[] = options;
-
+	let visible = false;
 	let input: HTMLInputElement;
 	let button: HTMLButtonElement;
 
@@ -34,43 +32,26 @@
 	}
 
 	function checkValue() {
-		if (!value) {
-			visible = false;
-		} else if (options.includes(value)) {
-			visible = false;
-		} else {
-			input.value = '';
-			value = undefined;
-			visible = false;
-			filteredOptions = options;
+		if (visible) {
+			if (!value) {
+				visible = false;
+			} else {
+				input.value = '';
+				value = undefined;
+				visible = false;
+			}
 		}
 	}
 
 	function handleSelect(option: string) {
-		input.value = option;
 		value = option;
-		filteredOptions = options.filter((o) => o.toLowerCase().includes(option.toLowerCase()));
-		handleClose();
-	}
-
-	function handleFilter(e: Event) {
-		const target = e.target as HTMLInputElement;
-		if (handleChange && target.value) {
-			handleChange(target.value);
-		} else if (target.value && target.value.length === 0) {
-			filteredOptions = options;
-		} else if (target.value) {
-			filteredOptions = options.filter((o) => o.toLowerCase().includes(target.value.toLowerCase()));
-		} else {
-			filteredOptions = options;
-		}
+		input.value = option;
+		visible = false;
 	}
 
 	function handleClear() {
-		console.log('handleClear Fired!');
 		input.value = '';
 		value = undefined;
-		filteredOptions = options;
 	}
 
 	onMount(() => {
@@ -78,6 +59,13 @@
 			button.focus();
 			visible = true;
 		}
+	});
+
+	validateSlots($$slots, ['list'], 'Autocomplete');
+
+	setContext(AUTOCOMPLETE_CONTEXT_ID, {
+		autocomplete: true,
+		handleSelect
 	});
 </script>
 
@@ -110,6 +98,8 @@
 					class:text-danger={error}>{leading}</span
 				>
 			{/if}
+			<!-- svelte-ignore a11y-autofocus -->
+			<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
 			<input
 				{name}
 				id={name}
@@ -117,7 +107,8 @@
 				bind:value
 				{placeholder}
 				{autofocus}
-				on:input={handleFilter}
+				on:input
+				on:change
 				autocomplete="off"
 				role="presentation"
 				aria-controls="options"
@@ -166,64 +157,7 @@
 		</button>
 
 		{#if visible}
-			<ul
-				class="origin-top-right absolute mt-1 z-10 border light-border dark:dark-border left-0 right-0 w-full p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface transition transform duration-150{$$props.class
-					? ` ${$$props.class}`
-					: ''}"
-				style={$$props.style}
-				in:scale={{ start: 0.9, duration: 100, delay: 150 }}
-				out:scale={{ start: 0.95, duration: 75 }}
-				role="listbox"
-			>
-				{#if filteredOptions.length > 0}
-					{#each filteredOptions as option}
-						<li
-							class="group text-light-content dark:text-dark-content cursor-pointer select-none p-0.5 w-full"
-							role="option"
-							on:click={() => handleSelect(option)}
-						>
-							<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
-								<span class="font-normal block truncate" class:font-semibold={option === value}>
-									{option}
-								</span>
-
-								{#if option === value}
-									<span
-										transition:scale|local
-										class="text-primary absolute inset-y-0 right-0 flex items-center pr-4"
-									>
-										<!-- Heroicon name: solid/check -->
-										<svg
-											class="h-5 w-5"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 20 20"
-											fill="currentColor"
-											aria-hidden="true"
-										>
-											<path
-												fill-rule="evenodd"
-												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-												clip-rule="evenodd"
-											/>
-										</svg>
-									</span>
-								{/if}
-
-								<HoverBackground />
-							</div>
-						</li>
-					{/each}
-				{:else}
-					<li
-						class="group text-light-content dark:text-dark-content select-none p-0.5 w-full"
-						role="option"
-					>
-						<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
-							<span class="font-normal block truncate"> No Options Available </span>
-						</div>
-					</li>
-				{/if}
-			</ul>
+			<slot name="list" />
 		{/if}
 	</div>
 	{#if error}

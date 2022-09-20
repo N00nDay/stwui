@@ -1,85 +1,109 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
-	import { Accordion, AccordionItem } from '../../lib/components/accordion';
+	import Card from '../../lib/components/card';
+	import Accordion from '../../lib/components/accordion';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Default</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Default</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Accordion>
-				<AccordionItem label="Item 1">
-					<div class="px-4 py-5">
-						<strong>This is the first item's accordion body.</strong> It is shown by default, until
-						the collapse plugin adds the appropriate classes that we use to style each element.
-						These classes control the overall appearance, as well as the showing and hiding via CSS
-						transitions. You can modify any of this with custom CSS or overriding our default
-						variables. It's also worth noting that just about any HTML can go within the
-						<code>.accordion-body</code>, though the transition does limit overflow.
-					</div>
-				</AccordionItem>
-				<AccordionItem label="Item 2">
-					<div class="px-4 py-5">
-						<strong>This is the first item's accordion body.</strong> It is shown by default, until
-						the collapse plugin adds the appropriate classes that we use to style each element.
-						These classes control the overall appearance, as well as the showing and hiding via CSS
-						transitions. You can modify any of this with custom CSS or overriding our default
-						variables. It's also worth noting that just about any HTML can go within the
-						<code>.accordion-body</code>, though the transition does limit overflow.
-					</div>
-				</AccordionItem>
-				<AccordionItem label="Item 3">
-					<div class="px-4 py-5">
-						<strong>This is the first item's accordion body.</strong> It is shown by default, until
-						the collapse plugin adds the appropriate classes that we use to style each element.
-						These classes control the overall appearance, as well as the showing and hiding via CSS
-						transitions. You can modify any of this with custom CSS or overriding our default
-						variables. It's also worth noting that just about any HTML can go within the
-						<code>.accordion-body</code>, though the transition does limit overflow.
-					</div>
-				</AccordionItem>
+				<Accordion.Item key={0}>
+					<Accordion.Item.Title slot="title">Item 1</Accordion.Item.Title>
+					<Accordion.Item.Content slot="content">
+						<div class="px-4 py-5">
+							<strong>This is the first item's accordion body.</strong> It is shown by default,
+							until the collapse plugin adds the appropriate classes that we use to style each
+							element. These classes control the overall appearance, as well as the showing and
+							hiding via CSS transitions. You can modify any of this with custom CSS or overriding
+							our default variables. It's also worth noting that just about any HTML can go within
+							the
+							<code>.accordion-body</code>, though the transition does limit overflow.
+						</div>
+					</Accordion.Item.Content>
+				</Accordion.Item>
+				<Accordion.Item key={1}>
+					<Accordion.Item.Title slot="title">Item 2</Accordion.Item.Title>
+					<Accordion.Item.Content slot="content">
+						<div class="px-4 py-5">
+							<strong>This is the first item's accordion body.</strong> It is shown by default,
+							until the collapse plugin adds the appropriate classes that we use to style each
+							element. These classes control the overall appearance, as well as the showing and
+							hiding via CSS transitions. You can modify any of this with custom CSS or overriding
+							our default variables. It's also worth noting that just about any HTML can go within
+							the
+							<code>.accordion-body</code>, though the transition does limit overflow.
+						</div>
+					</Accordion.Item.Content>
+				</Accordion.Item>
+				<Accordion.Item key={2}>
+					<Accordion.Item.Title slot="title">Item 3</Accordion.Item.Title>
+					<Accordion.Item.Content slot="content">
+						<div class="px-4 py-5">
+							<strong>This is the first item's accordion body.</strong> It is shown by default,
+							until the collapse plugin adds the appropriate classes that we use to style each
+							element. These classes control the overall appearance, as well as the showing and
+							hiding via CSS transitions. You can modify any of this with custom CSS or overriding
+							our default variables. It's also worth noting that just about any HTML can go within
+							the
+							<code>.accordion-body</code>, though the transition does limit overflow.
+						</div>
+					</Accordion.Item.Content>
+				</Accordion.Item>
 			</Accordion>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Only One</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Only One</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Accordion onlyOne>
-				<AccordionItem label="Item 1">
-					<div class="px-4 py-5">
-						<strong>This is the first item's accordion body.</strong> It is shown by default, until
-						the collapse plugin adds the appropriate classes that we use to style each element.
-						These classes control the overall appearance, as well as the showing and hiding via CSS
-						transitions. You can modify any of this with custom CSS or overriding our default
-						variables. It's also worth noting that just about any HTML can go within the
-						<code>.accordion-body</code>, though the transition does limit overflow.
-					</div>
-				</AccordionItem>
-				<AccordionItem label="Item 2">
-					<div class="px-4 py-5">
-						<strong>This is the first item's accordion body.</strong> It is shown by default, until
-						the collapse plugin adds the appropriate classes that we use to style each element.
-						These classes control the overall appearance, as well as the showing and hiding via CSS
-						transitions. You can modify any of this with custom CSS or overriding our default
-						variables. It's also worth noting that just about any HTML can go within the
-						<code>.accordion-body</code>, though the transition does limit overflow.
-					</div>
-				</AccordionItem>
-				<AccordionItem label="Item 3">
-					<div class="px-4 py-5">
-						<strong>This is the first item's accordion body.</strong> It is shown by default, until
-						the collapse plugin adds the appropriate classes that we use to style each element.
-						These classes control the overall appearance, as well as the showing and hiding via CSS
-						transitions. You can modify any of this with custom CSS or overriding our default
-						variables. It's also worth noting that just about any HTML can go within the
-						<code>.accordion-body</code>, though the transition does limit overflow.
-					</div>
-				</AccordionItem>
+				<Accordion.Item key={0}>
+					<Accordion.Item.Title slot="title">Item 1</Accordion.Item.Title>
+					<Accordion.Item.Content slot="content">
+						<div class="px-4 py-5">
+							<strong>This is the first item's accordion body.</strong> It is shown by default,
+							until the collapse plugin adds the appropriate classes that we use to style each
+							element. These classes control the overall appearance, as well as the showing and
+							hiding via CSS transitions. You can modify any of this with custom CSS or overriding
+							our default variables. It's also worth noting that just about any HTML can go within
+							the
+							<code>.accordion-body</code>, though the transition does limit overflow.
+						</div>
+					</Accordion.Item.Content>
+				</Accordion.Item>
+				<Accordion.Item key={1}>
+					<Accordion.Item.Title slot="title">Item 2</Accordion.Item.Title>
+					<Accordion.Item.Content slot="content">
+						<div class="px-4 py-5">
+							<strong>This is the first item's accordion body.</strong> It is shown by default,
+							until the collapse plugin adds the appropriate classes that we use to style each
+							element. These classes control the overall appearance, as well as the showing and
+							hiding via CSS transitions. You can modify any of this with custom CSS or overriding
+							our default variables. It's also worth noting that just about any HTML can go within
+							the
+							<code>.accordion-body</code>, though the transition does limit overflow.
+						</div>
+					</Accordion.Item.Content>
+				</Accordion.Item>
+				<Accordion.Item key={2}>
+					<Accordion.Item.Title slot="title">Item 3</Accordion.Item.Title>
+					<Accordion.Item.Content slot="content">
+						<div class="px-4 py-5">
+							<strong>This is the first item's accordion body.</strong> It is shown by default,
+							until the collapse plugin adds the appropriate classes that we use to style each
+							element. These classes control the overall appearance, as well as the showing and
+							hiding via CSS transitions. You can modify any of this with custom CSS or overriding
+							our default variables. It's also worth noting that just about any HTML can go within
+							the
+							<code>.accordion-body</code>, though the transition does limit overflow.
+						</div>
+					</Accordion.Item.Content>
+				</Accordion.Item>
 			</Accordion>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

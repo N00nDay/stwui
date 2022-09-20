@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
-	import { Carousel } from '../../lib/components/carousel';
+	import Card from '../../lib/components/card';
+	import Carousel from '../../lib/components/carousel';
 
 	const slides = [
 		{
@@ -21,16 +21,16 @@
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<CardHeader>Carousel</CardHeader>
-		<CardContent class="p-4 h-96 bg-black">
+		<Card.Header slot="header">Carousel</Card.Header>
+		<Card.Content slot="content" class="p-4 h-96 bg-black">
 			<Carousel {slides} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 
 	<Card bordered={false}>
-		<CardHeader>Carousel</CardHeader>
-		<CardContent class="p-4 h-[30rem] bg-black">
+		<Card.Header slot="header">Carousel</Card.Header>
+		<Card.Content slot="content" class="p-4 h-[30rem] bg-black">
 			<Carousel {slides} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

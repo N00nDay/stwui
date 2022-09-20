@@ -1,107 +1,45 @@
 <script lang="ts" context="module">
-	import type MaterialIcons from '../../types/material-icons';
-
-	export interface Extra {
-		leading?: MaterialIcons;
-		trailing?: MaterialIcons;
-		label?: string;
-		icon?: MaterialIcons;
-		type?: 'default' | 'primary' | 'danger' | 'ghost' | 'link' | 'text' | 'dark';
-		onClick: () => void;
-	}
+	export const ALERT_CONTEXT_ID = 'alert-context-id';
 </script>
 
 <script lang="ts">
-	import Button from '../button/Button.svelte';
+	import { twMerge } from 'tailwind-merge';
+	import { setContext } from 'svelte';
+	import { validateSlots } from '$lib/utils/validateSlots';
 
 	export let type: 'info' | 'warn' | 'success' | 'error' = 'info';
-	export let onClose: (() => void) | undefined = undefined;
-	export let title: string;
-	export let description: string | undefined = undefined;
-	export let extra: Extra | undefined = undefined;
 
-	let closeClass = 'text-info-icon dark:text-dark-info-icon';
+	validateSlots($$slots, ['icon', 'title', 'description'], 'Alert');
 
-	let typeIcon = 'info';
-	if (type === 'warn') {
-		typeIcon = 'warning';
-		closeClass = 'text-warn-icon dark:text-dark-warn-icon';
-	} else if (type === 'success') {
-		typeIcon = 'check_circle';
-		closeClass = 'text-success-icon dark:text-dark-success-icon';
-	} else if (type === 'error') {
-		typeIcon = 'cancel';
-		closeClass = 'text-error-icon dark:text-dark-error-icon';
-	}
+	setContext(ALERT_CONTEXT_ID, {
+		alert: true,
+		type
+	});
+
+	const defaultClass =
+		'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class="rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150"
+	class={finalClass}
 	class:bg-info-background={type === 'info'}
 	class:bg-warn-background={type === 'warn'}
 	class:bg-success-background={type === 'success'}
 	class:bg-error-background={type === 'error'}
+	style={$$props.style}
 >
 	<div class="flex">
-		<div class="flex-shrink-0 h-5 w-5 flex items-center justify-center">
-			<span
-				class="material-icons transition-all duration-150"
-				class:text-info-icon={type === 'info'}
-				class:text-warn-icon={type === 'warn'}
-				class:text-success-icon={type === 'success'}
-				class:text-error-icon={type === 'error'}>{typeIcon}</span
-			>
-		</div>
+		{#if $$slots.icon}
+			<slot name="icon" />
+		{/if}
 		<div class="ml-3 flex items-start justify-start flex-col w-full">
-			<h3
-				class="text-sm font-medium flex flex-row items-start justify-between w-full relative h-4 transition-all duration-150"
-				class:text-info-content={type === 'info'}
-				class:text-warn-content={type === 'warn'}
-				class:text-success-content={type === 'success'}
-				class:text-error-content={type === 'error'}
-				class:dark:text-dark-info-content={type === 'info'}
-				class:dark:text-dark-warn-content={type === 'warn'}
-				class:dark:text-dark-success-content={type === 'success'}
-				class:dark:text-dark-error-content={type === 'error'}
-			>
-				<span>{title}</span>
-				{#if onClose}
-					<Button
-						icon="close"
-						shape="circle"
-						class="top-[-0.65rem] right-[-0.65rem] {closeClass}"
-						on:click={onClose}
-					/>
-				{/if}
-				{#if extra}
-					<Button
-						class="top-[-0.65rem] right-[-0.65rem] {closeClass}"
-						leading={extra.leading}
-						trailing={extra.trailing}
-						icon={extra.icon}
-						type={extra.type}
-						on:click={extra.onClick}
-					>
-						{extra.label}
-					</Button>
-				{/if}
-			</h3>
-			{#if description}
-				<div
-					class="mt-2 text-sm transition-all duration-150"
-					class:text-info-secondary-content={type === 'info'}
-					class:text-warn-secondary-content={type === 'warn'}
-					class:text-success-secondary-content={type === 'success'}
-					class:text-error-secondary-content={type === 'error'}
-					class:dark:text-dark-info-secondary-content={type === 'info'}
-					class:dark:text-dark-warn-secondary-content={type === 'warn'}
-					class:dark:text-dark-success-secondary-content={type === 'success'}
-					class:dark:text-dark-error-secondary-content={type === 'error'}
-				>
-					<p>
-						{description}
-					</p>
-				</div>
+			<slot name="title" />
+			{#if $$slots.extra}
+				<slot name="extra" />
+			{/if}
+			{#if $$slots.description}
+				<slot name="description" />
 			{/if}
 		</div>
 	</div>

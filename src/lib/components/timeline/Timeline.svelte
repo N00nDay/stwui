@@ -16,10 +16,8 @@
 </script>
 
 <script lang="ts">
-	import { Avatar } from '../avatar';
-	import dayjs from 'dayjs';
-	import relativeTime from 'dayjs/plugin/relativeTime';
-	dayjs.extend(relativeTime);
+	import { formatDate } from '../../utils/formatDate';
+	import Avatar from '../avatar';
 
 	export let timeline: TimelineItem[] = [];
 </script>
@@ -85,7 +83,7 @@
 									<p
 										class="mt-0.5 text-sm text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
 									>
-										Commented {dayjs(tl.date).fromNow()}
+										Commented {formatDate(tl.date)}
 									</p>
 								</div>
 								<div
@@ -126,7 +124,7 @@
 									class="text-sm text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
 								>
 									{@html tl.description}
-									<span class="whitespace-nowrap ml-1">{dayjs(tl.date).fromNow()}</span>
+									<span class="whitespace-nowrap ml-1">{formatDate(tl.date)}</span>
 								</div>
 							</div>
 						</div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { Button } from '../button';
+	import Button from '../button';
 	import { DRAWER_CONTEXT_ID } from './Drawer.svelte';
 	import { useContext } from '../../utils/useContext';
 
@@ -9,7 +9,7 @@
 		parent: 'Drawer',
 		component: 'DrawerHeader'
 	});
-	const { handleClose } = getContext(DRAWER_CONTEXT_ID);
+	const { handleClose }: { handleClose: () => void } = getContext(DRAWER_CONTEXT_ID);
 </script>
 
 <div class="px-4 sm:px-6 py-4 shadow-md dark:shadow-black flex-shrink">

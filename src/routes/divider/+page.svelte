@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
-	import { Button } from '../../lib/components/button';
+	import Card from '../../lib/components/card';
+	import Button from '../../lib/components/button';
 	import { Divider } from '../../lib/components/divider';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Divider</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Divider</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Divider label="Divider" />
 			<Divider icon="add" />
 			<Divider label="Divider" position="left" />
@@ -18,6 +18,6 @@
 			<Divider>
 				<Button type="primary">I am a Button</Button>
 			</Divider>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

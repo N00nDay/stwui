@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import { Progress } from '../../lib/components/progress';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Progress</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Progress</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Progress value={25} />
 			<br />
 			<Progress value={50} />
@@ -28,6 +28,6 @@
 			<Progress value={75} radial type="success" />
 			<Progress value={75} radial type="warn" />
 			<Progress value={75} radial />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

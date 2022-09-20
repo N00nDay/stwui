@@ -14,7 +14,7 @@
 	useContext({
 		context_id: CARD_CONTEXT_ID,
 		parent: 'Card',
-		component: 'CardHeader'
+		component: 'Card.Header'
 	});
 	const { divided }: { divided: boolean } = getContext(CARD_CONTEXT_ID);
 

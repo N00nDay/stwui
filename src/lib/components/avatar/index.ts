@@ -1,4 +1,12 @@
-import Avatar from './Avatar.svelte';
-import AvatarGroup from './AvatarGroup.svelte';
+import OriginalAvatar from './Avatar.svelte';
+import Group from './Group.svelte';
 
-export { Avatar, AvatarGroup };
+export interface AvatarStatic {
+	new (): OriginalAvatar;
+	Group: typeof Group;
+}
+
+const Avatar = OriginalAvatar as AvatarStatic;
+Avatar.Group = Group;
+
+export default Avatar;

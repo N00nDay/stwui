@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
-	import { Button, ButtonGroup } from '../../lib/components/button';
+	import Card from '../../lib/components/card';
+	import Button from '../../lib/components/button';
 
 	let loading = false;
 
@@ -16,8 +16,8 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered>
-		<CardHeader>Basic</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Basic</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Button on:click={handleClick}>Default button</Button>
 
 			<Button type="primary">I am primary</Button>
@@ -27,14 +27,14 @@
 			<Button type="ghost">Boo I am a ghost</Button>
 
 			<Button type="link">I am a link</Button>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered>
-		<CardHeader>Loading</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Loading</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Button loading>Default button</Button>
 
 			<Button type="primary" loading>I am primary</Button>
@@ -44,14 +44,14 @@
 			<Button type="ghost" loading>Boo I am a ghost</Button>
 
 			<Button type="link" loading>I am a link</Button>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered>
-		<CardHeader>Disabled</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Disabled</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Button disabled>Default button</Button>
 
 			<Button type="primary" disabled>I am primary</Button>
@@ -61,14 +61,14 @@
 			<Button type="ghost" disabled>Boo I am a ghost</Button>
 
 			<Button type="link" disabled>I am a link</Button>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered>
-		<CardHeader>Leading & Trailing</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Leading & Trailing</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Button {loading} leading="paid">Default button</Button>
 
 			<Button type="primary" leading="paid">I am primary</Button>
@@ -78,14 +78,14 @@
 			<Button type="ghost" trailing="paid">Boo I am a ghost</Button>
 
 			<Button type="link" trailing="paid">I am a link</Button>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered>
-		<CardHeader>Shape</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Shape</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Button shape="circle" on:click={toggleLoading} {loading} icon="paid" />
 
 			<Button type="primary" shape="square">I am primary</Button>
@@ -95,14 +95,14 @@
 			<Button type="ghost">Boo I am a ghost</Button>
 
 			<Button type="link">I am a link</Button>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered>
-		<CardHeader>Swap Icon</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Swap Icon</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Button shape="circle" on:click={toggleLoading} {loading} icon="paid" swap="menu" />
 
 			<Button type="primary" shape="square">I am primary</Button>
@@ -112,14 +112,14 @@
 			<Button type="ghost">Boo I am a ghost</Button>
 
 			<Button type="link">I am a link</Button>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered>
-		<CardHeader>Sizes</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Sizes</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Button type="primary" size="xs">xs</Button>
 
 			<Button type="primary" size="sm">sm</Button>
@@ -149,15 +149,15 @@
 			<Button type="default" size="lg" leading="paid">lg</Button>
 
 			<Button type="default" size="xl" leading="paid">xl</Button>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Button Group</CardHeader>
-		<CardContent class="p-4">
-			<ButtonGroup
+		<Card.Header slot="header">Button Group</Card.Header>
+		<Card.Content slot="content" class="p-4">
+			<Button.Group
 				buttons={[
 					{
 						label: 'Button 1',
@@ -174,7 +174,7 @@
 				]}
 			/>
 			<br />
-			<ButtonGroup
+			<Button.Group
 				allowDeselect
 				buttons={[
 					{
@@ -192,7 +192,7 @@
 				]}
 			/>
 			<br />
-			<ButtonGroup
+			<Button.Group
 				allowDeselect
 				buttons={[
 					{
@@ -210,7 +210,7 @@
 				]}
 			/>
 			<br />
-			<ButtonGroup
+			<Button.Group
 				allowDeselect
 				buttons={[
 					{
@@ -230,6 +230,6 @@
 					}
 				]}
 			/>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

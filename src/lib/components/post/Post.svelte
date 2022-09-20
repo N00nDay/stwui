@@ -1,93 +1,83 @@
-<script lang="ts">
-	import dayjs, { type Dayjs } from 'dayjs';
-	import isToday from 'dayjs/plugin/isToday';
-	import relativeTime from 'dayjs/plugin/relativeTime';
-
-	dayjs.extend(isToday);
-	dayjs.extend(relativeTime);
-
-	import { Card, CardHeader, CardContent, CardAction, CardActions, CardCover } from '../card';
-	import { Avatar } from '../avatar';
-	import PostImages from './PostImages.svelte';
-
-	export let creator: { avatar: string; name: string };
-	export let created: Date;
-	export let images: string[] = [];
-	export let post: string | undefined = undefined;
-	export let likes: string[] = [];
-	export let comments: string[] = [];
-	export let allowDownload = true;
-	export let allowShare = true;
-	export let bordered = true;
-
-	let dayjsDate: Dayjs = dayjs(created);
-	let today: Dayjs = dayjs();
-	let renderedDate: string;
-	if (dayjsDate.isToday()) {
-		renderedDate = dayjsDate.fromNow();
-	} else if (dayjsDate.year() === today.year()) {
-		renderedDate = dayjsDate.format('MMMM D') + ' at ' + dayjsDate.format('h:mm A');
-	} else {
-		renderedDate = dayjsDate.format('MMMM D, YYYY') + ' at ' + dayjsDate.format('h:mm A');
-	}
+<script lang="ts" context="module">
+	export const POST_CONTEXT_ID = 'post-context-id';
 </script>
 
-<Card divided class={$$props.class} style={$$props.style} {bordered}>
-	<CardHeader class="py-1.5 px-1.5 sm:px-3 h-14 flex flex-row">
-		<div class="flex-shrink">
-			<Avatar size="md" src={creator.avatar} />
-		</div>
-		<div class="flex flex-col flex-grow h-full ml-3">
-			<h3
-				class="text-md font-semibold text-light-content dark:text-dark-content transition-all duration-150"
-			>
-				{creator.name}
-			</h3>
-			<p
-				class="text-xs text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
-			>
-				{renderedDate}
-			</p>
-		</div>
-	</CardHeader>
+<script lang="ts">
+	import { twMerge } from 'tailwind-merge';
+	import { current_component } from 'svelte/internal';
+	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
+	import { useActions, type ActionArray } from '../../utils/useActions';
+	import { exclude } from '../../utils/exclude';
+	import { validateSlots } from '$lib/utils/validateSlots';
+	import { setContext } from 'svelte';
 
-	{#if post}
-		<CardContent>
-			{@html post}
-		</CardContent>
-	{/if}
+	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+	export let bordered = true;
+	export let use: ActionArray = [];
 
-	{#if images.length > 0}
-		<CardCover>
-			<PostImages {images} {allowDownload} {allowShare} />
-		</CardCover>
-	{/if}
+	validateSlots($$slots, ['header', 'content', 'images', 'status', 'actions'], 'Post');
 
-	{#if likes.length > 0 || comments.length > 0}
-		<div
-			class="flex flex-row justify-evenly items-center py-1 px-2 border border-light-border dark:border-dark-border transition-all duration-150"
-		>
-			<div class="h-full w-full flex justify-start items-center text-sm">
-				{#if likes.length > 0}
-					<div
-						class="mr-1 h-5 w-5 rounded-full bg-primary shadow-md dark:shadow-black flex items-center justify-center transition-all duration-150"
-					>
-						<span class="material-icons text-xs text-primary-content">thumb_up</span>
-					</div>
-					{likes.length}
-				{/if}
-			</div>
-			<div class="h-full w-full flex justify-end items-center text-sm">
-				{#if comments.length > 0}
-					{comments.length} Comments
-				{/if}
-			</div>
-		</div>
-	{/if}
+	setContext(POST_CONTEXT_ID, {
+		post: true,
+		bordered
+	});
 
-	<CardActions>
-		<CardAction icon="thumb_up" label="Like" />
-		<CardAction icon="comment" label="Comment" />
-		<CardAction icon="share" label="Share" />
-	</CardActions>
-</Card>
+	const forwardEvents = forwardEventsBuilder(current_component);
+
+	const defaultClass =
+		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content transition-all duration-150 rounded-md';
+	const finalClass = twMerge(defaultClass, $$props.class);
+</script>
+
+<!-- 
+
+	<Post>
+		<slot name="header" />
+		-- <slot name="avatar" />
+		-- <slot name="creator" />
+		-- <slot name="created" />
+		--	<slot name="extra" />
+		<slot name="content" />
+		<slot name="images" />
+		<slot name="status" />
+		<slot name="actions" />
+		-- <slot name="action" />
+	</Post>
+
+	<Post>
+		<Post.Header />
+		<Post.Content />
+		<Post.Images />
+		<Post.Status />
+		<Post.Actions>
+			<Post.Actions.Action />
+			<Post.Actions.Action />
+			<Post.Actions.Action />
+		</Post.Actions>
+	</Post>
+
+ -->
+
+<div
+	class={finalClass}
+	class:border={bordered}
+	class:border-light-border={bordered}
+	class:dark:border-dark-border={bordered}
+	class:shadow-none={elevation === 'none'}
+	class:shadow-sm={elevation === 'sm'}
+	class:shadow-md={elevation === 'md'}
+	class:shadow-lg={elevation === 'lg'}
+	class:shadow-xl={elevation === 'xl'}
+	class:dark:shadow-black={elevation !== 'none'}
+	style={$$props.style}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
+	<slot name="header" />
+	<slot name="content" />
+	<slot />
+	<slot name="images" />
+	<slot name="status" />
+	<slot name="actions" />
+</div>

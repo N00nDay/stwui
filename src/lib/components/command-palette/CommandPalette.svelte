@@ -10,7 +10,7 @@
 
 <script lang="ts">
 	import { scale, fade } from 'svelte/transition';
-	import { Button } from '../button';
+	import Button from '../button';
 	export let handleClose: () => void;
 
 	export let onChange: undefined | ((e: Event) => void) = undefined;

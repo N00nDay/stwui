@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import { tooltip } from '../../lib/components/tooltip';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Toggle</CardHeader>
-		<CardContent class="p-4 ">
+		<Card.Header slot="header">Toggle</Card.Header>
+		<Card.Content slot="content" class="p-4 ">
 			<button
 				use:tooltip={{
 					placement: 'right',
@@ -61,6 +61,6 @@
 				class="text-white relative bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 				>Bottom tooltip
 			</button>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

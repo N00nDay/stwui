@@ -16,7 +16,7 @@
 		"isolatedModules": true,
 		"moduleResolution": "node",
 		"module": "es2020",
-		"lib": ["es2020", "DOM"],
+		"lib": ["es2020", "DOM", "ESNext"],
 		"target": "es2020",
 		"paths": {
 			"$app": [".svelte-kit/dev/runtime/app"],

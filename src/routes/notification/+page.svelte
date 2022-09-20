@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import { Notification } from '../../lib/components/notification';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Notification</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Notification</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Notification
 				title="Successfully Saved!"
 				description="Anyone with a link can now view this file."
@@ -40,6 +40,6 @@
 					}
 				}}
 			/>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

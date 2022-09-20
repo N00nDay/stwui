@@ -3,6 +3,7 @@
 </script>
 
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
 	import { CARD_CONTEXT_ID } from './Card.svelte';
 	import { useContext } from '../../utils/useContext';
@@ -23,12 +24,14 @@
 	setContext(CARD_ACTIONS_CONTEXT_ID, {
 		actions: true
 	});
+
+	const defaultClass =
+		'flex flex-row h-14 justify-evenly divide-x divide-light-icon-background dark:divide-dark-icon-background first:rounded-t-md last:rounded-b-md';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class="flex flex-row h-14 justify-evenly divide-x divide-light-icon-background dark:divide-dark-icon-background first:rounded-t-md last:rounded-b-md{$$props.class
-		? ` ${$$props.class}`
-		: ''}"
+	class={finalClass}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

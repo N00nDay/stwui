@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { Button } from '../button';
+	import Button from '../button';
 
 	export let icon: MaterialIcons;
 	export let title: string;

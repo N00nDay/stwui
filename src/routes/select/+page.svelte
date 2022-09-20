@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import { Select } from '../../lib/components/select';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Select</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Select</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Select name="select-1" placeholder="Basic" options={['Option 1', 'Option 2', 'Option 3']} />
 			<br />
 			<Select
@@ -26,6 +26,6 @@
 				error="There has been an error"
 				options={['Option 1', 'Option 2', 'Option 3']}
 			/>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

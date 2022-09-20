@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import { RadioGroup } from '../../lib/components/radio';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Radio</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Radio</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<RadioGroup
 				radioGroup="group-1"
 				options={[
@@ -41,6 +41,6 @@
 					{ label: 'Radio-4', name: 'radio-12', value: 'radio-4' }
 				]}
 			/>
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>

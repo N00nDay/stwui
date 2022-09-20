@@ -21,7 +21,7 @@
 	import { page } from '$app/stores';
 	import { writable } from 'svelte/store';
 	import { slide, scale, type TransitionConfig } from 'svelte/transition';
-	import { Badge } from '../badge';
+	import Badge from '../badge';
 	import HoverBackground from '../HoverBackground.svelte';
 
 	export let items: MenuItem[] = [];

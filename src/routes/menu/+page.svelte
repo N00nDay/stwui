@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import { Card, CardHeader, CardContent } from '../../lib/components/card';
+	import Card from '../../lib/components/card';
 	import { Menu, type MenuItem } from '../../lib/components/menu';
-	import { Button } from '../../lib/components/button';
+	import Button from '../../lib/components/button';
 
 	const items1: MenuItem[] = [
 		{
@@ -101,30 +101,30 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Default</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Default</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Menu items={items1} activeItem="#item5" useUrl={false} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader>Collapsable Items</CardHeader>
-		<CardContent class="p-4">
+		<Card.Header slot="header">Collapsable Items</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Menu items={items2} activeItem="#item3" useUrl={false} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<CardHeader class="flex flex-row items-center justify-between"
+		<Card.Header slot="header" class="flex flex-row items-center justify-between"
 			>Collapsable Sider
 			<Button slot="extras" type="primary" on:click={toggleCollapse}>Collapse</Button>
-		</CardHeader>
-		<CardContent class="p-4">
+		</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Menu items={items2} {collapsed} />
-		</CardContent>
+		</Card.Content>
 	</Card>
 </Col>
