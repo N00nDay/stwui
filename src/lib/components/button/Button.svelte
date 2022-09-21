@@ -37,7 +37,7 @@
 	export let swap: MaterialIcons | undefined = undefined;
 
 	let classes =
-		'inline-flex justify-center items-center font-medium transition-all duration-150 active:hover:animate-none active:hover:scale-95 outline-none';
+		'inline-flex justify-center items-center font-medium transition-all duration-150 cursor-pointer active:hover:animate-none active:hover:scale-95 outline-none';
 	if (block) classes += ' w-full';
 	if (loading) classes += ' cursor-wait';
 	let iconSize: string;
