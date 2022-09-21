@@ -2,7 +2,8 @@ import OriginalButton from './Button.svelte';
 import Group from './Group.svelte';
 import Loader from './Loader.svelte';
 
-export interface ButtonStatic extends OriginalButton {
+import type { SvelteComponentDev } from 'svelte/internal';
+export interface ButtonStatic extends SvelteComponentDev {
 	new (): OriginalButton;
 	Group: typeof Group;
 	Loader: typeof Loader;
