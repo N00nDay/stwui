@@ -2,15 +2,17 @@ import OriginalButton from './Button.svelte';
 import Group from './Group.svelte';
 import Loader from './Loader.svelte';
 
-import type { SvelteComponentDev } from 'svelte/internal';
-export interface ButtonStatic extends SvelteComponentDev {
-	new (): OriginalButton;
-	Group: typeof Group;
-	Loader: typeof Loader;
-}
+// FIXME: this interface removes the errors below but causes
+// "Expected 0 arguments, but got 1." error when imported into external applications
 
-const Button = OriginalButton as ButtonStatic;
-// const Button = OriginalButton;
+// export interface ButtonStatic extends OriginalButton {
+// 	new (): OriginalButton;
+// 	Group: typeof Group;
+// 	Loader: typeof Loader;
+// }
+
+// const Button = OriginalButton as ButtonStatic;
+const Button = OriginalButton;
 Button.Group = Group;
 Button.Loader = Loader;
 
