@@ -1,115 +1,77 @@
 <script lang="ts">
-	import Card from '../../lib/components/card';
-
+	import { Card, Feed } from '../../lib';
 	import { Col } from '../../lib/components/grid';
-	import { Feed, type FeedItem } from '../../lib/components/feed';
 
-	const dateFormat2: Intl.DateTimeFormatOptions = {
-		day: 'numeric',
-		month: 'short'
-	};
-
-	const feed1: FeedItem[] = [
-		{
-			avatar:
-				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-			description: 'Applied to ',
-			creator: 'Front End Developer',
-			date: new Date(2022, 8, 20),
-			href: '#feed1'
-		},
-		{
-			icon: 'thumb_up',
-			description: 'Advanced to phone screening by ',
-			creator: 'Bethany Blake',
-			date: new Date(2022, 8, 22),
-			type: 'info',
-			href: '#feed2'
-		},
-		{
-			icon: 'done',
-			description: 'Completed phone screening with ',
-			creator: 'Martha Gardner',
-			date: new Date(2022, 8, 28),
-			type: 'success',
-			href: '#feed3'
-		},
-		{
-			icon: 'thumb_up',
-			description: 'Advanced to interview by ',
-			creator: 'Bethany Blake',
-			date: new Date(2022, 8, 30),
-			type: 'info',
-			href: '#feed4'
-		},
-		{
-			icon: 'done',
-			description: 'Completed interview with ',
-			creator: 'Katherine Snyder',
-			date: new Date(2022, 9, 4),
-			type: 'success',
-			href: '#feed5'
-		}
-	];
-
-	const feed2: FeedItem[] = [
-		{
-			avatar:
-				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-			description: 'Deployed Workcation (2d89f0c8 in master) to production',
-			creator: 'Lindsay Walton',
-			date: new Date(2022, 8, 20),
-			href: '#feed1'
-		},
-		{
-			avatar:
-				'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-			description: 'Deployed KiteTail (249df660 in master) to staging',
-			creator: 'Floyd Miles',
-			date: new Date(2022, 8, 22),
-			href: '#feed2'
-		},
-		{
-			avatar:
-				'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-			description: 'Deployed Workcation (11464223 in master) to staging',
-			creator: 'Floyd Miles',
-			date: new Date(2022, 8, 28),
-			href: '#feed3'
-		},
-		{
-			avatar:
-				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
-			description: 'Deployed Easywire (dad28e95 in master) to production',
-			creator: 'Whitney Francis',
-			date: new Date(2022, 8, 30),
-			href: '#feed4'
-		},
-		{
-			avatar:
-				'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-			description: 'Deployed Easywire (624bc94c in master) to production',
-			creator: 'Lindsay Walton',
-			date: new Date(2022, 9, 4),
-			href: '#feed5'
-		}
-	];
+	const item1 =
+		'<span>Applied to <a href="#item1" class="font-bold">Front End Developer</a></span>';
+	const item2 =
+		'<span>Advanced to phone screeingin by <a href="#item2" class="font-bold">Bethany Blake</a></span>';
+	const item3 =
+		'<span>Completed phone screening with <a href="#item3" class="font-bold">Martha Gardner</a></span>';
+	const item4 =
+		'<span>Advanced to interview by <a href="#item4" class="font-bold">Bethany Blake</a></span>';
+	const item5 =
+		'<span>Completed interview with <a href="#item5" class="font-bold">Katherine Snyder</a></span>';
 </script>
 
 <Col class="col-24">
 	<Card bordered={false}>
 		<Card.Header slot="header">Simple</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Feed feed={feed1} />
-		</Card.Content>
-	</Card>
-</Col>
+			<Feed>
+				<Feed.Item>
+					<Feed.Item.Leading slot="leading">
+						<Feed.Item.Leading.Avatar
+							slot="avatar"
+							src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+						/>
+					</Feed.Item.Leading>
+					<Feed.Item.Content slot="content">
+						{@html item1}
+					</Feed.Item.Content>
+					<Feed.Item.DateTime slot="datetime" date={new Date(2022, 8, 21)} />
+				</Feed.Item>
 
-<Col class="col-24">
-	<Card bordered={false}>
-		<Card.Header slot="header">Stacked</Card.Header>
-		<Card.Content slot="content" noPadding>
-			<Feed feed={feed2} variant="stacked" dateFormat={dateFormat2} />
+				<Feed.Item>
+					<Feed.Item.Leading slot="leading" class="bg-info-background">
+						<Feed.Item.Leading.Icon slot="avatar" icon="thumb_up" />
+					</Feed.Item.Leading>
+					<Feed.Item.Content slot="content">
+						{@html item2}
+					</Feed.Item.Content>
+					<Feed.Item.DateTime slot="datetime" date={new Date(2022, 8, 19)} />
+				</Feed.Item>
+
+				<Feed.Item>
+					<Feed.Item.Leading slot="leading" class="bg-success-background">
+						<Feed.Item.Leading.Icon slot="avatar" icon="done" />
+					</Feed.Item.Leading>
+					<Feed.Item.Content slot="content">
+						{@html item3}
+					</Feed.Item.Content>
+					<Feed.Item.DateTime slot="datetime" date={new Date(2022, 8, 15)} />
+				</Feed.Item>
+
+				<Feed.Item>
+					<Feed.Item.Leading slot="leading" class="bg-info-background">
+						<Feed.Item.Leading.Icon slot="avatar" icon="thumb_up" />
+					</Feed.Item.Leading>
+					<Feed.Item.Content slot="content">
+						{@html item4}
+					</Feed.Item.Content>
+					<Feed.Item.DateTime slot="datetime" date={new Date(2022, 8, 2)} />
+				</Feed.Item>
+
+				<Feed.Item>
+					<Feed.Item.Leading slot="leading" class="bg-success-background">
+						<Feed.Item.Leading.Icon slot="avatar" icon="done" />
+					</Feed.Item.Leading>
+					<Feed.Item.Content slot="content">
+						{@html item5}
+					</Feed.Item.Content>
+					<Feed.Item.DateTime slot="datetime" date={new Date(2022, 7, 22)} />
+				</Feed.Item>
+			</Feed>
 		</Card.Content>
 	</Card>
 </Col>

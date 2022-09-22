@@ -15,6 +15,7 @@ import Divider from './components/divider';
 import Drawer from './components/drawer';
 import Dropdown from './components/dropdown';
 import Empty from './components/empty';
+import Feed from './components/feed';
 
 import Input from './components/input';
 
@@ -38,6 +39,7 @@ export {
 	Drawer,
 	Dropdown,
 	Empty,
+	Feed,
 	//
 	Input,
 	//
