@@ -3,8 +3,12 @@
 </script>
 
 <script lang="ts">
+	import { validateSlots } from '$lib/utils/validateSlots';
+
 	import { setContext } from 'svelte';
-	import { fly, fade } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
+	import { twMerge } from 'tailwind-merge';
+	import Backdrop from './Backdrop.svelte';
 
 	export let handleClose: (() => void) | undefined = undefined;
 	export let placement: 'left' | 'right' | 'top' | 'bottom' = 'right';
@@ -34,18 +38,25 @@
 
 	setContext(DRAWER_CONTEXT_ID, {
 		drawer: true,
-		handleClose
+		handleClose,
+		disableOverlayClose
 	});
+
+	validateSlots($$slots, ['default', 'backdrop', 'header', 'content', 'footer'], 'Drawer');
+
+	const defaultClass =
+		'flex inner-panel flex-col bg-light-surface dark:bg-dark-surface overflow-hidden';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <svelte:window on:keydown={captureEscapeEvent} />
 
 <div class="relative z-10" role="dialog">
-	<div
-		class="fixed inset-0 bg-dark-background dark:bg-light-background bg-opacity-10 dark:bg-opacity-10 backdrop-blur-sm transition-opacity pointer-events-auto"
-		transition:fade
-		on:click={disableOverlayClose ? undefined : handleClose}
-	/>
+	{#if $$slots.backdrop}
+		<slot name="backdrop" />
+	{:else}
+		<Backdrop />
+	{/if}
 
 	<div class="fixed inset-0 overflow-hidden pointer-events-none">
 		<div class="absolute inset-0 overflow-hidden pointer-events-none">
@@ -68,13 +79,16 @@
 					transition:fly={flyConfig}
 				>
 					<div
-						class="flex inner-panel flex-col bg-light-surface dark:bg-dark-surface overflow-hidden"
+						class={finalClass}
 						class:left={placement === 'left'}
 						class:right={placement === 'right'}
 						class:top={placement === 'top'}
 						class:bottom={placement === 'bottom'}
 					>
+						<slot name="header" />
+						<slot name="content" />
 						<slot />
+						<slot name="footer" />
 					</div>
 				</div>
 			</div>

@@ -12,6 +12,7 @@ import Chip from './components/chip';
 import Currency from './components/currency';
 import DatePicker from './components/datepicker';
 import Divider from './components/divider';
+import Drawer from './components/drawer';
 
 import Input from './components/input';
 
@@ -32,6 +33,7 @@ export {
 	Currency,
 	DatePicker,
 	Divider,
+	Drawer,
 	//
 	Input,
 	//

@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import Card from '../../lib/components/card';
-	import { Drawer, DrawerContent, DrawerFooter, DrawerHeader } from '../../lib/components/drawer';
-	import Button from '../../lib/components/button';
+	import { Button, Card, Drawer } from '../../lib';
 	import { Portal } from '../../lib/components/portal';
 
 	let drawerRightOpen = false;
@@ -64,9 +62,9 @@
 <Portal>
 	{#if drawerRightOpen}
 		<Drawer handleClose={closeDrawerRight}>
-			<DrawerHeader>Drawer Header</DrawerHeader>
-			<DrawerContent>Drawer Content</DrawerContent>
-			<DrawerFooter>Drawer Footer</DrawerFooter>
+			<Drawer.Header slot="header">Drawer Header</Drawer.Header>
+			<Drawer.Content slot="content">Drawer Content</Drawer.Content>
+			<Drawer.Footer slot="footer">Drawer Footer</Drawer.Footer>
 		</Drawer>
 	{/if}
 </Portal>
