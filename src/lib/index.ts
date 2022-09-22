@@ -7,5 +7,17 @@ import Breadcrumbs from './components/breadcrumbs';
 import Button from './components/button';
 import Card from './components/card';
 import Carousel from './components/carousel';
+import Checkbox from './components/checkbox';
 
-export { Accordion, Alert, Autocomplete, Avatar, Badge, Breadcrumbs, Button, Card, Carousel };
+export {
+	Accordion,
+	Alert,
+	Autocomplete,
+	Avatar,
+	Badge,
+	Breadcrumbs,
+	Button,
+	Card,
+	Carousel,
+	Checkbox
+};

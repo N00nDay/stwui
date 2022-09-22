@@ -1,9 +1,12 @@
 <script lang="ts">
+	import { getContext } from 'svelte';
+	import { CHECKBOX_GROUP_CONTEXT_ID } from './Group.svelte';
 	export let name: string;
 	export let value: string;
 	export let label: string;
 	export let description: string | undefined = undefined;
-	export let inline = false;
+
+	const context: { checkbox: boolean; inline: boolean } = getContext(CHECKBOX_GROUP_CONTEXT_ID);
 </script>
 
 <div class="relative flex items-start">
@@ -22,7 +25,7 @@
 			class="font-medium text-light-content dark:text-dark-content cursor-pointer transition-all duration-150"
 			>{label}</label
 		>
-		{#if description && !inline}
+		{#if description && context && !context.inline}
 			<p
 				id="{name}-description"
 				class="text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
