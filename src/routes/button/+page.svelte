@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
-	import { Button, Card } from '../../lib';
+	import { Button, Card, Col } from '../../lib';
 
 	let loading = false;
 

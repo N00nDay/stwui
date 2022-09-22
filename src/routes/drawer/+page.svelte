@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
-	import { Button, Card, Drawer } from '../../lib';
+	import { Button, Card, Col, Drawer } from '../../lib';
 	import { Portal } from '../../lib/components/portal';
 
 	let drawerRightOpen = false;

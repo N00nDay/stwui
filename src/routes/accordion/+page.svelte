@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
-	import { Accordion, Card } from '../../lib';
+	import { Accordion, Card, Col } from '../../lib';
 </script>
 
 <Col class="col-24 md:col-12">

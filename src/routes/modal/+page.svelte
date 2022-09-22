@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
-	import Card from '../../lib/components/card';
+	import { Button, Card, Col } from '../../lib';
 	import { Modal } from '../../lib/components/modal';
-	import Button from '../../lib/components/button';
 	import { Portal } from '../../lib/components/portal';
 
 	let modal1Open = false;

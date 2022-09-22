@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
-	import { Card, Carousel } from '../../lib';
+	import { Card, Carousel, Col } from '../../lib';
 
 	const slides = [
 		{

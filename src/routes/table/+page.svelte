@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
-	import Card from '../../lib/components/card';
+	import { Button, Card, Col } from '../../lib';
 	import {
 		Table,
 		TableBody,
@@ -9,7 +8,6 @@
 		TableRow,
 		TableCell
 	} from '../../lib/components/table';
-	import Button from '../../lib/components/button';
 	import { Pagination } from '../../lib/components/pagination';
 	import type { ITableColumn } from '../../lib/components/table/Table.svelte';
 

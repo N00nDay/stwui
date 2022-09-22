@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { Card } from '../../lib';
+	import { Card, Col } from '../../lib';
 	import { Media, MediaTitle, MediaContent, MediaDescription } from '../../lib/components/media';
-	import { Col } from '../../lib/components/grid';
 </script>
 
 <Col class="col-24 md:col-6">

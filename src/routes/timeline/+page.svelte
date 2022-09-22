@@ -1,7 +1,5 @@
 <script lang="ts">
-	import Card from '../../lib/components/card';
-
-	import { Col } from '../../lib/components/grid';
+	import { Card, Col } from '../../lib';
 	import { Timeline, type TimelineItem } from '../../lib/components/timeline';
 
 	const timeline: TimelineItem[] = [

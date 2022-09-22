@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
+	import { Col } from '../../lib';
 	import { Statistic } from '../../lib/components/statistic';
 </script>
 

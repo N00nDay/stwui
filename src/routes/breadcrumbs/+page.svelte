@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
-	import { Breadcrumbs, Card } from '../../lib';
+	import { Breadcrumbs, Card, Col } from '../../lib';
 </script>
 
 <Col class="col-24 md:col-12">

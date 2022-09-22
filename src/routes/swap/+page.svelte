@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Swap } from '../../lib/components/swap';
-	import Card from '../../lib/components/card';
+	import { Card } from '../../lib';
 
 	let swapped = false;
 

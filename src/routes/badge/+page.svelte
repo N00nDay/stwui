@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
-	import { Badge, Card } from '../../lib';
+	import { Badge, Card, Col } from '../../lib';
 </script>
 
 <Col class="col-24 md:col-12">

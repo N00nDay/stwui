@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
-	import Card from '../../lib/components/card';
+	import { Button, Card, Col } from '../../lib';
 	import { Menu, type MenuItem } from '../../lib/components/menu';
-	import Button from '../../lib/components/button';
 
 	const items1: MenuItem[] = [
 		{

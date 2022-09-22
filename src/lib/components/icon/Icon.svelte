@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
 	import { current_component } from 'svelte/internal';
 	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
 	import { useActions, type ActionArray } from '../../utils/useActions';
@@ -8,13 +9,16 @@
 
 	import type MaterialIcons from '../../types/material-icons';
 
-	export let name: MaterialIcons;
+	export let icon: MaterialIcons;
+
+	const defaultClass = 'material-icons';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <span
-	class="material-icons{$$props.class ? ` ${$$props.class}` : ''}"
-	style={$$props.class}
+	class={finalClass}
+	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}>{name}</span
+	{...exclude($$props, ['use', 'class'])}>{icon}</span
 >

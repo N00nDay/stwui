@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Card, Feed } from '../../lib';
-	import { Col } from '../../lib/components/grid';
+	import { Card, Col, Feed } from '../../lib';
 
 	const item1 =
 		'<span>Applied to <a href="#item1" class="font-bold">Front End Developer</a></span>';

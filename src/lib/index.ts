@@ -1,25 +1,30 @@
 import Accordion from './components/accordion';
 import Alert from './components/alert';
-import Autocomplete from './components/autocomplete';
+import Autocomplete from './components/autocomplete'; // TODO: needs refactor and dot notation
 import Avatar from './components/avatar';
 import Badge from './components/badge';
 import Breadcrumbs from './components/breadcrumbs';
-import Button from './components/button';
+import Button from './components/button'; // TODO: needs refactor and dot notation
 import Card from './components/card';
 import Carousel from './components/carousel';
 import Checkbox from './components/checkbox';
 import Chip from './components/chip';
-import Currency from './components/currency';
-import DatePicker from './components/datepicker';
+import Col from './components/grid/Col.svelte';
+import Currency from './components/currency'; // TODO: needs refactor and dot notation
+import DatePicker from './components/datepicker'; // TODO: needs refactor and dot notation
 import Divider from './components/divider';
 import Drawer from './components/drawer';
 import Dropdown from './components/dropdown';
 import Empty from './components/empty';
 import Feed from './components/feed';
+import Input from './components/input'; // TODO: needs refactor and dot notation
+import Icon from './components/icon';
 
-import Input from './components/input';
+import List from './components/list';
 
-import TextArea from './components/textarea';
+import Row from './components/grid/Row.svelte';
+
+import TextArea from './components/textarea'; // TODO: needs refactor and dot notation
 
 export {
 	Accordion,
@@ -33,6 +38,7 @@ export {
 	Carousel,
 	Checkbox,
 	Chip,
+	Col,
 	Currency,
 	DatePicker,
 	Divider,
@@ -40,8 +46,12 @@ export {
 	Dropdown,
 	Empty,
 	Feed,
-	//
 	Input,
+	Icon,
+	//
+	List,
+	//
+	Row,
 	//
 	TextArea
 };

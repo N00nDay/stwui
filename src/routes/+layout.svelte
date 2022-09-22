@@ -15,9 +15,8 @@
 	} from '../lib/components/layout';
 	import { Portal } from '../lib/components/portal';
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
-	import { Row } from '../lib/components/grid';
 
-	import { Button, Dropdown } from '../lib';
+	import { Button, Dropdown, Row } from '../lib';
 
 	const sidbarItems = [
 		{

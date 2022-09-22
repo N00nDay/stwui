@@ -3,6 +3,7 @@
 </script>
 
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
 
 	export let divided = true;
@@ -13,17 +14,21 @@
 		list: true,
 		bordered: bordered || edgeToEdge
 	});
+
+	let defaultClass = '';
+	const defaultDividedClass = 'divide-y divide-light-border dark:divide-dark-border';
+	const defaultBorderedClass = 'border border-light-border dark:border-dark-border';
+	if (divided) {
+		defaultClass += defaultDividedClass;
+	}
+	if (bordered && defaultClass.length > 0) {
+		defaultClass += ` ${defaultBorderedClass}`;
+	} else if (bordered) {
+		defaultClass += defaultBorderedClass;
+	}
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<ul
-	class={$$props.class}
-	class:divide-y={divided}
-	class:divide-light-border={divided}
-	class:dark:divide-dark-border={divided}
-	class:border={bordered}
-	class:border-light-border={bordered}
-	class:dark:border-dark-border={bordered}
-	style={$$props.style}
->
+<ul class={finalClass} style={$$props.style}>
 	<slot />
 </ul>

@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
+	import { Avatar, Col } from '../../lib';
 	import Post from '../../lib/components/post';
-	import Avatar from '../../lib/components/avatar';
 	import { formatDate } from '$lib/utils/formatDate';
 
 	let creator = {

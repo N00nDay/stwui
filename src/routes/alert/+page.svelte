@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Col } from '../../lib/components/grid';
-	import { Alert, Button, Card } from '../../lib';
+	import { Alert, Button, Card, Col } from '../../lib';
 	import Icon from '../../lib/components/icon';
 </script>
 
@@ -18,7 +17,7 @@
 			<br />
 			<Alert type="error">
 				<Alert.Icon slot="icon">
-					<Icon name="cancel" class="text-current" />
+					<Icon icon="cancel" class="text-current" />
 				</Alert.Icon>
 				<Alert.Title slot="title"
 					><span>Title</span>
@@ -36,7 +35,7 @@
 			<br />
 			<Alert type="error">
 				<Alert.Icon slot="icon">
-					<Icon name="cancel" class="text-current" />
+					<Icon icon="cancel" class="text-current" />
 				</Alert.Icon>
 				<Alert.Title slot="title"
 					><span>Title</span>
