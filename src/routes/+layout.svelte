@@ -15,10 +15,9 @@
 	} from '../lib/components/layout';
 	import { Portal } from '../lib/components/portal';
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
-	import { Dropdown, DropdownItems, DropdownItem } from '../lib/components/dropdown';
 	import { Row } from '../lib/components/grid';
 
-	import { Button } from '../lib';
+	import { Button, Dropdown } from '../lib';
 
 	const sidbarItems = [
 		{
@@ -309,13 +308,15 @@
 							alt=""
 						/>
 					</button>
-					<DropdownItems slot="items" style="margin-top: 1rem;">
-						<DropdownItem on:click={handleToggleTheme}>Toggle Theme</DropdownItem>
-						<DropdownItem on:click={handleCollapseUncollapse}>Collapse/Uncollapse</DropdownItem>
-						<DropdownItem on:click={handleCloseDropdown}>View Profile</DropdownItem>
-						<DropdownItem on:click={handleCloseDropdown}>Settings</DropdownItem>
-						<DropdownItem on:click={handleCloseDropdown}>Logout</DropdownItem>
-					</DropdownItems>
+					<Dropdown.Items slot="items" style="margin-top: 1rem;">
+						<Dropdown.Items.Item on:click={handleToggleTheme}>Toggle Theme</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={handleCollapseUncollapse}
+							>Collapse/Uncollapse</Dropdown.Items.Item
+						>
+						<Dropdown.Items.Item on:click={handleCloseDropdown}>View Profile</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={handleCloseDropdown}>Settings</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={handleCloseDropdown}>Logout</Dropdown.Items.Item>
+					</Dropdown.Items>
 				</Dropdown>
 			</LayoutHeaderExtras>
 		</LayoutHeader>

@@ -4,6 +4,7 @@
 
 <script lang="ts">
 	import { setContext } from 'svelte';
+	import { twMerge } from 'tailwind-merge';
 	import { clickOutside } from '../../utils/clickOutside';
 
 	export let handleClose: () => void;
@@ -12,12 +13,12 @@
 	setContext(DROPDOWN_CONTEXT_ID, {
 		dropdown: true
 	});
+
+	const defaultClass = 'relative inset-0 flex-shrink-0';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div
-	class="relative inset-0 flex-shrink-0{$$props.class ? ` ${$$props.class}` : ''}"
-	use:clickOutside={handleClose}
->
+<div class={finalClass} use:clickOutside={handleClose}>
 	<div>
 		<slot name="trigger" />
 	</div>

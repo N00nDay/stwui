@@ -13,6 +13,8 @@ import Currency from './components/currency';
 import DatePicker from './components/datepicker';
 import Divider from './components/divider';
 import Drawer from './components/drawer';
+import Dropdown from './components/dropdown';
+import Empty from './components/empty';
 
 import Input from './components/input';
 
@@ -34,6 +36,8 @@ export {
 	DatePicker,
 	Divider,
 	Drawer,
+	Dropdown,
+	Empty,
 	//
 	Input,
 	//

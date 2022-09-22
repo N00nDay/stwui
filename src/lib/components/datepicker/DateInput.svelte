@@ -5,7 +5,7 @@
 	import { writable } from 'svelte/store';
 	import dayjs, { Dayjs } from 'dayjs';
 	import Input from '../input';
-	import { Dropdown } from '../dropdown';
+	import Dropdown from '../dropdown';
 	import type MaterialIcons from '../../types/material-icons';
 
 	const innerStore = writable(null as Dayjs | null);
