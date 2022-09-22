@@ -8,6 +8,7 @@ import Button from './components/button';
 import Card from './components/card';
 import Carousel from './components/carousel';
 import Checkbox from './components/checkbox';
+import Chip from './components/chip';
 
 export {
 	Accordion,
@@ -19,5 +20,6 @@ export {
 	Button,
 	Card,
 	Carousel,
-	Checkbox
+	Checkbox,
+	Chip
 };
