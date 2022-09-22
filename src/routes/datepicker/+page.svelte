@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import Card from '../../lib/components/card';
-	import { DatePicker } from '../../lib/components/datepicker';
+	import { Card, DatePicker } from '../../lib';
 
 	const date2Max = new Date(2022, 7, 30);
 	const date2Min = new Date(2022, 7, 3);

@@ -9,6 +9,12 @@ import Card from './components/card';
 import Carousel from './components/carousel';
 import Checkbox from './components/checkbox';
 import Chip from './components/chip';
+import Currency from './components/currency';
+import DatePicker from './components/datepicker';
+
+import Input from './components/input';
+
+import TextArea from './components/textarea';
 
 export {
 	Accordion,
@@ -21,5 +27,11 @@ export {
 	Card,
 	Carousel,
 	Checkbox,
-	Chip
+	Chip,
+	Currency,
+	DatePicker,
+	//
+	Input,
+	//
+	TextArea
 };

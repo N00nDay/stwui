@@ -1,3 +1,3 @@
 import TextArea from './TextArea.svelte';
 
-export { TextArea };
+export default TextArea;

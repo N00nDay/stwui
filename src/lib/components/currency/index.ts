@@ -1,3 +1,3 @@
 import Currency from './Currency.svelte';
 
-export { Currency };
+export default Currency;

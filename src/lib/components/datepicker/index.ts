@@ -1,3 +1,3 @@
 import DatePicker from './DateInput.svelte';
 
-export { DatePicker };
+export default DatePicker;

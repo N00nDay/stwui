@@ -1,9 +1,6 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import Card from '../../lib/components/card';
-	import { Input } from '../../lib/components/input';
-	import { Currency } from '../../lib/components/currency';
-	import { TextArea } from '../../lib/components/textarea';
+	import { Card, Currency, Input, TextArea } from '../../lib';
 </script>
 
 <Col class="col-24 md:col-12">

@@ -4,7 +4,7 @@
 	import DatePicker from './DatePicker.svelte';
 	import { writable } from 'svelte/store';
 	import dayjs, { Dayjs } from 'dayjs';
-	import { Input } from '../input';
+	import Input from '../input';
 	import { Dropdown } from '../dropdown';
 	import type MaterialIcons from '../../types/material-icons';
 
