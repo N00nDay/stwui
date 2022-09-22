@@ -1,19 +1,24 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import Card from '../../lib/components/card';
-	import Button from '../../lib/components/button';
-	import { Divider } from '../../lib/components/divider';
+	import { Button, Card, Divider } from '../../lib';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
 		<Card.Header slot="header">Divider</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Divider label="Divider" />
-			<Divider icon="add" />
-			<Divider label="Divider" position="left" />
-			<Divider label="Divider" position="right" />
-			<Divider label="Divider" labelStyle="title" />
+			<Divider>
+				<Divider.Label>Divider</Divider.Label>
+			</Divider>
+			<Divider>
+				<Divider.Icon icon="add" />
+			</Divider>
+			<Divider position="left">
+				<Divider.Label>Divider</Divider.Label>
+			</Divider>
+			<Divider position="right">
+				<Divider.Label>Divider</Divider.Label>
+			</Divider>
 
 			<Divider>
 				<Button type="primary">I am a Button</Button>

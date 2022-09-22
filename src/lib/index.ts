@@ -11,6 +11,7 @@ import Checkbox from './components/checkbox';
 import Chip from './components/chip';
 import Currency from './components/currency';
 import DatePicker from './components/datepicker';
+import Divider from './components/divider';
 
 import Input from './components/input';
 
@@ -30,6 +31,7 @@ export {
 	Chip,
 	Currency,
 	DatePicker,
+	Divider,
 	//
 	Input,
 	//
