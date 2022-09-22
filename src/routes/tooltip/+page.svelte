@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import Card from '../../lib/components/card';
+	import { Card, Card.Header, Card.Content } from '../../lib/components/card';
 	import { tooltip } from '../../lib/components/tooltip';
 </script>
 

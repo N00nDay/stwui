@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Card from '../../lib/components/card';
+	import { Card } from '../../lib';
 	import { Media, MediaTitle, MediaContent, MediaDescription } from '../../lib/components/media';
 	import { Col } from '../../lib/components/grid';
 </script>

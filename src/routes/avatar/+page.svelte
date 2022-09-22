@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import Card from '../../lib/components/card';
-	import Avatar from '../../lib/components/avatar';
+	import { Avatar, Card } from '../../lib';
 </script>
 
 <Col class="col-24 md:col-12">

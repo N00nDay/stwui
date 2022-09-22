@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Col } from '../../lib/components/grid';
-	import Card from '../../lib/components/card';
-	import Autocomplete from '../../lib/components/autocomplete';
+	import { Autocomplete, Card } from '../../lib';
 
 	let value1: string;
 	let value2: string;

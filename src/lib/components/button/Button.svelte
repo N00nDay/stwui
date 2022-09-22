@@ -283,7 +283,7 @@
 		@apply border-none;
 	}
 
-	.default:disabled {
+	:disabled:not(.primary):not(.danger):not(.ghost):not(.link):not(.text) {
 		@apply hover:text-default-content;
 		@apply hover:border-light-icon-background;
 		@apply shadow-md;
@@ -319,7 +319,7 @@
 	.ghost:disabled {
 		@apply hover:bg-transparent;
 		@apply border-transparent;
-		@apply text-default-content;
+		@apply text-danger-content;
 		@apply shadow-none;
 		@apply border-none;
 		@apply bg-transparent;

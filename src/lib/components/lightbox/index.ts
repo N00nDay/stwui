@@ -1,3 +1,1 @@
-import LightBox from './LightBox.svelte';
-
-export { LightBox };
+export { default as LightBox } from './LightBox.svelte';
