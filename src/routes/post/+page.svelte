@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Avatar, Col } from '../../lib';
+	import { Avatar, Col, LightBox } from '../../lib';
 	import Post from '../../lib/components/post';
-	import { formatDate } from '$lib/utils/formatDate';
+	import { formatDate } from '../../lib/utils/formatDate';
 
 	let creator = {
 		avatar:
@@ -41,6 +41,27 @@
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 	let likes = ['1', '2'];
 	let comments = ['1', '2'];
+
+	let open = false;
+	let slides: Slide[] = [];
+	let initialSlide = 0;
+	// export let handleClose: () => void;
+
+	function openLightBox(index: number) {
+		for (const image of images3) {
+			slides.push({
+				src: image
+			});
+		}
+		initialSlide = index;
+		open = true;
+	}
+
+	function closeLightBox() {
+		open = false;
+		slides = [];
+		initialSlide = 0;
+	}
 </script>
 
 <Col class="col-24">
@@ -101,7 +122,7 @@
 				{@html content}
 			</Post.Content>
 
-			<Post.Images slot="images" images={images3} />
+			<Post.Images slot="images" images={images3} handleClick={openLightBox} />
 
 			<Post.Status slot="status" {likes} {comments} />
 
@@ -157,3 +178,9 @@
 		</Post>
 	</div>
 </Col>
+
+<LightBox {open} {slides} activeSlide={initialSlide} handleClose={closeLightBox}>
+	<LightBox.Controls slot="controls">
+		<LightBox.Controls.Control icon="cancel" on:click={closeLightBox} />
+	</LightBox.Controls>
+</LightBox>

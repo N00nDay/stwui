@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { Carousel } from '../carousel';
-	import type { Slide } from '../carousel';
+	import Carousel from '../carousel';
+	import type { Slide } from '../../types/carousel-slide';
+
 	import { Modal } from '../modal';
 	import { Portal } from '../portal';
 	import { validateSlots } from '../../utils/validateSlots';
@@ -17,11 +18,13 @@
 {#if open}
 	<Portal>
 		<Modal {handleClose} fullScreen>
-			<Carousel bind:activeSlide {slides} {rotation}>
-				{#if $$slots.controls}
-					<slot name="controls" />
-				{/if}
-			</Carousel>
+			{#if $$slots.controls}
+				<Carousel bind:activeSlide {slides} {rotation}>
+					<slot slot="controls" name="controls" />
+				</Carousel>
+			{:else}
+				<Carousel bind:activeSlide {slides} {rotation} />
+			{/if}
 		</Modal>
 	</Portal>
 {/if}

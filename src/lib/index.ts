@@ -20,6 +20,7 @@ import Feed from './components/feed';
 import Icon from './components/icon';
 import Input from './components/input'; // TODO: needs refactor and dot notation
 import Layout from './components/layout';
+import LightBox from './components/lightbox';
 import List from './components/list';
 import Menu from './components/menu';
 
@@ -50,6 +51,7 @@ export {
 	Icon,
 	Input,
 	Layout,
+	LightBox,
 	List,
 	Menu,
 	//

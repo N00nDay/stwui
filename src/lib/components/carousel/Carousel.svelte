@@ -1,12 +1,6 @@
-<script lang="ts" context="module">
-	export interface Slide {
-		src: string;
-		alt?: string;
-	}
-</script>
-
 <script lang="ts">
 	import { validateSlots } from '../../utils/validateSlots';
+	import type { Slide } from '../../types/carousel-slide';
 
 	export let slides: Slide[] = [];
 	export let activeSlide = 0;
@@ -33,6 +27,8 @@
 	}
 
 	validateSlots($$slots, ['controls'], 'Carousel');
+
+	$: console.log('slides', slides);
 </script>
 
 <div class="relative h-full">
