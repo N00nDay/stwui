@@ -17,10 +17,11 @@ import Drawer from './components/drawer';
 import Dropdown from './components/dropdown';
 import Empty from './components/empty';
 import Feed from './components/feed';
-import Input from './components/input'; // TODO: needs refactor and dot notation
 import Icon from './components/icon';
-
+import Input from './components/input'; // TODO: needs refactor and dot notation
+import Layout from './components/layout';
 import List from './components/list';
+import Menu from './components/menu';
 
 import Row from './components/grid/Row.svelte';
 
@@ -46,10 +47,11 @@ export {
 	Dropdown,
 	Empty,
 	Feed,
-	Input,
 	Icon,
-	//
+	Input,
+	Layout,
 	List,
+	Menu,
 	//
 	Row,
 	//

@@ -11,6 +11,7 @@
 	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
 	import { useActions, type ActionArray } from '../../utils/useActions';
 	import { exclude } from '../../utils/exclude';
+	import { twMerge } from 'tailwind-merge';
 	export let use: ActionArray = [];
 	const forwardEvents = forwardEventsBuilder(current_component);
 
@@ -22,10 +23,14 @@
 	setContext(BOTTOM_NAVIGATION_CONTEXT_ID, {
 		bottomNavigation: true
 	});
+
+	const defaultClass =
+		'w-full h-16 sticky bottom-0 left-0 right-0 bg-light-surface dark:bg-dark-surface shadow-negative-md dark:shadow-black z-10 transition-all duration-150 md:hidden flex items-center justify-evenly';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class="w-full h-16 sticky bottom-0 left-0 right-0 bg-light-surface dark:bg-dark-surface shadow-negative-md dark:shadow-black z-10 transition-all duration-150 md:hidden flex items-center justify-evenly"
+	class={finalClass}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

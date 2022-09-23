@@ -1,6 +1,22 @@
+<script lang="ts" context="module">
+	import type MaterialIcons from '$lib/types/material-icons';
+
+	interface GroupMenuItem {
+		label: string;
+		href: string;
+	}
+	interface MenuItem {
+		icon?: MaterialIcons;
+		label: string;
+		badge?: string;
+		badgeType?: 'info' | 'warn' | 'error' | 'success';
+		href: string;
+		children?: GroupMenuItem[];
+	}
+</script>
+
 <script lang="ts">
-	import { Button, Card, Col } from '../../lib';
-	import { Menu, type MenuItem } from '../../lib/components/menu';
+	import { Badge, Button, Card, Col, Menu } from '../../lib';
 
 	const items1: MenuItem[] = [
 		{
@@ -101,7 +117,26 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Menu items={items1} activeItem="#item5" useUrl={false} />
+			<Menu showActiveByURL={false}>
+				{#each items1 as item}
+					{#if item.icon && item.badge}
+						<Menu.Item label={item.label} href={item.href}>
+							<Menu.Item.Icon slot="icon" icon={item.icon} />
+							<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
+						</Menu.Item>
+					{:else if item.icon}
+						<Menu.Item label={item.label} href={item.href}>
+							<Menu.Item.Icon slot="icon" icon={item.icon} />
+						</Menu.Item>
+					{:else if item.badge}
+						<Menu.Item label={item.label} href={item.href}>
+							<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
+						</Menu.Item>
+					{:else}
+						<Menu.Item label={item.label} href={item.href} />
+					{/if}
+				{/each}
+			</Menu>
 		</Card.Content>
 	</Card>
 </Col>
@@ -110,7 +145,41 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Collapsable Items</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Menu items={items2} activeItem="#item3" useUrl={false} />
+			<Menu>
+				{#each items2 as item}
+					{#if item.children && item.children.length > 0}
+						{#if item.icon}
+							<Menu.Group label={item.label} href={item.href}>
+								<Menu.Item.Icon slot="icon" icon={item.icon} />
+								{#each item.children as child}
+									<Menu.Group.Item label={child.label} href={child.href} />
+								{/each}
+							</Menu.Group>
+						{:else}
+							<Menu.Group label={item.label} href={item.href}>
+								{#each item.children as child}
+									<Menu.Group.Item label={child.label} href={child.href} />
+								{/each}
+							</Menu.Group>
+						{/if}
+					{:else if item.icon && item.badge}
+						<Menu.Item label={item.label} href={item.href}>
+							<Menu.Item.Icon slot="icon" icon={item.icon} />
+							<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
+						</Menu.Item>
+					{:else if item.icon}
+						<Menu.Item label={item.label} href={item.href}>
+							<Menu.Item.Icon slot="icon" icon={item.icon} />
+						</Menu.Item>
+					{:else if item.badge}
+						<Menu.Item label={item.label} href={item.href}>
+							<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
+						</Menu.Item>
+					{:else}
+						<Menu.Item label={item.label} href={item.href} />
+					{/if}
+				{/each}
+			</Menu>
 		</Card.Content>
 	</Card>
 </Col>
@@ -122,7 +191,41 @@
 			<Button slot="extras" type="primary" on:click={toggleCollapse}>Collapse</Button>
 		</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Menu items={items2} {collapsed} />
+			<Menu {collapsed}>
+				{#each items2 as item}
+					{#if item.children && item.children.length > 0}
+						{#if item.icon}
+							<Menu.Group label={item.label} href={item.href}>
+								<Menu.Item.Icon slot="icon" icon={item.icon} />
+								{#each item.children as child}
+									<Menu.Group.Item label={child.label} href={child.href} />
+								{/each}
+							</Menu.Group>
+						{:else}
+							<Menu.Group label={item.label} href={item.href}>
+								{#each item.children as child}
+									<Menu.Group.Item label={child.label} href={child.href} />
+								{/each}
+							</Menu.Group>
+						{/if}
+					{:else if item.icon && item.badge}
+						<Menu.Item label={item.label} href={item.href}>
+							<Menu.Item.Icon slot="icon" icon={item.icon} />
+							<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
+						</Menu.Item>
+					{:else if item.icon}
+						<Menu.Item label={item.label} href={item.href}>
+							<Menu.Item.Icon slot="icon" icon={item.icon} />
+						</Menu.Item>
+					{:else if item.badge}
+						<Menu.Item label={item.label} href={item.href}>
+							<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
+						</Menu.Item>
+					{:else}
+						<Menu.Item label={item.label} href={item.href} />
+					{/if}
+				{/each}
+			</Menu>
 		</Card.Content>
 	</Card>
 </Col>

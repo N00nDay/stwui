@@ -2,23 +2,12 @@
 	import '../app.styles.css';
 
 	import { page } from '$app/stores';
-	import {
-		Layout,
-		LayoutHeader,
-		LayoutContent,
-		LayoutSidebar,
-		LayoutBody,
-		LayoutHeaderExtras,
-		BottomNavigationItem,
-		BottomNavigationCreateItem,
-		BottomNavigation
-	} from '../lib/components/layout';
 	import { Portal } from '../lib/components/portal';
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
 
-	import { Button, Dropdown, Row } from '../lib';
+	import { Button, Dropdown, Layout, Menu, Row } from '../lib';
 
-	const sidbarItems = [
+	const sidebarItems = [
 		{
 			title: 'Accordion',
 			href: './accordion'
@@ -250,7 +239,7 @@
 		<div
 			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-primary dark:bg-dark-surface shadow-md dark:shadow-black transition-all duration-150"
 		/>
-		<LayoutHeader {toggleSidebarWidth}>
+		<Layout.Header {toggleSidebarWidth}>
 			<Button
 				shape="circle"
 				icon="menu"
@@ -263,7 +252,7 @@
 
 			<div class="mr-2 font-bold text-xl opacity-80 dark:opacity-100">{pageTitle}</div>
 
-			<LayoutHeaderExtras slot="extras">
+			<Layout.Header.Extra slot="extra">
 				<Button
 					shape="circle"
 					icon="add"
@@ -317,14 +306,20 @@
 						<Dropdown.Items.Item on:click={handleCloseDropdown}>Logout</Dropdown.Items.Item>
 					</Dropdown.Items>
 				</Dropdown>
-			</LayoutHeaderExtras>
-		</LayoutHeader>
+			</Layout.Header.Extra>
+		</Layout.Header>
 
-		<LayoutContent
+		<Layout.Content
 			class="h-[calc(100%-4rem)] bg-light-background dark:bg-dark-background transition-all duration-150"
 		>
-			<LayoutSidebar logo="/full-dark-theme.png" items={sidbarItems} {sidebarWidth} />
-			<LayoutBody
+			<Layout.Content.Sidebar logo="/full-dark-theme.png" {sidebarWidth}>
+				{#each sidebarItems as item}
+					<Menu>
+						<Menu.Item label={item.title} href={item.href} />
+					</Menu>
+				{/each}
+			</Layout.Content.Sidebar>
+			<Layout.Content.Body
 				class="relative h-full lg:pl-0 overflow-x-hidden overflow-y-auto pt-[var(--sat)] pb-[var(--sab)] pr-[var(--sar)] pl-[var(--sal)]"
 			>
 				<div
@@ -336,7 +331,7 @@
 						<slot />
 					</Row>
 				</div>
-			</LayoutBody>
+			</Layout.Content.Body>
 
 			<Button
 				shape="circle"
@@ -348,8 +343,8 @@
 				class="bottom-6 right-6 shadow-lg dark:shadow-black hidden md:flex lg:hidden bg-primary text-dark-content outline-none border-none"
 				style="position: fixed;"
 			/>
-		</LayoutContent>
-		<BottomNavigation>
+		</Layout.Content>
+		<!-- <BottomNavigation>
 			<BottomNavigationItem
 				on:click={() => {
 					console.log('Menu click');
@@ -373,7 +368,7 @@
 				icon="settings"
 				label="Settings"
 			/>
-		</BottomNavigation>
+		</BottomNavigation> -->
 	</Layout>
 </div>
 

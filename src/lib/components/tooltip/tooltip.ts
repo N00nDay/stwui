@@ -95,7 +95,6 @@ export function tooltip(
 	return {
 		// If the props change, let's update the Tippy instance:
 		update: (newConfig: TooltipConfig) => {
-			console.log('I have updated!!!!');
 			if (newConfig.disabled) {
 				tip.disable();
 			} else {

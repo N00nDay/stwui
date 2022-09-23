@@ -7,23 +7,27 @@
 	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
 	import { useActions, type ActionArray } from '../../utils/useActions';
 	import { exclude } from '../../utils/exclude';
+	import { twMerge } from 'tailwind-merge';
 	export let use: ActionArray = [];
 	const forwardEvents = forwardEventsBuilder(current_component);
 
 	useContext({
 		context_id: LAYOUT_CONTEXT_ID,
 		parent: 'Layout',
-		component: 'HeaderExtras'
+		component: 'Header.Extra'
 	});
 	useContext({
 		context_id: LAYOUT_HEADER_CONTEXT_ID,
-		parent: 'LayoutHeader',
-		component: 'HeaderExtras'
+		parent: 'Layout.Header',
+		component: 'Header.Extra'
 	});
+
+	const defaultClass = 'flex-grow flex flex-row items-center justify-end';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class=" flex-grow flex flex-row items-center justify-end"
+	class={finalClass}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

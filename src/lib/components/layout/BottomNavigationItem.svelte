@@ -28,17 +28,22 @@
 	import { useActions, type ActionArray } from '../../utils/useActions';
 	import { exclude } from '../../utils/exclude';
 	import HoverBackground from '../HoverBackground.svelte';
+	import { twMerge } from 'tailwind-merge';
 
 	export let icon: string | undefined = undefined;
 	export let label: string | undefined = undefined;
 	export let use: ActionArray = [];
 
 	const forwardEvents = forwardEventsBuilder(current_component);
+
+	const defaultClass =
+		'relative h-full w-full flex flex-col items-center justify-center cursor-pointer group bg-light-surface dark:bg-dark-surface transition-all duration-150 active:hover:animate-none active:hover:scale-95 text-light-secondary-content dark:text-dark-secondary-content hover:text-light-content dark:hover:text-dark-content';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
 	on:click
-	class="relative h-full w-full flex flex-col items-center justify-center cursor-pointer group bg-light-surface dark:bg-dark-surface transition-all duration-150 active:hover:animate-none active:hover:scale-95 text-light-secondary-content dark:text-dark-secondary-content hover:text-light-content dark:hover:text-dark-content"
+	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}

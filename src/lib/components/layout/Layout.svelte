@@ -5,6 +5,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
+	import { twMerge } from 'tailwind-merge';
 
 	let sideBarWidth = writable('212');
 
@@ -21,8 +22,11 @@
 		sideBarWidth,
 		toggleSidebarWidth
 	});
+
+	const defaultClass = 'w-full flex flex-col';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class="h-full flex flex-col{$$props.class ? ` ${$$props.class}` : ''}" style={$$props.style}>
+<div class={finalClass} style={$$props.style}>
 	<slot />
 </div>

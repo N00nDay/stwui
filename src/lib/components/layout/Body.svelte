@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
 	import { useContext } from '../../utils/useContext';
 	import { LAYOUT_CONTEXT_ID } from './Layout.svelte';
 
@@ -12,12 +13,15 @@
 	useContext({
 		context_id: LAYOUT_CONTEXT_ID,
 		parent: 'Layout',
-		component: 'LayoutBody'
+		component: 'Layout.Body'
 	});
+
+	const defaultClass = 'w-full h-full';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class="w-full h-full{$$props.class ? ` ${$$props.class}` : ''}"
+	class={finalClass}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
