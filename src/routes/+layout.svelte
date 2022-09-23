@@ -157,6 +157,7 @@
 	const sidebarFullWidth = 218;
 
 	let sidebarWidth = 218;
+	let collapsed = false;
 
 	let openMenu = false;
 	let createOpen = false;
@@ -217,8 +218,10 @@
 	function toggleSidebarWidth() {
 		if (sidebarWidth === sidebarFullWidth) {
 			sidebarWidth = 72;
+			collapsed = true;
 		} else {
 			sidebarWidth = sidebarFullWidth;
+			collapsed = false;
 		}
 	}
 
@@ -311,10 +314,11 @@
 
 		<Layout.Content
 			class="h-[calc(100%-4rem)] bg-light-background dark:bg-dark-background transition-all duration-150"
+			{collapsed}
 		>
-			<Layout.Content.Sidebar logo="/full-dark-theme.png" {sidebarWidth}>
+			<Layout.Content.Sidebar logo="/full-dark-theme.png">
 				{#each sidebarItems as item}
-					<Menu>
+					<Menu {collapsed}>
 						<Menu.Item label={item.title} href={item.href} />
 					</Menu>
 				{/each}
@@ -322,11 +326,7 @@
 			<Layout.Content.Body
 				class="relative h-full lg:pl-0 overflow-x-hidden overflow-y-auto pt-[var(--sat)] pb-[var(--sab)] pr-[var(--sar)] pl-[var(--sal)]"
 			>
-				<div
-					class="p-3 transition-all duration-150 h-full {sidebarWidth !== sidebarFullWidth
-						? 'lg:pl-0'
-						: ''}"
-				>
+				<div class="p-3 transition-all duration-150 h-full">
 					<Row gutter="3" class="h-full">
 						<slot />
 					</Row>
