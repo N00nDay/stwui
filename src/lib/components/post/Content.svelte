@@ -16,7 +16,7 @@
 		component: 'Post.Content'
 	});
 
-	const defaultClass = 'first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6';
+	const defaultClass = 'first:rounded-t-md last:rounded-b-md px-2 py-3 sm:px-6';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

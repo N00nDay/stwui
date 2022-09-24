@@ -24,6 +24,8 @@ import LightBox from './components/lightbox';
 import List from './components/list';
 import Menu from './components/menu';
 
+import Post from './components/post';
+
 import Row from './components/grid/Row.svelte';
 
 import TextArea from './components/textarea'; // TODO: needs refactor and dot notation
@@ -54,6 +56,8 @@ export {
 	LightBox,
 	List,
 	Menu,
+	//
+	Post,
 	//
 	Row,
 	//

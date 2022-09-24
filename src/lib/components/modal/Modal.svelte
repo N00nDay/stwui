@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { scale, fade } from 'svelte/transition';
+	import Backdrop from './Backdrop.svelte';
+
 	export let handleClose: () => void;
 	export let fullScreen = false;
 
@@ -19,11 +21,11 @@
 	aria-modal="true"
 	transition:fade
 >
-	<div
-		class="overlay fixed inset-0 bg-dark-background dark:bg-light-background bg-opacity-10 dark:bg-opacity-10 backdrop-blur-sm transition-opacity pointer-events-auto"
-		transition:fade
-		on:click={handleClose}
-	/>
+	{#if $$slots.backdrop}
+		<slot name="backdrop" />
+	{:else}
+		<Backdrop {handleClose} class={fullScreen ? 'bg-opacity-100' : ''} />
+	{/if}
 
 	<div
 		class="modal fixed inset-0 overflow-y-auto p-4 sm:p-6 md:p-20"
@@ -37,10 +39,6 @@
 </div>
 
 <style>
-	div.fullScreen > .overlay {
-		@apply bg-black;
-	}
-
 	div.fullScreen > .modal {
 		@apply p-0;
 		@apply sm:p-0;

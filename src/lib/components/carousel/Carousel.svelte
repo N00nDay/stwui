@@ -27,8 +27,6 @@
 	}
 
 	validateSlots($$slots, ['controls'], 'Carousel');
-
-	$: console.log('slides', slides);
 </script>
 
 <div class="relative h-full">

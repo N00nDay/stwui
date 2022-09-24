@@ -8,24 +8,6 @@ import Status from './Status.svelte';
 import OriginalActions from './Actions.svelte';
 import Action from './Action.svelte';
 
-interface PostHeaderStatic {
-	new (): OriginalHeader;
-	Creator: typeof Creator;
-	Created: typeof Created;
-}
-interface PostActionsStatic {
-	new (): OriginalActions;
-	Action: typeof Action;
-}
-export interface PostStatic {
-	new (): OriginalPost;
-	Header: PostHeaderStatic;
-	Content: typeof Content;
-	Images: typeof Images;
-	Status: typeof Status;
-	Actions: PostActionsStatic;
-}
-
 const Post = OriginalPost as PostStatic;
 Post.Header = OriginalHeader as PostHeaderStatic;
 Post.Header.Creator = Creator;
@@ -37,3 +19,21 @@ Post.Actions = OriginalActions as PostActionsStatic;
 Post.Actions.Action = Action;
 
 export default Post;
+
+export interface PostStatic {
+	new (...args: ConstructorParameters<typeof OriginalPost>): OriginalPost;
+	Header: PostHeaderStatic;
+	Content: typeof Content;
+	Images: typeof Images;
+	Status: typeof Status;
+	Actions: PostActionsStatic;
+}
+export interface PostHeaderStatic {
+	new (...args: ConstructorParameters<typeof OriginalHeader>): OriginalHeader;
+	Creator: typeof Creator;
+	Created: typeof Created;
+}
+export interface PostActionsStatic {
+	new (...args: ConstructorParameters<typeof OriginalActions>): OriginalActions;
+	Action: typeof Action;
+}
