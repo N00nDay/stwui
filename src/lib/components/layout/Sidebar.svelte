@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { useContext } from '../../utils/useContext';
 	import { LAYOUT_CONTEXT_ID } from './Layout.svelte';
-	import Scrollbar from '../scrollbar/Scrollbar.svelte';
 	import { twMerge } from 'tailwind-merge';
 	import { LAYOUT_CONTENT_CONTEXT_ID } from './Content.svelte';
 	import type { Writable } from 'svelte/store';
 	import { getContext } from 'svelte';
+	import { scrollbar } from '../../utils/scrollbar';
 
 	useContext({
 		context_id: LAYOUT_CONTEXT_ID,
@@ -29,20 +29,20 @@
 		expandedWidth: Writable<string>;
 	} = getContext(LAYOUT_CONTENT_CONTEXT_ID);
 
-	const defaultClass =
-		'hidden h-full overflow-x-hidden overflow-y-auto lg:flex lg:flex-shrink-0 relative';
+	const defaultClass = 'hidden h-full lg:flex lg:flex-shrink-0 relative';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>
 	<div
-		class="flex flex-col transition-all duration-300"
+		class="h-full flex flex-col transition-all duration-300"
 		style="width: {$collapsed ? $collapsedWidth : $expandedWidth}"
 	>
-		<div class="flex-1 flex flex-col min-h-0 transition-all duration-150">
-			<Scrollbar id="sidebar" class="flex-1 flex flex-col pt-3 pb-4 px-2">
-				<slot />
-			</Scrollbar>
+		<div
+			use:scrollbar
+			class="h-full flex-1 flex flex-col min-h-0 pt-3 pb-4 px-2 max-h-[calc(100vh-64px)] transition-all duration-150"
+		>
+			<slot />
 		</div>
 	</div>
 </div>

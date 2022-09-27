@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type MaterialIcons from '../../types/material-icons';
-	import { scale } from 'svelte/transition';
 	import { twMerge } from 'tailwind-merge';
 
 	export let icon: MaterialIcons;
@@ -10,7 +9,7 @@
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div transition:scale class={finalClass} on:click>
+<div class={finalClass} on:click>
 	<span class="material-icons text-3xl text-current"> {icon} </span>
 	<span class="sr-only">Rotate Left</span>
 </div>

@@ -1,5 +1,7 @@
 <script lang="ts">
 	import '../app.styles.css';
+	// import 'simplebar';
+	import 'simplebar/dist/simplebar.css';
 
 	import { page } from '$app/stores';
 	import { Portal } from '../lib/components/portal';
@@ -237,7 +239,7 @@
 			: 'Dashboard';
 </script>
 
-<div class="h-full">
+<div class="h-full no-print">
 	<Layout>
 		<div
 			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-primary dark:bg-dark-surface shadow-md dark:shadow-black transition-all duration-150"
@@ -313,10 +315,10 @@
 		</Layout.Header>
 
 		<Layout.Content
-			class="h-[calc(100%-4rem)] bg-light-background dark:bg-dark-background transition-all duration-150"
+			class="h-[calc(100vh-64px)] bg-light-background dark:bg-dark-background transition-all duration-150"
 			{collapsed}
 		>
-			<Layout.Content.Sidebar logo="/full-dark-theme.png">
+			<Layout.Content.Sidebar class="max-w-[calc(100vh-64px)]">
 				{#each sidebarItems as item}
 					<Menu {collapsed}>
 						<Menu.Item label={item.title} href={item.href} />

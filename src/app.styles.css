@@ -47,3 +47,13 @@ body {
 	-webkit-backface-visibility: hidden;
 	-webkit-tap-highlight-color: transparent;
 }
+
+@media print {
+	.no-print {
+		display: none;
+	}
+
+	.allow-print {
+		display: block;
+	}
+}

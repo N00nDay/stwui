@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SimpleBar from 'simplebar';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { page } from '$app/stores';
 	import { encodeSearchParams } from '../../utils/encodeSearchParams';
@@ -6,6 +7,7 @@
 	export let start: number;
 	export let end: number;
 	export let total: number;
+	export let scrollElement: string | undefined = undefined;
 
 	$: orderBy = $page.url.searchParams.get('orderBy');
 	$: order = $page.url.searchParams.get('order');
@@ -53,8 +55,15 @@
 		});
 
 	function scrollToTop() {
-		const el = document.getElementById('table-body');
-		if (el) el.scrollTop = 0;
+		if (scrollElement) {
+			const el = document.getElementById(scrollElement);
+			if (el) {
+				const simpleBar = SimpleBar.instances.get(el)?.getScrollElement();
+				console.log('el', el);
+				console.log('simpleBar', simpleBar);
+				if (simpleBar) simpleBar.scrollTop = 0;
+			}
+		}
 	}
 </script>
 

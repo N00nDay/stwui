@@ -1,17 +1,31 @@
 <script lang="ts">
+	import { crossfade } from '../../utils/crossfade';
+	import { fade, fly, scale } from 'svelte/transition';
+
 	import type { Slide } from '../../types/carousel-slide';
-	import { validateSlots } from '../../utils/validateSlots';
+	import type { Action } from '../../types/lightbox-action';
+	import Control from './Control.svelte';
+	import Portal from '../portal/Portal.svelte';
 
 	export let slides: Slide[] = [];
 	export let activeSlide = 0;
 	export let handleClose: () => void;
-	export let rotation = 0;
+	export let showClose = true;
+	export let allowRotation = true;
+	export let allowPrint = true;
+	export let allowDownload = true;
+	export let actions: Action[] = [];
 
-	validateSlots($$slots, ['controls'], 'LightBox');
+	const [send, receive] = crossfade;
+	let rotation = 0;
 
 	function captureEscapeEvent(e: KeyboardEvent) {
 		if (e.key === 'Escape' && e.code === 'Escape' && !e.shiftKey) {
 			handleClose();
+		} else if (e.key === 'ArrowRight' && e.code === 'ArrowRight' && !e.shiftKey) {
+			handleNext();
+		} else if (e.key === 'ArrowLeft' && e.code === 'ArrowLeft' && !e.shiftKey) {
+			handlePrevious();
 		}
 	}
 
@@ -34,30 +48,88 @@
 	function handleGoTo(index: number) {
 		activeSlide = index;
 	}
+
+	function handlePrint() {
+		window.print();
+	}
+
+	async function handleDownload() {
+		const response = await fetch(slides[activeSlide].src);
+		const blob = await response.blob();
+		const url = window.URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.style.display = 'none';
+		a.href = url;
+		a.download = slides[activeSlide].id;
+		document.body.appendChild(a);
+		a.click();
+		window.URL.revokeObjectURL(url);
+		a.remove();
+	}
+
+	$: key = activeSlide > 3 ? slides[3].id : slides[activeSlide].id;
 </script>
 
 <svelte:window on:keydown={captureEscapeEvent} />
 
-<div class="relative z-10 pointer-events-none h-full" role="dialog" aria-modal="true">
-	<div
-		class="overlay fixed inset-0 bg-dark-background dark:bg-light-background transition-opacity pointer-events-auto"
-		on:click={handleClose}
-	/>
-
-	<div class="modal fixed inset-0 overflow-y-auto p-4 overflow-hidden">
-		<div
-			class="content mx-auto h-full w-full transform overflow-hidden rounded-md pointer-events-auto m-0"
-		>
+<div
+	class="fixed inset-0 w-full z-50 pointer-events-none h-full bg-dark-background"
+	role="dialog"
+	aria-modal="true"
+	in:receive={{ key }}
+	out:send={{ key }}
+>
+	<div class="modal fixed inset-0 overflow-y-auto p-0 overflow-hidden">
+		<div class="content mx-auto h-full w-full transform overflow-hidden pointer-events-auto m-0">
 			<div class="relative h-full">
-				{#if $$slots.controls}
-					<slot name="controls" />
+				{#if actions}
+					<div
+						in:fly={{ delay: 250, y: -200 }}
+						out:scale={{ delay: 300 }}
+						class="absolute z-10 right-0 left-0 top-0 flex items-center justify-center mt-3"
+					>
+						<div
+							class="rounded-[1.85rem] bg-dark-surface p-2 text-sm text-dark-content bg-opacity-70 flex flex-row gap-1 justify-center items-center"
+						>
+							{#if showClose}
+								<Control icon="close" on:click={handleClose} />
+							{/if}
+							{#if allowRotation}
+								<Control icon="undo" on:click={() => (rotation -= 90)} />
+								<Control icon="redo" on:click={() => (rotation += 90)} />
+							{/if}
+							{#if allowPrint}
+								<Control icon="print" on:click={handlePrint} />
+							{/if}
+							{#if allowDownload}
+								<Control icon="download" on:click={handleDownload} />
+							{/if}
+							{#each actions as action}
+								<Control icon={action.icon} on:click={action.action} />
+							{/each}
+						</div>
+					</div>
 				{/if}
 
-				<div class="absolute z-10 right-0 bottom-0 left-0 flex gap-2 justify-center p-0 mb-4">
+				<div
+					in:scale={{ delay: 300 }}
+					out:fade
+					class="absolute z-10 right-0 left-0 bottom-7 flex items-center justify-center"
+				>
+					<div class="rounded-xl bg-dark-surface px-2 py-1 text-sm text-dark-content bg-opacity-70">
+						{activeSlide + 1} / {slides.length}
+					</div>
+				</div>
+
+				<div
+					class="absolute z-10 right-0 bottom-0 left-0 flex gap-2 justify-center p-0 mb-3"
+					in:scale={{ delay: 300 }}
+					out:fade
+				>
 					{#each slides as _, i}
 						<button
 							on:click={() => handleGoTo(i)}
-							class="h-1.5 bg-light-surface shadow-md max-w-[40px] hover:shadow-lg hover:opacity-90 transition-all duration-150"
+							class="h-1.5 rounded-sm bg-light-surface max-w-[40px] hover:shadow-lg hover:opacity-90 transition-all duration-150"
 							class:opacity-50={activeSlide !== i}
 							class:hover:opacity-90={activeSlide !== i}
 							style={`width: calc(100% / ${slides.length});`}
@@ -65,40 +137,45 @@
 					{/each}
 				</div>
 				<div class="relative w-full h-full overflow-hidden">
-					{#each slides as slide, i (slide.id)}
+					{#key activeSlide}
 						<div
-							class="absolute inset-0 w-full h-full transition-opacity duration-200 flex items-center justify-center"
-							class:opacity-0={activeSlide !== i}
-							class:opacity-100={activeSlide === i}
+							class="absolute inset-0 w-full h-full flex items-center justify-center p-2"
+							transition:fade|local
 						>
 							<img
-								src={slide.src}
+								src={slides[activeSlide].src}
 								style="--rotation: {rotation}deg"
-								class="image block max-w-full max-h-full h-auto w-auto object-contain transition-all duration-150"
-								alt={slide.alt}
+								class="image block max-w-full shadow-lg shadow-black max-h-full h-auto w-auto object-cover transition-all duration-150"
+								alt={slides[activeSlide].alt}
 							/>
 						</div>
-					{/each}
+					{/key}
 				</div>
 				<button
+					in:fly={{ delay: 250, x: -200 }}
+					out:fade
 					on:click={handlePrevious}
 					class="group absolute z-10 bg-black bg-opacity-5 top-0 bottom-0 flex items-center justify-center px-4 text-center border-0 outline-none hover:outline-none hover:no-underline duration-150 focus:outline-none focus:no-underline shadow-md left-0"
 					type="button"
 				>
 					<div
-						class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-10 rounded-full scale-95 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95 transition-all duration-150"
+						in:scale={{ delay: 350 }}
+						class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-30 rounded-full scale-90 group-hover:scale-100 group-hover:bg-opacity-50 group-hover:active:scale-95 transition-all duration-150"
 					>
 						<span class="material-icons text-3xl text-dark-content"> arrow_back </span>
 						<span class="sr-only">Previous</span>
 					</div>
 				</button>
 				<button
+					in:fly={{ delay: 250, x: 200 }}
+					out:fade
 					on:click={handleNext}
 					class="group absolute z-10 bg-black bg-opacity-5 top-0 bottom-0 flex items-center justify-center px-4 text-center border-0 outline-none hover:outline-none hover:no-underline duration-150 focus:outline-none focus:no-underline shadow-md right-0"
 					type="button"
 				>
 					<div
-						class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-10 rounded-full scale-95 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95 transition-all duration-150"
+						in:scale={{ delay: 350 }}
+						class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-30 rounded-full scale-90 group-hover:scale-100 group-hover:bg-opacity-50 group-hover:active:scale-95 transition-all duration-150"
 					>
 						<span class="material-icons text-3xl text-dark-content"> arrow_forward </span>
 						<span class="sr-only">Next</span>
@@ -108,6 +185,17 @@
 		</div>
 	</div>
 </div>
+
+{#if allowPrint}
+	<Portal>
+		<img
+			src={slides[activeSlide].src}
+			style="--rotation: {rotation}deg"
+			class="allow-print image max-w-full max-h-full h-auto w-auto hidden"
+			alt={slides[activeSlide].alt}
+		/>
+	</Portal>
+{/if}
 
 <style>
 	.image {

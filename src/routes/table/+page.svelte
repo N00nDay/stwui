@@ -62,7 +62,7 @@
 			>Card Header
 			<Button slot="extras" type="primary" leading="add">New Item</Button>
 		</Card.Header>
-		<Card.Content slot="content" noPadding style="height: calc(100% - 64px);">
+		<Card.Content slot="content" class="p-0 sm:p-0" style="height: calc(100% - 64px);">
 			<Table class="rounded-md overflow-hidden h-full" {columns}>
 				<TableHeader />
 				<TableBody>
@@ -77,7 +77,12 @@
 					{/each}
 				</TableBody>
 				<TableFooter>
-					<Pagination start={data.start} end={data.end} total={data.total} />
+					<Pagination
+						start={data.start}
+						end={data.end}
+						total={data.total}
+						scrollElement="table-body"
+					/>
 				</TableFooter>
 			</Table>
 		</Card.Content>
