@@ -60,7 +60,12 @@
 	<Card bordered={false} class="h-full">
 		<Card.Header slot="header" class="font-bold text-lg flex justify-between items-center py-3"
 			>Card Header
-			<Button slot="extras" type="primary" leading="add">New Item</Button>
+			<Button slot="extra" type="primary">
+				<Button.Leading slot="leading">
+					<Button.Leading.Icon slot="icon" icon="add" />
+				</Button.Leading>
+				New Item</Button
+			>
 		</Card.Header>
 		<Card.Content slot="content" class="p-0 sm:p-0" style="height: calc(100% - 64px);">
 			<Table class="rounded-md overflow-hidden h-full" {columns}>

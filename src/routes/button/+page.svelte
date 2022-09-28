@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { Button, Card, Col } from '../../lib';
+	// import Swap from '../lib/components/swap/Swap.svelte';
+	import { Swap } from '../../lib/components/swap';
+	import { Button, Card, Col, Icon } from '../../lib';
 
 	let loading = false;
 
@@ -67,15 +69,39 @@
 	<Card bordered>
 		<Card.Header slot="header">Leading & Trailing</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Button {loading} leading="paid">Default button</Button>
+			<Button {loading} on:click={toggleLoading}>
+				<Button.Leading slot="leading">
+					<Button.Leading.Icon icon="paid" />
+				</Button.Leading>
+				Default button
+			</Button>
 
-			<Button type="primary" leading="paid">I am primary</Button>
+			<Button type="primary">
+				<Button.Leading slot="leading">
+					<Button.Leading.Icon icon="paid" />
+				</Button.Leading>I am primary</Button
+			>
 
-			<Button type="danger" {loading} trailing="paid">I am scary</Button>
+			<Button type="danger" {loading}
+				>I am scary
+				<Button.Trailing slot="trailing">
+					<Button.Trailing.Icon icon="paid" />
+				</Button.Trailing></Button
+			>
 
-			<Button type="ghost" trailing="paid">Boo I am a ghost</Button>
+			<Button type="ghost"
+				>Boo I am a ghost
+				<Button.Trailing slot="trailing">
+					<Button.Trailing.Icon icon="paid" />
+				</Button.Trailing>
+			</Button>
 
-			<Button type="link" trailing="paid">I am a link</Button>
+			<Button type="link"
+				>I am a link
+				<Button.Trailing slot="trailing">
+					<Button.Trailing.Icon icon="paid" />
+				</Button.Trailing>
+			</Button>
 		</Card.Content>
 	</Card>
 </Col>
@@ -84,7 +110,9 @@
 	<Card bordered>
 		<Card.Header slot="header">Shape</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Button shape="circle" on:click={toggleLoading} {loading} icon="paid" />
+			<Button shape="circle" on:click={toggleLoading} {loading}>
+				<Button.Icon slot="icon" icon="paid" />
+			</Button>
 
 			<Button type="primary" shape="square">I am primary</Button>
 
@@ -101,15 +129,22 @@
 	<Card bordered>
 		<Card.Header slot="header">Swap Icon</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Button shape="circle" on:click={toggleLoading} {loading} icon="paid" swap="menu" />
+			<Button shape="circle" on:click={toggleLoading}>
+				<Swap slot="icon" {loading}>
+					<Icon slot="icon1" icon="menu" />
+					<Icon slot="icon2" icon="close" />
+				</Swap>
+			</Button>
 
-			<Button type="primary" shape="square">I am primary</Button>
-
-			<Button type="danger" shape="rounded">I am scary</Button>
-
-			<Button type="ghost">Boo I am a ghost</Button>
-
-			<Button type="link">I am a link</Button>
+			<Button type="primary">
+				<Button.Leading slot="leading">
+					<Swap {loading}>
+						<Icon slot="icon1" icon="menu" />
+						<Icon slot="icon2" icon="close" />
+					</Swap>
+				</Button.Leading>
+				I am primary</Button
+			>
 		</Card.Content>
 	</Card>
 </Col>
@@ -128,106 +163,56 @@
 
 			<Button type="primary" size="xl">xl</Button>
 
-			<Button type="primary" size="xs" shape="circle" icon="paid" />
+			<Button type="primary" size="xs" shape="circle">
+				<Button.Icon slot="icon" icon="paid" />
+			</Button>
 
-			<Button type="primary" size="sm" shape="circle" icon="paid" />
+			<Button type="primary" size="sm" shape="circle">
+				<Button.Icon slot="icon" icon="paid" />
+			</Button>
 
-			<Button type="primary" size="md" shape="circle" icon="paid" />
+			<Button type="primary" size="md" shape="circle">
+				<Button.Icon slot="icon" icon="paid" />
+			</Button>
 
-			<Button type="primary" size="lg" shape="circle" icon="paid" />
+			<Button type="primary" size="lg" shape="circle">
+				<Button.Icon slot="icon" icon="paid" />
+			</Button>
 
-			<Button type="primary" size="xl" shape="circle" icon="paid" />
+			<Button type="primary" size="xl" shape="circle">
+				<Button.Icon slot="icon" icon="paid" />
+			</Button>
 
-			<Button type="default" size="xs" leading="paid">xs</Button>
+			<Button type="default" size="xs">
+				<Button.Leading slot="leading">
+					<Button.Icon icon="paid" />
+				</Button.Leading>
+				xs</Button
+			>
 
-			<Button type="default" size="sm" leading="paid">sm</Button>
+			<Button type="default" size="sm">
+				<Button.Leading slot="leading">
+					<Button.Icon icon="paid" />
+				</Button.Leading>sm</Button
+			>
 
-			<Button type="default" size="md" leading="paid">md</Button>
+			<Button type="default" size="md">
+				<Button.Leading slot="leading">
+					<Button.Icon icon="paid" />
+				</Button.Leading>md</Button
+			>
 
-			<Button type="default" size="lg" leading="paid">lg</Button>
+			<Button type="default" size="lg">
+				<Button.Leading slot="leading">
+					<Button.Icon icon="paid" />
+				</Button.Leading>lg</Button
+			>
 
-			<Button type="default" size="xl" leading="paid">xl</Button>
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Button Group</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button.Group
-				buttons={[
-					{
-						label: 'Button 1',
-						onClick: () => console.log('clicked button!')
-					},
-					{
-						label: 'Button 2',
-						onClick: () => console.log('clicked button!')
-					},
-					{
-						label: 'Button 3',
-						onClick: () => console.log('clicked button!')
-					}
-				]}
-			/>
-			<br />
-			<Button.Group
-				allowDeselect
-				buttons={[
-					{
-						label: 'Button 1',
-						onClick: () => console.log('clicked button!')
-					},
-					{
-						label: 'Button 2',
-						onClick: () => console.log('clicked button!')
-					},
-					{
-						label: 'Button 3',
-						onClick: () => console.log('clicked button!')
-					}
-				]}
-			/>
-			<br />
-			<Button.Group
-				allowDeselect
-				buttons={[
-					{
-						icon: 'home',
-						onClick: () => console.log('clicked button!')
-					},
-					{
-						icon: 'description',
-						onClick: () => console.log('clicked button!')
-					},
-					{
-						icon: 'question_answer',
-						onClick: () => console.log('clicked button!')
-					}
-				]}
-			/>
-			<br />
-			<Button.Group
-				allowDeselect
-				buttons={[
-					{
-						label: 'Label',
-						icon: 'home',
-						onClick: () => console.log('clicked button!')
-					},
-					{
-						label: 'Label',
-						icon: 'description',
-						onClick: () => console.log('clicked button!')
-					},
-					{
-						label: 'Label',
-						icon: 'question_answer',
-						onClick: () => console.log('clicked button!')
-					}
-				]}
-			/>
+			<Button type="default" size="xl">
+				<Button.Leading slot="leading">
+					<Button.Icon icon="paid" />
+				</Button.Leading>xl</Button
+			>
 		</Card.Content>
 	</Card>
 </Col>

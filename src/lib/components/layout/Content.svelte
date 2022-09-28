@@ -16,7 +16,7 @@
 	const forwardEvents = forwardEventsBuilder(current_component);
 
 	export let collapsed = false;
-	export let collapsedWidth = '3.5rem';
+	export let collapsedWidth = '4.5rem';
 	export let expandedWidth = '12rem';
 
 	let sidebarCollapsed = writable(collapsed);

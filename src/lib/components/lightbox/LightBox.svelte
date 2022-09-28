@@ -35,6 +35,7 @@
 		} else {
 			activeSlide++;
 		}
+		rotation = 0;
 	}
 
 	function handlePrevious() {
@@ -43,10 +44,19 @@
 		} else {
 			activeSlide--;
 		}
+		rotation = 0;
 	}
 
 	function handleGoTo(index: number) {
 		activeSlide = index;
+	}
+
+	function rotateRight() {
+		rotation += 90;
+	}
+
+	function rotateLeft() {
+		rotation -= 90;
 	}
 
 	function handlePrint() {
@@ -95,8 +105,8 @@
 								<Control icon="close" on:click={handleClose} />
 							{/if}
 							{#if allowRotation}
-								<Control icon="undo" on:click={() => (rotation -= 90)} />
-								<Control icon="redo" on:click={() => (rotation += 90)} />
+								<Control icon="undo" on:click={rotateLeft} />
+								<Control icon="redo" on:click={rotateRight} />
 							{/if}
 							{#if allowPrint}
 								<Control icon="print" on:click={handlePrint} />
@@ -191,7 +201,7 @@
 		<img
 			src={slides[activeSlide].src}
 			style="--rotation: {rotation}deg"
-			class="allow-print image max-w-full max-h-full h-auto w-auto hidden"
+			class="print:block image max-w-full max-h-full h-auto w-auto hidden"
 			alt={slides[activeSlide].alt}
 		/>
 	</Portal>

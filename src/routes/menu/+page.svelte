@@ -188,7 +188,7 @@
 	<Card bordered={false}>
 		<Card.Header slot="header" class="flex flex-row items-center justify-between"
 			>Collapsable Sider
-			<Button slot="extras" type="primary" on:click={toggleCollapse}>Collapse</Button>
+			<Button slot="extra" type="primary" on:click={toggleCollapse}>Collapse</Button>
 		</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Menu {collapsed}>

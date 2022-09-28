@@ -24,7 +24,9 @@
 		</h2>
 		{#if handleClose}
 			<div class="ml-3 flex h-7 items-center">
-				<Button type="ghost" icon="close" on:click={handleClose} shape="circle" />
+				<Button type="ghost" on:click={handleClose} shape="circle">
+					<Button.Icon slot="icon" icon="close" />
+				</Button>
 			</div>
 		{/if}
 	</div>

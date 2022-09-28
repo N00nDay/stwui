@@ -19,34 +19,36 @@
 				<Alert.Icon slot="icon">
 					<Icon icon="cancel" class="text-current" />
 				</Alert.Icon>
-				<Alert.Title slot="title"
-					><span>Title</span>
-					<Button
-						class="top-[-0.65rem] right-[-0.65rem] text-error-icon dark:text-dark-error-icon"
-						trailing="arrow_forward"
-						type="danger"
-						on:click={() => console.log('I clicked extra')}
-					>
-						Details
-					</Button>
-				</Alert.Title>
+				<Alert.Title slot="title"><span>Title</span></Alert.Title>
 				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Button
+					slot="extra"
+					size="sm"
+					class="top-[-0.5rem] right-[-0.5rem] text-error-icon dark:text-dark-error-icon"
+					type="danger"
+					on:click={() => console.log('I clicked extra')}
+				>
+					Details
+					<Button.Trailing slot="trailing">
+						<Button.Trailing.Icon slot="icon" icon="arrow_forward" />
+					</Button.Trailing>
+				</Button>
 			</Alert>
 			<br />
 			<Alert type="error">
 				<Alert.Icon slot="icon">
 					<Icon icon="cancel" class="text-current" />
 				</Alert.Icon>
-				<Alert.Title slot="title"
-					><span>Title</span>
-					<Button
-						shape="circle"
-						class="top-[-0.65rem] right-[-0.65rem] text-error-icon dark:text-dark-error-icon"
-						icon="cancel"
-						on:click={() => console.log('I clicked extra')}
-					/>
-				</Alert.Title>
+				<Alert.Title slot="title"><span>Title</span></Alert.Title>
 				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Button
+					slot="extra"
+					shape="circle"
+					class="top-[-0.5rem] right-[-0.5rem] text-error-icon dark:text-dark-error-icon"
+					on:click={() => console.log('I clicked extra')}
+				>
+					<Button.Icon slot="icon" icon="close" />
+				</Button>
 			</Alert>
 		</Card.Content>
 	</Card>

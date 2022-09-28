@@ -8,6 +8,8 @@
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
 
 	import { Button, Dropdown, Layout, Menu, Row } from '../lib';
+	import Swap from '$lib/components/swap/Swap.svelte';
+	import Icon from '$lib/components/icon/Icon.svelte';
 
 	const sidebarItems = [
 		{
@@ -37,6 +39,10 @@
 		{
 			title: 'Button',
 			href: './button'
+		},
+		{
+			title: 'ButtonGroup',
+			href: './button-group'
 		},
 		{
 			title: 'Card',
@@ -231,15 +237,25 @@
 		console.log('e', e);
 	}
 
-	$: pathname = $page.url.pathname;
-	$: pathnameStripped = pathname.substring(1);
-	$: pageTitle =
-		pathnameStripped.length > 0
-			? pathnameStripped.charAt(0).toUpperCase() + pathnameStripped.slice(1)
-			: 'Dashboard';
+	function renderTitle(pathname: string) {
+		const pathnameStripped = pathname.substring(1);
+		const pathnameArray = pathnameStripped.replace('-', ' ').split(' ');
+		let title = '';
+		for (const part of pathnameArray) {
+			title += part.charAt(0).toUpperCase() + part.slice(1) + ' ';
+		}
+		title = title.trim();
+		if (title.length > 0) {
+			return title;
+		} else {
+			return 'Dashboard';
+		}
+	}
+
+	$: pageTitle = renderTitle($page.url.pathname);
 </script>
 
-<div class="h-full no-print">
+<div class="h-full print:hidden">
 	<Layout>
 		<div
 			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-primary dark:bg-dark-surface shadow-md dark:shadow-black transition-all duration-150"
@@ -247,11 +263,14 @@
 		<Layout.Header {toggleSidebarWidth}>
 			<Button
 				shape="circle"
-				icon="menu"
-				swap="close"
 				class="inline-block lg:hidden mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
 				on:click={handleOpenMenu}
-			/>
+			>
+				<Swap slot="icon">
+					<Icon slot="icon1" icon="menu" />
+					<Icon slot="icon2" icon="close" />
+				</Swap>
+			</Button>
 
 			<img src="/icon.png" alt="logo-icon" class="h-10 mr-4 hidden lg:inline-block" />
 
@@ -260,25 +279,29 @@
 			<Layout.Header.Extra slot="extra">
 				<Button
 					shape="circle"
-					icon="add"
-					swap="close"
 					on:click={handleCreateOpen}
-					swapped={createOpen}
 					class="hidden lg:block mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
-				/>
+				>
+					<Swap slot="icon" swapped={createOpen}>
+						<Icon slot="icon1" icon="add" />
+						<Icon slot="icon2" icon="close" />
+					</Swap>
+				</Button>
 
 				<Button
 					on:click={handleSearchOpen}
 					shape="circle"
-					icon="search"
 					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
-				/>
+				>
+					<Button.Icon slot="icon" icon="search" />
+				</Button>
 
 				<Button
 					shape="circle"
-					icon="notifications"
 					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
-				/>
+				>
+					<Button.Icon slot="icon" icon="notifications" />
+				</Button>
 
 				<Dropdown
 					handleClose={handleCloseDropdown}
@@ -338,13 +361,15 @@
 			<Button
 				shape="circle"
 				size="fab"
-				icon="add"
-				swap="close"
 				on:click={handleCreateOpen}
-				swapped={createOpen}
 				class="bottom-6 right-6 shadow-lg dark:shadow-black hidden md:flex lg:hidden bg-primary text-dark-content outline-none border-none"
 				style="position: fixed;"
-			/>
+			>
+				<Swap slot="icon" swapped={createOpen}>
+					<Icon slot="icon1" icon="add" />
+					<Icon slot="icon2" icon="close" />
+				</Swap>
+			</Button>
 		</Layout.Content>
 		<!-- <BottomNavigation>
 			<BottomNavigationItem

@@ -37,5 +37,5 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
-	<slot name="extras" />
+	<slot name="extra" />
 </div>

@@ -45,7 +45,7 @@
 			disabled: !$menuCollapse
 		}}
 		{href}
-		class="group relative w-full overflow-hidden flex items-center justify-start px-3 py-2 text-sm font-medium rounded-md transition-all duration-150"
+		class="group relative w-full h-10 overflow-hidden flex items-center justify-start px-3 py-2 text-sm font-medium rounded-md transition-all duration-150"
 		class:text-light-content={active}
 		class:dark:text-dark-content={active}
 		class:text-light-secondary-content={!active}

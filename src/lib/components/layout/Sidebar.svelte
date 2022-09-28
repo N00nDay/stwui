@@ -39,8 +39,8 @@
 		style="width: {$collapsed ? $collapsedWidth : $expandedWidth}"
 	>
 		<div
-			use:scrollbar
-			class="h-full flex-1 flex flex-col min-h-0 pt-3 pb-4 px-2 max-h-[calc(100vh-64px)] transition-all duration-150"
+			use:scrollbar={{ forceVisible: true }}
+			class="h-full flex-1 flex flex-col min-h-0 pt-3 pb-4 pl-2 pr-4 max-h-[calc(100vh-64px)] transition-all duration-150"
 		>
 			<slot />
 		</div>

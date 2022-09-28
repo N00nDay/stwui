@@ -9,7 +9,7 @@
 
 	export let type: 'info' | 'warn' | 'success' | 'error' = 'info';
 
-	validateSlots($$slots, ['icon', 'title', 'description'], 'Alert');
+	validateSlots($$slots, ['icon', 'title', 'description', 'extra'], 'Alert');
 
 	setContext(ALERT_CONTEXT_ID, {
 		alert: true,
@@ -30,17 +30,11 @@
 	style={$$props.style}
 >
 	<div class="flex">
-		{#if $$slots.icon}
-			<slot name="icon" />
-		{/if}
-		<div class="ml-3 flex items-start justify-start flex-col w-full">
+		<slot name="icon" />
+		<div class="flex items-start justify-start flex-col w-full" class:ml-3={$$slots.icon}>
 			<slot name="title" />
-			{#if $$slots.extra}
-				<slot name="extra" />
-			{/if}
-			{#if $$slots.description}
-				<slot name="description" />
-			{/if}
+			<slot name="description" />
 		</div>
+		<slot name="extra" />
 	</div>
 </div>

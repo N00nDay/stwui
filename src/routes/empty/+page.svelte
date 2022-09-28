@@ -12,11 +12,11 @@
 				<Empty.Description slot="description"
 					>Get started by creating a new project.</Empty.Description
 				>
-				<Button
-					class="mt-6"
-					type="primary"
-					on:click={() => console.log('clicked new project')}
-					leading="add">New Project</Button
+				<Button class="mt-6" type="primary" on:click={() => console.log('clicked new project')}>
+					<Button.Leading slot="leading">
+						<Button.Leading.Icon slot="icon" icon="add" />
+					</Button.Leading>
+					New Project</Button
 				>
 			</Empty>
 		</Card.Content>

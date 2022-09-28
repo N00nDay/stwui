@@ -36,7 +36,7 @@
 
 <a
 	{href}
-	class="group relative flex items-center min-w-full px-3 py-2 text-sm font-medium rounded-md transition-all duration-150"
+	class="group relative flex items-center min-w-full h-10 px-3 py-2 text-sm font-medium rounded-md transition-all duration-150"
 	class:text-light-content={active}
 	class:dark:text-dark-content={active}
 	class:text-light-secondary-content={!active}

@@ -218,19 +218,21 @@
 		<Button
 			size="xs"
 			shape="circle"
-			icon="keyboard_double_arrow_left"
 			tabindex="-1"
 			class="mr-1 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
 			on:click={() => handleArrow('year', 'subtract')}
-		/>
+		>
+			<Button.Icon slot="icon" icon="keyboard_double_arrow_left" />
+		</Button>
 		<Button
 			size="xs"
 			shape="circle"
-			icon="chevron_left"
 			tabindex="-1"
 			class="bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
 			on:click={() => handleArrow('month', 'subtract')}
-		/>
+		>
+			<Button.Icon slot="icon" icon="chevron_left" />
+		</Button>
 		<div class="flex-grow px-2 text-center font-medium relative overflow-hidden h-full">
 			<!-- {#key calendarDays} -->
 			<div
@@ -244,19 +246,21 @@
 		<Button
 			size="xs"
 			shape="circle"
-			icon="chevron_right"
 			tabindex="-1"
 			class="bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
 			on:click={() => handleArrow('month', 'add')}
-		/>
+		>
+			<Button.Icon slot="icon" icon="chevron_right" />
+		</Button>
 		<Button
 			size="xs"
 			shape="circle"
-			icon="keyboard_double_arrow_right"
 			tabindex="-1"
 			class="ml-1 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
 			on:click={() => handleArrow('year', 'add')}
-		/>
+		>
+			<Button.Icon slot="icon" icon="keyboard_double_arrow_right" />
+		</Button>
 	</div>
 	<div class="h-8 grid grid-cols-7 px-3 pt-2">
 		{#each Array(7) as _, i}

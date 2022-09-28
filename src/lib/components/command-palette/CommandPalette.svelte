@@ -65,9 +65,10 @@
 					<div class="flex-shrink">
 						<Button
 							shape="circle"
-							icon="close"
 							class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none absolute right-3 top-3"
-						/>
+						>
+							<Button.Icon slot="icon" icon="close" />
+						</Button>
 					</div>
 				</div>
 			{/if}

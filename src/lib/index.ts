@@ -4,7 +4,8 @@ import Autocomplete from './components/autocomplete'; // TODO: needs refactor an
 import Avatar from './components/avatar';
 import Badge from './components/badge';
 import Breadcrumbs from './components/breadcrumbs';
-import Button from './components/button'; // TODO: needs refactor and dot notation
+import Button from './components/button';
+import ButtonGroup from './components/button-group';
 import Card from './components/card';
 import Carousel from './components/carousel';
 import Checkbox from './components/checkbox';
@@ -23,6 +24,8 @@ import Layout from './components/layout';
 import LightBox from './components/lightbox';
 import List from './components/list';
 import Menu from './components/menu';
+import Modal from './components/modal';
+import Notification from './components/notification';
 
 import Post from './components/post';
 
@@ -38,6 +41,7 @@ export {
 	Badge,
 	Breadcrumbs,
 	Button,
+	ButtonGroup,
 	Card,
 	Carousel,
 	Checkbox,
@@ -56,6 +60,8 @@ export {
 	LightBox,
 	List,
 	Menu,
+	Modal,
+	Notification,
 	//
 	Post,
 	//
