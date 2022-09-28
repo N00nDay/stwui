@@ -10,7 +10,7 @@
 		"tailwindcss"
 	],
 	"license": "MIT",
-	"version": "0.0.56",
+	"version": "0.0.57",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/N00nDay/sveltekit-tailwind-components"
