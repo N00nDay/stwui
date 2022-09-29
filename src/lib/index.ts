@@ -32,8 +32,9 @@ import Post from './components/post';
 import Progress from './components/progress';
 import RadioGroup from './components/radio';
 import Rating from './components/rating';
-
 import Row from './components/grid/Row.svelte';
+import Select from './components/select'; // TODO: needs refactor and dot notation
+import Slider from './components/slider';
 
 import TextArea from './components/textarea'; // TODO: needs refactor and dot notation
 
@@ -72,8 +73,9 @@ export {
 	Progress,
 	RadioGroup,
 	Rating,
-	//
 	Row,
+	Select,
+	Slider,
 	//
 	TextArea
 };

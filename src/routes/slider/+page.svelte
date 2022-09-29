@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Card, Col } from '../../lib';
-	import { Slider } from '../../lib/components/slider';
+	import { Card, Col, Slider } from '../../lib';
 </script>
 
 <Col class="col-24">

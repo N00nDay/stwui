@@ -131,6 +131,7 @@
 					<li
 						class="group text-light-content dark:text-dark-content cursor-pointer select-none p-0.5 w-full"
 						role="option"
+						aria-selected={option === value}
 						on:click={() => handleSelect(option)}
 					>
 						<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">

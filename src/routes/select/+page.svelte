@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Card, Col } from '../../lib';
-	import { Select } from '../../lib/components/select';
+	import { Card, Col, Select } from '../../lib';
 </script>
 
 <Col class="col-24 md:col-12">
