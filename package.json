@@ -1,5 +1,5 @@
 {
-	"name": "stui",
+	"name": "@noonday/stui",
 	"description": "Opinionated yet customizable svelte-tailwind components",
 	"keywords": [
 		"svelte",
