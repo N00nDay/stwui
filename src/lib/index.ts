@@ -31,6 +31,7 @@ import Portal from './components/portal';
 import Post from './components/post';
 import Progress from './components/progress';
 import RadioGroup from './components/radio';
+import Rating from './components/rating';
 
 import Row from './components/grid/Row.svelte';
 
@@ -70,6 +71,7 @@ export {
 	Post,
 	Progress,
 	RadioGroup,
+	Rating,
 	//
 	Row,
 	//
