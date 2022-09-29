@@ -6,10 +6,10 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Badge</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Badge class="bg-green-800 text-green-200">Badge</Badge>
-			<Badge class="bg-blue-800 text-blue-200">Badge</Badge>
-			<Badge class="bg-red-800 text-red-200">Badge</Badge>
-			<Badge class="bg-amber-800 text-amber-200">Badge</Badge>
+			<Badge class="bg-green-800 text-green-200 bg-opacity-100 dark:bg-opacity-100">Badge</Badge>
+			<Badge class="bg-blue-800 text-blue-200 bg-opacity-100 dark:bg-opacity-100">Badge</Badge>
+			<Badge class="bg-red-800 text-red-200 bg-opacity-100 dark:bg-opacity-100">Badge</Badge>
+			<Badge class="bg-amber-800 text-amber-200 bg-opacity-100 dark:bg-opacity-100">Badge</Badge>
 			<br />
 			<Badge type="info">Badge</Badge>
 			<Badge type="success">Badge</Badge>

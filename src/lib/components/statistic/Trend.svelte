@@ -15,9 +15,7 @@
 		defaultClass =
 			'bg-info-background dark:bg-dark-info-background text-info-content dark:text-dark-info-content';
 	}
-	console.log('defaultClass', defaultClass);
 	const finalClass = twMerge(defaultClass, $$props.class);
-	console.log('finalClass', finalClass);
 </script>
 
 <Badge class={finalClass} style={$$props.style}>

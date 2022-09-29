@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { Card, Col } from '../../lib';
-	import { Steps } from '../../lib/components/steps';
+	import { Card, Col, Steps } from '../../lib';
+
+	let currentStep1 = 2;
 
 	const steps1 = [
 		{
@@ -19,13 +20,25 @@
 			description: 'Preview'
 		}
 	];
+
+	function handleClick(index: number) {
+		console.log('index', index);
+		currentStep1 = index + 1;
+	}
 </script>
 
 <Col class="col-24">
 	<Card bordered={false}>
 		<Card.Header slot="header">Simple</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Steps steps={steps1} currentStep={2} />
+			<Steps currentStep={currentStep1}>
+				{#each steps1 as step, i}
+					<Steps.Step index={i} href={step.href} on:click={() => handleClick(i)}>
+						<Steps.Step.Title slot="title">{step.title}</Steps.Step.Title>
+						<Steps.Step.Description slot="description">{step.description}</Steps.Step.Description>
+					</Steps.Step>
+				{/each}
+			</Steps>
 		</Card.Content>
 	</Card>
 </Col>
@@ -34,7 +47,14 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Bullets</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Steps variant="bullets" steps={steps1} currentStep={2} />
+			<Steps variant="bullets" currentStep={currentStep1}>
+				<Steps.Summary slot="summary">Step {currentStep1} of {steps1.length}</Steps.Summary>
+				{#each steps1 as step, i}
+					<Steps.Step index={i} href={step.href} on:click={() => handleClick(i)}>
+						<Steps.Step.Title slot="title">{step.title}</Steps.Step.Title>
+					</Steps.Step>
+				{/each}
+			</Steps>
 		</Card.Content>
 	</Card>
 </Col>
@@ -43,7 +63,13 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Bullets & Text</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Steps variant="bullets-text" steps={steps1} currentStep={2} />
+			<Steps variant="bullets-text" currentStep={currentStep1}>
+				{#each steps1 as step, i}
+					<Steps.Step index={i} href={step.href} on:click={() => handleClick(i)}>
+						<Steps.Step.Title slot="title">{step.title}</Steps.Step.Title>
+					</Steps.Step>
+				{/each}
+			</Steps>
 		</Card.Content>
 	</Card>
 </Col>
@@ -52,7 +78,14 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Circles & Text</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Steps variant="circles-text" steps={steps1} currentStep={2} />
+			<Steps variant="circles-text" currentStep={currentStep1}>
+				{#each steps1 as step, i}
+					<Steps.Step index={i} href={step.href} on:click={() => handleClick(i)}>
+						<Steps.Step.Title slot="title">{step.title}</Steps.Step.Title>
+						<Steps.Step.Description slot="description">{step.description}</Steps.Step.Description>
+					</Steps.Step>
+				{/each}
+			</Steps>
 		</Card.Content>
 	</Card>
 </Col>

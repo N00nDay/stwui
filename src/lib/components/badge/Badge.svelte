@@ -7,7 +7,6 @@
 	export let shape: 'default' | 'rounded' | 'square' = 'default';
 	export let onClose: (() => void) | undefined = undefined;
 
-	console.log('$$props.class badge', $$props.class);
 	let defaultClass =
 		'inline-flex items-center py-0.5 font-medium transition-all duration-150 bg-opacity-20 dark:bg-opacity-20 dark:text-dark-content text-light-content bg-dark-icon-background bg-light-icon-background';
 	if (type === 'info') {
@@ -23,11 +22,10 @@
 		defaultClass +=
 			'bg-opacity-20 dark:bg-opacity-20 bg-error-background dark:bg-dark-error-background text-error-content dark:text-dark-error-content';
 	}
-	console.log('defaultClass badge', defaultClass);
 	const finalClass = twMerge(defaultClass, $$props.class);
-	console.log('finalClass badge', finalClass);
 </script>
 
+<!-- TODO: refactor -->
 <span
 	class={finalClass}
 	class:px-2.5={size === 'default'}

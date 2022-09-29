@@ -36,6 +36,7 @@ import Row from './components/grid/Row.svelte';
 import Select from './components/select'; // TODO: needs refactor and dot notation
 import Slider from './components/slider';
 import Statistic from './components/statistic';
+import Steps from './components/steps';
 
 import TextArea from './components/textarea'; // TODO: needs refactor and dot notation
 
@@ -78,6 +79,7 @@ export {
 	Select,
 	Slider,
 	Statistic,
+	Steps,
 	//
 	TextArea
 };
