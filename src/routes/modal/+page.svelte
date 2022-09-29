@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Col, Modal } from '../../lib';
-	import { Portal } from '../../lib/components/portal';
+	import { Button, Card, Col, Modal, Portal } from '../../lib';
 
 	let modal1Open = false;
 	let modal2Open = false;

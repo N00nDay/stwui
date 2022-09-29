@@ -27,7 +27,7 @@ import Menu from './components/menu';
 import Modal from './components/modal';
 import Notification from './components/notification';
 import Pagination from './components/pagination';
-
+import Portal from './components/portal';
 import Post from './components/post';
 
 import Row from './components/grid/Row.svelte';
@@ -64,7 +64,7 @@ export {
 	Modal,
 	Notification,
 	Pagination,
-	//
+	Portal,
 	Post,
 	//
 	Row,

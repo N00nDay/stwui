@@ -2,10 +2,9 @@
 	import '../app.styles.css';
 
 	import { page } from '$app/stores';
-	import { Portal } from '../lib/components/portal';
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
 
-	import { Button, Dropdown, Icon, Layout, Menu, Row } from '../lib';
+	import { Button, Dropdown, Icon, Layout, Menu, Portal, Row } from '../lib';
 	import Swap from '../lib/components/swap/Swap.svelte';
 
 	const sidebarItems = [

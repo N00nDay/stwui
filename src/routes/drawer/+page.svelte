@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Col, Drawer } from '../../lib';
-	import { Portal } from '../../lib/components/portal';
+	import { Button, Card, Col, Drawer, Portal } from '../../lib';
 
 	let drawerRightOpen = false;
 	let drawerLeftOpen = false;
