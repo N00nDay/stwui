@@ -5,7 +5,6 @@
 	import { LAYOUT_CONTENT_CONTEXT_ID } from './Content.svelte';
 	import type { Writable } from 'svelte/store';
 	import { getContext } from 'svelte';
-	import { scrollbar } from '../../utils/scrollbar';
 
 	useContext({
 		context_id: LAYOUT_CONTEXT_ID,
@@ -39,8 +38,7 @@
 		style="width: {$collapsed ? $collapsedWidth : $expandedWidth}"
 	>
 		<div
-			use:scrollbar={{ forceVisible: true }}
-			class="h-full flex-1 flex flex-col min-h-0 pt-3 pb-4 pl-2 pr-4 max-h-[calc(100vh-64px)] transition-all duration-150"
+			class="h-full flex-1 flex flex-col min-h-0 pt-3 pb-4 pl-2 pr-4 max-h-[calc(100vh-64px)] transition-all duration-150 overflow-y-auto overflow-x-hidden"
 		>
 			<slot />
 		</div>

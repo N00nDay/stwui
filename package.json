@@ -62,7 +62,6 @@
 	"type": "module",
 	"dependencies": {
 		"dayjs": "^1.11.5",
-		"simplebar": "^5.3.8",
 		"tailwind-merge": "^1.6.0",
 		"tippy.js": "^6.3.7"
 	},

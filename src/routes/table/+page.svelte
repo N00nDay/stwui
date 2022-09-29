@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Col } from '../../lib';
+	import { Button, Card, Col, Pagination } from '../../lib';
 	import {
 		Table,
 		TableBody,
@@ -8,7 +8,6 @@
 		TableRow,
 		TableCell
 	} from '../../lib/components/table';
-	import { Pagination } from '../../lib/components/pagination';
 	import type { ITableColumn } from '../../lib/components/table/Table.svelte';
 
 	const columns: ITableColumn[] = [

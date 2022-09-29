@@ -1,5 +1,4 @@
 <script lang="ts">
-	import SimpleBar from 'simplebar';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { page } from '$app/stores';
 	import { encodeSearchParams } from '../../utils/encodeSearchParams';
@@ -58,10 +57,7 @@
 		if (scrollElement) {
 			const el = document.getElementById(scrollElement);
 			if (el) {
-				const simpleBar = SimpleBar.instances.get(el)?.getScrollElement();
-				console.log('el', el);
-				console.log('simpleBar', simpleBar);
-				if (simpleBar) simpleBar.scrollTop = 0;
+				el.scrollTop = 0;
 			}
 		}
 	}

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Card, Col } from '../../lib';
-	import { Pagination } from '../../lib/components/pagination';
+	import { Card, Col, Pagination } from '../../lib';
 </script>
 
 <Col class="col-24">

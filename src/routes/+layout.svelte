@@ -1,15 +1,12 @@
 <script lang="ts">
 	import '../app.styles.css';
-	// import 'simplebar';
-	import 'simplebar/dist/simplebar.css';
 
 	import { page } from '$app/stores';
 	import { Portal } from '../lib/components/portal';
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
 
-	import { Button, Dropdown, Layout, Menu, Row } from '../lib';
-	import Swap from '$lib/components/swap/Swap.svelte';
-	import Icon from '$lib/components/icon/Icon.svelte';
+	import { Button, Dropdown, Icon, Layout, Menu, Row } from '../lib';
+	import Swap from '../lib/components/swap/Swap.svelte';
 
 	const sidebarItems = [
 		{
