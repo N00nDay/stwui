@@ -1,8 +1,3 @@
-export { default as Accordion } from './Accordion.svelte';
-export { default as AccordionItem } from './Item.svelte';
-export { default as AccordionItemTitle } from './Title.svelte';
-export { default as AccordionItemContent } from './Content.svelte';
-
 import OriginalAccordion from './Accordion.svelte';
 import OriginalItem from './Item.svelte';
 import Title from './Title.svelte';

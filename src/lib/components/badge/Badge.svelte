@@ -7,34 +7,29 @@
 	export let shape: 'default' | 'rounded' | 'square' = 'default';
 	export let onClose: (() => void) | undefined = undefined;
 
-	const defaultClass =
+	console.log('$$props.class badge', $$props.class);
+	let defaultClass =
 		'inline-flex items-center py-0.5 font-medium transition-all duration-150 bg-opacity-20 dark:bg-opacity-20 dark:text-dark-content text-light-content bg-dark-icon-background bg-light-icon-background';
+	if (type === 'info') {
+		defaultClass +=
+			'bg-opacity-20 dark:bg-opacity-20 bg-info-background dark:bg-dark-info-background text-info-content dark:text-dark-info-content';
+	} else if (type === 'success') {
+		defaultClass +=
+			'bg-opacity-20 dark:bg-opacity-20 bg-success-background dark:bg-dark-success-background text-success-content dark:text-dark-success-content';
+	} else if (type === 'warn') {
+		defaultClass +=
+			'bg-opacity-20 dark:bg-opacity-20 bg-warn-background dark:bg-dark-warn-background text-warn-content dark:text-dark-warn-content';
+	} else if (type === 'error') {
+		defaultClass +=
+			'bg-opacity-20 dark:bg-opacity-20 bg-error-background dark:bg-dark-error-background text-error-content dark:text-dark-error-content';
+	}
+	console.log('defaultClass badge', defaultClass);
 	const finalClass = twMerge(defaultClass, $$props.class);
+	console.log('finalClass badge', finalClass);
 </script>
 
 <span
 	class={finalClass}
-	class:bg-opacity-20={type === 'info' || type === 'success' || type === 'warn' || type === 'error'}
-	class:dark:bg-opacity-20={type === 'info' ||
-		type === 'success' ||
-		type === 'warn' ||
-		type === 'error'}
-	class:bg-info-background={type === 'info'}
-	class:dark:bg-dark-info-background={type === 'info'}
-	class:text-info-content={type === 'info'}
-	class:dark:text-dark-info-content={type === 'info'}
-	class:bg-success-background={type === 'success'}
-	class:dark:bg-dark-success-background={type === 'success'}
-	class:text-success-content={type === 'success'}
-	class:dark:text-dark-success-content={type === 'success'}
-	class:bg-warn-background={type === 'warn'}
-	class:dark:bg-dark-warn-background={type === 'warn'}
-	class:text-warn-content={type === 'warn'}
-	class:dark:text-dark-warn-content={type === 'warn'}
-	class:bg-error-background={type === 'error'}
-	class:dark:bg-dark-error-background={type === 'error'}
-	class:text-error-content={type === 'error'}
-	class:dark:text-dark-error-content={type === 'error'}
 	class:px-2.5={size === 'default'}
 	class:px-3={size === 'large'}
 	class:text-xs={size === 'default'}
