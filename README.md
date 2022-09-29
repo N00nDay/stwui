@@ -1,8 +1,8 @@
-`npm install @noonday/stui`
+`npm install stwui`
 
-Add `require('@noonday/stui/plugin')` to the `plugins` section of your `tailwind.config.cjs`
+Add `require('stwui/plugin')` to the `plugins` section of your `tailwind.config.cjs`
 
-Add `'./node_modules/@noonday/stui/**/*.{svelte,js,ts,html}'` to the `content` array of your `tailwind.config.cjs`
+Add `'./node_modules/stwui/**/*.{svelte,js,ts,html}'` to the `content` array of your `tailwind.config.cjs`
 
 The list:
 

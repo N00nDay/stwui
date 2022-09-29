@@ -1,5 +1,5 @@
 {
-	"name": "@noonday/stui",
+	"name": "stwui",
 	"description": "Opinionated yet customizable svelte-tailwind components",
 	"keywords": [
 		"svelte",
@@ -14,9 +14,9 @@
 	"version": "0.0.59",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/N00nDay/stui"
+		"url": "https://github.com/N00nDay/stwui"
 	},
-	"homepage": "https://github.com/N00nDay/stui",
+	"homepage": "https://github.com/N00nDay/stwui",
 	"scripts": {
 		"dev": "vite dev --open --host --port 5555",
 		"build": "vite build",

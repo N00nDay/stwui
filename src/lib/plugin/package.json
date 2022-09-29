@@ -1,6 +1,6 @@
 {
 	"name": "stui-plugin",
-	"description": "Tailwindcss plugin for @noonday/stui",
+	"description": "Tailwindcss plugin for stwui",
 	"version": "0.0.1",
 	"main": "index.js"
 }
