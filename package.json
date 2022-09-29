@@ -1,6 +1,6 @@
 {
 	"name": "stwui",
-	"description": "Opinionated yet customizable svelte-tailwind components",
+	"description": "Opinionated yet customizable Svelte-TailwindCSS component library",
 	"keywords": [
 		"svelte",
 		"svelte3",
@@ -8,7 +8,7 @@
 		"svelte-components",
 		"sveltejs",
 		"tailwindcss",
-		"stui"
+		"stwui"
 	],
 	"license": "MIT",
 	"version": "0.0.60",

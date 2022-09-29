@@ -30,6 +30,7 @@ import Pagination from './components/pagination';
 import Portal from './components/portal';
 import Post from './components/post';
 import Progress from './components/progress';
+import RadioGroup from './components/radio';
 
 import Row from './components/grid/Row.svelte';
 
@@ -68,6 +69,7 @@ export {
 	Portal,
 	Post,
 	Progress,
+	RadioGroup,
 	//
 	Row,
 	//
