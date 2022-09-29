@@ -1,6 +1,6 @@
 {
-	"name": "sveltekit-tailwind-components-plugin",
-	"description": "Tailwindcss plugin for sveltekit-tailwind-components",
+	"name": "stui-plugin",
+	"description": "Tailwindcss plugin for stui",
 	"version": "0.0.1",
 	"main": "index.js"
 }

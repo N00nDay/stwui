@@ -1,5 +1,5 @@
 {
-	"name": "sveltekit-tailwind-components",
+	"name": "stui",
 	"description": "Opinionated yet customizable svelte-tailwind components",
 	"keywords": [
 		"svelte",
@@ -13,9 +13,9 @@
 	"version": "0.0.57",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/N00nDay/sveltekit-tailwind-components"
+		"url": "https://github.com/N00nDay/stui"
 	},
-	"homepage": "https://github.com/N00nDay/sveltekit-tailwind-components",
+	"homepage": "https://github.com/N00nDay/stui",
 	"scripts": {
 		"dev": "vite dev --open --host --port 5555",
 		"build": "vite build",
