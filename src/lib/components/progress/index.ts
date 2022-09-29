@@ -1,3 +1,3 @@
 import Progress from './Progress.svelte';
 
-export { Progress };
+export default Progress;

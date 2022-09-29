@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Card, Col } from '../../lib';
-	import { Progress } from '../../lib/components/progress';
+	import { Card, Col, Progress } from '../../lib';
 </script>
 
 <Col class="col-24 md:col-12">

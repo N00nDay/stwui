@@ -29,6 +29,7 @@ import Notification from './components/notification';
 import Pagination from './components/pagination';
 import Portal from './components/portal';
 import Post from './components/post';
+import Progress from './components/progress';
 
 import Row from './components/grid/Row.svelte';
 
@@ -66,6 +67,7 @@ export {
 	Pagination,
 	Portal,
 	Post,
+	Progress,
 	//
 	Row,
 	//
