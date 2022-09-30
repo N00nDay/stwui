@@ -4,6 +4,5 @@
       "prettier --check .",
       "eslint .",
       "eslint --fix",
-      "git add"
    ]
 }

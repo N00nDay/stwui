@@ -34,12 +34,6 @@
 		"prepare:git": "npm run format && npm run lint && git add -u",
 		"prepare": "husky install"
 	},
-	"lint-staged": {
-		"*(js|ts|svelte)": [
-			"eslint",
-			"prettier --write"
-		]
-	},
 	"devDependencies": {
 		"@playwright/test": "^1.26.0",
 		"@sveltejs/adapter-auto": "next",
