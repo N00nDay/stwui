@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type MaterialIcons from '../../types/material-icons';
 	import { slide, scale } from 'svelte/transition';
-	import { clickOutside } from '../../utils/clickOutside';
+	import { clickOutside } from '../../actions';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { onMount } from 'svelte';
 

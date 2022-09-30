@@ -39,7 +39,7 @@ export interface TooltipConfig {
 	zIndex?: number;
 }
 
-export function tooltip(
+export default function tooltip(
 	node: HTMLElement,
 	{
 		allowHTML,

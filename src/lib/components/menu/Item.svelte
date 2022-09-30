@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { tooltip } from '../tooltip';
+	import { tooltip } from '../../actions';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';

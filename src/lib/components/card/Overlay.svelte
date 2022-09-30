@@ -3,8 +3,7 @@
 	import { CARD_COVER_CONTEXT_ID } from './Cover.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
-	import { useActions, type ActionArray } from '../../utils/useActions';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	import { exclude } from '../../utils/exclude';
 	import { twMerge } from 'tailwind-merge';
 	export let use: ActionArray = [];

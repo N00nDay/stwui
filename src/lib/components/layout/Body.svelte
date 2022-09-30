@@ -5,8 +5,7 @@
 	import { getContext } from 'svelte/internal';
 	import type { Writable } from 'svelte/store';
 	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
-	import { useActions, type ActionArray } from '../../utils/useActions';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	import { exclude } from '../../utils/exclude';
 	import { LAYOUT_CONTENT_CONTEXT_ID } from './Content.svelte';
 	export let use: ActionArray = [];

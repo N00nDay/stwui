@@ -1,4 +1,12 @@
-import Timeline from './Timeline.svelte';
-import type { TimelineItem } from './Timeline.svelte';
+import OriginalTimeline from './Timeline.svelte';
+import Item from './Item.svelte';
 
-export { Timeline, TimelineItem };
+const Timeline = OriginalTimeline as TimelineStatic;
+Timeline.Item = Item;
+
+export default Timeline;
+
+export interface TimelineStatic {
+	new (...args: ConstructorParameters<typeof OriginalTimeline>): OriginalTimeline;
+	Item: typeof Item;
+}

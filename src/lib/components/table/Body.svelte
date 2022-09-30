@@ -3,6 +3,7 @@
 	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
+	import { twMerge } from 'tailwind-merge';
 
 	export let id = 'table-body';
 
@@ -17,6 +18,10 @@
 	let headerHeight = $header ? 61 : 0;
 
 	$: heightToRemove = headerHeight + 64;
+
+	const defaultClass =
+		'table min-w-full border-separate bg-light-surface dark:bg-dark-surface border-spacing-0 table-fixed transition-all duration-150 border-b border-light-border dark:border-dark-border';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
@@ -24,11 +29,8 @@
 	class="overflow-y-auto overflow-x-hidden"
 	style="height: calc(100% - {heightToRemove}px);"
 >
-	<table
-		class="table min-w-full border-separate bg-light-surface dark:bg-dark-surface transition-all duration-150 border-b border-light-border dark:border-dark-border"
-		style="border-spacing: 0;table-layout:fixed;"
-	>
-		<tbody class={$$props.class} style={$$props.style}>
+	<table class={finalClass} style={$$props.style}>
+		<tbody>
 			<slot />
 		</tbody>
 	</table>

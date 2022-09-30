@@ -57,7 +57,7 @@
 			class:scale-y-flip={column.column !== orderBy ||
 				(column.column === orderBy && order === 'asc')}
 		>
-			<span class="material-icons text-xl duration-150"> sort </span>
+			<span class="material-icons text-xl"> sort </span>
 		</span>
 	</button></th
 >

@@ -11,7 +11,6 @@ export function useContext({
 }) {
 	const context = getContext(context_id);
 	if (context === undefined) {
-		// console.warn(`<${component} /> is missing a parent <${parent} /> component.`);
 		throw new Error(`<${component} /> is missing a parent <${parent} /> component.`);
 	}
 	return context;

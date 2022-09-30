@@ -8,8 +8,7 @@
 	import { LAYOUT_CONTEXT_ID } from './Layout.svelte';
 
 	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
-	import { useActions, type ActionArray } from '../../utils/useActions';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	import { exclude } from '../../utils/exclude';
 	import { twMerge } from 'tailwind-merge';
 	export let use: ActionArray = [];

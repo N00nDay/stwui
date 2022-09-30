@@ -38,8 +38,11 @@ import Slider from './components/slider';
 import Statistic from './components/statistic';
 import Steps from './components/steps';
 import Swap from './components/swap';
-
+import Table from './components/table';
+import Tabs from './components/tabs';
 import TextArea from './components/textarea'; // TODO: needs refactor and dot notation
+import Timeline from './components/timeline';
+import Toggle from './components/toggle';
 
 export {
 	Accordion,
@@ -82,6 +85,9 @@ export {
 	Statistic,
 	Steps,
 	Swap,
-	//
-	TextArea
+	Table,
+	Tabs,
+	TextArea,
+	Timeline,
+	Toggle
 };

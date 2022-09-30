@@ -9,8 +9,7 @@
 	import { useContext } from '../../utils/useContext';
 
 	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
-	import { useActions, type ActionArray } from '../../utils/useActions';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	import { exclude } from '../../utils/exclude';
 	export let use: ActionArray = [];
 	const forwardEvents = forwardEventsBuilder(current_component);

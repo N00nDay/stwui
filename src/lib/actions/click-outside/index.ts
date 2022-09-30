@@ -1,4 +1,7 @@
-export function clickOutside(node: HTMLElement, handler: () => void): { destroy: () => void } {
+export default function clickOutside(
+	node: HTMLElement,
+	handler: () => void
+): { destroy: () => void } {
 	const onClick = (event: MouseEvent) =>
 		node && !node.contains(event.target as HTMLElement) && !event.defaultPrevented && handler();
 

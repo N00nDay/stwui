@@ -1,16 +1,9 @@
 <script lang="ts">
-	import { Button, Card, Col, Pagination } from '../../lib';
-	import {
-		Table,
-		TableBody,
-		TableFooter,
-		TableHeader,
-		TableRow,
-		TableCell
-	} from '../../lib/components/table';
-	import type { ITableColumn } from '../../lib/components/table/Table.svelte';
+	import { Button, Card, Col, Pagination, Table } from '../../lib';
+	// TODO: move this to the types folder
+	import type { TableColumn } from '../../lib/components/table/Table.svelte';
 
-	const columns: ITableColumn[] = [
+	const columns: TableColumn[] = [
 		{
 			column: 'project_name',
 			label: 'Project Name',
@@ -68,26 +61,26 @@
 		</Card.Header>
 		<Card.Content slot="content" class="p-0 sm:p-0" style="height: calc(100% - 64px);">
 			<Table class="rounded-md overflow-hidden h-full" {columns}>
-				<TableHeader />
-				<TableBody>
-					{#each data.results as item, i}
-						<TableRow id={item.id}>
-							<TableCell column={0}>{item.project_name}</TableCell>
-							<TableCell column={1}>{item.status}</TableCell>
-							<TableCell column={2}>{item.city}</TableCell>
-							<TableCell column={3}>{item.state}</TableCell>
-							<TableCell column={4}>{item.created_at}</TableCell>
-						</TableRow>
+				<Table.Header />
+				<Table.Body>
+					{#each data.results as item}
+						<Table.Body.Row id={item.id}>
+							<Table.Body.Row.Cell column={0}>{item.project_name}</Table.Body.Row.Cell>
+							<Table.Body.Row.Cell column={1}>{item.status}</Table.Body.Row.Cell>
+							<Table.Body.Row.Cell column={2}>{item.city}</Table.Body.Row.Cell>
+							<Table.Body.Row.Cell column={3}>{item.state}</Table.Body.Row.Cell>
+							<Table.Body.Row.Cell column={4}>{item.created_at}</Table.Body.Row.Cell>
+						</Table.Body.Row>
 					{/each}
-				</TableBody>
-				<TableFooter>
+				</Table.Body>
+				<Table.Footer>
 					<Pagination
 						start={data.start}
 						end={data.end}
 						total={data.total}
 						scrollElement="table-body"
 					/>
-				</TableFooter>
+				</Table.Footer>
 			</Table>
 		</Card.Content>
 	</Card>

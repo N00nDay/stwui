@@ -8,7 +8,7 @@ const oldModifierRegex =
 const newModifierRegex =
 	/^[^$]+(?:\$(?:preventDefault|stopPropagation|passive|nonpassive|capture|once|self))+$/;
 
-export function forwardEventsBuilder(component: SvelteComponent) {
+export default function forwardEventsBuilder(component: SvelteComponent) {
 	// This is our pseudo $on function. It is defined on component mount.
 	let $on: (eventType: string, callback: (event: unknown) => void) => () => void;
 	// This is a list of events bound before mount.

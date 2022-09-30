@@ -5,7 +5,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { clickOutside } from '../../utils/clickOutside';
+	import { clickOutside } from '../../actions';
 
 	export let handleClose: () => void;
 	export let visible = false;

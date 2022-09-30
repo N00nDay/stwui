@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Card, Col } from '../../lib';
-	import { tooltip } from '../../lib/components/tooltip';
+	import { tooltip } from '../../lib/actions';
 </script>
 
 <Col class="col-24 md:col-12">

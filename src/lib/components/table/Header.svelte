@@ -4,23 +4,25 @@
 	import { getContext } from 'svelte';
 	import HeaderRow from './HeaderRow.svelte';
 	import type { Writable } from 'svelte/store';
-	import type { ITableColumn } from './Table.svelte';
+	import type { TableColumn } from './Table.svelte';
+	import { twMerge } from 'tailwind-merge';
 
 	useContext({
 		context_id: TABLE_CONTEXT_ID,
 		parent: 'Table',
 		component: 'TableHeader'
 	});
-	let { header, columns }: { header: Writable<boolean>; columns: ITableColumn[] } =
+	let { header, columns }: { header: Writable<boolean>; columns: TableColumn[] } =
 		getContext(TABLE_CONTEXT_ID);
 	header.set(true);
+
+	const defaultClass =
+		'flex-shrink table min-w-full border-separate border-spacing-0 table-fixed shadow-md dark:shadow-black bg-light-surface dark:bg-dark-surface transition-all duration-150 relative';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<table
-	class="flex-shrink table min-w-full border-separate shadow-md dark:shadow-black transition-all duration-150 relative"
-	style="border-spacing: 0;table-layout:fixed;z-index: 1;"
->
-	<thead class="bg-light-surface dark:bg-dark-surface transition-all duration-150">
+<table class={finalClass} style={$$props.style}>
+	<thead>
 		<tr class="table-row">
 			{#each columns as column, index}
 				<HeaderRow

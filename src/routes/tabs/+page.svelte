@@ -1,8 +1,14 @@
 <script lang="ts">
-	import { Card, Col } from '../../lib';
-	import { Tabs } from '../../lib/components/tabs';
+	import type MaterialIcons from '../../lib/types/material-icons';
+	import { Card, Col, Tabs } from '../../lib';
 
-	const tabs = [
+	interface Tab {
+		href: string;
+		title: string;
+		icon: MaterialIcons;
+	}
+
+	const tabs: Tab[] = [
 		{
 			href: '#step1',
 			title: 'Step 1',
@@ -20,14 +26,25 @@
 		}
 	];
 
-	const currentTab = 'Step 2';
+	let currentTab: number | undefined = undefined;
+
+	function handleClick(index: number) {
+		currentTab = index;
+	}
 </script>
 
 <Col class="col-24">
 	<Card bordered={false}>
 		<Card.Header slot="header">Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Tabs {tabs} {currentTab} />
+			<Tabs {currentTab}>
+				{#each tabs as tab, i}
+					<Tabs.Tab index={i} href={tab.href} on:click={() => handleClick(i)}>
+						<Tabs.Tab.Icon slot="icon" icon={tab.icon} />
+						{tab.title}
+					</Tabs.Tab>
+				{/each}
+			</Tabs>
 		</Card.Content>
 	</Card>
 </Col>
@@ -36,7 +53,14 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Full Width</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Tabs {tabs} {currentTab} variant="full-width" />
+			<Tabs {currentTab} variant="full-width">
+				{#each tabs as tab, i}
+					<Tabs.Tab index={i} href={tab.href} on:click={() => handleClick(i)}>
+						<Tabs.Tab.Icon slot="icon" icon={tab.icon} />
+						{tab.title}
+					</Tabs.Tab>
+				{/each}
+			</Tabs>
 		</Card.Content>
 	</Card>
 </Col>
@@ -45,7 +69,14 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Bar</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Tabs {tabs} {currentTab} variant="bar" />
+			<Tabs {currentTab} variant="bar">
+				{#each tabs as tab, i}
+					<Tabs.Tab index={i} href={tab.href} on:click={() => handleClick(i)}>
+						<Tabs.Tab.Icon slot="icon" icon={tab.icon} />
+						{tab.title}
+					</Tabs.Tab>
+				{/each}
+			</Tabs>
 		</Card.Content>
 	</Card>
 </Col>

@@ -5,7 +5,7 @@
 <script lang="ts">
 	import type MaterialIcons from '../../types/material-icons';
 	import { slide, scale } from 'svelte/transition';
-	import { clickOutside } from '../../utils/clickOutside';
+	import { clickOutside } from '../../actions';
 	import { onMount, setContext } from 'svelte';
 	import { validateSlots } from '$lib/utils/validateSlots';
 

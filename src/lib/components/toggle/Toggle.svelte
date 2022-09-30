@@ -1,9 +1,10 @@
+<script lang="ts" context="module">
+	export const TOGGLE_CONTEXT_ID = 'toggle-context-id';
+</script>
+
 <script lang="ts">
+	import { setContext } from 'svelte';
 	export let name: string;
-	export let labelLeft: string | undefined = undefined;
-	export let labelRight: string | undefined = undefined;
-	export let descriptionLeft: string | undefined = undefined;
-	export let descriptionRight: string | undefined = undefined;
 	export let on = false;
 
 	function toggle() {
@@ -17,21 +18,17 @@
 	function toggleOff() {
 		on = false;
 	}
+
+	setContext(TOGGLE_CONTEXT_ID, {
+		toggle: true,
+		name,
+		toggleOn,
+		toggleOff
+	});
 </script>
 
 <div class="flex items-center">
-	{#if labelLeft}
-		<span class="mr-3" id="{name}-label-left" on:click={toggleOff}>
-			<span class="text-sm font-medium text-light-content dark:text-dark-content"
-				>{labelLeft}
-			</span>
-			{#if descriptionLeft}
-				<span class="text-sm text-light-secondary-content dark:text-dark-secondary-content"
-					>{descriptionLeft}</span
-				>
-			{/if}
-		</span>
-	{/if}
+	<slot name="content-left" />
 	<div
 		class="border light-border dark:dark-border relative inline-flex flex-shrink-0 h-[1.6rem] w-[2.8rem] rounded-full cursor-pointer transition-all duration-150 outline-none focus:outline-none"
 	>
@@ -52,16 +49,5 @@
 			<input type="checkbox" class="hidden" {name} id={name} checked={on} />
 		</button>
 	</div>
-	{#if labelRight}
-		<span class="ml-3" id="{name}-label-right" on:click={toggleOn}>
-			<span class="text-sm font-medium text-light-content dark:text-dark-content"
-				>{labelRight}
-			</span>
-			{#if descriptionRight}
-				<span class="text-sm text-light-secondary-content dark:text-dark-secondary-content"
-					>{descriptionRight}</span
-				>
-			{/if}
-		</span>
-	{/if}
+	<slot name="content-right" />
 </div>
