@@ -24,13 +24,9 @@
 	});
 
 	const {
-		collapsed,
-		collapsedWidth,
-		expandedWidth
+		collapsed
 	}: {
 		collapsed: Writable<boolean>;
-		collapsedWidth: Writable<string>;
-		expandedWidth: Writable<string>;
 	} = getContext(LAYOUT_CONTENT_CONTEXT_ID);
 
 	let defaultClass = 'w-full h-full';

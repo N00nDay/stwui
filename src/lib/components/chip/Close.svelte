@@ -18,6 +18,12 @@
 	const errorDefaults =
 		' hover:bg-error-background dark:hover:bg-dark-error-background text-error-content dark:text-dark-error-content';
 
+	useContext({
+		context_id: CHIP_CONTEXT_ID,
+		parent: 'Chip',
+		component: 'Chip.Close'
+	});
+
 	const { type }: { type: 'info' | 'success' | 'warn' | 'error' | 'default' } =
 		getContext(CHIP_CONTEXT_ID);
 

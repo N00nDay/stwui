@@ -12,8 +12,7 @@
 		parent: 'Table',
 		component: 'TableBody'
 	});
-	let { header, footer }: { header: Writable<boolean>; footer: Writable<boolean> } =
-		getContext(TABLE_CONTEXT_ID);
+	let { header }: { header: Writable<boolean> } = getContext(TABLE_CONTEXT_ID);
 
 	let headerHeight = $header ? 61 : 0;
 

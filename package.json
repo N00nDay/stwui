@@ -18,7 +18,7 @@
 	},
 	"homepage": "https://github.com/N00nDay/stwui",
 	"scripts": {
-		"dev": "vite dev --open --host --port 5555",
+		"dev": "vite dev --open --host",
 		"build": "vite build",
 		"package": "svelte-package",
 		"preview": "vite preview",
@@ -26,11 +26,19 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
+		"lint:fix": "eslint --fix .",
 		"format": "prettier --write .",
 		"package:patch": "npm version patch && svelte-package",
 		"package:minor": "npm version minor && svelte-package",
 		"package:major": "npm version major && svelte-package",
-		"prepare:git": "npm run format && npm run lint && git add -u"
+		"prepare:git": "npm run format && npm run lint && git add -u",
+		"prepare": "husky install"
+	},
+	"lint-staged": {
+		"*(js|ts|svelte)": [
+			"eslint",
+			"prettier --write"
+		]
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.26.0",
@@ -48,6 +56,8 @@
 		"eslint": "^8.23.1",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"husky": "^8.0.0",
+		"lint-staged": "^13.0.3",
 		"postcss": "^8.4.16",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.7.0",

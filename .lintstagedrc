@@ -1,0 +1,9 @@
+{
+   "*.(js|ts|svelte)": [
+      "prettier --write",
+      "prettier --check .",
+      "eslint .",
+      "eslint --fix",
+      "git add"
+   ]
+}

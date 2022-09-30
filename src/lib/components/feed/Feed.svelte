@@ -6,7 +6,7 @@
 </script>
 
 <div class="flow-root">
-	<ul class={finalClass}>
+	<ul class={finalClass} style={$$props.style}>
 		<slot />
 	</ul>
 </div>
