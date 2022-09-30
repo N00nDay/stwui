@@ -1,7 +1,5 @@
 <script lang="ts">
-	// import Swap from '../lib/components/swap/Swap.svelte';
-	import { Swap } from '../../lib/components/swap';
-	import { Button, Card, Col, Icon } from '../../lib';
+	import { Button, Card, Col, Icon, Swap } from '../../lib';
 
 	let loading = false;
 
@@ -131,16 +129,16 @@
 		<Card.Content slot="content" class="p-4">
 			<Button shape="circle" on:click={toggleLoading}>
 				<Swap slot="icon" {loading}>
-					<Icon slot="icon1" icon="menu" />
-					<Icon slot="icon2" icon="close" />
+					<Icon slot="on" icon="menu" />
+					<Icon slot="off" icon="close" />
 				</Swap>
 			</Button>
 
 			<Button type="primary">
 				<Button.Leading slot="leading">
 					<Swap {loading}>
-						<Icon slot="icon1" icon="menu" />
-						<Icon slot="icon2" icon="close" />
+						<Icon slot="on" icon="menu" />
+						<Icon slot="off" icon="close" />
 					</Swap>
 				</Button.Leading>
 				I am primary</Button

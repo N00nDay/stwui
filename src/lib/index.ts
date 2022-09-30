@@ -37,6 +37,7 @@ import Select from './components/select'; // TODO: needs refactor and dot notati
 import Slider from './components/slider';
 import Statistic from './components/statistic';
 import Steps from './components/steps';
+import Swap from './components/swap';
 
 import TextArea from './components/textarea'; // TODO: needs refactor and dot notation
 
@@ -80,6 +81,7 @@ export {
 	Slider,
 	Statistic,
 	Steps,
+	Swap,
 	//
 	TextArea
 };

@@ -1,3 +1,3 @@
 import Swap from './Swap.svelte';
 
-export { Swap };
+export default Swap;

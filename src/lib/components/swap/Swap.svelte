@@ -22,10 +22,10 @@
 >
 	<input type="checkbox" class="invisible" checked={loading || swapped} disabled />
 	<span class="swap-on absolute inset-0">
-		<slot name="icon1" />
+		<slot name="on" />
 	</span>
 	<span class="swap-off absolute inset-0 {loading || swapped ? 'isOn' : 'isOff'}">
-		<slot name="icon2" />
+		<slot name="off" />
 	</span>
 </div>
 

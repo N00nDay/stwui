@@ -16,7 +16,7 @@
 	import ButtonLoader from './Loader.svelte';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { validateSlots } from '$lib/utils/validateSlots';
-	import Swap from '../swap/Swap.svelte';
+	import Swap from '../swap';
 
 	export let disabled: false | true = false;
 	export let htmlType: 'button' | 'submit' | 'reset' = 'button';
@@ -100,10 +100,10 @@
 	{#if defaultLoading && $$slots.leading}
 		<div class="mr-2 flex justify-center items-center relative">
 			<Swap {loading}>
-				<svelte:fragment slot="icon1">
+				<svelte:fragment slot="on">
 					<slot name="leading" />
 				</svelte:fragment>
-				<svelte:fragment slot="icon2">
+				<svelte:fragment slot="off">
 					<ButtonLoader color={buttonLoaderColor} />
 				</svelte:fragment>
 			</Swap>
@@ -113,10 +113,10 @@
 	{:else if defaultLoading && $$slots.icon}
 		<div class="flex justify-center items-center relative">
 			<Swap {loading}>
-				<svelte:fragment slot="icon1">
+				<svelte:fragment slot="on">
 					<slot name="icon" />
 				</svelte:fragment>
-				<svelte:fragment slot="icon2">
+				<svelte:fragment slot="off">
 					<ButtonLoader color={buttonLoaderColor} />
 				</svelte:fragment>
 			</Swap>

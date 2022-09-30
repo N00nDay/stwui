@@ -30,8 +30,8 @@
 		style={$$props.style}
 	>
 		<Swap slot="icon" swapped={open}>
-			<Icon slot="icon1" icon="add" />
-			<Icon slot="icon2" icon="close" />
+			<Icon slot="on" icon="add" />
+			<Icon slot="off" icon="close" />
 		</Swap>
 	</Button>
 </div>

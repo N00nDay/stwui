@@ -22,7 +22,6 @@
 	];
 
 	function handleClick(index: number) {
-		console.log('index', index);
 		currentStep1 = index + 1;
 	}
 </script>

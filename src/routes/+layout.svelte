@@ -263,8 +263,8 @@
 				on:click={handleOpenMenu}
 			>
 				<Swap slot="icon">
-					<Icon slot="icon1" icon="menu" />
-					<Icon slot="icon2" icon="close" />
+					<Icon slot="on" icon="menu" />
+					<Icon slot="off" icon="close" />
 				</Swap>
 			</Button>
 
@@ -279,8 +279,8 @@
 					class="hidden lg:block mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
 				>
 					<Swap slot="icon" swapped={createOpen}>
-						<Icon slot="icon1" icon="add" />
-						<Icon slot="icon2" icon="close" />
+						<Icon slot="on" icon="add" />
+						<Icon slot="off" icon="close" />
 					</Swap>
 				</Button>
 
@@ -362,8 +362,8 @@
 				style="position: fixed;"
 			>
 				<Swap slot="icon" swapped={createOpen}>
-					<Icon slot="icon1" icon="add" />
-					<Icon slot="icon2" icon="close" />
+					<Icon slot="on" icon="add" />
+					<Icon slot="off" icon="close" />
 				</Swap>
 			</Button>
 		</Layout.Content>

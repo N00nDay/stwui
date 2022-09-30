@@ -8,7 +8,7 @@
 
 	import type MaterialIcons from '../../types/material-icons';
 	import { slide, scale } from 'svelte/transition';
-	import Swap from '../swap/Swap.svelte';
+	import Swap from '../swap';
 
 	export let leading: MaterialIcons | undefined = undefined;
 	export let trailing: MaterialIcons | undefined = undefined;
@@ -138,13 +138,13 @@
 				style="position: absolute;left: unset;"
 			>
 				<span
-					slot="icon1"
+					slot="on"
 					class="material-icons pr-3 text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
 				>
 					visibility
 				</span>
 				<span
-					slot="icon2"
+					slot="off"
 					class="material-icons pr-3 text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
 				>
 					visibility_off

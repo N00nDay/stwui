@@ -9,7 +9,7 @@
 	import { useContext } from '../../utils/useContext';
 	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { Swap } from '../swap';
+	import Swap from '../swap';
 	import ButtonLoader from './Loader.svelte';
 	import { current_component } from 'svelte/internal';
 	import { forwardEventsBuilder } from '../../utils/forwardEventsBuilder';
@@ -63,10 +63,10 @@
 	{#if defaultLoading && $$slots.leading}
 		<div class="mr-2 flex justify-center items-center relative">
 			<Swap {loading}>
-				<svelte:fragment slot="icon1">
+				<svelte:fragment slot="on">
 					<slot name="leading" />
 				</svelte:fragment>
-				<svelte:fragment slot="icon2">
+				<svelte:fragment slot="off">
 					<ButtonLoader color={buttonLoaderColor} />
 				</svelte:fragment>
 			</Swap>
@@ -76,10 +76,10 @@
 	{:else if defaultLoading && $$slots.icon}
 		<div class="flex justify-center items-center relative">
 			<Swap {loading}>
-				<svelte:fragment slot="icon1">
+				<svelte:fragment slot="on">
 					<slot name="icon" />
 				</svelte:fragment>
-				<svelte:fragment slot="icon2">
+				<svelte:fragment slot="off">
 					<ButtonLoader color={buttonLoaderColor} />
 				</svelte:fragment>
 			</Swap>
