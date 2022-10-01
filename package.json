@@ -40,9 +40,6 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "release": {
-	"branches": ["main", "next"]
- },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@playwright/test": "^1.26.0",

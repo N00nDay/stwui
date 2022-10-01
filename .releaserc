@@ -1,0 +1,8 @@
+{
+   "branches": [{"name": "main", "prerelease": true}],
+  "plugins": [
+    ["@semantic-release/npm", {
+      "npmPublish": false
+    }]
+  ]
+}
