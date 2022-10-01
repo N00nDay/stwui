@@ -102,7 +102,6 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
-            console.log(`Owner: ${{owner}})
             await github.issues.addLabels({
               owner,
               repo,
