@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { CHECKBOX_GROUP_CONTEXT_ID } from './CheckboxGroup.svelte';
+	import { CHECKBOX_GROUP_CHECKBOX_CONTEXT_ID } from './Checkbox.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
-	import { CHECKBOX_GROUP_CHECKBOX_CONTEXT_ID } from './Checkbox.svelte';
 
 	useContext({
 		context_id: CHECKBOX_GROUP_CONTEXT_ID,
@@ -17,11 +17,18 @@
 		component: 'CheckboxGroup.Checkbox.Label'
 	});
 
+	const { inline }: { inline: boolean } = getContext(CHECKBOX_GROUP_CONTEXT_ID);
 	const { name }: { name: string } = getContext(CHECKBOX_GROUP_CHECKBOX_CONTEXT_ID);
 
 	const defaultClass =
-		'font-medium text-light-content dark:text-dark-content cursor-pointer transition-all duration-150';
+		'text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<label for={name} class={finalClass} style={$$props.style}><slot /></label>
+{#if inline}
+	<span id="{name}-description" class={finalClass} style={$$props.style}> | <slot /></span>
+{:else}
+	<p id="{name}-description" class={finalClass} style={$$props.style}>
+		<slot />
+	</p>
+{/if}

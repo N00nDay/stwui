@@ -7,77 +7,91 @@
 		<Card.Header slot="header">Checkbox</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<CheckboxGroup>
-				<CheckboxGroup.Checkbox label="Checkbox-1" name="cb-1" value="cb-1" />
-				<CheckboxGroup.Checkbox label="Checkbox-2" name="cb-2" value="cb-2" />
-				<CheckboxGroup.Checkbox label="Checkbox-3" name="cb-3" value="cb-3" />
-				<CheckboxGroup.Checkbox label="Checkbox-4" name="cb-4" value="cb-4" />
+				<CheckboxGroup.Checkbox name="cb-1" value="cb-1">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-1</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-2" value="cb-2">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-2</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-3" value="cb-3">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-3</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-4" value="cb-4">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-4</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
 			</CheckboxGroup>
 			<br />
 			<CheckboxGroup>
 				<CheckboxGroup.Label slot="label">Checkbox Group</CheckboxGroup.Label>
-				<CheckboxGroup.Checkbox label="Checkbox-5" name="cb-5" value="cb-5" />
-				<CheckboxGroup.Checkbox label="Checkbox-6" name="cb-6" value="cb-6" />
-				<CheckboxGroup.Checkbox label="Checkbox-7" name="cb-7" value="cb-7" />
-				<CheckboxGroup.Checkbox label="Checkbox-8" name="cb-8" value="cb-8" />
+				<CheckboxGroup.Checkbox name="cb-5" value="cb-5">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-5</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-6" value="cb-6">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-6</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-7" value="cb-7">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-7</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-8" value="cb-8">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-8</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
 			</CheckboxGroup>
 			<br />
 			<CheckboxGroup>
 				<CheckboxGroup.Label slot="label">Checkbox Group</CheckboxGroup.Label>
-				<CheckboxGroup.Checkbox label="Checkbox-9" name="cb-9" value="cb-9" description="desc-9" />
-				<CheckboxGroup.Checkbox
-					label="Checkbox-10"
-					name="cb-10"
-					value="cb-10"
-					description="desc-10"
-				/>
-				<CheckboxGroup.Checkbox
-					label="Checkbox-11"
-					name="cb-11"
-					value="cb-11"
-					description="desc-11"
-				/>
-				<CheckboxGroup.Checkbox
-					label="Checkbox-12"
-					name="cb-12"
-					value="cb-12"
-					description="desc-12"
-				/>
+				<CheckboxGroup.Checkbox name="cb-9" value="cb-9">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-9</CheckboxGroup.Checkbox.Label>
+					<CheckboxGroup.Checkbox.Description slot="description"
+						>desc-9</CheckboxGroup.Checkbox.Description
+					>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-10" value="cb-10">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-10</CheckboxGroup.Checkbox.Label>
+					<CheckboxGroup.Checkbox.Description slot="description"
+						>desc-10</CheckboxGroup.Checkbox.Description
+					>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-11" value="cb-11">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-11</CheckboxGroup.Checkbox.Label>
+					<CheckboxGroup.Checkbox.Description slot="description"
+						>desc-11</CheckboxGroup.Checkbox.Description
+					>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-12" value="cb-12">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-12</CheckboxGroup.Checkbox.Label>
+					<CheckboxGroup.Checkbox.Description slot="description"
+						>desc-12</CheckboxGroup.Checkbox.Description
+					>
+				</CheckboxGroup.Checkbox>
 			</CheckboxGroup>
 			<br />
 			<CheckboxGroup inline>
 				<CheckboxGroup.Label slot="label">Checkbox Group</CheckboxGroup.Label>
-				<CheckboxGroup.Checkbox
-					label="Checkbox-13"
-					name="cb-13"
-					value="cb-13"
-					description="desc-13"
-				/>
-				<CheckboxGroup.Checkbox
-					label="Checkbox-14"
-					name="cb-14"
-					value="cb-14"
-					description="desc-14"
-				/>
-				<CheckboxGroup.Checkbox
-					label="Checkbox-15"
-					name="cb-15"
-					value="cb-15"
-					description="desc-15"
-				/>
-				<CheckboxGroup.Checkbox
-					label="Checkbox-16"
-					name="cb-16"
-					value="cb-16"
-					description="desc-16"
-				/>
+				<CheckboxGroup.Checkbox name="cb-13" value="cb-13">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-13</CheckboxGroup.Checkbox.Label>
+					<CheckboxGroup.Checkbox.Description slot="description"
+						>desc-13</CheckboxGroup.Checkbox.Description
+					>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-14" value="cb-14">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-14</CheckboxGroup.Checkbox.Label>
+					<CheckboxGroup.Checkbox.Description slot="description"
+						>desc-14</CheckboxGroup.Checkbox.Description
+					>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-15" value="cb-15">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-15</CheckboxGroup.Checkbox.Label>
+					<CheckboxGroup.Checkbox.Description slot="description"
+						>desc-15</CheckboxGroup.Checkbox.Description
+					>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-16" value="cb-16">
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-16</CheckboxGroup.Checkbox.Label>
+					<CheckboxGroup.Checkbox.Description slot="description"
+						>desc-16</CheckboxGroup.Checkbox.Description
+					>
+				</CheckboxGroup.Checkbox>
 			</CheckboxGroup>
-			<br />
-			<CheckboxGroup.Checkbox
-				label="Checkbox-17"
-				name="cb-17"
-				value="cb-17"
-				description="desc-17"
-			/>
 		</Card.Content>
 	</Card>
 </Col>

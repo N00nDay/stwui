@@ -1,44 +1,39 @@
+<script lang="ts" context="module">
+	export const CHECKBOX_GROUP_CHECKBOX_CONTEXT_ID = 'checkbox-group-checkbox-context-id';
+</script>
+
 <script lang="ts">
-	import { getContext } from 'svelte';
+	import { useContext } from '$lib/utils/useContext';
+
+	import { setContext } from 'svelte';
+	import { twMerge } from 'tailwind-merge';
 	import { CHECKBOX_GROUP_CONTEXT_ID } from './CheckboxGroup.svelte';
 	export let name: string;
 	export let value: string;
-	export let label: string;
-	export let description: string | undefined = undefined;
 
-	const context: { checkbox: boolean; inline: boolean } = getContext(CHECKBOX_GROUP_CONTEXT_ID);
+	useContext({
+		context_id: CHECKBOX_GROUP_CONTEXT_ID,
+		parent: 'CheckboxGroup',
+		component: 'CheckboxGroup.Checkbox'
+	});
+
+	setContext(CHECKBOX_GROUP_CHECKBOX_CONTEXT_ID, {
+		checkbox: true,
+		name
+	});
+
+	const defaultClass =
+		'checkbox checked:bg-primary dark:checked:bg-primary hover:border-primary dark:hover:border-primary bg-light-surface dark:bg-dark-surface h-6 w-6 text-primary light-border-base dark:dark-border-base rounded-md cursor-pointer transition-all duration-150';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class="relative flex items-start">
 	<div class="flex items-center h-5">
-		<input
-			id={name}
-			{name}
-			type="checkbox"
-			{value}
-			class="checkbox checked:bg-primary dark:checked:bg-primary hover:border-primary dark:hover:border-primary bg-light-surface dark:bg-dark-surface h-6 w-6 text-primary light-border-base dark:dark-border-base rounded-md cursor-pointer transition-all duration-150"
-		/>
+		<input id={name} {name} type="checkbox" {value} class={finalClass} style={$$props.style} />
 	</div>
 	<div class="ml-3 text-sm">
-		<label
-			for={name}
-			class="font-medium text-light-content dark:text-dark-content cursor-pointer transition-all duration-150"
-			>{label}</label
-		>
-		{#if description && context && !context.inline}
-			<p
-				id="{name}-description"
-				class="text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
-			>
-				{description}
-			</p>
-		{:else if description}
-			<span
-				id="{name}-description"
-				class="text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
-				><span class="sr-only">{label} </span> | {description}</span
-			>
-		{/if}
+		<slot name="label" />
+		<slot name="description" />
 	</div>
 </div>
 
