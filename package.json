@@ -33,9 +33,15 @@
     "package:major": "npm version major && svelte-package",
     "publish": "npm publish ./package",
     "prepare": "husky install",
-    "semantic-release": "semantic-release"
+    "commit": "git cz"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
     "@playwright/test": "^1.26.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-vercel": "next",
@@ -48,6 +54,8 @@
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
     "autoprefixer": "^10.4.12",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte3": "^4.0.0",
@@ -67,6 +75,7 @@
   },
   "type": "module",
   "dependencies": {
+    "-": "^0.0.1",
     "dayjs": "^1.11.5",
     "tailwind-merge": "^1.6.0",
     "tippy.js": "^6.3.7"
