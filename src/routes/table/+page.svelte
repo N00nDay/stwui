@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Button, Card, Col, Pagination, Table } from '../../lib';
-	// TODO: move this to the types folder
-	import type { TableColumn } from '../../lib/components/table/Table.svelte';
+	import type { TableColumn } from '../../lib/types/table-column';
 
 	const columns: TableColumn[] = [
 		{

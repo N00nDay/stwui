@@ -1,18 +1,12 @@
 <script lang="ts" context="module">
 	export const TABLE_CONTEXT_ID = 'table-context-id';
-
-	// TODO: move this to the types folder
-	export interface TableColumn {
-		label: string;
-		column: string;
-		placement: 'left' | 'center' | 'right';
-	}
 </script>
 
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
+	import type { TableColumn } from '../../types/table-column';
 
 	export let columns: TableColumn[];
 
