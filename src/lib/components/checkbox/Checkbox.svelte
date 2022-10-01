@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { CHECKBOX_GROUP_CONTEXT_ID } from './Group.svelte';
+	import { CHECKBOX_GROUP_CONTEXT_ID } from './CheckboxGroup.svelte';
 	export let name: string;
 	export let value: string;
 	export let label: string;

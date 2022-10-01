@@ -8,7 +8,7 @@ import Button from './components/button';
 import ButtonGroup from './components/button-group';
 import Card from './components/card';
 import Carousel from './components/carousel';
-import Checkbox from './components/checkbox';
+import CheckboxGroup from './components/checkbox';
 import Chip from './components/chip';
 import Col from './components/grid/Col.svelte';
 import Currency from './components/currency'; // TODO: needs refactor and dot notation
@@ -55,7 +55,7 @@ export {
 	ButtonGroup,
 	Card,
 	Carousel,
-	Checkbox,
+	CheckboxGroup,
 	Chip,
 	Col,
 	Currency,

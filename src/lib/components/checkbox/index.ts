@@ -1,12 +1,15 @@
-import OriginalCheckbox from './Checkbox.svelte';
-import Group from './Group.svelte';
+import OriginalCheckboxGroup from './CheckboxGroup.svelte';
+import Label from './Label.svelte';
+import Checkbox from './Checkbox.svelte';
 
-const Checkbox = OriginalCheckbox as CheckboxStatic;
-Checkbox.Group = Group;
+const CheckboxGroup = OriginalCheckboxGroup as CheckboxGroupStatic;
+CheckboxGroup.Label = Label;
+CheckboxGroup.Checkbox = Checkbox;
 
-export default Checkbox;
+export default CheckboxGroup;
 
-export interface CheckboxStatic {
-	new (...args: ConstructorParameters<typeof OriginalCheckbox>): OriginalCheckbox;
-	Group: typeof Group;
+export interface CheckboxGroupStatic {
+	new (...args: ConstructorParameters<typeof OriginalCheckboxGroup>): OriginalCheckboxGroup;
+	Label: typeof Label;
+	Checkbox: typeof Checkbox;
 }
