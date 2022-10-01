@@ -31,7 +31,7 @@
 		"package:patch": "npm version patch && svelte-package",
 		"package:minor": "npm version minor && svelte-package",
 		"package:major": "npm version major && svelte-package",
-		"prepare:git": "npm run format && npm run lint && git add -u",
+		"publish": "npm publish ./package",
 		"prepare": "husky install"
 	},
 	"devDependencies": {

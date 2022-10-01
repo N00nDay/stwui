@@ -11,7 +11,6 @@
 	import { current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	import { exclude } from '../../utils/exclude';
-	import { validateSlots } from '$lib/utils/validateSlots';
 	export let use: ActionArray = [];
 	const forwardEvents = forwardEventsBuilder(current_component);
 
@@ -24,8 +23,6 @@
 	setContext(POST_HEADER_CONTEXT_ID, {
 		header: true
 	});
-
-	validateSlots($$slots, ['avatar', 'creator', 'created', 'extras'], 'Post.Header');
 
 	const defaultClass =
 		'first:rounded-t-md last:rounded-b-md py-1.5 px-1.5 sm:px-3 h-14 flex flex-row border-b border-light-border dark:border-dark-border transition-all duration-150';

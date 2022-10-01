@@ -5,11 +5,8 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
-	import { validateSlots } from '$lib/utils/validateSlots';
 
-	// export let details: Details;
 	export let type: 'info' | 'success' | 'warn' | 'error' | 'default' = 'default';
-	// export let onClose: (() => void) | undefined = undefined;
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
 	let defaultClass =
@@ -49,11 +46,9 @@
 		size,
 		type
 	});
-
-	validateSlots($$slots, ['avatar', 'label', 'close'], 'Chip');
 </script>
 
-<span class={finalClass}>
+<span class={finalClass} style={$$props.style}>
 	<slot name="avatar" />
 	<slot name="label" />
 	<slot name="close" />

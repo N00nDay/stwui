@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { validateSlots } from '../../utils/validateSlots';
 	import type { Slide } from '../../types/carousel-slide';
 
 	export let slides: Slide[] = [];
@@ -25,8 +24,6 @@
 	function handleGoTo(index: number) {
 		activeSlide = index;
 	}
-
-	validateSlots($$slots, ['controls'], 'Carousel');
 </script>
 
 <div class="relative h-full">

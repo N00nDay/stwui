@@ -7,7 +7,6 @@
 	import { slide, scale } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
 	import { onMount, setContext } from 'svelte';
-	import { validateSlots } from '$lib/utils/validateSlots';
 
 	export let leading: MaterialIcons | undefined = undefined;
 	export let name: string;
@@ -61,8 +60,6 @@
 		}
 	});
 
-	validateSlots($$slots, ['list'], 'Autocomplete');
-
 	setContext(AUTOCOMPLETE_CONTEXT_ID, {
 		autocomplete: true,
 		handleSelect
@@ -70,6 +67,7 @@
 </script>
 
 <div class={$$props.class} style={$$props.style} use:clickOutside={handleClose}>
+	<!-- TODO: label slot -->
 	{#if label}
 		<label
 			for={name}

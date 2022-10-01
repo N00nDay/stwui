@@ -14,7 +14,6 @@
 
 	import ButtonLoader from './Loader.svelte';
 	import HoverBackground from '../HoverBackground.svelte';
-	import { validateSlots } from '$lib/utils/validateSlots';
 	import Swap from '../swap';
 
 	export let disabled: false | true = false;
@@ -43,8 +42,6 @@
 		: type === 'link'
 		? '#2563eb'
 		: '#000000';
-
-	validateSlots($$slots, ['leading', 'icon', 'default', 'trailing'], 'Button');
 
 	setContext(BUTTON_CONTEXT_ID, {
 		button: true,

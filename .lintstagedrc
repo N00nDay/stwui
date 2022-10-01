@@ -3,6 +3,6 @@
       "prettier --write",
       "prettier --check .",
       "eslint .",
-      "eslint --fix",
+      "eslint --fix"
    ]
 }

@@ -3,8 +3,6 @@
 </script>
 
 <script lang="ts">
-	import { validateSlots } from '$lib/utils/validateSlots';
-
 	import { setContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { twMerge } from 'tailwind-merge';
@@ -41,8 +39,6 @@
 		handleClose,
 		disableOverlayClose
 	});
-
-	validateSlots($$slots, ['default', 'backdrop', 'header', 'content', 'footer'], 'Drawer');
 
 	const defaultClass =
 		'flex inner-panel flex-col bg-light-surface dark:bg-dark-surface overflow-hidden';
@@ -84,6 +80,7 @@
 						class:right={placement === 'right'}
 						class:top={placement === 'top'}
 						class:bottom={placement === 'bottom'}
+						style={$$props.style}
 					>
 						<slot name="header" />
 						<slot name="content" />

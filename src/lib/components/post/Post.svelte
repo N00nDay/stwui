@@ -7,14 +7,11 @@
 	import { current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	import { exclude } from '../../utils/exclude';
-	import { validateSlots } from '$lib/utils/validateSlots';
 	import { setContext } from 'svelte';
 
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 	export let bordered = true;
 	export let use: ActionArray = [];
-
-	validateSlots($$slots, ['header', 'content', 'images', 'status', 'actions'], 'Post');
 
 	setContext(POST_CONTEXT_ID, {
 		post: true,

@@ -4,7 +4,6 @@
 
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { validateSlots } from '$lib/utils/validateSlots';
 	import { setContext } from 'svelte';
 
 	export let label: string | undefined = undefined;
@@ -18,11 +17,10 @@
 		checkbox: true,
 		inline
 	});
-
-	validateSlots($$slots, ['default'], 'Checkbox.Group');
 </script>
 
 <div>
+	<!-- TODO: create label componenet -->
 	{#if label}
 		<legend
 			class="transition-all duration-150 text-light-secondary-content dark:text-dark-secondary-content font-medium text-sm{srOnly
@@ -30,7 +28,7 @@
 				: ''}">{label}</legend
 		>
 	{/if}
-	<fieldset class={finalClass}>
+	<fieldset class={finalClass} style={$$props.style}>
 		<slot />
 	</fieldset>
 </div>

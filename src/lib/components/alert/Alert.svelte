@@ -5,11 +5,8 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
-	import { validateSlots } from '$lib/utils/validateSlots';
 
 	export let type: 'info' | 'warn' | 'success' | 'error' = 'info';
-
-	validateSlots($$slots, ['icon', 'title', 'description', 'extra'], 'Alert');
 
 	setContext(ALERT_CONTEXT_ID, {
 		alert: true,
@@ -21,6 +18,7 @@
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
+<!-- TODO: pull out the type and add to defaultClass -->
 <div
 	class={finalClass}
 	class:bg-info-background={type === 'info'}

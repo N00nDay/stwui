@@ -3,8 +3,6 @@
 </script>
 
 <script lang="ts">
-	import { validateSlots } from '$lib/utils/validateSlots';
-
 	import { setContext } from 'svelte';
 	import { scale } from 'svelte/transition';
 	import { twMerge } from 'tailwind-merge';
@@ -20,8 +18,6 @@
 	setContext(AUTOCOMPLETE_LIST_CONTEXT_ID, {
 		list: true
 	});
-
-	validateSlots($$slots, ['default'], 'Autocomplete.List');
 
 	const defaultclass =
 		'origin-top-right absolute mt-1 z-10 border light-border dark:dark-border left-0 right-0 w-full p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface transition transform duration-150';

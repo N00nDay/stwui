@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { validateSlots } from '$lib/utils/validateSlots';
 	import { scale, fade } from 'svelte/transition';
 	import { twMerge } from 'tailwind-merge';
 	import Backdrop from './Backdrop.svelte';
@@ -11,8 +10,6 @@
 			handleClose();
 		}
 	}
-
-	validateSlots($$slots, ['default', 'backdrop', 'content'], 'Modal');
 
 	const defaultClass = 'fixed inset-0 overflow-y-auto p-4 sm:p-6 md:p-20';
 	const finalClass = twMerge(defaultClass, $$props.class);

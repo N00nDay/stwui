@@ -8,7 +8,6 @@
 	import { current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	import { exclude } from '../../utils/exclude';
-	import { validateSlots } from '$lib/utils/validateSlots';
 
 	export let divided = true;
 	export let bordered = true;
@@ -22,8 +21,6 @@
 		card: true,
 		divided
 	});
-
-	validateSlots($$slots, ['header', 'cover', 'content', 'footer', 'actions', 'default'], 'Card');
 
 	const defaultClass =
 		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content transition-all duration-150 rounded-md';
