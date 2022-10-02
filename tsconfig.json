@@ -23,8 +23,7 @@
 			"$lib": ["src/lib"],
 			"$lib/*": ["src/lib/*"],
 			"$root": ["./"],
-			"$root/*": ["./*"],
-			"$stwui": ["src/lib/index.ts"]
+			"$root/*": ["./*"]
 		},
 		"outDir": "package"
 	},

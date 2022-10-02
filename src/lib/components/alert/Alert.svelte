@@ -17,16 +17,16 @@
 	});
 
 	let defaultClass = '';
-	$: if (type === 'info') {
+	$: if ($reactiveType === 'info') {
 		defaultClass =
 			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-info-background';
-	} else if (type === 'warn') {
+	} else if ($reactiveType === 'warn') {
 		defaultClass =
 			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-warn-background';
-	} else if (type === 'success') {
+	} else if ($reactiveType === 'success') {
 		defaultClass =
 			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-success-background';
-	} else if (type === 'error') {
+	} else if ($reactiveType === 'error') {
 		defaultClass =
 			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-error-background';
 	}
