@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.1-next.1](https://github.com/N00nDay/stwui/compare/v1.0.0-next.1...v1.0.1-next.1) (2022-10-02)
+
+
+### Bug Fixes
+
+* **Accordion:** moved expand icon styling to defaultClass so it can be overriden ([cb3260c](https://github.com/N00nDay/stwui/commit/cb3260cfac308b3d2bd2497fd4b4e7fd236add56))
+* **Alert.Description:** moved conditional classes to defaultClass so they can be overridden ([e5b321c](https://github.com/N00nDay/stwui/commit/e5b321cba514d521f4c1f6b6bba088325c5cf401))
+* **Alert.Icon:** moved conditional classes to default class so they can be overridden ([cf46962](https://github.com/N00nDay/stwui/commit/cf46962e3cce5d54a848e0b602a27b57d3c1f6fd))
+* **Alert.Title:** moved conditional classes to defaultClass so they can be overridden ([cf46962](https://github.com/N00nDay/stwui/commit/cf46962e3cce5d54a848e0b602a27b57d3c1f6fd))
+* **Alert:** conditionally hide  title and description slots container if not used ([6f8d4cf](https://github.com/N00nDay/stwui/commit/6f8d4cf07e027f268abaea2ecbbdfaeada22d59a))
+
 ## 1.0.0-next.1 (2022-10-02)
 
 
