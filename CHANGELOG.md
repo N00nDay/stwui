@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.4-next](https://github.com/N00nDay/stwui/compare/v0.0.3-next...v0.0.4-next) (2022-10-02)
+
+
+### Bug Fixes
+
+* **Accordion.Item.Content:** made prop class reactive ([9a9c1b3](https://github.com/N00nDay/stwui/commit/9a9c1b31d8a0a430be2c2f0656e6bbad0aa7bbf4))
+* **Accordion.Item.Title:** added on:click ([9a9c1b3](https://github.com/N00nDay/stwui/commit/9a9c1b31d8a0a430be2c2f0656e6bbad0aa7bbf4))
+* **Accordion.Item.Title:** made prop class reactive ([9a9c1b3](https://github.com/N00nDay/stwui/commit/9a9c1b31d8a0a430be2c2f0656e6bbad0aa7bbf4))
+* **Accordion.Item:** made prop class reactive ([9a9c1b3](https://github.com/N00nDay/stwui/commit/9a9c1b31d8a0a430be2c2f0656e6bbad0aa7bbf4))
+* **Accordion.Item:** moved open control to the user ([9a9c1b3](https://github.com/N00nDay/stwui/commit/9a9c1b31d8a0a430be2c2f0656e6bbad0aa7bbf4))
+* **Accordion:** made prop class reactive ([9a9c1b3](https://github.com/N00nDay/stwui/commit/9a9c1b31d8a0a430be2c2f0656e6bbad0aa7bbf4))
+
 ## [0.0.3-next](https://github.com/N00nDay/stwui/compare/v1.0.1-next.1...v0.0.3-next) (2022-10-02)
 
 
