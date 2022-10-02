@@ -5,21 +5,19 @@
 
 	const { type }: { type: 'info' | 'warn' | 'success' | 'error' } = getContext(ALERT_CONTEXT_ID);
 
-	const defaultClass = 'mt-2 text-sm transition-all duration-150';
+	let defaultClass = 'mt-2 text-sm transition-all duration-150';
+	if (type === 'info') {
+		defaultClass += ' text-info-secondary-content dark:text-dark-info-secondary-content';
+	} else if (type === 'warn') {
+		defaultClass += ' text-warn-secondary-content dark:text-dark-warn-secondary-content';
+	} else if (type === 'success') {
+		defaultClass += ' text-success-secondary-content dark:text-dark-success-secondary-content';
+	} else if (type === 'error') {
+		defaultClass += ' text-error-secondary-content dark:text-dark-error-secondary-content=';
+	}
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div
-	class={finalClass}
-	class:text-info-secondary-content={type === 'info'}
-	class:text-warn-secondary-content={type === 'warn'}
-	class:text-success-secondary-content={type === 'success'}
-	class:text-error-secondary-content={type === 'error'}
-	class:dark:text-dark-info-secondary-content={type === 'info'}
-	class:dark:text-dark-warn-secondary-content={type === 'warn'}
-	class:dark:text-dark-success-secondary-content={type === 'success'}
-	class:dark:text-dark-error-secondary-content={type === 'error'}
-	style={$$props.style}
->
+<div class={finalClass} style={$$props.style}>
 	<slot />
 </div>
