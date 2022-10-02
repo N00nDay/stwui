@@ -29,10 +29,12 @@
 <div class={finalClass} style={$$props.style}>
 	<div class="flex">
 		<slot name="icon" />
-		<div class="flex items-start justify-start flex-col w-full" class:ml-3={$$slots.icon}>
-			<slot name="title" />
-			<slot name="description" />
-		</div>
+		{#if $$slots.title || $$slots.description}
+			<div class="flex items-start justify-start flex-col w-full" class:ml-3={$$slots.icon}>
+				<slot name="title" />
+				<slot name="description" />
+			</div>
+		{/if}
 		<slot name="extra" />
 	</div>
 </div>
