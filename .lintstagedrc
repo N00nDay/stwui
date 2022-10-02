@@ -1,8 +1,8 @@
 {
-   "*.(js|ts|svelte)": [
-      "prettier --write",
-      "prettier --check .",
-      "eslint .",
-      "eslint --fix"
-   ]
+	"src/**/*.(js|ts|svelte)": [
+		"prettier --write",
+		"prettier --check .",
+		"eslint .",
+		"eslint --fix"
+	]
 }
