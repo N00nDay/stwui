@@ -5,25 +5,32 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
+	import { writable } from 'svelte/store';
 
 	export let type: 'info' | 'warn' | 'success' | 'error' = 'info';
+	let reactiveType = writable(type);
+	$: $reactiveType = type;
 
 	setContext(ALERT_CONTEXT_ID, {
 		alert: true,
-		type
+		type: reactiveType
 	});
 
-	let defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150';
-	if (type === 'info') {
-		defaultClass += ' bg-info-background';
+	let defaultClass = '';
+	$: if (type === 'info') {
+		defaultClass =
+			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-info-background';
 	} else if (type === 'warn') {
-		defaultClass += ' bg-warn-background';
+		defaultClass =
+			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-warn-background';
 	} else if (type === 'success') {
-		defaultClass += ' bg-success-background';
+		defaultClass =
+			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-success-background';
 	} else if (type === 'error') {
-		defaultClass += ' bg-error-background';
+		defaultClass =
+			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-error-background';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>

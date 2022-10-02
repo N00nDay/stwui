@@ -5,18 +5,21 @@
 
 	const { type }: { type: 'info' | 'warn' | 'success' | 'error' } = getContext(ALERT_CONTEXT_ID);
 
-	let defaultClass =
-		'text-sm font-medium flex flex-row items-start justify-between w-full relative h-4 transition-all duration-150';
-	if (type === 'info') {
-		defaultClass += ' text-info-content dark:text-dark-info-content';
+	let defaultClass = '';
+	$: if (type === 'info') {
+		defaultClass =
+			'text-sm font-medium flex flex-row items-start justify-between w-full relative h-4 transition-all duration-150 text-info-content dark:text-dark-info-content';
 	} else if (type === 'warn') {
-		defaultClass += ' text-warn-content dark:text-dark-warn-content';
+		defaultClass =
+			'text-sm font-medium flex flex-row items-start justify-between w-full relative h-4 transition-all duration-150 text-warn-content dark:text-dark-warn-content';
 	} else if (type === 'success') {
-		defaultClass += ' text-success-content dark:text-dark-success-content';
+		defaultClass =
+			'text-sm font-medium flex flex-row items-start justify-between w-full relative h-4 transition-all duration-150 text-success-content dark:text-dark-success-content';
 	} else if (type === 'error') {
-		defaultClass += ' text-error-content dark:text-dark-error-content';
+		defaultClass =
+			'text-sm font-medium flex flex-row items-start justify-between w-full relative h-4 transition-all duration-150 text-error-content dark:text-dark-error-content';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <h3 class={finalClass} style={$$props.style}>
