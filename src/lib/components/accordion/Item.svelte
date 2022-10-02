@@ -3,13 +3,15 @@
 </script>
 
 <script lang="ts">
-	import { getContext, setContext } from 'svelte';
+	import { setContext } from 'svelte';
 	import { ACCORDION_CONTEXT_ID } from './Accordion.svelte';
 	import { useContext } from '../../utils/useContext';
-	import type { Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
+	import { writable } from 'svelte/store';
 
-	export let key: number;
+	export let open = false;
+	let isOpen = writable(open);
+	$: $isOpen = open;
 
 	useContext({
 		context_id: ACCORDION_CONTEXT_ID,
@@ -19,20 +21,17 @@
 
 	setContext(ACCORDION_ITEM_CONTEXT_ID, {
 		item: true,
-		key
+		open: isOpen
 	});
-
-	const { openItems }: { openItems: Writable<number[]>; onlyOne: boolean } =
-		getContext(ACCORDION_CONTEXT_ID);
 
 	const defaultClass =
 		'bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border first-of-type:rounded-t-md last-of-type:rounded-b-md overflow-hidden transition-all duration-150 outline-none focus:outline-none';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>
 	<slot name="title" />
-	{#if $openItems.includes(key)}
+	{#if open}
 		<slot name="content" />
 	{/if}
 </div>

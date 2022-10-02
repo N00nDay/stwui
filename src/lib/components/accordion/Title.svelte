@@ -18,45 +18,16 @@
 		component: 'Accordion.Item.Title'
 	});
 
-	const { openItems, onlyOne }: { openItems: Writable<number[]>; onlyOne: boolean } =
-		getContext(ACCORDION_CONTEXT_ID);
-
-	const { key }: { key: number } = getContext(ACCORDION_ITEM_CONTEXT_ID);
-
-	function toggleOpen() {
-		if (onlyOne) {
-			if ($openItems.includes(key)) {
-				openItems.update(() => []);
-			} else {
-				openItems.update(() => [key]);
-			}
-		} else {
-			if ($openItems.includes(key)) {
-				openItems.update((current) => {
-					const index = current.indexOf(key);
-					if (index > -1) {
-						current.splice(index, 1);
-					}
-					return current;
-				});
-			} else {
-				openItems.update((current) => {
-					current.push(key);
-					return current;
-				});
-			}
-		}
-	}
+	const { open }: { open: Writable<boolean> } = getContext(ACCORDION_ITEM_CONTEXT_ID);
 
 	const defaultClass =
 		'relative flex items-center w-full py-4 px-5 text-base text-light-content dark:text-dark-content hover:text-primary dark:hover:text-primary text-left bg-light-surface dark:bg-dark-surface border-0 rounded-none transition-all duration-150 justify-between  outline-none focus:outline-none';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<button on:click={toggleOpen} class={finalClass} style={$$props.style} type="button">
+<button on:click class={finalClass} style={$$props.style} type="button">
 	<slot />
-	<span
-		class="material-icons transition-transform duration-300"
-		class:-rotate-180={$openItems.includes(key)}>expand_more</span
+	<span class="material-icons transition-transform duration-300" class:-rotate-180={$open}
+		>expand_more</span
 	>
 </button>

@@ -2,7 +2,7 @@
 	"useTabs": true,
 	"singleQuote": true,
 	"trailingComma": "none",
-	"printWidth": 200,
+	"printWidth": 100,
 	"tabWidth": 2,
 	"bracketSpacing": true,
 	"svelteSortOrder": "options-scripts-markup-styles"
