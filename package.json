@@ -65,7 +65,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"-": "^0.0.1",
 		"dayjs": "^1.11.5",
 		"tailwind-merge": "^1.6.0",
 		"tippy.js": "^6.3.7"
