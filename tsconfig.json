@@ -1,6 +1,7 @@
 {
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
+		"declaration": true,
 		"allowJs": true,
 		"checkJs": true,
 		"esModuleInterop": true,
@@ -19,12 +20,14 @@
 		"lib": ["es2020", "DOM", "ESNext"],
 		"target": "es2020",
 		"paths": {
-			"$app": [".svelte-kit/dev/runtime/app"],
-			"$app/*": [".svelte-kit/dev/runtime/app"],
 			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"]
-		}
+			"$lib/*": ["src/lib/*"],
+			"$root": ["./"],
+			"$root/*": ["./*"],
+			"$stwui": ["src/lib/index.ts"]
+		},
+		"outDir": "package"
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules/", "package/*", "build/*"]
 }
