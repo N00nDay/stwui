@@ -28,9 +28,6 @@
 		"lint": "prettier --check . && eslint .",
 		"lint:fix": "eslint --fix .",
 		"format": "prettier --write .",
-		"package:patch": "npm version patch && svelte-package",
-		"package:minor": "npm version minor && svelte-package",
-		"package:major": "npm version major && svelte-package",
 		"publish": "npm publish ./package",
 		"prepare": "husky install"
 	},
