@@ -55,17 +55,8 @@
 
 <button on:click={toggleOpen} class={finalClass} style={$$props.style} type="button">
 	<slot />
-	<span class="material-icons expand-icon" class:-rotate-180={$openItems.includes(key)}
-		>expand_more</span
+	<span
+		class="material-icons transition-transform duration-300"
+		class:-rotate-180={$openItems.includes(key)}>expand_more</span
 	>
 </button>
-
-<style>
-	.expand-icon {
-		-webkit-transition: -webkit-transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-		-moz-transition: -moz-transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-		-ms-transition: -ms-transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-		-o-transition: -o-transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-		transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-	}
-</style>
