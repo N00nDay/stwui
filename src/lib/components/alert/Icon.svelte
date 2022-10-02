@@ -5,17 +5,19 @@
 
 	const { type }: { type: 'info' | 'warn' | 'success' | 'error' } = getContext(ALERT_CONTEXT_ID);
 
-	const defaultClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center';
+	let defaultClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center';
+	if (type === 'info') {
+		defaultClass += ' text-info-icon';
+	} else if (type === 'warn') {
+		defaultClass += ' text-warn-icon';
+	} else if (type === 'success') {
+		defaultClass += ' text-success-icon';
+	} else if (type === 'error') {
+		defaultClass += ' text-error-icon';
+	}
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div
-	class={finalClass}
-	class:text-info-icon={type === 'info'}
-	class:text-warn-icon={type === 'warn'}
-	class:text-success-icon={type === 'success'}
-	class:text-error-icon={type === 'error'}
-	style={$$props.style}
->
+<div class={finalClass} style={$$props.style}>
 	<slot />
 </div>
