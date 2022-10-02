@@ -12,4 +12,4 @@ jobs:
           release-type: node
           package-name: release-please-action
           prerelease: true
-          # release-as: 1.0.0-next.1
+          release-as: 0.0.3-next
