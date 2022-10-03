@@ -1,15 +1,29 @@
-export { default as Avatar } from './Avatar.svelte';
-// export { default as AvatarGroup } from './Group.svelte';
-
+import OriginalAvatarGroup from './AvatarGroup.svelte';
 import OriginalAvatar from './Avatar.svelte';
-// import Group from './Group.svelte';
+import Indicator from './Indicator.svelte';
+import OriginalPlaceholder from './Placeholder.svelte';
+import Icon from './Icon.svelte';
 
-const Avatar = OriginalAvatar as AvatarStatic;
-// Avatar.Group = Group;
+const AvatarGroup = OriginalAvatarGroup as AvatarGroupStatic;
+AvatarGroup.Avatar = OriginalAvatar as AvatarStatic;
+AvatarGroup.Avatar.Indicator = Indicator;
+AvatarGroup.Avatar.Placeholder = OriginalPlaceholder as PlaceholderStatic;
+AvatarGroup.Avatar.Placeholder.Icon = Icon;
 
-export default Avatar;
+export default AvatarGroup;
+
+export interface AvatarGroupStatic {
+	new (...args: ConstructorParameters<typeof OriginalAvatarGroup>): OriginalAvatarGroup;
+	Avatar: AvatarStatic;
+}
 
 export interface AvatarStatic {
 	new (...args: ConstructorParameters<typeof OriginalAvatar>): OriginalAvatar;
-	// Group: typeof Group;
+	Indicator: typeof Indicator;
+	Placeholder: PlaceholderStatic;
+}
+
+export interface PlaceholderStatic {
+	new (...args: ConstructorParameters<typeof OriginalPlaceholder>): OriginalPlaceholder;
+	Icon: typeof Icon;
 }

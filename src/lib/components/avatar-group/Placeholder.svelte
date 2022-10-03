@@ -1,23 +1,26 @@
 <script lang="ts" context="module">
-	export const AVATAR_PLACEHOLDER_CONTEXT_ID = 'avatar-placeholder-context-id';
+	export const AVATAR_GROUP_AVATAR_PLACEHOLDER_CONTEXT_ID =
+		'avatar-group-avatar-placeholder-context-id';
 </script>
 
 <script lang="ts">
-	import { AVATAR_CONTEXT_ID } from './Avatar.svelte';
+	import { AVATAR_GROUP_AVATAR_CONTEXT_ID } from './Avatar.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { getContext, setContext } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from './Icon.svelte';
 
 	useContext({
-		context_id: AVATAR_CONTEXT_ID,
+		context_id: AVATAR_GROUP_AVATAR_CONTEXT_ID,
 		parent: 'Avatar',
 		component: 'Avatar.Placeholder'
 	});
 
-	const { shape }: { shape: 'circle' | 'rounded' | 'square' } = getContext(AVATAR_CONTEXT_ID);
+	const { shape }: { shape: 'circle' | 'rounded' | 'square' } = getContext(
+		AVATAR_GROUP_AVATAR_CONTEXT_ID
+	);
 
-	setContext(AVATAR_PLACEHOLDER_CONTEXT_ID, {
+	setContext(AVATAR_GROUP_AVATAR_PLACEHOLDER_CONTEXT_ID, {
 		placeholder: true
 	});
 

@@ -1,27 +1,31 @@
-<script lang="ts">
-	import Avatar from './Avatar.svelte';
+<script lang="ts" context="module">
+	export const AVATAR_GROUP_CONTEXT_ID = 'avatar-group-context-id';
+</script>
 
-	export let group: string[] = [];
+<script lang="ts">
+	import { setContext } from 'svelte/internal';
+	import { twMerge } from 'tailwind-merge';
+
 	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
-	// TODO: pull out and rename AvatarGroup with AvatarGroup.Avatar
+	setContext(AVATAR_GROUP_CONTEXT_ID, {
+		avatarGroup: true,
+		shape,
+		size
+	});
+
+	let defaultClass = '';
+	if (size === 'xs') {
+		defaultClass = 'flex overflow-hidden p-0.5 -space-x-1';
+	} else if (size === 'sm' || size === 'md') {
+		defaultClass = 'flex overflow-hidden p-0.5 -space-x-2';
+	} else if (size === 'lg' || size === 'xl') {
+		defaultClass = 'flex overflow-hidden p-0.5 -space-x-3';
+	}
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div
-	class="flex overflow-hidden"
-	class:h-[1.65rem]={size === 'xs'}
-	class:-space-x-1={size === 'xs'}
-	class:-space-x-2={size === 'sm' || size === 'md'}
-	class:-space-x-3={size === 'lg' || size === 'xl'}
->
-	<!-- TODO: <slot /> -->
-	<!-- {#each group as item}
-		<Avatar
-			src={item}
-			{size}
-			{shape}
-			class="ring-2 ring-light-surface dark:ring-dark-surface transition-all duration-150"
-		/>
-	{/each} -->
+<div class={finalClass} style={$$props.style}>
+	<slot />
 </div>

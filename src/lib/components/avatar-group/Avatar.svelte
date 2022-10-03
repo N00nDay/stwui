@@ -1,0 +1,112 @@
+<script lang="ts" context="module">
+	export const AVATAR_GROUP_AVATAR_CONTEXT_ID = 'avatar-group-avatar-context-id';
+</script>
+
+<script lang="ts">
+	import { AVATAR_GROUP_CONTEXT_ID } from './AvatarGroup.svelte';
+	import { useContext } from '../../utils/useContext';
+	import { browser } from '$app/environment';
+	import { setContext, getContext } from 'svelte/internal';
+	import { twMerge } from 'tailwind-merge';
+	import Placeholder from './Placeholder.svelte';
+
+	export let src: string | undefined = undefined;
+	export let alt = 'avatar';
+	export let initials: string | undefined = undefined;
+
+	let img: HTMLImageElement;
+
+	function handleError(e: Event) {
+		// if (withPlaceholder) {
+		img.remove();
+		// }
+	}
+
+	useContext({
+		context_id: AVATAR_GROUP_CONTEXT_ID,
+		parent: 'AvatarGroup',
+		component: 'AvatarGroup.Avatar'
+	});
+
+	const {
+		shape,
+		size
+	}: { shape: 'circle' | 'rounded' | 'square'; size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' } =
+		getContext(AVATAR_GROUP_CONTEXT_ID);
+
+	setContext(AVATAR_GROUP_AVATAR_CONTEXT_ID, {
+		avatar: true,
+		src,
+		alt,
+		shape,
+		size
+	});
+
+	let defaultClass = '';
+	let containerDefaultClass = '';
+	if (src) {
+		defaultClass =
+			'inline-block absolute ring-2 ring-light-surface dark:ring-dark-surface transition-all duration-150';
+		containerDefaultClass = 'inline-block relative align-middle';
+	} else if (initials) {
+		defaultClass =
+			'inline-flex items-center justify-center align-middle transition-all duration-150 bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content ring-2 ring-light-surface dark:ring-dark-surface transition-all duration-150';
+	}
+	if (size === 'xs') {
+		defaultClass += ' h-6 w-6';
+		containerDefaultClass += ' h-6 w-6';
+	} else if (size === 'sm') {
+		defaultClass += ' h-8 w-8';
+		containerDefaultClass += ' h-8 w-8';
+	} else if (size === 'md') {
+		defaultClass += ' h-10 w-10';
+		containerDefaultClass += ' h-10 w-10';
+	} else if (size === 'lg') {
+		defaultClass += ' h-12 w-12';
+		containerDefaultClass += ' h-12 w-12';
+	} else if (size === 'xl') {
+		defaultClass += ' h-16 w-16';
+		containerDefaultClass += ' h-16 w-16';
+	}
+	if (shape === 'circle') {
+		defaultClass += ' rounded-full';
+		containerDefaultClass += ' rounded-full';
+	} else if (shape === 'rounded') {
+		defaultClass += ' rounded-md';
+		containerDefaultClass += ' rounded-md';
+	}
+
+	$: finalClass = twMerge(defaultClass, $$props.class);
+	$: finalContainerClass = twMerge(containerDefaultClass, $$props.class);
+</script>
+
+{#if src}
+	<span class={finalContainerClass} style={$$props.style}>
+		{#if $$slots.placeholder}
+			<slot name="placeholder" />
+		{:else}
+			<Placeholder />
+		{/if}
+
+		<img
+			bind:this={img}
+			class={finalClass}
+			style={$$props.style}
+			src={(browser && src) || ''}
+			{alt}
+			on:error={handleError}
+		/>
+
+		<slot name="indicator" />
+	</span>
+{:else if initials}
+	<span class={finalClass} style={$$props.style}>
+		<span
+			class="font-bold leading-none text-current"
+			class:text-xs={size === 'xs'}
+			class:text-sm={size === 'sm'}
+			class:text-xl={size === 'lg'}
+			class:text-2xl={size === 'xl'}>{initials}</span
+		>
+	</span>
+{/if}

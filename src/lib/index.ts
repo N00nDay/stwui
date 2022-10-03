@@ -2,6 +2,7 @@ import Accordion from './components/accordion';
 import Alert from './components/alert';
 import Autocomplete from './components/autocomplete'; // TODO: needs refactor and dot notation
 import Avatar from './components/avatar';
+import AvatarGroup from './components/avatar-group';
 import Badge from './components/badge';
 import Breadcrumbs from './components/breadcrumbs';
 import Button from './components/button';
@@ -49,6 +50,7 @@ export {
 	Alert,
 	Autocomplete,
 	Avatar,
+	AvatarGroup,
 	Badge,
 	Breadcrumbs,
 	Button,
