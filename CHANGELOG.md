@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.0.5-next](https://github.com/N00nDay/stwui/compare/v0.0.4-next...v0.0.5-next) (2022-10-03)
+
+
+### Bug Fixes
+
+* **Accordion.Item.Title:** replaced on:click with forwardEvents to catch all actions ([ff10316](https://github.com/N00nDay/stwui/commit/ff103168983183a82adb4fe6ae045b704fdcbc67))
+* **Alert.Description:** properties class and type reactive ([ff10316](https://github.com/N00nDay/stwui/commit/ff103168983183a82adb4fe6ae045b704fdcbc67))
+* **Alert.Icon:** made properties class and type reactive ([ff10316](https://github.com/N00nDay/stwui/commit/ff103168983183a82adb4fe6ae045b704fdcbc67))
+* **Alert.Title:** finalized type and class reactivity ([3c4a96b](https://github.com/N00nDay/stwui/commit/3c4a96b8625fd1ea21bd6b583f2d224cbde7be8d))
+* **Alert.Title:** made properties class and type reactive ([ff10316](https://github.com/N00nDay/stwui/commit/ff103168983183a82adb4fe6ae045b704fdcbc67))
+* **Alert:** finalized type and class reactivity ([3c4a96b](https://github.com/N00nDay/stwui/commit/3c4a96b8625fd1ea21bd6b583f2d224cbde7be8d))
+* **Alert:** made properties class and type reactive ([ff10316](https://github.com/N00nDay/stwui/commit/ff103168983183a82adb4fe6ae045b704fdcbc67))
+* **Avatar.Group:** removed and will be replaced with AvatarGroup ([d5c4ae6](https://github.com/N00nDay/stwui/commit/d5c4ae68f9d3609c21a0165997a25b7fb04018cd))
+* **Avatar.Icon:** added to allow customization of icon ([cad3071](https://github.com/N00nDay/stwui/commit/cad3071888e765901eeb3ae7c9f96c18b9f0e3a8))
+* **Avatar.Indicator:** added Indicator to allow customization ([d5c4ae6](https://github.com/N00nDay/stwui/commit/d5c4ae68f9d3609c21a0165997a25b7fb04018cd))
+* **Avatar.Placeholder:** added Placeholder to allow customization ([d5c4ae6](https://github.com/N00nDay/stwui/commit/d5c4ae68f9d3609c21a0165997a25b7fb04018cd))
+* **Avatar:** added defaultClass to allow overide of styling ([d5c4ae6](https://github.com/N00nDay/stwui/commit/d5c4ae68f9d3609c21a0165997a25b7fb04018cd))
+* **Avatar:** refactored to pull out Placeholder and Indicator ([d5c4ae6](https://github.com/N00nDay/stwui/commit/d5c4ae68f9d3609c21a0165997a25b7fb04018cd))
+* **Avatar:** removed unnecessary code ([cad3071](https://github.com/N00nDay/stwui/commit/cad3071888e765901eeb3ae7c9f96c18b9f0e3a8))
+
 ## [0.0.4-next](https://github.com/N00nDay/stwui/compare/v0.0.3-next...v0.0.4-next) (2022-10-02)
 
 
