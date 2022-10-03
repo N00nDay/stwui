@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Indicator from '$lib/components/avatar/Indicator.svelte';
 	import { Badge, Card, Col } from '../../lib';
 </script>
 
