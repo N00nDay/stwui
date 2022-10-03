@@ -25,7 +25,6 @@
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<!-- TODO: refactor -->
 <span
 	class={finalClass}
 	class:px-2.5={size === 'default'}
@@ -36,6 +35,7 @@
 	class:rounded={shape === 'rounded'}
 	class:pr-0.5={onClose}
 >
+	<!-- TODO: <slot name="indicator" /> -->
 	{#if withDot}
 		<svg
 			class="-ml-0.5 mr-1.5 h-2 w-2"
@@ -54,6 +54,7 @@
 		</svg>
 	{/if}
 	<slot />
+	<!-- TODO: <slot name="extra" /> -->
 	{#if onClose}
 		<button
 			on:click={onClose}

@@ -28,63 +28,68 @@
 			<Avatar
 				size="xs"
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-				indicator
-			/>
+			>
+				<Avatar.Indicator slot="indicator" />
+			</Avatar>
 			<Avatar
 				size="sm"
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-				indicator
-			/>
+			>
+				<Avatar.Indicator slot="indicator" />
+			</Avatar>
 			<Avatar
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-				indicator
-			/>
+			>
+				<Avatar.Indicator slot="indicator" />
+			</Avatar>
 			<Avatar
 				size="lg"
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-				indicator
-			/>
+			>
+				<Avatar.Indicator slot="indicator" />
+			</Avatar>
 			<Avatar
 				size="xl"
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-				indicator
-			/>
+			>
+				<Avatar.Indicator slot="indicator" />
+			</Avatar>
 			<br />
 			<br />
 			<Avatar
 				size="xs"
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 				shape="rounded"
-				indicator
-				indicatorLocation="bottom-right"
-			/>
+			>
+				<Avatar.Indicator slot="indicator" placement="bottom-right" />
+			</Avatar>
 			<Avatar
 				size="sm"
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 				shape="rounded"
-				indicator
-				indicatorLocation="bottom-right"
-			/>
+			>
+				<Avatar.Indicator slot="indicator" placement="bottom-right" />
+			</Avatar>
 			<Avatar
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 				shape="rounded"
-				indicator
-				indicatorLocation="bottom-right"
-			/>
+			>
+				<Avatar.Indicator slot="indicator" placement="bottom-right" />
+			</Avatar>
 			<Avatar
 				size="lg"
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 				shape="rounded"
-				indicator
-				indicatorLocation="bottom-right"
-			/>
+			>
+				<Avatar.Indicator slot="indicator" placement="bottom-right" />
+			</Avatar>
 			<Avatar
 				size="xl"
 				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 				shape="rounded"
-				indicator
-				indicatorLocation="bottom-right"
-			/>
+			>
+				<Avatar.Indicator slot="indicator" placement="bottom-right" />
+			</Avatar>
 			<br />
 			<br />
 			<Avatar size="xs" initials="CH" />
@@ -100,7 +105,7 @@
 	<Card bordered={false} class="h-[27rem]">
 		<Card.Header slot="header">Avatar Group</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Avatar.Group
+			<!-- <Avatar.Group
 				size="xs"
 				group={[
 					'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -108,9 +113,9 @@
 					'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
 					'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
 				]}
-			/>
+			/> -->
 			<br />
-			<Avatar.Group
+			<!-- <Avatar.Group
 				size="sm"
 				group={[
 					'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -118,18 +123,18 @@
 					'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
 					'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
 				]}
-			/>
+			/> -->
 			<br />
-			<Avatar.Group
+			<!-- <Avatar.Group
 				group={[
 					'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 					'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 					'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
 					'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
 				]}
-			/>
+			/> -->
 			<br />
-			<Avatar.Group
+			<!-- <Avatar.Group
 				size="lg"
 				group={[
 					'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -137,9 +142,9 @@
 					'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
 					'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
 				]}
-			/>
+			/> -->
 			<br />
-			<Avatar.Group
+			<!-- <Avatar.Group
 				size="xl"
 				group={[
 					'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -147,7 +152,7 @@
 					'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
 					'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
 				]}
-			/>
+			/> -->
 		</Card.Content>
 	</Card>
 </Col>

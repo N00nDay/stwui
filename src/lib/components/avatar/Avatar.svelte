@@ -1,103 +1,93 @@
+<script lang="ts" context="module">
+	export const AVATAR_CONTEXT_ID = 'avatar-context-id';
+</script>
+
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { setContext } from 'svelte/internal';
+	import { twMerge } from 'tailwind-merge';
+	import Placeholder from './Placeholder.svelte';
 
 	export let src: string | undefined = undefined;
 	export let alt = 'avatar';
 	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-	export let indicator = false;
-	export let indicatorLocation: 'top-right' | 'bottom-right' = 'top-right';
 	export let initials: string | undefined = undefined;
-	export let withPlaceholder = true;
 
 	let img: HTMLImageElement;
 
 	function handleError(e: Event) {
-		if (withPlaceholder) {
-			img.remove();
-		}
+		// if (withPlaceholder) {
+		img.remove();
+		// }
 	}
+
+	setContext(AVATAR_CONTEXT_ID, {
+		avatar: true,
+		src,
+		alt,
+		shape,
+		size
+	});
+
+	let defaultClass = '';
+	let containerDefaultClass = '';
+	if (src) {
+		defaultClass = 'inline-block absolute';
+		containerDefaultClass = 'inline-block relative align-middle';
+	} else if (initials) {
+		defaultClass =
+			'inline-flex items-center justify-center align-middle transition-all duration-150 bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
+	}
+	if (size === 'xs') {
+		defaultClass += ' h-6 w-6';
+		containerDefaultClass += ' h-6 w-6';
+	} else if (size === 'sm') {
+		defaultClass += ' h-8 w-8';
+		containerDefaultClass += ' h-8 w-8';
+	} else if (size === 'md') {
+		defaultClass += ' h-10 w-10';
+		containerDefaultClass += ' h-10 w-10';
+	} else if (size === 'lg') {
+		defaultClass += ' h-12 w-12';
+		containerDefaultClass += ' h-12 w-12';
+	} else if (size === 'xl') {
+		defaultClass += ' h-16 w-16';
+		containerDefaultClass += ' h-16 w-16';
+	}
+	if (shape === 'circle') {
+		defaultClass += ' rounded-full';
+		containerDefaultClass += ' rounded-full';
+	} else if (shape === 'rounded') {
+		defaultClass += ' rounded-md';
+		containerDefaultClass += ' rounded-md';
+	}
+
+	$: finalClass = twMerge(defaultClass, $$props.class);
+	$: finalContainerClass = twMerge(containerDefaultClass, $$props.class);
 </script>
 
-{#if src && !indicator}
-	<span
-		class="inline-block relative align-middle {size}"
-		class:rounded-full={shape === 'circle'}
-		class:rounded-md={shape === 'rounded'}
-	>
-		{#if withPlaceholder}
-			<div
-				class="absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden transition-all duration-150 bg-light-icon-background dark:bg-dark-icon-background{$$props.class
-					? ` ${$$props.class}`
-					: ''}"
-				class:rounded-full={shape === 'circle'}
-				class:rounded-md={shape === 'rounded'}
-			>
-				<span
-					class="material-icons absolute text-light-icon dark:text-dark-icon transition-all duration-150"
-					class:text-2xl={size === 'xs'}
-					class:text-4xl={size === 'sm'}
-					class:text-5xl={size === 'md'}
-					class:text-6xl={size === 'lg'}
-					class:text-7xl={size === 'xl'}
-					class:bottom-[-0.5rem]={size === 'xs' || size === 'sm' || size === 'md'}
-					class:bottom-[-0.75rem]={size === 'lg' || size === 'xl'}
-				>
-					person
-				</span>
-			</div>
+{#if src}
+	<span class={finalContainerClass} style={$$props.style}>
+		{#if $$slots.placeholder}
+			<slot name="placeholder" />
+		{:else}
+			<Placeholder />
 		{/if}
 
 		<img
 			bind:this={img}
-			class="inline-block {size} absolute {$$props.class ? ` ${$$props.class}` : ''}"
-			class:rounded-full={shape === 'circle'}
-			class:rounded-md={shape === 'rounded'}
+			class={finalClass}
+			style={$$props.style}
 			src={(browser && src) || ''}
 			{alt}
 			on:error={handleError}
 		/>
-	</span>
-{:else if indicator && src}
-	<span
-		class="inline-block relative align-middle"
-		class:rounded-full={shape === 'circle'}
-		class:rounded-md={shape === 'rounded'}
-	>
-		<img
-			bind:this={img}
-			class="{size}{$$props.class ? ` ${$$props.class}` : ''}"
-			class:rounded-full={shape === 'circle'}
-			class:rounded-md={shape === 'rounded'}
-			src={(browser && src) || ''}
-			{alt}
-			on:error={handleError}
-		/>
-		<span
-			class="absolute {indicatorLocation}{shape !== 'circle' && indicatorLocation === 'top-right'
-				? ' -translate-y-1/2 translate-x-1/2'
-				: shape !== 'circle' && indicatorLocation === 'bottom-right'
-				? ' translate-y-1/2 translate-x-1/2'
-				: ''} block rounded-full ring-2 ring-light-surface dark:ring-dark-surface bg-primary transition-all duration-150"
-			class:h-1.5={size === 'xs'}
-			class:w-1.5={size === 'xs'}
-			class:h-2={size === 'sm'}
-			class:w-2={size === 'sm'}
-			class:h-2.5={size === 'md'}
-			class:w-2.5={size === 'md'}
-			class:h-3={size === 'lg'}
-			class:w-3={size === 'lg'}
-			class:h-3.5={size === 'xl'}
-			class:w-3.5={size === 'xl'}
-			class:transform={shape !== 'circle'}
-		/>
+
+		<slot name="indicator" />
 	</span>
 {:else if initials}
-	<span
-		class="inline-flex items-center justify-center align-middle transition-all duration-150 {size} bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content"
-		class:rounded-full={shape === 'circle'}
-		class:rounded-md={shape === 'rounded'}
-	>
+	<span class={finalClass} style={$$props.style}>
 		<span
 			class="font-bold leading-none text-current"
 			class:text-xs={size === 'xs'}
@@ -107,50 +97,3 @@
 		>
 	</span>
 {/if}
-
-<style>
-	.xs {
-		height: 1.5rem;
-		width: 1.5rem;
-	}
-
-	.sm {
-		height: 2rem;
-		width: 2rem;
-	}
-
-	.md {
-		height: 2.5rem;
-		width: 2.5rem;
-	}
-
-	.lg {
-		height: 3rem;
-		width: 3rem;
-	}
-
-	.xl {
-		height: 4rem;
-		width: 4rem;
-	}
-
-	.top-left {
-		top: 0;
-		left: 0;
-	}
-
-	.top-right {
-		top: 0;
-		right: 0;
-	}
-
-	.bottom-left {
-		bottom: 0;
-		left: 0;
-	}
-
-	.bottom-right {
-		bottom: 0;
-		right: 0;
-	}
-</style>
