@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Indicator from '$lib/components/avatar/Indicator.svelte';
 	import { Badge, Card, Col } from '../../lib';
 </script>
 
@@ -21,20 +22,43 @@
 			<Badge type="warn" size="large">Badge</Badge>
 			<Badge type="error" size="large">Badge</Badge>
 			<br />
-			<Badge type="info" withDot>Badge</Badge>
-			<Badge type="success" withDot>Badge</Badge>
-			<Badge type="warn" withDot>Badge</Badge>
-			<Badge type="error" withDot>Badge</Badge>
+			<Badge type="info">
+				<Badge.Indicator slot="indicator" />
+				Badge</Badge
+			>
+			<Badge type="success"><Badge.Indicator slot="indicator" />Badge</Badge>
+			<Badge type="warn"><Badge.Indicator slot="indicator" />Badge</Badge>
+			<Badge type="error"><Badge.Indicator slot="indicator" />Badge</Badge>
 			<br />
 			<Badge type="info" shape="rounded">Badge</Badge>
 			<Badge type="success" shape="rounded">Badge</Badge>
 			<Badge type="warn" shape="rounded">Badge</Badge>
 			<Badge type="error" shape="rounded">Badge</Badge>
 			<br />
-			<Badge type="info" onClose={() => console.log('clicked badge close')}>Badge</Badge>
-			<Badge type="success" onClose={() => console.log('clicked badge close')}>Badge</Badge>
-			<Badge type="warn" onClose={() => console.log('clicked badge close')}>Badge</Badge>
-			<Badge type="error" onClose={() => console.log('clicked badge close')}>Badge</Badge>
+			<Badge type="info"
+				>Badge<Badge.Close
+					slot="close"
+					on:click={() => console.log('clicked badge close')}
+				/></Badge
+			>
+			<Badge type="success"
+				>Badge<Badge.Close
+					slot="close"
+					on:click={() => console.log('clicked badge close')}
+				/></Badge
+			>
+			<Badge type="warn"
+				>Badge<Badge.Close
+					slot="close"
+					on:click={() => console.log('clicked badge close')}
+				/></Badge
+			>
+			<Badge type="error"
+				>Badge<Badge.Close
+					slot="close"
+					on:click={() => console.log('clicked badge close')}
+				/></Badge
+			>
 		</Card.Content>
 	</Card>
 </Col>
