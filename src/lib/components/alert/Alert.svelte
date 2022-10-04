@@ -18,17 +18,13 @@
 
 	let defaultClass = '';
 	$: if ($reactiveType === 'info') {
-		defaultClass =
-			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-info-background';
+		defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 bg-info-background';
 	} else if ($reactiveType === 'warn') {
-		defaultClass =
-			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-warn-background';
+		defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 bg-warn-background';
 	} else if ($reactiveType === 'success') {
-		defaultClass =
-			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-success-background';
+		defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 bg-success-background';
 	} else if ($reactiveType === 'error') {
-		defaultClass =
-			'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 transition-all duration-150 bg-error-background';
+		defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 bg-error-background';
 	}
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>

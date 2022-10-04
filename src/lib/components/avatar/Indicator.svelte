@@ -21,16 +21,16 @@
 	let defaultClass = '';
 	if (placement === 'top-right') {
 		defaultClass =
-			'absolute top-0 right-0 block rounded-full ring-2 ring-light-surface dark:ring-dark-surface bg-primary transition-all duration-150';
+			'absolute top-0 right-0 block rounded-full ring-2 ring-light-surface dark:ring-dark-surface bg-primary';
 	} else if (placement === 'top-left') {
 		defaultClass =
-			'absolute top-0 left-0 block rounded-full ring-2 ring-light-surface dark:ring-dark-surface bg-primary transition-all duration-150';
+			'absolute top-0 left-0 block rounded-full ring-2 ring-light-surface dark:ring-dark-surface bg-primary';
 	} else if (placement === 'bottom-left') {
 		defaultClass =
-			'absolute bottom-0 left-0 block rounded-full ring-2 ring-light-surface dark:ring-dark-surface bg-primary transition-all duration-150';
+			'absolute bottom-0 left-0 block rounded-full ring-2 ring-light-surface dark:ring-dark-surface bg-primary';
 	} else if (placement === 'bottom-right') {
 		defaultClass =
-			'absolute bottom-0 right-0 block rounded-full ring-2 ring-light-surface dark:ring-dark-surface bg-primary transition-all duration-150';
+			'absolute bottom-0 right-0 block rounded-full ring-2 ring-light-surface dark:ring-dark-surface bg-primary';
 	}
 	if (shape !== 'circle') {
 		defaultClass += ' transform';

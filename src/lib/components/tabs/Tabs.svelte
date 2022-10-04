@@ -23,21 +23,20 @@
 	let defaultContainerClass = '';
 	if (variant === 'bar') {
 		defaultContainerClass =
-			'border-light-border dark:border-dark-border transition-all duration-150 overflow-hidden rounded-md shadow-md border dark:shadow-black';
+			'border-light-border dark:border-dark-border overflow-hidden rounded-md shadow-md border dark:shadow-black';
 	} else {
-		defaultContainerClass =
-			'border-light-border dark:border-dark-border transition-all duration-150 overflow-hidden border-b';
+		defaultContainerClass = 'border-light-border dark:border-dark-border overflow-hidden border-b';
 	}
 	const finalContainerClass = twMerge(defaultContainerClass, containerClass);
 
 	let defaultClass = '';
 	if (variant === 'bar') {
 		defaultClass =
-			'-mb-px flex transition-all duration-150 justify-evenly isolate divide-x divide-light-border dark:divide-dark-border';
+			'-mb-px flex justify-evenly isolate divide-x divide-light-border dark:divide-dark-border';
 	} else if (variant === 'full-width') {
-		defaultClass = '-mb-px flex transition-all duration-150 justify-evently';
+		defaultClass = '-mb-px flex justify-evently';
 	} else {
-		defaultClass = '-mb-px flex transition-all duration-150 space-x-8';
+		defaultClass = '-mb-px flex space-x-8';
 	}
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>

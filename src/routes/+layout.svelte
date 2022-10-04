@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../app.styles.css';
+	import '../app.css';
 
 	import { page } from '$app/stores';
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
@@ -254,12 +254,12 @@
 <div class="h-full print:hidden">
 	<Layout>
 		<div
-			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-primary dark:bg-dark-surface shadow-md dark:shadow-black transition-all duration-150"
+			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-primary dark:bg-dark-surface shadow-md dark:shadow-black"
 		/>
 		<Layout.Header {toggleSidebarWidth}>
 			<Button
 				shape="circle"
-				class="inline-block lg:hidden mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
+				class="inline-block lg:hidden mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 				on:click={handleOpenMenu}
 			>
 				<Swap slot="icon">
@@ -268,7 +268,11 @@
 				</Swap>
 			</Button>
 
-			<img src="/icon.png" alt="logo-icon" class="h-10 mr-4 hidden lg:inline-block" />
+			<img
+				src="/120x120-transparent.png"
+				alt="logo-icon"
+				class="h-10 mr-4 hidden lg:inline-block"
+			/>
 
 			<div class="mr-2 font-bold text-xl opacity-80 dark:opacity-100">{pageTitle}</div>
 
@@ -276,7 +280,7 @@
 				<Button
 					shape="circle"
 					on:click={handleCreateOpen}
-					class="hidden lg:block mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
+					class="hidden lg:block mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 				>
 					<Swap slot="icon" swapped={createOpen}>
 						<Icon slot="on" icon="add" />
@@ -287,14 +291,14 @@
 				<Button
 					on:click={handleSearchOpen}
 					shape="circle"
-					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
+					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 				>
 					<Button.Icon slot="icon" icon="search" />
 				</Button>
 
 				<Button
 					shape="circle"
-					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
+					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 				>
 					<Button.Icon slot="icon" icon="notifications" />
 				</Button>
@@ -308,7 +312,7 @@
 						slot="trigger"
 						on:click={handleDropdown}
 						type="button"
-						class="bg-white flex text-sm rounded-full h-10 w-10 transition-all duration-150 active:hover:animate-none active:hover:scale-95"
+						class="bg-white flex text-sm rounded-full h-10 w-10 active:hover:animate-none active:hover:scale-95"
 						id="user-menu-button"
 						aria-expanded="false"
 						aria-haspopup="true"
@@ -334,7 +338,7 @@
 		</Layout.Header>
 
 		<Layout.Content
-			class="h-[calc(100vh-64px)] bg-light-background dark:bg-dark-background transition-all duration-150"
+			class="h-[calc(100vh-64px)] bg-light-background dark:bg-dark-background"
 			{collapsed}
 		>
 			<Layout.Content.Sidebar class="max-w-[calc(100vh-64px)]">
@@ -347,7 +351,7 @@
 			<Layout.Content.Body
 				class="relative h-full lg:pl-0 overflow-x-hidden overflow-y-auto pt-[var(--sat)] pb-[var(--sab)] pr-[var(--sar)] pl-[var(--sal)]"
 			>
-				<div class="p-3 transition-all duration-150 h-full">
+				<div class="p-3 h-full">
 					<Row gutter="3" class="h-full">
 						<slot />
 					</Row>

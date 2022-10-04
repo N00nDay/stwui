@@ -29,8 +29,7 @@
 
 	const { size }: { size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' } = getContext(AVATAR_GROUP_CONTEXT_ID);
 
-	let defaultClass =
-		'material-icons absolute text-light-icon dark:text-dark-icon transition-all duration-150';
+	let defaultClass = 'material-icons absolute text-light-icon dark:text-dark-icon';
 	if (size === 'xs') {
 		defaultClass += ' text-2xl bottom-[-0.5rem]';
 	} else if (size === 'sm') {

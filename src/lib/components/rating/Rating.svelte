@@ -57,7 +57,7 @@
 	</div>
 	{#if showValue}
 		<span
-			class="ml-2 text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
+			class="ml-2 text-light-secondary-content dark:text-dark-secondary-content"
 			class:text-sm={size === 'sm'}
 			class:text-base={size === 'md'}
 			class:text-lg={size === 'lg'}>{value} of {outOf}</span

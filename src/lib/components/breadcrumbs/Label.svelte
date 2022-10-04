@@ -16,7 +16,7 @@
 		component: 'Breadcrumbs.Crumb.Label'
 	});
 
-	const defaultClass = 'ml-4 text-sm font-medium hover:text-primary transition-all duration-150';
+	const defaultClass = 'ml-4 text-sm font-medium hover:text-primary';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

@@ -112,7 +112,7 @@
 			id="{name}-visual"
 			{label}
 			{srOnly}
-			class="block w-full outline-none ring-0 focus:ring-0 sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
+			class="block w-full outline-none ring-0 focus:ring-0 sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface"
 			{placeholder}
 			type="text"
 			bind:value={text}

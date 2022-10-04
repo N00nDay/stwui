@@ -18,7 +18,7 @@
 	{#if label}
 		<label
 			for={name}
-			class="block text-sm font-medium transition-all duration-150{srOnly ? ' sr-only' : ''}"
+			class="block text-sm font-medium{srOnly ? ' sr-only' : ''}"
 			class:text-light-secondary-content={!error}
 			class:dark:text-dark-secondary-content={!error}
 			class:text-danger={error}>{label}</label
@@ -32,7 +32,7 @@
 			{autocomplete}
 			{name}
 			id={name}
-			class="block w-full outline-none focus:outline-none shadow-sm dark:shadow-black sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface light-border dark:dark-border transition-all duration-150"
+			class="block w-full outline-none focus:outline-none shadow-sm dark:shadow-black sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface light-border dark:dark-border"
 			class:border-red-400={error}
 			class:text-danger={error}
 			class:dark:text-danger={error}

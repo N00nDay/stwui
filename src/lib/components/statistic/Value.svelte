@@ -2,7 +2,7 @@
 	import { twMerge } from 'tailwind-merge';
 
 	const defaultClass =
-		'mt-1 text-3xl font-semibold tracking-tight transition-all duration-150 text-light-content dark:text-dark-content';
+		'mt-1 text-3xl font-semibold tracking-tight text-light-content dark:text-dark-content';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

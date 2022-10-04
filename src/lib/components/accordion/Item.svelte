@@ -25,7 +25,7 @@
 	});
 
 	const defaultClass =
-		'bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border first-of-type:rounded-t-md last-of-type:rounded-b-md overflow-hidden transition-all duration-150 outline-none focus:outline-none';
+		'bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border first-of-type:rounded-t-md last-of-type:rounded-b-md overflow-hidden outline-none focus:outline-none';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

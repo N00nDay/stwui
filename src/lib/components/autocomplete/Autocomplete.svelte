@@ -71,7 +71,7 @@
 	{#if label}
 		<label
 			for={name}
-			class="block text-sm font-medium transition-all duration-150{srOnly ? ' sr-only' : ''}"
+			class="block text-sm font-medium{srOnly ? ' sr-only' : ''}"
 			class:text-light-secondary-content={!error}
 			class:dark:text-dark-secondary-content={!error}
 			class:text-danger={error}>{label}</label
@@ -82,12 +82,12 @@
 			bind:this={button}
 			type="button"
 			on:click={handleOpen}
-			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150 shadow-sm dark:shadow-black"
+			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface shadow-sm dark:shadow-black"
 		>
 			{#if leading}
 				<span
 					on:click|stopPropagation={handleLeadingClick}
-					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center transition-all duration-150"
+					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center"
 					class:pointer-events-none={!handleLeadingClick}
 					class:pointer-events-auto={handleLeadingClick}
 					class:cursor-pointer={handleLeadingClick}
@@ -110,7 +110,7 @@
 				autocomplete="off"
 				role="presentation"
 				aria-controls="options"
-				class="bg-transparent w-full h-[2.5rem] pl-3 pr-10 py-2 shadow-sm dark:shadow-black border rounded-md transition-all duration-150 outline-none"
+				class="bg-transparent w-full h-[2.5rem] pl-3 pr-10 py-2 shadow-sm dark:shadow-black border rounded-md outline-none"
 				class:border-red-400={error}
 				class:text-danger={error}
 				class:dark:text-danger={error}
@@ -129,11 +129,7 @@
 					class="absolute inset-y-0 z-10 right-8 items-center cursor-pointer hidden group-focus-within:flex active:flex"
 					on:click={handleClear}
 				>
-					<span
-						class="material-icons text-light-icon dark:text-dark-icon text-base transition-all duration-150"
-					>
-						clear
-					</span>
+					<span class="material-icons text-light-icon dark:text-dark-icon text-base"> clear </span>
 				</span>
 			{/if}
 
@@ -145,11 +141,7 @@
 				>
 			{:else}
 				<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-					<span
-						class="material-icons text-light-icon dark:text-dark-icon transition-all duration-150"
-					>
-						unfold_more
-					</span>
+					<span class="material-icons text-light-icon dark:text-dark-icon"> unfold_more </span>
 				</span>
 			{/if}
 		</button>

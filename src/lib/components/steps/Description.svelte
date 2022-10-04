@@ -30,25 +30,20 @@
 	let defaultClass = '';
 	if (variant === 'circles-text') {
 		if ($currentStep > index + 1) {
-			defaultClass =
-				'text-sm text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150';
+			defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
 		} else if ($currentStep === index + 1) {
-			defaultClass =
-				'text-sm text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150';
+			defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
 		} else {
-			defaultClass =
-				'text-sm text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150';
+			defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
 		}
 	} else if (variant === 'simple') {
 		if ($currentStep > index + 1) {
-			defaultClass =
-				'text-sm font-medium text-light-content dark:text-dark-content transition-all duration-150';
+			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
 		} else if ($currentStep === index + 1) {
-			defaultClass =
-				'text-sm font-medium text-light-content dark:text-dark-content transition-all duration-150';
+			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
 		} else {
 			defaultClass =
-				'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150';
+				'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
 		}
 	}
 	const finalClass = twMerge(defaultClass, $$props.class);

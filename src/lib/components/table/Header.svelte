@@ -17,7 +17,7 @@
 	header.set(true);
 
 	const defaultClass =
-		'flex-shrink table min-w-full border-separate border-spacing-0 table-fixed shadow-md dark:shadow-black bg-light-surface dark:bg-dark-surface transition-all duration-150 relative';
+		'flex-shrink table min-w-full border-separate border-spacing-0 table-fixed shadow-md dark:shadow-black bg-light-surface dark:bg-dark-surface relative';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

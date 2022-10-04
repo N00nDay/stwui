@@ -22,7 +22,7 @@
 </script>
 
 <h4
-	class="font-bold text-light-content dark:text-dark-content transition-all duration-150{$$props.class
+	class="font-bold text-light-content dark:text-dark-content{$$props.class
 		? ` ${$$props.class}`
 		: ''}"
 	style={$$props.style}

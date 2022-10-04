@@ -22,8 +22,6 @@ body {
 	@apply flex-col;
 	@apply bg-light-surface;
 	@apply dark:bg-dark-surface;
-	@apply transition-all;
-	@apply duration-150;
 	@apply m-0;
 	@apply px-0;
 	@apply left-0;

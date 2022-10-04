@@ -13,7 +13,7 @@
 	const { name }: { name: string } = getContext(RADIO_GROUP_CONTEXT_ID);
 
 	const defaultClass =
-		'transition-all duration-150 text-light-secondary-content dark:text-dark-secondary-content font-medium text-sm';
+		'text-light-secondary-content dark:text-dark-secondary-content font-medium text-sm';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

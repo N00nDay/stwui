@@ -49,7 +49,7 @@
 	});
 
 	let defaultClass =
-		'btn group transition-all duration-150 relative inline-flex justify-center items-center font-medium active:hover:animate-none active:hover:scale-95 outline-none';
+		'btn group relative inline-flex justify-center items-center font-medium active:hover:animate-none active:hover:scale-95 outline-none';
 	if (loading) {
 		defaultClass += ' cursor-wait';
 	} else {

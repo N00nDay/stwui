@@ -19,8 +19,7 @@
 
 	const { name }: { name: string } = getContext(CHECKBOX_GROUP_CHECKBOX_CONTEXT_ID);
 
-	const defaultClass =
-		'font-medium text-light-content dark:text-dark-content cursor-pointer transition-all duration-150';
+	const defaultClass = 'font-medium text-light-content dark:text-dark-content cursor-pointer';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

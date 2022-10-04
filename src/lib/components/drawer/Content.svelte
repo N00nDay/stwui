@@ -9,8 +9,7 @@
 		component: 'DrawerFooter'
 	});
 
-	const defaultClass =
-		'relative flex-grow text-light-content dark:text-dark-content transition-all duration-150 p-4';
+	const defaultClass = 'relative flex-grow text-light-content dark:text-dark-content p-4';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

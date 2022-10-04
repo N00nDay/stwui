@@ -14,7 +14,7 @@
 		getContext(BADGE_CONTEXT_ID);
 
 	let defaultClass =
-		'flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:focus:text-white hover:text-white dark:hover:text-white transition-all duration-150';
+		'flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:focus:text-white hover:text-white dark:hover:text-white';
 	if (type === 'info') {
 		defaultClass +=
 			' hover:bg-info-background dark:hover:bg-dark-info-background text-info-content dark:text-dark-info-content';

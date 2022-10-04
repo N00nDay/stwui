@@ -30,19 +30,19 @@
 <div class="flex items-center">
 	<slot name="content-left" />
 	<div
-		class="border light-border dark:dark-border relative inline-flex flex-shrink-0 h-[1.6rem] w-[2.8rem] rounded-full cursor-pointer transition-all duration-150 outline-none focus:outline-none"
+		class="border light-border dark:dark-border relative inline-flex flex-shrink-0 h-[1.6rem] w-[2.8rem] rounded-full cursor-pointer outline-none focus:outline-none"
 	>
 		<button
 			on:click={toggle}
 			type="button"
-			class="relative inline-flex flex-shrink-0 h-full w-full border-2 border-transparent rounded-full cursor-pointer transition-all ease-in-out duration-150 outline-none focus:outline-none"
+			class="relative inline-flex flex-shrink-0 h-full w-full border-2 border-transparent rounded-full cursor-pointer ease-in-out outline-none focus:outline-none"
 			class:bg-light-icon-background={!on}
 			class:dark:bg-dark-background={!on}
 			class:bg-primary={on}
 		>
 			<span
 				aria-hidden="true"
-				class="inline-block bg-light-surface dark:bg-dark-surface h-5 w-5 rounded-full shadow transform transition-all ease-in-out duration-150 border light-border dark:dark-border"
+				class="inline-block bg-light-surface dark:bg-dark-surface h-5 w-5 rounded-full shadow transform transition-transform ease-in-out duration-150 border light-border dark:dark-border"
 				class:translate-x-[1.1rem]={on}
 				class:translate-x-0={!on}
 			/>

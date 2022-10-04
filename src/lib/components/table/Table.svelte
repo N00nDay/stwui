@@ -20,7 +20,7 @@
 		footer
 	});
 
-	const defaultClass = 'bg-light-surface dark:bg-dark-surface transition-all duration-150';
+	const defaultClass = 'bg-light-surface dark:bg-dark-surface';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

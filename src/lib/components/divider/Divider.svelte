@@ -3,8 +3,7 @@
 
 	export let position: 'left' | 'center' | 'right' = 'center';
 
-	const defaultClass =
-		'w-full border-t light-border-base dark:dark-border-base transition-all duration-150';
+	const defaultClass = 'w-full border-t light-border-base dark:dark-border-base';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

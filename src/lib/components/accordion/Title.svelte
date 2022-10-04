@@ -26,11 +26,10 @@
 	const { open }: { open: Writable<boolean> } = getContext(ACCORDION_ITEM_CONTEXT_ID);
 
 	const defaultClass =
-		'relative flex items-center w-full py-4 px-5 text-base text-light-content dark:text-dark-content hover:text-primary dark:hover:text-primary text-left bg-light-surface dark:bg-dark-surface border-0 rounded-none transition-all duration-150 justify-between  outline-none focus:outline-none';
+		'relative flex items-center w-full py-4 px-5 text-base text-light-content dark:text-dark-content hover:text-primary dark:hover:text-primary text-left bg-light-surface dark:bg-dark-surface border-0 rounded-none justify-between  outline-none focus:outline-none';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<!-- TODO: replace on:click with forwardEventsBuilder -->
 <button
 	use:useActions={use}
 	use:forwardEvents

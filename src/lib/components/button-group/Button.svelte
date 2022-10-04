@@ -34,7 +34,7 @@
 	});
 
 	const defaultClass =
-		'btn-group group overflow-hidden transition-all duration-150 relative inline-flex items-center px-4 py-2 border light-border dark:dark-border text-sm font-medium text-light-content dark:text-dark-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md';
+		'btn-group group overflow-hidden relative inline-flex items-center px-4 py-2 border light-border dark:dark-border text-sm font-medium text-light-content dark:text-dark-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

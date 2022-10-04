@@ -10,7 +10,7 @@
 	$: columnWidth = 100 / columns.length;
 
 	let defaultClass =
-		'table-col last:text-right first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 border-t truncate border-light-border dark:border-dark-border max-w-0 py-2.5 pr-3 text-sm sm:w-auto sm:max-w-none sm:pl-6 transition-all duration-150 font-semibold md:font-normal text-light-secondary-content dark:text-dark-secondary-content';
+		'table-col last:text-right first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 border-t truncate border-light-border dark:border-dark-border max-w-0 py-2.5 pr-3 text-sm sm:w-auto sm:max-w-none sm:pl-6 font-semibold md:font-normal text-light-secondary-content dark:text-dark-secondary-content';
 	$: if (columns[column].placement === 'right') {
 		defaultClass += ' text-right pl-3 pr-4 sm:pr-6';
 	} else if (columns[column].placement === 'left') {

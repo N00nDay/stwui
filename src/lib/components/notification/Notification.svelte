@@ -28,7 +28,7 @@
 	});
 
 	const defaultClass =
-		'relative cursor-pointer flex items-start pointer-events-auto p-4 w-full max-w-sm overflow-hidden rounded-lg bg-light-surface dark:bg-dark-surface shadow-lg border light-border dark:dark-border dark:shadow-black transition-all duration-150';
+		'relative cursor-pointer flex items-start pointer-events-auto p-4 w-full max-w-sm overflow-hidden rounded-lg bg-light-surface dark:bg-dark-surface shadow-lg border light-border dark:dark-border dark:shadow-black';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -38,7 +38,7 @@
 	{:else if type}
 		<div class="flex-shrink-0 text-light-content dark:text-dark-content">
 			<span
-				class="material-icons transition-all duration-150"
+				class="material-icons"
 				class:text-info-icon={type === 'info'}
 				class:text-warn-icon={type === 'warn'}
 				class:text-success-icon={type === 'success'}

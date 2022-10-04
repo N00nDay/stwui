@@ -25,7 +25,7 @@
 	});
 
 	const defaultClass =
-		'first:rounded-t-md last:rounded-b-md py-1.5 px-1.5 sm:px-3 h-14 flex flex-row border-b border-light-border dark:border-dark-border transition-all duration-150';
+		'first:rounded-t-md last:rounded-b-md py-1.5 px-1.5 sm:px-3 h-14 flex flex-row border-b border-light-border dark:border-dark-border';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

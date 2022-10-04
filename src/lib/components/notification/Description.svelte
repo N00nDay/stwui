@@ -20,8 +20,7 @@
 
 	const { title }: { title: Writable<boolean> } = getContext(NOTIFICATION_CONTENT_CONTEXT_ID);
 
-	let defaultClass =
-		'text-sm text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150';
+	let defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
 	$: if ($title) {
 		defaultClass = defaultClass + ' mt-1';
 	}

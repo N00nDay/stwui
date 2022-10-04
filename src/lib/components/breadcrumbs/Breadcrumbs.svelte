@@ -12,7 +12,7 @@
 		type
 	});
 
-	let defaultClass = 'breadcrumbs flex items-center space-x-4 transition-all duration-150';
+	let defaultClass = 'breadcrumbs flex items-center space-x-4';
 	if (type === 'solid') {
 		defaultClass +=
 			' border light-border dark:dark-border bg-light-surface dark:bg-dark-surface dark:shadow-black shadow rounded-md px-6';

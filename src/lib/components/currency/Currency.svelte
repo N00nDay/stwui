@@ -47,7 +47,7 @@
 	<div class="mt-1 relative rounded-md shadow-sm dark:shadow-black h-[2.5rem]">
 		<span
 			on:click={handleLeadingClick}
-			class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10 transition-all duration-150"
+			class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10"
 			class:text-light-secondary-content={!error}
 			class:dark:text-dark-secondary-content={!error}
 			class:pointer-events-none={!handleLeadingClick}
@@ -64,7 +64,7 @@
 			{autocomplete}
 			{name}
 			id={name}
-			class="block w-full pl-10 h-[2.5rem] pr-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
+			class="block w-full pl-10 h-[2.5rem] pr-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface"
 			class:border-red-400={error}
 			class:text-danger={error}
 			class:dark:text-danger={error}
@@ -86,7 +86,7 @@
 			<span
 				on:click={handleTrailingClick}
 				transition:scale|local
-				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center z-10 transition-all duration-150"
+				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center z-10"
 				class:pointer-events-none={!handleTrailingClick}
 				class:pointer-events-auto={handleTrailingClick}
 				class:cursor-pointer={handleTrailingClick}

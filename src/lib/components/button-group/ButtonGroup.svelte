@@ -10,8 +10,7 @@
 		group: true
 	});
 
-	const defaultClass =
-		'relative z-0 inline-flex shadow-md dark:shadow-black rounded-md transition-all duration-150';
+	const defaultClass = 'relative z-0 inline-flex shadow-md dark:shadow-black rounded-md';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

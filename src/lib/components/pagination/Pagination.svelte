@@ -69,7 +69,7 @@
 			on:click={scrollToTop}
 			href={previousRoute}
 			disabled={currentPage === 1}
-			class="relative group shadow-sm dark:shadow-black overflow-hidden inline-flex items-center rounded-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
+			class="relative group shadow-sm dark:shadow-black overflow-hidden inline-flex items-center rounded-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
 			class:pointer-events-none={currentPage === 1}
 			>Previous
 			<HoverBackground />
@@ -78,7 +78,7 @@
 			on:click={scrollToTop}
 			href={nextRoute}
 			disabled={end === total}
-			class="relative group shadow-sm dark:shadow-black overflow-hidden inline-flex items-center rounded-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
+			class="relative group shadow-sm dark:shadow-black overflow-hidden inline-flex items-center rounded-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
 			class:pointer-events-none={end === total}
 			>Next
 			<HoverBackground /></a
@@ -86,9 +86,7 @@
 	</div>
 	<div class="hidden md:flex sm:flex-1 sm:items-center sm:justify-between">
 		<div>
-			<p
-				class="text-sm text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
-			>
+			<p class="text-sm text-light-secondary-content dark:text-dark-secondary-content">
 				Showing
 				<span class="font-medium">{start}</span>
 				to
@@ -99,14 +97,12 @@
 			</p>
 		</div>
 		<div>
-			<nav
-				class="isolate inline-flex -space-x-px rounded-md shadow-md dark:shadow-black transition-all duration-150"
-			>
+			<nav class="isolate inline-flex -space-x-px rounded-md shadow-md dark:shadow-black">
 				<a
 					on:click={scrollToTop}
 					href={previousRoute}
 					disabled={currentPage === 1}
-					class="relative overflow-hidden group inline-flex items-center rounded-l-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20 transition-all duration-150"
+					class="relative overflow-hidden group inline-flex items-center rounded-l-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20"
 					class:pointer-events-none={currentPage === 1}
 				>
 					<span class="sr-only">Previous</span>
@@ -117,7 +113,7 @@
 				{#each pagination as pageNumber}
 					{#if typeof pageNumber === 'string'}
 						<span
-							class="relative inline-flex items-center border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
+							class="relative inline-flex items-center border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
 						>
 							...
 						</span>
@@ -126,7 +122,7 @@
 							data-sveltekit-prefetch
 							on:click={scrollToTop}
 							href={`${$page.url.pathname}?orderBy=${orderBy}&order=${order}&page=${pageNumber}`}
-							class="relative group overflow-hidden z-10 inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20 transition-all duration-150"
+							class="relative group overflow-hidden z-10 inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20"
 							class:bg-primary={pageNumber === currentPage}
 							class:border-primary={pageNumber === currentPage}
 							class:text-primary-content={pageNumber === currentPage}
@@ -147,7 +143,7 @@
 					on:click={scrollToTop}
 					href={nextRoute}
 					disabled={end === total}
-					class="relative group overflow-hidden inline-flex items-center rounded-r-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20 transition-all duration-150"
+					class="relative group overflow-hidden inline-flex items-center rounded-r-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20"
 					class:pointer-events-none={end === total}
 				>
 					<span class="sr-only">Next</span>

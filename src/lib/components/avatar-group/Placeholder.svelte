@@ -25,7 +25,7 @@
 	});
 
 	let defaultClass =
-		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden transition-all duration-150 bg-light-icon-background dark:bg-dark-icon-background';
+		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';
 	if (shape === 'circle') {
 		defaultClass += ' rounded-full';
 	} else if (shape === 'rounded') {

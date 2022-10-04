@@ -91,7 +91,7 @@
 >
 	<div class="transition-all duration-300" style="width: {$menuCollapse ? '3rem' : '100%'}">
 		<h2
-			class="group relative m-0 w-full outline-none rounded-md focus:outline-none overflow-hidden transition-all duration-150"
+			class="group relative m-0 w-full outline-none rounded-md focus:outline-none overflow-hidden"
 			class:text-light-content={active}
 			class:dark:text-dark-content={active}
 			class:text-light-secondary-content={!active}

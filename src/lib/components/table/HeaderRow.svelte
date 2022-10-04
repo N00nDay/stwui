@@ -33,7 +33,7 @@
 <th
 	class="{$$props.class
 		? $$props.class
-		: ''} sticky top-0 py-4 cursor-pointer last:hover:active last:focus:active last:active:active last:text-right first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 text-sm sm:pl-6 transition-all duration-150"
+		: ''} sticky top-0 py-4 cursor-pointer last:hover:active last:focus:active last:active:active last:text-right first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 text-sm sm:pl-6"
 	class:text-right={column.placement === 'right'}
 	class:text-left={column.placement === 'left'}
 	class:pl-3={column.placement === 'right'}
@@ -48,11 +48,11 @@
 	scope="col"
 	on:click={changeOrder}
 	><button
-		class="group inline-flex items-center text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
+		class="group inline-flex items-center text-light-secondary-content dark:text-dark-secondary-content"
 	>
 		<span class="text-sm">{column.label}</span>
 		<span
-			class="last:ml-2 sort-container flex-none rounded opacity-0 group-hover:opacity-100 group-focus:opacity-100 duration-150 transition-all"
+			class="last:ml-2 sort-container flex-none rounded opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-transform"
 			class:ml-2={column.placement === 'left'}
 			class:scale-y-flip={column.column !== orderBy ||
 				(column.column === orderBy && order === 'asc')}

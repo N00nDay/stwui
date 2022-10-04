@@ -571,10 +571,10 @@ module.exports = plugin(
 				position: 'absolute',
 				'background-color': 'rgb(240, 242, 245)',
 				top: '50%',
-				transform: 'translateY(-50%)',
-				'transition-property': 'all',
-				'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
-				'transition-duration': '150ms'
+				transform: 'translateY(-50%)'
+				// 'transition-property': 'all',
+				// 'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				// 'transition-duration': '150ms'
 			},
 			".dark input[type='range']::before": {
 				'background-color': 'rgb(24, 25, 26)'
@@ -599,10 +599,10 @@ module.exports = plugin(
 				'-webkit-appearance': 'none',
 				top: '50%',
 				transform: 'translateY(-50%)',
-				cursor: 'pointer',
-				'transition-property': 'all',
-				'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
-				'transition-duration': '150ms'
+				cursor: 'pointer'
+				// 'transition-property': 'all',
+				// 'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				// 'transition-duration': '150ms'
 			},
 			".dark input[type='range']::-webkit-slider-thumb": {
 				'background-color': 'rgb(36, 37, 38)'
@@ -683,6 +683,31 @@ module.exports = plugin(
 				'-webkit-user-select': 'none',
 				'-ms-user-select': 'none',
 				'user-select': 'none'
+			},
+			'::-webkit-scrollbar': {
+				width: '0.5rem'
+				// 'transition-property': 'all',
+				// 'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				// 'transition-duration': '150ms'
+			},
+			'::-webkit-scrollbar-track': {
+				'background-color': 'rgba(25,25,25,0.05)'
+				// 'transition-property': 'all',
+				// 'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				// 'transition-duration': '150ms'
+			},
+			'.dark ::-webkit-scrollbar-track': {
+				'background-color': 'rgba(89,90,92,0.15)'
+			},
+			'::-webkit-scrollbar-thumb': {
+				'border-radius': '9999px',
+				'background-color': 'rgba(5, 5, 5, 0.15)'
+				// 'transition-property': 'all',
+				// 'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				// 'transition-duration': '150ms'
+			},
+			'.dark ::-webkit-scrollbar-thumb': {
+				'background-color': 'rgba(250, 250, 250,0.15)'
 			}
 		});
 	},
@@ -762,6 +787,11 @@ module.exports = plugin(
 				},
 				scale: {
 					flip: '-1'
+				},
+				transitionProperty: {
+					size: 'height, width',
+					spacing: 'margin, padding',
+					reveal: 'transform, opacity'
 				}
 			}
 		}

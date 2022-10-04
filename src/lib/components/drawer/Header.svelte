@@ -13,7 +13,7 @@
 	const { handleClose }: { handleClose: () => void } = getContext(DRAWER_CONTEXT_ID);
 
 	const defaultClass =
-		'px-4 sm:px-6 py-4 shadow-md dark:shadow-black flex-shrink text-lg font-medium text-light-content dark:text-dark-content  transition-all duration-150';
+		'px-4 sm:px-6 py-4 shadow-md dark:shadow-black flex-shrink text-lg font-medium text-light-content dark:text-dark-content';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

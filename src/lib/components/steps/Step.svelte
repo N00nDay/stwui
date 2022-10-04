@@ -34,24 +34,23 @@
 	let defaultClass = '';
 	$: if (variant === 'bullets') {
 		if ($currentStep > index + 1) {
-			defaultClass =
-				'block h-2.5 w-2.5 rounded-full bg-primary hover:bg-primary-hover transition-all duration-150';
+			defaultClass = 'block h-2.5 w-2.5 rounded-full bg-primary hover:bg-primary-hover';
 		} else if ($currentStep === index + 1) {
 			defaultClass = 'relative flex items-center justify-center';
 		} else {
 			defaultClass =
-				'block h-2.5 w-2.5 rounded-full bg-light-border dark:bg-dark-border hover:bg-light-border-base dark:hover:bg-dark-border-base transition-all duration-150';
+				'block h-2.5 w-2.5 rounded-full bg-light-border dark:bg-dark-border hover:bg-light-border-base dark:hover:bg-dark-border-base';
 		}
 	} else if (variant === 'simple') {
 		if ($currentStep > index + 1) {
 			defaultClass =
-				'group flex flex-col border-l-4 border-primary hover:border-primary-hover transition-all duration-150 py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
+				'group flex flex-col border-l-4 border-primary hover:border-primary-hover py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
 		} else if ($currentStep === index + 1) {
 			defaultClass =
-				'flex flex-col border-l-4 border-primary dark:border-primary transition-all duration-150 py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
+				'flex flex-col border-l-4 border-primary dark:border-primary py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
 		} else {
 			defaultClass =
-				'group flex flex-col border-l-4 border-light-border dark:border-dark-border hover:border-light-border-base dark:hover:border-dark-border-base py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0 transition-all duration-150';
+				'group flex flex-col border-l-4 border-light-border dark:border-dark-border hover:border-light-border-base dark:hover:border-dark-border-base py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
 		}
 	}
 	$: finalClass = twMerge(defaultClass, $$props.class);
@@ -118,7 +117,7 @@
 				<span class="flex items-start">
 					<span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
 						<svg
-							class="h-full w-full text-primary group-hover:text-primary-hover transition-all duration-150"
+							class="h-full w-full text-primary group-hover:text-primary-hover"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
@@ -152,7 +151,7 @@
 				<div class="flex items-start">
 					<div class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
 						<div
-							class="h-2 w-2 rounded-full bg-light-border dark:bg-dark-border group-hover:bg-light-border-base dark:group-hover:bg-dark-border-base transition-all duration-150"
+							class="h-2 w-2 rounded-full bg-light-border dark:bg-dark-border group-hover:bg-light-border-base dark:group-hover:bg-dark-border-base"
 						/>
 					</div>
 					<slot name="title" />
@@ -168,7 +167,7 @@
 			<a {href} class="group relative flex items-start">
 				<span class="flex h-9 items-center">
 					<span
-						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-primary group-hover:bg-primary-hover transition-all duration-150"
+						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-primary group-hover:bg-primary-hover"
 					>
 						<!-- Heroicon name: mini/check -->
 						<svg
@@ -194,13 +193,13 @@
 	{:else if $currentStep === index + 1}
 		<li data-step={index + 1} class="step relative pb-10" on:click>
 			<div
-				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border transition-all duration-150"
+				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border"
 			/>
 			<!-- Current Step -->
 			<a {href} class="group relative flex items-start">
 				<span class="flex h-9 items-center">
 					<span
-						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary bg-light-surface dark:bg-dark-surface transition-all duration-150"
+						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary bg-light-surface dark:bg-dark-surface"
 					>
 						<span class="h-2.5 w-2.5 rounded-full bg-primary" />
 					</span>
@@ -214,17 +213,17 @@
 	{:else}
 		<li data-step={index + 1} class="step relative pb-10" on:click>
 			<div
-				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border transition-all duration-150"
+				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border"
 			/>
 
 			<!-- Upcoming Step -->
 			<a {href} class="group relative flex items-start">
 				<span class="flex h-9 items-center">
 					<span
-						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-light-border dark:border-dark-border bg-light-surface dark:bg-dark-surface group-hover:border-light-border-base dark:group-hover:border-dark-border-base transition-all duration-150"
+						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-light-border dark:border-dark-border bg-light-surface dark:bg-dark-surface group-hover:border-light-border-base dark:group-hover:border-dark-border-base"
 					>
 						<span
-							class="h-2.5 w-2.5 rounded-full bg-transparent group-hover:bg-light-border dark:group-hover:bg-dark-border transition-all duration-150"
+							class="h-2.5 w-2.5 rounded-full bg-transparent group-hover:bg-light-border dark:group-hover:bg-dark-border"
 						/>
 					</span>
 				</span>

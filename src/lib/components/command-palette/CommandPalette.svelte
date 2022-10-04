@@ -28,7 +28,7 @@
 
 <div class="relative z-10 pointer-events-none" role="dialog" aria-modal="true" transition:fade>
 	<div
-		class="fixed inset-0 bg-dark-background dark:bg-light-background bg-opacity-10 dark:bg-opacity-10 backdrop-blur-sm transition-all duration-150 pointer-events-auto"
+		class="fixed inset-0 bg-dark-background dark:bg-light-background bg-opacity-10 dark:bg-opacity-10 backdrop-blur-sm pointer-events-auto"
 		transition:fade
 		on:click={handleClose}
 	/>
@@ -39,7 +39,7 @@
 		out:scale={{ start: 0.95, duration: 150 }}
 	>
 		<div
-			class="mx-auto max-w-xl transform divide-y divide-light-border dark:divide-dark-border overflow-hidden rounded-md bg-light-surface dark:bg-dark-surface shadow-2xl dark:shadow-black transition-all duration-150 pointer-events-auto"
+			class="mx-auto max-w-xl transform divide-y divide-light-border dark:divide-dark-border overflow-hidden rounded-md bg-light-surface dark:bg-dark-surface shadow-2xl dark:shadow-black pointer-events-auto"
 		>
 			{#if onChange}
 				<div class="relative">
@@ -79,7 +79,7 @@
 					<!-- Active: "bg-gray-100" -->
 					{#each results as result}
 						<li
-							class="group outline-none focus:outline-none flex cursor-pointer select-none rounded-md p-3 hover:bg-light-icon-background-hover dark:hover:bg-dark-icon-background-hover duration-150 transition-all"
+							class="group outline-none focus:outline-none flex cursor-pointer select-none rounded-md p-3 hover:bg-light-icon-background-hover dark:hover:bg-dark-icon-background-hover"
 							id="option-1"
 							role="option"
 							tabindex="-1"
@@ -91,15 +91,11 @@
 							</div>
 							<div class="ml-4 flex-auto">
 								<!-- Active: "text-gray-900", Not Active: "text-gray-700" -->
-								<p
-									class="text-sm font-medium text-light-content dark:text-dark-content duration-150 transition-all"
-								>
+								<p class="text-sm font-medium text-light-content dark:text-dark-content">
 									{result.title}
 								</p>
 								<!-- Active: "text-gray-700", Not Active: "text-gray-500" -->
-								<p
-									class="text-sm text-light-secondary-content dark:text-dark-secondary-content duration-150 transition-all"
-								>
+								<p class="text-sm text-light-secondary-content dark:text-dark-secondary-content">
 									{result.description}
 								</p>
 							</div>

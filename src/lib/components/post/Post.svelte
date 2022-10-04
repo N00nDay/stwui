@@ -21,38 +21,9 @@
 	const forwardEvents = forwardEventsBuilder(current_component);
 
 	const defaultClass =
-		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content transition-all duration-150 rounded-md';
+		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
-
-<!-- 
-
-	<Post>
-		<slot name="header" />
-		-- <slot name="avatar" />
-		-- <slot name="creator" />
-		-- <slot name="created" />
-		--	<slot name="extra" />
-		<slot name="content" />
-		<slot name="images" />
-		<slot name="status" />
-		<slot name="actions" />
-		-- <slot name="action" />
-	</Post>
-
-	<Post>
-		<Post.Header />
-		<Post.Content />
-		<Post.Images />
-		<Post.Status />
-		<Post.Actions>
-			<Post.Actions.Action />
-			<Post.Actions.Action />
-			<Post.Actions.Action />
-		</Post.Actions>
-	</Post>
-
- -->
 
 <div
 	class={finalClass}

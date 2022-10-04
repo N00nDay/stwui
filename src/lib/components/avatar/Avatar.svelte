@@ -37,7 +37,7 @@
 		containerDefaultClass = 'inline-block relative align-middle';
 	} else if (initials) {
 		defaultClass =
-			'inline-flex items-center justify-center align-middle transition-all duration-150 bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
+			'inline-flex items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
 	}
 	if (size === 'xs') {
 		defaultClass += ' h-6 w-6';

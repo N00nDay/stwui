@@ -139,7 +139,7 @@
 					{#each slides as _, i}
 						<button
 							on:click={() => handleGoTo(i)}
-							class="h-1.5 rounded-sm bg-light-surface max-w-[40px] hover:shadow-lg hover:opacity-90 transition-all duration-150"
+							class="h-1.5 rounded-sm bg-light-surface max-w-[40px] hover:shadow-lg hover:opacity-90"
 							class:opacity-50={activeSlide !== i}
 							class:hover:opacity-90={activeSlide !== i}
 							style={`width: calc(100% / ${slides.length});`}
@@ -155,7 +155,7 @@
 							<img
 								src={slides[activeSlide].src}
 								style="--rotation: {rotation}deg"
-								class="image block max-w-full shadow-lg shadow-black max-h-full h-auto w-auto object-cover transition-all duration-150"
+								class="image block max-w-full shadow-lg shadow-black max-h-full h-auto w-auto object-cover"
 								alt={slides[activeSlide].alt}
 							/>
 						</div>
@@ -170,7 +170,7 @@
 				>
 					<div
 						in:scale={{ delay: 350 }}
-						class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-30 rounded-full scale-90 group-hover:scale-100 group-hover:bg-opacity-50 group-hover:active:scale-95 transition-all duration-150"
+						class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-30 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
 					>
 						<span class="material-icons text-3xl text-dark-content"> arrow_back </span>
 						<span class="sr-only">Previous</span>
@@ -185,7 +185,7 @@
 				>
 					<div
 						in:scale={{ delay: 350 }}
-						class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-30 rounded-full scale-90 group-hover:scale-100 group-hover:bg-opacity-50 group-hover:active:scale-95 transition-all duration-150"
+						class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-30 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
 					>
 						<span class="material-icons text-3xl text-dark-content"> arrow_forward </span>
 						<span class="sr-only">Next</span>

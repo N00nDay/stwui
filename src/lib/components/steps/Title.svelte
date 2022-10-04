@@ -38,34 +38,29 @@
 		}
 	} else if (variant === 'bullets-text') {
 		if ($currentStep > index + 1) {
-			defaultClass =
-				'ml-3 text-sm font-medium text-light-content dark:text-dark-content transition-all duration-150';
+			defaultClass = 'ml-3 text-sm font-medium text-light-content dark:text-dark-content';
 		} else if ($currentStep === index + 1) {
 			defaultClass = 'ml-3 text-sm font-medium text-primary';
 		} else {
 			defaultClass =
-				'ml-3 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content group-hover:text-light-content dark:group-hover:text-dark-content transition-all duration-150';
+				'ml-3 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content group-hover:text-light-content dark:group-hover:text-dark-content';
 		}
 	} else if (variant === 'circles-text') {
 		if ($currentStep > index + 1) {
-			defaultClass =
-				'text-sm font-medium text-light-content dark:text-dark-content transition-all duration-150';
+			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
 		} else if ($currentStep === index + 1) {
 			defaultClass = 'text-sm font-medium text-primary';
 		} else {
 			defaultClass =
-				'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150';
+				'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
 		}
 	} else if (variant === 'simple') {
 		if ($currentStep > index + 1) {
-			defaultClass =
-				'text-sm font-medium text-primary group-hover:text-primary-hover transition-all duration-150';
+			defaultClass = 'text-sm font-medium text-primary group-hover:text-primary-hover';
 		} else if ($currentStep === index + 1) {
-			defaultClass =
-				'text-sm font-medium text-primary dark:text-primary transition-all duration-150';
+			defaultClass = 'text-sm font-medium text-primary dark:text-primary';
 		} else {
-			defaultClass =
-				'text-sm font-medium text-light-content dark:text-dark-content transition-all duration-150';
+			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
 		}
 	}
 	const finalClass = twMerge(defaultClass, $$props.class);

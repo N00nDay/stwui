@@ -2,7 +2,7 @@
 	import { twMerge } from 'tailwind-merge';
 
 	const defaultClass =
-		'connector absolute top-4 left-4 -ml-px h-full w-0.5 bg-light-border dark:bg-dark-border transition-all duration-150';
+		'connector absolute top-4 left-4 -ml-px h-full w-0.5 bg-light-border dark:bg-dark-border';
 	const finalClass = twMerge(defaultClass, $$props.cass);
 </script>
 

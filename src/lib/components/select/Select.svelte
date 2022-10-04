@@ -48,7 +48,7 @@
 	{#if label}
 		<label
 			for={name}
-			class="block text-sm font-medium transition-all duration-150{srOnly ? ' sr-only' : ''}"
+			class="block text-sm font-medium{srOnly ? ' sr-only' : ''}"
 			class:text-light-secondary-content={!error}
 			class:dark:text-dark-secondary-content={!error}
 			class:text-danger={error}>{label}</label
@@ -59,7 +59,7 @@
 			bind:this={button}
 			type="button"
 			on:click={toggleVisible}
-			class="relative border shadow-sm dark:shadow-black h-[2.5rem] cursor-pointer pl-3 pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
+			class="relative border shadow-sm dark:shadow-black h-[2.5rem] cursor-pointer pl-3 pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md bg-light-surface dark:bg-dark-surface"
 			class:border-red-400={error}
 			class:text-danger={error}
 			class:dark:text-danger={error}
@@ -76,7 +76,7 @@
 			{#if leading}
 				<span
 					on:click|stopPropagation={handleLeadingClick}
-					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center transition-all duration-150"
+					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center"
 					class:pointer-events-none={!handleLeadingClick}
 					class:pointer-events-auto={handleLeadingClick}
 					class:cursor-pointer={handleLeadingClick}
@@ -119,7 +119,7 @@
 
 		{#if visible}
 			<ul
-				class="origin-top-right absolute z-10 border light-border dark:dark-border left-0 right-0 w-full mt-1 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface transition-all transform duration-150{$$props.class
+				class="origin-top-right absolute z-10 border light-border dark:dark-border left-0 right-0 w-full mt-1 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface{$$props.class
 					? ` ${$$props.class}`
 					: ''}"
 				style={$$props.style}

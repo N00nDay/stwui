@@ -10,7 +10,7 @@
 	}
 
 	const defaultClass =
-		'table-row h-12 max-h-[3rem] cursor-pointer hover:bg-light-icon-background-hover dark:hover:bg-dark-icon-background-hover transition-all duration-150 bg-light-surface dark:bg-dark-surface';
+		'table-row h-12 max-h-[3rem] cursor-pointer hover:bg-light-icon-background-hover dark:hover:bg-dark-icon-background-hover bg-light-surface dark:bg-dark-surface';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

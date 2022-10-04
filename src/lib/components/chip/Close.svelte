@@ -5,7 +5,7 @@
 	import { CHIP_CONTEXT_ID } from './Chip.svelte';
 
 	let defaultClass =
-		'flex-shrink-0 ml-2 h-8 w-8 rounded-full inline-flex items-center justify-center outline-none focus:outline-none active:text-white hover:text-white dark:hover:text-white transition-all duration-150';
+		'flex-shrink-0 ml-2 h-8 w-8 rounded-full inline-flex items-center justify-center outline-none focus:outline-none hover:text-white dark:hover:text-white';
 
 	const defaultDefaults =
 		' hover:bg-light-background dark:hover:bg-dark-background text-light-content hover:text-light-content dark:text-dark-content dark:hover:text-dark-content';

@@ -55,20 +55,18 @@
 	{#if label}
 		<label
 			for={name}
-			class="block text-sm font-medium transition-all duration-150{srOnly ? ' sr-only' : ''}"
+			class="block text-sm font-medium{srOnly ? ' sr-only' : ''}"
 			class:text-light-secondary-content={!error}
 			class:dark:text-dark-secondary-content={!error}
 			class:text-danger={error}>{label}</label
 		>
 	{/if}
-	<div
-		class="mt-1 relative rounded-md shadow-sm h-[2.5rem] dark:shadow-black transition-all duration-150"
-	>
+	<div class="mt-1 relative rounded-md shadow-sm h-[2.5rem] dark:shadow-black">
 		{#if leading}
 			<span
 				transition:scale|local
 				on:click={handleLeadingClick}
-				class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10 transition-all duration-150"
+				class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10"
 				class:pointer-events-none={!handleLeadingClick}
 				class:pointer-events-auto={handleLeadingClick}
 				class:cursor-pointer={handleLeadingClick}
@@ -87,7 +85,7 @@
 			id={name}
 			{readonly}
 			{tabindex}
-			class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface transition-all duration-150"
+			class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface"
 			class:light-border={!error}
 			class:dark:dark-border={!error}
 			class:border-red-400={error}
@@ -120,11 +118,7 @@
 				class:right-3={!showPasswordToggle && !trailing && !error}
 				on:click={handleClear}
 			>
-				<span
-					class="material-icons text-light-icon dark:text-dark-icon text-base transition-all duration-150"
-				>
-					clear
-				</span>
+				<span class="material-icons text-light-icon dark:text-dark-icon text-base"> clear </span>
 			</span>
 		{/if}
 
@@ -138,13 +132,13 @@
 			>
 				<span
 					slot="on"
-					class="material-icons pr-3 text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
+					class="material-icons pr-3 text-light-secondary-content dark:text-dark-secondary-content"
 				>
 					visibility
 				</span>
 				<span
 					slot="off"
-					class="material-icons pr-3 text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150"
+					class="material-icons pr-3 text-light-secondary-content dark:text-dark-secondary-content"
 				>
 					visibility_off
 				</span>
@@ -153,7 +147,7 @@
 			<span
 				on:click={handleTrailingClick}
 				transition:scale|local
-				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center z-10 transition-all duration-150"
+				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center z-10"
 				class:pointer-events-none={!handleTrailingClick}
 				class:pointer-events-auto={handleTrailingClick}
 				class:cursor-pointer={handleTrailingClick}

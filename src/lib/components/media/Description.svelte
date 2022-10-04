@@ -22,7 +22,7 @@
 </script>
 
 <p
-	class="mt-1 text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150{$$props.class
+	class="mt-1 text-light-secondary-content dark:text-dark-secondary-content{$$props.class
 		? ` ${$$props.class}`
 		: ''}"
 	style={$$props.style}

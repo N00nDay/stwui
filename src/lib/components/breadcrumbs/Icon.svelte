@@ -19,7 +19,7 @@
 		component: 'Breadcrumbs.Crumb.Icon'
 	});
 
-	const defaultClass = 'material-icons hover:text-primary transition-all duration-150';
+	const defaultClass = 'material-icons hover:text-primary';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

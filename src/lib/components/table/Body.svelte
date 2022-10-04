@@ -19,7 +19,7 @@
 	$: heightToRemove = headerHeight + 64;
 
 	const defaultClass =
-		'table min-w-full border-separate bg-light-surface dark:bg-dark-surface border-spacing-0 table-fixed transition-all duration-150 border-b border-light-border dark:border-dark-border';
+		'table min-w-full border-separate bg-light-surface dark:bg-dark-surface border-spacing-0 table-fixed border-b border-light-border dark:border-dark-border';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

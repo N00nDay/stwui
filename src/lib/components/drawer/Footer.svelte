@@ -10,7 +10,7 @@
 	});
 
 	const defaultClass =
-		'px-4 sm:px-6 py-4 text-light-content dark:text-dark-content  transition-all duration-150 shadow-negative-md dark:shadow-black flex-shrink';
+		'px-4 sm:px-6 py-4 text-light-content dark:text-dark-content shadow-negative-md dark:shadow-black flex-shrink';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

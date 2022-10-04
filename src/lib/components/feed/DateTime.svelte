@@ -5,7 +5,7 @@
 	export let date: Date;
 
 	const defaultClass =
-		'whitespace-nowrap text-right text-sm text-light-secondary-content dark:text-dark-secondary-content transition-all duration-150';
+		'whitespace-nowrap text-right text-sm text-light-secondary-content dark:text-dark-secondary-content';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

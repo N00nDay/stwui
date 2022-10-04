@@ -3,7 +3,7 @@
 	import { twMerge } from 'tailwind-merge';
 
 	const defaultClass =
-		'origin-top-right absolute z-10 border light-border dark:dark-border right-0 mt-2 w-56 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface transition-all transform duration-150';
+		'origin-top-right absolute z-10 border light-border dark:dark-border right-0 mt-2 w-56 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

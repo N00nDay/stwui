@@ -219,7 +219,7 @@
 			size="xs"
 			shape="circle"
 			tabindex="-1"
-			class="mr-1 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
+			class="mr-1 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 			on:click={() => handleArrow('year', 'subtract')}
 		>
 			<Button.Icon slot="icon" icon="keyboard_double_arrow_left" />
@@ -228,7 +228,7 @@
 			size="xs"
 			shape="circle"
 			tabindex="-1"
-			class="bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
+			class="bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 			on:click={() => handleArrow('month', 'subtract')}
 		>
 			<Button.Icon slot="icon" icon="chevron_left" />
@@ -236,7 +236,7 @@
 		<div class="flex-grow px-2 text-center font-medium relative overflow-hidden h-full">
 			<!-- {#key calendarDays} -->
 			<div
-				class="absolute inset-0 flex items-center justify-center text-light-content dark:text-dark-content transition-all duration-150"
+				class="absolute inset-0 flex items-center justify-center text-light-content dark:text-dark-content"
 			>
 				{iLocale.months[browseDate.month()]}
 				{browseDate.year()}
@@ -247,7 +247,7 @@
 			size="xs"
 			shape="circle"
 			tabindex="-1"
-			class="bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
+			class="bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 			on:click={() => handleArrow('month', 'add')}
 		>
 			<Button.Icon slot="icon" icon="chevron_right" />
@@ -256,7 +256,7 @@
 			size="xs"
 			shape="circle"
 			tabindex="-1"
-			class="ml-1 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none transition-all duration-150"
+			class="ml-1 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 			on:click={() => handleArrow('year', 'add')}
 		>
 			<Button.Icon slot="icon" icon="keyboard_double_arrow_right" />
@@ -285,13 +285,13 @@
 						{#each calendarDays.slice(weekIndex * 7, weekIndex * 7 + 7) as calendarDay}
 							{#if !dayIsInRange(calendarDay)}
 								<span
-									class="inactive w-full flex items-center justify-center h-10 rounded-none bg-light-icon-background dark:bg-dark-icon-background first-of-type:rounded-l-3xl last-of-type:rounded-r-3xl transition-all duration-150"
+									class="inactive w-full flex items-center justify-center h-10 rounded-none bg-light-icon-background dark:bg-dark-icon-background first-of-type:rounded-l-3xl last-of-type:rounded-r-3xl"
 								>
 									<span>{calendarDay.date()}</span>
 								</span>
 							{:else}
 								<div
-									class="active w-full flex items-center justify-center cursor-pointer h-10 rounded-full transition-all duration-150"
+									class="active w-full flex items-center justify-center cursor-pointer h-10 rounded-full"
 									on:click={() => selectDay(calendarDay)}
 									class:text-primary-content={calendarDay.isSame(value, 'date')}
 									class:hover:text-primary-content={calendarDay.isSame(value, 'date')}

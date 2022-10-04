@@ -45,12 +45,11 @@
 	let defaultClass = '';
 	let containerDefaultClass = '';
 	if (src) {
-		defaultClass =
-			'inline-block absolute ring-2 ring-light-surface dark:ring-dark-surface transition-all duration-150';
+		defaultClass = 'inline-block absolute ring-2 ring-light-surface dark:ring-dark-surface';
 		containerDefaultClass = 'inline-block relative align-middle';
 	} else if (initials) {
 		defaultClass =
-			'inline-flex items-center justify-center align-middle transition-all duration-150 bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content ring-2 ring-light-surface dark:ring-dark-surface transition-all duration-150';
+			'inline-flex items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content ring-2 ring-light-surface dark:ring-dark-surface';
 	}
 	if (size === 'xs') {
 		defaultClass += ' h-6 w-6';

@@ -26,7 +26,7 @@
 		on:click
 		shape="circle"
 		size="fab"
-		class="absolute left-[50%] right-[50%] translate-y-[-50%] translate-x-[-50%] shadow-xl dark:shadow-black bg-primary hover:bg-primary-hover text-primary-content outline-none border-none transition-all duration-150"
+		class="absolute left-[50%] right-[50%] translate-y-[-50%] translate-x-[-50%] shadow-xl dark:shadow-black bg-primary hover:bg-primary-hover text-primary-content outline-none border-none"
 		style={$$props.style}
 	>
 		<Swap slot="icon" swapped={open}>

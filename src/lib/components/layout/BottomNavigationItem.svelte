@@ -36,7 +36,7 @@
 	const forwardEvents = forwardEventsBuilder(current_component);
 
 	const defaultClass =
-		'relative h-full w-full flex flex-col items-center justify-center cursor-pointer group bg-light-surface dark:bg-dark-surface transition-all duration-150 active:hover:animate-none active:hover:scale-95 text-light-secondary-content dark:text-dark-secondary-content hover:text-light-content dark:hover:text-dark-content';
+		'relative h-full w-full flex flex-col items-center justify-center cursor-pointer group bg-light-surface dark:bg-dark-surface active:hover:animate-none active:hover:scale-95 text-light-secondary-content dark:text-dark-secondary-content hover:text-light-content dark:hover:text-dark-content';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

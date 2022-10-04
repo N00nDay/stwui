@@ -24,7 +24,7 @@
 	export let horizontalAlign: 'left' | 'center' | 'right' = 'left';
 
 	const defaultClass =
-		'bg-light-background bg-opacity-70 dark:bg-opacity-70 dark:bg-dark-background transition-all duration-150 px-4 py-5 sm:px-6 first:rounded-t-md last:rounded-b-md absolute inset-0 flex flex-col';
+		'bg-light-background bg-opacity-70 dark:bg-opacity-70 dark:bg-dark-background px-4 py-5 sm:px-6 first:rounded-t-md last:rounded-b-md absolute inset-0 flex flex-col';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

@@ -23,7 +23,7 @@
 	});
 
 	const defaultClass =
-		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content transition-all duration-150 rounded-md';
+		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -55,8 +55,6 @@
 <style>
 	.hoverable {
 		@apply cursor-pointer;
-		@apply transition-all;
-		@apply duration-150;
 	}
 
 	.hoverable:hover {

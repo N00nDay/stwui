@@ -10,7 +10,7 @@
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
 	let defaultClass =
-		'inline-flex items-center pr-3 text-sm font-medium transition-all duration-150 border border-light-border dark:border-dark-border dark:shadow-black shadow-md bg-opacity-20 dark:bg-opacity-20 rounded-full';
+		'inline-flex items-center pr-3 text-sm font-medium border border-light-border dark:border-dark-border dark:shadow-black shadow-md bg-opacity-20 dark:bg-opacity-20 rounded-full';
 
 	const defaultDefaults =
 		' bg-light-surface dark:bg-dark-surface text-light-content dark:text-dark-content';

@@ -18,7 +18,7 @@
 {#if !radial}
 	<div class="flex flex-row items-center justify-start">
 		<div
-			class="rounded-xl overflow-hidden transition-all duration-150 bg-light-icon-background dark:bg-dark-icon-background flex-grow"
+			class="rounded-xl overflow-hidden bg-light-icon-background dark:bg-dark-icon-background flex-grow"
 			class:mr-2={displayValue}
 			class:h-2={size === 'md'}
 			class:h-1.5={size === 'sm'}
@@ -28,7 +28,7 @@
 			class:relative={indeterminate}
 		>
 			<div
-				class="transition-all duration-150 h-full rounded-xl"
+				class="h-full rounded-xl"
 				class:bg-info-background={type === 'info'}
 				class:dark:bg-info-background={type === 'info'}
 				class:bg-info-warn={type === 'warn'}
@@ -63,7 +63,7 @@
 			class:w-32={size === 'xl'}
 		>
 			<circle
-				class="text-light-icon-background dark:text-dark-icon-background transition-all duration-150"
+				class="text-light-icon-background dark:text-dark-icon-background"
 				stroke-width={width}
 				stroke="currentColor"
 				fill="transparent"
@@ -72,7 +72,6 @@
 				cy={cxCy}
 			/>
 			<circle
-				class="transition-all duration-150"
 				class:text-info-background={type === 'info'}
 				class:dark:text-info-background={type === 'info'}
 				class:text-warn-background={type === 'warn'}
@@ -93,7 +92,7 @@
 			/>
 		</svg>
 		<span
-			class="absolute font-medium text-light-content dark:text-dark-content transition-all duration-150"
+			class="absolute font-medium text-light-content dark:text-dark-content"
 			class:text-base={size === 'xs' || size === 'sm'}
 			class:text-lg={size === 'md'}
 			class:text-2xl={size === 'lg' || size === 'xl'}
