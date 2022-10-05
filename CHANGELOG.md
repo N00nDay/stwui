@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7-next](https://github.com/N00nDay/stwui/compare/v0.0.6-next...v0.0.7-next) (2022-10-05)
+
+
+### Bug Fixes
+
+* **BreadCrumbs:** capitalized Icon for export ([5f3e6c0](https://github.com/N00nDay/stwui/commit/5f3e6c056777d0bc268c3885e18466c90feeb3a9))
+
 ## [0.0.6-next](https://github.com/N00nDay/stwui/compare/v0.0.5-next...v0.0.6-next) (2022-10-05)
 
 
