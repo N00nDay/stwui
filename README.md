@@ -5,8 +5,8 @@
 
 Svelte-TailwindCSS UI (STWUI) is currently in pre-release. There has been a lot work already but a lot of work still needs to be done. Most of my inspiration comes from TawilwindUI with a desire to create a component library similar to React component libraries that are less reliant on remembering class names. Contributors and collaborators welcome!
 
-
-
+<br />
+<br />
 # Installing
 
 - Run `npm install stwui`
