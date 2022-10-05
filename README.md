@@ -7,7 +7,7 @@ Svelte-TailwindCSS UI (STWUI) is currently in pre-release. There has been a lot 
 
 <br>
 <p align="center">
-<a href="/.github/README.md">README</a> • <a href="/.github/CONTRIBUTING.md">CONTRIBUTING </a> • <a href="/.github/PULL_REQUEST_TEMPLATE.md">PULL REQUEST</a> • <a href="/.github/ISSUE_TEMPLATE.md">ISSUE TEMPLATE</a> • <a href="/.github/CONTRIBUTORS.md">CONTRIBUTORS</a>
+<a href="/.github/README.md">README</a> • <a href="/.github/CONTRIBUTING.md">CONTRIBUTING </a> • <a href="/.github/CONTRIBUTORS.md">CONTRIBUTORS</a>
 </p>
 <br>
 
