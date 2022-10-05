@@ -1,6 +1,6 @@
 import OriginalBreadcrumbs from './Breadcrumbs.svelte';
 import OriginalCrumb from './Crumb.svelte';
-import Icon from './icon.svelte';
+import Icon from './Icon.svelte';
 import Label from './Label.svelte';
 import Divider from './Divider.svelte';
 
