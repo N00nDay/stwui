@@ -1,12 +1,14 @@
 <img src="logo.png" align="left" width="192px" height="192px"/>
 <img align="left" width="0" height="192px" hspace="10"/>
 
-[![Under Development](https://img.shields.io/badge/under-development-orange.svg)](https://github.com/N00nDay/stwui) [![npm version](https://img.shields.io/npm/v/stwui?logo=npm&color=cb3837)](https://www.npmjs.com/package/stwui) [![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/dPuteC7z) [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/N00nDay/stwui/blob/main/LICENSE)
+[![Under Development](https://img.shields.io/badge/under-development-orange.svg)](https://stwui.vercel.app/) [![npm version](https://img.shields.io/npm/v/stwui?logo=npm&color=cb3837)](https://www.npmjs.com/package/stwui) [![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/dPuteC7z) [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/N00nDay/stwui/blob/main/LICENSE)
 
 Svelte-TailwindCSS UI (STWUI) is currently in pre-release. There has been a lot work already but a lot of work still needs to be done. Most of my inspiration comes from TawilwindUI with a desire to create a component library similar to React component libraries that are less reliant on remembering class names. Contributors and collaborators welcome!
 
 <br />
 <br />
+
+A showcase can be found at `https://stwui.vercel.app/`. Documentation is still forthcoming but you can at least see the components being used.
 
 # Installing
 
