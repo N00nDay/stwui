@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.8-next](https://github.com/N00nDay/stwui/compare/v0.0.7-next...v0.0.8-next) (2022-10-05)
+
+
+### Bug Fixes
+
+* adding mobile support to showcase ([8295b8c](https://github.com/N00nDay/stwui/commit/8295b8cbdec24a75534276863581080bd44869fd))
+
 ## [0.0.7-next](https://github.com/N00nDay/stwui/compare/v0.0.6-next...v0.0.7-next) (2022-10-05)
 
 
