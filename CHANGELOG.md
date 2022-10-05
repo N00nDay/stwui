@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6-next](https://github.com/N00nDay/stwui/compare/v0.0.5-next...v0.0.6-next) (2022-10-05)
+
+
+### Bug Fixes
+
+* removed all default color transitions ([d17d91d](https://github.com/N00nDay/stwui/commit/d17d91dd41856e69d4db1a25adb6ed18abe63618))
+
 ## [0.0.5-next](https://github.com/N00nDay/stwui/compare/v0.0.4-next...v0.0.5-next) (2022-10-03)
 
 
