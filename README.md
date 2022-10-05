@@ -1,12 +1,19 @@
-# STWUI
+<img src="logo.png" align="left" width="192px" height="192px"/>
+<img align="left" width="0" height="192px" hspace="10"/>
 
-Svelte-TailwindCSS UI (STWUI) is currently in pre-release. There has been a lot work already but a lot of work still needs to be done. Most of my inspiration comes from TawilwindUI with a desire to create a component library similar to React component libraries that are less reliant on remembering class names. Contributors and collaborators welcome! 
+[![Under Development](https://img.shields.io/badge/under-development-orange.svg)](https://github.com/N00nDay/stwui) [![npm version](https://img.shields.io/npm/v/stwui?logo=npm&color=cb3837)](https://www.npmjs.com/package/stwui) [![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/dPuteC7z) [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/N00nDay/stwui/blob/main/LICENSE)
 
-Documentation is still a work in progress and has not been published at this time. To see the documentation fork/clone this repo to you computer and run `npm run dev` to see all components in use.
+Svelte-TailwindCSS UI (STWUI) is currently in pre-release. There has been a lot work already but a lot of work still needs to be done. Most of my inspiration comes from TawilwindUI with a desire to create a component library similar to React component libraries that are less reliant on remembering class names. Contributors and collaborators welcome!
 
-TO get started
-`npm install stwui`
+<br>
+<p align="center">
+<a href="/.github/README.md">README</a> • <a href="/.github/CONTRIBUTING.md">CONTRIBUTING </a> • <a href="/.github/PULL_REQUEST_TEMPLATE.md">PULL REQUEST</a> • <a href="/.github/ISSUE_TEMPLATE.md">ISSUE TEMPLATE</a> • <a href="/.github/CONTRIBUTORS.md">CONTRIBUTORS</a>
+</p>
+<br>
 
+## Installing
+
+- Run `npm install stwui`
 - Add `require('stwui/plugin')` to the `plugins` section of your `tailwind.config.cjs`
 - Add `'./node_modules/stwui/**/*.{svelte,js,ts,html}'` to the `content` array of your `tailwind.config.cjs`
 - Add `class` to the `darkMode` property of your `tailwind.config.cjs`
@@ -20,6 +27,24 @@ module.exports = {
   darkMode: 'class'
 };
 ```
+
+# How to Contribute
+
+- Clone the project to your local machine: ``git clone git@github.com:N00nDay/stwui.git MY-PROJECT-NAME && cd MY-PROJECT-NAME``
+- Install dependancies with ``npm install``
+- Start your dev server with ``npm run dev``
+- Make changes, and submit your pull request.
+
+## Useful Resources
+
+* [Contribution Guide](https://github.com/N00nDay/stwui/tree/main/.github/CONTRIBUTING.md)
+* [Code of Conduct](https://github.com/N00nDay/stwui/tree/main/.github/CODE_OF_CONDUCT.md)
+
+## Contributors
+
+<!-- Contributors START -->
+Craig Howell N00nDay https://github.com/N00nDay
+<!-- Contributors END -->
 
 ### The Components list:
 
@@ -81,4 +106,3 @@ module.exports = {
 - [x] tooltip
 
 More to come!
-
