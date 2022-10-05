@@ -4,8 +4,7 @@
 	import { page } from '$app/stores';
 	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
 
-	import { Button, Dropdown, Icon, Layout, Menu, Portal, Row } from '../lib';
-	import Swap from '../lib/components/swap/Swap.svelte';
+	import { Button, Dropdown, Drawer, Swap, Icon, Layout, Menu, Portal, Row } from '../lib';
 
 	const sidebarItems = [
 		{
@@ -180,6 +179,10 @@
 		openMenu = !openMenu;
 	}
 
+	function closeOpenMenu() {
+		openMenu = false;
+	}
+
 	function handleCreateOpen() {
 		createOpen = !createOpen;
 	}
@@ -259,7 +262,7 @@
 		<Layout.Header {toggleSidebarWidth}>
 			<Button
 				shape="circle"
-				class="inline-block lg:hidden mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
+				class="inline-block mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 				on:click={handleOpenMenu}
 			>
 				<Swap slot="icon">
@@ -268,16 +271,12 @@
 				</Swap>
 			</Button>
 
-			<img
-				src="/120x120-transparent.png"
-				alt="logo-icon"
-				class="h-10 mr-4 hidden lg:inline-block"
-			/>
+			<img src="/120x120-transparent.png" alt="logo-icon" class="h-10 mr-4" />
 
 			<div class="mr-2 font-bold text-xl opacity-80 dark:opacity-100">{pageTitle}</div>
 
 			<Layout.Header.Extra slot="extra">
-				<Button
+				<!-- <Button
 					shape="circle"
 					on:click={handleCreateOpen}
 					class="hidden lg:block mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
@@ -286,15 +285,15 @@
 						<Icon slot="on" icon="add" />
 						<Icon slot="off" icon="close" />
 					</Swap>
-				</Button>
+				</Button> -->
 
-				<Button
+				<!-- <Button
 					on:click={handleSearchOpen}
 					shape="circle"
 					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 				>
 					<Button.Icon slot="icon" icon="search" />
-				</Button>
+				</Button> -->
 
 				<Button
 					shape="circle"
@@ -342,11 +341,11 @@
 			{collapsed}
 		>
 			<Layout.Content.Sidebar class="max-w-[calc(100vh-64px)]">
-				{#each sidebarItems as item}
-					<Menu {collapsed}>
+				<Menu {collapsed}>
+					{#each sidebarItems as item}
 						<Menu.Item label={item.title} href={item.href} />
-					</Menu>
-				{/each}
+					{/each}
+				</Menu>
 			</Layout.Content.Sidebar>
 			<Layout.Content.Body
 				class="relative h-full lg:pl-0 overflow-x-hidden overflow-y-auto pt-[var(--sat)] pb-[var(--sab)] pr-[var(--sar)] pl-[var(--sal)]"
@@ -408,5 +407,19 @@
 <Portal>
 	{#if searchOpen}
 		<CommandPalette handleClose={handleCloseSearch} results={[]} onChange={handleSearchChange} />
+	{/if}
+</Portal>
+
+<Portal>
+	{#if openMenu}
+		<Drawer handleClose={closeOpenMenu} placement="left">
+			<Drawer.Content class="overflow-y-auto p-4">
+				<Menu collapsed={false}>
+					{#each sidebarItems as item}
+						<Menu.Item label={item.title} href={item.href} on:click={closeOpenMenu} />
+					{/each}
+				</Menu>
+			</Drawer.Content>
+		</Drawer>
 	{/if}
 </Portal>
