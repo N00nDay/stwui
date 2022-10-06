@@ -1,0 +1,39 @@
+<script lang="ts">
+	import type { TableColumn } from '../../../lib/types/table-column';
+	import { Card, Table } from '../../../lib';
+	import type { Slot } from '../../types/slots-table';
+
+	export let component: string;
+	export let slots: Slot[];
+
+	const columns: TableColumn[] = [
+		{
+			column: 'slot',
+			label: 'Slot',
+			placement: 'left'
+		},
+		{
+			column: 'component',
+			label: 'Component',
+			placement: 'left'
+		}
+	];
+</script>
+
+<h1 class="mb-4 mt-8 text-xl font-semibold">{component} Slots</h1>
+<Card bordered={false}>
+	<Table class="rounded-md overflow-hidden h-full" {columns}>
+		<Table.Header sortable={false} />
+		<Table.Body>
+			{#each slots as slot}
+				<Table.Body.Row
+					id={slot.id}
+					class="cursor-default hover:bg-light-surface dark:hover:bg-dark-surface"
+				>
+					<Table.Body.Row.Cell column={0}>{slot.slot}</Table.Body.Row.Cell>
+					<Table.Body.Row.Cell column={1}>{slot.component}</Table.Body.Row.Cell>
+				</Table.Body.Row>
+			{/each}
+		</Table.Body>
+	</Table>
+</Card>
