@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.0.10-next](https://github.com/N00nDay/stwui/compare/v0.0.9-next...v0.0.10-next) (2022-10-06)
+
+
+### Bug Fixes
+
+* **+layout:** added browser check for darkMode ([a2bf00c](https://github.com/N00nDay/stwui/commit/a2bf00c17b3ef54728db434d90da1e8ff42696be))
+* **+layout:** added theme switch to header ([bde5bf6](https://github.com/N00nDay/stwui/commit/bde5bf669a51e2f37279c68cfca51d1106f07475))
+* **+layout:** fixed mobile menu trigger ([578ee7e](https://github.com/N00nDay/stwui/commit/578ee7e73b9162f09e1adaf2e143b5e7ad1aef50))
+* **+layout:** removed unused components ([bde5bf6](https://github.com/N00nDay/stwui/commit/bde5bf669a51e2f37279c68cfca51d1106f07475))
+* added clipboard action ([578ee7e](https://github.com/N00nDay/stwui/commit/578ee7e73b9162f09e1adaf2e143b5e7ad1aef50))
+* added highlight.js ([578ee7e](https://github.com/N00nDay/stwui/commit/578ee7e73b9162f09e1adaf2e143b5e7ad1aef50))
+* **CodeBlock:** added component ([578ee7e](https://github.com/N00nDay/stwui/commit/578ee7e73b9162f09e1adaf2e143b5e7ad1aef50))
+* **CodeBlock:** adjusted syntax highlighting and language ([4235c72](https://github.com/N00nDay/stwui/commit/4235c72b920c03ed7ddcf9035ac582395d0d975b))
+* **CommandPalette:** removed component ([74c2c3d](https://github.com/N00nDay/stwui/commit/74c2c3d990c71fb29831c27588730d7fc23d81ba))
+* **Table:** allowed sorting to be turned off ([633c07f](https://github.com/N00nDay/stwui/commit/633c07f6806fe0895f4c84f2d3a30458a6824aed))
+* **Table:** moved controll of row click to user ([633c07f](https://github.com/N00nDay/stwui/commit/633c07f6806fe0895f4c84f2d3a30458a6824aed))
+
 ## [0.0.9-next](https://github.com/N00nDay/stwui/compare/v0.0.8-next...v0.0.9-next) (2022-10-05)
 
 
