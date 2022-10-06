@@ -2,7 +2,6 @@
 	import '../app.css';
 
 	import { page } from '$app/stores';
-	import { CommandPalette, type SearchResult } from '../lib/components/command-palette';
 
 	import { Button, Dropdown, Drawer, Swap, Icon, Layout, Menu, Portal, Row } from '../lib';
 
@@ -166,14 +165,6 @@
 	let createOpen = false;
 	let dropdownOpen = false;
 	let searchOpen = false;
-
-	let createResults: SearchResult[] = [
-		{
-			icon: 'home',
-			title: 'Project',
-			description: 'Create a project that has been sold to a customer'
-		}
-	];
 
 	function handleOpenMenu() {
 		openMenu = !openMenu;
@@ -397,18 +388,6 @@
 		</BottomNavigation> -->
 	</Layout>
 </div>
-
-<Portal>
-	{#if createOpen}
-		<CommandPalette handleClose={handleCloseCreate} results={createResults} />
-	{/if}
-</Portal>
-
-<Portal>
-	{#if searchOpen}
-		<CommandPalette handleClose={handleCloseSearch} results={[]} onChange={handleSearchChange} />
-	{/if}
-</Portal>
 
 <Portal>
 	{#if openMenu}
