@@ -49,7 +49,7 @@
 
 			<br />
 
-			<CodeBlock language="html" code={exampleSvelte} />
+			<CodeBlock language="typescript" code={exampleSvelte} />
 		</Card.Content>
 	</Card>
 </Col>

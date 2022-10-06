@@ -115,7 +115,7 @@
 
 			<br />
 
-			<CodeBlock language="html" code={example} />
+			<CodeBlock language="typescript" code={example} />
 		</Card.Content>
 	</Card>
 </Col>

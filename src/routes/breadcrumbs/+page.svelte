@@ -1,6 +1,17 @@
 <script lang="ts">
 	import type MaterialIcons from '../../lib/types/material-icons';
 	import { Breadcrumbs, Card, Col } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import {
+		exampleSvelte,
+		props,
+		slots,
+		crumbProps,
+		crumbSlots,
+		iconProps,
+		labelSlots
+	} from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 
 	interface Crumb {
 		icon?: MaterialIcons;
@@ -11,7 +22,7 @@
 	const crumbs: Crumb[] = [
 		{ icon: 'home', href: '/' },
 		{ label: 'Projects', href: '/projecs' },
-		{ label: 'Project Nero', href: '/projects/project-nero' }
+		{ label: 'Project Hero', href: '/projects/project-hero' }
 	];
 </script>
 
@@ -80,6 +91,34 @@
 					{/if}
 				{/each}
 			</Breadcrumbs>
+
+			<br />
+
+			<CodeBlock language="typescript" code={exampleSvelte} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Breadcrumbs" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Breadcrumbs" {slots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Breadcrumbs.Crumb" props={crumbProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Breadcrumbs.Crumb" slots={crumbSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Breadcrumbs.Crumb.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Breadcrumbs.Crumb.Label" slots={labelSlots} />
 </Col>

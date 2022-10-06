@@ -126,7 +126,7 @@
 
 			<br />
 
-			<CodeBlock language="html" code={avatarExample} />
+			<CodeBlock language="typescript" code={avatarExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -167,7 +167,7 @@
 
 			<br />
 
-			<CodeBlock language="html" code={avatarGroupExample} />
+			<CodeBlock language="typescript" code={avatarGroupExample} />
 		</Card.Content>
 	</Card>
 </Col>
