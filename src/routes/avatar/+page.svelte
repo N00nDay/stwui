@@ -1,5 +1,19 @@
 <script lang="ts">
 	import { Avatar, AvatarGroup, Card, Col } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import {
+		avatarExample,
+		avatarGroupExample,
+		props,
+		slots,
+		iconProps,
+		placeholderSlots,
+		indicatorProps,
+		groupProps,
+		groupSlots,
+		groupAvatarProps
+	} from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 
 	const avatars = [
 		'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -109,12 +123,16 @@
 			<Avatar initials="CH" />
 			<Avatar size="lg" initials="CH" />
 			<Avatar size="xl" initials="CH" />
+
+			<br />
+
+			<CodeBlock language="html" code={avatarExample} />
 		</Card.Content>
 	</Card>
 </Col>
 
 <Col class="col-24 md:col-12">
-	<Card bordered={false} class="h-[27rem]">
+	<Card bordered={false}>
 		<Card.Header slot="header">Avatar Group</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<AvatarGroup size="xs">
@@ -146,6 +164,58 @@
 					<AvatarGroup.Avatar src={avatar} />
 				{/each}
 			</AvatarGroup>
+
+			<br />
+
+			<CodeBlock language="html" code={avatarGroupExample} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Avatar" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Avatar" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Avatar.Placeholder" slots={placeholderSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Avatar.Placeholder.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Avatar.Indicator" props={indicatorProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="AvatarGroup" props={groupProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="AvatarGroup" slots={groupSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="AvatarGroup.Avatar" props={groupAvatarProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="AvatarGroup.Avatar" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="AvatarGroup.Avatar.Placeholder" slots={placeholderSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="AvatarGroup.Avatar.Placeholder.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="AvatarGroup.Avatar.Indicator" props={indicatorProps} />
 </Col>
