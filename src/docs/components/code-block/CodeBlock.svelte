@@ -1,8 +1,8 @@
 <script lang="ts">
 	import hljs from 'highlight.js';
 	import { twMerge } from 'tailwind-merge';
-	import { copyToClipboard } from '../../actions';
-	import Button from '../button';
+	import { copyToClipboard } from '../../../lib/actions';
+	import Button from '../../../lib/components/button';
 
 	export let language = 'plaintext';
 	export let code = '';

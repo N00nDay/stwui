@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Alert, Button, Card, Col, Icon, Table } from '../../lib';
-	import CodeBlock from '../../lib/components/code-block';
+	import CodeBlock from '../../docs/components/code-block';
 	import { exampleSvelte, propColumns, props, slotColumns, slots } from './examples';
 
 	type Type = 'info' | 'warn' | 'error' | 'success';

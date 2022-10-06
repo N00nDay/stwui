@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Accordion, Card, Col } from '../../lib';
-	import CodeBlock from '../../lib/components/code-block';
-	import { exampleSvelte } from './examples';
+	import { Accordion, Card, Col, Table } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import { example } from './examples';
 
 	let open = '';
 
@@ -71,7 +71,7 @@
 
 			<br />
 
-			<CodeBlock language="html" code={exampleSvelte} />
+			<CodeBlock language="html" code={example} />
 		</Card.Content>
 	</Card>
 </Col>

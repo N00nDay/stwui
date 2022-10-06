@@ -1,17 +1,4 @@
-const exampleJavascript = `
-import { Accordion } from 'stwui';
-
-let open1 = '';
-
-function handleClick(item: string) {
-	if (open1 === item) {
-		open1 = '';
-	} else {
-		open1 = item;
-	}
-}`;
-
-const exampleSvelte = `
+export const example = `
 <script lang="ts">
    import { Accordion } from 'stwui';
 
@@ -52,5 +39,3 @@ const exampleSvelte = `
 		</Accordion.Item.Content>
 	</Accordion.Item>
 </Accordion>`;
-
-export { exampleJavascript, exampleSvelte };
