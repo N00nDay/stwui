@@ -90,8 +90,8 @@
 </Col>
 
 <Col class="col-24">
+	<h1 class="mb-4 mt-8 text-xl font-semibold">Alert Props</h1>
 	<Card bordered={false}>
-		<Card.Header slot="header">Alert Props</Card.Header>
 		<Table class="rounded-md overflow-hidden h-full" columns={propColumns}>
 			<Table.Header sortable={false} />
 			<Table.Body>
@@ -111,8 +111,8 @@
 </Col>
 
 <Col class="col-24">
+	<h1 class="mb-4 mt-8 text-xl font-semibold">Alert Slots</h1>
 	<Card bordered={false}>
-		<Card.Header slot="header">Alert Slots</Card.Header>
 		<Table class="rounded-md overflow-hidden h-full" columns={slotColumns}>
 			<Table.Header sortable={false} />
 			<Table.Body>

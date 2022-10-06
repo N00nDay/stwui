@@ -57,17 +57,17 @@ export const slots: Slot[] = [
 	{
 		id: '1',
 		slot: 'icon',
-		component: '<Alert.Icon />'
+		component: '<Alert.Icon slot="icon" />'
 	},
 	{
 		id: '2',
 		slot: 'title',
-		component: '<Alert.Title />'
+		component: '<Alert.Title slot="title" />'
 	},
 	{
 		id: '3',
 		slot: 'description',
-		component: '<Alert.Description />'
+		component: '<Alert.Description slot="description" />'
 	},
 	{
 		id: '4',
