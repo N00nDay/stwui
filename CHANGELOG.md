@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.11-next](https://github.com/N00nDay/stwui/compare/v0.0.10-next...v0.0.11-next) (2022-10-06)
+
+
+### Bug Fixes
+
+* **Button:** fixed default loading jank ([c19dded](https://github.com/N00nDay/stwui/commit/c19ddedda6a5cd81c3869be9756bcbf25b102b65))
+* **Loader:** stroke is now currentColor ([c19dded](https://github.com/N00nDay/stwui/commit/c19ddedda6a5cd81c3869be9756bcbf25b102b65))
+
 ## [0.0.10-next](https://github.com/N00nDay/stwui/compare/v0.0.9-next...v0.0.10-next) (2022-10-06)
 
 
