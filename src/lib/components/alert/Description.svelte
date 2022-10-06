@@ -7,7 +7,6 @@
 	const { type }: { type: Writable<'info' | 'warn' | 'success' | 'error'> } =
 		getContext(ALERT_CONTEXT_ID);
 
-	// TODO: make clsses reactive
 	let defaultClass = '';
 	$: if ($type === 'info') {
 		defaultClass = 'mt-2 text-sm text-info-secondary-content dark:text-dark-info-secondary-content';

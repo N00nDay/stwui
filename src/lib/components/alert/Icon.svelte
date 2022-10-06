@@ -7,7 +7,6 @@
 	const { type }: { type: Writable<'info' | 'warn' | 'success' | 'error'> } =
 		getContext(ALERT_CONTEXT_ID);
 
-	// TODO: make clsses reactive
 	let defaultClass = '';
 	$: if ($type === 'info') {
 		defaultClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center text-info-icon';
