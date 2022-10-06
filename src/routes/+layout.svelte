@@ -3,7 +3,7 @@
 
 	import { page } from '$app/stores';
 
-	import { Button, Dropdown, Drawer, Swap, Icon, Layout, Menu, Portal, Row } from '../lib';
+	import { Button, Drawer, Swap, Icon, Layout, Menu, Portal, Row, Toggle } from '../lib';
 
 	const sidebarItems = [
 		{
@@ -162,9 +162,7 @@
 	let collapsed = false;
 
 	let openMenu = false;
-	let createOpen = false;
-	let dropdownOpen = false;
-	let searchOpen = false;
+	let darkTheme = false;
 
 	function handleOpenMenu() {
 		openMenu = !openMenu;
@@ -174,43 +172,12 @@
 		openMenu = false;
 	}
 
-	function handleCreateOpen() {
-		createOpen = !createOpen;
-	}
-
-	function handleCloseCreate() {
-		createOpen = false;
-	}
-
-	function handleSearchOpen() {
-		searchOpen = !searchOpen;
-	}
-
-	function handleCloseSearch() {
-		searchOpen = false;
-	}
-
-	function handleDropdown() {
-		dropdownOpen = !dropdownOpen;
-	}
-
-	function handleCloseDropdown() {
-		dropdownOpen = false;
-	}
-
-	function handleCollapseUncollapse() {
-		toggleSidebarWidth();
-		handleCloseDropdown();
-	}
-
-	function handleToggleTheme() {
+	$: if (darkTheme) {
 		const htmlElement = document.documentElement;
-		if (htmlElement.classList.contains('dark')) {
-			htmlElement.classList.remove('dark');
-		} else {
-			htmlElement.classList.add('dark');
-		}
-		handleCloseDropdown();
+		htmlElement.classList.add('dark');
+	} else {
+		const htmlElement = document.documentElement;
+		htmlElement.classList.remove('dark');
 	}
 
 	function toggleSidebarWidth() {
@@ -221,10 +188,6 @@
 			sidebarWidth = sidebarFullWidth;
 			collapsed = false;
 		}
-	}
-
-	function handleSearchChange(e: Event) {
-		console.log('e', e);
 	}
 
 	function renderTitle(pathname: string) {
@@ -267,33 +230,16 @@
 			<div class="mr-2 font-bold text-xl opacity-80 dark:opacity-100">{pageTitle}</div>
 
 			<Layout.Header.Extra slot="extra">
-				<!-- <Button
-					shape="circle"
-					on:click={handleCreateOpen}
-					class="hidden lg:block mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
-				>
-					<Swap slot="icon" swapped={createOpen}>
-						<Icon slot="on" icon="add" />
-						<Icon slot="off" icon="close" />
-					</Swap>
-				</Button> -->
+				<Toggle name="toggle" bind:on={darkTheme}>
+					<Toggle.ContentLeft slot="content-left">
+						<Toggle.ContentLeft.Label slot="label">Light Theme</Toggle.ContentLeft.Label>
+					</Toggle.ContentLeft>
+					<Toggle.ContentRight slot="content-right">
+						<Toggle.ContentRight.Label slot="label">Dark Theme</Toggle.ContentRight.Label>
+					</Toggle.ContentRight>
+				</Toggle>
 
-				<!-- <Button
-					on:click={handleSearchOpen}
-					shape="circle"
-					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
-				>
-					<Button.Icon slot="icon" icon="search" />
-				</Button> -->
-
-				<Button
-					shape="circle"
-					class="mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
-				>
-					<Button.Icon slot="icon" icon="notifications" />
-				</Button>
-
-				<Dropdown
+				<!-- <Dropdown
 					handleClose={handleCloseDropdown}
 					on:click={handleDropdown}
 					visible={dropdownOpen}
@@ -323,7 +269,7 @@
 						<Dropdown.Items.Item on:click={handleCloseDropdown}>Settings</Dropdown.Items.Item>
 						<Dropdown.Items.Item on:click={handleCloseDropdown}>Logout</Dropdown.Items.Item>
 					</Dropdown.Items>
-				</Dropdown>
+				</Dropdown> -->
 			</Layout.Header.Extra>
 		</Layout.Header>
 
@@ -347,45 +293,7 @@
 					</Row>
 				</div>
 			</Layout.Content.Body>
-
-			<Button
-				shape="circle"
-				size="fab"
-				on:click={handleCreateOpen}
-				class="bottom-6 right-6 shadow-lg dark:shadow-black hidden md:flex lg:hidden bg-primary text-dark-content outline-none border-none"
-				style="position: fixed;"
-			>
-				<Swap slot="icon" swapped={createOpen}>
-					<Icon slot="on" icon="add" />
-					<Icon slot="off" icon="close" />
-				</Swap>
-			</Button>
 		</Layout.Content>
-		<!-- <BottomNavigation>
-			<BottomNavigationItem
-				on:click={() => {
-					console.log('Menu click');
-				}}
-				icon="menu"
-				label="Menu"
-			/>
-			<BottomNavigationItem on:click={handleSearchOpen} icon="search" label="Search" />
-			<BottomNavigationCreateItem on:click={handleCreateOpen} open={createOpen} />
-			<BottomNavigationItem
-				on:click={() => {
-					console.log('Notifications click');
-				}}
-				icon="notifications"
-				label="Notifications"
-			/>
-			<BottomNavigationItem
-				on:click={() => {
-					console.log('Settings click');
-				}}
-				icon="settings"
-				label="Settings"
-			/>
-		</BottomNavigation> -->
 	</Layout>
 </div>
 
