@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { Badge, Card, Col } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import { exampleSvelte, props, slots } from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 </script>
 
 <Col class="col-24 md:col-12">
@@ -58,6 +61,19 @@
 					on:click={() => console.log('clicked badge close')}
 				/></Badge
 			>
+
+			<br />
+			<br />
+
+			<CodeBlock language="html" code={exampleSvelte} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Badge" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Badge" {slots} />
 </Col>
