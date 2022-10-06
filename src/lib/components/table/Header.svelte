@@ -4,8 +4,10 @@
 	import { getContext } from 'svelte';
 	import HeaderRow from './HeaderRow.svelte';
 	import type { Writable } from 'svelte/store';
-	import type { TableColumn } from './Table.svelte';
+	import type { TableColumn } from '../../types/table-column';
 	import { twMerge } from 'tailwind-merge';
+
+	export let sortable = true;
 
 	useContext({
 		context_id: TABLE_CONTEXT_ID,
@@ -29,6 +31,7 @@
 					classes="{index !== 0 ? 'hidden ' : ''}truncate md:table-cell"
 					{column}
 					columnCount={columns.length}
+					{sortable}
 				/>
 			{/each}
 		</tr>
