@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 
 	import { Button, Drawer, Swap, Icon, Layout, Menu, Portal, Row, Toggle } from '../lib';
+	import { browser } from '$app/environment';
 
 	const sidebarItems = [
 		{
@@ -172,10 +173,10 @@
 		openMenu = false;
 	}
 
-	$: if (darkTheme) {
+	$: if (browser && darkTheme) {
 		const htmlElement = document.documentElement;
 		htmlElement.classList.add('dark');
-	} else {
+	} else if (browser) {
 		const htmlElement = document.documentElement;
 		htmlElement.classList.remove('dark');
 	}
