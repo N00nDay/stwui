@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Alert, Button, Card, Col, Icon, Table } from '../../lib';
 	import CodeBlock from '../../docs/components/code-block';
-	import { exampleSvelte, propColumns, props, slotColumns, slots } from './examples';
+	import { exampleSvelte, props, slots, iconProps } from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 
 	type Type = 'info' | 'warn' | 'error' | 'success';
 	const types: Type[] = ['info', 'warn', 'error', 'success'];
@@ -90,42 +91,13 @@
 </Col>
 
 <Col class="col-24">
-	<h1 class="mb-4 mt-8 text-xl font-semibold">Alert Props</h1>
-	<Card bordered={false}>
-		<Table class="rounded-md overflow-hidden h-full" columns={propColumns}>
-			<Table.Header sortable={false} />
-			<Table.Body>
-				{#each props as prop}
-					<Table.Body.Row
-						id={prop.id}
-						class="cursor-default hover:bg-light-surface dark:hover:bg-dark-surface"
-					>
-						<Table.Body.Row.Cell column={0}>{prop.prop}</Table.Body.Row.Cell>
-						<Table.Body.Row.Cell column={1}>{prop.type}</Table.Body.Row.Cell>
-						<Table.Body.Row.Cell column={2}>{prop.default}</Table.Body.Row.Cell>
-					</Table.Body.Row>
-				{/each}
-			</Table.Body>
-		</Table>
-	</Card>
+	<PropsTable component="Alert" {props} />
 </Col>
 
 <Col class="col-24">
-	<h1 class="mb-4 mt-8 text-xl font-semibold">Alert Slots</h1>
-	<Card bordered={false}>
-		<Table class="rounded-md overflow-hidden h-full" columns={slotColumns}>
-			<Table.Header sortable={false} />
-			<Table.Body>
-				{#each slots as slot}
-					<Table.Body.Row
-						id={slot.id}
-						class="cursor-default hover:bg-light-surface dark:hover:bg-dark-surface"
-					>
-						<Table.Body.Row.Cell column={0}>{slot.slot}</Table.Body.Row.Cell>
-						<Table.Body.Row.Cell column={1}>{slot.component}</Table.Body.Row.Cell>
-					</Table.Body.Row>
-				{/each}
-			</Table.Body>
-		</Table>
-	</Card>
+	<SlotsTable component="Alert" {slots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Alert.Icon" props={iconProps} />
 </Col>

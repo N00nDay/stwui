@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Accordion, Card, Col, Table } from '../../lib';
 	import CodeBlock from '../../docs/components/code-block';
-	import { example } from './examples';
+	import { example, slots, itemSlots, itemProps, titleSlots, contentSlots } from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 
 	let open = '';
 
@@ -74,4 +75,24 @@
 			<CodeBlock language="html" code={example} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Accordion" {slots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Accordion.Item" props={itemProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Accordion.Item" slots={itemSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Accordion.Item.Title" slots={titleSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Accordion.Item.Content" slots={contentSlots} />
 </Col>

@@ -1,29 +1,4 @@
-import type { TableColumn } from '../../lib/types/table-column';
-
-export const propColumns: TableColumn[] = [
-	{
-		column: 'prop',
-		label: 'Prop',
-		placement: 'left'
-	},
-	{
-		column: 'type',
-		label: 'Type',
-		placement: 'left'
-	},
-	{
-		column: 'default',
-		label: 'Default',
-		placement: 'left'
-	}
-];
-
-export interface Prop extends Record<string, string> {
-	id: string;
-	prop: string;
-	type: string;
-	default: string;
-}
+import type { Slot, Prop } from '../..//docs';
 
 export const props: Prop[] = [
 	{
@@ -33,25 +8,6 @@ export const props: Prop[] = [
 		default: 'info'
 	}
 ];
-
-export const slotColumns: TableColumn[] = [
-	{
-		column: 'slot',
-		label: 'Slot',
-		placement: 'left'
-	},
-	{
-		column: 'component',
-		label: 'Component',
-		placement: 'left'
-	}
-];
-
-export interface Slot extends Record<string, string> {
-	id: string;
-	slot: string;
-	component: string;
-}
 
 export const slots: Slot[] = [
 	{
@@ -73,6 +29,15 @@ export const slots: Slot[] = [
 		id: '4',
 		slot: 'extra',
 		component: ''
+	}
+];
+
+export const iconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'icon',
+		type: 'MaterialIcons (string)',
+		default: ''
 	}
 ];
 

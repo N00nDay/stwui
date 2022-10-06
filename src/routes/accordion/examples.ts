@@ -1,3 +1,60 @@
+import type { Slot, Prop } from '../../docs';
+
+// export const props: Prop[] = [
+// {
+// 	id: '1',
+// 	prop: 'type',
+// 	type: "'info' | 'warn' | 'success' | 'error'",
+// 	default: 'info'
+// }
+// ];
+
+export const slots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: '<Accordion.Item />'
+	}
+];
+
+export const itemProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'open',
+		type: 'boolean',
+		default: 'false'
+	}
+];
+
+export const itemSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'title',
+		component: '<Accordion.Item.Title slot="title" />'
+	},
+	{
+		id: '2',
+		slot: 'content',
+		component: '<Accordion.Item.Content slot="content" />'
+	}
+];
+
+export const titleSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const contentSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
 export const example = `
 <script lang="ts">
    import { Accordion } from 'stwui';
