@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Alert, Button, Card, Col, Icon, Table } from '../../lib';
 	import CodeBlock from '../../lib/components/code-block';
-	import { exampleSvelte, columns, props } from './examples';
+	import { exampleSvelte, propColumns, props, slotColumns, slots } from './examples';
 
 	type Type = 'info' | 'warn' | 'error' | 'success';
 	const types: Type[] = ['info', 'warn', 'error', 'success'];
@@ -91,7 +91,8 @@
 
 <Col class="col-24">
 	<Card bordered={false}>
-		<Table class="rounded-md overflow-hidden h-full" {columns}>
+		<Card.Header slot="header">Alert Props</Card.Header>
+		<Table class="rounded-md overflow-hidden h-full" columns={propColumns}>
 			<Table.Header sortable={false} />
 			<Table.Body>
 				{#each props as prop}
@@ -102,6 +103,26 @@
 						<Table.Body.Row.Cell column={0}>{prop.prop}</Table.Body.Row.Cell>
 						<Table.Body.Row.Cell column={1}>{prop.type}</Table.Body.Row.Cell>
 						<Table.Body.Row.Cell column={2}>{prop.default}</Table.Body.Row.Cell>
+					</Table.Body.Row>
+				{/each}
+			</Table.Body>
+		</Table>
+	</Card>
+</Col>
+
+<Col class="col-24">
+	<Card bordered={false}>
+		<Card.Header slot="header">Alert Slots</Card.Header>
+		<Table class="rounded-md overflow-hidden h-full" columns={slotColumns}>
+			<Table.Header sortable={false} />
+			<Table.Body>
+				{#each slots as slot}
+					<Table.Body.Row
+						id={slot.id}
+						class="cursor-default hover:bg-light-surface dark:hover:bg-dark-surface"
+					>
+						<Table.Body.Row.Cell column={0}>{slot.slot}</Table.Body.Row.Cell>
+						<Table.Body.Row.Cell column={1}>{slot.component}</Table.Body.Row.Cell>
 					</Table.Body.Row>
 				{/each}
 			</Table.Body>
