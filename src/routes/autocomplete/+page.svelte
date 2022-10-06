@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { Autocomplete, Card, Col } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import { example, props, slots, listSlots, optionProps, emptyOptionProps } from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 
 	let value1: string;
 	let value2: string;
@@ -109,6 +112,30 @@
 					{/if}
 				</Autocomplete.List>
 			</Autocomplete>
+
+			<br />
+
+			<CodeBlock language="html" code={example} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Autocomplete" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Autocomplete" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Autocomplete.List" slots={listSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Autocomplete.List.Option" props={optionProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Autocomplete.List.EmptyOption" props={emptyOptionProps} />
 </Col>
