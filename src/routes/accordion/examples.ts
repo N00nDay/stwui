@@ -12,6 +12,20 @@ function handleClick(item: string) {
 }`;
 
 const exampleSvelte = `
+<script lang="ts">
+   import { Accordion } from 'stwui';
+
+   let open1 = '';
+
+   function handleClick(item: string) {
+      if (open1 === item) {
+         open1 = '';
+      } else {
+         open1 = item;
+      }
+   }
+</script>
+
 <Accordion>
 	<Accordion.Item open={open1 === 'open1'}>
 		<Accordion.Item.Title slot="title" on:click={() => handleClick('open1')}>

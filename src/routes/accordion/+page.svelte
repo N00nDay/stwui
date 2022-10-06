@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Accordion, Card, Col } from '../../lib';
 	import CodeBlock from '../../lib/components/code-block';
-	import { exampleJavascript, exampleSvelte } from './examples';
+	import { exampleSvelte } from './examples';
 
 	let open = '';
 
@@ -68,10 +68,6 @@
 					</Accordion.Item.Content>
 				</Accordion.Item>
 			</Accordion>
-
-			<br />
-
-			<CodeBlock language="javascript" code={exampleJavascript} />
 
 			<br />
 
