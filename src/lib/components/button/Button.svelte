@@ -29,19 +29,8 @@
 		| 'text'
 		| 'dark'
 		| undefined = undefined;
-	export let loaderColor: string | undefined = undefined;
 	export let shape: 'square' | 'circle' | 'rounded' | 'pill' = 'rounded';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fab' = 'md';
-
-	const buttonLoaderColor = loaderColor
-		? loaderColor
-		: type === 'primary'
-		? '#ffffff'
-		: type === 'danger'
-		? '#ffffff'
-		: type === 'link'
-		? '#2563eb'
-		: '#000000';
 
 	setContext(BUTTON_CONTEXT_ID, {
 		button: true,
@@ -93,36 +82,55 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	{#if defaultLoading && $$slots.leading}
-		<div class="mr-2 flex justify-center items-center relative">
-			<Swap {loading}>
-				<svelte:fragment slot="on">
-					<slot name="leading" />
-				</svelte:fragment>
-				<svelte:fragment slot="off">
-					<ButtonLoader color={buttonLoaderColor} />
-				</svelte:fragment>
-			</Swap>
-		</div>
-		<slot />
-		<slot name="trailing" />
-	{:else if defaultLoading && $$slots.icon}
-		<div class="flex justify-center items-center relative">
-			<Swap {loading}>
-				<svelte:fragment slot="on">
-					<slot name="icon" />
-				</svelte:fragment>
-				<svelte:fragment slot="off">
-					<ButtonLoader color={buttonLoaderColor} />
-				</svelte:fragment>
-			</Swap>
-		</div>
-		<slot />
-		<slot name="trailing" />
-	{:else if loading && defaultLoading && !$$slots.leading && !$$slots.icon}
-		<div transition:scale|local class="mr-2 flex justify-center items-center relative">
-			<ButtonLoader color={buttonLoaderColor} />
-		</div>
+	{#if defaultLoading}
+		{#if $$slots.leading && $$slots.icon}
+			<div class="mr-2 flex justify-center items-center relative">
+				<Swap {loading}>
+					<svelte:fragment slot="on">
+						<slot name="leading" />
+					</svelte:fragment>
+					<svelte:fragment slot="off">
+						<ButtonLoader />
+					</svelte:fragment>
+				</Swap>
+			</div>
+			<div class="flex justify-center items-center relative">
+				<Swap {loading}>
+					<svelte:fragment slot="on">
+						<slot name="icon" />
+					</svelte:fragment>
+					<svelte:fragment slot="off">
+						<ButtonLoader />
+					</svelte:fragment>
+				</Swap>
+			</div>
+		{:else if $$slots.leading}
+			<div class="mr-2 flex justify-center items-center relative">
+				<Swap {loading}>
+					<svelte:fragment slot="on">
+						<slot name="leading" />
+					</svelte:fragment>
+					<svelte:fragment slot="off">
+						<ButtonLoader />
+					</svelte:fragment>
+				</Swap>
+			</div>
+		{:else if $$slots.icon}
+			<div class="flex justify-center items-center relative">
+				<Swap {loading}>
+					<svelte:fragment slot="on">
+						<slot name="icon" />
+					</svelte:fragment>
+					<svelte:fragment slot="off">
+						<ButtonLoader />
+					</svelte:fragment>
+				</Swap>
+			</div>
+		{:else if loading}
+			<div transition:scale|local class="mr-2 flex justify-center items-center relative">
+				<ButtonLoader />
+			</div>
+		{/if}
 		<slot />
 		<slot name="trailing" />
 	{:else}

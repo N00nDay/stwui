@@ -1,14 +1,13 @@
 <script lang="ts">
-	export let color: string;
+	import { twMerge } from 'tailwind-merge';
+
+	const defaultClass = 'button-loader';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<svg
-	class="button-loader{$$props.class ? ` ${$$props.class}` : ''}"
-	viewBox="25 25 50 50"
-	stroke-width="5"
->
-	<circle class="background-circle" stroke={color} cx="50" cy="50" r="20" />
-	<circle class="animated" stroke={color} cx="50" cy="50" r="20" />
+<svg class={finalClass} viewBox="25 25 50 50" stroke-width="5">
+	<circle class="background-circle" cx="50" cy="50" r="20" />
+	<circle class="animated" cx="50" cy="50" r="20" />
 </svg>
 
 <style>
@@ -30,9 +29,11 @@
 	.background-circle {
 		fill: none;
 		opacity: 0.25;
+		stroke: currentColor;
 	}
 	.animated {
 		fill: none;
+		stroke: currentColor;
 		stroke-dasharray: 1, 200;
 		stroke-dashoffset: 0;
 		stroke-linecap: round;

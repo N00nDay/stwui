@@ -20,7 +20,6 @@
 	export let active = false;
 	export let loading = false;
 	export let defaultLoading = true;
-	export let buttonLoaderColor = '#ffffff';
 	export let disabled = false;
 
 	useContext({
@@ -66,7 +65,7 @@
 					<slot name="leading" />
 				</svelte:fragment>
 				<svelte:fragment slot="off">
-					<ButtonLoader color={buttonLoaderColor} />
+					<ButtonLoader />
 				</svelte:fragment>
 			</Swap>
 		</div>
@@ -79,7 +78,7 @@
 					<slot name="icon" />
 				</svelte:fragment>
 				<svelte:fragment slot="off">
-					<ButtonLoader color={buttonLoaderColor} />
+					<ButtonLoader />
 				</svelte:fragment>
 			</Swap>
 		</div>
@@ -87,7 +86,7 @@
 		<slot name="trailing" />
 	{:else if loading && defaultLoading && !$$slots.leading && !$$slots.icon}
 		<div transition:scale|local class="mr-2 flex justify-center items-center relative">
-			<ButtonLoader color={buttonLoaderColor} />
+			<ButtonLoader />
 		</div>
 		<slot />
 		<slot name="trailing" />

@@ -1,11 +1,21 @@
 <script lang="ts">
 	import { Button, Card, Col, Icon, Swap } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import {
+		exampleDefault,
+		exampleLoading,
+		exampleDisabled,
+		exampleLeadingTrailing,
+		exampleShape,
+		exampleSwap,
+		props,
+		slots,
+		leadingTrailingIconSlots,
+		iconProps
+	} from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 
 	let loading = false;
-
-	function handleClick() {
-		console.log('button clicked!');
-	}
 
 	function toggleLoading() {
 		loading = !loading;
@@ -16,7 +26,7 @@
 	<Card bordered>
 		<Card.Header slot="header">Basic</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Button on:click={handleClick}>Default button</Button>
+			<Button on:click={() => console.log("I've been clicked!")}>Default button</Button>
 
 			<Button type="primary">I am primary</Button>
 
@@ -25,6 +35,11 @@
 			<Button type="ghost">Boo I am a ghost</Button>
 
 			<Button type="link">I am a link</Button>
+
+			<br />
+			<br />
+
+			<CodeBlock language="typescript" code={exampleDefault} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -42,6 +57,11 @@
 			<Button type="ghost" loading>Boo I am a ghost</Button>
 
 			<Button type="link" loading>I am a link</Button>
+
+			<br />
+			<br />
+
+			<CodeBlock language="typescript" code={exampleLoading} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -59,6 +79,11 @@
 			<Button type="ghost" disabled>Boo I am a ghost</Button>
 
 			<Button type="link" disabled>I am a link</Button>
+
+			<br />
+			<br />
+
+			<CodeBlock language="typescript" code={exampleDisabled} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -100,6 +125,11 @@
 					<Button.Trailing.Icon icon="paid" />
 				</Button.Trailing>
 			</Button>
+
+			<br />
+			<br />
+
+			<CodeBlock language="typescript" code={exampleLeadingTrailing} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -119,6 +149,11 @@
 			<Button type="ghost">Boo I am a ghost</Button>
 
 			<Button type="link">I am a link</Button>
+
+			<br />
+			<br />
+
+			<CodeBlock language="typescript" code={exampleShape} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -141,8 +176,13 @@
 						<Icon slot="off" icon="close" />
 					</Swap>
 				</Button.Leading>
-				I am primary</Button
-			>
+				I am primary
+			</Button>
+
+			<br />
+			<br />
+
+			<CodeBlock language="typescript" code={exampleSwap} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -213,4 +253,32 @@
 			>
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Button" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Button" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Button.Leading" slots={leadingTrailingIconSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Button.Leading.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Button.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Button.Trailing" slots={leadingTrailingIconSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Button.Trailing.Icon" props={iconProps} />
 </Col>
