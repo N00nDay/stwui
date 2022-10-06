@@ -262,7 +262,7 @@
 		<Layout.Header {toggleSidebarWidth}>
 			<Button
 				shape="circle"
-				class="inline-block mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
+				class="inline-block lg:hidden mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 				on:click={handleOpenMenu}
 			>
 				<Swap slot="icon">

@@ -11,6 +11,7 @@ import useActions, {
 	type SVGActionArray,
 	type ActionArray
 } from './use-actions';
+import clipboard, { copyToClipboard } from './clipboard';
 
 export {
 	tooltip,
@@ -25,5 +26,7 @@ export {
 	SvelteSVGActionType,
 	SVGActionEntry,
 	SVGActionArray,
-	ActionArray
+	ActionArray,
+	clipboard,
+	copyToClipboard
 };
