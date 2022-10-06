@@ -42,6 +42,10 @@ export const iconProps: Prop[] = [
 ];
 
 export const exampleSvelte = `
+<script lang="ts">
+	import { Alert } from 'stwui';
+</script>
+
 <Alert>
    <Alert.Title slot="title">Title</Alert.Title>
 </Alert>`;
