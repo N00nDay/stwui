@@ -20,7 +20,9 @@
 	];
 </script>
 
-<h1 class="mb-4 mt-8 text-xl font-semibold">{component} Slots</h1>
+<h1 class="mb-4 mt-8 text-xl font-semibold text-light-content dark:text-dark-content">
+	{component} Slots
+</h1>
 <Card bordered={false}>
 	<Table class="rounded-md overflow-hidden h-full" {columns}>
 		<Table.Header sortable={false} />
