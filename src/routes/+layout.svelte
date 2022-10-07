@@ -3,7 +3,7 @@
 
 	import { page } from '$app/stores';
 
-	import { Button, Drawer, Swap, Icon, Layout, Menu, Portal, Row, Toggle } from '../lib';
+	import { Badge, Button, Drawer, Swap, Icon, Layout, Menu, Portal, Row, Toggle } from '../lib';
 	import { browser } from '$app/environment';
 
 	const sidebarItems = [
@@ -17,7 +17,8 @@
 		},
 		{
 			title: 'Autocomplete',
-			href: './autocomplete'
+			href: './autocomplete',
+			beta: true
 		},
 		{
 			title: 'Avatar',
@@ -285,7 +286,13 @@
 			<Layout.Content.Sidebar class="max-w-[calc(100vh-64px)]">
 				<Menu {collapsed}>
 					{#each sidebarItems as item}
-						<Menu.Item label={item.title} href={item.href} />
+						{#if item.beta}
+							<Menu.Item label={item.title} href={item.href}>
+								<Badge slot="extra" type="error">BETA</Badge>
+							</Menu.Item>
+						{:else}
+							<Menu.Item label={item.title} href={item.href} />
+						{/if}
 					{/each}
 				</Menu>
 			</Layout.Content.Sidebar>
