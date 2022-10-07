@@ -36,7 +36,6 @@
 
 	let defaultClass =
 		'btn-group group overflow-hidden relative inline-flex items-center justify-center px-4 py-2 border light-border dark:dark-border text-sm font-medium text-light-content dark:text-dark-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md';
-	defaultClass += ' w-full';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -55,6 +54,7 @@
 	class:bg-light-surface={!active}
 	class:dark:bg-dark-surface={!active}
 	class:disabled
+	class:w-full={block}
 	style={$$props.style}
 	{disabled}
 	use:useActions={use}
