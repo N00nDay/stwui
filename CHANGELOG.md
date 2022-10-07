@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.12-next](https://github.com/N00nDay/stwui/compare/v0.0.11-next...v0.0.12-next) (2022-10-07)
+
+
+### Bug Fixes
+
+* **+layout:** added beta to autocomplete ([27384a2](https://github.com/N00nDay/stwui/commit/27384a23899fb1ec893997f5b1d479d55a28321b))
+* **Badge:** made reactive and allowed override ([99f7fc5](https://github.com/N00nDay/stwui/commit/99f7fc56eddc27a0b28752e577e07c74638c42b2))
+* **ButtonGroup.Button:** width for non-block ([33a6952](https://github.com/N00nDay/stwui/commit/33a69528319af04f1acdb2924b51d96ea4779de7))
+* **ButtonGroup:** added block attribute ([d7406b7](https://github.com/N00nDay/stwui/commit/d7406b752e878cbf98e0d87b7b2108b42023ae9c))
+* changed all type imports to export file ([c03a043](https://github.com/N00nDay/stwui/commit/c03a043fe8ccc01eccf5e6415a7b3d8b7d24fb96))
+* **Feed:** fixed icon background ([d7406b7](https://github.com/N00nDay/stwui/commit/d7406b752e878cbf98e0d87b7b2108b42023ae9c))
+* **Post.Images:** image block is now responsive ([d7406b7](https://github.com/N00nDay/stwui/commit/d7406b752e878cbf98e0d87b7b2108b42023ae9c))
+
 ## [0.0.11-next](https://github.com/N00nDay/stwui/compare/v0.0.10-next...v0.0.11-next) (2022-10-06)
 
 
