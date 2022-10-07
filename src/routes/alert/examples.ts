@@ -41,11 +41,31 @@ export const iconProps: Prop[] = [
 	}
 ];
 
-export const exampleSvelte = `
+export const example = `
 <script lang="ts">
 	import { Alert } from 'stwui';
 </script>
 
 <Alert>
-   <Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Title slot="title">Title</Alert.Title>
+</Alert>
+<br />
+<Alert type="warn">
+	<Alert.Title slot="title">Title</Alert.Title>
+</Alert>
+<br />
+<Alert type="error">
+	<Alert.Icon slot="icon">
+		<Icon icon="cancel" class="text-current" />
+	</Alert.Icon>
+	<Alert.Title slot="title"><span>Title</span></Alert.Title>
+	<Alert.Description slot="description">I am a description</Alert.Description>
+	<Button
+		slot="extra"
+		shape="circle"
+		class="top-[-0.5rem] right-[-0.5rem] text-error-icon dark:text-dark-error-icon"
+		on:click={() => console.log('I clicked extra')}
+	>
+		<Button.Icon slot="icon" icon="close" />
+	</Button>
 </Alert>`;

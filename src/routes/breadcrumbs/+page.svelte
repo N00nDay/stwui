@@ -3,7 +3,9 @@
 	import { Breadcrumbs, Card, Col } from '../../lib';
 	import CodeBlock from '../../docs/components/code-block';
 	import {
-		exampleSvelte,
+		exampleDefault,
+		exampleSolid,
+		exampleDivider,
 		props,
 		slots,
 		crumbProps,
@@ -28,7 +30,7 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Breadcrumbs</Card.Header>
+		<Card.Header slot="header">Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Breadcrumbs>
 				{#each crumbs as crumb}
@@ -48,8 +50,18 @@
 					{/if}
 				{/each}
 			</Breadcrumbs>
+
 			<br />
-			<br />
+
+			<CodeBlock language="typescript" code={exampleDefault} />
+		</Card.Content>
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-12">
+	<Card bordered={false}>
+		<Card.Header slot="header">Solid</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Breadcrumbs type="solid">
 				{#each crumbs as crumb}
 					{#if crumb.icon && crumb.label}
@@ -68,8 +80,18 @@
 					{/if}
 				{/each}
 			</Breadcrumbs>
+
 			<br />
-			<br />
+
+			<CodeBlock language="typescript" code={exampleSolid} />
+		</Card.Content>
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-12">
+	<Card bordered={false}>
+		<Card.Header slot="header">Custom Divider</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Breadcrumbs type="solid" class="h-12">
 				{#each crumbs as crumb}
 					{#if crumb.icon && crumb.label}
@@ -94,7 +116,7 @@
 
 			<br />
 
-			<CodeBlock language="typescript" code={exampleSvelte} />
+			<CodeBlock language="typescript" code={exampleDivider} />
 		</Card.Content>
 	</Card>
 </Col>

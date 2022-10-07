@@ -233,10 +233,14 @@
 			<Layout.Header.Extra slot="extra">
 				<Toggle name="toggle" bind:on={darkTheme}>
 					<Toggle.ContentLeft slot="content-left">
-						<Toggle.ContentLeft.Label slot="label">Light Theme</Toggle.ContentLeft.Label>
+						<Toggle.ContentLeft.Label slot="label">
+							<Icon icon="light_mode" class="flex justify-end items-center" />
+						</Toggle.ContentLeft.Label>
 					</Toggle.ContentLeft>
 					<Toggle.ContentRight slot="content-right">
-						<Toggle.ContentRight.Label slot="label">Dark Theme</Toggle.ContentRight.Label>
+						<Toggle.ContentRight.Label slot="label">
+							<Icon icon="dark_mode" class="flex justify-start items-center" />
+						</Toggle.ContentRight.Label>
 					</Toggle.ContentRight>
 				</Toggle>
 
