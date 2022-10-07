@@ -16,8 +16,8 @@
 	});
 	useContext({
 		context_id: MEDIA_CONTENT_CONTEXT_ID,
-		parent: 'MediaContent',
-		component: 'MediaContentDescription'
+		parent: 'Media.Content',
+		component: 'Media.Content.Description'
 	});
 </script>
 

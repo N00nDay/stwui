@@ -48,6 +48,7 @@
 			/>
 
 			<br />
+			<br />
 
 			<CodeBlock language="typescript" code={exampleSize} />
 		</Card.Content>
@@ -94,6 +95,7 @@
 			</Avatar>
 
 			<br />
+			<br />
 
 			<CodeBlock language="typescript" code={exampleIndicator} />
 		</Card.Content>
@@ -110,6 +112,7 @@
 			<Avatar size="lg" initials="CH" />
 			<Avatar size="xl" initials="CH" />
 
+			<br />
 			<br />
 
 			<CodeBlock language="typescript" code={exampleInitials} />
@@ -151,6 +154,7 @@
 				{/each}
 			</AvatarGroup>
 
+			<br />
 			<br />
 
 			<CodeBlock language="typescript" code={exampleGroup} />

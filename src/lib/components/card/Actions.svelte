@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { setContext } from 'svelte';
+	import { setContext, getContext } from 'svelte';
 	import { CARD_CONTEXT_ID } from './Card.svelte';
 	import { useContext } from '../../utils/useContext';
 
@@ -24,13 +24,19 @@
 		actions: true
 	});
 
+	const { divided }: { divided: boolean } = getContext(CARD_CONTEXT_ID);
+
 	const defaultClass =
-		'flex flex-row h-14 justify-evenly divide-x divide-light-icon-background dark:divide-dark-icon-background first:rounded-t-md last:rounded-b-md';
+		'flex flex-row h-14 justify-evenly divide-x divide-light-icon-background dark:divide-dark-icon-background first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
 	class={finalClass}
+	class:border-t={divided}
+	class:light-border={divided}
+	class:dark:dark-border={divided}
+	class:last:border-t-none={divided}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

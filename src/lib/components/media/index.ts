@@ -1,13 +1,25 @@
-// export { default as Media } from './Media.svelte';
-// export { default as MediaAvatar } from './Avatar.svelte';
-// export { default as MediaContent } from './Content.svelte';
-// export { default as MediaDescription } from './Description.svelte';
-// export { default as MediaTitle } from './Title.svelte';
+import OriginalMedia from './Media.svelte';
+import Avatar from './Avatar.svelte';
+import OriginalContent from './Content.svelte';
+import Description from './Description.svelte';
+import Title from './Title.svelte';
 
-import Media from './Media.svelte';
-import MediaAvatar from './Avatar.svelte';
-import MediaContent from './Content.svelte';
-import MediaDescription from './Description.svelte';
-import MediaTitle from './Title.svelte';
+const Media = OriginalMedia as MediaStatic;
+Media.Avatar = Avatar;
+Media.Content = OriginalContent as ContentStatic;
+Media.Content.Title = Title;
+Media.Content.Description = Description;
 
-export { Media, MediaAvatar, MediaContent, MediaDescription, MediaTitle };
+export default Media;
+
+export interface MediaStatic {
+	new (...args: ConstructorParameters<typeof OriginalMedia>): OriginalMedia;
+	Avatar: typeof Avatar;
+	Content: ContentStatic;
+}
+
+export interface ContentStatic {
+	new (...args: ConstructorParameters<typeof OriginalContent>): OriginalContent;
+	Title: typeof Title;
+	Description: typeof Description;
+}
