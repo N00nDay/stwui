@@ -6,9 +6,9 @@
 	export let use: ActionArray = [];
 	const forwardEvents = forwardEventsBuilder(current_component);
 
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 
-	export let icon: MaterialIcons;
+	export let icon: MaterialIcon;
 
 	const defaultClass = 'material-icons';
 	const finalClass = twMerge(defaultClass, $$props.class);

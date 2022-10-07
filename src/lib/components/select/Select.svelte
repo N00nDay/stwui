@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 	import { slide, scale } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { onMount } from 'svelte';
 
-	export let leading: MaterialIcons | undefined = undefined;
+	export let leading: MaterialIcon | undefined = undefined;
 	export let name: string;
 	export let label: string | undefined = undefined;
 	export let srOnly = false;

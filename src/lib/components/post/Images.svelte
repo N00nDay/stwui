@@ -3,8 +3,7 @@
 	import { twMerge } from 'tailwind-merge';
 	import { useContext } from '../../utils/useContext';
 	import { POST_CONTEXT_ID } from './Post.svelte';
-	import type { Slide } from '../../types/carousel-slide';
-	import type { Action } from '../../types/lightbox-action';
+	import type { CarouselSlide, LightboxAction } from '../../types';
 
 	import { current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -14,12 +13,12 @@
 	export let use: ActionArray = [];
 	const forwardEvents = forwardEventsBuilder(current_component);
 
-	export let images: Slide[] = [];
+	export let images: CarouselSlide[] = [];
 	export let handleClick: ((index: number) => void) | undefined = undefined;
 	export let includeLightBox = true;
 	export let activeSlide = 0;
 	export let showClose = true;
-	export let lightboxActions: Action[] = [];
+	export let lightboxActions: LightboxAction[] = [];
 
 	let lightBoxOpen = false;
 	let lightBox1Open = false;

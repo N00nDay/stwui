@@ -6,7 +6,7 @@
 	import dayjs, { Dayjs } from 'dayjs';
 	import Input from '../input';
 	import Dropdown from '../dropdown';
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 
 	const innerStore = writable(null as Dayjs | null);
 	const store = (() => {
@@ -25,7 +25,7 @@
 		};
 	})();
 
-	export let trailing: MaterialIcons | undefined = 'calendar_month';
+	export let trailing: MaterialIcon | undefined = 'calendar_month';
 	export let name: string;
 	export let label: string | undefined = undefined;
 	export let srOnly = false;

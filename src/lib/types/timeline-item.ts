@@ -1,4 +1,4 @@
-import type MaterialIcons from './material-icons';
+import type { MaterialIcon } from './';
 
 export interface TimelineItem {
 	type?: 'comment';
@@ -6,5 +6,5 @@ export interface TimelineItem {
 	creator: string;
 	created: Date;
 	description: string;
-	icon?: MaterialIcons;
+	icon?: MaterialIcon;
 }

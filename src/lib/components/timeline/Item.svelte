@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 	import Avatar from '../avatar';
 	import { formatDate } from '../../utils/formatDate';
 
@@ -8,7 +8,7 @@
 	export let creator: string;
 	export let created: Date;
 	export let description: string;
-	export let icon: MaterialIcons | undefined = undefined;
+	export let icon: MaterialIcon | undefined = undefined;
 </script>
 
 {#if type === 'comment'}

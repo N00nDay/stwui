@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 	import { twMerge } from 'tailwind-merge';
 	import { BREADCRUMBS_CONTEXT_ID } from './Breadcrumbs.svelte';
 	import { BREADCRUMBS_CRUMB_CONTEXT_ID } from './Crumb.svelte';
 	import { useContext } from '../../utils/useContext';
 
-	export let icon: MaterialIcons;
+	export let icon: MaterialIcon;
 
 	useContext({
 		context_id: BREADCRUMBS_CONTEXT_ID,

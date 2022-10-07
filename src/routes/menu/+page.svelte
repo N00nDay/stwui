@@ -1,12 +1,12 @@
 <script lang="ts" context="module">
-	import type MaterialIcons from '$lib/types/material-icons';
+	import type { MaterialIcon } from '../../lib/types';
 
 	interface GroupMenuItem {
 		label: string;
 		href: string;
 	}
 	interface MenuItem {
-		icon?: MaterialIcons;
+		icon?: MaterialIcon;
 		label: string;
 		badge?: string;
 		badgeType?: 'info' | 'warn' | 'error' | 'success';

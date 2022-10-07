@@ -4,7 +4,7 @@ export const props: Prop[] = [
 	{
 		id: '1',
 		prop: 'leading',
-		type: 'MaterialIcons (string)',
+		type: 'MaterialIcon (string)',
 		default: ''
 	},
 	{

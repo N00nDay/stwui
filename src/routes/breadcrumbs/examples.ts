@@ -71,7 +71,7 @@ export const exampleDefault = `
 	import { Breadcrumbs } from 'stwui';
    
    interface Crumb {
-		icon?: MaterialIcons;
+		icon?: MaterialIcon;
 		label?: string;
 		href: string;
 	}
@@ -107,7 +107,7 @@ export const exampleSolid = `
 	import { Breadcrumbs } from 'stwui';
    
    interface Crumb {
-		icon?: MaterialIcons;
+		icon?: MaterialIcon;
 		label?: string;
 		href: string;
 	}
@@ -143,7 +143,7 @@ export const exampleDivider = `
 	import { Breadcrumbs } from 'stwui';
    
    interface Crumb {
-		icon?: MaterialIcons;
+		icon?: MaterialIcon;
 		label?: string;
 		href: string;
 	}

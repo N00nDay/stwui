@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Slide } from '../../lib/types/carousel-slide';
+	import type { CarouselSlide, LightboxAction } from '../../lib/types';
 	import { Avatar, Col, Post } from '../../lib';
 	import { formatDate } from '../../lib/utils/formatDate';
 	import type { Action } from '../../lib/types/lightbox-action';
@@ -13,13 +13,13 @@
 	let created2 = new Date(2022, 8, 10);
 	let created3 = new Date(2022, 7, 3);
 	let created4 = new Date(2021, 8, 11);
-	let images1: Slide[] = [
+	let images1: CarouselSlide[] = [
 		{
 			id: '11',
 			src: 'https://images.unsplash.com/photo-1664035350797-f57ecca6fa37?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
 		}
 	];
-	let images2: Slide[] = [
+	let images2: CarouselSlide[] = [
 		{
 			id: '21',
 			src: 'https://images.unsplash.com/photo-1664035350797-f57ecca6fa37?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
@@ -29,7 +29,7 @@
 			src: 'https://images.unsplash.com/photo-1664091729644-07a158d7c4ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
 		}
 	];
-	let images3: Slide[] = [
+	let images3: CarouselSlide[] = [
 		{
 			id: '31',
 			src: 'https://images.unsplash.com/photo-1664035350797-f57ecca6fa37?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
@@ -43,7 +43,7 @@
 			src: 'https://images.unsplash.com/photo-1664007226382-e008792e9dae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
 		}
 	];
-	let images4: Slide[] = [
+	let images4: CarouselSlide[] = [
 		{
 			id: '41',
 			src: 'https://images.unsplash.com/photo-1664035350797-f57ecca6fa37?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
@@ -61,7 +61,7 @@
 			src: 'https://images.unsplash.com/photo-1664064568815-38b7be217ebf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2445&q=80'
 		}
 	];
-	let images5: Slide[] = [
+	let images5: CarouselSlide[] = [
 		{
 			id: '51',
 			src: 'https://images.unsplash.com/photo-1664035350797-f57ecca6fa37?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
@@ -83,7 +83,7 @@
 			src: 'https://images.unsplash.com/photo-1664075550378-6b07dd9830a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80'
 		}
 	];
-	let images6: Slide[] = [
+	let images6: CarouselSlide[] = [
 		{
 			id: '61',
 			src: 'https://images.unsplash.com/photo-1664035350797-f57ecca6fa37?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
@@ -190,7 +190,7 @@
 	let likes = ['1', '2'];
 	let comments = ['1', '2'];
 
-	const lightboxActions: Action[] = [];
+	const lightboxActions: LightboxAction[] = [];
 </script>
 
 <Col class="col-24">

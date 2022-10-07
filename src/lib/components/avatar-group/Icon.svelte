@@ -5,9 +5,9 @@
 	import { AVATAR_GROUP_AVATAR_PLACEHOLDER_CONTEXT_ID } from './Placeholder.svelte';
 	import { getContext } from 'svelte/internal';
 	import { useContext } from '../../utils/useContext';
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 
-	export let icon: MaterialIcons = 'person';
+	export let icon: MaterialIcon = 'person';
 
 	useContext({
 		context_id: AVATAR_GROUP_CONTEXT_ID,

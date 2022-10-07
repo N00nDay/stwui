@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 	import { twMerge } from 'tailwind-merge';
 	import { BUTTON_GROUP_CONTEXT_ID } from './ButtonGroup.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { BUTTON_GROUP_BUTTON_CONTEXT_ID } from './Button.svelte';
 
-	export let icon: MaterialIcons;
+	export let icon: MaterialIcon;
 
 	useContext({
 		context_id: BUTTON_GROUP_CONTEXT_ID,

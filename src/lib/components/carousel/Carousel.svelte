@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Slide } from '../../types/carousel-slide';
+	import type { CarouselSlide } from '../../types';
 
-	export let slides: Slide[] = [];
+	export let slides: CarouselSlide[] = [];
 	export let activeSlide = 0;
 	export let rotation = 0;
 

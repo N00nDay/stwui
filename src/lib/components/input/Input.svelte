@@ -5,12 +5,12 @@
 	export let use: ActionArray = [];
 	const forwardEvents = forwardEventsBuilder(current_component);
 
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 	import { slide, scale } from 'svelte/transition';
 	import Swap from '../swap';
 
-	export let leading: MaterialIcons | undefined = undefined;
-	export let trailing: MaterialIcons | undefined = undefined;
+	export let leading: MaterialIcon | undefined = undefined;
+	export let trailing: MaterialIcon | undefined = undefined;
 	export let name: string;
 	export let type: 'text' | 'email' | 'password' = 'text';
 	export let label: string | undefined = undefined;

@@ -1,4 +1,4 @@
-type MaterialIcons =
+type MaterialIcon =
 	| '123'
 	| '360'
 	| '10k'
@@ -2273,4 +2273,4 @@ type MaterialIcons =
 	| 'zoom_out'
 	| 'zoom_out_map';
 
-export default MaterialIcons;
+export default MaterialIcon;

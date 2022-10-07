@@ -4,10 +4,10 @@
 	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 	import { twMerge } from 'tailwind-merge';
 
-	export let icon: MaterialIcons;
+	export let icon: MaterialIcon;
 
 	useContext({
 		context_id: TABS_CONTEXT_ID,

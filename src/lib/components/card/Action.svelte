@@ -3,7 +3,7 @@
 	import { CARD_CONTEXT_ID } from './Card.svelte';
 	import { CARD_ACTIONS_CONTEXT_ID } from './Actions.svelte';
 	import { useContext } from '../../utils/useContext';
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 	import HoverBackground from '../HoverBackground.svelte';
 
 	import { current_component } from 'svelte/internal';
@@ -12,7 +12,7 @@
 	export let use: ActionArray = [];
 	const forwardEvents = forwardEventsBuilder(current_component);
 
-	export let icon: MaterialIcons;
+	export let icon: MaterialIcon;
 	export let label: string | undefined = undefined;
 
 	useContext({

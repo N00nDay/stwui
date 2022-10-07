@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type MaterialIcons from '../../lib/types/material-icons';
+	import type { MaterialIcon } from '../../lib/types';
 	import { Card, Col, Tabs } from '../../lib';
 
 	interface Tab {
 		href: string;
 		title: string;
-		icon: MaterialIcons;
+		icon: MaterialIcon;
 	}
 
 	const tabs: Tab[] = [

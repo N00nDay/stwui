@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 	export interface IBottomNavigationItem {
 		onClick: () => void;
-		icon: MaterialIcons;
+		icon: MaterialIcon;
 		label: string;
 	}
 </script>

@@ -2,19 +2,18 @@
 	import { crossfade } from '../../utils/crossfade';
 	import { fade, fly, scale } from 'svelte/transition';
 
-	import type { Slide } from '../../types/carousel-slide';
-	import type { Action } from '../../types/lightbox-action';
+	import type { CarouselSlide, LightboxAction } from '../../types';
 	import Control from './Control.svelte';
 	import Portal from '../portal/Portal.svelte';
 
-	export let slides: Slide[] = [];
+	export let slides: CarouselSlide[] = [];
 	export let activeSlide = 0;
 	export let handleClose: () => void;
 	export let showClose = true;
 	export let allowRotation = true;
 	export let allowPrint = true;
 	export let allowDownload = true;
-	export let actions: Action[] = [];
+	export let actions: LightboxAction[] = [];
 
 	const [send, receive] = crossfade;
 	let rotation = 0;

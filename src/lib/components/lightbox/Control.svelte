@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type MaterialIcons from '../../types/material-icons';
+	import type { MaterialIcon } from '../../types';
 	import { twMerge } from 'tailwind-merge';
 
-	export let icon: MaterialIcons;
+	export let icon: MaterialIcon;
 
 	const defaultClass =
 		'relative cursor-pointer flex items-center justify-center h-12 w-12 bg-white bg-opacity-10 rounded-full transition-reveal scale-90 hover:scale-100 hover:bg-opacity-20 hover:active:scale-95 pointer-events-auto text-light-surface';

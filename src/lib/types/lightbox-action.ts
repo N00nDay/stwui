@@ -1,6 +1,6 @@
-import type MaterialIcons from './material-icons';
+import type { MaterialIcon } from './';
 
 export interface Action {
-	icon: MaterialIcons;
+	icon: MaterialIcon;
 	action: () => void;
 }

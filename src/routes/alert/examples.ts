@@ -36,7 +36,7 @@ export const iconProps: Prop[] = [
 	{
 		id: '1',
 		prop: 'icon',
-		type: 'MaterialIcons (string)',
+		type: 'MaterialIcon (string)',
 		default: ''
 	}
 ];
