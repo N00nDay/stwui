@@ -32,19 +32,20 @@
 		defaultClass +=
 			'bg-opacity-20 dark:bg-opacity-20 bg-error-background dark:bg-dark-error-background text-error-content dark:text-dark-error-content';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	if (size === 'default') {
+		defaultClass += ' px-2 text-xs';
+	} else if (size === 'large') {
+		defaultClass += ' px-3 text-sm';
+	}
+	if (shape === 'default') {
+		defaultClass += ' rounded-full';
+	} else if (shape === 'rounded') {
+		defaultClass += ' rounded';
+	}
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span
-	class={finalClass}
-	class:px-2.5={size === 'default'}
-	class:px-3={size === 'large'}
-	class:text-xs={size === 'default'}
-	class:text-sm={size === 'large'}
-	class:rounded-full={shape === 'default'}
-	class:rounded={shape === 'rounded'}
-	class:pr-0.5={$$slots.close}
->
+<span class={finalClass} class:pr-0.5={$$slots.close} style={$$props.style}>
 	<slot name="indicator" />
 	<slot />
 	<slot name="close" />
