@@ -203,7 +203,7 @@
 		if (title.length > 0) {
 			return title;
 		} else {
-			return 'Dashboard';
+			return 'STWUI';
 		}
 	}
 
@@ -227,7 +227,9 @@
 				</Swap>
 			</Button>
 
-			<img src="/120x120-transparent.png" alt="logo-icon" class="h-10 mr-4" />
+			<a href="/">
+				<img src="/120x120-transparent.png" alt="logo-icon" class="h-10 mr-4" />
+			</a>
 
 			<div class="mr-2 font-bold text-xl opacity-80 dark:opacity-100">{pageTitle}</div>
 
