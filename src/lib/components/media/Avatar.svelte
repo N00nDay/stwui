@@ -13,7 +13,7 @@
 	useContext({
 		context_id: MEDIA_CONTEXT_ID,
 		parent: 'Media',
-		component: 'MediaAvatar'
+		component: 'Media.Avatar'
 	});
 </script>
 

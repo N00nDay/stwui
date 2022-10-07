@@ -23,5 +23,7 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
+	<slot name="avatar" />
+	<slot name="content" />
 	<slot />
 </div>

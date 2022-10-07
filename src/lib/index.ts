@@ -24,6 +24,7 @@ import Input from './components/input'; // TODO: needs refactor and dot notation
 import Layout from './components/layout';
 import LightBox from './components/lightbox';
 import List from './components/list';
+import Media from './components/media';
 import Menu from './components/menu';
 import Modal from './components/modal';
 import Notification from './components/notification';
@@ -72,6 +73,7 @@ export {
 	Layout,
 	LightBox,
 	List,
+	Media,
 	Menu,
 	Modal,
 	Notification,

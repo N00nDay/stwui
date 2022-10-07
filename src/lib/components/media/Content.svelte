@@ -16,7 +16,7 @@
 	useContext({
 		context_id: MEDIA_CONTEXT_ID,
 		parent: 'Media',
-		component: 'MediaContent'
+		component: 'Media.Content'
 	});
 	setContext(MEDIA_CONTENT_CONTEXT_ID, {
 		content: true
@@ -30,5 +30,7 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
+	<slot name="title" />
+	<slot name="description" />
 	<slot />
 </div>
