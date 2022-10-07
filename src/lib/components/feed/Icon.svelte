@@ -4,7 +4,7 @@
 
 	export let icon: MaterialIcon;
 
-	const defaultClass = 'material-icons text-xl text-white bg-primary';
+	const defaultClass = 'material-icons text-xl text-white';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

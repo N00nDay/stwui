@@ -100,7 +100,7 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<div class="w-full h-80">
+	<div class="w-full h-full aspect-[1/1]">
 		{#if images.length === 1}
 			{#if !lightBox1Open}
 				<div
@@ -118,7 +118,7 @@
 				</div>
 			{/if}
 		{:else if images.length === 2}
-			<div class="w-full h-80 max-w-full max-h-full grid grid-rows-2 grid-flow-row gap-1">
+			<div class="w-full max-w-full max-h-full grid grid-rows-2 grid-flow-row gap-1">
 				{#if !lightBox1Open}
 					<div
 						class="w-full h-full max-w-full max-h-full relative"
@@ -151,10 +151,10 @@
 				{/if}
 			</div>
 		{:else if images.length === 3}
-			<div class="w-full h-80 max-w-full max-h-full grid grid-cols-2 grid-flow-col gap-1">
+			<div class="w-full h-full max-w-full max-h-full grid grid-cols-2 grid-flow-col aspect-[1/1]">
 				{#if !lightBox1Open}
 					<div
-						class="w-full h-full max-w-full max-h-full relative"
+						class="w-full h-full max-w-full max-h-full relative pr-1"
 						in:receive={{ key: images[0].id }}
 						out:send={{ key: images[0].id }}
 					>
@@ -167,7 +167,7 @@
 						/>
 					</div>
 				{/if}
-				<div class="w-full h-80 max-w-full max-h-full grid grid-rows-2 grid-flow-row gap-1">
+				<div class="w-full max-w-full max-h-full grid grid-rows-2 grid-flow-row gap-1 aspect-[1/2]">
 					{#if !lightBox2Open}
 						<div
 							class="w-full h-full max-w-full max-h-full relative"
@@ -201,24 +201,24 @@
 				</div>
 			</div>
 		{:else if images.length > 3}
-			<div class="w-full h-80 max-w-full max-h-full grid grid-cols-2 grid-flow-col gap-1">
+			<div class="w-full h-full max-w-full max-h-full grid grid-cols-2 grid-flow-col aspect-[1/1]">
 				{#if !lightBox1Open}
 					<div
-						class="w-full h-80 max-w-full max-h-full relative"
+						class="w-full h-full max-w-full max-h-full relative pr-1"
 						in:receive={{ key: images[0].id }}
 						out:send={{ key: images[0].id }}
 					>
 						<img
 							src={images[0].src}
 							alt="post-1"
-							class="w-full h-80 max-w-full max-h-full object-center object-cover"
+							class="w-full h-full object-center object-cover"
 							class:cursor-pointer={handleClick || includeLightBox}
 							on:click={() => onClick(0)}
 						/>
 					</div>
 				{/if}
 
-				<div class="w-full h-80 max-w-full max-h-full grid grid-rows-3 grid-flow-row gap-1">
+				<div class="w-full max-w-full max-h-full grid grid-rows-3 grid-flow-row gap-1 aspect-[1/2]">
 					{#if !lightBox2Open}
 						<div
 							class="w-full h-full max-w-full max-h-full relative"
