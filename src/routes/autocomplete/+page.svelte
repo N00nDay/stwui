@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Autocomplete, Card, Col } from '../../lib';
+	import { Alert, Autocomplete, Card, Col } from '../../lib';
 	import CodeBlock from '../../docs/components/code-block';
 	import { example, props, slots, listSlots, optionProps, emptyOptionProps } from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, BetaComponent } from '../../docs';
 
 	let value1: string;
 	let value2: string;
@@ -57,6 +57,10 @@
 	$: filterOptions(value2, 2);
 	$: filterOptions(value3, 3);
 </script>
+
+<Col class="col-24">
+	<BetaComponent />
+</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
