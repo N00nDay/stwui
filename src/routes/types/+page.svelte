@@ -1,12 +1,7 @@
 <script lang="ts">
 	import { Divider } from '$lib';
-	import CodeBlock from '../../docs/components/code-block';
-
-	const carouselSlide = `interface Slide {
-	id: string;
-	src: string;
-	alt?: string;
-}`;
+	import { carouselSlide } from './examples';
+	import { InlineCode, CodeBlock } from '../..//docs';
 </script>
 
 <div class="p-12 w-full h-full overflow-auto">
@@ -14,8 +9,22 @@
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
-		Run the following command to add STWUI to your project:
+		Used in conjunction with the <a href="/carousel">Carousel</a> and <a href="/post">Post</a> components.
 	</p>
 
 	<CodeBlock language="typescript" code={carouselSlide} />
+
+	<br />
+
+	<h1 id="MaterialIcon" class="text-light-content dark:text-dark-content mb-0">MaterialIcon</h1>
+	<Divider />
+
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		All Icon components use <a
+			target="_blank"
+			href="https://fonts.google.com/icons?selected=Material+Icons">Material Design Icons</a
+		>
+		under the hood. Use the string value for any
+		<InlineCode>icon=""</InlineCode> properties.
+	</p>
 </div>

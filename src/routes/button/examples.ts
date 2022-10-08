@@ -85,7 +85,7 @@ export const iconProps: Prop[] = [
 	{
 		id: '1',
 		prop: 'icon',
-		type: 'MaterialIcon (string)',
+		type: '<a href="/types#MaterialIcon">MaterialIcon</a>',
 		default: ''
 	}
 ];
