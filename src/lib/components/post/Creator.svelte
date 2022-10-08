@@ -9,7 +9,7 @@
 		component: 'Post.Header.Created'
 	});
 
-	const defaultClass = 'text-md font-semibold text-light-content dark:text-dark-content';
+	const defaultClass = 'prose max-w-full text-md text-light-content dark:text-dark-content';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
