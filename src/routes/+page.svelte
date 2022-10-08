@@ -82,7 +82,7 @@
 	}
 
 	function handleGetStarted() {
-		goto('/accordion');
+		goto('/installation');
 	}
 
 	function getTrendValue(current: number, comparison: number | undefined) {
@@ -109,12 +109,12 @@
 					STWUI provides a complete set of Svelte components and UI tools to help you develop faster
 					than ever.
 				</p>
-				<!-- <Button class="mt-4" type="primary" on:click={handleGetStarted}
+				<Button class="mt-4" type="primary" on:click={handleGetStarted}
 					>Get Started
 					<Button.Trailing slot="trailing">
 						<Button.Trailing.Icon slot="icon" icon="arrow_forward" />
 					</Button.Trailing>
-				</Button> -->
+				</Button>
 			</div>
 		</Col>
 		<Col class="md:col-12 hidden md:flex h-full">

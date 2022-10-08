@@ -21,14 +21,16 @@
 		}
 	}
 
-	const defaultClass = 'overflow-hidden shadow bg-[#141517] text-sm text-white rounded-md ';
+	const defaultClass = 'overflow-hidden w-full shadow bg-[#141517] text-sm text-white rounded-md';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 {#if language && code}
 	<div class={finalClass} style={$$props.style}>
 		<header class="text-xs uppercase flex justify-between items-center p-2 pl-4 sticky top-0">
-			<span class="text-white/60">SVELTE</span>
+			<span class="text-white/60"
+				>{language === 'bash' ? 'CODE' : language === 'javascript' ? 'JAVASCRIPT' : 'SVELTE'}</span
+			>
 			<Button on:click={onCopyClick} size="sm" class="bg-white/5 hover:bg-white/10">
 				{!copyState ? 'Copy' : 'Copied ✓'}
 			</Button>

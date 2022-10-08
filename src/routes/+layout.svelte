@@ -10,152 +10,152 @@
 	const sidebarItems = [
 		{
 			title: 'Accordion',
-			href: './accordion'
+			href: '/accordion'
 		},
 		{
 			title: 'Alert',
-			href: './alert'
+			href: '/alert'
 		},
 		{
 			title: 'Autocomplete',
-			href: './autocomplete',
+			href: '/autocomplete',
 			beta: true
 		},
 		{
 			title: 'Avatar',
-			href: './avatar'
+			href: '/avatar'
 		},
 		{
 			title: 'Badge',
-			href: './badge'
+			href: '/badge'
 		},
 		{
 			title: 'Breadcrumbs',
-			href: './breadcrumbs'
+			href: '/breadcrumbs'
 		},
 		{
 			title: 'Button',
-			href: './button'
+			href: '/button'
 		},
 		{
 			title: 'ButtonGroup',
-			href: './button-group'
+			href: '/button-group'
 		},
 		{
 			title: 'Card',
-			href: './card'
+			href: '/card'
 		},
 		{
 			title: 'Carousel',
-			href: './carousel'
+			href: '/carousel'
 		},
 		{
 			title: 'Checkbox',
-			href: './checkbox'
+			href: '/checkbox'
 		},
 		{
 			title: 'Chip',
-			href: './chip'
+			href: '/chip'
 		},
 		{
 			title: 'Datepicker',
-			href: './datepicker'
+			href: '/datepicker'
 		},
 		{
 			title: 'Divider',
-			href: './divider'
+			href: '/divider'
 		},
 		{
 			title: 'Drawer',
-			href: './drawer'
+			href: '/drawer'
 		},
 		{
 			title: 'Empty',
-			href: './empty'
+			href: '/empty'
 		},
 		{
 			title: 'Feed',
-			href: './feed'
+			href: '/feed'
 		},
 		{
 			title: 'Input',
-			href: './input'
+			href: '/input'
 		},
 		{
 			title: 'List',
-			href: './list'
+			href: '/list'
 		},
 		{
 			title: 'Menu',
-			href: './menu'
+			href: '/menu'
 		},
 		{
 			title: 'Modal',
-			href: './modal'
+			href: '/modal'
 		},
 		{
 			title: 'Notification',
-			href: './notification'
+			href: '/notification'
 		},
 		{
 			title: 'Pagination',
-			href: './pagination'
+			href: '/pagination'
 		},
 		{
 			title: 'Post',
-			href: './post'
+			href: '/post'
 		},
 		{
 			title: 'Progress',
-			href: './progress'
+			href: '/progress'
 		},
 		{
 			title: 'Radio',
-			href: './radio'
+			href: '/radio'
 		},
 		{
 			title: 'Rating',
-			href: './rating'
+			href: '/rating'
 		},
 		{
 			title: 'Select',
-			href: './select'
+			href: '/select'
 		},
 		{
 			title: 'Slider',
-			href: './slider'
+			href: '/slider'
 		},
 		{
 			title: 'Statistic',
-			href: './statistic'
+			href: '/statistic'
 		},
 		{
 			title: 'Steps',
-			href: './steps'
+			href: '/steps'
 		},
 		{
 			title: 'Swap',
-			href: './swap'
+			href: '/swap'
 		},
 		{
 			title: 'Tabs',
-			href: './tabs'
+			href: '/tabs'
 		},
 		{
 			title: 'Table',
-			href: './table?orderBy=created_at&order=asc&page=1'
+			href: '/table?orderBy=created_at&order=asc&page=1'
 		},
 		{
 			title: 'Timeline',
-			href: './timeline'
+			href: '/timeline'
 		},
 		{
 			title: 'Toggle',
-			href: './toggle'
+			href: '/toggle'
 		},
 		{
 			title: 'Tooltip',
-			href: './tooltip'
+			href: '/tooltip'
 		}
 	];
 
@@ -325,6 +325,19 @@
 			{collapsed}
 		>
 			<Layout.Content.Sidebar class="max-w-[calc(100vh-64px)]">
+				<h3
+					class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2"
+				>
+					GET STARTED
+				</h3>
+				<Menu {collapsed}>
+					<Menu.Item label="Installation" href="/installation" />
+				</Menu>
+				<h3
+					class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
+				>
+					COMPONENTS
+				</h3>
 				<Menu {collapsed}>
 					{#each sidebarItems as item}
 						{#if item.beta}
