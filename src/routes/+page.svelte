@@ -230,10 +230,12 @@
 
 								<Badge type="success"
 									>Badge 1
-									<Badge.Close />
+									<Badge.Close slot="close" />
 								</Badge>
 
 								<Badge type="error">Badge 2</Badge>
+
+								<Badge type="info">Badge 3</Badge>
 							</div>
 
 							<div class="p-4">
@@ -262,8 +264,9 @@
 								<br />
 								<Progress value={0} indeterminate />
 								<br />
-								<Progress value={75} radial />
 								<Progress value={100} radial type="success" />
+								<Progress value={50} radial />
+								<Progress value={25} radial type="error" />
 							</div>
 
 							<div class="p-4">
@@ -287,6 +290,15 @@
 										<Button.Leading.Icon slot="icon" icon="delete" />
 									</Button.Leading>
 									Click Me!
+								</Button>
+
+								<Button
+									shape="circle"
+									type="ghost"
+									on:click={() => (deleteLoading = !deleteLoading)}
+									loading={deleteLoading}
+								>
+									<Button.Icon slot="icon" icon="paid" />
 								</Button>
 							</div>
 						</Col>
