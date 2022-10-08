@@ -36,7 +36,7 @@
 
 		<br />
 
-		<CodeBlock language="typescript" code={example} />
+		<CodeBlock language="svelte" code={example} />
 	</Card>
 </Col>
 <Col class="col-24 md:col-8">
@@ -61,7 +61,7 @@
 
 		<br />
 
-		<CodeBlock language="typescript" code={exampleOverlay} />
+		<CodeBlock language="svelte" code={exampleOverlay} />
 	</Card>
 </Col>
 <Col class="col-24 md:col-8">
@@ -86,7 +86,7 @@
 
 		<br />
 
-		<CodeBlock language="typescript" code={exampleContent} />
+		<CodeBlock language="svelte" code={exampleContent} />
 	</Card>
 </Col>
 <Col class="col-24 md:col-8">
@@ -103,7 +103,7 @@
 
 		<br />
 
-		<CodeBlock language="typescript" code={exampleAnatomy} />
+		<CodeBlock language="svelte" code={exampleAnatomy} />
 	</Card>
 </Col>
 

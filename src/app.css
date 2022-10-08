@@ -45,3 +45,12 @@ body {
 	-webkit-backface-visibility: hidden;
 	-webkit-tap-highlight-color: transparent;
 }
+
+a {
+	@apply underline;
+	@apply text-primary;
+}
+
+a:hover {
+	@apply text-primary-hover;
+}

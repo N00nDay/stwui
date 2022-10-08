@@ -72,7 +72,7 @@
 
 			<br />
 
-			<CodeBlock language="typescript" code={example} />
+			<CodeBlock language="svelte" code={example} />
 		</Card.Content>
 	</Card>
 </Col>

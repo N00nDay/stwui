@@ -27,10 +27,6 @@
 </script>
 
 <div class="relative h-full">
-	{#if $$slots.controls}
-		<slot name="controls" />
-	{/if}
-
 	<div class="absolute z-10 right-0 bottom-0 left-0 flex gap-2 justify-center p-0 mb-4">
 		{#each slides as _, i}
 			<button

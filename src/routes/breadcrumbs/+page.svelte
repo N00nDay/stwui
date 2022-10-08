@@ -53,7 +53,7 @@
 
 			<br />
 
-			<CodeBlock language="typescript" code={exampleDefault} />
+			<CodeBlock language="svelte" code={exampleDefault} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -83,7 +83,7 @@
 
 			<br />
 
-			<CodeBlock language="typescript" code={exampleSolid} />
+			<CodeBlock language="svelte" code={exampleSolid} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -116,7 +116,7 @@
 
 			<br />
 
-			<CodeBlock language="typescript" code={exampleDivider} />
+			<CodeBlock language="svelte" code={exampleDivider} />
 		</Card.Content>
 	</Card>
 </Col>

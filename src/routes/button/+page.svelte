@@ -39,7 +39,7 @@
 			<br />
 			<br />
 
-			<CodeBlock language="typescript" code={exampleDefault} />
+			<CodeBlock language="svelte" code={exampleDefault} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -61,7 +61,7 @@
 			<br />
 			<br />
 
-			<CodeBlock language="typescript" code={exampleLoading} />
+			<CodeBlock language="svelte" code={exampleLoading} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -83,7 +83,7 @@
 			<br />
 			<br />
 
-			<CodeBlock language="typescript" code={exampleDisabled} />
+			<CodeBlock language="svelte" code={exampleDisabled} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -129,7 +129,7 @@
 			<br />
 			<br />
 
-			<CodeBlock language="typescript" code={exampleLeadingTrailing} />
+			<CodeBlock language="svelte" code={exampleLeadingTrailing} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -153,7 +153,7 @@
 			<br />
 			<br />
 
-			<CodeBlock language="typescript" code={exampleShape} />
+			<CodeBlock language="svelte" code={exampleShape} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -182,7 +182,7 @@
 			<br />
 			<br />
 
-			<CodeBlock language="typescript" code={exampleSwap} />
+			<CodeBlock language="svelte" code={exampleSwap} />
 		</Card.Content>
 	</Card>
 </Col>

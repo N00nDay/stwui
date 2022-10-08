@@ -38,7 +38,7 @@
 					class="cursor-default hover:bg-light-surface dark:hover:bg-dark-surface"
 				>
 					<Table.Body.Row.Cell column={0}>{prop.prop}</Table.Body.Row.Cell>
-					<Table.Body.Row.Cell column={1}>{prop.type}</Table.Body.Row.Cell>
+					<Table.Body.Row.Cell column={1}>{@html prop.type}</Table.Body.Row.Cell>
 					<Table.Body.Row.Cell column={2}>{prop.default}</Table.Body.Row.Cell>
 				</Table.Body.Row>
 			{/each}
