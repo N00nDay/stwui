@@ -18,14 +18,14 @@
 	import { PropsTable, SlotsTable } from '../../docs';
 </script>
 
-<Col class="col-24 md:col-12">
+<Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Card bordered={false}>
 			<Card.Cover slot="cover">
 				<img
 					src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
 					alt="cover"
-					class="object-cover object-center w-full h-full aspect-1"
+					class="object-cover object-center w-full aspect-1 h-[300px]"
 				/>
 			</Card.Cover>
 			<Card.Actions slot="actions">
@@ -39,22 +39,20 @@
 		<CodeBlock language="typescript" code={example} />
 	</Card>
 </Col>
-<Col class="col-24 md:col-12">
+<Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Card bordered={false} hoverable>
 			<Card.Cover slot="cover" class="relative rounded-b-md">
 				<img
 					src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
 					alt="cover"
-					class="object-cover object-center w-full h-full aspect-1"
+					class="object-cover object-center w-full h-[300px] aspect-1"
 				/>
 				<Card.Cover.Overlay class="top-[unset] h-24">
 					<Media class="absolute bottom-0 left-0 right-0 px-4 py-5">
 						<Media.Content>
-							<Media.Content.Title class="text-white">Europe Street beat</Media.Content.Title>
-							<Media.Content.Description class="text-gray-200"
-								>www.instagram.com</Media.Content.Description
-							>
+							<Media.Content.Title>Europe Street beat</Media.Content.Title>
+							<Media.Content.Description>www.instagram.com</Media.Content.Description>
 						</Media.Content>
 					</Media>
 				</Card.Cover.Overlay>
@@ -66,14 +64,14 @@
 		<CodeBlock language="typescript" code={exampleOverlay} />
 	</Card>
 </Col>
-<Col class="col-24 md:col-12">
+<Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Card bordered={false}>
 			<Card.Cover slot="cover">
 				<img
 					src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
 					alt="cover"
-					class="object-cover object-center w-full h-full aspect-1"
+					class="object-cover object-center w-full h-[300px] aspect-1"
 				/>
 			</Card.Cover>
 			<Card.Content slot="content">
@@ -91,7 +89,7 @@
 		<CodeBlock language="typescript" code={exampleContent} />
 	</Card>
 </Col>
-<Col class="col-24 md:col-12">
+<Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Card bordered={false}>
 			<Card.Header slot="header">Card Header</Card.Header>
