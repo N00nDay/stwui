@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.0.13-next](https://github.com/N00nDay/stwui/compare/v0.0.12-next...v0.0.13-next) (2022-10-08)
+
+
+### Bug Fixes
+
+* added basic typography ([7faf266](https://github.com/N00nDay/stwui/commit/7faf266340d07b2cdd4cc47d498962d6ae7810bc))
+* **Carousel:** removed unused controls slot ([210e286](https://github.com/N00nDay/stwui/commit/210e28657e5fa21fc666c4bdd447bc59cbcb3dbf))
+* **CheckboxGroup.Checkbox:** added default slot ([c558083](https://github.com/N00nDay/stwui/commit/c55808332de1f74918821cc2c5359f2dd4c61d34))
+* **CheckboxGroup.Label:** removed > ([c558083](https://github.com/N00nDay/stwui/commit/c55808332de1f74918821cc2c5359f2dd4c61d34))
+* **Menu.Item:** added tailwind typography ([21b07b3](https://github.com/N00nDay/stwui/commit/21b07b3837f1f603e70f8f2f4cdc2c9c31cb49ee))
+* **Post.Content:** added tailwind typography ([e45871d](https://github.com/N00nDay/stwui/commit/e45871df2608db601f3a1efedbdfa57c15d3bae5))
+* **Post.Header.Created:** added tailwind typography ([e45871d](https://github.com/N00nDay/stwui/commit/e45871df2608db601f3a1efedbdfa57c15d3bae5))
+* **Post.Header.Creator:** added tailwind typography ([e45871d](https://github.com/N00nDay/stwui/commit/e45871df2608db601f3a1efedbdfa57c15d3bae5))
+* removed tailwind typography from everywhere ([7faf266](https://github.com/N00nDay/stwui/commit/7faf266340d07b2cdd4cc47d498962d6ae7810bc))
+* removed unused packages ([7faf266](https://github.com/N00nDay/stwui/commit/7faf266340d07b2cdd4cc47d498962d6ae7810bc))
+* **Statistic:** added tailwind typography ([e45871d](https://github.com/N00nDay/stwui/commit/e45871df2608db601f3a1efedbdfa57c15d3bae5))
+* **Toggle:** added LeftIcon and RightIcon ([4be9779](https://github.com/N00nDay/stwui/commit/4be97797a9ca876e3f1db87f2872b9815cf8d7c1))
+
 ## [0.0.12-next](https://github.com/N00nDay/stwui/compare/v0.0.11-next...v0.0.12-next) (2022-10-07)
 
 
