@@ -35,7 +35,10 @@
 	}
 </script>
 
-<div class="transition-all duration-300" style="width: {$menuCollapse ? '3rem' : '100%'}">
+<div
+	class="prose max-w-full transition-all duration-300"
+	style="width: {$menuCollapse ? '3rem' : '100%'}"
+>
 	<a
 		on:click
 		use:tooltip={{
@@ -46,7 +49,7 @@
 			disabled: !$menuCollapse
 		}}
 		{href}
-		class="group relative w-full h-10 overflow-hidden flex items-center justify-start px-3 py-2 text-sm font-medium rounded-md"
+		class="group no-underline relative w-full h-10 overflow-hidden flex items-center justify-start px-3 py-2 text-sm font-medium rounded-md"
 		class:text-light-content={active}
 		class:dark:text-dark-content={active}
 		class:text-light-secondary-content={!active}
