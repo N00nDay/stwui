@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { useContext } from '$lib/utils/useContext';
+	import { useContext } from '../../utils/useContext';
 	import { POST_HEADER_CONTEXT_ID } from './Header.svelte';
 
 	useContext({
@@ -9,7 +9,7 @@
 		component: 'Post.Header.Created'
 	});
 
-	const defaultClass = 'prose max-w-full text-md text-light-content dark:text-dark-content';
+	const defaultClass = 'text-md font-semibold text-light-content dark:text-dark-content';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

@@ -58,7 +58,7 @@ export const example = `
 	<Alert.Icon slot="icon">
 		<Icon icon="cancel" class="text-current" />
 	</Alert.Icon>
-	<Alert.Title slot="title"><span>Title</span></Alert.Title>
+	<Alert.Title slot="title">Title</Alert.Title>
 	<Alert.Description slot="description">I am a description</Alert.Description>
 	<Button
 		slot="extra"

@@ -35,10 +35,7 @@
 	}
 </script>
 
-<div
-	class="prose max-w-full transition-all duration-300"
-	style="width: {$menuCollapse ? '3rem' : '100%'}"
->
+<div class="transition-all duration-300" style="width: {$menuCollapse ? '3rem' : '100%'}">
 	<a
 		on:click
 		use:tooltip={{

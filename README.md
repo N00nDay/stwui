@@ -21,6 +21,7 @@ A showcase can be found at `https://stwui.vercel.app/`. Documentation is still f
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   plugins: [
+    require('@tailwindcss/forms'),
     require('stwui/plugin')
   ],
   darkMode: 'class'

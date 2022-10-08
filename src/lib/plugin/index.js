@@ -435,6 +435,25 @@ module.exports = plugin(
 			}
 		});
 		addBase({
+			h1: {
+				'font-weight': '800',
+				'font-size': '2.25em',
+				'line-height': '1.1111111'
+			},
+			h2: {
+				'font-weight': '700',
+				'font-size': '1.5em',
+				'line-height': '1.3333333'
+			},
+			h3: {
+				'font-weight': '600',
+				'font-size': '1.25em',
+				'line-height': '1.6'
+			},
+			h4: {
+				'font-weight': '600',
+				'line-height': '1.5'
+			},
 			"[type='text']:focus": {
 				outline: 'unset',
 				'outline-offset': 'unset',

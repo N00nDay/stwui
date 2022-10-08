@@ -99,10 +99,10 @@
 	<Row class="h-[500px]">
 		<Col class="md:col-12 col-24 h-full">
 			<div
-				class="prose max-w-full p-4 md:p-8 min-h-[500px] h-[calc(100vh-200px)] flex flex-col justify-center items-start"
+				class="p-4 md:p-8 min-h-[500px] h-[calc(100vh-200px)] flex flex-col justify-center items-start"
 			>
-				<h1 class="mb-0 text-6xl text-primary">Components you want</h1>
-				<h1 class="mb-0 text-6xl text-light-content dark:text-dark-content">
+				<h1 class="mb-0 text-6xl font-extrabold text-primary">Components you want</h1>
+				<h1 class="mb-0 text-6xl font-extrabold text-light-content dark:text-dark-content">
 					the way you want them
 				</h1>
 				<p class="text-light-content dark:text-dark-content mt-4">

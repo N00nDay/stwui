@@ -9,8 +9,7 @@
 		component: 'Post.Header.Created'
 	});
 
-	const defaultClass =
-		'prose max-w-full text-xs text-light-secondary-content dark:text-dark-secondary-content';
+	const defaultClass = 'text-xs text-light-secondary-content dark:text-dark-secondary-content';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
