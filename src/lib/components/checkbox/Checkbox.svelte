@@ -34,6 +34,7 @@
 	<div class="ml-3 text-sm">
 		<slot name="label" />
 		<slot name="description" />
+		<slot />
 	</div>
 </div>
 

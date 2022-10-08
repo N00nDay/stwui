@@ -6,4 +6,4 @@
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<legend class={finalClass} style={$$props.style}><slot />></legend>
+<legend class={finalClass} style={$$props.style}><slot /></legend>
