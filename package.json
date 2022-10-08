@@ -72,7 +72,10 @@
 		"svelte": "^3.50.1"
 	},
 	"exports": {
-		".": "./index.js"
+		".": "./index.js",
+		"./actions": "./actions/index.js",
+		"./plugin": "./plugin/index.js",
+		"./types": "./types/index.js"
 	},
 	"svelte": "."
 }
