@@ -23,7 +23,7 @@
 		toggleSidebarWidth
 	});
 
-	const defaultClass = 'w-full flex flex-col';
+	const defaultClass = 'w-full h-full flex flex-col';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

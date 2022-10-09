@@ -13,6 +13,7 @@
 html {
 	@apply h-full;
 	@apply w-full;
+	@apply overflow-hidden;
 }
 
 body {
@@ -22,23 +23,8 @@ body {
 	@apply flex-col;
 	@apply bg-light-surface;
 	@apply dark:bg-dark-surface;
-	@apply m-0;
-	@apply px-0;
-	@apply left-0;
-	@apply right-0;
-	@apply top-0;
-	@apply bottom-0;
+	@apply overflow-hidden;
 	overscroll-behavior: none;
-}
-
-@media only screen and (min-width: 768px) {
-	body {
-		@apply p-0;
-		@apply h-full;
-		@apply w-full;
-		touch-action: none;
-		-ms-touch-action: none;
-	}
 }
 
 * {

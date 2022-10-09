@@ -219,10 +219,18 @@
 	$: pageTitle = renderTitle($page.url.pathname);
 </script>
 
-<div class="h-full print:hidden">
+<svelte:head>
+	{#if darkTheme}
+		<meta name="theme-color" content="#242526" />
+	{:else}
+		<meta name="theme-color" content="#ffffff" />
+	{/if}
+</svelte:head>
+
+<div class="h-full w-full print:hidden">
 	<Layout>
 		<div
-			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-primary dark:bg-dark-surface shadow-md dark:shadow-black"
+			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-light-surface dark:bg-dark-surface shadow-md dark:shadow-black"
 		/>
 		<Layout.Header {toggleSidebarWidth}>
 			<Button
@@ -321,10 +329,10 @@
 		</Layout.Header>
 
 		<Layout.Content
-			class="h-[calc(100vh-64px)] bg-light-background dark:bg-dark-background"
+			class="h-[calc(100%-64px)] bg-light-background dark:bg-dark-background"
 			{collapsed}
 		>
-			<Layout.Content.Sidebar class="max-w-[calc(100vh-64px)]">
+			<Layout.Content.Sidebar class="max-w-[calc(100%-64px)]">
 				<h3
 					class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2"
 				>
