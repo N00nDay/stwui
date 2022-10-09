@@ -52,4 +52,5 @@
 	<slot name="avatar" />
 	<slot name="label" />
 	<slot name="close" />
+	<slot />
 </span>
