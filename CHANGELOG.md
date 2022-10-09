@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.14-next](https://github.com/N00nDay/stwui/compare/v0.0.13-next...v0.0.14-next) (2022-10-09)
+
+
+### Bug Fixes
+
+* **Chip:** added default slot ([87c6d29](https://github.com/N00nDay/stwui/commit/87c6d29ef481439fa408879f705a7ba9cb6aca9f))
+
 ## [0.0.13-next](https://github.com/N00nDay/stwui/compare/v0.0.12-next...v0.0.13-next) (2022-10-08)
 
 
