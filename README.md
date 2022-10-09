@@ -8,7 +8,7 @@ Svelte-TailwindCSS UI (STWUI) is currently in pre-release. There has been a lot 
 <br />
 <br />
 
-A showcase can be found at `https://stwui.vercel.app/`. Documentation is still forthcoming but you can at least see the components being used.
+A showcase can be found at [https://stwui.vercel.app/](https://stwui.vercel.app/). Documentation is still forthcoming but you can at least see the components being used.
 
 # Installing
 
