@@ -91,7 +91,7 @@ export const example = `
 <script lang="ts">
 	import { DatePicker } from 'stwui';
 
-   const date2Max = new Date(2022, 7, 30);
+	const date2Max = new Date(2022, 7, 30);
 	const date2Min = new Date(2022, 7, 3);
 </script>
 
