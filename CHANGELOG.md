@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.16-next](https://github.com/N00nDay/stwui/compare/v0.0.15-next...v0.0.16-next) (2022-10-10)
+
+
+### Bug Fixes
+
+* added link component to tailwind config ([bd8127f](https://github.com/N00nDay/stwui/commit/bd8127fa4311376f5e35592af86bdb4b01b32fe3))
+* **Dropdown.Items:** added placement ([9191cbc](https://github.com/N00nDay/stwui/commit/9191cbc00a49a58f7dadc02f15da77f8017a34ea))
+* **Row:** removed margins as they were causing styling issues ([0d76795](https://github.com/N00nDay/stwui/commit/0d767957a708cdc69761f3fccf5161f83db01378))
+
 ## [0.0.15-next](https://github.com/N00nDay/stwui/compare/v0.0.14-next...v0.0.15-next) (2022-10-10)
 
 
