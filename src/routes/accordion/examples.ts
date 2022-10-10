@@ -1,14 +1,5 @@
 import type { Slot, Prop } from '../../docs';
 
-// export const props: Prop[] = [
-// {
-// 	id: '1',
-// 	prop: 'type',
-// 	type: "'info' | 'warn' | 'success' | 'error'",
-// 	default: 'info'
-// }
-// ];
-
 export const slots: Slot[] = [
 	{
 		id: '1',
