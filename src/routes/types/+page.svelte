@@ -4,7 +4,7 @@
 	import { InlineCode, CodeBlock } from '../..//docs';
 </script>
 
-<div class="p-12 w-full h-full overflow-auto">
+<div class="w-full h-full overflow-auto">
 	<h1 id="CarouselSlide" class="text-light-content dark:text-dark-content mb-0">CarouselSlide</h1>
 	<Divider />
 
