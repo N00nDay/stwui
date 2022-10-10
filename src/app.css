@@ -31,12 +31,3 @@ body {
 	-webkit-backface-visibility: hidden;
 	-webkit-tap-highlight-color: transparent;
 }
-
-a.link {
-	@apply underline;
-	@apply text-primary;
-}
-
-a.link:hover {
-	@apply text-primary-hover;
-}

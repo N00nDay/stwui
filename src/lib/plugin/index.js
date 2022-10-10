@@ -432,6 +432,13 @@ module.exports = plugin(
 				'--tw-scale-y': '1',
 				transform:
 					'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))'
+			},
+			'a.link': {
+				'text-decoration-line': 'underline',
+				color: '#2563eb'
+			},
+			'a.link:hover': {
+				color: '#1d4ed8'
 			}
 		});
 		addBase({
