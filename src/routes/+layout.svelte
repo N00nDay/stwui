@@ -6,7 +6,7 @@
 
 	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle } from '../lib';
 	import { browser } from '$app/environment';
-	import Navigation from '../docs/components/navigation/Navigation.svelte';
+	import { Navigation } from '../docs';
 
 	const sidebarFullWidth = 218;
 
@@ -185,7 +185,7 @@
 				<Navigation {collapsed} />
 			</Layout.Content.Sidebar>
 			<Layout.Content.Body
-				class="relative h-full w-full p-4 md:p-8 overflow-x-hidden overflow-y-auto pt-[var(--sat)] pb-[var(--sab)] pr-[var(--sar)] pl-[var(--sal)]"
+				class="relative h-full w-full overflow-x-hidden overflow-y-auto pt-[calc(1rem+var(--sat))] pb-[calc(1rem+var(--sab))] pr-[calc(1rem+var(--sar))] pl-[calc(1rem+var(--sal))] md:pt-[calc(2rem+var(--sat))] md:pb-[calc(2rem+var(--sab))] md:pr-[calc(2rem+var(--sar))] md:pl-[calc(2rem+var(--sal))]"
 			>
 				<div>
 					<Row gutter="3" class="h-full w-full">
@@ -201,7 +201,7 @@
 	{#if openMenu}
 		<Drawer handleClose={closeOpenMenu} placement="left">
 			<Drawer.Content class="overflow-y-auto p-4">
-				<Navigation {collapsed} />
+				<Navigation {collapsed} handleClose={closeOpenMenu} />
 			</Drawer.Content>
 		</Drawer>
 	{/if}

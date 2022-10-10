@@ -155,6 +155,13 @@
 	];
 
 	export let collapsed = false;
+	export let handleClose: (() => void) | undefined = undefined;
+
+	function handleClick() {
+		if (handleClose) {
+			handleClose();
+		}
+	}
 </script>
 
 <h3
@@ -163,7 +170,7 @@
 	GET STARTED
 </h3>
 <Menu {collapsed}>
-	<Menu.Item label="Installation" href="/installation" />
+	<Menu.Item label="Installation" href="/installation" on:click={handleClick} />
 </Menu>
 <h3
 	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
@@ -173,11 +180,11 @@
 <Menu {collapsed}>
 	{#each sidebarItems as item}
 		{#if item.beta}
-			<Menu.Item label={item.title} href={item.href}>
+			<Menu.Item label={item.title} href={item.href} on:click={handleClick}>
 				<Badge slot="extra" type="error">BETA</Badge>
 			</Menu.Item>
 		{:else}
-			<Menu.Item label={item.title} href={item.href} />
+			<Menu.Item label={item.title} href={item.href} on:click={handleClick} />
 		{/if}
 	{/each}
 </Menu>
@@ -187,5 +194,5 @@
 	TYPES
 </h3>
 <Menu {collapsed}>
-	<Menu.Item label="Types" href="/types" />
+	<Menu.Item label="Types" href="/types" on:click={handleClick} />
 </Menu>

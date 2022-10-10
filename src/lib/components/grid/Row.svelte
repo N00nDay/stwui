@@ -30,13 +30,13 @@
 	if (gutter.constructor === Array) {
 		const verticalGutter = twSizes[gutter[0]] / 2;
 		const horizontalGutter = twSizes[gutter[1]] / 2;
-		margin = `margin: -${verticalGutter}px -${horizontalGutter}rem;`;
+		// margin = `margin: -${verticalGutter}px -${horizontalGutter}rem;`;
 		padding = `padding: ${verticalGutter}px ${horizontalGutter}rem;`;
 	} else if (typeof gutter === 'string') {
-		margin = `margin: -${twSizes[gutter] / 2}rem;`;
+		// margin = `margin: -${twSizes[gutter] / 2}rem;`;
 		padding = `padding: ${twSizes[gutter] / 2}rem;`;
 	} else {
-		margin = 'margin: 0;';
+		// margin = 'margin: 0;';
 		padding = 'padding: 0;';
 	}
 
