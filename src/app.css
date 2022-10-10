@@ -32,11 +32,11 @@ body {
 	-webkit-tap-highlight-color: transparent;
 }
 
-a {
+a.link {
 	@apply underline;
 	@apply text-primary;
 }
 
-a:hover {
+a.link:hover {
 	@apply text-primary-hover;
 }

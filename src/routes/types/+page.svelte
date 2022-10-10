@@ -9,7 +9,8 @@
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
-		Used in conjunction with the <a href="/carousel">Carousel</a> and <a href="/post">Post</a> components.
+		Used in conjunction with the <a class="link" href="/carousel">Carousel</a> and
+		<a href="/post">Post</a> components.
 	</p>
 
 	<CodeBlock language="typescript" code={carouselSlide} />
@@ -20,7 +21,7 @@
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
-		Used in conjunction with the <a href="/datepicker">DatePicker</a> components.
+		Used in conjunction with the <a class="link" href="/datepicker">DatePicker</a> components.
 	</p>
 
 	<CodeBlock language="typescript" code={locale} />
@@ -32,6 +33,7 @@
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
 		All Icon components use <a
+			class="link"
 			target="_blank"
 			href="https://fonts.google.com/icons?selected=Material+Icons">Material Design Icons</a
 		>

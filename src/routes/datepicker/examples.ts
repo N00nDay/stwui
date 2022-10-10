@@ -4,7 +4,7 @@ export const props: Prop[] = [
 	{
 		id: '1',
 		prop: 'trailing',
-		type: '<a href="/types#MaterialIcon">MaterialIcon</a> | undefined',
+		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a> | undefined',
 		default: 'calendar_month'
 	},
 	{
@@ -58,13 +58,13 @@ export const props: Prop[] = [
 	{
 		id: '9',
 		prop: 'format',
-		type: 'string (<a target="_blank" href="https://day.js.org/docs/en/display/format">dayjs format</a>)',
+		type: 'string (<a class="link" target="_blank" href="https://day.js.org/docs/en/display/format">dayjs format</a>)',
 		default: 'MMMM D, YYYY'
 	},
 	{
 		id: '10',
 		prop: 'locale',
-		type: '<a href="/types#Locale">Locale</a>',
+		type: '<a class="link" href="/types#Locale">Locale</a>',
 		default: '{}'
 	},
 	{
@@ -82,7 +82,7 @@ export const props: Prop[] = [
 	{
 		id: '13',
 		prop: 'handleSelect',
-		type: '(d: <a target="_blank" href="https://day.js.org/docs/en/display/format">Dayjs</a>) => void) | undefined',
+		type: '(d: <a class="link" target="_blank" href="https://day.js.org/docs/en/display/format">Dayjs</a>) => void) | undefined',
 		default: ''
 	}
 ];

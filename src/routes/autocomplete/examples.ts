@@ -4,7 +4,7 @@ export const props: Prop[] = [
 	{
 		id: '1',
 		prop: 'leading',
-		type: '<a href="/types#MaterialIcon">MaterialIcon</a>',
+		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
 		default: ''
 	},
 	{

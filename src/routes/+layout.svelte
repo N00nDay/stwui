@@ -3,7 +3,6 @@
 	import { goto } from '$app/navigation';
 
 	import { page } from '$app/stores';
-
 	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle } from '../lib';
 	import { browser } from '$app/environment';
 	import { Navigation } from '../docs';
@@ -11,7 +10,6 @@
 	const sidebarFullWidth = 218;
 
 	let sidebarWidth = 218;
-	let collapsed = false;
 
 	let openMenu = false;
 	let darkTheme = false;
@@ -32,17 +30,18 @@
 		htmlElement.classList.remove('dark');
 	}
 
-	function toggleSidebarWidth() {
-		if (sidebarWidth === sidebarFullWidth) {
-			sidebarWidth = 72;
-			collapsed = true;
-		} else {
-			sidebarWidth = sidebarFullWidth;
-			collapsed = false;
+	async function scrollToTop() {
+		if (browser) {
+			const scrollEl = document.getElementById('content-body') as HTMLDivElement;
+			if (scrollEl) {
+				scrollEl.scrollTop = 0;
+			}
 		}
 	}
 
 	function renderTitle(pathname: string) {
+		scrollToTop();
+
 		const pathnameStripped = pathname.substring(1);
 		const pathnameArray = pathnameStripped.replace('-', ' ').split(' ');
 		let title = '';
@@ -81,7 +80,7 @@
 		<div
 			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-light-surface dark:bg-dark-surface shadow-md dark:shadow-black"
 		/>
-		<Layout.Header {toggleSidebarWidth}>
+		<Layout.Header>
 			<Button
 				shape="circle"
 				class="inline-block lg:hidden mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
@@ -177,14 +176,12 @@
 			</Layout.Header.Extra>
 		</Layout.Header>
 
-		<Layout.Content
-			class="h-[calc(100%-64px)] bg-light-background dark:bg-dark-background"
-			{collapsed}
-		>
+		<Layout.Content class="h-[calc(100%-64px)] bg-light-background dark:bg-dark-background">
 			<Layout.Content.Sidebar class="max-w-full">
-				<Navigation {collapsed} />
+				<Navigation />
 			</Layout.Content.Sidebar>
 			<Layout.Content.Body
+				id="content-body"
 				class="relative h-full w-full overflow-x-hidden overflow-y-auto pt-[calc(1rem+var(--sat))] pb-[calc(1rem+var(--sab))] pr-[calc(1rem+var(--sar))] pl-[calc(1rem+var(--sal))] md:pt-[calc(2rem+var(--sat))] md:pb-[calc(2rem+var(--sab))] md:pr-[calc(2rem+var(--sar))] md:pl-[calc(2rem+var(--sal))]"
 			>
 				<div>
@@ -201,7 +198,7 @@
 	{#if openMenu}
 		<Drawer handleClose={closeOpenMenu} placement="left">
 			<Drawer.Content class="overflow-y-auto p-4">
-				<Navigation {collapsed} handleClose={closeOpenMenu} />
+				<Navigation handleClose={closeOpenMenu} />
 			</Drawer.Content>
 		</Drawer>
 	{/if}

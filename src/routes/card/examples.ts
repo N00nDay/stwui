@@ -114,7 +114,7 @@ export const actionProps: Prop[] = [
 	{
 		id: '1',
 		prop: 'icon',
-		type: '<a href="/types#MaterialIcon">MaterialIcon</a>',
+		type: '<a class="link" class="link" href="/types#MaterialIcon">MaterialIcon</a>',
 		default: ''
 	},
 	{

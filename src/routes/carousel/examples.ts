@@ -4,7 +4,7 @@ export const props: Prop[] = [
 	{
 		id: '1',
 		prop: 'slides',
-		type: '<a href="/types#CarouselSlide">CarouselSlide[]</a>',
+		type: '<a class="link" href="/types#CarouselSlide">CarouselSlide[]</a>',
 		default: '[]'
 	},
 	{
