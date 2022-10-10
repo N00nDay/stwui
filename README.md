@@ -14,14 +14,14 @@ A showcase can be found at [https://stwui.vercel.app/](https://stwui.vercel.app/
 
 - Run `npm install stwui`
 - Add `require('stwui/plugin')` to the `plugins` section of your `tailwind.config.cjs`
-- Add `'../node_modules/stwui/**/*.{svelte,js,ts,html}'` to the `content` array of your `tailwind.config.cjs`
+- Add `'./node_modules/stwui/**/*.{svelte,js,ts,html}'` to the `content` array of your `tailwind.config.cjs`
 - Add `class` to the `darkMode` property of your `tailwind.config.cjs`
 
 ```
 module.exports = {
   content: [
     './src/**/*.{html,js,svelte,ts}',
-    '../node_modules/stwui/**/*.{svelte,js,ts,html}
+    './node_modules/stwui/**/*.{svelte,js,ts,html}
   ],
   plugins: [
     require('@tailwindcss/forms'),
