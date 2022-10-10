@@ -65,6 +65,10 @@
 			href: '/drawer'
 		},
 		{
+			title: 'Dropdown',
+			href: '/dropdown'
+		},
+		{
 			title: 'Empty',
 			href: '/empty'
 		},

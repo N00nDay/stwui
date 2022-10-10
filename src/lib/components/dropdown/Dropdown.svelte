@@ -14,7 +14,7 @@
 		dropdown: true
 	});
 
-	const defaultClass = 'relative inset-0 flex-shrink-0';
+	const defaultClass = 'relative inline-block';
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
