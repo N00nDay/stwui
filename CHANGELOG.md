@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.0.15-next](https://github.com/N00nDay/stwui/compare/v0.0.14-next...v0.0.15-next) (2022-10-10)
+
+
+### Bug Fixes
+
+* **Avatar:** added graceful load and fail ([e1ecc19](https://github.com/N00nDay/stwui/commit/e1ecc19e473d1608620b9ecc99f0b8efc1f924d4))
+* **AvatarGroup.Avatar:** added graceful load and fail ([e1ecc19](https://github.com/N00nDay/stwui/commit/e1ecc19e473d1608620b9ecc99f0b8efc1f924d4))
+* **DatePicker:** closeOnSelect ([ca8a511](https://github.com/N00nDay/stwui/commit/ca8a511c3c3ba37e1b5e5a640fdac03143521f11))
+* **Post.Header.Creator:** fixed styling and sizing ([e1ecc19](https://github.com/N00nDay/stwui/commit/e1ecc19e473d1608620b9ecc99f0b8efc1f924d4))
+* **Post.Images:** changes transitions to local ([e1ecc19](https://github.com/N00nDay/stwui/commit/e1ecc19e473d1608620b9ecc99f0b8efc1f924d4))
+
 ## [0.0.14-next](https://github.com/N00nDay/stwui/compare/v0.0.13-next...v0.0.14-next) (2022-10-09)
 
 
