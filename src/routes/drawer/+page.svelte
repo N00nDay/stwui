@@ -1,5 +1,16 @@
 <script lang="ts">
 	import { Button, Card, Col, Drawer, Portal } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import {
+		example,
+		placementExample,
+		props,
+		slots,
+		headerSlots,
+		contentSlots,
+		footerSlots
+	} from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 
 	let drawerRightOpen = false;
 	let drawerLeftOpen = false;
@@ -41,11 +52,22 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Drawer</Card.Header>
+		<Card.Header slot="header">Drawer Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Button type="primary" on:click={openDrawerRight}>Open Right</Button>
+
 			<br />
 			<br />
+
+			<CodeBlock language="svelte" code={example} />
+		</Card.Content>
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-12">
+	<Card bordered={false}>
+		<Card.Header slot="header">Drawer Placement</Card.Header>
+		<Card.Content slot="content" class="p-4">
 			<Button type="primary" on:click={openDrawerLeft}>Open Left</Button>
 			<br />
 			<br />
@@ -53,6 +75,11 @@
 			<br />
 			<br />
 			<Button type="primary" on:click={openDrawerBottom}>Open Bottom</Button>
+
+			<br />
+			<br />
+
+			<CodeBlock language="svelte" code={placementExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -84,3 +111,23 @@
 		<Drawer handleClose={closeDrawerBottom} placement="bottom" />
 	{/if}
 </Portal>
+
+<Col class="col-24">
+	<PropsTable component="Drawer" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Drawer" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Drawer.Header" slots={headerSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Drawer.Content" slots={contentSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Drawer.Footer" slots={footerSlots} />
+</Col>

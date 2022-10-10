@@ -22,6 +22,7 @@
 		<h2>
 			<slot />
 		</h2>
+		<!-- TODO: pull out to allow for customization? -->
 		{#if handleClose}
 			<div class="ml-3 flex h-7 items-center">
 				<Button type="ghost" on:click={handleClose} shape="circle">
