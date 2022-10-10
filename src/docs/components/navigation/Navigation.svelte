@@ -53,7 +53,8 @@
 		},
 		{
 			title: 'Datepicker',
-			href: '/datepicker'
+			href: '/datepicker',
+			beta: true
 		},
 		{
 			title: 'Divider',
