@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Alert, Autocomplete, Card, Col } from '../../lib';
+	import { Autocomplete, Card, Col } from '../../lib';
 	import CodeBlock from '../../docs/components/code-block';
 	import { example, props, slots, listSlots, optionProps, emptyOptionProps } from './examples';
 	import { PropsTable, SlotsTable, BetaComponent } from '../../docs';

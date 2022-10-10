@@ -38,7 +38,7 @@
 	export let locale: Locale = {};
 	export let text = $store?.format(format) ?? '';
 	export let visible = false;
-	export let closeOnSelection = true;
+	// export let closeOnSelection = true;
 	export let closeOnSelect = true;
 	export let handleSelect: ((d: Dayjs) => void) | undefined = undefined;
 
@@ -82,7 +82,7 @@
 		const dateInput = document.getElementById(name) as HTMLInputElement;
 		dateInput.value = value.toISOString();
 		if (handleSelect) handleSelect(d);
-		if (closeOnSelection) {
+		if (closeOnSelect) {
 			visible = false;
 		}
 	}
