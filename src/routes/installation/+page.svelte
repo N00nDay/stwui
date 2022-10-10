@@ -19,7 +19,7 @@ module.exports = {
 `;
 </script>
 
-<div class="p-12 w-full h-full overflow-auto">
+<div class="w-full h-full overflow-auto">
 	<h1 class="text-light-content dark:text-dark-content mb-0">Installation</h1>
 	<Divider />
 

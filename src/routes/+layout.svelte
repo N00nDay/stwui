@@ -181,14 +181,14 @@
 			class="h-[calc(100%-64px)] bg-light-background dark:bg-dark-background"
 			{collapsed}
 		>
-			<Layout.Content.Sidebar class="max-w-[calc(100%-64px)]">
+			<Layout.Content.Sidebar class="max-w-full">
 				<Navigation {collapsed} />
 			</Layout.Content.Sidebar>
 			<Layout.Content.Body
-				class="relative h-full lg:pl-0 overflow-x-hidden overflow-y-auto pt-[var(--sat)] pb-[var(--sab)] pr-[var(--sar)] pl-[var(--sal)]"
+				class="relative h-full w-full p-4 md:p-8 overflow-x-hidden overflow-y-auto pt-[var(--sat)] pb-[var(--sab)] pr-[var(--sar)] pl-[var(--sal)]"
 			>
-				<div class="p-3 h-full">
-					<Row gutter="3" class="h-full">
+				<div>
+					<Row gutter="3" class="h-full w-full">
 						<slot />
 					</Row>
 				</div>
