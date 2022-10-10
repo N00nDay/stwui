@@ -13,6 +13,6 @@
 	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<h3 class={finalClass}>
+<h4 class={finalClass}>
 	<slot />
-</h3>
+</h4>

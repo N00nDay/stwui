@@ -3,10 +3,11 @@
 </script>
 
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import { AVATAR_GROUP_CONTEXT_ID } from './AvatarGroup.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { browser } from '$app/environment';
-	import { setContext, getContext } from 'svelte/internal';
+	import { setContext, getContext, onMount } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Placeholder from './Placeholder.svelte';
 
@@ -14,13 +15,9 @@
 	export let alt = 'avatar';
 	export let initials: string | undefined = undefined;
 
-	let img: HTMLImageElement;
-
-	function handleError(e: Event) {
-		// if (withPlaceholder) {
-		img.remove();
-		// }
-	}
+	let loaded = true;
+	let failed = false;
+	let loading = false;
 
 	useContext({
 		context_id: AVATAR_GROUP_CONTEXT_ID,
@@ -77,24 +74,38 @@
 
 	$: finalClass = twMerge(defaultClass, $$props.class);
 	$: finalContainerClass = twMerge(containerDefaultClass, $$props.class);
+
+	onMount(() => {
+		if (src) {
+			const image = new Image();
+			image.src = src;
+			loading = true;
+
+			image.onload = () => {
+				loading = false;
+				loaded = true;
+			};
+			image.onerror = () => {
+				loading = false;
+				failed = true;
+			};
+		}
+	});
 </script>
 
 {#if src}
 	<span class={finalContainerClass} style={$$props.style}>
-		{#if $$slots.placeholder}
-			<slot name="placeholder" />
-		{:else}
-			<Placeholder />
+		{#if loaded}
+			<img class={finalClass} style={$$props.style} src={src || ''} {alt} />
+		{:else if failed}
+			{#if $$slots.placeholder}
+				<slot name="placeholder" />
+			{:else}
+				<Placeholder />
+			{/if}
+		{:else if loading}
+			<Placeholder loading />
 		{/if}
-
-		<img
-			bind:this={img}
-			class={finalClass}
-			style={$$props.style}
-			src={(browser && src) || ''}
-			{alt}
-			on:error={handleError}
-		/>
 
 		<slot name="indicator" />
 	</span>

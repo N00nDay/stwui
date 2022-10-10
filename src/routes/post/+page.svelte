@@ -193,139 +193,142 @@
 	const lightboxActions: LightboxAction[] = [];
 </script>
 
-<Col class="col-24">
-	<div class="p-4 grid grid-cols-3 gap-2 items-start">
-		<Post>
-			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
-				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-				<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
-			</Post.Header>
+<Col class="col-24 sm:col-12 md:col-8">
+	<Post>
+		<Post.Header slot="header">
+			<Avatar slot="avatar" src={creator.avatar} />
+			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+			<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+		</Post.Header>
 
-			<Post.Content slot="content">
-				{@html content}
-			</Post.Content>
+		<Post.Content slot="content">
+			{@html content}
+		</Post.Content>
 
-			<Post.Images id="post-1" slot="images" images={images1} {lightboxActions} />
+		<Post.Images id="post-1" slot="images" images={images1} {lightboxActions} />
 
-			<Post.Status slot="status" likes={[]} comments={[]} />
+		<Post.Status slot="status" likes={[]} comments={[]} />
 
-			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
-			</Post.Actions>
-		</Post>
+		<Post.Actions slot="actions">
+			<Post.Actions.Action icon="thumb_up" label="Like" />
+			<Post.Actions.Action icon="comment" label="Comment" />
+			<Post.Actions.Action icon="share" label="Share" />
+		</Post.Actions>
+	</Post>
+</Col>
+<Col class="col-24 sm:col-12 md:col-8">
+	<Post>
+		<Post.Header slot="header">
+			<Avatar slot="avatar" src={creator.avatar} />
 
-		<Post>
-			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
+			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+			<Post.Header.Created slot="created">{formatDate(created2)}</Post.Header.Created>
+		</Post.Header>
 
-				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-				<Post.Header.Created slot="created">{formatDate(created2)}</Post.Header.Created>
-			</Post.Header>
+		<Post.Content slot="content">
+			{@html content}
+		</Post.Content>
 
-			<Post.Content slot="content">
-				{@html content}
-			</Post.Content>
+		<Post.Images id="post-2" slot="images" images={images2} {lightboxActions} />
 
-			<Post.Images id="post-2" slot="images" images={images2} {lightboxActions} />
+		<Post.Status slot="status" {likes} comments={[]} />
 
-			<Post.Status slot="status" {likes} comments={[]} />
+		<Post.Actions slot="actions">
+			<Post.Actions.Action icon="thumb_up" label="Like" />
+			<Post.Actions.Action icon="comment" label="Comment" />
+			<Post.Actions.Action icon="share" label="Share" />
+		</Post.Actions>
+	</Post>
+</Col>
+<Col class="col-24 sm:col-12 md:col-8">
+	<Post>
+		<Post.Header slot="header">
+			<Avatar slot="avatar" src={creator.avatar} />
+			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+			<Post.Header.Created slot="created">{formatDate(created3)}</Post.Header.Created>
+		</Post.Header>
 
-			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
-			</Post.Actions>
-		</Post>
+		<Post.Content slot="content">
+			{@html content}
+		</Post.Content>
 
-		<Post>
-			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
-				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-				<Post.Header.Created slot="created">{formatDate(created3)}</Post.Header.Created>
-			</Post.Header>
+		<Post.Images id="post-3" slot="images" images={images3} {lightboxActions} />
 
-			<Post.Content slot="content">
-				{@html content}
-			</Post.Content>
+		<Post.Status slot="status" {likes} {comments} />
 
-			<Post.Images id="post-3" slot="images" images={images3} {lightboxActions} />
+		<Post.Actions slot="actions">
+			<Post.Actions.Action icon="thumb_up" label="Like" />
+			<Post.Actions.Action icon="comment" label="Comment" />
+			<Post.Actions.Action icon="share" label="Share" />
+		</Post.Actions>
+	</Post>
+</Col>
+<Col class="col-24 sm:col-12 md:col-8">
+	<Post>
+		<Post.Header slot="header">
+			<Avatar slot="avatar" src={creator.avatar} />
+			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+			<Post.Header.Created slot="created">{formatDate(created4)}</Post.Header.Created>
+		</Post.Header>
 
-			<Post.Status slot="status" {likes} {comments} />
+		<Post.Content slot="content">
+			{@html content}
+		</Post.Content>
 
-			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
-			</Post.Actions>
-		</Post>
+		<Post.Images id="post-4" slot="images" images={images4} {lightboxActions} />
 
-		<Post>
-			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
-				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-				<Post.Header.Created slot="created">{formatDate(created4)}</Post.Header.Created>
-			</Post.Header>
+		<Post.Status slot="status" {likes} comments={[]} />
 
-			<Post.Content slot="content">
-				{@html content}
-			</Post.Content>
+		<Post.Actions slot="actions">
+			<Post.Actions.Action icon="thumb_up" label="Like" />
+			<Post.Actions.Action icon="comment" label="Comment" />
+			<Post.Actions.Action icon="share" label="Share" />
+		</Post.Actions>
+	</Post>
+</Col>
+<Col class="col-24 sm:col-12 md:col-8">
+	<Post>
+		<Post.Header slot="header">
+			<Avatar slot="avatar" src={creator.avatar} />
+			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+			<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+		</Post.Header>
 
-			<Post.Images id="post-4" slot="images" images={images4} {lightboxActions} />
+		<Post.Content slot="content">
+			{@html content}
+		</Post.Content>
 
-			<Post.Status slot="status" {likes} comments={[]} />
+		<Post.Images id="post-5" slot="images" images={images5} {lightboxActions} />
 
-			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
-			</Post.Actions>
-		</Post>
+		<Post.Status slot="status" likes={[]} {comments} />
 
-		<Post>
-			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
-				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-				<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
-			</Post.Header>
+		<Post.Actions slot="actions">
+			<Post.Actions.Action icon="thumb_up" label="Like" />
+			<Post.Actions.Action icon="comment" label="Comment" />
+			<Post.Actions.Action icon="share" label="Share" />
+		</Post.Actions>
+	</Post>
+</Col>
+<Col class="col-24 sm:col-12 md:col-8">
+	<Post>
+		<Post.Header slot="header">
+			<Avatar slot="avatar" src={creator.avatar} />
+			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+			<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+		</Post.Header>
 
-			<Post.Content slot="content">
-				{@html content}
-			</Post.Content>
+		<Post.Content slot="content">
+			{@html content}
+		</Post.Content>
 
-			<Post.Images id="post-5" slot="images" images={images5} {lightboxActions} />
+		<Post.Images id="post-6" slot="images" images={images6} {lightboxActions} />
 
-			<Post.Status slot="status" likes={[]} {comments} />
+		<Post.Status slot="status" likes={[]} {comments} />
 
-			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
-			</Post.Actions>
-		</Post>
-
-		<Post>
-			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
-				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-				<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
-			</Post.Header>
-
-			<Post.Content slot="content">
-				{@html content}
-			</Post.Content>
-
-			<Post.Images id="post-6" slot="images" images={images6} {lightboxActions} />
-
-			<Post.Status slot="status" likes={[]} {comments} />
-
-			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
-			</Post.Actions>
-		</Post>
-	</div>
+		<Post.Actions slot="actions">
+			<Post.Actions.Action icon="thumb_up" label="Like" />
+			<Post.Actions.Action icon="comment" label="Comment" />
+			<Post.Actions.Action icon="share" label="Share" />
+		</Post.Actions>
+	</Post>
 </Col>
