@@ -19,7 +19,7 @@
 
 	const defaultClass =
 		'px-4 py-5 sm:px-6 h-16 first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div

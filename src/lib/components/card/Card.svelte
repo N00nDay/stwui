@@ -24,7 +24,7 @@
 
 	const defaultClass =
 		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div

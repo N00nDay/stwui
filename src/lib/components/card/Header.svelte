@@ -25,11 +25,11 @@
 		defaultClass += ' border-b light-border dark:dark-border last:border-b-none';
 	}
 
-	defaultClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class={defaultClass}
+	class={finalClass}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
