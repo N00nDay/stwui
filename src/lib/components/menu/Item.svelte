@@ -1,41 +1,30 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { tooltip } from '../../actions';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { MENU_CONTEXT_ID } from './Menu.svelte';
+	import { twMerge } from 'tailwind-merge';
 
 	export let label: string;
 	export let href: string;
-	export let active = false;
+	export let key: string;
 
 	const {
 		menuCollapse,
-		showActiveByURL
+		activeItem
 	}: {
 		menuCollapse: Writable<boolean>;
-		showActiveByURL: boolean;
+		activeItem: Writable<string>;
 	} = getContext(MENU_CONTEXT_ID);
 
-	if (showActiveByURL) {
-		setActiveItems();
-	}
+	$: active = $activeItem === key;
 
-	$: if (showActiveByURL && $page) {
-		setActiveItems();
-	}
-
-	function setActiveItems() {
-		if ($page.url.pathname.includes(href) || $page.url.hash.includes(href)) {
-			active = true;
-		} else {
-			active = false;
-		}
-	}
+	let defaultClass = 'transition-all duration-300';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class="transition-all duration-300" style="width: {$menuCollapse ? '3rem' : '100%'}">
+<div class={finalClass} style={$$props.style}>
 	<a
 		on:click
 		use:tooltip={{

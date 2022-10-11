@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Badge, Menu } from '../../../lib';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte/internal';
 
 	const sidebarItems = [
 		{
@@ -164,30 +165,20 @@
 		}
 	];
 
-	export let selected: string | undefined = undefined;
-	export let collapsed = false;
 	export let handleClose: (() => void) | undefined = undefined;
 
-	function handleClick() {
+	let active = '';
+
+	function handleClick(item: string) {
+		active = item;
 		if (handleClose) {
 			handleClose();
 		}
 	}
 
-	$: if ($page) {
-		setActiveItems();
-	}
-
-	function setActiveItems() {
-		let path = $page.url.pathname;
-		path = path.substring(1);
-		const pathArray = path.split('-');
-		let tempSelected = '';
-		for (const a of pathArray) {
-			tempSelected += a.charAt(0).toUpperCase() + a.slice(1);
-		}
-		selected = tempSelected;
-	}
+	onMount(() => {
+		active = $page.url.pathname;
+	});
 </script>
 
 <h3
@@ -195,12 +186,12 @@
 >
 	GET STARTED
 </h3>
-<Menu {collapsed} showActiveByURL={false}>
+<Menu {active}>
 	<Menu.Item
+		key="/installation"
 		label="Installation"
 		href="/installation"
-		active={selected === 'Installation'}
-		on:click={handleClick}
+		on:click={() => handleClick('/installation')}
 	/>
 </Menu>
 <h3
@@ -208,23 +199,23 @@
 >
 	COMPONENTS
 </h3>
-<Menu {collapsed} showActiveByURL={false}>
+<Menu {active}>
 	{#each sidebarItems as item}
 		{#if item.beta}
 			<Menu.Item
+				key={item.href}
 				label={item.title}
 				href={item.href}
-				active={selected === item.title}
-				on:click={handleClick}
+				on:click={() => handleClick(item.href)}
 			>
 				<Badge slot="extra" type="error">BETA</Badge>
 			</Menu.Item>
 		{:else}
 			<Menu.Item
+				key={item.href}
 				label={item.title}
 				href={item.href}
-				active={selected === item.title}
-				on:click={handleClick}
+				on:click={() => handleClick(item.href)}
 			/>
 		{/if}
 	{/each}
@@ -234,6 +225,6 @@
 >
 	TYPES
 </h3>
-<Menu {collapsed} showActiveByURL={false}>
-	<Menu.Item label="Types" href="/types" active={selected === 'Types'} on:click={handleClick} />
+<Menu {active}>
+	<Menu.Item key="/types" label="Types" href="/types" on:click={() => handleClick('/types')} />
 </Menu>

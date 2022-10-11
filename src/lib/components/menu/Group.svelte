@@ -1,26 +1,42 @@
+<script lang="ts" context="module">
+	export const MENU_GROUP_CONTEXT_ID = 'menu-group-context-id';
+</script>
+
 <script lang="ts">
-	import { page } from '$app/stores';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { slide, scale, type TransitionConfig } from 'svelte/transition';
-	import { getContext } from 'svelte';
+	import { getContext, setContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { MENU_CONTEXT_ID } from './Menu.svelte';
 	import { useContext } from '$lib/utils/useContext';
+	import { twMerge } from 'tailwind-merge';
 
 	export let label: string;
-	export let href: string;
+	export let key: string;
 
 	let active = false;
-	let menuActive = false;
 	let collapsable: HTMLDivElement;
+
+	useContext({
+		context_id: MENU_CONTEXT_ID,
+		parent: 'Menu',
+		component: 'Menu.Group'
+	});
+
+	setContext(MENU_GROUP_CONTEXT_ID, {
+		group: true,
+		groupKey: key
+	});
 
 	const {
 		menuCollapse,
-		showActiveByURL
+		activeItem
 	}: {
 		menuCollapse: Writable<boolean>;
-		showActiveByURL: boolean;
+		activeItem: Writable<string>;
 	} = getContext(MENU_CONTEXT_ID);
+
+	$: menuActive = $activeItem.includes(key);
 
 	let forceCollapse = $menuCollapse ? true : false;
 	$: if ($menuCollapse) {
@@ -28,7 +44,7 @@
 		active = false;
 	}
 
-	function toggleOpen(href: string, e: Event) {
+	function toggleOpen(e: Event) {
 		if ($menuCollapse) {
 			if (collapsable === e.target) {
 				active = false;
@@ -59,37 +75,18 @@
 		}
 	}
 
-	useContext({
-		context_id: MENU_CONTEXT_ID,
-		parent: 'Menu',
-		component: 'Menu.Group'
-	});
-
-	if (showActiveByURL) {
-		setActiveItems();
-	}
-
-	$: if (showActiveByURL && $page) {
-		setActiveItems();
-	}
-
-	function setActiveItems() {
-		if ($page.url.pathname.includes(href) || $page.url.hash.includes(href)) {
-			menuActive = true;
-		} else {
-			menuActive = false;
-		}
-	}
+	let defaultClass = 'transition-all duration-300';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
 	bind:this={collapsable}
 	class="relative w-full"
-	on:mouseover={$menuCollapse ? (e) => toggleOpen(href, e) : undefined}
-	on:focus={$menuCollapse ? (e) => toggleOpen(href, e) : undefined}
-	on:mouseleave={$menuCollapse ? (e) => toggleOpen(href, e) : undefined}
+	on:mouseover={$menuCollapse ? toggleOpen : undefined}
+	on:focus={$menuCollapse ? toggleOpen : undefined}
+	on:mouseleave={$menuCollapse ? toggleOpen : undefined}
 >
-	<div class="transition-all duration-300" style="width: {$menuCollapse ? '3rem' : '100%'}">
+	<div class={finalClass} style={$$props.style}>
 		<h2
 			class="group relative m-0 w-full outline-none rounded-md focus:outline-none overflow-hidden"
 			class:text-light-content={active}
@@ -98,11 +95,13 @@
 			class:dark:text-dark-secondary-content={!active}
 			class:hover:text-light-content={!active}
 			class:dark:hover:text-dark-content={!active}
-			class:bg-light-icon-background-hover={$menuCollapse && menuActive}
-			class:dark:bg-dark-icon-background-hover={$menuCollapse && menuActive}
+			class:bg-light-icon-background-hover={($menuCollapse && menuActive) ||
+				(!$menuCollapse && !active && menuActive)}
+			class:dark:bg-dark-icon-background-hover={($menuCollapse && menuActive) ||
+				(!$menuCollapse && !active && menuActive)}
 		>
 			<button
-				on:click={!$menuCollapse ? (e) => toggleOpen(href, e) : undefined}
+				on:click={!$menuCollapse ? toggleOpen : undefined}
 				class="px-3 py-2 relative flex items-center w-full text-sm font-medium justify-between outline-none focus:outline-none"
 				type="button"
 			>
