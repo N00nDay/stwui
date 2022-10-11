@@ -15,7 +15,7 @@ const lastYearOrOlderFormat: Intl.DateTimeFormatOptions = {
 	hour12: true
 };
 
-export function formatDate(date: Date) {
+export default function formatDate(date: Date) {
 	const now = new Date();
 
 	const msBetweenDates = Math.abs(date.getTime() - now.getTime());

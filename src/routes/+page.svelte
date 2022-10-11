@@ -16,8 +16,7 @@
 		Icon,
 		Progress
 	} from '../lib';
-	import numberFormatter from '../lib/utils/numberFormatter';
-	import { formatDate } from '../lib/utils/formatDate';
+	import { formatDate, numberFormatter } from '../lib/utils';
 	import type { CarouselSlide, LightboxAction } from '../lib/types';
 
 	const items = [

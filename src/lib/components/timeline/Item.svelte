@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { MaterialIcon } from '../../types';
 	import Avatar from '../avatar';
-	import { formatDate } from '../../utils/formatDate';
+	import { formatDate } from '../../utils';
 
 	export let type: 'comment' | undefined = undefined;
 	export let avatar: string | undefined = undefined;

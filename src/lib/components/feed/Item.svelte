@@ -3,7 +3,7 @@
 	import Connector from './Connector.svelte';
 
 	const defaultClass = 'relative pb-8';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <li class="item">

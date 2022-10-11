@@ -1,8 +1,7 @@
 <script lang="ts">
 	import type { CarouselSlide, LightboxAction } from '../../lib/types';
 	import { Avatar, Col, Post } from '../../lib';
-	import { formatDate } from '../../lib/utils/formatDate';
-	import type { Action } from '../../lib/types/lightbox-action';
+	import { formatDate } from '../../lib/utils';
 
 	let creator = {
 		avatar:

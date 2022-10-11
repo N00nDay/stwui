@@ -3,7 +3,7 @@
 
 	const defaultClass =
 		'connector absolute top-4 left-4 -ml-px h-full w-0.5 bg-light-border dark:bg-dark-border';
-	const finalClass = twMerge(defaultClass, $$props.cass);
+	$: finalClass = twMerge(defaultClass, $$props.cass);
 </script>
 
-<span class={finalClass} />
+<span class={finalClass} style={$$props.style} />
