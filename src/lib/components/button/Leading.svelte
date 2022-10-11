@@ -10,7 +10,7 @@
 	});
 
 	const defaultClass = 'mr-2 flex justify-center items-center relative';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>

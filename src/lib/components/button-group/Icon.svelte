@@ -21,7 +21,7 @@
 	});
 
 	const defaultClass = `material-icons currentColor`;
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <span transition:scale|local class={finalClass} style={$$props.style}> {icon} </span>

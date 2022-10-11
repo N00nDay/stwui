@@ -2,7 +2,7 @@
 	import { twMerge } from 'tailwind-merge';
 
 	const defaultClass = 'button-loader';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <svg class={finalClass} viewBox="25 25 50 50" stroke-width="5">

@@ -44,7 +44,7 @@
 	} else {
 		defaultClass += ' cursor-pointer';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	const hoverClass =
 		shape === 'circle'
