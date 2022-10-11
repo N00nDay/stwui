@@ -35,9 +35,9 @@
 						</List.Item.Leading>
 						<List.Item.Content slot="content">
 							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description"
-								>{item.description}</List.Item.Content.Description
-							>
+							<List.Item.Content.Description slot="description">
+								{item.description}
+							</List.Item.Content.Description>
 						</List.Item.Content>
 					</List.Item>
 				{/each}
@@ -58,9 +58,9 @@
 						</List.Item.Leading>
 						<List.Item.Content slot="content">
 							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description"
-								>{item.description}</List.Item.Content.Description
-							>
+							<List.Item.Content.Description slot="description">
+								{item.description}
+							</List.Item.Content.Description>
 						</List.Item.Content>
 					</List.Item>
 				{/each}
@@ -81,9 +81,9 @@
 						</List.Item.Leading>
 						<List.Item.Content slot="content">
 							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description"
-								>{item.description}</List.Item.Content.Description
-							>
+							<List.Item.Content.Description slot="description">
+								{item.description}
+							</List.Item.Content.Description>
 						</List.Item.Content>
 						<List.Item.Extra slot="extra" placement="start">
 							<Button type="primary" shape="pill" on:click={() => console.log('clicking extra!')}
@@ -109,9 +109,9 @@
 						</List.Item.Leading>
 						<List.Item.Content slot="content">
 							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description"
-								>{item.description}</List.Item.Content.Description
-							>
+							<List.Item.Content.Description slot="description">
+								{item.description}
+							</List.Item.Content.Description>
 						</List.Item.Content>
 					</List.Item>
 				{/each}
@@ -132,9 +132,9 @@
 						</List.Item.Leading>
 						<List.Item.Content slot="content">
 							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description"
-								>{item.description}</List.Item.Content.Description
-							>
+							<List.Item.Content.Description slot="description">
+								{item.description}
+							</List.Item.Content.Description>
 						</List.Item.Content>
 					</List.Item>
 				{/each}
@@ -152,9 +152,9 @@
 					<List.Item>
 						<List.Item.Content slot="content">
 							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description"
-								>{item.description}</List.Item.Content.Description
-							>
+							<List.Item.Content.Description slot="description">
+								{item.description}
+							</List.Item.Content.Description>
 						</List.Item.Content>
 					</List.Item>
 				{/each}
@@ -188,9 +188,9 @@
 				{#each items as item}
 					<List.Item>
 						<List.Item.Content slot="content">
-							<List.Item.Content.Description slot="description"
-								>{item.description}</List.Item.Content.Description
-							>
+							<List.Item.Content.Description slot="description">
+								{item.description}
+							</List.Item.Content.Description>
 						</List.Item.Content>
 					</List.Item>
 				{/each}

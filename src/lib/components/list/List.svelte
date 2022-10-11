@@ -26,7 +26,7 @@
 	} else if (bordered) {
 		defaultClass += defaultBorderedClass;
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <ul class={finalClass} style={$$props.style}>

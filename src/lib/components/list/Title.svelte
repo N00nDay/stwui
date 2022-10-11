@@ -2,9 +2,9 @@
 	import { twMerge } from 'tailwind-merge';
 
 	const defaultClass = 'text-sm font-semibold text-light-content dark:text-dark-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<h3 class={finalClass}>
+<h3 class={finalClass} style={$$props.style}>
 	<slot />
 </h3>

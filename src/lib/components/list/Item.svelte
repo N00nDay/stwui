@@ -15,7 +15,7 @@
 	if (bordered) {
 		defaultClass += ' px-3';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <li class={finalClass} style={$$props.style}>

@@ -4,7 +4,7 @@
 	export let placement: 'start' | 'center' | 'end' = 'start';
 
 	const defaultClass = 'ml-3 flex justify-end flex-shink';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
@@ -12,6 +12,7 @@
 	class:items-start={placement === 'start'}
 	class:items-center={placement === 'center'}
 	class:items-end={placement === 'end'}
+	style={$$props.style}
 >
 	<slot />
 </div>
