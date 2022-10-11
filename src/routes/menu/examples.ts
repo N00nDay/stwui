@@ -119,6 +119,22 @@ export const groupItemsProps: Prop[] = [
 export const example = `
 <script lang="ts">
    import { Menu } from 'stwui';
+   import type { MaterialIcon } from 'stwui/types';
+
+	interface GroupMenuItem {
+		key: string;
+		label: string;
+		href: string;
+	}
+	interface MenuItem {
+		key: string;
+		icon?: MaterialIcon;
+		label: string;
+		badge?: string;
+		badgeType?: 'info' | 'warn' | 'error' | 'success';
+		href: string;
+		children?: GroupMenuItem[];
+	}
 
    const items: MenuItem[] = [
 		{
