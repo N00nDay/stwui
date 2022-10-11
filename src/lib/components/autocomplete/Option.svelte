@@ -30,7 +30,7 @@
 
 	const defaultClass =
 		'group text-light-content dark:text-dark-content cursor-pointer select-none p-0.5 w-full';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <li class={finalClass} role="option" aria-selected={selected} on:click={() => handleSelect(value)}>
