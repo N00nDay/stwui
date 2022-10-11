@@ -6,6 +6,7 @@
 	import { setContext } from 'svelte';
 
 	import { current_component } from 'svelte/internal';
+	import { twMerge } from 'tailwind-merge';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	import { exclude } from '../../utils/exclude';
 	export let use: ActionArray = [];
@@ -14,10 +15,13 @@
 	setContext(MEDIA_CONTEXT_ID, {
 		media: true
 	});
+
+	const defaultClass = 'flex';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class="flex{$$props.class ? ` ${$$props.class}` : ''}"
+	class={finalClass}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

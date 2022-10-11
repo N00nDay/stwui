@@ -6,6 +6,7 @@
 	import { current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	import { exclude } from '../../utils/exclude';
+	import { twMerge } from 'tailwind-merge';
 	export let use: ActionArray = [];
 	const forwardEvents = forwardEventsBuilder(current_component);
 
@@ -19,12 +20,13 @@
 		parent: 'Media.Content',
 		component: 'Media.Content.Description'
 	});
+
+	const defaultClass = 'mt-1 text-light-secondary-content dark:text-dark-secondary-content';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <p
-	class="mt-1 text-light-secondary-content dark:text-dark-secondary-content{$$props.class
-		? ` ${$$props.class}`
-		: ''}"
+	class={finalClass}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

@@ -24,7 +24,7 @@
 </script>
 
 <div
-	class={$$props.class ? $$props.class : ''}
+	class={$$props.class}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
