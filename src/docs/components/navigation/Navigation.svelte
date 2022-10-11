@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Badge, Menu } from '../../../lib';
+	import { page } from '$app/stores';
 
 	const sidebarItems = [
 		{
@@ -162,6 +163,7 @@
 		}
 	];
 
+	export let selected: string | undefined = undefined;
 	export let collapsed = false;
 	export let handleClose: (() => void) | undefined = undefined;
 
@@ -170,6 +172,21 @@
 			handleClose();
 		}
 	}
+
+	$: if ($page) {
+		setActiveItems();
+	}
+
+	function setActiveItems() {
+		let path = $page.url.pathname;
+		path = path.substring(1);
+		const pathArray = path.split('-');
+		let tempSelected = '';
+		for (const a of pathArray) {
+			tempSelected += a.charAt(0).toUpperCase() + a.slice(1);
+		}
+		selected = tempSelected;
+	}
 </script>
 
 <h3
@@ -177,22 +194,37 @@
 >
 	GET STARTED
 </h3>
-<Menu {collapsed}>
-	<Menu.Item label="Installation" href="/installation" on:click={handleClick} />
+<Menu {collapsed} showActiveByURL={false}>
+	<Menu.Item
+		label="Installation"
+		href="/installation"
+		active={selected === 'Installation'}
+		on:click={handleClick}
+	/>
 </Menu>
 <h3
 	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
 >
 	COMPONENTS
 </h3>
-<Menu {collapsed}>
+<Menu {collapsed} showActiveByURL={false}>
 	{#each sidebarItems as item}
 		{#if item.beta}
-			<Menu.Item label={item.title} href={item.href} on:click={handleClick}>
+			<Menu.Item
+				label={item.title}
+				href={item.href}
+				active={selected === item.title}
+				on:click={handleClick}
+			>
 				<Badge slot="extra" type="error">BETA</Badge>
 			</Menu.Item>
 		{:else}
-			<Menu.Item label={item.title} href={item.href} on:click={handleClick} />
+			<Menu.Item
+				label={item.title}
+				href={item.href}
+				active={selected === item.title}
+				on:click={handleClick}
+			/>
 		{/if}
 	{/each}
 </Menu>
@@ -201,6 +233,6 @@
 >
 	TYPES
 </h3>
-<Menu {collapsed}>
-	<Menu.Item label="Types" href="/types" on:click={handleClick} />
+<Menu {collapsed} showActiveByURL={false}>
+	<Menu.Item label="Types" href="/types" active={selected === 'Types'} on:click={handleClick} />
 </Menu>

@@ -117,10 +117,11 @@
 				</Button>
 			</div>
 		</Col>
+
 		<Col class="md:col-12 hidden md:flex h-full">
 			<Card
 				bordered={false}
-				class="w-full relative -top-4 -right-4 min-w-[700px] min-h-[500px] h-[calc(100vh-200px)] overflow-hidden"
+				class="w-full relative -top-4 -right-4 md:-top-8 md:-right-8 min-w-[700px] min-h-[500px] h-[calc(100vh-200px)] overflow-hidden"
 			>
 				<Card.Content class="px-3 py-6 sm:px-3 sm:py-6">
 					<Row>
@@ -223,19 +224,19 @@
 								</Card>
 							</div>
 
-							<div class="p-4 flex flex-row gap-2">
+							<div class="p-4 flex flex-row gap-2 whitespace-nowrap overflow-hidden">
 								<Toggle name="toggle-1" {on} />
 
 								<Toggle name="toggle-2" />
 
 								<Badge type="success"
-									>Badge 1
+									>SUCCESS
 									<Badge.Close slot="close" />
 								</Badge>
 
-								<Badge type="error">Badge 2</Badge>
+								<Badge type="error">ERROR</Badge>
 
-								<Badge type="info">Badge 3</Badge>
+								<Badge type="info">INFO</Badge>
 							</div>
 
 							<div class="p-4">
