@@ -230,7 +230,7 @@
 	{/each}
 </Menu>
 <h3
-	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2"
+	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
 >
 	TYPES
 </h3>
