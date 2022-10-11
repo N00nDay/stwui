@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { Card, Col, Currency, Input, TextArea } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import { example, currencyExample, textareaExample, props } from './examples';
+	import { PropsTable, BetaComponent } from '../../docs';
 </script>
+
+<Col class="col-24">
+	<BetaComponent />
+</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
@@ -19,6 +26,10 @@
 			/>
 			<br />
 			<Input type="password" name="input-4" label="Password" leading="lock" showPasswordToggle />
+
+			<br />
+
+			<CodeBlock language="svelte" code={example} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -38,6 +49,10 @@
 				trailing="phone"
 				error="There has been an error"
 			/>
+
+			<br />
+
+			<CodeBlock language="svelte" code={currencyExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -57,6 +72,14 @@
 				trailing="phone"
 				error="There has been an error"
 			/>
+
+			<br />
+
+			<CodeBlock language="svelte" code={textareaExample} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Input" {props} />
 </Col>

@@ -83,7 +83,8 @@
 		},
 		{
 			title: 'Input',
-			href: '/input'
+			href: '/input',
+			beta: true
 		},
 		{
 			title: 'List',

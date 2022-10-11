@@ -8,6 +8,7 @@
 	import type { MaterialIcon } from '../../types';
 	import { slide, scale } from 'svelte/transition';
 	import Swap from '../swap';
+	import { twMerge } from 'tailwind-merge';
 
 	export let leading: MaterialIcon | undefined = undefined;
 	export let trailing: MaterialIcon | undefined = undefined;
@@ -49,9 +50,12 @@
 		input.value = '';
 		value = undefined;
 	}
+
+	const defaultClass = 'group';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class="group{$$props.class ? `${$$props.class}` : ''}" style={$$props.style}>
+<div class={finalClass} style={$$props.style}>
 	{#if label}
 		<label
 			for={name}
