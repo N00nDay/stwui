@@ -1,5 +1,28 @@
 <script lang="ts">
 	import { Button, Card, Col, List } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import {
+		example,
+		noDividersExample,
+		extraExample,
+		edgeToEdgeExample,
+		borderedExample,
+		noAvatarExample,
+		titleExample,
+		descriptionExample,
+		props,
+		slots,
+		iconProps,
+		titleSlots,
+		descriptionSlots,
+		itemSlots,
+		leadingSlots,
+		avatarProps,
+		extraProps,
+		extraSlots
+	} from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
+	import { contentSlots } from '../accordion/examples';
 
 	const items = [
 		{
@@ -42,6 +65,10 @@
 					</List.Item>
 				{/each}
 			</List>
+
+			<br />
+
+			<CodeBlock language="svelte" code={example} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -65,6 +92,10 @@
 					</List.Item>
 				{/each}
 			</List>
+
+			<br />
+
+			<CodeBlock language="svelte" code={noDividersExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -86,13 +117,17 @@
 							</List.Item.Content.Description>
 						</List.Item.Content>
 						<List.Item.Extra slot="extra" placement="start">
-							<Button type="primary" shape="pill" on:click={() => console.log('clicking extra!')}
-								>Extra</Button
-							>
+							<Button type="primary" shape="pill" on:click={() => console.log('clicking extra!')}>
+								Extra
+							</Button>
 						</List.Item.Extra>
 					</List.Item>
 				{/each}
 			</List>
+
+			<br />
+
+			<CodeBlock language="svelte" code={extraExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -116,6 +151,10 @@
 					</List.Item>
 				{/each}
 			</List>
+
+			<br />
+
+			<CodeBlock language="svelte" code={edgeToEdgeExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -139,6 +178,10 @@
 					</List.Item>
 				{/each}
 			</List>
+
+			<br />
+
+			<CodeBlock language="svelte" code={borderedExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -159,6 +202,10 @@
 					</List.Item>
 				{/each}
 			</List>
+
+			<br />
+
+			<CodeBlock language="svelte" code={noAvatarExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -176,6 +223,10 @@
 					</List.Item>
 				{/each}
 			</List>
+
+			<br />
+
+			<CodeBlock language="svelte" code={titleExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -195,6 +246,54 @@
 					</List.Item>
 				{/each}
 			</List>
+
+			<br />
+
+			<CodeBlock language="svelte" code={descriptionExample} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="List" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="List" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="List.Item" slots={itemSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="List.Item.Leading" slots={leadingSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="List.Item.Leading.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="List.Item.Leading.Avatar" props={avatarProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="List.Item.Content" slots={contentSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="List.Item.Content.Title" slots={titleSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="List.Item.Content.Description" slots={descriptionSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="List.Item.Extra" props={extraProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="List.Item.Extra" slots={extraSlots} />
 </Col>
