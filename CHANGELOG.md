@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.0.18-next](https://github.com/N00nDay/stwui/compare/v0.0.17-next...v0.0.18-next) (2022-10-11)
+
+
+### Bug Fixes
+
+* **Input:** class is now reactive ([197847d](https://github.com/N00nDay/stwui/commit/197847d09bd86297e7be41809ff6c35e8f8cdb18))
+* **List:** class is now reactive including child components ([deeb03b](https://github.com/N00nDay/stwui/commit/deeb03bfb51fe3302ce6aabfbede512165aed6e1))
+* **Menu:** changed properties to make active item more simple ([b49b057](https://github.com/N00nDay/stwui/commit/b49b057d66b9349d34de40b54ff9a09b801e7daf))
+* **Menu:** class is now reactive along with child components ([b49b057](https://github.com/N00nDay/stwui/commit/b49b057d66b9349d34de40b54ff9a09b801e7daf))
+
 ## [0.0.17-next](https://github.com/N00nDay/stwui/compare/v0.0.16-next...v0.0.17-next) (2022-10-11)
 
 
