@@ -93,12 +93,11 @@ export const optionProps: Prop[] = [
 	}
 ];
 
-export const emptyOptionProps: Prop[] = [
+export const emptyOptionSlots: Slot[] = [
 	{
 		id: '1',
-		prop: 'label',
-		type: 'string',
-		default: 'No Options Available'
+		slot: 'default',
+		component: ''
 	}
 ];
 

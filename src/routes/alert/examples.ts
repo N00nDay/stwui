@@ -41,6 +41,22 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const titleSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const descriptionSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
 export const example = `
 <script lang="ts">
 	import { Alert } from 'stwui';

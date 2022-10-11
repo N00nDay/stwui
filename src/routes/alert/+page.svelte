@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Alert, Button, Card, Col, Icon } from '../../lib';
 	import CodeBlock from '../../docs/components/code-block';
-	import { example, props, slots, iconProps } from './examples';
+	import { example, props, slots, iconProps, titleSlots, descriptionSlots } from './examples';
 	import { PropsTable, SlotsTable } from '../../docs';
 </script>
 
@@ -50,4 +50,12 @@
 
 <Col class="col-24">
 	<PropsTable component="Alert.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Alert.Title" slots={titleSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Alert.Description" slots={descriptionSlots} />
 </Col>

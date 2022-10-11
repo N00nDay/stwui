@@ -54,7 +54,7 @@ export const example = `
 
    function handleClick(item: string) {
       if (open === item) {
-         open1= '';
+         open= '';
       } else {
          open = item;
       }

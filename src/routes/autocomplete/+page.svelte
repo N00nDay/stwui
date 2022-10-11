@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Autocomplete, Card, Col } from '../../lib';
 	import CodeBlock from '../../docs/components/code-block';
-	import { example, props, slots, listSlots, optionProps, emptyOptionProps } from './examples';
+	import { example, props, slots, listSlots, optionProps, emptyOptionSlots } from './examples';
 	import { PropsTable, SlotsTable, BetaComponent } from '../../docs';
 
 	let value1: string;
@@ -141,5 +141,5 @@
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Autocomplete.List.EmptyOption" props={emptyOptionProps} />
+	<SlotsTable component="Autocomplete.List.EmptyOption" slots={emptyOptionSlots} />
 </Col>

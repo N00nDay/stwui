@@ -20,6 +20,10 @@
 			href: '/avatar'
 		},
 		{
+			title: 'AvatarGroup',
+			href: '/avatar-group'
+		},
+		{
 			title: 'Badge',
 			href: '/badge'
 		},
