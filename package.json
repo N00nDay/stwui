@@ -75,7 +75,8 @@
 		".": "./index.js",
 		"./actions": "./actions/index.js",
 		"./plugin": "./plugin/index.js",
-		"./types": "./types/index.js"
+		"./types": "./types/index.js",
+		"./utils": "./utils/index.js"
 	},
 	"svelte": "."
 }
