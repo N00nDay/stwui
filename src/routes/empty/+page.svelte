@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { Button, Card, Col, Empty } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import { example, slots, iconProps, titleSlots, descriptionSlots } from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 </script>
 
 <Col class="col-24 md:col-12">
@@ -19,6 +22,26 @@
 					New Project</Button
 				>
 			</Empty>
+
+			<br />
+
+			<CodeBlock language="svelte" code={example} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Empty" {slots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Empty.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Empty.Title" slots={titleSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Empty.Description" slots={descriptionSlots} />
 </Col>
