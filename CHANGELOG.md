@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.0.17-next](https://github.com/N00nDay/stwui/compare/v0.0.16-next...v0.0.17-next) (2022-10-11)
+
+
+### Bug Fixes
+
+* **Autocomplete.List.EmptyOption:** replaced label prop with default slot ([fc8e272](https://github.com/N00nDay/stwui/commit/fc8e27227079f2197ae6e7c3d836cdc09ef8951f))
+* **Autocomplete:** class is now reactive ([984f56f](https://github.com/N00nDay/stwui/commit/984f56f4cb733c6ff84c35f51c26818c8d83b987))
+* **Button:** class is now reactive ([7700d0f](https://github.com/N00nDay/stwui/commit/7700d0fe07620536e0cad281a4b70dbf8fa3282c))
+* **ButtonGroup:** class is now reactive ([7700d0f](https://github.com/N00nDay/stwui/commit/7700d0fe07620536e0cad281a4b70dbf8fa3282c))
+* **Card:** class is now reactive ([015c948](https://github.com/N00nDay/stwui/commit/015c948456874cd3d2ad457ec093477cd467c0cc))
+* **Empty:** all classes are now reactive ([1c2516a](https://github.com/N00nDay/stwui/commit/1c2516ac361c39f74cff1cb01e31532afc8448af))
+* **Feed.DateTime:** replaced auto format with default slot ([7ea3d82](https://github.com/N00nDay/stwui/commit/7ea3d824e12cf12616ef7af6a57aa08fd4b3458e))
+* **Feed:** class is now reactive ([7ea3d82](https://github.com/N00nDay/stwui/commit/7ea3d824e12cf12616ef7af6a57aa08fd4b3458e))
+* fixed all utils exports ([7ea3d82](https://github.com/N00nDay/stwui/commit/7ea3d824e12cf12616ef7af6a57aa08fd4b3458e))
+* **utils:** export formatDate and numberFormat for users ([7ea3d82](https://github.com/N00nDay/stwui/commit/7ea3d824e12cf12616ef7af6a57aa08fd4b3458e))
+
 ## [0.0.16-next](https://github.com/N00nDay/stwui/compare/v0.0.15-next...v0.0.16-next) (2022-10-10)
 
 
