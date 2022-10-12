@@ -5,10 +5,12 @@ import Avatar from './Avatar.svelte';
 import Description from './Description.svelte';
 import Extra from './Extra.svelte';
 import Title from './Title.svelte';
+import Icon from './Icon.svelte';
 
 const Notification = OriginalNotification as NotificationStatic;
 Notification.Leading = OriginalLeading as LeadingStatic;
 Notification.Leading.Avatar = Avatar;
+Notification.Leading.Icon = Icon;
 Notification.Content = OriginalContent as ContentStatic;
 Notification.Content.Title = Title;
 Notification.Content.Description = Description;
@@ -26,6 +28,7 @@ export interface NotificationStatic {
 export interface LeadingStatic {
 	new (...args: ConstructorParameters<typeof OriginalLeading>): OriginalLeading;
 	Avatar: typeof Avatar;
+	Icon: typeof Icon;
 }
 
 export interface ContentStatic {

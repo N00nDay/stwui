@@ -24,7 +24,7 @@
 	$: $leading = true;
 
 	const defaultClass = 'flex-shrink-0 text-light-content dark:text-dark-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>

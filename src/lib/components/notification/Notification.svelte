@@ -24,12 +24,13 @@
 	setContext(NOTIFICATION_CONTEXT_ID, {
 		notification: true,
 		leading,
-		extra
+		extra,
+		type
 	});
 
 	const defaultClass =
 		'relative cursor-pointer flex items-start pointer-events-auto p-4 w-full max-w-sm overflow-hidden rounded-lg bg-light-surface dark:bg-dark-surface shadow-lg border light-border dark:dark-border dark:shadow-black';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div on:click class={finalClass} style={$$props.style}>

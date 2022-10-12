@@ -22,13 +22,17 @@
 		title
 	});
 
-	const { leading }: { leading: Writable<boolean> } = getContext(NOTIFICATION_CONTEXT_ID);
+	const {
+		leading,
+		type
+	}: { leading: Writable<boolean>; type: 'info' | 'warn' | 'error' | 'success' | undefined } =
+		getContext(NOTIFICATION_CONTEXT_ID);
 
-	let defaultClass = 'ml-3 w-0 flex-1 pt-0.5';
-	$: if ($leading) {
-		defaultClass = 'w-0 flex-1 pt-0.5';
+	let defaultClass = 'w-0 flex-1 pt-0.5';
+	$: if ($leading || type) {
+		defaultClass = 'ml-3 w-0 flex-1 pt-0.5';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>

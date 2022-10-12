@@ -16,7 +16,7 @@
 	$: $extra = true;
 
 	const defaultClass = 'ml-4 flex flex-shrink-0 relative top-0 right-0';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>
