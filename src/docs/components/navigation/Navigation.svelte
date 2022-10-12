@@ -156,12 +156,13 @@
 			href: '/swap'
 		},
 		{
-			title: 'Tabs',
-			href: '/tabs'
+			title: 'Table',
+			href: '/table?orderBy=created_at&order=asc&page=1',
+			beta: true
 		},
 		{
-			title: 'Table',
-			href: '/table?orderBy=created_at&order=asc&page=1'
+			title: 'Tabs',
+			href: '/tabs'
 		},
 		{
 			title: 'Timeline',
