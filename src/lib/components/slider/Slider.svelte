@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { twMerge } from 'tailwind-merge';
 	import { formatNumber } from '../../utils';
 
 	export let value = 0;
@@ -12,9 +13,12 @@
 	if (showStep) {
 		steps = max / step + 1;
 	}
+
+	const defaultclass = 'w-full';
+	$: finalClass = twMerge(defaultclass, $$props.class);
 </script>
 
-<div class={$$props.class}>
+<div class={finalClass} style={$$props.style}>
 	<input
 		type="range"
 		{min}

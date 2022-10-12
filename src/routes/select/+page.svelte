@@ -39,5 +39,5 @@
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Alert" {props} />
+	<PropsTable component="Select" {props} />
 </Col>
