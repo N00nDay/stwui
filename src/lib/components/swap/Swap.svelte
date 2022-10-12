@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { current_component } from 'svelte/internal';
+	import { twMerge } from 'tailwind-merge';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(current_component);
@@ -8,12 +9,18 @@
 	export let type: 'rotate' | 'flip' = 'rotate';
 	export let loading: false | true | undefined = undefined;
 	export let swapped: false | true | undefined = undefined;
+
+	let defaultClass = 'swap relative inset-0';
+	if (type === 'rotate') {
+		defaultClass = defaultClass + ' swap-rotate';
+	} else if (type === 'flip') {
+		defaultClass = defaultClass + ' swap-flip';
+	}
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class="swap relative inset-0{$$props.class ? ` ${$$props.class}` : ''}"
-	class:swap-rotate={type === 'rotate'}
-	class:swap-flip={type === 'flip'}
+	class={finalClass}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
