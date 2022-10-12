@@ -21,6 +21,7 @@ import Empty from './components/empty';
 import Feed from './components/feed';
 import Icon from './components/icon';
 import Input from './components/input'; // TODO: needs refactor and dot notation
+import InputNumber from './components/input-number';
 import Layout from './components/layout';
 import LightBox from './components/lightbox';
 import List from './components/list';
@@ -70,6 +71,7 @@ export {
 	Feed,
 	Icon,
 	Input,
+	InputNumber,
 	Layout,
 	LightBox,
 	List,
