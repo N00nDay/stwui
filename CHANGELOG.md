@@ -1,5 +1,34 @@
 # Changelog
 
+## [0.0.19-next](https://github.com/N00nDay/stwui/compare/v0.0.18-next...v0.0.19-next) (2022-10-12)
+
+
+### Bug Fixes
+
+* **Media.Avatar:** include Avatar and its props ([5157958](https://github.com/N00nDay/stwui/commit/51579582c955219df482bc05927bb5fabef681c8))
+* **Media:** class is reactive including all child components ([5157958](https://github.com/N00nDay/stwui/commit/51579582c955219df482bc05927bb5fabef681c8))
+* **Media:** class is reactive including child components ([da3111d](https://github.com/N00nDay/stwui/commit/da3111dcf2db0b275acf76f53b9300d68820b2b5))
+* **Modal:** class is reactive including child components ([ee97fea](https://github.com/N00nDay/stwui/commit/ee97feaa17b1363a6ce38aa391e7c5c5a105abc1))
+* **Notification.Leading.Icon:** added ([41492cb](https://github.com/N00nDay/stwui/commit/41492cb647ea39a6562cc3ad07e8f2edc2d6583d))
+* **Notification:** class is reactive including child components ([41492cb](https://github.com/N00nDay/stwui/commit/41492cb647ea39a6562cc3ad07e8f2edc2d6583d))
+* **Post:** class is reactive including all child components ([4a91470](https://github.com/N00nDay/stwui/commit/4a914703c1f0707b869ba3d6e5768bd2aed05f53))
+* **Progress:** fixed warn type on default progress ([f79255e](https://github.com/N00nDay/stwui/commit/f79255ed9c786602d9b3394cd32f91522e71dc72))
+* **Radio:** class is reactive including child components ([24ada7d](https://github.com/N00nDay/stwui/commit/24ada7dfd41d4221909964380fa2dc4b28d6eb42))
+* **Rating:** class is reactive ([61c8fd0](https://github.com/N00nDay/stwui/commit/61c8fd05613020e4fa135e9474ac44b54703b75f))
+* **Slider:** full width default and class is reactive ([53bf804](https://github.com/N00nDay/stwui/commit/53bf804fe3aac0227dd2ea5019a353564cf86c86))
+* **Statistic:** class is reactive including child components ([3e49ddc](https://github.com/N00nDay/stwui/commit/3e49ddcbee9347f0c8308075db85475529a1a7b3))
+* **Steps.Step:** changed prop index to step ([6610713](https://github.com/N00nDay/stwui/commit/6610713f351b94a7e255164f3b390443bee4b64c))
+* **Steps:** class is reactive including child components ([6610713](https://github.com/N00nDay/stwui/commit/6610713f351b94a7e255164f3b390443bee4b64c))
+* **Swap:** class is reactive ([54d5524](https://github.com/N00nDay/stwui/commit/54d5524bd54976131a3c1ddac5fe4415ef104d25))
+* **Table:** changed slots from default to header, body, and footer ([1067ee6](https://github.com/N00nDay/stwui/commit/1067ee68b99990dc5f13bce93e4969173ed32add))
+* **Table:** class is reactive including child components ([1067ee6](https://github.com/N00nDay/stwui/commit/1067ee68b99990dc5f13bce93e4969173ed32add))
+* **Tabs:** class is reactive including child components ([aae29a7](https://github.com/N00nDay/stwui/commit/aae29a7cde73b5f902dd9ae63829f1af981dd28c))
+* **Toggle:** class is reactive including child components ([3552a3d](https://github.com/N00nDay/stwui/commit/3552a3d491ec2a1b9cd71d4b07f14297179bbdea))
+* updated imports for formatNumber and encodeSearchParams ([c1725a8](https://github.com/N00nDay/stwui/commit/c1725a8f5627144ce840462a9692b04a2ab1c2ed))
+* **utils:** added computeProgress, computeTrendPercent, computeTrendValue, and added to export ([3e49ddc](https://github.com/N00nDay/stwui/commit/3e49ddcbee9347f0c8308075db85475529a1a7b3))
+* **utils:** encodeSearchParams are now exported ([c1725a8](https://github.com/N00nDay/stwui/commit/c1725a8f5627144ce840462a9692b04a2ab1c2ed))
+* **utils:** renamed numberFormatter to formatNumber ([c1725a8](https://github.com/N00nDay/stwui/commit/c1725a8f5627144ce840462a9692b04a2ab1c2ed))
+
 ## [0.0.18-next](https://github.com/N00nDay/stwui/compare/v0.0.17-next...v0.0.18-next) (2022-10-11)
 
 
