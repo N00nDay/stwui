@@ -21,9 +21,11 @@
 	});
 
 	const defaultClass = 'bg-light-surface dark:bg-dark-surface';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>
-	<slot />
+	<slot name="header" />
+	<slot name="body" />
+	<slot name="footer" />
 </div>

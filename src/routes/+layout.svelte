@@ -141,38 +141,6 @@
 						/></svg
 					>
 				</Button>
-
-				<!-- <Dropdown
-					handleClose={handleCloseDropdown}
-					on:click={handleDropdown}
-					visible={dropdownOpen}
-				>
-					<button
-						slot="trigger"
-						on:click={handleDropdown}
-						type="button"
-						class="bg-white flex text-sm rounded-full h-10 w-10 active:hover:animate-none active:hover:scale-95"
-						id="user-menu-button"
-						aria-expanded="false"
-						aria-haspopup="true"
-					>
-						<span class="sr-only">Open user menu</span>
-						<img
-							class="h-full w-full rounded-full"
-							src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&h=256&q=80"
-							alt=""
-						/>
-					</button>
-					<Dropdown.Items slot="items" style="margin-top: 1rem;">
-						<Dropdown.Items.Item on:click={handleToggleTheme}>Toggle Theme</Dropdown.Items.Item>
-						<Dropdown.Items.Item on:click={handleCollapseUncollapse}
-							>Collapse/Uncollapse</Dropdown.Items.Item
-						>
-						<Dropdown.Items.Item on:click={handleCloseDropdown}>View Profile</Dropdown.Items.Item>
-						<Dropdown.Items.Item on:click={handleCloseDropdown}>Settings</Dropdown.Items.Item>
-						<Dropdown.Items.Item on:click={handleCloseDropdown}>Logout</Dropdown.Items.Item>
-					</Dropdown.Items>
-				</Dropdown> -->
 			</Layout.Header.Extra>
 		</Layout.Header>
 

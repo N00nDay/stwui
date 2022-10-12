@@ -30,8 +30,8 @@
 </h1>
 <Card bordered={false}>
 	<Table class="rounded-md overflow-hidden h-full" {columns}>
-		<Table.Header sortable={false} />
-		<Table.Body>
+		<Table.Header slot="header" sortable={false} />
+		<Table.Body slot="body">
 			{#each props as prop}
 				<Table.Body.Row
 					id={prop.id}

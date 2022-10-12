@@ -12,13 +12,13 @@
 	let defaultClass =
 		'table-col first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 border-t truncate border-light-border dark:border-dark-border max-w-0 py-2.5 pr-3 text-sm sm:w-auto sm:max-w-none sm:pl-6 font-semibold md:font-normal text-light-secondary-content dark:text-dark-secondary-content';
 	$: if (columns[column].placement === 'right') {
-		defaultClass += ' text-right pl-3 pr-4 sm:pr-6 last:text-right';
+		defaultClass = defaultClass + ' text-right pl-3 pr-4 sm:pr-6 last:text-right';
 	} else if (columns[column].placement === 'left') {
-		defaultClass += ' text-left';
+		defaultClass = defaultClass + ' text-left';
 	} else {
-		defaultClass += ' last:text-right ';
+		defaultClass = defaultClass + ' last:text-right ';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <td class={finalClass} style="width: {columnWidth}%;{$$props.style}">

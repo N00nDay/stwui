@@ -26,8 +26,8 @@
 </h1>
 <Card bordered={false}>
 	<Table class="rounded-md overflow-hidden h-full" {columns}>
-		<Table.Header sortable={false} />
-		<Table.Body>
+		<Table.Header slot="header" sortable={false} />
+		<Table.Body slot="body">
 			{#each slots as slot}
 				<Table.Body.Row
 					id={slot.id}

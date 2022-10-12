@@ -10,7 +10,7 @@
 	useContext({
 		context_id: TABLE_CONTEXT_ID,
 		parent: 'Table',
-		component: 'TableBody'
+		component: 'Table.Body'
 	});
 	let { header }: { header: Writable<boolean> } = getContext(TABLE_CONTEXT_ID);
 
@@ -20,7 +20,7 @@
 
 	const defaultClass =
 		'table min-w-full border-separate bg-light-surface dark:bg-dark-surface border-spacing-0 table-fixed border-b border-light-border dark:border-dark-border';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div

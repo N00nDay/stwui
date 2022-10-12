@@ -15,7 +15,7 @@
 
 	const defaultClass =
 		'flex-shrink shadow-negative-md dark:shadow-black sticky bottom-0 bg-light-surface dark:bg-dark-surface border-light-border border-t text-sm';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>

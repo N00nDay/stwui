@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { twMerge } from 'tailwind-merge';
 
 	import type { TableColumn } from '../../types/table-column';
 
@@ -31,12 +32,14 @@
 			console.log('changeOrder err', err);
 		}
 	}
+
+	const defaultClass =
+		'sticky top-0 py-4 last:hover:active last:focus:active last:active:active first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 text-sm sm:pl-6';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <th
-	class="{$$props.class
-		? $$props.class
-		: ''} sticky top-0 py-4 last:hover:active last:focus:active last:active:active first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 text-sm sm:pl-6"
+	class={finalClass}
 	class:cursor-pointer={sortable}
 	class:cursor-default={!sortable}
 	class:text-right={column.placement === 'right'}
