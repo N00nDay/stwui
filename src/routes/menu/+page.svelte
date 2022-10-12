@@ -19,7 +19,6 @@
 
 <script lang="ts">
 	import { Badge, Button, Card, Col, Menu } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		example,
 		props,
@@ -31,7 +30,7 @@
 		groupSlots,
 		groupItemsProps
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	const items: MenuItem[] = [
 		{

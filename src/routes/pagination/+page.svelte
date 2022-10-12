@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { Card, Col, Pagination } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import { example, props } from './examples';
-	import { PropsTable, BetaComponent } from '../../docs';
+	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
 </script>
 
 <Col class="col-24">

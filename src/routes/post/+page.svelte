@@ -2,7 +2,6 @@
 	import type { CarouselSlide, LightboxAction } from '../../lib/types';
 	import { Avatar, Col, Post, Card } from '../../lib';
 	import { formatDate } from '../../lib/utils';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		example1,
 		example2,
@@ -21,7 +20,7 @@
 		actionsSlots,
 		actionProps
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	let creator = {
 		avatar:

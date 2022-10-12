@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Button, Card, Col, List } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		example,
 		noDividersExample,
@@ -21,7 +20,7 @@
 		extraProps,
 		extraSlots
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { contentSlots } from '../accordion/examples';
 
 	const items = [

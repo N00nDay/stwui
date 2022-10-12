@@ -2,7 +2,6 @@
 	import type { MaterialIcon } from '../../lib/types';
 	import { Card, Col, Feed } from '../../lib';
 	import { formatDate } from '../../lib/utils';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		example,
 		slots,
@@ -12,7 +11,7 @@
 		iconProps,
 		contentSlots
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	interface Item {
 		avatar?: string;

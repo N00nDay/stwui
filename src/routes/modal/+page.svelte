@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { Button, Card, Col, Modal, Portal } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import { example, props, slots, backdropProps, contentSlots } from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	let open = false;
 

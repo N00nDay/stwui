@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { Autocomplete, Card, Col } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import { example, props, slots, listSlots, optionProps, emptyOptionSlots } from './examples';
-	import { PropsTable, SlotsTable, BetaComponent } from '../../docs';
+	import { PropsTable, SlotsTable, BetaComponent, CodeBlock } from '../../docs';
 
 	let value1: string;
 	let value2: string;

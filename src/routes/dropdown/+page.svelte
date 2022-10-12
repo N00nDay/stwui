@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { Dropdown, Button, Card, Col } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import { example, props, slots, itemsProps, itemsSlots, itemSlots } from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	let visible1 = false;
 	let visible2 = false;

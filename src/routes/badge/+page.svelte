@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Badge, Card, Col } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		exampleDefault,
 		exampleCustom,
@@ -11,7 +10,7 @@
 		props,
 		slots
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
 
 <Col class="col-24 md:col-12">

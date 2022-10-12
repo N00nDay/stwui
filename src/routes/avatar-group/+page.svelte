@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { AvatarGroup, Card, Col } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		exampleGroup,
 		slots,
@@ -11,7 +10,7 @@
 		groupSlots,
 		groupAvatarProps
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	const avatars = [
 		'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',

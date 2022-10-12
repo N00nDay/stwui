@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Card, Col, Media } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		example,
 		exampleOverlay,
@@ -15,7 +14,7 @@
 		actionsSlots,
 		actionProps
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
 
 <Col class="col-24 md:col-8">

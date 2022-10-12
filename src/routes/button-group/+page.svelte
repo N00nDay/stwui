@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { ButtonGroup, Card, Col } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		example,
 		exampleActive,
@@ -14,7 +13,7 @@
 		leadingTrailingIconSlots,
 		iconProps
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	let activeItem1 = 1;
 

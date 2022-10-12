@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { Accordion, Card, Col, Table } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import { example, slots, itemSlots, itemProps, titleSlots, contentSlots } from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	let open = '';
 

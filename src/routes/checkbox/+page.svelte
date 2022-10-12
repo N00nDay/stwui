@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Card, CheckboxGroup, Col } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		example,
 		inlineExample,
@@ -13,7 +12,7 @@
 		labelSlots,
 		descriptionSlots
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
 
 <Col class="col-24 md:col-12">

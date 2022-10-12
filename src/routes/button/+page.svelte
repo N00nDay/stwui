@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Button, Card, Col, Icon, Swap } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		exampleDefault,
 		exampleLoading,
@@ -13,7 +12,7 @@
 		leadingTrailingIconSlots,
 		iconProps
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	let loading = false;
 

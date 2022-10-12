@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { Card, Carousel, Col } from '../../lib';
 	import type { CarouselSlide } from '../../lib/types';
-	import CodeBlock from '../../docs/components/code-block';
 	import { example, props } from './examples';
-	import { PropsTable } from '../../docs';
+	import { PropsTable, CodeBlock } from '../../docs';
 
 	const slides: CarouselSlide[] = [
 		{

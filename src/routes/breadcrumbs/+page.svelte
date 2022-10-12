@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { MaterialIcon } from '../../lib/types';
 	import { Breadcrumbs, Card, Col } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import {
 		exampleDefault,
 		exampleSolid,
@@ -13,7 +12,7 @@
 		iconProps,
 		labelSlots
 	} from './examples';
-	import { PropsTable, SlotsTable } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	interface Crumb {
 		icon?: MaterialIcon;

@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { Card, Col, DatePicker } from '../../lib';
-	import CodeBlock from '../../docs/components/code-block';
 	import { example, props } from './examples';
-	import { PropsTable, BetaComponent } from '../../docs';
+	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
 
 	const date2Max = new Date(2022, 7, 30);
 	const date2Min = new Date(2022, 7, 3);
