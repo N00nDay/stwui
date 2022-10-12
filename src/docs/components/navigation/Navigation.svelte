@@ -170,7 +170,8 @@
 		},
 		{
 			title: 'Toggle',
-			href: '/toggle'
+			href: '/toggle',
+			beta: true
 		}
 	];
 

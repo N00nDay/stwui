@@ -4,6 +4,7 @@
 
 <script lang="ts">
 	import { setContext } from 'svelte';
+
 	export let name: string;
 	export let on = false;
 

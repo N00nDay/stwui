@@ -1,6 +1,21 @@
 <script lang="ts">
 	import { Card, Col, Toggle } from '../../lib';
+	import {
+		example,
+		props,
+		slots,
+		iconProps,
+		titleSlots,
+		descriptionSlots,
+		contentLeftSlots,
+		contentRightSlots
+	} from './examples';
+	import { PropsTable, SlotsTable, CodeBlock, BetaComponent } from '../../docs';
 </script>
+
+<Col class="col-24">
+	<BetaComponent />
+</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
@@ -37,6 +52,50 @@
 					>
 				</Toggle.ContentRight>
 			</Toggle>
+
+			<br />
+
+			<CodeBlock language="svelte" code={example} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Toggle" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Toggle" {slots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Toggle.LeftIcon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Toggle.RightIcon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Toggle.ContentLeft" slots={contentLeftSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Toggle.ContentLeft.Title" slots={titleSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Toggle.ContentLeft.Description" slots={descriptionSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Toggle.ContentRight" slots={contentRightSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Toggle.ContentRight.Title" slots={titleSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Toggle.ContentRight.Description" slots={descriptionSlots} />
 </Col>

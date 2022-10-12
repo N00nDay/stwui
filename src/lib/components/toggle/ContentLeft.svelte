@@ -14,7 +14,7 @@
 		getContext(TOGGLE_CONTEXT_ID);
 
 	const defaultClass = 'mr-3';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <span class={finalClass} style={$$props.style} id="{name}-label-left" on:click={toggleOff}>
