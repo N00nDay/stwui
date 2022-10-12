@@ -20,7 +20,7 @@
 	const { id }: { id: string } = getContext(RADIO_GROUP_RADIO_CONTEXT_ID);
 
 	const defaultClass = 'font-medium cursor-pointer text-light-content dark:text-dark-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <label for={id ? id : undefined} class={finalClass} style={$$props.style}><slot /></label>

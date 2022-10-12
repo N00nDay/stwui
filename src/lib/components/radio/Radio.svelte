@@ -35,13 +35,15 @@
 		$selected = value;
 	}
 
-	let defaultClass =
-		'radio bg-light-surface dark:bg-dark-surface text-light-surface dark:text-dark-surface light-border dark:dark-border checked:bg-none border checked:border-primary group-hover:border-primary dark:checked:border-primary dark:group-hover:border-primary group-focus:border-primary dark:group-focus:border-primary active:border-primary dark:active:border-primary focus:active:border-primary dark:focus:active:border-primary rounded-full cursor-pointer h-6 w-6';
-	if (type === 'pill') {
+	let defaultClass = '';
+	if (type === 'default') {
+		defaultClass =
+			'radio bg-light-surface dark:bg-dark-surface text-light-surface dark:text-dark-surface light-border dark:dark-border checked:bg-none border checked:border-primary group-hover:border-primary dark:checked:border-primary dark:group-hover:border-primary group-focus:border-primary dark:group-focus:border-primary active:border-primary dark:active:border-primary focus:active:border-primary dark:focus:active:border-primary rounded-full cursor-pointer h-6 w-6';
+	} else if (type === 'pill') {
 		defaultClass =
 			'group relative border light-border dark:dark-border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium sm:flex-1 cursor-pointer focus:outline-none';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 {#if type === 'default'}

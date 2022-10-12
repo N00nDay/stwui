@@ -22,11 +22,11 @@
 
 	let defaultClass = 'mt-1 grid-cols-4 gap-2';
 	if (type === 'default') {
-		defaultClass += ' space-y-4';
+		defaultClass = defaultClass + ' space-y-4';
 	} else if (type === 'pill') {
-		defaultClass += ' grid';
+		defaultClass = defaultClass + ' grid';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div>

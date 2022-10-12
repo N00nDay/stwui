@@ -20,7 +20,7 @@
 	const { id }: { id: string } = getContext(RADIO_GROUP_RADIO_CONTEXT_ID);
 
 	const defaultClass = 'text-light-secondary-content dark:text-dark-secondary-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <span id={id ? `${id}-description` : undefined} class={finalClass} style={$$props.style}
