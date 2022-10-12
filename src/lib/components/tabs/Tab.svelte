@@ -11,7 +11,7 @@
 	import { twMerge } from 'tailwind-merge';
 
 	export let href: string;
-	export let index: number;
+	export let key: string;
 
 	useContext({
 		context_id: TABS_CONTEXT_ID,
@@ -21,14 +21,14 @@
 
 	setContext(TABS_TAB_CONTEXT_ID, {
 		tab: true,
-		index
+		key
 	});
 
-	const { variant, currentTab }: { variant: string; currentTab: Writable<number | undefined> } =
+	const { variant, currentTab }: { variant: string; currentTab: Writable<string> } =
 		getContext(TABS_CONTEXT_ID);
 
 	let defaultClass = '';
-	$: if (index === $currentTab) {
+	$: if (key === $currentTab) {
 		defaultClass =
 			'group border-transparent group inline-flex items-center py-4 px-1 font-medium text-sm';
 		if (variant === 'full-width' || variant === 'bar') {
@@ -64,8 +64,8 @@
 	{#if variant === 'bar'}
 		<span
 			class="absolute inset-x-0 bottom-0 h-0.5"
-			class:bg-primary={index === $currentTab}
-			class:bg-transparent={index !== $currentTab}
+			class:bg-primary={key === $currentTab}
+			class:bg-transparent={key !== $currentTab}
 		/>
 		<HoverBackground />
 	{/if}

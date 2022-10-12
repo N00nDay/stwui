@@ -7,11 +7,11 @@
 	import { writable, type Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
 
-	export let currentTab: number | undefined;
+	export let currentTab = '';
 	export let variant: 'default' | 'full-width' | 'bar' = 'default';
 	export let containerClass: string | undefined = undefined;
 
-	let selected: Writable<number | undefined> = writable(currentTab);
+	let selected: Writable<string> = writable(currentTab);
 	$: $selected = currentTab;
 
 	setContext(TABS_CONTEXT_ID, {
@@ -27,7 +27,7 @@
 	} else {
 		defaultContainerClass = 'border-light-border dark:border-dark-border overflow-hidden border-b';
 	}
-	const finalContainerClass = twMerge(defaultContainerClass, containerClass);
+	$: finalContainerClass = twMerge(defaultContainerClass, containerClass);
 
 	let defaultClass = '';
 	if (variant === 'bar') {
@@ -38,7 +38,7 @@
 	} else {
 		defaultClass = '-mb-px flex space-x-8';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 {#if variant === 'bar'}
