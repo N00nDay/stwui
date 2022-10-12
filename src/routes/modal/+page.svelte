@@ -1,23 +1,17 @@
 <script lang="ts">
 	import { Button, Card, Col, Modal, Portal } from '../../lib';
+	import CodeBlock from '../../docs/components/code-block';
+	import { example, props, slots, backdropProps, contentSlots } from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 
-	let modal1Open = false;
-	let modal2Open = false;
+	let open = false;
 
-	function openModal1() {
-		modal1Open = true;
+	function openModal() {
+		open = true;
 	}
 
-	function closeModal1() {
-		modal1Open = false;
-	}
-
-	function openModal2() {
-		modal2Open = true;
-	}
-
-	function closeModal2() {
-		modal2Open = false;
+	function closeModal() {
+		open = false;
 	}
 </script>
 
@@ -25,20 +19,22 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Modal</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Button type="primary" on:click={openModal1}>Open Modal</Button>
+			<Button type="primary" on:click={openModal}>Open Modal</Button>
+
 			<br />
 			<br />
-			<Button type="primary" on:click={openModal2}>Open Modal</Button>
+
+			<CodeBlock language="svelte" code={example} />
 		</Card.Content>
 	</Card>
 </Col>
 
 <Portal>
-	{#if modal1Open}
-		<Modal handleClose={closeModal1}>
+	{#if open}
+		<Modal handleClose={closeModal}>
 			<Modal.Content slot="content">
 				<Card>
-					<Card.Header slot="header">Modal 1</Card.Header>
+					<Card.Header slot="header">Modal</Card.Header>
 					<Card.Content slot="content">I am the content</Card.Content>
 				</Card>
 			</Modal.Content>
@@ -46,15 +42,18 @@
 	{/if}
 </Portal>
 
-<Portal>
-	{#if modal2Open}
-		<Modal handleClose={closeModal2}>
-			<Modal.Content slot="content">
-				<Card bordered={false}>
-					<Card.Header slot="header">Modal 2</Card.Header>
-					<Card.Content slot="content">I am the content</Card.Content>
-				</Card>
-			</Modal.Content></Modal
-		>
-	{/if}
-</Portal>
+<Col class="col-24">
+	<PropsTable component="Modal" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Modal" {slots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Modal.Backdrop" props={backdropProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Modal.Content" slots={contentSlots} />
+</Col>
