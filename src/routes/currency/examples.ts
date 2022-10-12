@@ -3,129 +3,103 @@ import type { Prop } from '../../docs';
 export const props: Prop[] = [
 	{
 		id: '1',
-		prop: 'leading',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a> | undefined',
-		default: ''
-	},
-	{
-		id: '2',
 		prop: 'trailing',
 		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a> | undefined',
 		default: ''
 	},
 	{
-		id: '3',
+		id: '2',
 		prop: 'name',
 		type: 'string',
 		default: ''
 	},
 	{
-		id: '4',
-		prop: 'type',
-		type: "'text' | 'email' | 'password'",
-		default: 'text'
-	},
-	{
-		id: '5',
+		id: '3',
 		prop: 'label',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '6',
+		id: '4',
 		prop: 'srOnly',
 		type: 'boolean',
 		default: 'false'
 	},
 	{
-		id: '7',
+		id: '5',
 		prop: 'error',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '8',
+		id: '6',
 		prop: 'placholder',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '9',
+		id: '7',
 		prop: 'value',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '10',
+		id: '8',
 		prop: 'autocomplete',
 		type: "'on' | 'off' | undefined",
 		default: ''
 	},
 	{
-		id: '11',
+		id: '9',
 		prop: 'autocapitalize',
 		type: "'off' | 'none' | 'sentences' | 'words' | 'characters'",
 		default: 'off'
 	},
 	{
-		id: '12',
+		id: '10',
 		prop: 'autofocus',
-		type: "'true' | undefined",
+		type: 'boolean',
 		default: ''
+	},
+	{
+		id: '11',
+		prop: 'readonly',
+		type: 'boolean',
+		default: ''
+	},
+	{
+		id: '12',
+		prop: 'disabled',
+		type: 'boolean',
+		default: 'false'
 	},
 	{
 		id: '13',
-		prop: 'readonly',
-		type: 'true | undefined',
-		default: ''
-	},
-	{
-		id: '14',
-		prop: 'tabindex',
-		type: 'string | undefined',
-		default: ''
-	},
-	{
-		id: '15',
 		prop: 'handleLeadingClick',
 		type: '(() => void) | undefined',
 		default: ''
 	},
 	{
-		id: '16',
+		id: '14',
 		prop: 'handleTrailingClick',
 		type: '(() => void) | undefined',
 		default: ''
-	},
-	{
-		id: '17',
-		prop: 'showPasswordToggle',
-		type: 'boolean',
-		default: 'false'
-	},
-	{
-		id: '18',
-		prop: 'allowClear',
-		type: 'boolean',
-		default: 'false'
 	}
 ];
 
 export const example = `
 <script lang="ts">
-	import { Input } from 'stwui';
+	import { Currency } from 'stwui';
 </script>
 
-<Input name="input-1" placeholder="Basic" allowClear />
+<Currency name="currency-1" placeholder="Basic" />
 <br />
-<Input name="input-2" label="Label" leading="email" trailing="phone" allowClear />
+<Currency name="currency-2" label="Label" leading="email" trailing="phone" />
 <br />
-<Input
-   name="input-3"
+<Currency
+   name="currency-3"
    label="Label"
    leading="email"
    trailing="phone"
    error="There has been an error"
-/>
-<br />
-<Input type="password" name="input-4" label="Password" leading="lock" showPasswordToggle />`;
+/>`;

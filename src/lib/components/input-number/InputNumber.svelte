@@ -2,6 +2,7 @@
 	import type { MaterialIcon } from '../../types';
 	import { slide, scale } from 'svelte/transition';
 
+	export let leading: MaterialIcon | undefined = undefined;
 	export let trailing: MaterialIcon | undefined = undefined;
 	export let name: string;
 	export let label: string | undefined = undefined;
@@ -15,23 +16,11 @@
 	export let disabled = false;
 	export let handleLeadingClick: (() => void) | undefined = undefined;
 	export let handleTrailingClick: (() => void) | undefined = undefined;
+	export let step = '1';
 	export let readonly = false;
 
 	function onlyNumeric(e: KeyboardEvent) {
 		if (!e.key.match(/^[0-9]+$/)) e.preventDefault();
-	}
-
-	function setTwoNumberDecimal(e: Event) {
-		const el = e.target as HTMLInputElement;
-		if (el.value) {
-			let temporaryStringValue = el.value.replace('.', '');
-			temporaryStringValue = temporaryStringValue.replace(/\D/g, '');
-			if (temporaryStringValue && temporaryStringValue.length > 0) {
-				const temporaryValue = +temporaryStringValue;
-				const temporaryShiftedValue = temporaryValue / 100;
-				value = parseFloat(temporaryShiftedValue.toString()).toFixed(2);
-			}
-		}
 	}
 </script>
 
@@ -46,16 +35,19 @@
 		>
 	{/if}
 	<div class="mt-1 relative rounded-md shadow-sm dark:shadow-black h-[2.5rem]">
-		<span
-			on:click={handleLeadingClick}
-			class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10"
-			class:text-light-secondary-content={!error}
-			class:dark:text-dark-secondary-content={!error}
-			class:pointer-events-none={!handleLeadingClick}
-			class:pointer-events-auto={handleLeadingClick}
-			class:cursor-pointer={handleLeadingClick}
-			class:text-danger={error}>attach_money</span
-		>
+		{#if leading}
+			<span
+				transition:scale|local
+				on:click={handleLeadingClick}
+				class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10"
+				class:pointer-events-none={!handleLeadingClick}
+				class:pointer-events-auto={handleLeadingClick}
+				class:cursor-pointer={handleLeadingClick}
+				class:text-light-secondary-content={!error}
+				class:dark:text-dark-secondary-content={!error}
+				class:text-danger={error}>{leading}</span
+			>
+		{/if}
 		<input
 			type="number"
 			inputmode="numeric"
@@ -66,7 +58,7 @@
 			{name}
 			{readonly}
 			id={name}
-			class="block w-full pl-10 h-[2.5rem] pr-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface"
+			class="block w-full h-[2.5rem] pr-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface"
 			class:border-red-400={error}
 			class:text-danger={error}
 			class:dark:text-danger={error}
@@ -76,12 +68,14 @@
 			class:dark:focus:border-primary={!error}
 			class:light-border={!error}
 			class:dark:dark-border={!error}
+			class:pl-3={!leading}
+			class:pl-10={leading}
 			class:pr-10={trailing || error}
 			class:bg-gray-100={disabled}
 			{placeholder}
 			bind:value
-			step="0.01"
-			on:input={setTwoNumberDecimal}
+			{step}
+			on:input
 			on:keypress={onlyNumeric}
 		/>
 		{#if trailing && !error}

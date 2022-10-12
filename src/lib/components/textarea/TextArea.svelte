@@ -10,6 +10,7 @@
 	export let autocomplete: string | undefined = undefined;
 	export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
 	export let autofocus = false;
+	export let readonly = false;
 
 	// TODO: add action buttons/pills
 </script>
@@ -31,6 +32,7 @@
 			{autocapitalize}
 			{autocomplete}
 			{name}
+			{readonly}
 			id={name}
 			class="block w-full outline-none focus:outline-none shadow-sm dark:shadow-black sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface light-border dark:dark-border"
 			class:border-red-400={error}

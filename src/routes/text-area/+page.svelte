@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Input } from '../../lib';
+	import { Card, Col, TextArea } from '../../lib';
 	import { example, props } from './examples';
 	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
 </script>
@@ -10,21 +10,19 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Inputs</Card.Header>
+		<Card.Header slot="header">TextArea</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Input name="input-1" placeholder="Basic" allowClear />
+			<TextArea name="input-1" placeholder="Basic" />
 			<br />
-			<Input name="input-2" label="Label" leading="email" trailing="phone" allowClear />
+			<TextArea name="input-2" label="Label" leading="email" trailing="phone" />
 			<br />
-			<Input
+			<TextArea
 				name="input-3"
 				label="Label"
 				leading="email"
 				trailing="phone"
 				error="There has been an error"
 			/>
-			<br />
-			<Input type="password" name="input-4" label="Password" leading="lock" showPasswordToggle />
 
 			<br />
 

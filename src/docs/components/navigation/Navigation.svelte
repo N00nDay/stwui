@@ -64,6 +64,11 @@
 			href: '/chip'
 		},
 		{
+			title: 'Currency',
+			href: '/currency',
+			beta: true
+		},
+		{
 			title: 'Datepicker',
 			href: '/datepicker',
 			beta: true
@@ -91,6 +96,11 @@
 		{
 			title: 'Input',
 			href: '/input',
+			beta: true
+		},
+		{
+			title: 'InputNumber',
+			href: '/input-number',
 			beta: true
 		},
 		{
@@ -163,6 +173,11 @@
 		{
 			title: 'Tabs',
 			href: '/tabs'
+		},
+		{
+			title: 'TextArea',
+			href: '/text-area',
+			beta: true
 		},
 		{
 			title: 'Timeline',
