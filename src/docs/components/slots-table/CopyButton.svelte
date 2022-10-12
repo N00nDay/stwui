@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Card, Table, Button } from '../../../lib';
-	import { copyToClipboard } from '../../../lib/actions';
+	import { Button } from '../../../lib';
+	import { copyToClipboard } from '../../../lib/utils';
 
 	export let stringToCopy: string;
 

@@ -1,3 +1,5 @@
+import { copyToClipboard } from '../../utils';
+
 export default function clipboard(node: HTMLElement, args: any) {
 	const onClick = () => {
 		if (typeof args === 'object') {
@@ -27,8 +29,4 @@ export default function clipboard(node: HTMLElement, args: any) {
 			node.removeEventListener('click', onClick);
 		}
 	};
-}
-
-export function copyToClipboard(data: any): void {
-	navigator.clipboard.writeText(String(data));
 }

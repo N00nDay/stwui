@@ -11,7 +11,7 @@ import useActions, {
 	type SVGActionArray,
 	type ActionArray
 } from './use-actions';
-import clipboard, { copyToClipboard } from './clipboard';
+import clipboard from './clipboard';
 
 export {
 	tooltip,
@@ -27,6 +27,5 @@ export {
 	SVGActionEntry,
 	SVGActionArray,
 	ActionArray,
-	clipboard,
-	copyToClipboard
+	clipboard
 };

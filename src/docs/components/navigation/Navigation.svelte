@@ -237,6 +237,18 @@
 </h3>
 <Menu {active}>
 	<Menu.Item
+		key="/click-outside"
+		label="clickOutside"
+		href="/click-outside"
+		on:click={() => handleClick('/click-outside')}
+	/>
+	<Menu.Item
+		key="/clipboard"
+		label="clipboard"
+		href="/clipboard"
+		on:click={() => handleClick('/clipboard')}
+	/>
+	<Menu.Item
 		key="/tooltip"
 		label="tooltip"
 		href="/tooltip"
@@ -244,14 +256,55 @@
 	/>
 </Menu>
 
-<!-- <h3
+<h3
 	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
 >
 	UTILITIES
 </h3>
 <Menu {active}>
-	<Menu.Item key="/types" label="Types" href="/types" on:click={() => handleClick('/types')} />
-</Menu> -->
+	<Menu.Item
+		key="/compute-progress"
+		label="computeProgress"
+		href="/compute-progress"
+		on:click={() => handleClick('/compute-progress')}
+	/>
+	<Menu.Item
+		key="/compute-trend-percent"
+		label="computeTrendPercent"
+		href="/compute-trend-percent"
+		on:click={() => handleClick('/compute-trend-percent')}
+	/>
+	<Menu.Item
+		key="/compute-trend-value"
+		label="computeTrendValue"
+		href="/compute-trend-value"
+		on:click={() => handleClick('/compute-trend-value')}
+	/>
+	<Menu.Item
+		key="/copy-to-clipboard"
+		label="copyToClipboard"
+		href="/copy-to-clipboard"
+		on:click={() => handleClick('/copy-to-clipboard')}
+	/>
+	<Menu.Item
+		key="/encode-search-params"
+		label="encodeSearchParams"
+		href="/encode-search-params"
+		on:click={() => handleClick('/encode-search-params')}
+	/>
+	<Menu.Item
+		key="/format-date"
+		label="formatDate"
+		href="/format-date"
+		on:click={() => handleClick('/format-date')}
+	/>
+	<Menu.Item
+		key="/format-number"
+		label="formatNumber"
+		href="/format-number"
+		on:click={() => handleClick('/format-number')}
+	/>
+</Menu>
 
 <h3
 	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"

@@ -4,6 +4,7 @@ import encodeSearchParams from './encodeSearchParams';
 import computeTrendValue from './computeTrendValue';
 import computeTrendPercent from './computeTrendPercent';
 import computeProgress from './computeProgress';
+import { copyToClipboard } from './copyToClipboard';
 
 export {
 	formatDate,
@@ -11,5 +12,6 @@ export {
 	encodeSearchParams,
 	computeProgress,
 	computeTrendPercent,
-	computeTrendValue
+	computeTrendValue,
+	copyToClipboard
 };
