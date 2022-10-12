@@ -115,7 +115,8 @@
 		},
 		{
 			title: 'Pagination',
-			href: '/pagination'
+			href: '/pagination',
+			beta: true
 		},
 		{
 			title: 'Post',
