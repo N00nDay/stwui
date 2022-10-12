@@ -1,7 +1,27 @@
 <script lang="ts">
 	import type { CarouselSlide, LightboxAction } from '../../lib/types';
-	import { Avatar, Col, Post } from '../../lib';
+	import { Avatar, Col, Post, Card } from '../../lib';
 	import { formatDate } from '../../lib/utils';
+	import CodeBlock from '../../docs/components/code-block';
+	import {
+		example1,
+		example2,
+		example3,
+		example4,
+		example5,
+		example6,
+		slots,
+		headerSlots,
+		avatarProps,
+		creatorSlots,
+		createdSlots,
+		contentSlots,
+		imagesProps,
+		statusProps,
+		actionsSlots,
+		actionProps
+	} from './examples';
+	import { PropsTable, SlotsTable } from '../../docs';
 
 	let creator = {
 		avatar:
@@ -193,141 +213,222 @@
 </script>
 
 <Col class="col-24 sm:col-12 md:col-8">
-	<Post>
-		<Post.Header slot="header">
-			<Avatar slot="avatar" src={creator.avatar} />
-			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-			<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
-		</Post.Header>
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Post>
+			<Post.Header slot="header">
+				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+				<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+			</Post.Header>
 
-		<Post.Content slot="content">
-			{@html content}
-		</Post.Content>
+			<Post.Content slot="content">
+				{@html content}
+			</Post.Content>
 
-		<Post.Images id="post-1" slot="images" images={images1} {lightboxActions} />
+			<Post.Images slot="images" images={images1} {lightboxActions} />
 
-		<Post.Status slot="status" likes={[]} comments={[]} />
+			<Post.Status slot="status" likes={[]} comments={[]} />
 
-		<Post.Actions slot="actions">
-			<Post.Actions.Action icon="thumb_up" label="Like" />
-			<Post.Actions.Action icon="comment" label="Comment" />
-			<Post.Actions.Action icon="share" label="Share" />
-		</Post.Actions>
-	</Post>
+			<Post.Actions slot="actions">
+				<Post.Actions.Action icon="thumb_up" label="Like" />
+				<Post.Actions.Action icon="comment" label="Comment" />
+				<Post.Actions.Action icon="share" label="Share" />
+			</Post.Actions>
+		</Post>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example1} />
+	</Card>
 </Col>
+
 <Col class="col-24 sm:col-12 md:col-8">
-	<Post>
-		<Post.Header slot="header">
-			<Avatar slot="avatar" src={creator.avatar} />
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Post>
+			<Post.Header slot="header">
+				<Avatar slot="avatar" src={creator.avatar} />
 
-			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-			<Post.Header.Created slot="created">{formatDate(created2)}</Post.Header.Created>
-		</Post.Header>
+				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+				<Post.Header.Created slot="created">{formatDate(created2)}</Post.Header.Created>
+			</Post.Header>
 
-		<Post.Content slot="content">
-			{@html content}
-		</Post.Content>
+			<Post.Content slot="content">
+				{@html content}
+			</Post.Content>
 
-		<Post.Images id="post-2" slot="images" images={images2} {lightboxActions} />
+			<Post.Images id="post-2" slot="images" images={images2} {lightboxActions} />
 
-		<Post.Status slot="status" {likes} comments={[]} />
+			<Post.Status slot="status" {likes} comments={[]} />
 
-		<Post.Actions slot="actions">
-			<Post.Actions.Action icon="thumb_up" label="Like" />
-			<Post.Actions.Action icon="comment" label="Comment" />
-			<Post.Actions.Action icon="share" label="Share" />
-		</Post.Actions>
-	</Post>
+			<Post.Actions slot="actions">
+				<Post.Actions.Action icon="thumb_up" label="Like" />
+				<Post.Actions.Action icon="comment" label="Comment" />
+				<Post.Actions.Action icon="share" label="Share" />
+			</Post.Actions>
+		</Post>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example2} />
+	</Card>
 </Col>
+
 <Col class="col-24 sm:col-12 md:col-8">
-	<Post>
-		<Post.Header slot="header">
-			<Avatar slot="avatar" src={creator.avatar} />
-			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-			<Post.Header.Created slot="created">{formatDate(created3)}</Post.Header.Created>
-		</Post.Header>
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Post>
+			<Post.Header slot="header">
+				<Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+				<Post.Header.Created slot="created">{formatDate(created3)}</Post.Header.Created>
+			</Post.Header>
 
-		<Post.Content slot="content">
-			{@html content}
-		</Post.Content>
+			<Post.Content slot="content">
+				{@html content}
+			</Post.Content>
 
-		<Post.Images id="post-3" slot="images" images={images3} {lightboxActions} />
+			<Post.Images id="post-3" slot="images" images={images3} {lightboxActions} />
 
-		<Post.Status slot="status" {likes} {comments} />
+			<Post.Status slot="status" {likes} {comments} />
 
-		<Post.Actions slot="actions">
-			<Post.Actions.Action icon="thumb_up" label="Like" />
-			<Post.Actions.Action icon="comment" label="Comment" />
-			<Post.Actions.Action icon="share" label="Share" />
-		</Post.Actions>
-	</Post>
+			<Post.Actions slot="actions">
+				<Post.Actions.Action icon="thumb_up" label="Like" />
+				<Post.Actions.Action icon="comment" label="Comment" />
+				<Post.Actions.Action icon="share" label="Share" />
+			</Post.Actions>
+		</Post>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example3} />
+	</Card>
 </Col>
+
 <Col class="col-24 sm:col-12 md:col-8">
-	<Post>
-		<Post.Header slot="header">
-			<Avatar slot="avatar" src={creator.avatar} />
-			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-			<Post.Header.Created slot="created">{formatDate(created4)}</Post.Header.Created>
-		</Post.Header>
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Post>
+			<Post.Header slot="header">
+				<Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+				<Post.Header.Created slot="created">{formatDate(created4)}</Post.Header.Created>
+			</Post.Header>
 
-		<Post.Content slot="content">
-			{@html content}
-		</Post.Content>
+			<Post.Content slot="content">
+				{@html content}
+			</Post.Content>
 
-		<Post.Images id="post-4" slot="images" images={images4} {lightboxActions} />
+			<Post.Images id="post-4" slot="images" images={images4} {lightboxActions} />
 
-		<Post.Status slot="status" {likes} comments={[]} />
+			<Post.Status slot="status" {likes} comments={[]} />
 
-		<Post.Actions slot="actions">
-			<Post.Actions.Action icon="thumb_up" label="Like" />
-			<Post.Actions.Action icon="comment" label="Comment" />
-			<Post.Actions.Action icon="share" label="Share" />
-		</Post.Actions>
-	</Post>
+			<Post.Actions slot="actions">
+				<Post.Actions.Action icon="thumb_up" label="Like" />
+				<Post.Actions.Action icon="comment" label="Comment" />
+				<Post.Actions.Action icon="share" label="Share" />
+			</Post.Actions>
+		</Post>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example4} />
+	</Card>
 </Col>
+
 <Col class="col-24 sm:col-12 md:col-8">
-	<Post>
-		<Post.Header slot="header">
-			<Avatar slot="avatar" src={creator.avatar} />
-			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-			<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
-		</Post.Header>
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Post>
+			<Post.Header slot="header">
+				<Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+				<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+			</Post.Header>
 
-		<Post.Content slot="content">
-			{@html content}
-		</Post.Content>
+			<Post.Content slot="content">
+				{@html content}
+			</Post.Content>
 
-		<Post.Images id="post-5" slot="images" images={images5} {lightboxActions} />
+			<Post.Images id="post-5" slot="images" images={images5} {lightboxActions} />
 
-		<Post.Status slot="status" likes={[]} {comments} />
+			<Post.Status slot="status" likes={[]} {comments} />
 
-		<Post.Actions slot="actions">
-			<Post.Actions.Action icon="thumb_up" label="Like" />
-			<Post.Actions.Action icon="comment" label="Comment" />
-			<Post.Actions.Action icon="share" label="Share" />
-		</Post.Actions>
-	</Post>
+			<Post.Actions slot="actions">
+				<Post.Actions.Action icon="thumb_up" label="Like" />
+				<Post.Actions.Action icon="comment" label="Comment" />
+				<Post.Actions.Action icon="share" label="Share" />
+			</Post.Actions>
+		</Post>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example5} />
+	</Card>
 </Col>
+
 <Col class="col-24 sm:col-12 md:col-8">
-	<Post>
-		<Post.Header slot="header">
-			<Avatar slot="avatar" src={creator.avatar} />
-			<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
-			<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
-		</Post.Header>
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Post>
+			<Post.Header slot="header">
+				<Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+				<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+			</Post.Header>
 
-		<Post.Content slot="content">
-			{@html content}
-		</Post.Content>
+			<Post.Content slot="content">
+				{@html content}
+			</Post.Content>
 
-		<Post.Images id="post-6" slot="images" images={images6} {lightboxActions} />
+			<Post.Images id="post-6" slot="images" images={images6} {lightboxActions} />
 
-		<Post.Status slot="status" likes={[]} {comments} />
+			<Post.Status slot="status" likes={[]} {comments} />
 
-		<Post.Actions slot="actions">
-			<Post.Actions.Action icon="thumb_up" label="Like" />
-			<Post.Actions.Action icon="comment" label="Comment" />
-			<Post.Actions.Action icon="share" label="Share" />
-		</Post.Actions>
-	</Post>
+			<Post.Actions slot="actions">
+				<Post.Actions.Action icon="thumb_up" label="Like" />
+				<Post.Actions.Action icon="comment" label="Comment" />
+				<Post.Actions.Action icon="share" label="Share" />
+			</Post.Actions>
+		</Post>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example6} />
+	</Card>
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Post" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Post.Header" slots={headerSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Post.Header.Avatar" props={avatarProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Post.Header.Creator" slots={creatorSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Post.Header.Created" slots={createdSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Post.Content" slots={contentSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Post.Images" props={imagesProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Post.Status" props={statusProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Post.Actions" slots={actionsSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Post.Actions.Action" props={actionProps} />
 </Col>

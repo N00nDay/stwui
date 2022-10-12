@@ -9,33 +9,21 @@
 	import { exclude } from '../../utils/exclude';
 	import { setContext } from 'svelte';
 
-	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-	export let bordered = true;
 	export let use: ActionArray = [];
 
 	setContext(POST_CONTEXT_ID, {
-		post: true,
-		bordered
+		post: true
 	});
 
 	const forwardEvents = forwardEventsBuilder(current_component);
 
 	const defaultClass =
-		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md';
-	const finalClass = twMerge(defaultClass, $$props.class);
+		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md border border-light-border dark:border-dark-border shadow-md dark:shadow-black';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
 	class={finalClass}
-	class:border={bordered}
-	class:border-light-border={bordered}
-	class:dark:border-dark-border={bordered}
-	class:shadow-none={elevation === 'none'}
-	class:shadow-sm={elevation === 'sm'}
-	class:shadow-md={elevation === 'md'}
-	class:shadow-lg={elevation === 'lg'}
-	class:shadow-xl={elevation === 'xl'}
-	class:dark:shadow-black={elevation !== 'none'}
 	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents

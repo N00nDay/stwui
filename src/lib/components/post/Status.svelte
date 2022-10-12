@@ -7,10 +7,14 @@
 
 	const defaultClass =
 		'flex flex-row justify-evenly items-center py-1 px-2 border border-light-border dark:border-dark-border';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass} class:hidden={likes.length === 0 && comments.length === 0}>
+<div
+	class={finalClass}
+	style={$$props.style}
+	class:hidden={likes.length === 0 && comments.length === 0}
+>
 	<div class="h-full w-full flex justify-start items-center text-sm">
 		{#if likes.length > 0}
 			<div

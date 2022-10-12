@@ -9,3 +9,8 @@ export const locale = `type Locale = {
 	months?: string[];
 	weekStartsOn?: number;
 };`;
+
+export const lightboxAction = `interface LightboxAction {
+	icon: MaterialIcon;
+	action: () => void;
+}`;

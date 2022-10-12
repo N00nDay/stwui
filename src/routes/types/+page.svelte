@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Divider } from '$lib';
-	import { carouselSlide, locale } from './examples';
+	import { carouselSlide, locale, lightboxAction } from './examples';
 	import { InlineCode, CodeBlock } from '../..//docs';
 </script>
 
@@ -14,6 +14,17 @@
 	</p>
 
 	<CodeBlock language="typescript" code={carouselSlide} />
+
+	<br />
+
+	<h1 id="LightboxAction" class="text-light-content dark:text-dark-content mb-0">LightboxAction</h1>
+	<Divider />
+
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		Used in conjunction with the <a class="link" href="/post">Post.Images</a> components.
+	</p>
+
+	<CodeBlock language="typescript" code={lightboxAction} />
 
 	<br />
 

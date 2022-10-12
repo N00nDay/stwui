@@ -10,9 +10,9 @@
 	});
 
 	const defaultClass = 'text-md font-semibold text-light-content dark:text-dark-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<h4 class={finalClass}>
+<h4 class={finalClass} style={$$props.style}>
 	<slot />
 </h4>

@@ -7,9 +7,11 @@ import Images from './Images.svelte';
 import Status from './Status.svelte';
 import OriginalActions from './Actions.svelte';
 import Action from './Action.svelte';
+import Avatar from './Avatar.svelte';
 
 const Post = OriginalPost as PostStatic;
 Post.Header = OriginalHeader as PostHeaderStatic;
+Post.Header.Avatar = Avatar;
 Post.Header.Creator = Creator;
 Post.Header.Created = Created;
 Post.Content = Content;
@@ -30,6 +32,7 @@ export interface PostStatic {
 }
 export interface PostHeaderStatic {
 	new (...args: ConstructorParameters<typeof OriginalHeader>): OriginalHeader;
+	Avatar: typeof Avatar;
 	Creator: typeof Creator;
 	Created: typeof Created;
 }
