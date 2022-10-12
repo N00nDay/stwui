@@ -1,5 +1,5 @@
 <script lang="ts">
-	import numberFormatter from '$lib/utils/numberFormatter';
+	import { formatNumber } from '../../utils';
 
 	export let value = 0;
 	export let min = 0;
@@ -31,7 +31,7 @@
 		<div class="w-full flex justify-between text-xs">
 			{#each Array(steps) as _, i}
 				<span
-					>{numberFormatter((i * step) / 100, {
+					>{formatNumber((i * step) / 100, {
 						style: 'percent'
 					})} |</span
 				>

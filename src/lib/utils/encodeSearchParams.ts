@@ -1,4 +1,4 @@
-export function encodeSearchParams(params: { [key: string]: any }): string {
+export default function encodeSearchParams(params: { [key: string]: any }): string {
 	let generatedSearchParams = '?';
 
 	for (const [key, value] of Object.entries(params)) {

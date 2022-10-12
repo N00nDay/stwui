@@ -1,7 +1,7 @@
 <script lang="ts">
 	import HoverBackground from '../HoverBackground.svelte';
 	import { page } from '$app/stores';
-	import { encodeSearchParams } from '../../utils/encodeSearchParams';
+	import { encodeSearchParams } from '../../utils';
 
 	export let start: number;
 	export let end: number;

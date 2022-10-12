@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Col, Statistic } from '../../lib';
-	import numberFormatter from '../../lib/utils/numberFormatter';
+	import { formatNumber } from '../../lib/utils';
 
 	const totalLikes = 25660000;
 	const totalLikesLastYear = 27660000;
@@ -30,7 +30,7 @@
 		<Statistic.Icon slot="icon" icon="favorite" />
 		<Statistic.Title slot="title">Total Likes</Statistic.Title>
 		<Statistic.Value slot="value">
-			{numberFormatter(totalLikes, {
+			{formatNumber(totalLikes, {
 				style: 'decimal',
 				notation: 'compact',
 				maximumFractionDigits: 1,
@@ -39,7 +39,7 @@
 		</Statistic.Value>
 		<Statistic.Comparison slot="comparison">
 			<Statistic.Comparison.Value slot="value">
-				Last Year: {numberFormatter(totalLikesLastYear, {
+				Last Year: {formatNumber(totalLikesLastYear, {
 					style: 'decimal',
 					notation: 'compact',
 					maximumFractionDigits: 1,
@@ -47,12 +47,12 @@
 				})}
 			</Statistic.Comparison.Value>
 			<Statistic.Comparison.Trend icon="trending_up" slot="trend">
-				{numberFormatter(getTrendValue(totalLikes, totalLikesLastYear), {
+				{formatNumber(getTrendValue(totalLikes, totalLikesLastYear), {
 					style: 'decimal',
 					notation: 'compact',
 					maximumFractionDigits: 1,
 					minimumFractionDigits: 1
-				})} ({numberFormatter(getTrendPercent(totalLikes, totalLikesLastYear), {
+				})} ({formatNumber(getTrendPercent(totalLikes, totalLikesLastYear), {
 					style: 'percent'
 				})})
 			</Statistic.Comparison.Trend>
@@ -65,7 +65,7 @@
 		<Statistic.Icon slot="icon" icon="assessment" />
 		<Statistic.Title slot="title">Page Views</Statistic.Title>
 		<Statistic.Value slot="value">
-			{numberFormatter(pageViews, {
+			{formatNumber(pageViews, {
 				style: 'currency',
 				notation: 'compact',
 				maximumFractionDigits: 1,
@@ -74,7 +74,7 @@
 		</Statistic.Value>
 		<Statistic.Comparison slot="comparison">
 			<Statistic.Comparison.Value slot="value">
-				Last Year: {numberFormatter(pageViewsLastYear, {
+				Last Year: {formatNumber(pageViewsLastYear, {
 					style: 'currency',
 					notation: 'compact',
 					maximumFractionDigits: 1,
@@ -82,12 +82,12 @@
 				})}
 			</Statistic.Comparison.Value>
 			<Statistic.Comparison.Trend icon="trending_up" slot="trend">
-				{numberFormatter(getTrendValue(pageViews, pageViewsLastYear), {
+				{formatNumber(getTrendValue(pageViews, pageViewsLastYear), {
 					style: 'currency',
 					notation: 'compact',
 					maximumFractionDigits: 1,
 					minimumFractionDigits: 1
-				})} ({numberFormatter(getTrendPercent(pageViews, pageViewsLastYear), {
+				})} ({formatNumber(getTrendPercent(pageViews, pageViewsLastYear), {
 					style: 'percent'
 				})})
 			</Statistic.Comparison.Trend>
@@ -100,7 +100,7 @@
 		<Statistic.Icon slot="icon" icon="assessment" />
 		<Statistic.Title slot="title">New Users</Statistic.Title>
 		<Statistic.Value slot="value">
-			{numberFormatter(newUsers, {
+			{formatNumber(newUsers, {
 				style: 'decimal',
 				notation: 'compact',
 				maximumFractionDigits: 1,
@@ -116,7 +116,7 @@
 		<Statistic.Icon class="text-primary" slot="icon" icon="favorite" />
 		<Statistic.Title slot="title">Total Likes</Statistic.Title>
 		<Statistic.Value class="text-primary" slot="value">
-			{numberFormatter(totalLikes, {
+			{formatNumber(totalLikes, {
 				style: 'decimal',
 				notation: 'compact',
 				maximumFractionDigits: 1,
@@ -131,7 +131,7 @@
 		<Statistic.Icon class="text-white" slot="icon" icon="assessment" />
 		<Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
 		<Statistic.Value class="text-white" slot="value">
-			{numberFormatter(pageViews, {
+			{formatNumber(pageViews, {
 				style: 'currency',
 				notation: 'compact',
 				maximumFractionDigits: 1,
@@ -140,7 +140,7 @@
 		</Statistic.Value>
 		<Statistic.Comparison slot="comparison">
 			<Statistic.Comparison.Value class="text-white" slot="value">
-				Last Year: {numberFormatter(pageViewsLastYear, {
+				Last Year: {formatNumber(pageViewsLastYear, {
 					style: 'currency',
 					notation: 'compact',
 					maximumFractionDigits: 1,
@@ -148,12 +148,12 @@
 				})}
 			</Statistic.Comparison.Value>
 			<Statistic.Comparison.Trend class="bg-white text-white" icon="trending_up" slot="trend">
-				{numberFormatter(getTrendValue(pageViews, pageViewsLastYear), {
+				{formatNumber(getTrendValue(pageViews, pageViewsLastYear), {
 					style: 'currency',
 					notation: 'compact',
 					maximumFractionDigits: 1,
 					minimumFractionDigits: 1
-				})} ({numberFormatter(getTrendPercent(pageViews, pageViewsLastYear), {
+				})} ({formatNumber(getTrendPercent(pageViews, pageViewsLastYear), {
 					style: 'percent'
 				})})
 			</Statistic.Comparison.Trend>
@@ -165,7 +165,7 @@
 	<Statistic>
 		<Statistic.Title slot="title">New Users</Statistic.Title>
 		<Statistic.Value slot="value">
-			{numberFormatter(newUsers, {
+			{formatNumber(newUsers, {
 				style: 'decimal',
 				notation: 'compact',
 				maximumFractionDigits: 1,

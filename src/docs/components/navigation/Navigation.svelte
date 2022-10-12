@@ -169,10 +169,6 @@
 		{
 			title: 'Toggle',
 			href: '/toggle'
-		},
-		{
-			title: 'Tooltip',
-			href: '/tooltip'
 		}
 	];
 
@@ -231,6 +227,29 @@
 		{/if}
 	{/each}
 </Menu>
+<h3
+	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
+>
+	ACTIONS
+</h3>
+<Menu {active}>
+	<Menu.Item
+		key="/tooltip"
+		label="tooltip"
+		href="/tooltip"
+		on:click={() => handleClick('/tooltip')}
+	/>
+</Menu>
+
+<!-- <h3
+	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
+>
+	UTILITIES
+</h3>
+<Menu {active}>
+	<Menu.Item key="/types" label="Types" href="/types" on:click={() => handleClick('/types')} />
+</Menu> -->
+
 <h3
 	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
 >

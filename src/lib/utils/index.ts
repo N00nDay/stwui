@@ -1,4 +1,5 @@
 import formatDate from './formatDate';
-import numberFormatter from './numberFormatter';
+import formatNumber from './formatNumber';
+import encodeSearchParams from './encodeSearchParams';
 
-export { formatDate, numberFormatter };
+export { formatDate, formatNumber, encodeSearchParams };
