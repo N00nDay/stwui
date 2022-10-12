@@ -16,7 +16,7 @@
 		Icon,
 		Progress
 	} from '../lib';
-	import { formatDate, numberFormatter } from '../lib/utils';
+	import { formatDate, formatNumber } from '../lib/utils';
 	import type { CarouselSlide, LightboxAction } from '../lib/types';
 
 	const items = [
@@ -130,7 +130,7 @@
 									<Statistic.Icon class="text-white" slot="icon" icon="assessment" />
 									<Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
 									<Statistic.Value class="text-white" slot="value">
-										{numberFormatter(2660000, {
+										{formatNumber(2660000, {
 											style: 'currency',
 											notation: 'compact',
 											maximumFractionDigits: 1,
@@ -139,7 +139,7 @@
 									</Statistic.Value>
 									<Statistic.Comparison slot="comparison">
 										<Statistic.Comparison.Value class="text-white" slot="value">
-											Last Year: {numberFormatter(2580000, {
+											Last Year: {formatNumber(2580000, {
 												style: 'currency',
 												notation: 'compact',
 												maximumFractionDigits: 1,
@@ -151,12 +151,12 @@
 											icon="trending_up"
 											slot="trend"
 										>
-											{numberFormatter(getTrendValue(2660000, 2580000), {
+											{formatNumber(getTrendValue(2660000, 2580000), {
 												style: 'currency',
 												notation: 'compact',
 												maximumFractionDigits: 1,
 												minimumFractionDigits: 1
-											})} ({numberFormatter(getTrendPercent(2660000, 2580000), {
+											})} ({formatNumber(getTrendPercent(2660000, 2580000), {
 												style: 'percent'
 											})})
 										</Statistic.Comparison.Trend>

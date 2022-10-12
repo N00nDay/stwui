@@ -5,7 +5,7 @@ interface Formatter {
 	style?: 'decimal' | 'currency' | 'percent' | 'unit';
 }
 
-export default function numberFormatter(
+export default function formatNumber(
 	number: number,
 	{
 		notation = 'standard',
