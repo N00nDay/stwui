@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Card, Col, Timeline } from '../../lib';
 	import type { TimelineItem } from '../../lib/types/timeline-item';
+	import { example, slots, itemProps } from './examples';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	const timeline: TimelineItem[] = [
 		{
@@ -58,6 +60,18 @@
 					/>
 				{/each}
 			</Timeline>
+
+			<br />
+
+			<CodeBlock language="svelte" code={example} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Timeline" {slots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Timeline.Item" props={itemProps} />
 </Col>
