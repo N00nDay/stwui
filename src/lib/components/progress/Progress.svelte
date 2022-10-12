@@ -31,7 +31,7 @@
 				class="h-full rounded-xl"
 				class:bg-info-background={type === 'info'}
 				class:dark:bg-info-background={type === 'info'}
-				class:bg-info-warn={type === 'warn'}
+				class:bg-warn-background={type === 'warn'}
 				class:dark:bg-warn-background={type === 'warn'}
 				class:bg-error-background={type === 'error'}
 				class:dark:bg-error-background={type === 'error'}
