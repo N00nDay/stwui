@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.20-next](https://github.com/N00nDay/stwui/compare/v0.0.19-next...v0.0.20-next) (2022-10-12)
+
+
+### Bug Fixes
+
+* formatNumber rename and import ([e876282](https://github.com/N00nDay/stwui/commit/e87628275767210766db51df909385aa30a3c9ce))
+
 ## [0.0.19-next](https://github.com/N00nDay/stwui/compare/v0.0.18-next...v0.0.19-next) (2022-10-12)
 
 
