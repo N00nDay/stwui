@@ -29,7 +29,7 @@
 	} else if (variant === 'simple') {
 		defaultClass = 'space-y-4 md:flex md:space-y-0 md:space-x-8';
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 {#if variant === 'simple'}

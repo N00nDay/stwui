@@ -10,7 +10,7 @@
 	import type { Writable } from 'svelte/store';
 
 	export let href: string;
-	export let index: number;
+	export let step: number;
 
 	useContext({
 		context_id: STEPS_CONTEXT_ID,
@@ -19,8 +19,7 @@
 	});
 
 	setContext(STEPS_STEP_CONTEXT_ID, {
-		step: true,
-		index
+		step
 	});
 
 	const {
@@ -33,19 +32,19 @@
 
 	let defaultClass = '';
 	$: if (variant === 'bullets') {
-		if ($currentStep > index + 1) {
+		if ($currentStep > step) {
 			defaultClass = 'block h-2.5 w-2.5 rounded-full bg-primary hover:bg-primary-hover';
-		} else if ($currentStep === index + 1) {
+		} else if ($currentStep === step) {
 			defaultClass = 'relative flex items-center justify-center';
 		} else {
 			defaultClass =
 				'block h-2.5 w-2.5 rounded-full bg-light-border dark:bg-dark-border hover:bg-light-border-base dark:hover:bg-dark-border-base';
 		}
 	} else if (variant === 'simple') {
-		if ($currentStep > index + 1) {
+		if ($currentStep > step) {
 			defaultClass =
 				'group flex flex-col border-l-4 border-primary hover:border-primary-hover py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
-		} else if ($currentStep === index + 1) {
+		} else if ($currentStep === step) {
 			defaultClass =
 				'flex flex-col border-l-4 border-primary dark:border-primary py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
 		} else {
@@ -57,16 +56,16 @@
 </script>
 
 {#if variant === 'simple'}
-	{#if $currentStep > index + 1}
-		<li data-step={index + 1} class="md:flex-1" on:click>
+	{#if $currentStep > step}
+		<li data-step={step} class="md:flex-1" on:click>
 			<!-- Completed Step -->
 			<a {href} class={finalClass} style={$$props.style}>
 				<slot name="title" />
 				<slot name="description" />
 			</a>
 		</li>
-	{:else if $currentStep === index + 1}
-		<li data-step={index + 1} class="md:flex-1" on:click>
+	{:else if $currentStep === step}
+		<li data-step={step} class="md:flex-1" on:click>
 			<!-- Current Step -->
 			<a {href} class={finalClass} style={$$props.style}>
 				<slot name="title" />
@@ -74,7 +73,7 @@
 			</a>
 		</li>
 	{:else}
-		<li data-step={index + 1} class="md:flex-1" on:click>
+		<li data-step={step} class="md:flex-1" on:click>
 			<!-- Upcoming Step -->
 			<a {href} class={finalClass} style={$$props.style}>
 				<slot name="title" />
@@ -83,15 +82,15 @@
 		</li>
 	{/if}
 {:else if variant === 'bullets'}
-	{#if $currentStep > index + 1}
-		<li data-step={index + 1} on:click>
+	{#if $currentStep > step}
+		<li data-step={step} on:click>
 			<!-- Completed Step -->
 			<a {href} class={finalClass} style={$$props.style}>
 				<slot name="title" />
 			</a>
 		</li>
-	{:else if $currentStep === index + 1}
-		<li data-step={index + 1} on:click>
+	{:else if $currentStep === step}
+		<li data-step={step} on:click>
 			<!-- Current Step -->
 			<a {href} class={finalClass} style={$$props.style}>
 				<span class="absolute flex h-5 w-5 p-px">
@@ -102,7 +101,7 @@
 			</a>
 		</li>
 	{:else}
-		<li data-step={index + 1} on:click>
+		<li data-step={step} on:click>
 			<!-- Upcoming Step -->
 			<a {href} class={finalClass} style={$$props.style}>
 				<slot name="title" />
@@ -110,8 +109,8 @@
 		</li>
 	{/if}
 {:else if variant === 'bullets-text'}
-	{#if $currentStep > index + 1}
-		<li data-step={index + 1} on:click>
+	{#if $currentStep > step}
+		<li data-step={step} on:click>
 			<!-- Complete Step -->
 			<a {href} class="group">
 				<span class="flex items-start">
@@ -133,8 +132,8 @@
 				</span>
 			</a>
 		</li>
-	{:else if $currentStep === index + 1}
-		<li data-step={index + 1} on:click>
+	{:else if $currentStep === step}
+		<li data-step={step} on:click>
 			<!-- Current Step -->
 			<a {href} class="flex items-start">
 				<span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
@@ -145,7 +144,7 @@
 			</a>
 		</li>
 	{:else}
-		<li data-step={index + 1} on:click>
+		<li data-step={step} on:click>
 			<!-- Upcoming Step -->
 			<a {href} class="group">
 				<div class="flex items-start">
@@ -160,8 +159,8 @@
 		</li>
 	{/if}
 {:else if variant === 'circles-text'}
-	{#if $currentStep > index + 1}
-		<li data-step={index + 1} class="relative pb-10" on:click>
+	{#if $currentStep > step}
+		<li data-step={step} class="relative pb-10" on:click>
 			<div class="absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-primary" />
 			<!-- Complete Step -->
 			<a {href} class="group relative flex items-start">
@@ -190,8 +189,8 @@
 				</span>
 			</a>
 		</li>
-	{:else if $currentStep === index + 1}
-		<li data-step={index + 1} class="step relative pb-10" on:click>
+	{:else if $currentStep === step}
+		<li data-step={step} class="step relative pb-10" on:click>
 			<div
 				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border"
 			/>
@@ -211,7 +210,7 @@
 			</a>
 		</li>
 	{:else}
-		<li data-step={index + 1} class="step relative pb-10" on:click>
+		<li data-step={step} class="step relative pb-10" on:click>
 			<div
 				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border"
 			/>

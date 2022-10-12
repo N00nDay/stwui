@@ -25,67 +25,67 @@
 		currentStep: Writable<number>;
 		variant: 'simple' | 'bullets' | 'bullets-text' | 'circles-text';
 	} = getContext(STEPS_CONTEXT_ID);
-	const { index }: { index: number } = getContext(STEPS_STEP_CONTEXT_ID);
+	const { step }: { step: number } = getContext(STEPS_STEP_CONTEXT_ID);
 
 	let defaultClass = '';
 	if (variant === 'bullets') {
-		if ($currentStep > index + 1) {
+		if ($currentStep > step) {
 			defaultClass = 'sr-only';
-		} else if ($currentStep === index + 1) {
+		} else if ($currentStep === step) {
 			defaultClass = 'sr-only';
 		} else {
 			defaultClass = 'sr-only';
 		}
 	} else if (variant === 'bullets-text') {
-		if ($currentStep > index + 1) {
+		if ($currentStep > step) {
 			defaultClass = 'ml-3 text-sm font-medium text-light-content dark:text-dark-content';
-		} else if ($currentStep === index + 1) {
+		} else if ($currentStep === step) {
 			defaultClass = 'ml-3 text-sm font-medium text-primary';
 		} else {
 			defaultClass =
 				'ml-3 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content group-hover:text-light-content dark:group-hover:text-dark-content';
 		}
 	} else if (variant === 'circles-text') {
-		if ($currentStep > index + 1) {
+		if ($currentStep > step) {
 			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
-		} else if ($currentStep === index + 1) {
+		} else if ($currentStep === step) {
 			defaultClass = 'text-sm font-medium text-primary';
 		} else {
 			defaultClass =
 				'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
 		}
 	} else if (variant === 'simple') {
-		if ($currentStep > index + 1) {
+		if ($currentStep > step) {
 			defaultClass = 'text-sm font-medium text-primary group-hover:text-primary-hover';
-		} else if ($currentStep === index + 1) {
+		} else if ($currentStep === step) {
 			defaultClass = 'text-sm font-medium text-primary dark:text-primary';
 		} else {
 			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
 		}
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 {#if variant === 'simple'}
-	{#if $currentStep > index + 1}
+	{#if $currentStep > step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
-	{:else if $currentStep === index + 1}
+	{:else if $currentStep === step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
 	{:else}
 		<span class={finalClass} style={$$props.style}><slot /></span>
 	{/if}
 {:else if variant === 'bullets'}
-	{#if $currentStep > index + 1}
+	{#if $currentStep > step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
-	{:else if $currentStep === index + 1}
+	{:else if $currentStep === step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
 	{:else}
 		<span class={finalClass} style={$$props.style}><slot /></span>
 	{/if}
 {:else if variant === 'bullets-text'}
-	{#if $currentStep > index + 1}
+	{#if $currentStep > step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
-	{:else if $currentStep === index + 1}
+	{:else if $currentStep === step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
 	{:else}
 		<p class={finalClass} style={$$props.style}>
@@ -93,9 +93,9 @@
 		</p>
 	{/if}
 {:else if variant === 'circles-text'}
-	{#if $currentStep > index + 1}
+	{#if $currentStep > step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
-	{:else if $currentStep === index + 1}
+	{:else if $currentStep === step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
 	{:else}
 		<span class={finalClass} style={$$props.style}><slot /></span>

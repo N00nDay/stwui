@@ -25,42 +25,42 @@
 		currentStep: Writable<number>;
 		variant: 'simple' | 'bullets' | 'bullets-text' | 'circles-text';
 	} = getContext(STEPS_CONTEXT_ID);
-	const { index }: { index: number } = getContext(STEPS_STEP_CONTEXT_ID);
+	const { step }: { step: number } = getContext(STEPS_STEP_CONTEXT_ID);
 
 	let defaultClass = '';
 	if (variant === 'circles-text') {
-		if ($currentStep > index + 1) {
+		if ($currentStep > step) {
 			defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
-		} else if ($currentStep === index + 1) {
+		} else if ($currentStep === step) {
 			defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
 		} else {
 			defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
 		}
 	} else if (variant === 'simple') {
-		if ($currentStep > index + 1) {
+		if ($currentStep > step) {
 			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
-		} else if ($currentStep === index + 1) {
+		} else if ($currentStep === step) {
 			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
 		} else {
 			defaultClass =
 				'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
 		}
 	}
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 {#if variant === 'simple'}
-	{#if $currentStep > index + 1}
+	{#if $currentStep > step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
-	{:else if $currentStep === index + 1}
+	{:else if $currentStep === step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
 	{:else}
 		<span class={finalClass} style={$$props.style}><slot /></span>
 	{/if}
 {:else if variant === 'circles-text'}
-	{#if $currentStep > index + 1}
+	{#if $currentStep > step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
-	{:else if $currentStep === index + 1}
+	{:else if $currentStep === step}
 		<span class={finalClass} style={$$props.style}><slot /></span>
 	{:else}
 		<span class={finalClass} style={$$props.style}><slot /></span>
