@@ -2,7 +2,7 @@
 	import { twMerge } from 'tailwind-merge';
 
 	const defaultClass = 'text-light-secondary-content dark:text-dark-secondary-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>

@@ -3,7 +3,7 @@
 
 	const defaultClass =
 		'mt-1 text-3xl font-semibold tracking-tight text-light-content dark:text-dark-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <dd class={finalClass} style={$$props.style}>

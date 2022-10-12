@@ -1,177 +1,239 @@
 <script lang="ts">
-	import { Col, Statistic } from '../../lib';
+	import { Col, Statistic, Card } from '../../lib';
 	import { formatNumber } from '../../lib/utils';
-
-	const totalLikes = 25660000;
-	const totalLikesLastYear = 27660000;
-
-	const pageViews = 2660000;
-	const pageViewsLastYear = 2580000;
-
-	const newUsers = 82001;
-	const usersGoal = 100000;
-
-	function getTrendValue(current: number, comparison: number | undefined) {
-		return !comparison ? current : current - comparison;
-	}
-
-	function getTrendPercent(current: number, comparison: number | undefined) {
-		const trendValue = !comparison ? current : current - comparison;
-		return !comparison || comparison === 0 ? 100 : trendValue / comparison;
-	}
-
-	function getProgress(value: number, goal = 100) {
-		return !goal || goal === 0 ? 100 : (value / goal) * 100;
-	}
+	import {
+		example1,
+		example2,
+		example3,
+		example4,
+		example5,
+		example6,
+		slots,
+		iconProps,
+		titleSlots,
+		comparisonSlots,
+		valueSlots,
+		goalProps,
+		trendProps
+	} from './examples';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
 
 <Col class="col-24 md:col-8">
-	<Statistic>
-		<Statistic.Icon slot="icon" icon="favorite" />
-		<Statistic.Title slot="title">Total Likes</Statistic.Title>
-		<Statistic.Value slot="value">
-			{formatNumber(totalLikes, {
-				style: 'decimal',
-				notation: 'compact',
-				maximumFractionDigits: 1,
-				minimumFractionDigits: 1
-			})}
-		</Statistic.Value>
-		<Statistic.Comparison slot="comparison">
-			<Statistic.Comparison.Value slot="value">
-				Last Year: {formatNumber(totalLikesLastYear, {
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Statistic>
+			<Statistic.Icon slot="icon" icon="favorite" />
+			<Statistic.Title slot="title">Total Likes</Statistic.Title>
+			<Statistic.Value slot="value">
+				{formatNumber(25660000, {
 					style: 'decimal',
 					notation: 'compact',
 					maximumFractionDigits: 1,
 					minimumFractionDigits: 1
 				})}
-			</Statistic.Comparison.Value>
-			<Statistic.Comparison.Trend icon="trending_up" slot="trend">
-				{formatNumber(getTrendValue(totalLikes, totalLikesLastYear), {
+			</Statistic.Value>
+			<Statistic.Comparison slot="comparison">
+				<Statistic.Comparison.Value slot="value">
+					Last Year: {formatNumber(27660000, {
+						style: 'decimal',
+						notation: 'compact',
+						maximumFractionDigits: 1,
+						minimumFractionDigits: 1
+					})}
+				</Statistic.Comparison.Value>
+				<Statistic.Comparison.Trend icon="trending_down" slot="trend">
+					{formatNumber(-2000000, {
+						style: 'decimal',
+						notation: 'compact',
+						maximumFractionDigits: 1,
+						minimumFractionDigits: 1
+					})} ({formatNumber(-0.0723, {
+						style: 'percent'
+					})})
+				</Statistic.Comparison.Trend>
+			</Statistic.Comparison>
+		</Statistic>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example1} />
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-8">
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Statistic>
+			<Statistic.Icon slot="icon" icon="assessment" />
+			<Statistic.Title slot="title">Page Views</Statistic.Title>
+			<Statistic.Value slot="value">
+				{formatNumber(2660000, {
+					style: 'currency',
+					notation: 'compact',
+					maximumFractionDigits: 1,
+					minimumFractionDigits: 1
+				})}
+			</Statistic.Value>
+			<Statistic.Comparison slot="comparison">
+				<Statistic.Comparison.Value slot="value">
+					Last Year: {formatNumber(2580000, {
+						style: 'currency',
+						notation: 'compact',
+						maximumFractionDigits: 1,
+						minimumFractionDigits: 1
+					})}
+				</Statistic.Comparison.Value>
+				<Statistic.Comparison.Trend icon="trending_up" slot="trend">
+					{formatNumber(80000, {
+						style: 'currency',
+						notation: 'compact',
+						maximumFractionDigits: 1,
+						minimumFractionDigits: 1
+					})} ({formatNumber(0.031, {
+						style: 'percent'
+					})})
+				</Statistic.Comparison.Trend>
+			</Statistic.Comparison>
+		</Statistic>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example2} />
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-8">
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Statistic>
+			<Statistic.Icon slot="icon" icon="assessment" />
+			<Statistic.Title slot="title">New Users</Statistic.Title>
+			<Statistic.Value slot="value">
+				{formatNumber(82001, {
 					style: 'decimal',
 					notation: 'compact',
 					maximumFractionDigits: 1,
 					minimumFractionDigits: 1
-				})} ({formatNumber(getTrendPercent(totalLikes, totalLikesLastYear), {
-					style: 'percent'
-				})})
-			</Statistic.Comparison.Trend>
-		</Statistic.Comparison>
-	</Statistic>
+				})}
+			</Statistic.Value>
+			<Statistic.Goal progress={82.001} />
+		</Statistic>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example3} />
+	</Card>
 </Col>
 
 <Col class="col-24 md:col-8">
-	<Statistic>
-		<Statistic.Icon slot="icon" icon="assessment" />
-		<Statistic.Title slot="title">Page Views</Statistic.Title>
-		<Statistic.Value slot="value">
-			{formatNumber(pageViews, {
-				style: 'currency',
-				notation: 'compact',
-				maximumFractionDigits: 1,
-				minimumFractionDigits: 1
-			})}
-		</Statistic.Value>
-		<Statistic.Comparison slot="comparison">
-			<Statistic.Comparison.Value slot="value">
-				Last Year: {formatNumber(pageViewsLastYear, {
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Statistic>
+			<Statistic.Icon class="text-primary" slot="icon" icon="favorite" />
+			<Statistic.Title slot="title">Total Likes</Statistic.Title>
+			<Statistic.Value class="text-primary" slot="value">
+				{formatNumber(25660000, {
+					style: 'decimal',
+					notation: 'compact',
+					maximumFractionDigits: 1,
+					minimumFractionDigits: 1
+				})}
+			</Statistic.Value>
+		</Statistic>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example4} />
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-8">
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Statistic class="bg-gradient-to-r from-cyan-500 to-blue-500">
+			<Statistic.Icon class="text-white" slot="icon" icon="assessment" />
+			<Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
+			<Statistic.Value class="text-white" slot="value">
+				{formatNumber(2660000, {
 					style: 'currency',
 					notation: 'compact',
 					maximumFractionDigits: 1,
 					minimumFractionDigits: 1
 				})}
-			</Statistic.Comparison.Value>
-			<Statistic.Comparison.Trend icon="trending_up" slot="trend">
-				{formatNumber(getTrendValue(pageViews, pageViewsLastYear), {
-					style: 'currency',
-					notation: 'compact',
-					maximumFractionDigits: 1,
-					minimumFractionDigits: 1
-				})} ({formatNumber(getTrendPercent(pageViews, pageViewsLastYear), {
-					style: 'percent'
-				})})
-			</Statistic.Comparison.Trend>
-		</Statistic.Comparison>
-	</Statistic>
+			</Statistic.Value>
+			<Statistic.Comparison slot="comparison">
+				<Statistic.Comparison.Value class="text-white" slot="value">
+					Last Year: {formatNumber(2580000, {
+						style: 'currency',
+						notation: 'compact',
+						maximumFractionDigits: 1,
+						minimumFractionDigits: 1
+					})}
+				</Statistic.Comparison.Value>
+				<Statistic.Comparison.Trend class="bg-white text-white" icon="trending_up" slot="trend">
+					{formatNumber(80000, {
+						style: 'currency',
+						notation: 'compact',
+						maximumFractionDigits: 1,
+						minimumFractionDigits: 1
+					})} ({formatNumber(0.031, {
+						style: 'percent'
+					})})
+				</Statistic.Comparison.Trend>
+			</Statistic.Comparison>
+		</Statistic>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example5} />
+	</Card>
 </Col>
 
 <Col class="col-24 md:col-8">
-	<Statistic>
-		<Statistic.Icon slot="icon" icon="assessment" />
-		<Statistic.Title slot="title">New Users</Statistic.Title>
-		<Statistic.Value slot="value">
-			{formatNumber(newUsers, {
-				style: 'decimal',
-				notation: 'compact',
-				maximumFractionDigits: 1,
-				minimumFractionDigits: 1
-			})}
-		</Statistic.Value>
-		<Statistic.Goal progress={getProgress(newUsers, usersGoal)} />
-	</Statistic>
-</Col>
-
-<Col class="col-24 md:col-8">
-	<Statistic>
-		<Statistic.Icon class="text-primary" slot="icon" icon="favorite" />
-		<Statistic.Title slot="title">Total Likes</Statistic.Title>
-		<Statistic.Value class="text-primary" slot="value">
-			{formatNumber(totalLikes, {
-				style: 'decimal',
-				notation: 'compact',
-				maximumFractionDigits: 1,
-				minimumFractionDigits: 1
-			})}
-		</Statistic.Value>
-	</Statistic>
-</Col>
-
-<Col class="col-24 md:col-8">
-	<Statistic class="bg-gradient-to-r from-cyan-500 to-blue-500">
-		<Statistic.Icon class="text-white" slot="icon" icon="assessment" />
-		<Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
-		<Statistic.Value class="text-white" slot="value">
-			{formatNumber(pageViews, {
-				style: 'currency',
-				notation: 'compact',
-				maximumFractionDigits: 1,
-				minimumFractionDigits: 1
-			})}
-		</Statistic.Value>
-		<Statistic.Comparison slot="comparison">
-			<Statistic.Comparison.Value class="text-white" slot="value">
-				Last Year: {formatNumber(pageViewsLastYear, {
-					style: 'currency',
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Statistic>
+			<Statistic.Title slot="title">New Users</Statistic.Title>
+			<Statistic.Value slot="value">
+				{formatNumber(82001, {
+					style: 'decimal',
 					notation: 'compact',
 					maximumFractionDigits: 1,
 					minimumFractionDigits: 1
 				})}
-			</Statistic.Comparison.Value>
-			<Statistic.Comparison.Trend class="bg-white text-white" icon="trending_up" slot="trend">
-				{formatNumber(getTrendValue(pageViews, pageViewsLastYear), {
-					style: 'currency',
-					notation: 'compact',
-					maximumFractionDigits: 1,
-					minimumFractionDigits: 1
-				})} ({formatNumber(getTrendPercent(pageViews, pageViewsLastYear), {
-					style: 'percent'
-				})})
-			</Statistic.Comparison.Trend>
-		</Statistic.Comparison>
-	</Statistic>
+			</Statistic.Value>
+			<Statistic.Goal progress={82.001} />
+		</Statistic>
+
+		<br />
+
+		<CodeBlock language="svelte" code={example6} />
+	</Card>
 </Col>
 
-<Col class="col-24 md:col-8">
-	<Statistic>
-		<Statistic.Title slot="title">New Users</Statistic.Title>
-		<Statistic.Value slot="value">
-			{formatNumber(newUsers, {
-				style: 'decimal',
-				notation: 'compact',
-				maximumFractionDigits: 1,
-				minimumFractionDigits: 1
-			})}
-		</Statistic.Value>
-		<Statistic.Goal progress={getProgress(newUsers, usersGoal)} />
-	</Statistic>
+<Col class="col-24">
+	<SlotsTable component="Statistic" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Statistic.Title" slots={titleSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Statistic.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Statistic.Value" slots={valueSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Statistic.Comparison" slots={comparisonSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Statistic.Comparison.Value" slots={valueSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Statistic.Comparison.Trend" props={trendProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Statistic.Goal" props={goalProps} />
 </Col>

@@ -3,7 +3,7 @@
 
 	const defaultClass =
 		'overflow-hidden rounded-md px-4 py-5 shadow-md dark:shadow-black sm:p-5 bg-light-surface dark:bg-dark-surface';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>
