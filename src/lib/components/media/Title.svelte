@@ -22,7 +22,7 @@
 	});
 
 	const defaultClass = 'font-bold text-light-content dark:text-dark-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <h4

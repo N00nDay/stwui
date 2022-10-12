@@ -4,7 +4,6 @@
 
 <script lang="ts">
 	import { setContext } from 'svelte';
-
 	import { current_component } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -17,7 +16,7 @@
 	});
 
 	const defaultClass = 'flex';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div

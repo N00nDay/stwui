@@ -3,7 +3,13 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte/internal';
 
-	const sidebarItems = [
+	interface Item {
+		title: string;
+		href: string;
+		beta?: boolean;
+	}
+
+	const sidebarItems: Item[] = [
 		{
 			title: 'Accordion',
 			href: '/accordion'
@@ -90,6 +96,10 @@
 		{
 			title: 'List',
 			href: '/list'
+		},
+		{
+			title: 'Media',
+			href: '/media'
 		},
 		{
 			title: 'Menu',
