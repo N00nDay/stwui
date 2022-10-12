@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { Card, Col, Rating } from '../../lib';
+	import { example, halfExample, sizeExample, showValueExample, props } from './examples';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
 
 <Col class="col-24 md:col-12">
@@ -9,6 +11,10 @@
 			<Rating name="rating-1" showValue />
 			<br />
 			<Rating name="rating-2" value={3} class="text-orange-400" />
+
+			<br />
+
+			<CodeBlock language="svelte" code={example} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -20,6 +26,10 @@
 			<Rating name="rating-3" half />
 			<br />
 			<Rating name="rating-4" value={3} half class="text-orange-400" />
+
+			<br />
+
+			<CodeBlock language="svelte" code={halfExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -33,6 +43,10 @@
 			<Rating name="rating-6" value={3} class="text-orange-400" />
 			<br />
 			<Rating name="rating-7" value={3} size="lg" class="text-purple-400" />
+
+			<br />
+
+			<CodeBlock language="svelte" code={sizeExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -52,6 +66,14 @@
 			<Rating name="rating-9" value={3} half class="text-orange-400" showValue />
 			<br />
 			<Rating name="rating-10" value={3.5} half size="lg" class="text-purple-400" showValue />
+
+			<br />
+
+			<CodeBlock language="svelte" code={showValueExample} />
 		</Card.Content>
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Rating" {props} />
 </Col>

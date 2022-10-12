@@ -8,18 +8,17 @@
 	export let size: 'sm' | 'md' | 'lg' = 'md';
 	export let showValue = false;
 
-	let defaultClass = 'rating text-primary';
-
-	defaultClass = twMerge(defaultClass, $$props.class);
-
 	function handleSelect(rating: number) {
 		value = rating;
 	}
+
+	const defaultClass = 'rating text-primary';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class="w-full flex flex-row items-center justify-start">
 	<div
-		class={defaultClass}
+		class={finalClass}
 		class:rating-half={half}
 		class:sm={size === 'sm'}
 		class:md={size === 'md'}
