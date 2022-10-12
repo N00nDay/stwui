@@ -1,11 +1,15 @@
 <script lang="ts">
 	import { Card, Col } from '../../lib';
 	import { tooltip } from '../../lib/actions';
+	import { example } from './examples';
+	import { CodeBlock } from '../../docs';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Toggle</Card.Header>
+		<Card.Header slot="header"
+			>Tooltip - see <a href="/types#TooltipConfig" class="link">TooltipConfig</a> for parameters</Card.Header
+		>
 		<Card.Content slot="content" class="p-4 ">
 			<button
 				use:tooltip={{
@@ -15,8 +19,9 @@
 					animation: 'scale'
 				}}
 				type="button"
-				class="text-white relative bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-				>Right tooltip
+				class="bg-primary text-white rounded-md px-4 py-2"
+			>
+				Right tooltip
 			</button>
 
 			<br />
@@ -29,8 +34,9 @@
 					animation: 'scale'
 				}}
 				type="button"
-				class="text-white relative bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-				>Left tooltip
+				class="bg-primary text-white rounded-md px-4 py-2"
+			>
+				Left tooltip
 			</button>
 
 			<br />
@@ -43,8 +49,9 @@
 					animation: 'scale'
 				}}
 				type="button"
-				class="text-white relative bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-				>Top tooltip
+				class="bg-primary text-white rounded-md px-4 py-2"
+			>
+				Top tooltip
 			</button>
 
 			<br />
@@ -57,9 +64,15 @@
 					animation: 'scale'
 				}}
 				type="button"
-				class="text-white relative bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-				>Bottom tooltip
+				class="bg-primary text-white rounded-md px-4 py-2"
+			>
+				Bottom tooltip
 			</button>
+
+			<br />
+			<br />
+
+			<CodeBlock language="svelte" code={example} />
 		</Card.Content>
 	</Card>
 </Col>

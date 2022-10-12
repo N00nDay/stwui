@@ -29,3 +29,40 @@ export const timelineItem = `interface TimelineItem {
 	description: string;
 	icon?: MaterialIcon;
 }`;
+
+export const tooltipConfig = `interface TooltipConfig {
+	allowHTML?: boolean;
+	animation?: 'scale';
+	appendTo?: Element;
+	arrow?: boolean | string | SVGElement;
+	disabled?: boolean;
+	content?: string | Element;
+	delay?: number | [number, number];
+	duration?: number | [number, number];
+	hideOnClick?: boolean | 'toggle';
+	ignoreAttributes?: boolean;
+	inertia?: boolean;
+	interactive?: boolean;
+	maxWidth?: number | 'none';
+	moveTransition?: string;
+	offset?: [number, number];
+	placement?:
+		| 'top'
+		| 'top-end'
+		| 'right'
+		| 'right-start'
+		| 'right-end'
+		| 'bottom'
+		| 'bottom-start'
+		| 'bottom-end'
+		| 'left'
+		| 'left-start'
+		| 'left-end'
+		| 'auto'
+		| 'auto-start'
+		| 'auto-end';
+	theme?: string;
+	trigger?: string;
+	triggerTarget?: Element | Element[];
+	zIndex?: number;
+}`;

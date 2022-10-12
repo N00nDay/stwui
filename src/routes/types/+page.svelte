@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { Divider } from '$lib';
-	import { carouselSlide, locale, lightboxAction, tableColumn, timelineItem } from './examples';
+	import {
+		carouselSlide,
+		locale,
+		lightboxAction,
+		tableColumn,
+		timelineItem,
+		tooltipConfig
+	} from './examples';
 	import { InlineCode, CodeBlock } from '../..//docs';
 </script>
 
@@ -73,4 +80,15 @@
 	</p>
 
 	<CodeBlock language="typescript" code={timelineItem} />
+
+	<br />
+
+	<h1 id="TooltipConfig" class="text-light-content dark:text-dark-content mb-0">TooltipConfig</h1>
+	<Divider />
+
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		Used in conjunction with the <a class="link" href="/tooltip">tooltip</a> action.
+	</p>
+
+	<CodeBlock language="typescript" code={tooltipConfig} />
 </div>
