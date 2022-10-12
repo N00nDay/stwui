@@ -12,11 +12,9 @@
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
-	// export let autocomplete: string | undefined = undefined;
-	// export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
 	export let autofocus = false;
 	export let handleLeadingClick: (() => void) | undefined = undefined;
-	export let visible: true | false = false;
+	export let visible = false;
 	export let options: string[] = [];
 
 	let input: HTMLInputElement;
@@ -144,7 +142,6 @@
 									transition:scale|local
 									class="text-primary absolute inset-y-0 right-0 flex items-center pr-4"
 								>
-									<!-- Heroicon name: solid/check -->
 									<svg
 										class="h-5 w-5"
 										xmlns="http://www.w3.org/2000/svg"
