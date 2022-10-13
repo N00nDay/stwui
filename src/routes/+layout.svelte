@@ -144,7 +144,10 @@
 			</Layout.Header.Extra>
 		</Layout.Header>
 
-		<Layout.Content class="h-[calc(100%-64px)] bg-light-background dark:bg-dark-background">
+		<Layout.Content
+			class="h-[calc(100%-64px)] bg-light-background dark:bg-dark-background"
+			expandedWidth="17rem"
+		>
 			<Layout.Content.Sidebar class="max-w-full">
 				<Navigation />
 			</Layout.Content.Sidebar>
