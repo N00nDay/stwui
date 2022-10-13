@@ -70,7 +70,7 @@ export const props: Prop[] = [
 	{
 		id: '12',
 		prop: 'autofocus',
-		type: "'true' | undefined",
+		type: 'true | undefined',
 		default: ''
 	},
 	{

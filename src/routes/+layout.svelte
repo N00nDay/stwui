@@ -5,11 +5,7 @@
 	import { page } from '$app/stores';
 	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle } from '../lib';
 	import { browser } from '$app/environment';
-	import { Navigation } from '../docs';
-
-	const sidebarFullWidth = 218;
-
-	let sidebarWidth = 218;
+	import { Navigation, Search } from '../docs';
 
 	let openMenu = false;
 	let darkTheme = false;
@@ -65,6 +61,27 @@
 	}
 
 	$: pageTitle = renderTitle($page.url.pathname);
+
+	let value: string;
+
+	let options = ['Option 1', 'Option 2', 'Option 3'];
+
+	let filtered = ['Option 1', 'Option 2', 'Option 3'];
+
+	function filter(e: Event) {
+		const target = e.target as HTMLInputElement;
+		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+	}
+
+	function filterOptions(option: string) {
+		if (option) {
+			filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+		} else {
+			filtered = options;
+		}
+	}
+
+	$: filterOptions(value);
 </script>
 
 <svelte:head>
@@ -104,10 +121,12 @@
 					<Toggle.RightIcon slot="right-icon" icon="dark_mode" />
 				</Toggle>
 
+				<Search />
+
 				<Button
 					on:click={redirectToDiscord}
 					shape="circle"
-					class="ml-4 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
+					class="ml-2 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

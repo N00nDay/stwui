@@ -31,6 +31,7 @@
 		| undefined = undefined;
 	export let shape: 'square' | 'circle' | 'rounded' | 'pill' = 'rounded';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fab' = 'md';
+	export let disableHover = false;
 
 	setContext(BUTTON_CONTEXT_ID, {
 		button: true,
@@ -140,7 +141,7 @@
 		<slot name="trailing" />
 	{/if}
 
-	{#if !disabled}
+	{#if !disabled && !disableHover}
 		<HoverBackground class={hoverClass} />
 	{/if}
 </button>

@@ -42,6 +42,12 @@ export const props: Prop[] = [
 		prop: 'size',
 		type: "'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fab'",
 		default: 'md'
+	},
+	{
+		id: '8',
+		prop: 'disableHover',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 

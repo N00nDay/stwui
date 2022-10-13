@@ -5,9 +5,20 @@ import BetaComponent from './components/beta-component/BetaComponent.svelte';
 import InlineCode from './components/inline-code/InlineCode.svelte';
 import CodeBlock from './components/code-block';
 import Navigation from './components/navigation/Navigation.svelte';
+import Search from './components/search/Search.svelte';
 
 // Types
 import type { Prop } from './types/props-table';
 import type { Slot } from './types/slots-table';
 
-export { PropsTable, SlotsTable, BetaComponent, InlineCode, CodeBlock, Navigation, Prop, Slot };
+export {
+	PropsTable,
+	SlotsTable,
+	BetaComponent,
+	InlineCode,
+	CodeBlock,
+	Navigation,
+	Prop,
+	Slot,
+	Search
+};

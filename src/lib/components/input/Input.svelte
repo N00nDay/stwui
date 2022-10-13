@@ -21,7 +21,7 @@
 	export let value: string | undefined = undefined;
 	export let autocomplete: 'on' | 'off' | undefined = undefined;
 	export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
-	export let autofocus: 'true' | undefined = undefined;
+	export let autofocus: true | undefined = undefined;
 	export let readonly: true | undefined = undefined;
 	export let tabindex: string | undefined = undefined;
 	export let handleLeadingClick: (() => void) | undefined = undefined;
