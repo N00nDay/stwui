@@ -66,3 +66,10 @@ export const tooltipConfig = `interface TooltipConfig {
 	triggerTarget?: Element | Element[];
 	zIndex?: number;
 }`;
+
+export const formatNumber = `interface FormatNumber {
+	notation?: 'standard' | 'scientific' | 'engineering' | 'compact';
+	maximumFractionDigits?: number;
+	minimumFractionDigits?: number;
+	style?: 'decimal' | 'currency' | 'percent' | 'unit';
+}`;

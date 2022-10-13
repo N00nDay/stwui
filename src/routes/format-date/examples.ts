@@ -1,7 +1,7 @@
 export const example = `
 <script lang="ts">
-   import { InputNumber } from 'stwui';
-   import { computeProgress } from 'stwui/utils';
+   import { Row, Col } from 'stwui';
+   import { formatDate } from 'stwui/utils';
 
    let date = new Date(Date.now());
 	let dateMinus30Minutes = new Date(new Date().getTime() - 1000 * 60 * 30);

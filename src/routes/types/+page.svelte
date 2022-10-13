@@ -6,7 +6,8 @@
 		lightboxAction,
 		tableColumn,
 		timelineItem,
-		tooltipConfig
+		tooltipConfig,
+		formatNumber
 	} from './examples';
 	import { InlineCode, CodeBlock } from '../..//docs';
 </script>
@@ -21,6 +22,17 @@
 	</p>
 
 	<CodeBlock language="typescript" code={carouselSlide} />
+
+	<br />
+
+	<h1 id="FormatNumber" class="text-light-content dark:text-dark-content mb-0">FormatNumber</h1>
+	<Divider />
+
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		Used in conjunction with the <a class="link" href="/format-number">formatNumber</a> utility.
+	</p>
+
+	<CodeBlock language="typescript" code={formatNumber} />
 
 	<br />
 
