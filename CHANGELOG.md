@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.21-next](https://github.com/N00nDay/stwui/compare/v0.0.20-next...v0.0.21-next) (2022-10-13)
+
+
+### Bug Fixes
+
+* **formatDate:** fixed relativeTime ([833e812](https://github.com/N00nDay/stwui/commit/833e812dacd39b4149ed6bd1e553229756a6e791))
+
 ## [0.0.20-next](https://github.com/N00nDay/stwui/compare/v0.0.19-next...v0.0.20-next) (2022-10-12)
 
 
