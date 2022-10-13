@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.22-next](https://github.com/N00nDay/stwui/compare/v0.0.21-next...v0.0.22-next) (2022-10-13)
+
+
+### Bug Fixes
+
+* **Accordion:** forwarded events including all child components ([19f3ced](https://github.com/N00nDay/stwui/commit/19f3ced7449aaf903bb83ed6f378c800c0584bba))
+* **Accordion:** removed forwardEvents as I cant prevent event bubble currently ([62c3b00](https://github.com/N00nDay/stwui/commit/62c3b000656f6df0a1e9e636bce5973fc3152f46))
+
 ## [0.0.21-next](https://github.com/N00nDay/stwui/compare/v0.0.20-next...v0.0.21-next) (2022-10-13)
 
 
