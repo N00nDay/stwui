@@ -31,7 +31,7 @@ export default function forwardEventsBuilder(component: SvelteComponent) {
 
 		if (oldModifierMatch && console) {
 			console.warn(
-				'Event modifiers in SMUI now use "$" instead of ":", so that ' +
+				'Event modifiers in STWUI now use "$" instead of ":", so that ' +
 					'all events can be bound with modifiers. Please update your ' +
 					'event binding: ',
 				eventType
@@ -62,7 +62,7 @@ export default function forwardEventsBuilder(component: SvelteComponent) {
 			const oldModifierMatch = eventType.match(oldModifierRegex);
 			const newModifierMatch = eventType.match(newModifierRegex);
 			const modifierMatch = oldModifierMatch || newModifierMatch;
-			if (eventType.match(/^SMUI:\w+:/)) {
+			if (eventType.match(/^STWUI:\w+:/)) {
 				const newEventTypeParts = eventType.split(':');
 				let newEventType = '';
 				for (let i = 0; i < newEventTypeParts.length; i++) {
