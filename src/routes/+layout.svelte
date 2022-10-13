@@ -43,7 +43,7 @@
 		scrollToTop();
 
 		const pathnameStripped = pathname.substring(1);
-		const pathnameArray = pathnameStripped.replace('-', ' ').split(' ');
+		const pathnameArray = pathnameStripped.split('-');
 		let title = '';
 		for (const part of pathnameArray) {
 			title += part.charAt(0).toUpperCase() + part.slice(1) + ' ';
