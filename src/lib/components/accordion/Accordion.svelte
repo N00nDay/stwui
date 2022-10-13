@@ -5,6 +5,11 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
+	import { current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	import { exclude } from '../../utils/exclude';
+	export let use: ActionArray = [];
+	const forwardEvents = forwardEventsBuilder(current_component);
 
 	setContext(ACCORDION_CONTEXT_ID, {
 		accordion: true
@@ -14,6 +19,12 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass} style={$$props.style}>
+<div
+	class={finalClass}
+	style={$$props.style}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<slot />
 </div>
