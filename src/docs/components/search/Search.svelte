@@ -4,6 +4,7 @@
 	import { Modal, Portal, Icon, Button } from '../../../lib';
 	import { goto } from '$app/navigation';
 	import { scale } from 'svelte/transition';
+	import Kbd from '../kbd/Kbd.svelte';
 
 	let input: HTMLInputElement;
 
@@ -70,31 +71,25 @@
 
 <Button
 	on:click={handleOpen}
-	class="border-light-border dark:border-dark-border border ml-4 shadow-md dark:shadow-black hidden sm:flex"
+	class="border-light-border dark:border-dark-border border ml-4 shadow-md dark:shadow-black hidden md:flex"
 >
 	<Button.Leading slot="leading">
 		<Button.Leading.Icon slot="icon" icon="search" />
 	</Button.Leading>
 	<div class="w-12 md:w-32 text-left">Search</div>
 	<Button.Trailing slot="trailing" class="justify-self-end hidden sm:flex">
-		<div
-			class="mx-1 bg-light-background dark:bg-dark-background rounded-md px-1 py-0.5 border border-light-border dark:border-dark-border shadow-sm"
-		>
+		<Kbd>
 			{#if os === 'MacOS'}⌘{:else}CTRL{/if}
-		</div>
+		</Kbd>
 		+
-		<div
-			class="mx-1 bg-light-background dark:bg-dark-background rounded-md px-1 py-0.5 border border-light-border dark:border-dark-border shadow-sm"
-		>
-			k
-		</div>
+		<Kbd>k</Kbd>
 	</Button.Trailing>
 </Button>
 
 <Button
 	on:click={handleOpen}
 	shape="circle"
-	class="flex sm:hidden ml-4 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
+	class="flex md:hidden ml-4 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
 >
 	<Button.Icon slot="icon" icon="search" />
 </Button>
@@ -134,11 +129,10 @@
 							</span>
 						</span>
 					{/if}
-					<div
-						class="absolute inset-y-0 right-4 top-2.5 flex items-center justify-center h-[26px] bg-light-background dark:bg-dark-background rounded-md px-1 py-0.5 border border-light-border dark:border-dark-border shadow-sm"
-					>
+
+					<Kbd class="absolute inset-y-0 right-4 top-2.5 flex items-center justify-center h-[26px]">
 						esc
-					</div>
+					</Kbd>
 				</div>
 
 				{#if fiteredData.length > 0}

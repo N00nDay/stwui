@@ -3,7 +3,7 @@
 	import { goto } from '$app/navigation';
 
 	import { page } from '$app/stores';
-	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle } from '../lib';
+	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle, Badge } from '../lib';
 	import { browser } from '$app/environment';
 	import { Navigation, Search } from '../docs';
 
@@ -95,7 +95,10 @@
 				<img src="/120x120-transparent.png" alt="logo-icon" class="h-10 mr-4" />
 			</a>
 
-			<div class="mr-2 font-bold text-xl opacity-80 dark:opacity-100">{pageTitle}</div>
+			<div class="mr-2 font-bold text-xl opacity-80 dark:opacity-100">
+				{pageTitle}
+			</div>
+			<!-- <Badge type="info" shape="rounded">{__version__}</Badge> -->
 
 			<Layout.Header.Extra slot="extra">
 				<Toggle name="toggle" bind:on={darkTheme}>

@@ -6,6 +6,7 @@ import InlineCode from './components/inline-code/InlineCode.svelte';
 import CodeBlock from './components/code-block';
 import Navigation from './components/navigation/Navigation.svelte';
 import Search from './components/search/Search.svelte';
+import Kbd from './components/kbd/Kbd.svelte';
 
 // Types
 import type { Prop } from './types/props-table';
@@ -20,5 +21,6 @@ export {
 	Navigation,
 	Prop,
 	Slot,
-	Search
+	Search,
+	Kbd
 };
