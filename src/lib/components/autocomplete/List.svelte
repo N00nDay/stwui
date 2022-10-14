@@ -8,6 +8,11 @@
 	import { twMerge } from 'tailwind-merge';
 	import { useContext } from '../../utils/useContext';
 	import { AUTOCOMPLETE_CONTEXT_ID } from './Autocomplete.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
 		context_id: AUTOCOMPLETE_CONTEXT_ID,
@@ -26,7 +31,9 @@
 
 <ul
 	class={finalClass}
-	style={$$props.style}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
 	in:scale={{ start: 0.9, duration: 150 }}
 	out:scale={{ start: 0.95, duration: 150 }}
 	role="listbox"

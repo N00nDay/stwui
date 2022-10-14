@@ -1,12 +1,24 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass =
 		'group text-light-content dark:text-dark-content select-none p-0.5 w-full relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<li class={finalClass} style={$$props.style} role="option" aria-selected="false">
+<li
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+	role="option"
+	aria-selected="false"
+>
 	<span class="font-normal block truncate">
 		{#if $$slots.default}<slot />{:else}No Options Available{/if}
 	</span>

@@ -7,6 +7,12 @@
 	import { slide, scale } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
 	import { onMount, setContext } from 'svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	import { writable, type Writable } from 'svelte/store';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let leading: MaterialIcon | undefined = undefined;
 	export let name: string;
@@ -17,10 +23,12 @@
 	export let value: string | undefined = undefined;
 	export let autofocus = false;
 	export let handleLeadingClick: (() => void) | undefined = undefined;
+	export let allowNonListValue = false;
 
 	let visible = false;
 	let input: HTMLInputElement;
 	let button: HTMLButtonElement;
+	let options: Writable<string[]> = writable([]);
 
 	function handleOpen() {
 		visible = true;
@@ -33,6 +41,10 @@
 	function checkValue() {
 		if (visible) {
 			if (!value) {
+				visible = false;
+			} else if ($options.includes(value)) {
+				visible = false;
+			} else if (allowNonListValue) {
 				visible = false;
 			} else {
 				input.value = '';
@@ -62,11 +74,18 @@
 
 	setContext(AUTOCOMPLETE_CONTEXT_ID, {
 		autocomplete: true,
-		handleSelect
+		handleSelect,
+		options
 	});
 </script>
 
-<div class={$$props.class} style={$$props.style} use:clickOutside={handleClose}>
+<div
+	class={$$props.class}
+	use:clickOutside={handleClose}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<!-- TODO: label slot -->
 	{#if label}
 		<label

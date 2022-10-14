@@ -6,6 +6,12 @@
 	import { twMerge } from 'tailwind-merge';
 	import { useContext } from '$lib/utils/useContext';
 	import HoverBackground from '../HoverBackground.svelte';
+	import { get_current_component, onMount } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	import type { Writable } from 'svelte/store';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let value: string;
 	export let selected = false;
@@ -23,17 +29,30 @@
 	});
 
 	const {
-		handleSelect
+		handleSelect,
+		options
 	}: {
 		handleSelect: (option: string) => void;
+		options: Writable<string[]>;
 	} = getContext(AUTOCOMPLETE_CONTEXT_ID);
 
 	const defaultClass =
 		'group text-light-content dark:text-dark-content cursor-pointer select-none p-0.5 w-full';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+
+	onMount(() => {
+		options.update((current) => [...current, value]);
+	});
 </script>
 
-<li class={finalClass} role="option" aria-selected={selected}>
+<li
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+	role="option"
+	aria-selected={selected}
+>
 	<button on:click={() => handleSelect(value)} class="w-full text-left">
 		<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
 			<span class="font-normal block truncate" class:font-semibold={selected}>
