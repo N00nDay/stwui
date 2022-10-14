@@ -1,6 +1,11 @@
 <script lang="ts">
 	import type { MaterialIcon } from '../../types';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let icon: MaterialIcon;
 
@@ -9,7 +14,12 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass} style={$$props.style} on:click on:keypress>
+<div
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<span class="material-icons text-3xl text-current"> {icon} </span>
 	<span class="sr-only">Rotate Left</span>
 </div>
