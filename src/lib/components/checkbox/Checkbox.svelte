@@ -24,7 +24,7 @@
 
 	const defaultClass =
 		'checkbox checked:bg-primary dark:checked:bg-primary hover:border-primary dark:hover:border-primary bg-light-surface dark:bg-dark-surface h-6 w-6 text-primary light-border-base dark:dark-border-base rounded-md cursor-pointer';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class="relative flex items-start">

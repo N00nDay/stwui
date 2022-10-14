@@ -20,7 +20,7 @@
 	const { name }: { name: string } = getContext(CHECKBOX_GROUP_CHECKBOX_CONTEXT_ID);
 
 	const defaultClass = 'font-medium text-light-content dark:text-dark-content cursor-pointer';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <label for={name} class={finalClass} style={$$props.style}><slot /></label>

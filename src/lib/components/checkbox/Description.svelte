@@ -21,7 +21,7 @@
 	const { name }: { name: string } = getContext(CHECKBOX_GROUP_CHECKBOX_CONTEXT_ID);
 
 	const defaultClass = 'text-light-secondary-content dark:text-dark-secondary-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 {#if inline}

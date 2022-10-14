@@ -9,7 +9,7 @@
 	export let inline = false;
 
 	const defaultClass = 'space-y-5 mt-2';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext(CHECKBOX_GROUP_CONTEXT_ID, {
 		checkbox: true,
