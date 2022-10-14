@@ -9,6 +9,11 @@
 	import { getContext, setContext } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from './Icon.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let loading = false;
 
@@ -37,7 +42,13 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div transition:fade|local class={finalClass} style={$$props.style}>
+<div
+	transition:fade|local
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	{#if $$slots.icon || $$slots.default}
 		<slot name="icon" />
 		<slot />
