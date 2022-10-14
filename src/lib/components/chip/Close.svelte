@@ -3,6 +3,11 @@
 	import { getContext } from 'svelte';
 	import { useContext } from '../../utils/useContext';
 	import { CHIP_CONTEXT_ID } from './Chip.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let defaultClass =
 		'flex-shrink-0 ml-2 h-8 w-8 rounded-full inline-flex items-center justify-center outline-none focus:outline-none hover:text-white dark:hover:text-white';
@@ -27,7 +32,7 @@
 	const { type }: { type: 'info' | 'success' | 'warn' | 'error' | 'default' } =
 		getContext(CHIP_CONTEXT_ID);
 
-	if (type === 'default') {
+	$: if (type === 'default') {
 		defaultClass += defaultDefaults;
 	} else if (type === 'info') {
 		defaultClass += infoDefaults;
@@ -39,10 +44,16 @@
 		defaultClass += errorDefaults;
 	}
 
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<button on:click type="button" class={finalClass}>
+<button
+	type="button"
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<span class="sr-only">Remove option</span>
 	<span class="material-icons">close</span>
 </button>
