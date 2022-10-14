@@ -1,13 +1,29 @@
+<script lang="ts" context="module">
+	export const MEDIA_AVATAR_CONTEXT_ID = 'media-avatar-context-id';
+</script>
+
 <script lang="ts">
 	import { MEDIA_CONTEXT_ID } from './Media.svelte';
 	import { useContext } from '../../utils/useContext';
-	import Avatar from '../avatar';
+	import { setContext, onMount } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
+	import Placeholder from './Placeholder.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	export let align: 'top' | 'center' | 'bottom' = 'top';
-	export let src: string;
-	export let alt = 'avatar';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+	export let align: 'top' | 'center' | 'bottom' = 'top';
+	export let src: string | undefined = undefined;
+	export let alt = 'avatar';
+	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
+	export let initials: string | undefined = undefined;
+
+	let loaded = false;
+	let failed = false;
+	let loading = true;
 
 	useContext({
 		context_id: MEDIA_CONTEXT_ID,
@@ -15,15 +31,104 @@
 		component: 'Media.Avatar'
 	});
 
-	let defaultClass = 'first:mr-4 last:ml-4 flex-shrink-0';
-	$: if (align === 'center') {
-		defaultClass = defaultClass + ' self-center';
-	} else if (align === 'bottom') {
-		defaultClass = defaultClass + ' self-end';
+	setContext(MEDIA_AVATAR_CONTEXT_ID, {
+		avatar: true,
+		src,
+		alt,
+		shape,
+		size
+	});
+
+	let defaultClass = '';
+	let containerDefaultClass = '';
+
+	if (src) {
+		defaultClass = 'inline-block absolute';
+		containerDefaultClass = 'inline-block h-8 w-8 relative align-middle';
+	} else if (initials) {
+		defaultClass =
+			'inline-flex h-8 w-8 items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
 	}
+
+	if (size === 'xs') {
+		defaultClass += ' h-6 w-6';
+		containerDefaultClass += ' h-6 w-6';
+	} else if (size === 'sm') {
+		defaultClass += ' h-8 w-8';
+		containerDefaultClass += ' h-8 w-8';
+	} else if (size === 'md') {
+		defaultClass += ' h-10 w-10';
+		containerDefaultClass += ' h-10 w-10';
+	} else if (size === 'lg') {
+		defaultClass += ' h-12 w-12';
+		containerDefaultClass += ' h-12 w-12';
+	} else if (size === 'xl') {
+		defaultClass += ' h-16 w-16';
+		containerDefaultClass += ' h-16 w-16';
+	}
+	if (shape === 'circle') {
+		defaultClass += ' rounded-full';
+		containerDefaultClass += ' rounded-full';
+	} else if (shape === 'rounded') {
+		defaultClass += ' rounded-md';
+		containerDefaultClass += ' rounded-md';
+	}
+
 	$: finalClass = twMerge(defaultClass, $$props.class);
+	$: finalContainerClass = twMerge(containerDefaultClass, $$props.class);
+
+	onMount(() => {
+		if (src) {
+			const image = new Image();
+			image.src = src;
+			loading = true;
+
+			image.onload = () => {
+				loading = false;
+				loaded = true;
+			};
+			image.onerror = () => {
+				loading = false;
+				failed = true;
+			};
+		}
+	});
 </script>
 
-<div class={finalClass} style={$$props.style}>
-	<Avatar {src} {alt} {size} />
+<div
+	class="first:mr-4 last:ml-4 flex-shrink-0"
+	class:self-center={align === 'center'}
+	class:self-end={align === 'bottom'}
+>
+	{#if src}
+		<span
+			class={finalContainerClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}
+		>
+			{#if loaded}
+				<img class={finalClass} style={$$props.style} src={src || ''} {alt} />
+			{:else if failed}
+				{#if $$slots.placeholder}
+					<slot name="placeholder" />
+				{:else}
+					<Placeholder />
+				{/if}
+			{:else if loading}
+				<Placeholder loading />
+			{/if}
+
+			<slot name="indicator" />
+		</span>
+	{:else if initials}
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}
+		>
+			<span class="font-bold leading-none text-current text-xl">{initials}</span>
+		</span>
+	{/if}
 </div>
