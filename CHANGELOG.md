@@ -1,5 +1,45 @@
 # Changelog
 
+## [0.0.24-next](https://github.com/N00nDay/stwui/compare/v0.0.23-next...v0.0.24-next) (2022-10-14)
+
+
+### Bug Fixes
+
+* **Accordion:** added forward all events including all child components ([060bc81](https://github.com/N00nDay/stwui/commit/060bc816d4e75d250e91b996be3839e4b1d5ad77))
+* **Alert:** forward all events including child components ([7e3f73a](https://github.com/N00nDay/stwui/commit/7e3f73a022ba0a47abff559d81673f645a304ebd))
+* **Autocomplete:** forward all events including child components ([a2525fc](https://github.com/N00nDay/stwui/commit/a2525fcc2486d094d9e69bb613cd2409f64885f7))
+* **Avatar:** forward all events including ([acb5530](https://github.com/N00nDay/stwui/commit/acb5530fc59c453488bfb36426de195bc63246af))
+* **AvatarGroup:** forward all events including  child components ([eec9caa](https://github.com/N00nDay/stwui/commit/eec9caad49cff4727684e07b2ca588d9dbb39a1c))
+* **Badge:** forward all events including  child components ([50d1409](https://github.com/N00nDay/stwui/commit/50d1409134afc690aa7bec2c7b8fb72e80227b73))
+* **BreadCrumbs:** forward all events including  child components ([7f54565](https://github.com/N00nDay/stwui/commit/7f545656ffc0a644ee8ed33c9dd1a0e71985e524))
+* **Button:** forward all events including  child components ([aff8ec3](https://github.com/N00nDay/stwui/commit/aff8ec340811197110437e99608a82b578b04e66))
+* **ButtonGroup:** forward all events including  child components ([68f55df](https://github.com/N00nDay/stwui/commit/68f55dfc4563180a2626e32b55fa3c10c3fb38ae))
+* **Card:** forward all events including  child components ([bd9d3e5](https://github.com/N00nDay/stwui/commit/bd9d3e547bf1de8a4513ee4045bacc4d0fdf6fc6))
+* **Checkbox:** class is reactive including all child components ([7fe0de9](https://github.com/N00nDay/stwui/commit/7fe0de98d4fefa5c9ed687f7174bfaf1a479429b))
+* **CheckboxGroup.Checkbox.Description:** forwarding all events ([5843857](https://github.com/N00nDay/stwui/commit/5843857000aba4e8e8c14f8afa4f46fd16a01281))
+* **CheckboxGroup.Label:** forwarding all events ([5843857](https://github.com/N00nDay/stwui/commit/5843857000aba4e8e8c14f8afa4f46fd16a01281))
+* **Chip:** added Icon, Placeholder and refactored Avatar for customization ([842bf11](https://github.com/N00nDay/stwui/commit/842bf11a7d32908a1ca72c979b02d13c97cb0b60))
+* **Chip:** forward all events including  child components ([842bf11](https://github.com/N00nDay/stwui/commit/842bf11a7d32908a1ca72c979b02d13c97cb0b60))
+* **Col:** forward all events ([dacab3f](https://github.com/N00nDay/stwui/commit/dacab3f505e06ecae7d098d8eb2742b0beca2fdb))
+* **Currency:** fix A11y warnings ([054dac2](https://github.com/N00nDay/stwui/commit/054dac237ce6011d0c9adf5b4757bfcfec0f5b59))
+* **Divider:** forward all events including  child components ([7c4782b](https://github.com/N00nDay/stwui/commit/7c4782b5513261b98c90c95dfaeedeffca7cb7bd))
+* **Drawer:** class is reactive including child components ([564ab6a](https://github.com/N00nDay/stwui/commit/564ab6a9290f5ed98d04fe458546094b448049b2))
+* **Drawer:** forward all events including child components ([564ab6a](https://github.com/N00nDay/stwui/commit/564ab6a9290f5ed98d04fe458546094b448049b2))
+* **Dropdown:** forward all events including child components ([e8cc243](https://github.com/N00nDay/stwui/commit/e8cc243f880b8d646579089f41f847f15e6f2f41))
+* **Dropdown:** removed handleClose prop ([e8cc243](https://github.com/N00nDay/stwui/commit/e8cc243f880b8d646579089f41f847f15e6f2f41))
+* **Empty:** forward all events including child components ([65e651b](https://github.com/N00nDay/stwui/commit/65e651bffa3b4de22bc6a218e7e8d6a112c5e254))
+* **Feed:** added graceful avatar fallback ([235c718](https://github.com/N00nDay/stwui/commit/235c718f30105c9b94c9aa1c5c52291a4978e149))
+* **Feed:** forward all events including child components ([235c718](https://github.com/N00nDay/stwui/commit/235c718f30105c9b94c9aa1c5c52291a4978e149))
+* **Icon:** forward all events ([9c7c1a6](https://github.com/N00nDay/stwui/commit/9c7c1a69620381bdc585156dc03962dc30a33d6a))
+* **Layout:** forward all events including child components ([8009171](https://github.com/N00nDay/stwui/commit/80091713941392bf825a422adbe0a7c5cbb85ec2))
+* **LightBox.Control:** forward all events ([9814724](https://github.com/N00nDay/stwui/commit/9814724aad5d5e4b28443db1900cc3a19fe8c8af))
+* **List > Icon:** removed bg-primary ([4bd164b](https://github.com/N00nDay/stwui/commit/4bd164b5119746be973b9bff587177673a12ccf9))
+* **List.Item.Leading.Avatar:** added graceful fail ([fcc2508](https://github.com/N00nDay/stwui/commit/fcc25080bd620d5123999236db778b27cca97cf6))
+* **List:** forward all events including child components ([fcc2508](https://github.com/N00nDay/stwui/commit/fcc25080bd620d5123999236db778b27cca97cf6))
+* **Media.Avatar:** added graceful error fallback ([1833ae5](https://github.com/N00nDay/stwui/commit/1833ae5be7df6c83bbf56a6cf20af854e28f50db))
+* **Media:** forward all events including child components ([1833ae5](https://github.com/N00nDay/stwui/commit/1833ae5be7df6c83bbf56a6cf20af854e28f50db))
+* **Row:** forward all events ([dacab3f](https://github.com/N00nDay/stwui/commit/dacab3f505e06ecae7d098d8eb2742b0beca2fdb))
+
 ## [0.0.23-next](https://github.com/N00nDay/stwui/compare/v0.0.22-next...v0.0.23-next) (2022-10-14)
 
 
