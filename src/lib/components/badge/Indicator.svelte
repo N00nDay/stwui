@@ -3,6 +3,11 @@
 	import { BADGE_CONTEXT_ID } from './Badge.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte/internal';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
 		context_id: BADGE_CONTEXT_ID,
@@ -26,6 +31,13 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<svg class={finalClass} style={$$props.style} fill="currentColor" viewBox="0 0 8 8">
+<svg
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+	fill="currentColor"
+	viewBox="0 0 8 8"
+>
 	<circle cx="4" cy="4" r="3" />
 </svg>

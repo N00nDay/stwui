@@ -5,6 +5,11 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte/internal';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let type: 'info' | 'success' | 'warn' | 'error' | undefined = undefined;
 	export let size: 'default' | 'large' = 'default';
@@ -45,7 +50,13 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span class={finalClass} class:pr-0.5={$$slots.close} style={$$props.style}>
+<span
+	class={finalClass}
+	class:pr-0.5={$$slots.close}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<slot name="indicator" />
 	<slot />
 	<slot name="close" />
