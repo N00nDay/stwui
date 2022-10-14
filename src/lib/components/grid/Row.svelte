@@ -8,6 +8,11 @@
 <script lang="ts">
 	import type TwSizes from '../../types/twSizes';
 	import { twSizes } from '../../utils/twSizes';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let gutter: TwSizes | [TwSizes, TwSizes] = '0';
 	export let justify: undefined | 'start' | 'center' | 'end' | 'between' | 'around' = 'start';
@@ -52,6 +57,9 @@
 	class:items-center={align === 'center'}
 	class:items-end={align === 'end'}
 	style="{$$props.style ? `${$$props.style} ` : ''}{margin}"
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class', 'style'])}
 >
 	<slot />
 </div>
