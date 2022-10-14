@@ -1,5 +1,42 @@
 # Changelog
 
+## [0.0.23-next](https://github.com/N00nDay/stwui/compare/v0.0.22-next...v0.0.23-next) (2022-10-14)
+
+
+### Bug Fixes
+
+* **Autocomplete:** fixed A11y including child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Card:** fixed A11y including child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Card:** removed forward event listners until propagation can be stopped ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Col:** class is reactive ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Col:** removed forawrd event listners until propagation can be stopped ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **DatePicker:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Divider:** added style as prop ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Divider:** class is reactive including child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Drawer:** class is reactive including child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Dropdown:** class is reactive including child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Empty:** added style as prop including child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Icon:** removed forward event listners until propagation can be stopped ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Input:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **InputNumber:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Layout:** class is reactive including all child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Layout:** removed forward event listners including child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Lightbox.Control:** class is reactive ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Media:** removed forward event listners including child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Modal.Backdrop:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Notification:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **plugin:** isOff now effects all child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Post.Images:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Post:** removed forward event listners including child components ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Radio:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Row:** class is reactive ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Row:** removed forward event listners until propagation can be stopped ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Select:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Steps.Step:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Table.Body.Row:** allow style prop ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Toggle.ContentLeft:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+* **Toggle.ContentRight:** fixed A11y ([2e97db6](https://github.com/N00nDay/stwui/commit/2e97db62ce30543b85777ce03b70d779ae928342))
+
 ## [0.0.22-next](https://github.com/N00nDay/stwui/compare/v0.0.21-next...v0.0.22-next) (2022-10-13)
 
 
