@@ -11,11 +11,11 @@
 	import { twMerge } from 'tailwind-merge';
 	import Swap from '../swap';
 	import ButtonLoader from './Loader.svelte';
-	import { current_component } from 'svelte/internal';
+	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
 	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let active = false;
 	export let loading = false;
@@ -55,7 +55,6 @@
 	class:dark:bg-dark-surface={!active}
 	class:disabled
 	class:w-full={block}
-	style={$$props.style}
 	{disabled}
 	use:useActions={use}
 	use:forwardEvents

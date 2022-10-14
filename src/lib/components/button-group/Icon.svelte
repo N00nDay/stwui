@@ -5,6 +5,11 @@
 	import { BUTTON_GROUP_CONTEXT_ID } from './ButtonGroup.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { BUTTON_GROUP_BUTTON_CONTEXT_ID } from './Button.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let icon: MaterialIcon;
 
@@ -24,4 +29,12 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span transition:scale|local class={finalClass} style={$$props.style}> {icon} </span>
+<span
+	transition:scale|local
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
+	{icon}
+</span>
