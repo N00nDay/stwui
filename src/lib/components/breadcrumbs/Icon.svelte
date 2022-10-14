@@ -4,6 +4,11 @@
 	import { BREADCRUMBS_CONTEXT_ID } from './Breadcrumbs.svelte';
 	import { BREADCRUMBS_CRUMB_CONTEXT_ID } from './Crumb.svelte';
 	import { useContext } from '../../utils/useContext';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let icon: MaterialIcon;
 
@@ -23,4 +28,9 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span class={finalClass} style={$$props.style}>{icon}</span>
+<span
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}>{icon}</span
+>

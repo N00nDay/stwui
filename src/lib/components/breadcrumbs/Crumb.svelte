@@ -8,6 +8,11 @@
 	import { useContext } from '$lib/utils/useContext';
 	import { getContext, setContext } from 'svelte/internal';
 	import Divider from './Divider.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let href: string;
 
@@ -29,7 +34,12 @@
 </script>
 
 <li class="crumb">
-	<div class={finalClass} style={$$props.style}>
+	<div
+		class={finalClass}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class'])}
+	>
 		{#if $$slots.divider}
 			<slot name="divider" />
 		{:else}

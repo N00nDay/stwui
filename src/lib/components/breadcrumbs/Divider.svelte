@@ -3,6 +3,11 @@
 	import { BREADCRUMBS_CONTEXT_ID } from './Breadcrumbs.svelte';
 	import { useContext } from '$lib/utils/useContext';
 	import { getContext } from 'svelte/internal';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
 		context_id: BREADCRUMBS_CONTEXT_ID,
@@ -24,7 +29,9 @@
 {#if type === 'ghost'}
 	<svg
 		class={finalClass}
-		style={$$props.style}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class'])}
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 20 20"
 		fill="currentColor"
@@ -38,7 +45,9 @@
 {:else if type === 'solid'}
 	<svg
 		class={finalClass}
-		style={$$props.style}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class'])}
 		viewBox="0 0 24 44"
 		preserveAspectRatio="none"
 		fill="currentColor"
