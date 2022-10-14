@@ -5,6 +5,11 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let divided = true;
 	export let bordered = true;
@@ -33,9 +38,9 @@
 	class:shadow-lg={elevation === 'lg'}
 	class:shadow-xl={elevation === 'xl'}
 	class:dark:shadow-black={elevation !== 'none'}
-	style={$$props.style}
-	on:click
-	on:keypress
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
 >
 	<slot name="header" />
 	<slot name="cover" />
