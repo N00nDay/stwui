@@ -6,6 +6,11 @@
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let type: 'info' | 'warn' | 'success' | 'error' = 'info';
 	let reactiveType = writable(type);
@@ -29,7 +34,12 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass} style={$$props.style}>
+<div
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<div class="flex">
 		<slot name="icon" />
 		{#if $$slots.title || $$slots.description}
