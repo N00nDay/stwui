@@ -57,25 +57,25 @@
 
 {#if variant === 'simple'}
 	{#if $currentStep > step}
-		<li data-step={step} class="md:flex-1" on:click>
+		<li data-step={step} class="md:flex-1">
 			<!-- Completed Step -->
-			<a {href} class={finalClass} style={$$props.style}>
+			<a on:click {href} class={finalClass} style={$$props.style}>
 				<slot name="title" />
 				<slot name="description" />
 			</a>
 		</li>
 	{:else if $currentStep === step}
-		<li data-step={step} class="md:flex-1" on:click>
+		<li data-step={step} class="md:flex-1">
 			<!-- Current Step -->
-			<a {href} class={finalClass} style={$$props.style}>
+			<a on:click {href} class={finalClass} style={$$props.style}>
 				<slot name="title" />
 				<slot name="description" />
 			</a>
 		</li>
 	{:else}
-		<li data-step={step} class="md:flex-1" on:click>
+		<li data-step={step} class="md:flex-1">
 			<!-- Upcoming Step -->
-			<a {href} class={finalClass} style={$$props.style}>
+			<a on:click {href} class={finalClass} style={$$props.style}>
 				<slot name="title" />
 				<slot name="description" />
 			</a>
@@ -83,16 +83,16 @@
 	{/if}
 {:else if variant === 'bullets'}
 	{#if $currentStep > step}
-		<li data-step={step} on:click>
+		<li data-step={step}>
 			<!-- Completed Step -->
-			<a {href} class={finalClass} style={$$props.style}>
+			<a on:click {href} class={finalClass} style={$$props.style}>
 				<slot name="title" />
 			</a>
 		</li>
 	{:else if $currentStep === step}
-		<li data-step={step} on:click>
+		<li data-step={step}>
 			<!-- Current Step -->
-			<a {href} class={finalClass} style={$$props.style}>
+			<a on:click {href} class={finalClass} style={$$props.style}>
 				<span class="absolute flex h-5 w-5 p-px">
 					<span class="h-full w-full rounded-full bg-primary opacity-50" />
 				</span>
@@ -101,18 +101,18 @@
 			</a>
 		</li>
 	{:else}
-		<li data-step={step} on:click>
+		<li data-step={step}>
 			<!-- Upcoming Step -->
-			<a {href} class={finalClass} style={$$props.style}>
+			<a on:click {href} class={finalClass} style={$$props.style}>
 				<slot name="title" />
 			</a>
 		</li>
 	{/if}
 {:else if variant === 'bullets-text'}
 	{#if $currentStep > step}
-		<li data-step={step} on:click>
+		<li data-step={step}>
 			<!-- Complete Step -->
-			<a {href} class="group">
+			<a on:click {href} class="group">
 				<span class="flex items-start">
 					<span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
 						<svg
@@ -133,9 +133,9 @@
 			</a>
 		</li>
 	{:else if $currentStep === step}
-		<li data-step={step} on:click>
+		<li data-step={step}>
 			<!-- Current Step -->
-			<a {href} class="flex items-start">
+			<a on:click {href} class="flex items-start">
 				<span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
 					<span class="absolute h-4 w-4 rounded-full bg-primary opacity-50" />
 					<span class="relative block h-2 w-2 rounded-full bg-primary" />
@@ -144,9 +144,9 @@
 			</a>
 		</li>
 	{:else}
-		<li data-step={step} on:click>
+		<li data-step={step}>
 			<!-- Upcoming Step -->
-			<a {href} class="group">
+			<a on:click {href} class="group">
 				<div class="flex items-start">
 					<div class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
 						<div
@@ -160,10 +160,10 @@
 	{/if}
 {:else if variant === 'circles-text'}
 	{#if $currentStep > step}
-		<li data-step={step} class="relative pb-10" on:click>
+		<li data-step={step} class="relative pb-10">
 			<div class="absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-primary" />
 			<!-- Complete Step -->
-			<a {href} class="group relative flex items-start">
+			<a on:click {href} class="group relative flex items-start">
 				<span class="flex h-9 items-center">
 					<span
 						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-primary group-hover:bg-primary-hover"
@@ -190,12 +190,12 @@
 			</a>
 		</li>
 	{:else if $currentStep === step}
-		<li data-step={step} class="step relative pb-10" on:click>
+		<li data-step={step} class="step relative pb-10">
 			<div
 				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border"
 			/>
 			<!-- Current Step -->
-			<a {href} class="group relative flex items-start">
+			<a on:click {href} class="group relative flex items-start">
 				<span class="flex h-9 items-center">
 					<span
 						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary bg-light-surface dark:bg-dark-surface"
@@ -210,13 +210,13 @@
 			</a>
 		</li>
 	{:else}
-		<li data-step={step} class="step relative pb-10" on:click>
+		<li data-step={step} class="step relative pb-10">
 			<div
 				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border"
 			/>
 
 			<!-- Upcoming Step -->
-			<a {href} class="group relative flex items-start">
+			<a on:click {href} class="group relative flex items-start">
 				<span class="flex h-9 items-center">
 					<span
 						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-light-border dark:border-dark-border bg-light-surface dark:bg-dark-surface group-hover:border-light-border-base dark:group-hover:border-dark-border-base"

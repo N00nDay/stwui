@@ -3,12 +3,6 @@
 	import { POST_CONTEXT_ID } from './Post.svelte';
 	import { useContext } from '../../utils/useContext';
 
-	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
-	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
-
 	useContext({
 		context_id: POST_CONTEXT_ID,
 		parent: 'Post',
@@ -20,12 +14,6 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div
-	class={finalClass}
-	style={$$props.style}
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
->
+<div class={finalClass} style={$$props.style}>
 	<slot />
 </div>

@@ -22,6 +22,7 @@
 				leading="email"
 				trailing="phone"
 				error="There has been an error"
+				handleLeadingClick={() => console.log('clicking leading')}
 			/>
 			<br />
 			<Input type="password" name="input-4" label="Password" leading="lock" showPasswordToggle />

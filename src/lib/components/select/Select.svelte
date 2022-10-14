@@ -72,16 +72,26 @@
 			aria-labelledby="listbox-label"
 		>
 			{#if leading}
-				<span
-					on:click|stopPropagation={handleLeadingClick}
-					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center"
-					class:pointer-events-none={!handleLeadingClick}
-					class:pointer-events-auto={handleLeadingClick}
-					class:cursor-pointer={handleLeadingClick}
-					class:text-light-secondary-content={!error}
-					class:dark:text-dark-secondary-content={!error}
-					class:text-danger={error}>{leading}</span
-				>
+				{#if handleLeadingClick}
+					<button
+						on:click|stopPropagation={handleLeadingClick}
+						class="absolute inset-y-0 left-0 pl-3"
+					>
+						<span
+							class="material-icons flex items-center"
+							class:text-light-secondary-content={!error}
+							class:dark:text-dark-secondary-content={!error}
+							class:text-danger={error}>{leading}</span
+						>
+					</button>
+				{:else}
+					<span
+						class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+						class:text-light-secondary-content={!error}
+						class:dark:text-dark-secondary-content={!error}
+						class:text-danger={error}>{leading}</span
+					>
+				{/if}
 			{/if}
 
 			<span
@@ -130,36 +140,37 @@
 						class="group text-light-content dark:text-dark-content cursor-pointer select-none p-0.5 w-full"
 						role="option"
 						aria-selected={option === value}
-						on:click={() => handleSelect(option)}
 					>
-						<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
-							<span class="font-normal block truncate" class:font-semibold={option === value}>
-								{option}
-							</span>
-
-							{#if option === value}
-								<span
-									transition:scale|local
-									class="text-primary absolute inset-y-0 right-0 flex items-center pr-4"
-								>
-									<svg
-										class="h-5 w-5"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 20 20"
-										fill="currentColor"
-										aria-hidden="true"
-									>
-										<path
-											fill-rule="evenodd"
-											d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-											clip-rule="evenodd"
-										/>
-									</svg>
+						<button on:click={() => handleSelect(option)} class="w-full text-left">
+							<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
+								<span class="font-normal block truncate" class:font-semibold={option === value}>
+									{option}
 								</span>
-							{/if}
 
-							<HoverBackground />
-						</div>
+								{#if option === value}
+									<span
+										transition:scale|local
+										class="text-primary absolute inset-y-0 right-0 flex items-center pr-4"
+									>
+										<svg
+											class="h-5 w-5"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 20 20"
+											fill="currentColor"
+											aria-hidden="true"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+												clip-rule="evenodd"
+											/>
+										</svg>
+									</span>
+								{/if}
+
+								<HoverBackground />
+							</div>
+						</button>
 					</li>
 				{/each}
 			</ul>

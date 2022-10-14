@@ -42,7 +42,7 @@
 
 	const defaultClass =
 		'flex inner-panel flex-col bg-light-surface dark:bg-dark-surface overflow-hidden';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <svelte:window on:keydown={captureEscapeEvent} />

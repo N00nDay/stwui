@@ -85,18 +85,27 @@
 			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface shadow-sm dark:shadow-black"
 		>
 			{#if leading}
-				<span
-					on:click|stopPropagation={handleLeadingClick}
-					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center"
-					class:pointer-events-none={!handleLeadingClick}
-					class:pointer-events-auto={handleLeadingClick}
-					class:cursor-pointer={handleLeadingClick}
-					class:text-light-secondary-content={!error}
-					class:dark:text-dark-secondary-content={!error}
-					class:text-danger={error}>{leading}</span
-				>
+				{#if handleLeadingClick}
+					<button
+						on:click|stopPropagation={handleLeadingClick}
+						class="absolute inset-y-0 left-0 pl-3"
+					>
+						<span
+							class="material-icons flex items-center"
+							class:text-light-secondary-content={!error}
+							class:dark:text-dark-secondary-content={!error}
+							class:text-danger={error}>{leading}</span
+						>
+					</button>
+				{:else}
+					<span
+						class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+						class:text-light-secondary-content={!error}
+						class:dark:text-dark-secondary-content={!error}
+						class:text-danger={error}>{leading}</span
+					>
+				{/if}
 			{/if}
-			<!-- svelte-ignore a11y-autofocus -->
 			<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
 			<input
 				{name}
@@ -124,13 +133,16 @@
 			/>
 
 			{#if value && value.length > 0}
-				<span
-					transition:scale|local
-					class="absolute inset-y-0 z-10 right-8 items-center cursor-pointer hidden group-focus-within:flex active:flex"
+				<button
 					on:click={handleClear}
+					class="absolute inset-y-0 right-8 items-center hidden group-focus-within:flex active:flex"
 				>
-					<span class="material-icons text-light-icon dark:text-dark-icon text-base"> clear </span>
-				</span>
+					<span transition:scale|local class="flex items-center">
+						<span class="material-icons text-light-icon dark:text-dark-icon text-base">
+							clear
+						</span>
+					</span>
+				</button>
 			{/if}
 
 			{#if error}

@@ -7,12 +7,6 @@
 	import { MEDIA_CONTEXT_ID } from './Media.svelte';
 	import { useContext } from '../../utils/useContext';
 
-	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
-	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
-
 	useContext({
 		context_id: MEDIA_CONTEXT_ID,
 		parent: 'Media',
@@ -23,13 +17,7 @@
 	});
 </script>
 
-<div
-	class={$$props.class}
-	style={$$props.style}
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
->
+<div class={$$props.class} style={$$props.style}>
 	<slot name="title" />
 	<slot name="description" />
 	<slot />

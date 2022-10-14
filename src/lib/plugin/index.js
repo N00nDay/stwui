@@ -705,6 +705,9 @@ module.exports = plugin(
 			'.isOff': {
 				animation: 'none !important'
 			},
+			'.isOff *': {
+				animation: 'none !important'
+			},
 			'span.material-icons': {
 				'-webkit-user-select': 'none',
 				'-ms-user-select': 'none',
@@ -712,15 +715,9 @@ module.exports = plugin(
 			},
 			'::-webkit-scrollbar': {
 				width: '0.5rem'
-				// 'transition-property': 'all',
-				// 'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
-				// 'transition-duration': '150ms'
 			},
 			'::-webkit-scrollbar-track': {
 				'background-color': 'rgba(25,25,25,0.05)'
-				// 'transition-property': 'all',
-				// 'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
-				// 'transition-duration': '150ms'
 			},
 			'.dark ::-webkit-scrollbar-track': {
 				'background-color': 'rgba(89,90,92,0.15)'
@@ -728,9 +725,6 @@ module.exports = plugin(
 			'::-webkit-scrollbar-thumb': {
 				'border-radius': '9999px',
 				'background-color': 'rgba(5, 5, 5, 0.15)'
-				// 'transition-property': 'all',
-				// 'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
-				// 'transition-duration': '150ms'
 			},
 			'.dark ::-webkit-scrollbar-thumb': {
 				'background-color': 'rgba(250, 250, 250,0.15)'

@@ -17,7 +17,7 @@
 
 	const defaultClass =
 		'w-full group flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-light-secondary-content dark:text-dark-secondary-content dark:hover:bg-dark-icon-background-hover hover:bg-light-icon-background-hover hover:text-light-content dark:hover:text-dark-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <button

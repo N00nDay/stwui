@@ -2,12 +2,7 @@
 	import { ROW_CONTEXT_ID } from './Row.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
-
-	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
-	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
+	import { twMerge } from 'tailwind-merge';
 
 	useContext({
 		context_id: ROW_CONTEXT_ID,
@@ -15,14 +10,11 @@
 		component: 'Col'
 	});
 	const { padding }: { padding: string } = getContext(ROW_CONTEXT_ID);
+
+	const defaultClass = 'col';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div
-	class="col{$$props.class ? ` ${$$props.class}` : ''}"
-	style="{$$props.style ? `${$$props.style} ` : ''}{padding}"
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
->
+<div class={finalClass} style="{$$props.style ? `${$$props.style} ` : ''}{padding}">
 	<slot />
 </div>

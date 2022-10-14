@@ -6,13 +6,8 @@
 	import { useContext } from '../../utils/useContext';
 	import { LAYOUT_CONTEXT_ID } from './Layout.svelte';
 	import { setContext } from 'svelte/internal';
-	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
 	import { twMerge } from 'tailwind-merge';
 	import { writable } from 'svelte/store';
-	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
 
 	export let collapsed = false;
 	export let collapsedWidth = '4.5rem';
@@ -40,15 +35,9 @@
 	});
 
 	const defaultClass = 'flex flex-row w-full h-full items-start justify-start';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div
-	class={finalClass}
-	style={$$props.style}
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
->
+<div class={finalClass} style={$$props.style}>
 	<slot />
 </div>

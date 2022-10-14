@@ -67,17 +67,25 @@
 	{/if}
 	<div class="mt-1 relative rounded-md shadow-sm h-[2.5rem] dark:shadow-black">
 		{#if leading}
-			<span
-				transition:scale|local
-				on:click={handleLeadingClick}
-				class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10"
-				class:pointer-events-none={!handleLeadingClick}
-				class:pointer-events-auto={handleLeadingClick}
-				class:cursor-pointer={handleLeadingClick}
-				class:text-light-secondary-content={!error}
-				class:dark:text-dark-secondary-content={!error}
-				class:text-danger={error}>{leading}</span
-			>
+			{#if handleLeadingClick}
+				<button on:click={handleLeadingClick} class="absolute inset-y-0 left-0 pl-3">
+					<span
+						transition:scale|local
+						class="material-icons flex items-center"
+						class:text-light-secondary-content={!error}
+						class:dark:text-dark-secondary-content={!error}
+						class:text-danger={error}>{leading}</span
+					>
+				</button>
+			{:else}
+				<span
+					transition:scale|local
+					class="material-icons flex items-center pointer-events-none absolute inset-y-0 left-0 pl-3"
+					class:text-light-secondary-content={!error}
+					class:dark:text-dark-secondary-content={!error}
+					class:text-danger={error}>{leading}</span
+				>
+			{/if}
 		{/if}
 		<input
 			bind:this={input}
@@ -115,15 +123,16 @@
 		/>
 
 		{#if allowClear && value && value.length > 0}
-			<span
-				transition:scale|local
-				class="absolute inset-y-0 z-10 items-center cursor-pointer hidden group-focus-within:flex active:flex"
+			<button
+				on:click={handleClear}
+				class="absolute inset-y-0 hidden group-focus-within:flex active:flex items-center"
 				class:right-10={showPasswordToggle || trailing || error}
 				class:right-3={!showPasswordToggle && !trailing && !error}
-				on:click={handleClear}
 			>
-				<span class="material-icons text-light-icon dark:text-dark-icon text-base"> clear </span>
-			</span>
+				<span transition:scale|local class="items-center flex">
+					<span class="material-icons text-light-icon dark:text-dark-icon text-base"> clear </span>
+				</span>
+			</button>
 		{/if}
 
 		{#if showPasswordToggle}
@@ -148,17 +157,25 @@
 				</span>
 			</Swap>
 		{:else if trailing && !error}
-			<span
-				on:click={handleTrailingClick}
-				transition:scale|local
-				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center z-10"
-				class:pointer-events-none={!handleTrailingClick}
-				class:pointer-events-auto={handleTrailingClick}
-				class:cursor-pointer={handleTrailingClick}
-				class:text-light-secondary-content={!error}
-				class:dark:text-dark-secondary-content={!error}
-				class:text-danger={error}>{trailing}</span
-			>
+			{#if handleTrailingClick}
+				<button on:click={handleTrailingClick} class="absolute inset-y-0 right-0 pr-3">
+					<span
+						transition:scale|local
+						class="material-icons flex items-center"
+						class:text-light-secondary-content={!error}
+						class:dark:text-dark-secondary-content={!error}
+						class:text-danger={error}>{trailing}</span
+					>
+				</button>
+			{:else}
+				<span
+					transition:scale|local
+					class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+					class:text-light-secondary-content={!error}
+					class:dark:text-dark-secondary-content={!error}
+					class:text-danger={error}>{trailing}</span
+				>
+			{/if}
 		{:else if error}
 			<span
 				transition:scale|local

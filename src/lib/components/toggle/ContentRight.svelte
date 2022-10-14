@@ -16,7 +16,13 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span class={finalClass} style={$$props.style} id="{name}-label-right" on:click={toggleOn}>
+<span
+	class={finalClass}
+	style={$$props.style}
+	id="{name}-label-right"
+	on:click={toggleOn}
+	on:keypress
+>
 	<slot name="label" />
 	<slot name="description" />
 </span>

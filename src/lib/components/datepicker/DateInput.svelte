@@ -38,7 +38,6 @@
 	export let locale: Locale = {};
 	export let text = $store?.format(format) ?? '';
 	export let visible = false;
-	// export let closeOnSelection = true;
 	export let closeOnSelect = true;
 	export let handleSelect: ((d: Dayjs) => void) | undefined = undefined;
 

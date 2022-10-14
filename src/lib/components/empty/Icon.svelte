@@ -8,4 +8,4 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span class={finalClass}>{icon}</span>
+<span class={finalClass} style={$$props.style}>{icon}</span>

@@ -57,7 +57,7 @@
 			/>
 		</div>
 		{#if $$slots.label || $$slots.description}
-			<div class="ml-3 text-sm cursor-pointer" on:click={handleClick}>
+			<div class="ml-3 text-sm cursor-pointer" on:click={handleClick} on:keypress>
 				<slot name="label" />
 				{#if $$slots.label && $$slots.description}|{/if}
 				<slot name="description" />

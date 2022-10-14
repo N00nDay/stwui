@@ -33,7 +33,7 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div on:click class={finalClass} style={$$props.style}>
+<div on:click on:keypress class={finalClass} style={$$props.style}>
 	{#if $$slots.leading}
 		<slot name="leading" />
 	{:else if type}

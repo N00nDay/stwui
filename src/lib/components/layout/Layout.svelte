@@ -24,7 +24,7 @@
 	});
 
 	const defaultClass = 'w-full h-full flex flex-col';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>

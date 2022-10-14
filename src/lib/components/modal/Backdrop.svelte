@@ -9,4 +9,4 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass} style={$$props.style} transition:fade on:click={handleClose} />
+<div class={finalClass} style={$$props.style} transition:fade on:click={handleClose} on:keypress />

@@ -109,7 +109,6 @@
 					<span class="material-icons"> chevron_left </span>
 					<HoverBackground />
 				</a>
-				<!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
 				{#each pagination as pageNumber}
 					{#if typeof pageNumber === 'string'}
 						<span

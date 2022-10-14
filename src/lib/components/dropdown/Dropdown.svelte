@@ -15,10 +15,10 @@
 	});
 
 	const defaultClass = 'relative inline-block';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass} use:clickOutside={handleClose}>
+<div class={finalClass} style={$$props.style} use:clickOutside={handleClose}>
 	<div>
 		<slot name="trigger" />
 	</div>

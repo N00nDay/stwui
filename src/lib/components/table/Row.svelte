@@ -9,7 +9,7 @@
 </script>
 
 {#key id}
-	<tr {id} class={finalClass} on:click style="height: 48px; max-height: 48px;">
+	<tr {id} class={finalClass} on:click style="height: 48px; max-height: 48px;{$$props.style}">
 		<slot />
 	</tr>
 {/key}

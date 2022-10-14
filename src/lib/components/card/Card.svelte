@@ -5,17 +5,11 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
-	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
 
 	export let divided = true;
 	export let bordered = true;
 	export let hoverable = false;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-	export let use: ActionArray = [];
-
-	const forwardEvents = forwardEventsBuilder(current_component);
 
 	setContext(CARD_CONTEXT_ID, {
 		card: true,
@@ -40,9 +34,8 @@
 	class:shadow-xl={elevation === 'xl'}
 	class:dark:shadow-black={elevation !== 'none'}
 	style={$$props.style}
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
+	on:click
+	on:keypress
 >
 	<slot name="header" />
 	<slot name="cover" />

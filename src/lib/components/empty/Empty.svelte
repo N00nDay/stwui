@@ -5,7 +5,7 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass}>
+<div class={finalClass} style={$$props.style}>
 	<slot name="icon" />
 	<slot name="title" />
 	<slot name="description" />

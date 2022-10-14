@@ -290,7 +290,7 @@
 									<span>{calendarDay.date()}</span>
 								</span>
 							{:else}
-								<div
+								<button
 									class="active w-full flex items-center justify-center cursor-pointer h-10 rounded-full"
 									on:click={() => selectDay(calendarDay)}
 									class:text-primary-content={calendarDay.isSame(value, 'date')}
@@ -311,7 +311,7 @@
 									class:bg-primary={calendarDay.isSame(value, 'date')}
 								>
 									<span>{calendarDay.date()}</span>
-								</div>
+								</button>
 							{/if}
 						{/each}
 					</div>

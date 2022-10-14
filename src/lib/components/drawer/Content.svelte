@@ -10,7 +10,7 @@
 	});
 
 	const defaultClass = 'relative flex-grow text-light-content dark:text-dark-content p-4';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { data } from '../../search-data';
 	import { Modal, Portal, Icon, Button } from '../../../lib';
 	import { goto } from '$app/navigation';
@@ -6,7 +7,7 @@
 
 	let input: HTMLInputElement;
 
-	let open = false;
+	export let open = false;
 
 	function handleClose() {
 		open = false;
@@ -39,8 +40,33 @@
 		input.focus();
 		input.value = '';
 		value = '';
+		fiteredData = data;
 	}
+
+	let os = 'Unknown';
+	// let open = false;
+
+	function captureEscapeEvent(e: KeyboardEvent) {
+		if (os === 'MacOS') {
+			if (e.key === 'k' && e.metaKey) {
+				open = true;
+			}
+		} else {
+			if (e.key === 'k' && e.ctrlKey) {
+				open = true;
+			}
+		}
+	}
+
+	onMount(() => {
+		if (navigator.appVersion.indexOf('Win') != -1) os = 'Windows';
+		if (navigator.appVersion.indexOf('Mac') != -1) os = 'MacOS';
+		if (navigator.appVersion.indexOf('X11') != -1) os = 'UNIX';
+		if (navigator.appVersion.indexOf('Linux') != -1) os = 'Linux';
+	});
 </script>
+
+<svelte:window on:keydown={captureEscapeEvent} />
 
 <Button
 	on:click={handleOpen}
@@ -54,13 +80,13 @@
 		<div
 			class="mx-1 bg-light-background dark:bg-dark-background rounded-md px-1 py-0.5 border border-light-border dark:border-dark-border shadow-sm"
 		>
-			⌘
+			{#if os === 'MacOS'}⌘{:else}CTRL{/if}
 		</div>
 		+
 		<div
 			class="mx-1 bg-light-background dark:bg-dark-background rounded-md px-1 py-0.5 border border-light-border dark:border-dark-border shadow-sm"
 		>
-			S
+			k
 		</div>
 	</Button.Trailing>
 </Button>
@@ -99,7 +125,7 @@
 					{#if value && value.length > 0}
 						<span
 							transition:scale|local
-							class="absolute inset-y-0 z-10 right-4 items-center cursor-pointer flex active:flex"
+							class="absolute inset-y-0 right-16 items-center cursor-pointer flex active:flex"
 							on:click={handleClear}
 							on:keypress
 						>
@@ -108,6 +134,11 @@
 							</span>
 						</span>
 					{/if}
+					<div
+						class="absolute inset-y-0 right-4 top-2.5 flex items-center justify-center h-[26px] bg-light-background dark:bg-dark-background rounded-md px-1 py-0.5 border border-light-border dark:border-dark-border shadow-sm"
+					>
+						esc
+					</div>
 				</div>
 
 				{#if fiteredData.length > 0}
@@ -154,7 +185,6 @@
 							icon="info"
 							class="mx-auto text-5xl text-light-secondary-content dark:text-dark-secondary-content"
 						/>
-						<!-- <p class="mt-4 font-semibold text-gray-900">No results found</p> -->
 						<h2 class="mt-4 text-light-content dark:text-dark-content">No results found</h2>
 						<p class="mt-2 text-light-secondary-content dark:text-dark-secondary-content">
 							No components found for this search term. Please try again.

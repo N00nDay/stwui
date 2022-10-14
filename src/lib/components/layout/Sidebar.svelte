@@ -29,7 +29,7 @@
 	} = getContext(LAYOUT_CONTENT_CONTEXT_ID);
 
 	const defaultClass = 'hidden h-full lg:flex lg:flex-shrink-0 relative';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div class={finalClass} style={$$props.style}>

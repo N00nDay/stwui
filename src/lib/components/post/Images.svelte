@@ -4,13 +4,7 @@
 	import { useContext } from '../../utils/useContext';
 	import { POST_CONTEXT_ID } from './Post.svelte';
 	import type { CarouselSlide, LightboxAction } from '../../types';
-	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
 	import LightBox from '../lightbox/LightBox.svelte';
-
-	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
 
 	export let images: CarouselSlide[] = [];
 	export let handleClick: ((index: number) => void) | undefined = undefined;
@@ -92,13 +86,7 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div
-	class={finalClass}
-	style={$$props.style}
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
->
+<div class={finalClass} style={$$props.style}>
 	<div class="w-full h-full aspect-[1/1]">
 		{#if images.length === 1}
 			{#if !lightBox1Open}
@@ -113,6 +101,7 @@
 						class="w-full h-full max-w-full max-h-full object-center object-cover"
 						class:cursor-pointer={handleClick || includeLightBox}
 						on:click={() => onClick(0)}
+						on:keypress
 					/>
 				</div>
 			{/if}
@@ -130,6 +119,7 @@
 							class="w-full h-full max-w-full max-h-full object-center object-cover"
 							class:cursor-pointer={handleClick || includeLightBox}
 							on:click={() => onClick(0)}
+							on:keypress
 						/>
 					</div>
 				{/if}
@@ -145,6 +135,7 @@
 							class="w-full h-full max-w-full max-h-full object-center object-cover"
 							class:cursor-pointer={handleClick || includeLightBox}
 							on:click={() => onClick(1)}
+							on:keypress
 						/>
 					</div>
 				{/if}
@@ -163,6 +154,7 @@
 							class="w-full h-full object-center object-cover"
 							class:cursor-pointer={handleClick || includeLightBox}
 							on:click={() => onClick(0)}
+							on:keypress
 						/>
 					</div>
 				{/if}
@@ -179,6 +171,7 @@
 								class="w-full h-full max-w-full max-h-full object-center object-cover"
 								class:cursor-pointer={handleClick || includeLightBox}
 								on:click={() => onClick(1)}
+								on:keypress
 							/>
 						</div>
 					{/if}
@@ -194,6 +187,7 @@
 								class="w-full h-full max-w-full max-h-full object-center object-cover"
 								class:cursor-pointer={handleClick || includeLightBox}
 								on:click={() => onClick(2)}
+								on:keypress
 							/>
 						</div>
 					{/if}
@@ -213,6 +207,7 @@
 							class="w-full h-full object-center object-cover"
 							class:cursor-pointer={handleClick || includeLightBox}
 							on:click={() => onClick(0)}
+							on:keypress
 						/>
 					</div>
 				{/if}
@@ -230,6 +225,7 @@
 								class="w-full h-full max-w-full max-h-full object-center object-cover"
 								class:cursor-pointer={handleClick || includeLightBox}
 								on:click={() => onClick(1)}
+								on:keypress
 							/>
 						</div>
 					{/if}
@@ -245,6 +241,7 @@
 								class="w-full h-full max-w-full max-h-full object-center object-cover"
 								class:cursor-pointer={handleClick || includeLightBox}
 								on:click={() => onClick(2)}
+								on:keypress
 							/>
 						</div>
 					{/if}
@@ -262,6 +259,7 @@
 									class="w-full h-full max-w-full max-h-full object-center object-cover"
 									class:cursor-pointer={handleClick || includeLightBox}
 									on:click={() => onClick(3)}
+									on:keypress
 								/>
 							</div>
 						{:else}
@@ -269,6 +267,7 @@
 								class="w-full h-full max-w-full max-h-full relative"
 								class:cursor-pointer={handleClick || includeLightBox}
 								on:click={() => onClick(3)}
+								on:keypress
 								in:receive|local={{ key: images[3].id }}
 								out:send|local={{ key: images[3].id }}
 							>

@@ -3,9 +3,9 @@
 
 	const defaultClass =
 		'text-sm px-2 bg-light-surface dark:bg-dark-surface text-light-content dark:text-dark-content';
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span class={finalClass}>
+<span class={finalClass} style={$$props.style}>
 	<slot />
 </span>

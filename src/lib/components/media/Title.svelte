@@ -2,13 +2,7 @@
 	import { MEDIA_CONTEXT_ID } from './Media.svelte';
 	import { MEDIA_CONTENT_CONTEXT_ID } from './Content.svelte';
 	import { useContext } from '../../utils/useContext';
-
-	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
 	import { twMerge } from 'tailwind-merge';
-	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
 
 	useContext({
 		context_id: MEDIA_CONTEXT_ID,
@@ -25,12 +19,6 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<h4
-	class={finalClass}
-	style={$$props.style}
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
->
+<h4 class={finalClass} style={$$props.style}>
 	<slot />
 </h4>
