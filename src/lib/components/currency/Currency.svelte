@@ -46,16 +46,23 @@
 		>
 	{/if}
 	<div class="mt-1 relative rounded-md shadow-sm dark:shadow-black h-[2.5rem]">
-		<span
-			on:click={handleLeadingClick}
-			class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center z-10"
-			class:text-light-secondary-content={!error}
-			class:dark:text-dark-secondary-content={!error}
-			class:pointer-events-none={!handleLeadingClick}
-			class:pointer-events-auto={handleLeadingClick}
-			class:cursor-pointer={handleLeadingClick}
-			class:text-danger={error}>attach_money</span
-		>
+		{#if handleLeadingClick}
+			<button on:click={handleLeadingClick} class="absolute inset-y-0 left-0 pl-3">
+				<span
+					class="material-icons flex items-center"
+					class:text-light-secondary-content={!error}
+					class:dark:text-dark-secondary-content={!error}
+					class:text-danger={error}>attach_money</span
+				>
+			</button>
+		{:else}
+			<span
+				class="material-icons flex items-center absolute inset-y-0 left-0 pl-3 pointer-events-none"
+				class:text-light-secondary-content={!error}
+				class:dark:text-dark-secondary-content={!error}
+				class:text-danger={error}>attach_money</span
+			>
+		{/if}
 		<input
 			type="number"
 			inputmode="numeric"
@@ -85,17 +92,28 @@
 			on:keypress={onlyNumeric}
 		/>
 		{#if trailing && !error}
-			<span
-				on:click={handleTrailingClick}
-				transition:scale|local
-				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center z-10"
-				class:pointer-events-none={!handleTrailingClick}
-				class:pointer-events-auto={handleTrailingClick}
-				class:cursor-pointer={handleTrailingClick}
-				class:text-light-secondary-content={!error}
-				class:dark:text-dark-secondary-content={!error}
-				class:text-danger={error}>{trailing}</span
-			>
+			{#if handleTrailingClick}
+				<button on:click={handleTrailingClick} class="absolute inset-y-0 right-0 pr-3">
+					<span
+						transition:scale|local
+						class="material-icons flex items-center"
+						class:pointer-events-none={!handleTrailingClick}
+						class:pointer-events-auto={handleTrailingClick}
+						class:cursor-pointer={handleTrailingClick}
+						class:text-light-secondary-content={!error}
+						class:dark:text-dark-secondary-content={!error}
+						class:text-danger={error}>{trailing}</span
+					>
+				</button>
+			{:else}
+				<span
+					transition:scale|local
+					class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+					class:text-light-secondary-content={!error}
+					class:dark:text-dark-secondary-content={!error}
+					class:text-danger={error}>{trailing}</span
+				>
+			{/if}
 		{:else if error}
 			<span
 				transition:scale|local
