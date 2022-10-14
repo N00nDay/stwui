@@ -21,9 +21,9 @@
 	}
 
 	const crumbs: Crumb[] = [
-		{ icon: 'home', href: '/' },
-		{ label: 'Projects', href: '/projecs' },
-		{ label: 'Project Hero', href: '/projects/project-hero' }
+		{ icon: 'home', href: '#home' },
+		{ label: 'Projects', href: '#projecs' },
+		{ label: 'Project Hero', href: '#project-hero' }
 	];
 </script>
 
