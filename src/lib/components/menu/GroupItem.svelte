@@ -6,6 +6,11 @@
 	import type { Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
 	import { useContext } from '$lib/utils/useContext';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let href: string;
 	export let label: string;
@@ -41,7 +46,6 @@
 </script>
 
 <a
-	on:click
 	{href}
 	class={finalClass}
 	class:text-light-content={active}
@@ -52,7 +56,9 @@
 	class:dark:hover:text-dark-content={!active}
 	class:bg-light-icon-background-hover={active}
 	class:dark:bg-dark-icon-background-hover={active}
-	style={$$props.style}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class', 'href'])}
 >
 	{#if !$menuCollapse}
 		<span class="w-6 mr-2" />

@@ -5,6 +5,11 @@
 	import type { Writable } from 'svelte/store';
 	import { MENU_CONTEXT_ID } from './Menu.svelte';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let label: string;
 	export let href: string;
@@ -24,9 +29,13 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass} style={$$props.style}>
+<div
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<a
-		on:click
 		use:tooltip={{
 			placement: 'right',
 			content: label,

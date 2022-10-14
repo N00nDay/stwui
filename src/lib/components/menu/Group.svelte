@@ -10,6 +10,11 @@
 	import { MENU_CONTEXT_ID } from './Menu.svelte';
 	import { useContext } from '$lib/utils/useContext';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let label: string;
 	export let key: string;
@@ -86,7 +91,12 @@
 	on:focus={$menuCollapse ? toggleOpen : undefined}
 	on:mouseleave={$menuCollapse ? toggleOpen : undefined}
 >
-	<div class={finalClass} style={$$props.style}>
+	<div
+		class={finalClass}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class'])}
+	>
 		<h2
 			class="group relative m-0 w-full outline-none rounded-md focus:outline-none overflow-hidden"
 			class:text-light-content={active}
