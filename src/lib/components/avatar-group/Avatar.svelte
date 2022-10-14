@@ -3,13 +3,16 @@
 </script>
 
 <script lang="ts">
-	import { fade } from 'svelte/transition';
 	import { AVATAR_GROUP_CONTEXT_ID } from './AvatarGroup.svelte';
 	import { useContext } from '../../utils/useContext';
-	import { browser } from '$app/environment';
 	import { setContext, getContext, onMount } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Placeholder from './Placeholder.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let src: string | undefined = undefined;
 	export let alt = 'avatar';
@@ -94,7 +97,12 @@
 </script>
 
 {#if src}
-	<span class={finalContainerClass} style={$$props.style}>
+	<span
+		class={finalContainerClass}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class'])}
+	>
 		{#if loaded}
 			<img class={finalClass} style={$$props.style} src={src || ''} {alt} />
 		{:else if failed}
@@ -110,7 +118,12 @@
 		<slot name="indicator" />
 	</span>
 {:else if initials}
-	<span class={finalClass} style={$$props.style}>
+	<span
+		class={finalClass}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class'])}
+	>
 		<span
 			class="font-bold leading-none text-current"
 			class:text-xs={size === 'xs'}
