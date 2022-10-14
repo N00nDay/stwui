@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let placement: 'left' | 'right' = 'left';
 
@@ -16,7 +21,9 @@
 
 <div
 	class={finalClass}
-	style={$$props.style}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
 	in:scale={{ start: 0.9, duration: 100, delay: 150 }}
 	out:scale={{ start: 0.95, duration: 75 }}
 	role="menu"

@@ -7,11 +7,8 @@
 	let visible2 = false;
 
 	function closeDropdown1() {
+		console.log('do something');
 		visible1 = false;
-	}
-
-	function openDropdown1() {
-		visible1 = true;
 	}
 
 	function toggleDropdown1() {
@@ -19,11 +16,8 @@
 	}
 
 	function closeDropdown2() {
+		console.log('do something');
 		visible2 = false;
-	}
-
-	function openDropdown2() {
-		visible2 = true;
 	}
 
 	function toggleDropdown2() {
@@ -36,16 +30,16 @@
 		<Card.Header slot="header">Dropdown</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<div class="flex justify-between items-center flex-row">
-				<Dropdown handleClose={closeDropdown1} on:click={openDropdown1} visible={visible1}>
+				<Dropdown bind:visible={visible1}>
 					<Button slot="trigger" type="primary" on:click={toggleDropdown1}>Toggle Dropdown</Button>
 					<Dropdown.Items slot="items">
-						<Dropdown.Items.Item>Item 1</Dropdown.Items.Item>
-						<Dropdown.Items.Item>Item 2</Dropdown.Items.Item>
-						<Dropdown.Items.Item>Item 3</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={closeDropdown1}>Item 1</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={closeDropdown1}>Item 2</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={closeDropdown1}>Item 3</Dropdown.Items.Item>
 					</Dropdown.Items>
 				</Dropdown>
 
-				<Dropdown handleClose={closeDropdown2} on:click={openDropdown2} visible={visible2}>
+				<Dropdown bind:visible={visible2}>
 					<button
 						slot="trigger"
 						on:click={toggleDropdown2}
@@ -63,9 +57,9 @@
 						/>
 					</button>
 					<Dropdown.Items slot="items" placement="right">
-						<Dropdown.Items.Item>Item 1</Dropdown.Items.Item>
-						<Dropdown.Items.Item>Item 2</Dropdown.Items.Item>
-						<Dropdown.Items.Item>Item 3</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={closeDropdown2}>Item 1</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={closeDropdown2}>Item 2</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={closeDropdown2}>Item 3</Dropdown.Items.Item>
 					</Dropdown.Items>
 				</Dropdown>
 			</div>

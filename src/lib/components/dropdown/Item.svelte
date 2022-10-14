@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { DROPDOWN_CONTEXT_ID } from './Dropdown.svelte';
 	import { useContext } from '../../utils/useContext';
-
-	import { current_component } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
 		context_id: DROPDOWN_CONTEXT_ID,
