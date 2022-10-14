@@ -5,6 +5,11 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let divided = true;
 	export let bordered = false;
@@ -29,6 +34,11 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<ul class={finalClass} style={$$props.style}>
+<ul
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<slot />
 </ul>
