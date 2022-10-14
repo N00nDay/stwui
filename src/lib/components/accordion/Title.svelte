@@ -5,11 +5,12 @@
 	import { ACCORDION_ITEM_CONTEXT_ID } from './Item.svelte';
 	import { useContext } from '../../utils/useContext';
 	import type { Writable } from 'svelte/store';
-	import { current_component } from 'svelte/internal';
+
+	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
 	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
 		context_id: ACCORDION_CONTEXT_ID,
@@ -31,12 +32,11 @@
 </script>
 
 <button
+	class={finalClass}
+	type="button"
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
-	class={finalClass}
-	style={$$props.style}
-	type="button"
 >
 	<slot />
 	<span class="material-icons transition-transform duration-300" class:-rotate-180={$open}
