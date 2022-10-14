@@ -1,11 +1,23 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass = 'button-loader';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<svg class={finalClass} viewBox="25 25 50 50" stroke-width="5">
+<svg
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+	viewBox="25 25 50 50"
+	stroke-width="5"
+>
 	<circle class="background-circle" cx="50" cy="50" r="20" />
 	<circle class="animated" cx="50" cy="50" r="20" />
 </svg>

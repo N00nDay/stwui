@@ -6,11 +6,11 @@
 	import { scale } from 'svelte/transition';
 	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { current_component } from 'svelte/internal';
+	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
 	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	import ButtonLoader from './Loader.svelte';
 	import HoverBackground from '../HoverBackground.svelte';
@@ -78,7 +78,6 @@
 	class:lg={size === 'lg'}
 	class:xl={size === 'xl'}
 	class:fab={size === 'fab'}
-	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
