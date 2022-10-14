@@ -11,6 +11,11 @@
 	import { useContext } from '../../utils/useContext';
 	import { LAYOUT_CONTEXT_ID } from './Layout.svelte';
 	import { BOTTOM_NAVIGATION_CONTEXT_ID } from './BottomNavigation.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
 		context_id: LAYOUT_CONTEXT_ID,
@@ -34,7 +39,12 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div on:click on:keypress class={finalClass} style={$$props.style}>
+<div
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	{#if icon}
 		<span class="relative z-10 material-icons">{icon}</span>
 	{/if}

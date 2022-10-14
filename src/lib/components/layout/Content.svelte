@@ -8,6 +8,11 @@
 	import { setContext } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import { writable } from 'svelte/store';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let collapsed = false;
 	export let collapsedWidth = '4.5rem';
@@ -38,6 +43,11 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass} style={$$props.style}>
+<div
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<slot />
 </div>

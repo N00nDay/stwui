@@ -2,6 +2,11 @@
 	import { useContext } from '../../utils/useContext';
 	import { LAYOUT_CONTEXT_ID } from './Layout.svelte';
 	import { BOTTOM_NAVIGATION_CONTEXT_ID } from './BottomNavigation.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
 		context_id: LAYOUT_CONTEXT_ID,
@@ -21,7 +26,12 @@
 	export let open = false;
 </script>
 
-<div class="relative h-full w-full">
+<div
+	class="relative h-full w-full"
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class', 'style'])}
+>
 	<Button
 		on:click
 		shape="circle"

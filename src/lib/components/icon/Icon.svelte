@@ -19,3 +19,4 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}>{icon}</span
 >
+<!-- TODO: add documentation -->
