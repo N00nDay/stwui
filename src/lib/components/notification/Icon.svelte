@@ -1,8 +1,21 @@
 <script lang="ts">
 	import type { MaterialIcon } from '../../types';
-	import Icon from '../icon';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	import { twMerge } from 'tailwind-merge';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let icon: MaterialIcon;
+
+	const defaultClass = 'material-icons';
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<Icon {icon} class={$$props.class} style={$$props.style} />
+<span
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}>{icon}</span
+>

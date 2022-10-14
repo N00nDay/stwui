@@ -30,7 +30,7 @@
 					Anyone with a link can now view this file.
 				</Notification.Content.Description>
 			</Notification.Content>
-			<Notification.Extra slot="extra">
+			<Notification.Extra slot="extra" class="-top-2 -right-2">
 				<Button on:click={() => console.log('notification closed!')} shape="circle">
 					<Button.Icon slot="icon" icon="close" />
 				</Button>
@@ -52,7 +52,7 @@
 					Anyone with a link can now view this file.
 				</Notification.Content.Description>
 			</Notification.Content>
-			<Notification.Extra slot="extra">
+			<Notification.Extra slot="extra" class="-top-2 -right-2">
 				<Button on:click={() => console.log('notification closed!')} shape="circle">
 					<Button.Icon slot="icon" icon="close" />
 				</Button>
@@ -74,7 +74,7 @@
 					Anyone with a link can now view this file.
 				</Notification.Content.Description>
 			</Notification.Content>
-			<Notification.Extra slot="extra">
+			<Notification.Extra slot="extra" class="-top-2 -right-2">
 				<Button on:click={() => console.log('notification closed!')} shape="circle">
 					<Button.Icon slot="icon" icon="close" />
 				</Button>
@@ -95,7 +95,7 @@
 					Anyone with a link can now view this file.
 				</Notification.Content.Description>
 			</Notification.Content>
-			<Notification.Extra slot="extra">
+			<Notification.Extra slot="extra" class="-top-2 -right-2">
 				<Button
 					type="primary"
 					size="sm"

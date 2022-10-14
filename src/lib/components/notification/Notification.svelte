@@ -6,6 +6,11 @@
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let type: 'info' | 'warn' | 'error' | 'success' | undefined = undefined;
 
@@ -33,7 +38,12 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div on:click on:keypress class={finalClass} style={$$props.style}>
+<div
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	{#if $$slots.leading}
 		<slot name="leading" />
 	{:else if type}

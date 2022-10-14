@@ -8,6 +8,11 @@
 	import { useContext } from '../../utils/useContext';
 	import { twMerge } from 'tailwind-merge';
 	import { writable, type Writable } from 'svelte/store';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let title = writable(false);
 
@@ -35,7 +40,12 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass} style={$$props.style}>
+<div
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<slot name="title" />
 	<slot name="description" />
 	<slot />
