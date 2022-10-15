@@ -8,6 +8,11 @@
 	import { STEPS_CONTEXT_ID } from './Steps.svelte';
 	import { twMerge } from 'tailwind-merge';
 	import type { Writable } from 'svelte/store';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let href: string;
 	export let step: number;
@@ -59,7 +64,13 @@
 	{#if $currentStep > step}
 		<li data-step={step} class="md:flex-1">
 			<!-- Completed Step -->
-			<a on:click {href} class={finalClass} style={$$props.style}>
+			<a
+				{href}
+				class={finalClass}
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<slot name="title" />
 				<slot name="description" />
 			</a>
@@ -67,7 +78,13 @@
 	{:else if $currentStep === step}
 		<li data-step={step} class="md:flex-1">
 			<!-- Current Step -->
-			<a on:click {href} class={finalClass} style={$$props.style}>
+			<a
+				{href}
+				class={finalClass}
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<slot name="title" />
 				<slot name="description" />
 			</a>
@@ -75,7 +92,13 @@
 	{:else}
 		<li data-step={step} class="md:flex-1">
 			<!-- Upcoming Step -->
-			<a on:click {href} class={finalClass} style={$$props.style}>
+			<a
+				{href}
+				class={finalClass}
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<slot name="title" />
 				<slot name="description" />
 			</a>
@@ -85,14 +108,26 @@
 	{#if $currentStep > step}
 		<li data-step={step}>
 			<!-- Completed Step -->
-			<a on:click {href} class={finalClass} style={$$props.style}>
+			<a
+				{href}
+				class={finalClass}
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<slot name="title" />
 			</a>
 		</li>
 	{:else if $currentStep === step}
 		<li data-step={step}>
 			<!-- Current Step -->
-			<a on:click {href} class={finalClass} style={$$props.style}>
+			<a
+				{href}
+				class={finalClass}
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<span class="absolute flex h-5 w-5 p-px">
 					<span class="h-full w-full rounded-full bg-primary opacity-50" />
 				</span>
@@ -103,7 +138,13 @@
 	{:else}
 		<li data-step={step}>
 			<!-- Upcoming Step -->
-			<a on:click {href} class={finalClass} style={$$props.style}>
+			<a
+				{href}
+				class={finalClass}
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<slot name="title" />
 			</a>
 		</li>
@@ -112,7 +153,13 @@
 	{#if $currentStep > step}
 		<li data-step={step}>
 			<!-- Complete Step -->
-			<a on:click {href} class="group">
+			<a
+				{href}
+				class="group"
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<span class="flex items-start">
 					<span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
 						<svg
@@ -135,7 +182,13 @@
 	{:else if $currentStep === step}
 		<li data-step={step}>
 			<!-- Current Step -->
-			<a on:click {href} class="flex items-start">
+			<a
+				{href}
+				class="flex items-start"
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<span class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
 					<span class="absolute h-4 w-4 rounded-full bg-primary opacity-50" />
 					<span class="relative block h-2 w-2 rounded-full bg-primary" />
@@ -146,7 +199,13 @@
 	{:else}
 		<li data-step={step}>
 			<!-- Upcoming Step -->
-			<a on:click {href} class="group">
+			<a
+				{href}
+				class="group"
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<div class="flex items-start">
 					<div class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
 						<div
@@ -163,7 +222,13 @@
 		<li data-step={step} class="relative pb-10">
 			<div class="absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-primary" />
 			<!-- Complete Step -->
-			<a on:click {href} class="group relative flex items-start">
+			<a
+				{href}
+				class="group relative flex items-start"
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<span class="flex h-9 items-center">
 					<span
 						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-primary group-hover:bg-primary-hover"
@@ -195,7 +260,13 @@
 				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border"
 			/>
 			<!-- Current Step -->
-			<a on:click {href} class="group relative flex items-start">
+			<a
+				{href}
+				class="group relative flex items-start"
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<span class="flex h-9 items-center">
 					<span
 						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary bg-light-surface dark:bg-dark-surface"
@@ -216,7 +287,13 @@
 			/>
 
 			<!-- Upcoming Step -->
-			<a on:click {href} class="group relative flex items-start">
+			<a
+				{href}
+				class="group relative flex items-start"
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
+			>
 				<span class="flex h-9 items-center">
 					<span
 						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-light-border dark:border-dark-border bg-light-surface dark:bg-dark-surface group-hover:border-light-border-base dark:group-hover:border-dark-border-base"

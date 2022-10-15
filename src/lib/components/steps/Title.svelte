@@ -5,6 +5,11 @@
 	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import type { Writable } from 'svelte/store';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
 		context_id: STEPS_CONTEXT_ID,
@@ -68,36 +73,96 @@
 
 {#if variant === 'simple'}
 	{#if $currentStep > step}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{:else if $currentStep === step}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{:else}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{/if}
 {:else if variant === 'bullets'}
 	{#if $currentStep > step}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{:else if $currentStep === step}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{:else}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{/if}
 {:else if variant === 'bullets-text'}
 	{#if $currentStep > step}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{:else if $currentStep === step}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{:else}
-		<p class={finalClass} style={$$props.style}>
+		<p
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}
+		>
 			<slot />
 		</p>
 	{/if}
 {:else if variant === 'circles-text'}
 	{#if $currentStep > step}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{:else if $currentStep === step}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{:else}
-		<span class={finalClass} style={$$props.style}><slot /></span>
+		<span
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}><slot /></span
+		>
 	{/if}
 {/if}
