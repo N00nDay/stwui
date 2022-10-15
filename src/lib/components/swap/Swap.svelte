@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { current_component } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
-	const forwardEvents = forwardEventsBuilder(current_component);
 	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let type: 'rotate' | 'flip' = 'rotate';
 	export let loading: false | true | undefined = undefined;
@@ -21,7 +21,6 @@
 
 <div
 	class={finalClass}
-	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
