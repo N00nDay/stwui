@@ -3,6 +3,11 @@
 	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
 		context_id: TOGGLE_CONTEXT_ID,
@@ -12,16 +17,17 @@
 
 	const { name, toggleOn }: { name: string; toggleOn: () => void } = getContext(TOGGLE_CONTEXT_ID);
 
-	const defaultClass = 'ml-3';
+	const defaultClass = 'ml-3 cursor-pointer';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <span
-	class={finalClass}
-	style={$$props.style}
 	id="{name}-label-right"
+	class={finalClass}
 	on:click={toggleOn}
-	on:keypress
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class', 'id', 'on:click'])}
 >
 	<slot name="label" />
 	<slot name="description" />
