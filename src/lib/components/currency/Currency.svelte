@@ -46,23 +46,6 @@
 		>
 	{/if}
 	<div class="mt-1 relative rounded-md shadow-sm dark:shadow-black h-[2.5rem]">
-		{#if handleLeadingClick}
-			<button on:click={handleLeadingClick} class="absolute inset-y-0 left-0 pl-3">
-				<span
-					class="material-icons flex items-center"
-					class:text-light-secondary-content={!error}
-					class:dark:text-dark-secondary-content={!error}
-					class:text-danger={error}>attach_money</span
-				>
-			</button>
-		{:else}
-			<span
-				class="material-icons flex items-center absolute inset-y-0 left-0 pl-3 pointer-events-none"
-				class:text-light-secondary-content={!error}
-				class:dark:text-dark-secondary-content={!error}
-				class:text-danger={error}>attach_money</span
-			>
-		{/if}
 		<input
 			type="number"
 			inputmode="numeric"
@@ -91,6 +74,23 @@
 			on:input={setTwoNumberDecimal}
 			on:keypress={onlyNumeric}
 		/>
+		{#if handleLeadingClick}
+			<button on:click={handleLeadingClick} class="absolute inset-y-0 left-0 pl-3">
+				<span
+					class="material-icons flex items-center"
+					class:text-light-secondary-content={!error}
+					class:dark:text-dark-secondary-content={!error}
+					class:text-danger={error}>attach_money</span
+				>
+			</button>
+		{:else}
+			<span
+				class="material-icons flex items-center absolute inset-y-0 left-0 pl-3 pointer-events-none"
+				class:text-light-secondary-content={!error}
+				class:dark:text-dark-secondary-content={!error}
+				class:text-danger={error}>attach_money</span
+			>
+		{/if}
 		{#if trailing && !error}
 			{#if handleTrailingClick}
 				<button on:click={handleTrailingClick} class="absolute inset-y-0 right-0 pr-3">

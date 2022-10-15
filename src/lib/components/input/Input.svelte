@@ -66,27 +66,6 @@
 		>
 	{/if}
 	<div class="mt-1 relative rounded-md shadow-sm h-[2.5rem] dark:shadow-black">
-		{#if leading}
-			{#if handleLeadingClick}
-				<button on:click={handleLeadingClick} class="absolute inset-y-0 left-0 pl-3">
-					<span
-						transition:scale|local
-						class="material-icons flex items-center"
-						class:text-light-secondary-content={!error}
-						class:dark:text-dark-secondary-content={!error}
-						class:text-danger={error}>{leading}</span
-					>
-				</button>
-			{:else}
-				<span
-					transition:scale|local
-					class="material-icons flex items-center pointer-events-none absolute inset-y-0 left-0 pl-3"
-					class:text-light-secondary-content={!error}
-					class:dark:text-dark-secondary-content={!error}
-					class:text-danger={error}>{leading}</span
-				>
-			{/if}
-		{/if}
 		<input
 			bind:this={input}
 			use:useType
@@ -121,6 +100,28 @@
 			use:forwardEvents
 			{...exclude($$props, ['use', 'class'])}
 		/>
+
+		{#if leading}
+			{#if handleLeadingClick}
+				<button on:click={handleLeadingClick} class="absolute inset-y-0 left-0 pl-3">
+					<span
+						transition:scale|local
+						class="material-icons flex items-center"
+						class:text-light-secondary-content={!error}
+						class:dark:text-dark-secondary-content={!error}
+						class:text-danger={error}>{leading}</span
+					>
+				</button>
+			{:else}
+				<span
+					transition:scale|local
+					class="material-icons flex items-center pointer-events-none absolute inset-y-0 left-0 pl-3"
+					class:text-light-secondary-content={!error}
+					class:dark:text-dark-secondary-content={!error}
+					class:text-danger={error}>{leading}</span
+				>
+			{/if}
+		{/if}
 
 		{#if allowClear && value && value.length > 0}
 			<button

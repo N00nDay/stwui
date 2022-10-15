@@ -95,14 +95,7 @@
 	}
 </script>
 
-<Dropdown
-	{handleClose}
-	on:click={handleOpen}
-	on:focusout={onFocusOut}
-	on:keydown={keydown}
-	{visible}
-	class="w-full"
->
+<Dropdown {handleClose} on:focusout={onFocusOut} on:keydown={keydown} {visible} class="w-full">
 	<svelte:fragment slot="trigger">
 		<Input
 			readonly={true}

@@ -35,27 +35,6 @@
 		>
 	{/if}
 	<div class="mt-1 relative rounded-md shadow-sm dark:shadow-black h-[2.5rem]">
-		{#if leading}
-			{#if handleLeadingClick}
-				<button on:click={handleLeadingClick} class="absolute inset-y-0 left-0 pl-3">
-					<span
-						transition:scale|local
-						class="material-icons flex items-center"
-						class:text-light-secondary-content={!error}
-						class:dark:text-dark-secondary-content={!error}
-						class:text-danger={error}>{leading}</span
-					>
-				</button>
-			{:else}
-				<span
-					transition:scale|local
-					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-					class:text-light-secondary-content={!error}
-					class:dark:text-dark-secondary-content={!error}
-					class:text-danger={error}>{leading}</span
-				>
-			{/if}
-		{/if}
 		<input
 			type="number"
 			inputmode="numeric"
@@ -86,6 +65,29 @@
 			on:input
 			on:keypress={onlyNumeric}
 		/>
+
+		{#if leading}
+			{#if handleLeadingClick}
+				<button on:click={handleLeadingClick} class="absolute inset-y-0 left-0 pl-3">
+					<span
+						transition:scale|local
+						class="material-icons flex items-center"
+						class:text-light-secondary-content={!error}
+						class:dark:text-dark-secondary-content={!error}
+						class:text-danger={error}>{leading}</span
+					>
+				</button>
+			{:else}
+				<span
+					transition:scale|local
+					class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+					class:text-light-secondary-content={!error}
+					class:dark:text-dark-secondary-content={!error}
+					class:text-danger={error}>{leading}</span
+				>
+			{/if}
+		{/if}
+
 		{#if trailing && !error}
 			{#if handleTrailingClick}
 				<button on:click={handleTrailingClick} class="absolute inset-y-0 right-0 pr-3">

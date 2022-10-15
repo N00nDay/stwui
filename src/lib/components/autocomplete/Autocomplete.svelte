@@ -103,6 +103,32 @@
 			on:click={handleOpen}
 			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface shadow-sm dark:shadow-black"
 		>
+			<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
+			<input
+				{name}
+				id={name}
+				bind:this={input}
+				bind:value
+				{placeholder}
+				{autofocus}
+				on:input
+				on:change
+				autocomplete="off"
+				role="presentation"
+				aria-controls="options"
+				class="bg-light-surface dark:bg-dark-surface w-full h-[2.5rem] pl-3 pr-10 py-2 shadow-sm dark:shadow-black border rounded-md outline-none"
+				class:border-red-400={error}
+				class:text-danger={error}
+				class:dark:text-danger={error}
+				class:placeholder-red-300={error}
+				class:focus:border-red-500={error}
+				class:focus:border-primary={!error}
+				class:dark:focus:border-primary={!error}
+				class:light-border={!error}
+				class:dark:dark-border={!error}
+				class:pl-10={leading}
+			/>
+
 			{#if leading}
 				{#if handleLeadingClick}
 					<button
@@ -125,31 +151,6 @@
 					>
 				{/if}
 			{/if}
-			<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
-			<input
-				{name}
-				id={name}
-				bind:this={input}
-				bind:value
-				{placeholder}
-				{autofocus}
-				on:input
-				on:change
-				autocomplete="off"
-				role="presentation"
-				aria-controls="options"
-				class="bg-transparent w-full h-[2.5rem] pl-3 pr-10 py-2 shadow-sm dark:shadow-black border rounded-md outline-none"
-				class:border-red-400={error}
-				class:text-danger={error}
-				class:dark:text-danger={error}
-				class:placeholder-red-300={error}
-				class:focus:border-red-500={error}
-				class:focus:border-primary={!error}
-				class:dark:focus:border-primary={!error}
-				class:light-border={!error}
-				class:dark:dark-border={!error}
-				class:pl-10={leading}
-			/>
 
 			{#if value && value.length > 0}
 				<button
