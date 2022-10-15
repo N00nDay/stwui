@@ -6,6 +6,11 @@
 	import { setContext } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let currentTab = '';
 	export let variant: 'default' | 'full-width' | 'bar' = 'default';
@@ -43,13 +48,23 @@
 
 {#if variant === 'bar'}
 	<div class={finalContainerClass}>
-		<nav class={finalClass} style={$$props.style}>
+		<nav
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}
+		>
 			<slot />
 		</nav>
 	</div>
 {:else}
 	<div class={finalContainerClass}>
-		<nav class={finalClass} style={$$props.style}>
+		<nav
+			class={finalClass}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class'])}
+		>
 			<slot />
 		</nav>
 	</div>

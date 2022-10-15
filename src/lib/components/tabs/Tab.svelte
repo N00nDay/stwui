@@ -9,6 +9,11 @@
 	import type { Writable } from 'svelte/store';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let href: string;
 	export let key: string;
@@ -58,7 +63,13 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<a {href} on:click class={finalClass} style={$$props.style}>
+<a
+	{href}
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<slot name="icon" />
 	<slot />
 	{#if variant === 'bar'}
