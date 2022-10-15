@@ -6,6 +6,11 @@
 	import type { Writable } from 'svelte/store';
 	import type { TableColumn } from '../../types/table-column';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let sortable = true;
 
@@ -23,7 +28,12 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<table class={finalClass} style={$$props.style}>
+<table
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<thead>
 		<tr class="table-row">
 			{#each columns as column, index}

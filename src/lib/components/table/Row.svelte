@@ -1,5 +1,10 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let id: string;
 
@@ -9,7 +14,14 @@
 </script>
 
 {#key id}
-	<tr {id} class={finalClass} on:click style="height: 48px; max-height: 48px;{$$props.style}">
+	<tr
+		{id}
+		class={finalClass}
+		style="height: 48px; max-height: 48px;{$$props.style}"
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class', 'style'])}
+	>
 		<slot />
 	</tr>
 {/key}

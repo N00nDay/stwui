@@ -4,6 +4,11 @@
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let id = 'table-body';
 
@@ -28,7 +33,12 @@
 	class="overflow-y-auto overflow-x-hidden"
 	style="height: calc(100% - {heightToRemove}px);"
 >
-	<table class={finalClass} style={$$props.style}>
+	<table
+		class={finalClass}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class'])}
+	>
 		<tbody>
 			<slot />
 		</tbody>

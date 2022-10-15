@@ -3,6 +3,11 @@
 	import { getContext } from 'svelte';
 	import type { TableColumn } from '../../types/table-column';
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let column: number;
 
@@ -21,7 +26,13 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<td class={finalClass} style="width: {columnWidth}%;{$$props.style}">
+<td
+	class={finalClass}
+	style="width: {columnWidth}%;{$$props.style}"
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class', 'style'])}
+>
 	<span class="block md:inline w-full static left-0 right-0 truncate">
 		<slot />
 	</span>
