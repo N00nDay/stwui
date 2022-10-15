@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.0.25-next](https://github.com/N00nDay/stwui/compare/v0.0.24-next...v0.0.25-next) (2022-10-15)
+
+
+### Bug Fixes
+
+* **Menu:** forward all events including child components ([f1d0fb0](https://github.com/N00nDay/stwui/commit/f1d0fb0c8d98a78dcc0696ce78ff4ff5ae1fefcc))
+* **Modal:** forward all events including child components ([1151810](https://github.com/N00nDay/stwui/commit/115181081104d476832dd8bfb193ae946185fa78))
+* **Notification:** forward all events including child components ([30bb584](https://github.com/N00nDay/stwui/commit/30bb5842100144597163ae6782fb87c59883be0d))
+* **Post.Header.Avatar:** graceful error faallback ([7df25db](https://github.com/N00nDay/stwui/commit/7df25db9dfd65c0be2b69fbf9913fe24e6e8950a))
+* **Post:** forward all events including child components ([7df25db](https://github.com/N00nDay/stwui/commit/7df25db9dfd65c0be2b69fbf9913fe24e6e8950a))
+* **RadioGroup:** forward all events including child components ([a2b2c89](https://github.com/N00nDay/stwui/commit/a2b2c89284849f44e40da1f05a40b7e25fb5928e))
+* **Statistic:** forward all events including child components, except Trend ([80bd1ec](https://github.com/N00nDay/stwui/commit/80bd1ec2f29365a4cc5bf6337dbabe75d62016cb))
+* **Steps:** forward all events including child components ([c9bb1a4](https://github.com/N00nDay/stwui/commit/c9bb1a4bbb1dcdde99e36ff850745365deb1f690))
+* **Swap:** forward all events ([8b0392e](https://github.com/N00nDay/stwui/commit/8b0392ec61c32dbbcfdd600a9b4fcda16449cbf4))
+* **Table:** forward all events including child components ([d3d0c42](https://github.com/N00nDay/stwui/commit/d3d0c4269c026c275877ecb846331edd3a724f92))
+* **Tabs:** forward all events including child components ([d7dddca](https://github.com/N00nDay/stwui/commit/d7dddcaa241610b9f0156b2f4152cc74b09f01c7))
+* **Timeline:** forward all events including child components ([f29c7ba](https://github.com/N00nDay/stwui/commit/f29c7ba75f997d19763d1e48e80b50d6b6ad9f9c))
+* **Toggle:** forward all events including child components ([23d208f](https://github.com/N00nDay/stwui/commit/23d208fd3422b87698500fd80276eb4ad83d5bfc))
+
 ## [0.0.24-next](https://github.com/N00nDay/stwui/compare/v0.0.23-next...v0.0.24-next) (2022-10-14)
 
 
