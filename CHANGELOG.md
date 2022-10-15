@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.26-next](https://github.com/N00nDay/stwui/compare/v0.0.25-next...v0.0.26-next) (2022-10-15)
+
+
+### Bug Fixes
+
+* **DatePicker:** autoclose on select fixed ([0e0d8de](https://github.com/N00nDay/stwui/commit/0e0d8de91b8cf9182aad1a1c9b8ede80f133fc1b))
+
 ## [0.0.25-next](https://github.com/N00nDay/stwui/compare/v0.0.24-next...v0.0.25-next) (2022-10-15)
 
 
