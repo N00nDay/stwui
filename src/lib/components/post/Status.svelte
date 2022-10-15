@@ -1,5 +1,10 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	// TODO: needs to be built out more
 	export let likes: string[] = [];
@@ -12,8 +17,10 @@
 
 <div
 	class={finalClass}
-	style={$$props.style}
 	class:hidden={likes.length === 0 && comments.length === 0}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
 >
 	<div class="h-full w-full flex justify-start items-center text-sm">
 		{#if likes.length > 0}

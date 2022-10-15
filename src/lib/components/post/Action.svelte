@@ -5,12 +5,11 @@
 	import { useContext } from '../../utils/useContext';
 	import type { MaterialIcon } from '../../types';
 	import HoverBackground from '../HoverBackground.svelte';
-
-	import { current_component } from 'svelte/internal';
+	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	import { exclude } from '../../utils/exclude';
 	export let use: ActionArray = [];
-	const forwardEvents = forwardEventsBuilder(current_component);
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let icon: MaterialIcon;
 	export let label: string | undefined = undefined;
@@ -33,7 +32,6 @@
 
 <div
 	class={finalClass}
-	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}

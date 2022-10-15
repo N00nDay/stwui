@@ -5,6 +5,11 @@
 	import { POST_CONTEXT_ID } from './Post.svelte';
 	import type { CarouselSlide, LightboxAction } from '../../types';
 	import LightBox from '../lightbox/LightBox.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let images: CarouselSlide[] = [];
 	export let handleClick: ((index: number) => void) | undefined = undefined;
@@ -86,7 +91,12 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class={finalClass} style={$$props.style}>
+<div
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class'])}
+>
 	<div class="w-full h-full aspect-[1/1]">
 		{#if images.length === 1}
 			{#if !lightBox1Open}
