@@ -2,6 +2,11 @@
 	import type { MaterialIcon } from '../../types';
 	import Avatar from '../avatar';
 	import { formatDate } from '../../utils';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let type: 'comment' | undefined = undefined;
 	export let avatar: string | undefined = undefined;
@@ -12,7 +17,7 @@
 </script>
 
 {#if type === 'comment'}
-	<li>
+	<li use:useActions={use} use:forwardEvents {...exclude($$props, ['use'])}>
 		<div class="relative pb-8">
 			<span
 				class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-light-border dark:bg-dark-border"
@@ -53,7 +58,7 @@
 		</div>
 	</li>
 {:else}
-	<li>
+	<li use:useActions={use} use:forwardEvents {...exclude($$props, ['use'])}>
 		<div class="relative pb-8">
 			<span
 				class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-light-border dark:bg-dark-border"
