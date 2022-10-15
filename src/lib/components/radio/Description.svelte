@@ -4,6 +4,11 @@
 	import { useContext } from '$lib/utils/useContext';
 	import { RADIO_GROUP_RADIO_CONTEXT_ID } from './Radio.svelte';
 	import { RADIO_GROUP_CONTEXT_ID } from './RadioGroup.svelte';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
+	import { exclude } from '../../utils/exclude';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
 		context_id: RADIO_GROUP_CONTEXT_ID,
@@ -23,6 +28,10 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span id={id ? `${id}-description` : undefined} class={finalClass} style={$$props.style}
-	><slot /></span
+<span
+	id={id ? `${id}-description` : undefined}
+	class={finalClass}
+	use:useActions={use}
+	use:forwardEvents
+	{...exclude($$props, ['use', 'class', 'id'])}><slot /></span
 >
