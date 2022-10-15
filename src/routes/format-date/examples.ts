@@ -39,7 +39,7 @@ export const example = `
       1 Year: {formatDate(dateMinus1Year)}
    </Col>
    <Col class="col-24 md:col-12 lex items-center justify-center text-center">
-      <h3>The Past</h3>
+      <h3>The Future</h3>
       <br />
       30 Minutes: {formatDate(dateAdd30Minutes)}
       <br />

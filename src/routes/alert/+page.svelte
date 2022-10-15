@@ -1,12 +1,16 @@
 <script lang="ts">
-	import { Alert, Button, Card, Col, Icon } from '../../lib';
+	import { Alert, Button, Card, Col, Icon, Divider } from '../../lib';
 	import { example, props, slots, iconProps, titleSlots, descriptionSlots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
 
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Alert</h1>
+	<Divider />
+</Col>
+
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Alert</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Alert>
 				<Alert.Title slot="title">Title</Alert.Title>

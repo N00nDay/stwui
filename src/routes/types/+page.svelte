@@ -13,7 +13,11 @@
 </script>
 
 <div class="w-full h-full overflow-auto">
-	<h1 id="CarouselSlide" class="text-light-content dark:text-dark-content mb-0">CarouselSlide</h1>
+	<h1 id="CarouselSlide" class="text-light-content dark:text-dark-content mb-0">Types</h1>
+
+	<h2 id="CarouselSlide" class="text-light-content dark:text-dark-content mb-0 mt-12">
+		CarouselSlide
+	</h2>
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -25,7 +29,9 @@
 
 	<br />
 
-	<h1 id="FormatNumber" class="text-light-content dark:text-dark-content mb-0">FormatNumber</h1>
+	<h2 id="FormatNumber" class="text-light-content dark:text-dark-content mb-0 mt-12">
+		FormatNumber
+	</h2>
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -36,7 +42,9 @@
 
 	<br />
 
-	<h1 id="LightboxAction" class="text-light-content dark:text-dark-content mb-0">LightboxAction</h1>
+	<h2 id="LightboxAction" class="text-light-content dark:text-dark-content mb-0 mt-12">
+		LightboxAction
+	</h2>
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -47,7 +55,7 @@
 
 	<br />
 
-	<h1 id="Locale" class="text-light-content dark:text-dark-content mb-0">Locale</h1>
+	<h2 id="Locale" class="text-light-content dark:text-dark-content mb-0 mt-12">Locale</h2>
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -58,7 +66,9 @@
 
 	<br />
 
-	<h1 id="MaterialIcon" class="text-light-content dark:text-dark-content mb-0">MaterialIcon</h1>
+	<h2 id="MaterialIcon" class="text-light-content dark:text-dark-content mb-0 mt-12">
+		MaterialIcon
+	</h2>
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -73,7 +83,7 @@
 
 	<br />
 
-	<h1 id="TableColumn" class="text-light-content dark:text-dark-content mb-0">TableColumn</h1>
+	<h2 id="TableColumn" class="text-light-content dark:text-dark-content mb-0 mt-12">TableColumn</h2>
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -84,7 +94,9 @@
 
 	<br />
 
-	<h1 id="TimelineItem" class="text-light-content dark:text-dark-content mb-0">TimelineItem</h1>
+	<h2 id="TimelineItem" class="text-light-content dark:text-dark-content mb-0 mt-12">
+		TimelineItem
+	</h2>
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -95,7 +107,9 @@
 
 	<br />
 
-	<h1 id="TooltipConfig" class="text-light-content dark:text-dark-content mb-0">TooltipConfig</h1>
+	<h2 id="TooltipConfig" class="text-light-content dark:text-dark-content mb-0 mt-12">
+		TooltipConfig
+	</h2>
 	<Divider />
 
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">

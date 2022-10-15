@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Timeline } from '../../lib';
+	import { Card, Col, Timeline, Divider } from '../../lib';
 	import type { TimelineItem } from '../../lib/types/timeline-item';
 	import { example, slots, itemProps } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
@@ -44,9 +44,13 @@
 	];
 </script>
 
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Timeline</h1>
+	<Divider />
+</Col>
+
 <Col class="col-24">
 	<Card bordered={false}>
-		<Card.Header slot="header">Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Timeline>
 				{#each timeline as item}

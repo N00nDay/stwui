@@ -1,9 +1,14 @@
 <script lang="ts">
-	import { Col } from '../../lib';
+	import { Col, Divider } from '../../lib';
 	import { clipboard } from '../../lib/actions';
 	import { example } from './examples';
 	import { CodeBlock } from '../../docs';
 </script>
+
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">clipboard</h1>
+	<Divider />
+</Col>
 
 <Col class="col-24">
 	<div class="flex items-center justify-center p-12">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Col, Pagination, Table } from '../../lib';
+	import { Button, Card, Col, Pagination, Table, Divider } from '../../lib';
 	import type { TableColumn } from '../../lib/types/table-column';
 	import {
 		example,
@@ -60,6 +60,11 @@
 		total: 0
 	};
 </script>
+
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Table</h1>
+	<Divider />
+</Col>
 
 <Col class="col-24">
 	<BetaComponent />

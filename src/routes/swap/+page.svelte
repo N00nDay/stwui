@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Icon, Swap, Col } from '../../lib';
+	import { Card, Icon, Swap, Col, Divider } from '../../lib';
 	import { example1, example2, props, slots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
@@ -10,9 +10,14 @@
 	}
 </script>
 
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Swap</h1>
+	<Divider />
+</Col>
+
 <Col class="col-24 md:col-12">
 	<Card bordered>
-		<Card.Header slot="header">Swap</Card.Header>
+		<Card.Header slot="header">Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Swap on:click={toggleSwap} {swapped}>
 				<Icon slot="on" class="h-8 w-8" icon="menu" />
@@ -28,7 +33,7 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered>
-		<Card.Header slot="header">Swap Flip</Card.Header>
+		<Card.Header slot="header">Flip</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Swap type="flip" on:click={toggleSwap} {swapped}>
 				<Icon slot="on" class="h-8 w-8" icon="paid" />

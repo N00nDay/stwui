@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Chip, Col } from '../../lib';
+	import { Card, Chip, Col, Divider } from '../../lib';
 	import { example, closeExample, props, slots, avatarProps, labelSlots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
@@ -7,9 +7,14 @@
 		'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80';
 </script>
 
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Chip</h1>
+	<Divider />
+</Col>
+
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Chip</Card.Header>
+		<Card.Header slot="header">Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Chip size="xs">
 				<Chip.Avatar slot="avatar" src={avatar} />
@@ -43,7 +48,7 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Chip with Close</Card.Header>
+		<Card.Header slot="header">With Close</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Chip type="info">
 				<Chip.Avatar slot="avatar" src={avatar} />

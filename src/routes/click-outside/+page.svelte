@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Col } from '../../lib';
+	import { Col, Divider } from '../../lib';
 	import { clickOutside } from '../../lib/actions';
 	import { example } from './examples';
 	import { CodeBlock } from '../../docs';
@@ -8,6 +8,11 @@
 		alert('Clicked outside!');
 	}
 </script>
+
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">clickOutside</h1>
+	<Divider />
+</Col>
 
 <Col class="col-24">
 	<div class="flex items-center justify-center p-12">

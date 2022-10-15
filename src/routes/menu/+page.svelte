@@ -18,7 +18,7 @@
 </script>
 
 <script lang="ts">
-	import { Badge, Button, Card, Col, Menu } from '../../lib';
+	import { Badge, Button, Card, Col, Menu, Divider } from '../../lib';
 	import {
 		example,
 		props,
@@ -96,6 +96,11 @@
 		collapsed = !collapsed;
 	}
 </script>
+
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Menu</h1>
+	<Divider />
+</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>

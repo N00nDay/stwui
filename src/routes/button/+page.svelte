@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Col, Icon, Swap } from '../../lib';
+	import { Button, Card, Col, Icon, Swap, Divider } from '../../lib';
 	import {
 		exampleDefault,
 		exampleLoading,
@@ -20,6 +20,11 @@
 		loading = !loading;
 	}
 </script>
+
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Button</h1>
+	<Divider />
+</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Col, Drawer, Portal } from '../../lib';
+	import { Button, Card, Col, Drawer, Portal, Divider } from '../../lib';
 	import {
 		example,
 		placementExample,
@@ -49,9 +49,14 @@
 	}
 </script>
 
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Drawer</h1>
+	<Divider />
+</Col>
+
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Drawer Default</Card.Header>
+		<Card.Header slot="header">Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Button type="primary" on:click={openDrawerRight}>Open Right</Button>
 
@@ -65,7 +70,7 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Drawer Placement</Card.Header>
+		<Card.Header slot="header">With Placement</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Button type="primary" on:click={openDrawerLeft}>Open Left</Button>
 			<br />

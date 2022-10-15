@@ -4,9 +4,13 @@
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
 
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Divider</h1>
+	<Divider />
+</Col>
+
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Divider</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Divider>
 				<Divider.Label slot="label"><h3>Divider</h3></Divider.Label>

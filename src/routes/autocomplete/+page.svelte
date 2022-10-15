@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Autocomplete, Card, Col } from '../../lib';
+	import { Autocomplete, Card, Col, Divider } from '../../lib';
 	import {
 		example,
 		allowNonOptionExample,
@@ -80,13 +80,18 @@
 	$: filterOptions(value4, 4);
 </script>
 
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Autocomplete</h1>
+	<Divider />
+</Col>
+
 <Col class="col-24">
 	<BetaComponent />
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Autocomplete</Card.Header>
+		<Card.Header slot="header">Basic</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Autocomplete name="select-1" placeholder="Basic" bind:value={value1} on:input={filter1}>
 				<Autocomplete.List slot="list">
@@ -148,7 +153,7 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Autocomplete</Card.Header>
+		<Card.Header slot="header">Any Value</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Autocomplete
 				name="select-4"

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Row, Col, Input, Card, Badge, Button } from '../../lib';
+	import { Row, Col, Input, Card, Badge, Button, Divider } from '../../lib';
 	import { encodeSearchParams } from '../../lib/utils';
 	import { example } from './examples';
 	import { CodeBlock } from '../../docs';
@@ -28,6 +28,11 @@
 		});
 	}
 </script>
+
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">encodeSearchParams</h1>
+	<Divider />
+</Col>
 
 <Col class="col-24">
 	<Card>

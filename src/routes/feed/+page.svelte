@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { MaterialIcon } from '../../lib/types';
-	import { Card, Col, Feed } from '../../lib';
+	import { Card, Col, Feed, Divider } from '../../lib';
 	import { formatDate } from '../../lib/utils';
 	import {
 		example,
@@ -54,9 +54,13 @@
 	];
 </script>
 
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Feed</h1>
+	<Divider />
+</Col>
+
 <Col class="col-24">
 	<Card bordered={false}>
-		<Card.Header slot="header">Simple</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Feed>
 				{#each items as item}

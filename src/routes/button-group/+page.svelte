@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ButtonGroup, Card, Col } from '../../lib';
+	import { ButtonGroup, Card, Col, Divider } from '../../lib';
 	import {
 		example,
 		exampleActive,
@@ -33,6 +33,11 @@
 		}, 2000);
 	}
 </script>
+
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">ButtonGroup</h1>
+	<Divider />
+</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered>

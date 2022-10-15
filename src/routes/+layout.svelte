@@ -3,7 +3,7 @@
 	import { goto } from '$app/navigation';
 
 	import { page } from '$app/stores';
-	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle, Badge } from '../lib';
+	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle } from '../lib';
 	import { browser } from '$app/environment';
 	import { Navigation, Search } from '../docs';
 
@@ -26,34 +26,22 @@
 		htmlElement.classList.remove('dark');
 	}
 
-	async function scrollToTop() {
-		if (browser) {
-			const scrollEl = document.getElementById('content-body') as HTMLDivElement;
-			if (scrollEl) {
-				scrollEl.scrollTop = 0;
+	let path = $page.url.pathname;
+
+	async function scrollToTop(pathname: string) {
+		const newPath = $page.url.pathname;
+		if (path !== newPath) {
+			if (browser) {
+				const scrollEl = document.getElementById('content-body') as HTMLDivElement;
+				if (scrollEl) {
+					scrollEl.scrollTop = 0;
+				}
 			}
 		}
+		path = newPath;
 	}
 
-	function renderTitle(pathname: string): string {
-		const pathnameStripped = pathname.substring(1);
-		const pathnameArray = pathnameStripped.split('-');
-		let title = '';
-		for (const part of pathnameArray) {
-			title += part.charAt(0).toUpperCase() + part.slice(1) + ' ';
-		}
-		title = title.trim();
-
-		if (title !== pageTitle) {
-			scrollToTop();
-		}
-
-		if (title.length > 0) {
-			return title;
-		} else {
-			return 'STWUI';
-		}
-	}
+	$: scrollToTop($page.url.pathname);
 
 	function redirectToGithub() {
 		goto('https://github.com/N00nDay/stwui');
@@ -62,8 +50,6 @@
 	function redirectToDiscord() {
 		goto('https://discord.gg/dPuteC7z');
 	}
-
-	$: pageTitle = renderTitle($page.url.pathname);
 </script>
 
 <svelte:head>
@@ -92,13 +78,10 @@
 			</Button>
 
 			<a href="/">
-				<img src="/120x120-transparent.png" alt="logo-icon" class="h-10 mr-4" />
+				<img src="/120x120-transparent.png" alt="logo-icon" class="h-10 mr-1" />
 			</a>
 
-			<div class="mr-2 font-bold text-xl opacity-80 dark:opacity-100">
-				{pageTitle}
-			</div>
-			<!-- <Badge type="info" shape="rounded">{__version__}</Badge> -->
+			<div class="font-bold text-xl opacity-80 dark:opacity-100">STWUI</div>
 
 			<Layout.Header.Extra slot="extra">
 				<Toggle name="toggle" bind:on={darkTheme}>

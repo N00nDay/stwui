@@ -35,7 +35,9 @@ module.exports = {
 
 <Col class="col-24">
 	<div class="w-full h-full overflow-auto">
-		<h1 class="text-light-content dark:text-dark-content mb-0">Create SvelteKit project</h1>
+		<h1 class="text-light-content dark:text-dark-content mb-0">Installation & Setup</h1>
+
+		<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Create SvelteKit project</h2>
 		<Divider />
 
 		<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -47,7 +49,7 @@ module.exports = {
 
 		<CodeBlock language="bash" code={svelteKitSetUp} />
 
-		<h1 class="text-light-content dark:text-dark-content mb-0 mt-12">Install STWUI</h1>
+		<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Install STWUI</h2>
 		<Divider />
 
 		<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -56,7 +58,7 @@ module.exports = {
 
 		<CodeBlock language="bash" code={installCode} />
 
-		<h1 class="text-light-content dark:text-dark-content mb-0 mt-12">Install TailwindCSS</h1>
+		<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Install TailwindCSS</h2>
 		<Divider />
 
 		<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -65,7 +67,7 @@ module.exports = {
 
 		<CodeBlock language="bash" code={tailwindInstall} />
 
-		<h1 class="text-light-content dark:text-dark-content mb-0 mt-12">Configure TailwindCSS</h1>
+		<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Configure TailwindCSS</h2>
 		<Divider />
 
 		<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
@@ -74,7 +76,7 @@ module.exports = {
 
 		<CodeBlock language="javascript" code={tailwindCode} />
 
-		<h1 class="text-light-content dark:text-dark-content mb-0 mt-12">Configure Material Icons</h1>
+		<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Configure Material Icons</h2>
 		<Divider />
 
 		<p class="mb-3 mt-5 text-light-content dark:text-dark-content">

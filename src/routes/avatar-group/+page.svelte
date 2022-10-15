@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { AvatarGroup, Card, Col } from '../../lib';
+	import { AvatarGroup, Card, Col, Divider } from '../../lib';
 	import {
 		exampleGroup,
 		slots,
@@ -20,9 +20,13 @@
 	];
 </script>
 
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">AvatarGroup</h1>
+	<Divider />
+</Col>
+
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Avatar Group</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<AvatarGroup size="xs">
 				{#each avatars as avatar}

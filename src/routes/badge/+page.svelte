@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge, Card, Col } from '../../lib';
+	import { Badge, Card, Col, Divider } from '../../lib';
 	import {
 		exampleDefault,
 		exampleCustom,
@@ -12,6 +12,11 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
+
+<Col class="col-24 mb-4">
+	<h1 class="text-light-content dark:text-dark-content mb-0">Badge</h1>
+	<Divider />
+</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
