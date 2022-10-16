@@ -85,7 +85,13 @@
 			</Button>
 
 			<a href="/">
-				<img src="/120x120-transparent.png" alt="logo-icon" class="h-10 mr-1" />
+				<img
+					src="/120x120-transparent.png"
+					alt="logo-icon"
+					class="h-10 mr-1"
+					width="40px"
+					height="40px"
+				/>
 			</a>
 
 			<div class="font-bold text-xl opacity-80 dark:opacity-100">STWUI</div>
