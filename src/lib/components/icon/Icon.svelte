@@ -7,16 +7,20 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	export let icon: MaterialIcon;
+	export let path: string;
+	export let viewBox = '0 0 24 24';
+	export let fill = 'currentColor';
 
-	const defaultClass = 'material-icons';
+	const defaultClass = 'h-6 w-6';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span
+<!-- TODO: add documentation -->
+
+<svg
 	class={finalClass}
+	{viewBox}
 	use:useActions={use}
 	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}>{icon}</span
+	{...exclude($$props, ['use', 'class'])}><path {fill} d={path} /></svg
 >
-<!-- TODO: add documentation -->

@@ -1,25 +1,32 @@
+<script lang="ts" context="module">
+	export const SELECT_CONTEXT_ID = 'select-context-id';
+</script>
+
 <script lang="ts">
-	import type { MaterialIcon } from '../../types';
+	import { setContext } from 'svelte';
 	import { slide, scale } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { onMount } from 'svelte';
+	import { Icon } from '../../';
+	import { unfold_more_horizontal, error as errorIcon } from '../../../docs/icons';
 
-	export let leading: MaterialIcon | undefined = undefined;
 	export let name: string;
-	export let label: string | undefined = undefined;
-	export let srOnly = false;
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
 	export let autofocus = false;
-	export let handleLeadingClick: (() => void) | undefined = undefined;
 	export let visible = false;
 	export let options: string[] = [];
-	export let leadingAriaLabel = 'select leading';
 
 	let input: HTMLInputElement;
 	let button: HTMLButtonElement;
+
+	setContext(SELECT_CONTEXT_ID, {
+		select: true,
+		error,
+		name
+	});
 
 	function toggleVisible() {
 		visible = !visible;
@@ -44,15 +51,7 @@
 </script>
 
 <div class={$$props.class} style={$$props.style} use:clickOutside={handleClose}>
-	{#if label}
-		<label
-			for={name}
-			class="block text-sm font-medium{srOnly ? ' sr-only' : ''}"
-			class:text-light-secondary-content={!error}
-			class:dark:text-dark-secondary-content={!error}
-			class:text-danger={error}>{label}</label
-		>
-	{/if}
+	<slot name="label" />
 	<div class="mt-1 relative rounded-md h-[2.5rem]">
 		<button
 			aria-label="toggle select"
@@ -69,35 +68,11 @@
 			class:dark:focus:border-primary={!error}
 			class:light-border={!error}
 			class:dark:dark-border={!error}
-			class:pl-10={leading}
+			class:pl-10={$$slots.leading}
 		>
-			{#if leading}
-				{#if handleLeadingClick}
-					<button
-						aria-label={leadingAriaLabel}
-						on:click|stopPropagation={handleLeadingClick}
-						class="absolute inset-y-0 left-0 pl-3"
-					>
-						<span
-							class="material-icons flex items-center"
-							class:text-light-secondary-content={!error}
-							class:dark:text-dark-secondary-content={!error}
-							class:text-danger={error}>{leading}</span
-						>
-					</button>
-				{:else}
-					<span
-						class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-						class:text-light-secondary-content={!error}
-						class:dark:text-dark-secondary-content={!error}
-						class:text-danger={error}>{leading}</span
-					>
-				{/if}
-			{/if}
-
 			<span
 				class="block truncate text-light-content dark:text-dark-content"
-				class:pl-1.5={leading}
+				class:pl-1.5={$$slots.leading}
 				class:text-gray-500={placeholder && !value}
 				class:dark:text-gray-500={placeholder && !value}
 			>
@@ -113,15 +88,28 @@
 				autocomplete="off"
 			/>
 
+			{#if $$slots.leading}
+				<span
+					class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+					class:text-light-secondary-content={!error}
+					class:dark:text-dark-secondary-content={!error}
+					class:text-danger={error}
+				>
+					<slot name="leading" />
+				</span>
+			{/if}
+
 			{#if error}
 				<span
-					transition:scale|local
-					class="material-icons absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-danger"
-					>error</span
+					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-danger"
 				>
+					<Icon path={errorIcon} />
+				</span>
 			{:else}
-				<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-					<span class="material-icons text-light-icon dark:text-dark-icon"> unfold_more </span>
+				<span
+					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-light-icon dark:text-dark-icon"
+				>
+					<Icon path={unfold_more_horizontal} />
 				</span>
 			{/if}
 		</button>
