@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Col, Statistic, Card, Divider } from '../../lib';
+	import { Col, Statistic, Card } from '../../lib';
 	import { formatNumber } from '../../lib/utils';
 	import {
 		example1,
@@ -18,11 +18,6 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Statistic</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">

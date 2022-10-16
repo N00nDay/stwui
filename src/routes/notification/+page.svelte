@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Col, Notification, Divider } from '../../lib';
+	import { Button, Card, Col, Notification } from '../../lib';
 	import {
 		example,
 		typeExample,
@@ -17,11 +17,6 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Notification</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24 sm:col-12 md:col-6">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">

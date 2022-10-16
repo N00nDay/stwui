@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Row, Col, Card, Divider } from '../../lib';
+	import { Row, Col, Card } from '../../lib';
 	import { formatDate } from '../../lib/utils';
 	import { example } from './examples';
 	import { CodeBlock } from '../../docs';
@@ -19,11 +19,6 @@
 	let dateAdd1Day = new Date(new Date().getTime() + 1000 * 60 * 60 * 24);
 	let dateAdd1Year = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 365);
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">formatDate</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24 md:col-12">
 	<Card>

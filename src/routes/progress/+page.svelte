@@ -1,13 +1,8 @@
 <script lang="ts">
-	import { Card, Col, Progress, Divider } from '../../lib';
+	import { Card, Col, Progress } from '../../lib';
 	import { example, props, radialExample, typeExample } from './examples';
 	import { PropsTable, CodeBlock } from '../../docs';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Progress</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>

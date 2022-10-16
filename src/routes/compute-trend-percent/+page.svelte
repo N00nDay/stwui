@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Row, Col, InputNumber, Card, Divider } from '../../lib';
+	import { Row, Col, InputNumber, Card } from '../../lib';
 	import { computeTrendPercent, formatNumber } from '../../lib/utils';
 	import { example } from './examples';
 	import { CodeBlock } from '../../docs';
@@ -12,11 +12,6 @@
 		trend = computeTrendPercent(parseInt(this_year), parseInt(last_year));
 	}
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">computeTrendPercent</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<Card>

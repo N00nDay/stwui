@@ -12,6 +12,9 @@ export async function load({ url }: LoadEvent) {
 
 	if (results) {
 		return {
+			title: 'STWUI - Table',
+			description: 'Svelte TailwindCSS Table component',
+			header: 'Table',
 			results,
 			start: start + 1,
 			end: end === total ? total : end + 1,

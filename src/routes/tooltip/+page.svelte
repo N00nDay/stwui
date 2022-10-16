@@ -1,14 +1,9 @@
 <script lang="ts">
-	import { Card, Col, Divider } from '../../lib';
+	import { Card, Col } from '../../lib';
 	import { tooltip } from '../../lib/actions';
 	import { example } from './examples';
 	import { CodeBlock } from '../../docs';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">tooltip</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>

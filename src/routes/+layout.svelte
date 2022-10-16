@@ -3,7 +3,7 @@
 	import { goto } from '$app/navigation';
 
 	import { page } from '$app/stores';
-	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle } from '../lib';
+	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle, Col, Divider } from '../lib';
 	import { browser } from '$app/environment';
 	import { Navigation, Search } from '../docs';
 
@@ -58,6 +58,13 @@
 	{:else}
 		<meta name="theme-color" content="#ffffff" />
 	{/if}
+	<title>{$page.data.title}</title>
+	<meta name="description" content={$page.data.description} />
+	<meta
+		name="og:{$page.data.title}"
+		property="og:{$page.data.title}"
+		content={$page.data.description}
+	/>
 </svelte:head>
 
 <div class="h-full w-full print:hidden">
@@ -144,6 +151,12 @@
 			>
 				<div>
 					<Row gutter="3" class="h-full w-full">
+						{#if $page.data.header}
+							<Col class="col-24 mb-4">
+								<h1 class="text-light-content dark:text-dark-content mb-0">{$page.data.header}</h1>
+								<Divider />
+							</Col>
+						{/if}
 						<slot />
 					</Row>
 				</div>

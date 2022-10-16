@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { MaterialIcon } from '../../lib/types';
-	import { Card, Col, Tabs, Divider } from '../../lib';
+	import { Card, Col, Tabs } from '../../lib';
 	import {
 		example1,
 		example2,
@@ -39,11 +39,6 @@
 
 	let currentTab = '#tab1';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Tabs</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<Card bordered={false}>

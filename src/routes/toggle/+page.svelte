@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Toggle, Divider } from '../../lib';
+	import { Card, Col, Toggle } from '../../lib';
 	import {
 		example,
 		props,
@@ -12,11 +12,6 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, BetaComponent } from '../../docs';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Toggle</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<BetaComponent />

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Carousel, Col, Divider } from '../../lib';
+	import { Card, Carousel, Col } from '../../lib';
 	import type { CarouselSlide } from '../../lib/types';
 	import { example, props } from './examples';
 	import { PropsTable, CodeBlock } from '../../docs';
@@ -22,11 +22,6 @@
 		}
 	];
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Carousel</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<Card bordered={false} class="bg-transparent dark:bg-transparent" elevation="none">

@@ -1,13 +1,8 @@
 <script lang="ts">
-	import { Card, Col, Pagination, Divider } from '../../lib';
+	import { Card, Col, Pagination } from '../../lib';
 	import { example, props } from './examples';
 	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Pagination</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<BetaComponent />

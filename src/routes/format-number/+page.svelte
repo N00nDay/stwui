@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Row, Col, Card, Divider } from '../../lib';
+	import { Row, Col, Card } from '../../lib';
 	import { formatNumber } from '../../lib/utils';
 	import { example } from './examples';
 	import { CodeBlock } from '../../docs';
@@ -7,11 +7,6 @@
 	const number = 123456789.12;
 	const percent = 0.83;
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">formatNumber</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<Card>

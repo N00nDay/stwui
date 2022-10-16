@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Steps, Divider } from '../../lib';
+	import { Card, Col, Steps } from '../../lib';
 	import {
 		example1,
 		example2,
@@ -34,11 +34,6 @@
 		}
 	];
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Steps</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<Card bordered={false}>

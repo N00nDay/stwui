@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Autocomplete, Card, Col, Divider } from '../../lib';
+	import { Autocomplete, Card, Col } from '../../lib';
 	import {
 		example,
 		allowNonOptionExample,
@@ -79,11 +79,6 @@
 	$: filterOptions(value3, 3);
 	$: filterOptions(value4, 4);
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Autocomplete</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<BetaComponent />

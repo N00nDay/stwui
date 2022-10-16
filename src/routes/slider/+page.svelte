@@ -1,13 +1,8 @@
 <script lang="ts">
-	import { Card, Col, Slider, Divider } from '../../lib';
+	import { Card, Col, Slider } from '../../lib';
 	import { example, stepExample, props } from './examples';
 	import { PropsTable, CodeBlock } from '../../docs';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Slider</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<Card bordered={false}>

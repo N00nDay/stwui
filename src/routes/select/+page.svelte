@@ -1,13 +1,8 @@
 <script lang="ts">
-	import { Card, Col, Select, Divider } from '../../lib';
+	import { Card, Col, Select } from '../../lib';
 	import { example, props } from './examples';
 	import { PropsTable, CodeBlock, BetaComponent } from '../../docs';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Select</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<BetaComponent />

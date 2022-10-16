@@ -34,57 +34,53 @@ module.exports = {
 </script>
 
 <Col class="col-24">
-	<div class="w-full h-full overflow-auto">
-		<h1 class="text-light-content dark:text-dark-content mb-0">Installation & Setup</h1>
+	<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Create SvelteKit project</h2>
+	<Divider />
 
-		<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Create SvelteKit project</h2>
-		<Divider />
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		Create a svelte-kit project with the commands below. Visit <a
+			href="https://kit.svelte.dev/docs/introduction#getting-started"
+			class="link">kit.svelte</a
+		> to view the official documentation:
+	</p>
 
-		<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
-			Create a svelte-kit project with the commands below. Visit <a
-				href="https://kit.svelte.dev/docs/introduction#getting-started"
-				class="link">kit.svelte</a
-			> to view the official documentation:
-		</p>
+	<CodeBlock language="bash" code={svelteKitSetUp} />
 
-		<CodeBlock language="bash" code={svelteKitSetUp} />
+	<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Install STWUI</h2>
+	<Divider />
 
-		<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Install STWUI</h2>
-		<Divider />
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		Run the following command to add STWUI to your project:
+	</p>
 
-		<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
-			Run the following command to add STWUI to your project:
-		</p>
+	<CodeBlock language="bash" code={installCode} />
 
-		<CodeBlock language="bash" code={installCode} />
+	<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Install TailwindCSS</h2>
+	<Divider />
 
-		<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Install TailwindCSS</h2>
-		<Divider />
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		Run the following command to add STWUI to your project:
+	</p>
 
-		<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
-			Run the following command to add STWUI to your project:
-		</p>
+	<CodeBlock language="bash" code={tailwindInstall} />
 
-		<CodeBlock language="bash" code={tailwindInstall} />
+	<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Configure TailwindCSS</h2>
+	<Divider />
 
-		<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Configure TailwindCSS</h2>
-		<Divider />
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		Modify your <InlineCode>tailwind.config.cjs</InlineCode> file with the following:
+	</p>
 
-		<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
-			Modify your <InlineCode>tailwind.config.cjs</InlineCode> file with the following:
-		</p>
+	<CodeBlock language="javascript" code={tailwindCode} />
 
-		<CodeBlock language="javascript" code={tailwindCode} />
+	<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Configure Material Icons</h2>
+	<Divider />
 
-		<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Configure Material Icons</h2>
-		<Divider />
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		Modify your <InlineCode>app.html</InlineCode> file and add the following to the <InlineCode
+			>head</InlineCode
+		> section:
+	</p>
 
-		<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
-			Modify your <InlineCode>app.html</InlineCode> file and add the following to the <InlineCode
-				>head</InlineCode
-			> section:
-		</p>
-
-		<CodeBlock language="html" code={htmlCode} />
-	</div>
+	<CodeBlock language="html" code={htmlCode} />
 </Col>

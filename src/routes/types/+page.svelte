@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Divider } from '$lib';
+	import { Divider, Row, Col } from '../../lib';
 	import {
 		carouselSlide,
 		locale,
@@ -9,12 +9,10 @@
 		tooltipConfig,
 		formatNumber
 	} from './examples';
-	import { InlineCode, CodeBlock } from '../..//docs';
+	import { InlineCode, CodeBlock } from '../../docs';
 </script>
 
-<div class="w-full h-full overflow-auto">
-	<h1 id="CarouselSlide" class="text-light-content dark:text-dark-content mb-0">Types</h1>
-
+<Col class="col-24">
 	<h2 id="CarouselSlide" class="text-light-content dark:text-dark-content mb-0 mt-12">
 		CarouselSlide
 	</h2>
@@ -117,4 +115,4 @@
 	</p>
 
 	<CodeBlock language="typescript" code={tooltipConfig} />
-</div>
+</Col>

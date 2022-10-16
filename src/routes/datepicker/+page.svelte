@@ -1,16 +1,11 @@
 <script lang="ts">
-	import { Card, Col, DatePicker, Divider } from '../../lib';
+	import { Card, Col, DatePicker } from '../../lib';
 	import { example, props } from './examples';
 	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
 
 	const date2Max = new Date(2022, 7, 30);
 	const date2Min = new Date(2022, 7, 3);
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">DatePicker</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24">
 	<BetaComponent />

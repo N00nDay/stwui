@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Icon, Swap, Col, Divider } from '../../lib';
+	import { Card, Icon, Swap, Col } from '../../lib';
 	import { example1, example2, props, slots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
@@ -9,11 +9,6 @@
 		swapped = !swapped;
 	}
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Swap</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered>

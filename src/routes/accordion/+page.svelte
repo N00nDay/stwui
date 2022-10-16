@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Accordion, Card, Col, Divider, Table } from '../../lib';
+	import { Accordion, Card, Col } from '../../lib';
 	import { example, slots, itemSlots, itemProps, titleSlots, contentSlots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
@@ -13,11 +13,6 @@
 		}
 	}
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Accordion</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>

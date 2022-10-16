@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Media, Divider } from '../../lib';
+	import { Card, Col, Media } from '../../lib';
 	import {
 		example,
 		exampleOverlay,
@@ -16,11 +16,6 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Card</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">

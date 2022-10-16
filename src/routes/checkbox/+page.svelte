@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, CheckboxGroup, Col, Divider } from '../../lib';
+	import { Card, CheckboxGroup, Col } from '../../lib';
 	import {
 		example,
 		inlineExample,
@@ -14,11 +14,6 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">CheckboxGroup</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>

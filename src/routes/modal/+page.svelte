@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Col, Modal, Portal, Divider } from '../../lib';
+	import { Button, Card, Col, Modal, Portal } from '../../lib';
 	import { example, props, slots, backdropProps, contentSlots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
@@ -13,11 +13,6 @@
 		open = false;
 	}
 </script>
-
-<Col class="col-24 mb-4">
-	<h1 class="text-light-content dark:text-dark-content mb-0">Modal</h1>
-	<Divider />
-</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
