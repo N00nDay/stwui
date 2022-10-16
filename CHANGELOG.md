@@ -15,7 +15,7 @@
 * **Carousel:** added necessary aria-labels ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
 * **Chip.Close:** added aria-label ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
 * **Currency:** added leadingAriaLabel and trailingAriaLabel prop ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
-* **Dropdown.Header:** added aria-label to close button ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Drawer.Header:** added aria-label to close button ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
 * **Dropdown.Item:** added aria-label ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
 * **Input:** added leadingAriaLabel and trailingAriaLabel prop ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
 * **InputNumber:** added leadingAriaLabel and trailingAriaLabel prop ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
