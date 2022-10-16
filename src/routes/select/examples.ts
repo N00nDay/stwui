@@ -1,4 +1,4 @@
-import type { Prop } from '../../docs';
+import type { Slot, Prop } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -42,6 +42,19 @@ export const props: Prop[] = [
 		prop: 'options',
 		type: 'string[]',
 		default: '[]'
+	}
+];
+
+export const slots: Slot[] = [
+	{
+		id: '1',
+		slot: 'label',
+		component: '<Select.Label slot="label" />'
+	},
+	{
+		id: '2',
+		slot: 'leading',
+		component: ''
 	}
 ];
 

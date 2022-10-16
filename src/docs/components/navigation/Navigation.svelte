@@ -146,8 +146,7 @@
 		},
 		{
 			title: 'Select',
-			href: '/select',
-			beta: true
+			href: '/select'
 		},
 		{
 			title: 'Slider',

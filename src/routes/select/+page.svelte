@@ -1,13 +1,9 @@
 <script lang="ts">
 	import { Card, Col, Select, Icon } from '../../lib';
-	import { example, props } from './examples';
-	import { PropsTable, CodeBlock, BetaComponent } from '../../docs';
+	import { example, props, slots } from './examples';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { email } from '../../docs/icons';
 </script>
-
-<Col class="col-24">
-	<BetaComponent />
-</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
@@ -37,4 +33,8 @@
 
 <Col class="col-24">
 	<PropsTable component="Select" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Select" {slots} />
 </Col>
