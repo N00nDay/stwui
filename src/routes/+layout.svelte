@@ -60,11 +60,14 @@
 	{/if}
 	<title>{$page.data.title}</title>
 	<meta name="description" content={$page.data.description} />
-	<meta
-		name="og:{$page.data.title}"
-		property="og:{$page.data.title}"
-		content={$page.data.description}
-	/>
+	<!-- TODO:  figure out canonical rel -->
+	<!-- <link rel="canonical" href="https://madewithsvelte.com/ui-library"> -->
+	<meta name="og:title" content={$page.data.title} />
+	<meta property="og:description" content={$page.data.description} />
+	<!-- TODO: add url to all page load functions -->
+	<!-- <meta property="og:url" content={$page.data.url}> -->
+	<meta name="twitter:title" content={$page.data.title} />
+	<meta name="twitter:description" content={$page.data.description} />
 </svelte:head>
 
 <div class="h-full w-full print:hidden">
