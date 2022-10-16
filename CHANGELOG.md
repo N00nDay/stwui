@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.0.27-next](https://github.com/N00nDay/stwui/compare/v0.0.26-next...v0.0.27-next) (2022-10-16)
+
+
+### Bug Fixes
+
+* **Accordion.Item.Title:** added aria-label ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Alert:** added aria-label to close button ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Autocomplete.Option:** added aria-label ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Autocomplete:** added leadingAriaLabel prop ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Badge:** added aria-label to close button ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Button:** added ariaLabel prop ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **ButtonGroup:** added ariaLabel and htmlType prop ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Carousel:** added necessary aria-labels ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Chip.Close:** added aria-label ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Currency:** added leadingAriaLabel and trailingAriaLabel prop ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Dropdown.Header:** added aria-label to close button ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Dropdown.Item:** added aria-label ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Input:** added leadingAriaLabel and trailingAriaLabel prop ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **InputNumber:** added leadingAriaLabel and trailingAriaLabel prop ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **LightBox:** added necessary aria-labels ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Menu.Group:** added aria-label ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Select:** added leadingAriaLabel prop ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Table.Header:** added aria-label to sort buttons ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+* **Toggle:** added aria-label ([c4710bb](https://github.com/N00nDay/stwui/commit/c4710bb39bde438bba157f9193c05ddbc859dfff))
+
 ## [0.0.26-next](https://github.com/N00nDay/stwui/compare/v0.0.25-next...v0.0.26-next) (2022-10-15)
 
 
