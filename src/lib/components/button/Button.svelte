@@ -32,6 +32,7 @@
 	export let shape: 'square' | 'circle' | 'rounded' | 'pill' = 'rounded';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fab' = 'md';
 	export let disableHover = false;
+	export let ariaLabel: undefined | string = undefined;
 
 	setContext(BUTTON_CONTEXT_ID, {
 		button: true,
@@ -58,6 +59,7 @@
 </script>
 
 <button
+	aria-label={ariaLabel}
 	type={htmlType}
 	{disabled}
 	class={finalClass}

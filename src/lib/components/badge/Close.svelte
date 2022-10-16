@@ -37,6 +37,7 @@
 </script>
 
 <button
+	aria-label="close"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents

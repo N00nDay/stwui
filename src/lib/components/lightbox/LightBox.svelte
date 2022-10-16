@@ -137,6 +137,7 @@
 				>
 					{#each slides as _, i}
 						<button
+							aria-label="quick view slide {i + 1}"
 							on:click={() => handleGoTo(i)}
 							class="h-1.5 rounded-sm bg-light-surface max-w-[40px] hover:shadow-lg hover:opacity-90"
 							class:opacity-50={activeSlide !== i}
@@ -161,6 +162,7 @@
 					{/key}
 				</div>
 				<button
+					aria-label="previous slide"
 					in:fly={{ delay: 250, x: -200 }}
 					out:fade
 					on:click={handlePrevious}
@@ -176,6 +178,7 @@
 					</div>
 				</button>
 				<button
+					aria-label="next slide"
 					in:fly={{ delay: 250, x: 200 }}
 					out:fade
 					on:click={handleNext}

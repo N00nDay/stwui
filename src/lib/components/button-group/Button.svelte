@@ -21,6 +21,8 @@
 	export let loading = false;
 	export let defaultLoading = true;
 	export let disabled = false;
+	export let ariaLabel: undefined | string = undefined;
+	export let htmlType = 'button';
 
 	useContext({
 		context_id: BUTTON_GROUP_CONTEXT_ID,
@@ -40,8 +42,8 @@
 </script>
 
 <button
-	on:click
-	type="button"
+	aria-label={ariaLabel}
+	type={htmlType}
 	class={finalClass}
 	class:bg-primary={active}
 	class:dark:bg-primary={active}

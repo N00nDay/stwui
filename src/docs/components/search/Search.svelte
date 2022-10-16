@@ -70,6 +70,7 @@
 <svelte:window on:keydown={captureEscapeEvent} />
 
 <Button
+	ariaLabel="open search"
 	on:click={handleOpen}
 	class="border-light-border dark:border-dark-border border ml-4 shadow-md dark:shadow-black hidden md:flex"
 >
@@ -87,6 +88,7 @@
 </Button>
 
 <Button
+	ariaLabel="open search"
 	on:click={handleOpen}
 	shape="circle"
 	class="flex md:hidden ml-4 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"

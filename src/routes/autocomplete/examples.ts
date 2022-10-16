@@ -60,6 +60,12 @@ export const props: Prop[] = [
 		prop: 'allowNonListValue',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '11',
+		prop: 'leadingAriaLabel',
+		type: 'string',
+		default: 'autocomplete leading'
 	}
 ];
 

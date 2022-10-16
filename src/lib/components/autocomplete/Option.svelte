@@ -53,7 +53,11 @@
 	role="option"
 	aria-selected={selected}
 >
-	<button on:click={() => handleSelect(value)} class="w-full text-left">
+	<button
+		aria-label="autocomplete option"
+		on:click={() => handleSelect(value)}
+		class="w-full text-left"
+	>
 		<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
 			<span class="font-normal block truncate" class:font-semibold={selected}>
 				{value}

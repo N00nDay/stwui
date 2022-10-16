@@ -50,6 +50,18 @@ export const buttonProps: Prop[] = [
 		prop: 'size',
 		type: "'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fab'",
 		default: 'md'
+	},
+	{
+		id: '8',
+		prop: 'ariaLabel',
+		type: 'undefined | string',
+		default: ''
+	},
+	{
+		id: '9',
+		prop: 'htmlType',
+		type: 'string',
+		default: 'button'
 	}
 ];
 

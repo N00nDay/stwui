@@ -77,6 +77,7 @@
 		/>
 		<Layout.Header>
 			<Button
+				ariaLabel="open menu"
 				shape="circle"
 				class="inline-block lg:hidden mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 				on:click={handleOpenMenu}
@@ -108,6 +109,7 @@
 				<Search />
 
 				<Button
+					ariaLabel="open discord"
 					on:click={redirectToDiscord}
 					shape="circle"
 					class="ml-2 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
@@ -127,6 +129,7 @@
 				</Button>
 
 				<Button
+					ariaLabel="open github"
 					on:click={redirectToGithub}
 					shape="circle"
 					class="ml-2 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"

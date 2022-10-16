@@ -24,6 +24,7 @@
 	export let autofocus = false;
 	export let handleLeadingClick: (() => void) | undefined = undefined;
 	export let allowNonListValue = false;
+	export let leadingAriaLabel = 'autocomplete leading';
 
 	let visible = false;
 	let input: HTMLInputElement;
@@ -86,7 +87,6 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<!-- TODO: label slot -->
 	{#if label}
 		<label
 			for={name}
@@ -98,6 +98,7 @@
 	{/if}
 	<div class="mt-1 relative rounded-md h-[2.5rem]">
 		<button
+			aria-label="Autocomplete Toggle"
 			bind:this={button}
 			type="button"
 			on:click={handleOpen}
@@ -132,6 +133,7 @@
 			{#if leading}
 				{#if handleLeadingClick}
 					<button
+						aria-label={leadingAriaLabel}
 						on:click|stopPropagation={handleLeadingClick}
 						class="absolute inset-y-0 left-0 pl-3"
 					>
@@ -154,6 +156,7 @@
 
 			{#if value && value.length > 0}
 				<button
+					aria-label="clear input"
 					on:click={handleClear}
 					class="absolute inset-y-0 right-8 items-center hidden group-focus-within:flex active:flex"
 				>

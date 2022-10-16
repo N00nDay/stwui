@@ -31,7 +31,12 @@
 	<div class={finalClass} style={$$props.style}>
 		<header class="text-xs uppercase flex justify-between items-center p-2 pl-4 sticky top-0">
 			<span class="text-white/60">{language === 'bash' ? 'CODE' : language}</span>
-			<Button on:click={onCopyClick} size="sm" class="bg-white/5 hover:bg-white/10">
+			<Button
+				ariaLabel="copy code"
+				on:click={onCopyClick}
+				size="sm"
+				class="bg-white/5 hover:bg-white/10"
+			>
 				{!copyState ? 'Copy' : 'Copied ✓'}
 			</Button>
 		</header>

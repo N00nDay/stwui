@@ -34,6 +34,7 @@
 		class="border light-border dark:dark-border relative inline-flex flex-shrink-0 h-[1.6rem] w-[2.8rem] rounded-full cursor-pointer outline-none focus:outline-none"
 	>
 		<button
+			aria-label="toggle"
 			on:click={toggle}
 			type="button"
 			class="relative inline-flex flex-shrink-0 h-full w-full border-2 border-transparent rounded-full cursor-pointer ease-in-out outline-none focus:outline-none"

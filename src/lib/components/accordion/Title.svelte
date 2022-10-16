@@ -32,6 +32,7 @@
 </script>
 
 <button
+	aria-label="Accordion Item Toggle"
 	class={finalClass}
 	type="button"
 	use:useActions={use}

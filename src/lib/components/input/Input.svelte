@@ -28,6 +28,8 @@
 	export let handleTrailingClick: (() => void) | undefined = undefined;
 	export let showPasswordToggle = false;
 	export let allowClear = false;
+	export let leadingAriaLabel = 'input leading';
+	export let trailingAriaLabel = 'input trailing';
 
 	let input: HTMLInputElement;
 
@@ -103,7 +105,11 @@
 
 		{#if leading}
 			{#if handleLeadingClick}
-				<button on:click={handleLeadingClick} class="absolute inset-y-0 left-0 pl-3">
+				<button
+					aria-label={leadingAriaLabel}
+					on:click={handleLeadingClick}
+					class="absolute inset-y-0 left-0 pl-3"
+				>
 					<span
 						transition:scale|local
 						class="material-icons flex items-center"
@@ -125,6 +131,7 @@
 
 		{#if allowClear && value && value.length > 0}
 			<button
+				aria-label="clear"
 				on:click={handleClear}
 				class="absolute inset-y-0 hidden group-focus-within:flex active:flex items-center"
 				class:right-10={showPasswordToggle || trailing || error}
@@ -159,7 +166,11 @@
 			</Swap>
 		{:else if trailing && !error}
 			{#if handleTrailingClick}
-				<button on:click={handleTrailingClick} class="absolute inset-y-0 right-0 pr-3">
+				<button
+					aria-label={trailingAriaLabel}
+					on:click={handleTrailingClick}
+					class="absolute inset-y-0 right-0 pr-3"
+				>
 					<span
 						transition:scale|local
 						class="material-icons flex items-center"

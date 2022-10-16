@@ -111,6 +111,7 @@
 				(!$menuCollapse && !active && menuActive)}
 		>
 			<button
+				aria-label="toggle collapse menu"
 				on:click={!$menuCollapse ? toggleOpen : undefined}
 				class="px-3 py-2 relative flex items-center w-full text-sm font-medium justify-between outline-none focus:outline-none"
 				type="button"

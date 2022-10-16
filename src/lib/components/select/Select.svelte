@@ -16,6 +16,7 @@
 	export let handleLeadingClick: (() => void) | undefined = undefined;
 	export let visible = false;
 	export let options: string[] = [];
+	export let leadingAriaLabel = 'select leading';
 
 	let input: HTMLInputElement;
 	let button: HTMLButtonElement;
@@ -54,6 +55,7 @@
 	{/if}
 	<div class="mt-1 relative rounded-md h-[2.5rem]">
 		<button
+			aria-label="toggle select"
 			bind:this={button}
 			type="button"
 			on:click={toggleVisible}
@@ -68,12 +70,11 @@
 			class:light-border={!error}
 			class:dark:dark-border={!error}
 			class:pl-10={leading}
-			aria-haspopup="listbox"
-			aria-labelledby="listbox-label"
 		>
 			{#if leading}
 				{#if handleLeadingClick}
 					<button
+						aria-label={leadingAriaLabel}
 						on:click|stopPropagation={handleLeadingClick}
 						class="absolute inset-y-0 left-0 pl-3"
 					>
@@ -127,10 +128,7 @@
 
 		{#if visible}
 			<ul
-				class="origin-top-right absolute z-10 border light-border dark:dark-border left-0 right-0 w-full mt-1 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface{$$props.class
-					? ` ${$$props.class}`
-					: ''}"
-				style={$$props.style}
+				class="origin-top-right absolute z-10 border light-border dark:dark-border left-0 right-0 w-full mt-1 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface"
 				in:scale={{ start: 0.9, duration: 100, delay: 150 }}
 				out:scale={{ start: 0.95, duration: 75 }}
 				role="listbox"
@@ -141,7 +139,11 @@
 						role="option"
 						aria-selected={option === value}
 					>
-						<button on:click={() => handleSelect(option)} class="w-full text-left">
+						<button
+							aria-label="select option"
+							on:click={() => handleSelect(option)}
+							class="w-full text-left"
+						>
 							<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
 								<span class="font-normal block truncate" class:font-semibold={option === value}>
 									{option}

@@ -108,7 +108,7 @@
 					STWUI provides a complete set of Svelte components and UI tools to help you develop faster
 					than ever.
 				</p>
-				<Button class="mt-4" type="primary" on:click={handleGetStarted}
+				<Button ariaLabel="get started" class="mt-4" type="primary" on:click={handleGetStarted}
 					>Get Started
 					<Button.Trailing slot="trailing">
 						<Button.Trailing.Icon slot="icon" icon="arrow_forward" />
@@ -293,6 +293,7 @@
 								</Button>
 
 								<Button
+									ariaLabel="demo"
 									shape="circle"
 									type="ghost"
 									on:click={() => (deleteLoading = !deleteLoading)}

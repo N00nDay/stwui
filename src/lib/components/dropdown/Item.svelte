@@ -20,8 +20,8 @@
 </script>
 
 <button
+	aria-label="dropdown item"
 	class={finalClass}
-	style={$$props.style}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}

@@ -96,6 +96,18 @@ export const props: Prop[] = [
 		prop: 'step',
 		type: 'numbers',
 		default: '1'
+	},
+	{
+		id: '17',
+		prop: 'leadingAriaLabel',
+		type: 'string',
+		default: 'currency leading'
+	},
+	{
+		id: '18',
+		prop: 'trailingAriaLabel',
+		type: 'string',
+		default: 'currency trailing'
 	}
 ];
 

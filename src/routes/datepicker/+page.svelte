@@ -16,7 +16,9 @@
 		<Card.Content slot="content" class="p-4">
 			<DatePicker name="date-1" />
 			<br />
+			<br />
 			<DatePicker name="date-2" label="Date" max={date2Max} min={date2Min} />
+			<br />
 			<br />
 			<DatePicker name="date-3" label="Date" min={date2Min} error="Your doing it wrong" />
 

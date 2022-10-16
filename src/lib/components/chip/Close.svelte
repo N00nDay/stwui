@@ -48,6 +48,7 @@
 </script>
 
 <button
+	aria-label="close"
 	type="button"
 	class={finalClass}
 	use:useActions={use}

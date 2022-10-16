@@ -18,6 +18,8 @@
 	export let handleTrailingClick: (() => void) | undefined = undefined;
 	export let step = '1';
 	export let readonly = false;
+	export let leadingAriaLabel = 'currency leading';
+	export let trailingAriaLabel = 'currency trailing';
 
 	function onlyNumeric(e: KeyboardEvent) {
 		if (!e.key.match(/^[0-9]+$/)) e.preventDefault();
@@ -68,7 +70,11 @@
 
 		{#if leading}
 			{#if handleLeadingClick}
-				<button on:click={handleLeadingClick} class="absolute inset-y-0 left-0 pl-3">
+				<button
+					aria-label={leadingAriaLabel}
+					on:click={handleLeadingClick}
+					class="absolute inset-y-0 left-0 pl-3"
+				>
 					<span
 						transition:scale|local
 						class="material-icons flex items-center"
@@ -90,7 +96,11 @@
 
 		{#if trailing && !error}
 			{#if handleTrailingClick}
-				<button on:click={handleTrailingClick} class="absolute inset-y-0 right-0 pr-3">
+				<button
+					aria-label={trailingAriaLabel}
+					on:click={handleTrailingClick}
+					class="absolute inset-y-0 right-0 pr-3"
+				>
 					<span
 						transition:scale|local
 						class="material-icons flex items-center"

@@ -84,6 +84,18 @@ export const props: Prop[] = [
 		prop: 'handleTrailingClick',
 		type: '(() => void) | undefined',
 		default: ''
+	},
+	{
+		id: '15',
+		prop: 'leadingAriaLabel',
+		type: 'string',
+		default: 'currency leading'
+	},
+	{
+		id: '16',
+		prop: 'trailingAriaLabel',
+		type: 'string',
+		default: 'currency trailing'
 	}
 ];
 

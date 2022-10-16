@@ -48,6 +48,12 @@ export const props: Prop[] = [
 		prop: 'disableHover',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '9',
+		prop: 'ariaLabel',
+		type: 'undefined | string',
+		default: ''
 	}
 ];
 

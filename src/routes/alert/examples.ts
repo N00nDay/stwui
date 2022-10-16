@@ -77,6 +77,7 @@ export const example = `
 	<Alert.Title slot="title">Title</Alert.Title>
 	<Alert.Description slot="description">I am a description</Alert.Description>
 	<Button
+		ariaLabel="close"
 		slot="extra"
 		shape="circle"
 		class="top-[-0.5rem] right-[-0.5rem] text-error-icon dark:text-dark-error-icon"

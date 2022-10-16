@@ -108,6 +108,18 @@ export const props: Prop[] = [
 		prop: 'allowClear',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '19',
+		prop: 'leadingAriaLabel',
+		type: 'string',
+		default: 'input leading'
+	},
+	{
+		id: '20',
+		prop: 'trailingAriaLabel',
+		type: 'string',
+		default: 'input trailing'
 	}
 ];
 

@@ -66,6 +66,12 @@ export const props: Prop[] = [
 		prop: 'options',
 		type: 'string[]',
 		default: '[]'
+	},
+	{
+		id: '12',
+		prop: 'leadingAriaLabel',
+		type: 'string',
+		default: 'select leading'
 	}
 ];
 

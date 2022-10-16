@@ -58,6 +58,7 @@
 	scope="col"
 	on:click={changeOrder}
 	><button
+		aria-label="{column.label} column sort"
 		class="group inline-flex items-center text-light-secondary-content dark:text-dark-secondary-content"
 		class:cursor-default={!sortable}
 	>

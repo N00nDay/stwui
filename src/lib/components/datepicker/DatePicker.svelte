@@ -216,6 +216,7 @@
 <Card class="max-w-[300px] mt-1 w-[300px]" on:focusout tabindex="-1" on:keydown={keydown}>
 	<div class="h-14 px-3 py-2 flex items-center">
 		<Button
+			ariaLabel="previous year"
 			size="xs"
 			shape="circle"
 			tabindex="-1"
@@ -225,6 +226,7 @@
 			<Button.Icon slot="icon" icon="keyboard_double_arrow_left" />
 		</Button>
 		<Button
+			ariaLabel="previous month"
 			size="xs"
 			shape="circle"
 			tabindex="-1"
@@ -244,6 +246,7 @@
 			<!-- {/key} -->
 		</div>
 		<Button
+			ariaLabel="next month"
 			size="xs"
 			shape="circle"
 			tabindex="-1"
@@ -253,6 +256,7 @@
 			<Button.Icon slot="icon" icon="chevron_right" />
 		</Button>
 		<Button
+			ariaLabel="next month"
 			size="xs"
 			shape="circle"
 			tabindex="-1"
@@ -291,6 +295,9 @@
 								</span>
 							{:else}
 								<button
+									aria-label="{iLocale.months[
+										browseDate.month()
+									]} {calendarDay.date()} {browseDate.year()} "
 									class="active w-full flex items-center justify-center cursor-pointer h-10 rounded-full"
 									on:click={() => selectDay(calendarDay)}
 									class:text-primary-content={calendarDay.isSame(value, 'date')}

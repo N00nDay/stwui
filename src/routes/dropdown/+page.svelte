@@ -40,13 +40,12 @@
 
 				<Dropdown bind:visible={visible2}>
 					<button
+						aria-label="dropdown toggle"
 						slot="trigger"
 						on:click={toggleDropdown2}
 						type="button"
 						class="bg-white flex text-sm rounded-full h-10 w-10 active:hover:animate-none active:hover:scale-95"
 						id="user-menu-button"
-						aria-expanded="false"
-						aria-haspopup="true"
 					>
 						<span class="sr-only">Open user menu</span>
 						<img

@@ -1,6 +1,6 @@
 import Accordion from './components/accordion';
 import Alert from './components/alert';
-import Autocomplete from './components/autocomplete'; // TODO: needs refactor and dot notation
+import Autocomplete from './components/autocomplete';
 import Avatar from './components/avatar';
 import AvatarGroup from './components/avatar-group';
 import Badge from './components/badge';
@@ -12,15 +12,15 @@ import Carousel from './components/carousel';
 import CheckboxGroup from './components/checkbox';
 import Chip from './components/chip';
 import Col from './components/grid/Col.svelte';
-import Currency from './components/currency'; // TODO: needs refactor and dot notation
-import DatePicker from './components/datepicker'; // TODO: needs refactor and dot notation
+import Currency from './components/currency';
+import DatePicker from './components/datepicker';
 import Divider from './components/divider';
 import Drawer from './components/drawer';
 import Dropdown from './components/dropdown';
 import Empty from './components/empty';
 import Feed from './components/feed';
 import Icon from './components/icon';
-import Input from './components/input'; // TODO: needs refactor and dot notation
+import Input from './components/input';
 import InputNumber from './components/input-number';
 import Layout from './components/layout';
 import LightBox from './components/lightbox';
@@ -36,14 +36,14 @@ import Progress from './components/progress';
 import RadioGroup from './components/radio';
 import Rating from './components/rating';
 import Row from './components/grid/Row.svelte';
-import Select from './components/select'; // TODO: needs refactor and dot notation
+import Select from './components/select';
 import Slider from './components/slider';
 import Statistic from './components/statistic';
 import Steps from './components/steps';
 import Swap from './components/swap';
 import Table from './components/table';
 import Tabs from './components/tabs';
-import TextArea from './components/textarea'; // TODO: needs refactor and dot notation
+import TextArea from './components/textarea';
 import Timeline from './components/timeline';
 import Toggle from './components/toggle';
 
