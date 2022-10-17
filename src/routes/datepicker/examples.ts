@@ -1,29 +1,11 @@
-import type { Prop } from '../../docs';
+import type { Prop, Slot } from '../../docs';
 
 export const props: Prop[] = [
-	{
-		id: '1',
-		prop: 'trailing',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a> | undefined',
-		default: 'calendar_month'
-	},
 	{
 		id: '2',
 		prop: 'name',
 		type: 'string',
 		default: ''
-	},
-	{
-		id: '3',
-		prop: 'label',
-		type: 'string | undefined',
-		default: ''
-	},
-	{
-		id: '4',
-		prop: 'srOnly',
-		type: 'boolean',
-		default: 'false'
 	},
 	{
 		id: '5',
@@ -87,16 +69,71 @@ export const props: Prop[] = [
 	}
 ];
 
+export const slots: Slot[] = [
+	{
+		id: '1',
+		slot: 'label',
+		component: '<Input.Label slot="label" />'
+	},
+	{
+		id: '2',
+		slot: 'leading',
+		component: '<Input.Leading slot="leading" />'
+	},
+	{
+		id: '3',
+		slot: 'trailing',
+		component: '<Input.Trailing slot="trailing" />'
+	}
+];
+
+export const labelSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const leadingSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const trailingSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
 export const example = `
 <script lang="ts">
-	import { DatePicker } from 'stwui';
+	import { DatePicker, Icon } from 'stwui';
 
 	const date2Max = new Date(2022, 7, 30);
 	const date2Min = new Date(2022, 7, 3);
+
+	const calendar = "svg-path";
+	const phone = "svg-path";
 </script>
 
-<DatePicker name="date-1" />
-<br />
-<DatePicker name="date-2" label="Date" max={date2Max} min={date2Min} />
-<br />
-<DatePicker name="date-3" label="Date" min={date2Min} error="Your doing it wrong" />`;
+<DatePicker name="date-1" placeholder="Basic" />
+
+<DatePicker name="date-2" label="Date" max={date2Max} min={date2Min}>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Trailing slot="trailing">
+		<Icon path={calendar} />
+	</DatePicker.Trailing>
+</DatePicker>
+
+<DatePicker name="date-3" min={date2Min} error="Your doing it wrong">
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Leading slot="leading">
+		<Icon path={phone} />
+	</DatePicker.Leading>
+</DatePicker>`;

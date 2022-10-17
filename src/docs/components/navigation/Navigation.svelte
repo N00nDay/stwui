@@ -72,7 +72,7 @@
 		{
 			title: 'Datepicker',
 			href: '/datepicker',
-			beta: true
+			updated: true
 		},
 		{
 			title: 'Divider',
