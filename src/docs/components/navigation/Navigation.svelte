@@ -102,7 +102,7 @@
 		{
 			title: 'InputNumber',
 			href: '/input-number',
-			beta: true
+			updated: true
 		},
 		{
 			title: 'List',

@@ -1,121 +1,122 @@
-import type { Prop } from '../../docs';
+import type { Prop, Slot } from '../../docs';
 
 export const props: Prop[] = [
 	{
 		id: '1',
-		prop: 'leading',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a> | undefined',
-		default: ''
-	},
-	{
-		id: '2',
-		prop: 'trailing',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a> | undefined',
-		default: ''
-	},
-	{
-		id: '3',
 		prop: 'name',
 		type: 'string',
 		default: ''
 	},
 	{
-		id: '4',
-		prop: 'label',
-		type: 'string | undefined',
-		default: ''
-	},
-	{
-		id: '5',
-		prop: 'srOnly',
-		type: 'boolean',
-		default: 'false'
-	},
-	{
-		id: '6',
+		id: '2',
 		prop: 'error',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '7',
+		id: '3',
 		prop: 'placholder',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '8',
+		id: '4',
 		prop: 'value',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '9',
+		id: '5',
 		prop: 'autocomplete',
 		type: "'on' | 'off' | undefined",
 		default: ''
 	},
 	{
-		id: '10',
+		id: '6',
 		prop: 'autocapitalize',
 		type: "'off' | 'none' | 'sentences' | 'words' | 'characters'",
 		default: 'off'
 	},
 	{
-		id: '11',
+		id: '7',
 		prop: 'autofocus',
 		type: 'boolean',
 		default: ''
 	},
 	{
-		id: '12',
+		id: '8',
 		prop: 'readonly',
 		type: 'boolean',
 		default: ''
 	},
 	{
-		id: '13',
+		id: '9',
 		prop: 'disabled',
 		type: 'boolean',
 		default: 'false'
 	},
 	{
-		id: '14',
-		prop: 'handleLeadingClick',
-		type: '(() => void) | undefined',
-		default: ''
-	},
-	{
-		id: '15',
-		prop: 'handleTrailingClick',
-		type: '(() => void) | undefined',
-		default: ''
-	},
-	{
-		id: '16',
+		id: '10',
 		prop: 'step',
 		type: 'numbers',
 		default: '1'
+	}
+];
+
+export const slots: Slot[] = [
+	{
+		id: '1',
+		slot: 'label',
+		component: '<InputNumber.Label slot="label" />'
 	},
 	{
-		id: '17',
-		prop: 'leadingAriaLabel',
-		type: 'string',
-		default: 'currency leading'
+		id: '2',
+		slot: 'leading',
+		component: '<InputNumber.Leading slot="leading" />'
 	},
 	{
-		id: '18',
-		prop: 'trailingAriaLabel',
-		type: 'string',
-		default: 'currency trailing'
+		id: '3',
+		slot: 'trailing',
+		component: '<InputNumber.Trailing slot="trailing" />'
+	}
+];
+
+export const labelSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const leadingSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const trailingSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
 	}
 ];
 
 export const example = `
 <script lang="ts">
-	import { InputNumber } from 'stwui';
+	import { InputNumber, Icon } from 'stwui';
+
+	const phone = "svg-path";
 </script>
 
-<Input name="input-number-1" placeholder="Basic" />
-<br />
-<Input name="input-number-2" label="Number" trailing="phone" />`;
+<InputNumber name="input-number-1" placeholder="Basic" />
+
+<InputNumber name="input-number-2">
+	<InputNumber.Label slot="label">Number</InputNumber.Label>
+	<InputNumber.Trailing slot="trailing">
+		<Icon path={phone} />
+	</InputNumber.Trailing>
+</InputNumber>`;

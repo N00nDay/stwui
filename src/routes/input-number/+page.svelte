@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { Card, Col, InputNumber } from '../../lib';
-	import { example, props } from './examples';
-	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
+	import { Card, Col, Icon, InputNumber } from '../../lib';
+	import { example, props, slots, leadingSlots, labelSlots, trailingSlots } from './examples';
+	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
+	import { phone } from '../../docs/icons';
 </script>
 
 <Col class="col-24">
-	<BetaComponent />
+	<UpdatedComponent version="v0.0.28-next" />
 </Col>
 
 <Col class="col-24 md:col-12">
@@ -13,7 +14,12 @@
 		<Card.Content slot="content" class="p-4">
 			<InputNumber name="input-number-1" placeholder="Basic" />
 			<br />
-			<InputNumber name="input-number-2" label="Number" trailing="phone" />
+			<InputNumber name="input-number-2">
+				<InputNumber.Label slot="label">Number</InputNumber.Label>
+				<InputNumber.Trailing slot="trailing">
+					<Icon path={phone} />
+				</InputNumber.Trailing>
+			</InputNumber>
 
 			<br />
 
@@ -23,5 +29,21 @@
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Input" {props} />
+	<PropsTable component="InputNumber" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="InputNumber" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="InputNumber.Label" slots={labelSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="InputNumber.Leading" slots={leadingSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="InputNumber.Trailing" slots={trailingSlots} />
 </Col>
