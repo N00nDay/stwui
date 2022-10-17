@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { Card, Col, Input } from '../../lib';
-	import { example, props } from './examples';
-	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
+	import { Card, Col, Icon, Input } from '../../lib';
+	import { example, props, slots, labelSlots, leadingSlots, trailingSlots } from './examples';
+	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
+	import { email, phone, lock } from '../../docs/icons';
 </script>
 
 <Col class="col-24">
-	<BetaComponent />
+	<UpdatedComponent version="v0.0.28-next" />
 </Col>
 
 <Col class="col-24 md:col-12">
@@ -13,18 +14,36 @@
 		<Card.Content slot="content" class="p-4">
 			<Input name="input-1" placeholder="Basic" allowClear />
 			<br />
-			<Input name="input-2" label="Label" leading="email" trailing="phone" allowClear />
+			<Input name="input-2" allowClear>
+				<Input.Label slot="label">Label</Input.Label>
+				<Input.Leading slot="leading">
+					<Icon path={email} />
+				</Input.Leading>
+				<Input.Trailing slot="trailing">
+					<Icon path={phone} />
+				</Input.Trailing>
+			</Input>
 			<br />
 			<Input
 				name="input-3"
-				label="Label"
-				leading="email"
-				trailing="phone"
 				error="There has been an error"
 				handleLeadingClick={() => console.log('clicking leading')}
-			/>
+			>
+				<Input.Label slot="label">Label</Input.Label>
+				<Input.Leading slot="leading">
+					<Icon path={email} />
+				</Input.Leading>
+				<Input.Trailing slot="trailing">
+					<Icon path={phone} />
+				</Input.Trailing>
+			</Input>
 			<br />
-			<Input type="password" name="input-4" label="Password" leading="lock" showPasswordToggle />
+			<Input type="password" name="input-4" showPasswordToggle>
+				<Input.Label slot="label">Password</Input.Label>
+				<Input.Leading slot="leading">
+					<Icon path={lock} />
+				</Input.Leading>
+			</Input>
 
 			<br />
 
@@ -35,4 +54,20 @@
 
 <Col class="col-24">
 	<PropsTable component="Input" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Input" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Input.Label" slots={labelSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Input.Leading" slots={leadingSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Input.Trailing" slots={trailingSlots} />
 </Col>

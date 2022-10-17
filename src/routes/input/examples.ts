@@ -1,143 +1,160 @@
-import type { Prop } from '../../docs';
+import type { Slot, Prop } from '../../docs';
 
 export const props: Prop[] = [
 	{
 		id: '1',
-		prop: 'leading',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a> | undefined',
-		default: ''
-	},
-	{
-		id: '2',
-		prop: 'trailing',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a> | undefined',
-		default: ''
-	},
-	{
-		id: '3',
 		prop: 'name',
 		type: 'string',
 		default: ''
 	},
 	{
-		id: '4',
+		id: '2',
 		prop: 'type',
 		type: "'text' | 'email' | 'password'",
 		default: 'text'
 	},
 	{
-		id: '5',
-		prop: 'label',
-		type: 'string | undefined',
-		default: ''
-	},
-	{
-		id: '6',
-		prop: 'srOnly',
-		type: 'boolean',
-		default: 'false'
-	},
-	{
-		id: '7',
+		id: '3',
 		prop: 'error',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '8',
+		id: '4',
 		prop: 'placholder',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '9',
+		id: '5',
 		prop: 'value',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '10',
+		id: '6',
 		prop: 'autocomplete',
 		type: "'on' | 'off' | undefined",
 		default: ''
 	},
 	{
-		id: '11',
+		id: '7',
 		prop: 'autocapitalize',
 		type: "'off' | 'none' | 'sentences' | 'words' | 'characters'",
 		default: 'off'
 	},
 	{
-		id: '12',
+		id: '8',
 		prop: 'autofocus',
 		type: 'true | undefined',
 		default: ''
 	},
 	{
-		id: '13',
+		id: '9',
 		prop: 'readonly',
 		type: 'true | undefined',
 		default: ''
 	},
 	{
-		id: '14',
+		id: '10',
 		prop: 'tabindex',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '15',
-		prop: 'handleLeadingClick',
-		type: '(() => void) | undefined',
-		default: ''
-	},
-	{
-		id: '16',
-		prop: 'handleTrailingClick',
-		type: '(() => void) | undefined',
-		default: ''
-	},
-	{
-		id: '17',
+		id: '11',
 		prop: 'showPasswordToggle',
 		type: 'boolean',
 		default: 'false'
 	},
 	{
-		id: '18',
+		id: '12',
 		prop: 'allowClear',
 		type: 'boolean',
 		default: 'false'
+	}
+];
+
+export const slots: Slot[] = [
+	{
+		id: '1',
+		slot: 'label',
+		component: '<Input.Label slot="label" />'
 	},
 	{
-		id: '19',
-		prop: 'leadingAriaLabel',
-		type: 'string',
-		default: 'input leading'
+		id: '2',
+		slot: 'leading',
+		component: '<Input.Leading slot="leading" />'
 	},
 	{
-		id: '20',
-		prop: 'trailingAriaLabel',
-		type: 'string',
-		default: 'input trailing'
+		id: '3',
+		slot: 'trailing',
+		component: '<Input.Trailing slot="trailing" />'
+	}
+];
+
+export const labelSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const leadingSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const trailingSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
 	}
 ];
 
 export const example = `
 <script lang="ts">
-	import { Input } from 'stwui';
+	import { Input, Icon } from 'stwui';
+
+	const email = "svg-path";
+	const phone = "svg-path";
+	const lock = "svg-path";
 </script>
 
 <Input name="input-1" placeholder="Basic" allowClear />
-<br />
-<Input name="input-2" label="Label" leading="email" trailing="phone" allowClear />
-<br />
+
+<Input name="input-2" allowClear>
+	<Input.Label slot="label">Label</Input.Label>
+	<Input.Leading slot="leading">
+		<Icon path={email} />
+	</Input.Leading>
+	<Input.Trailing slot="trailing">
+		<Icon path={phone} />
+	</Input.Trailing>
+</Input>
+
 <Input
-   name="input-3"
-   label="Label"
-   leading="email"
-   trailing="phone"
-   error="There has been an error"
-/>
-<br />
-<Input type="password" name="input-4" label="Password" leading="lock" showPasswordToggle />`;
+	name="input-3"
+	error="There has been an error"
+	handleLeadingClick={() => console.log('clicking leading')}
+>
+	<Input.Label slot="label">Label</Input.Label>
+	<Input.Leading slot="leading">
+		<Icon path={email} />
+	</Input.Leading>
+	<Input.Trailing slot="trailing">
+		<Icon path={phone} />
+	</Input.Trailing>
+</Input>
+
+<Input type="password" name="input-4" showPasswordToggle>
+	<Input.Label slot="label">Password</Input.Label>
+	<Input.Leading slot="leading">
+		<Icon path={lock} />
+	</Input.Leading>
+</Input>`;

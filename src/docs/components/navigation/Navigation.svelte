@@ -97,7 +97,7 @@
 		{
 			title: 'Input',
 			href: '/input',
-			beta: true
+			updated: true
 		},
 		{
 			title: 'InputNumber',
