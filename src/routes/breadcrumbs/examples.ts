@@ -49,12 +49,11 @@ export const crumbSlots: Slot[] = [
 	}
 ];
 
-export const iconProps: Prop[] = [
+export const iconSlots: Slot[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
-		default: ''
+		slot: 'default',
+		component: ''
 	}
 ];
 
@@ -68,16 +67,18 @@ export const labelSlots: Slot[] = [
 
 export const exampleDefault = `
 <script lang="ts">
-	import { Breadcrumbs } from 'stwui';
+	import { Breadcrumbs, Icon } from 'stwui';
    
    interface Crumb {
-		icon?: MaterialIcon;
+		icon?: string;
 		label?: string;
 		href: string;
 	}
 
+	const home = "svg-path";
+
    const crumbs: Crumb[] = [
-		{ icon: 'home', href: '/' },
+		{ icon: home, href: '/' },
 		{ label: 'Projects', href: '/projecs' },
 		{ label: 'Project Hero', href: '/projects/project-hero' }
 	];
@@ -87,12 +88,16 @@ export const exampleDefault = `
 	{#each crumbs as crumb}
 		{#if crumb.icon && crumb.label}
 			<Breadcrumbs.Crumb href={crumb.href}>
-				<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+				<Breadcrumbs.Crumb.Icon slot="icon">
+					<Icon path={crumb.icon} />
+				</Breadcrumbs.Crumb.Icon>
 				<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 			</Breadcrumbs.Crumb>
 		{:else if crumb.icon}
 			<Breadcrumbs.Crumb href={crumb.href}>
-				<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+				<Breadcrumbs.Crumb.Icon slot="icon">
+					<Icon path={crumb.icon} />
+				</Breadcrumbs.Crumb.Icon>
 			</Breadcrumbs.Crumb>
 		{:else}
 			<Breadcrumbs.Crumb href={crumb.href}>
@@ -104,16 +109,18 @@ export const exampleDefault = `
 
 export const exampleSolid = `
 <script lang="ts">
-	import { Breadcrumbs } from 'stwui';
-   
-   interface Crumb {
-		icon?: MaterialIcon;
+	import { Breadcrumbs, Icon } from 'stwui';
+		
+	interface Crumb {
+		icon?: string;
 		label?: string;
 		href: string;
 	}
 
-   const crumbs: Crumb[] = [
-		{ icon: 'home', href: '/' },
+	const home = "svg-path";
+
+	const crumbs: Crumb[] = [
+		{ icon: home, href: '/' },
 		{ label: 'Projects', href: '/projecs' },
 		{ label: 'Project Hero', href: '/projects/project-hero' }
 	];
@@ -123,12 +130,16 @@ export const exampleSolid = `
 	{#each crumbs as crumb}
 		{#if crumb.icon && crumb.label}
 			<Breadcrumbs.Crumb href={crumb.href}>
-				<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+				<Breadcrumbs.Crumb.Icon slot="icon">
+					<Icon path={crumb.icon} />
+				</Breadcrumbs.Crumb.Icon>
 				<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 			</Breadcrumbs.Crumb>
 		{:else if crumb.icon}
 			<Breadcrumbs.Crumb href={crumb.href}>
-				<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+				<Breadcrumbs.Crumb.Icon slot="icon">
+					<Icon path={crumb.icon} />
+				</Breadcrumbs.Crumb.Icon>
 			</Breadcrumbs.Crumb>
 		{:else}
 			<Breadcrumbs.Crumb href={crumb.href}>
@@ -140,16 +151,18 @@ export const exampleSolid = `
 
 export const exampleDivider = `
 <script lang="ts">
-	import { Breadcrumbs } from 'stwui';
-   
-   interface Crumb {
-		icon?: MaterialIcon;
+	import { Breadcrumbs, Icon } from 'stwui';
+		
+	interface Crumb {
+		icon?: string;
 		label?: string;
 		href: string;
 	}
 
-   const crumbs: Crumb[] = [
-		{ icon: 'home', href: '/' },
+	const home = "svg-path";
+
+	const crumbs: Crumb[] = [
+		{ icon: home, href: '/' },
 		{ label: 'Projects', href: '/projecs' },
 		{ label: 'Project Hero', href: '/projects/project-hero' }
 	];
@@ -160,13 +173,17 @@ export const exampleDivider = `
 		{#if crumb.icon && crumb.label}
 			<Breadcrumbs.Crumb href={crumb.href}>
 				<div slot="divider" class="divider">|</div>
-				<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+				<Breadcrumbs.Crumb.Icon slot="icon">
+					<Icon path={crumb.icon} />
+				</Breadcrumbs.Crumb.Icon>
 				<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 			</Breadcrumbs.Crumb>
 		{:else if crumb.icon}
 			<Breadcrumbs.Crumb href={crumb.href}>
 				<div slot="divider" class="divider">|</div>
-				<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+				<Breadcrumbs.Crumb.Icon slot="icon">
+					<Icon path={crumb.icon} />
+				</Breadcrumbs.Crumb.Icon>
 			</Breadcrumbs.Crumb>
 		{:else}
 			<Breadcrumbs.Crumb href={crumb.href}>

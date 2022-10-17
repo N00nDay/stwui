@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { MaterialIcon } from '../../lib/types';
-	import { Breadcrumbs, Card, Col } from '../../lib';
+	import { Breadcrumbs, Card, Col, Icon } from '../../lib';
 	import {
 		exampleDefault,
 		exampleSolid,
@@ -9,19 +8,20 @@
 		slots,
 		crumbProps,
 		crumbSlots,
-		iconProps,
+		iconSlots,
 		labelSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { home } from '../../docs/icons';
 
 	interface Crumb {
-		icon?: MaterialIcon;
+		icon?: string;
 		label?: string;
 		href: string;
 	}
 
 	const crumbs: Crumb[] = [
-		{ icon: 'home', href: '#home' },
+		{ icon: home, href: '#home' },
 		{ label: 'Projects', href: '#projecs' },
 		{ label: 'Project Hero', href: '#project-hero' }
 	];
@@ -35,12 +35,16 @@
 				{#each crumbs as crumb}
 					{#if crumb.icon && crumb.label}
 						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+							<Breadcrumbs.Crumb.Icon slot="icon">
+								<Icon path={crumb.icon} />
+							</Breadcrumbs.Crumb.Icon>
 							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 						</Breadcrumbs.Crumb>
 					{:else if crumb.icon}
 						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+							<Breadcrumbs.Crumb.Icon slot="icon">
+								<Icon path={crumb.icon} />
+							</Breadcrumbs.Crumb.Icon>
 						</Breadcrumbs.Crumb>
 					{:else}
 						<Breadcrumbs.Crumb href={crumb.href}>
@@ -65,12 +69,16 @@
 				{#each crumbs as crumb}
 					{#if crumb.icon && crumb.label}
 						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+							<Breadcrumbs.Crumb.Icon slot="icon">
+								<Icon path={crumb.icon} />
+							</Breadcrumbs.Crumb.Icon>
 							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 						</Breadcrumbs.Crumb>
 					{:else if crumb.icon}
 						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+							<Breadcrumbs.Crumb.Icon slot="icon">
+								<Icon path={crumb.icon} />
+							</Breadcrumbs.Crumb.Icon>
 						</Breadcrumbs.Crumb>
 					{:else}
 						<Breadcrumbs.Crumb href={crumb.href}>
@@ -96,13 +104,17 @@
 					{#if crumb.icon && crumb.label}
 						<Breadcrumbs.Crumb href={crumb.href}>
 							<div slot="divider" class="divider">|</div>
-							<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+							<Breadcrumbs.Crumb.Icon slot="icon">
+								<Icon path={crumb.icon} />
+							</Breadcrumbs.Crumb.Icon>
 							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 						</Breadcrumbs.Crumb>
 					{:else if crumb.icon}
 						<Breadcrumbs.Crumb href={crumb.href}>
 							<div slot="divider" class="divider">|</div>
-							<Breadcrumbs.Crumb.Icon slot="icon" icon={crumb.icon} />
+							<Breadcrumbs.Crumb.Icon slot="icon">
+								<Icon path={crumb.icon} />
+							</Breadcrumbs.Crumb.Icon>
 						</Breadcrumbs.Crumb>
 					{:else}
 						<Breadcrumbs.Crumb href={crumb.href}>
@@ -137,7 +149,7 @@
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Breadcrumbs.Crumb.Icon" props={iconProps} />
+	<SlotsTable component="Breadcrumbs.Crumb.Icon" slots={iconSlots} />
 </Col>
 
 <Col class="col-24">

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { MaterialIcon } from '../../types';
 	import { twMerge } from 'tailwind-merge';
 	import { BREADCRUMBS_CONTEXT_ID } from './Breadcrumbs.svelte';
 	import { BREADCRUMBS_CRUMB_CONTEXT_ID } from './Crumb.svelte';
@@ -9,8 +8,6 @@
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
-
-	export let icon: MaterialIcon;
 
 	useContext({
 		context_id: BREADCRUMBS_CONTEXT_ID,
@@ -24,7 +21,7 @@
 		component: 'Breadcrumbs.Crumb.Icon'
 	});
 
-	const defaultClass = 'material-icons hover:text-primary';
+	const defaultClass = 'hover:text-primary';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -32,5 +29,7 @@
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}>{icon}</span
+	{...exclude($$props, ['use', 'class'])}
 >
+	<slot />
+</span>
