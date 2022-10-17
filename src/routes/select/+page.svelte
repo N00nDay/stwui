@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { Card, Col, Select, Icon } from '../../lib';
-	import { example, props, slots, optionsSlots, optionProps } from './examples';
+	import {
+		example,
+		props,
+		slots,
+		labelSlots,
+		leadingSlots,
+		optionsSlots,
+		optionProps
+	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { email } from '../../docs/icons';
 
@@ -55,6 +63,14 @@
 
 <Col class="col-24">
 	<SlotsTable component="Select" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Select.Label" slots={labelSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Select.Leading" slots={leadingSlots} />
 </Col>
 
 <Col class="col-24">

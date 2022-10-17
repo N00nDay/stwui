@@ -42,8 +42,34 @@ export const props: Prop[] = [
 export const slots: Slot[] = [
 	{
 		id: '1',
+		slot: 'label',
+		component: '<Autocomplete.Label slot="label" />'
+	},
+	{
+		id: '2',
+		slot: 'leading',
+		component: '<Autocomplete.Leading slot="leading" />'
+	},
+	{
+		id: '3',
 		slot: 'options',
 		component: '<Autocomplete.Options slot="options" />'
+	}
+];
+
+export const labelSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const leadingSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
 	}
 ];
 
@@ -63,15 +89,9 @@ export const optionsSlots: Slot[] = [
 export const optionProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'value',
+		prop: 'option',
 		type: 'string',
 		default: ''
-	},
-	{
-		id: '2',
-		prop: 'selected',
-		type: 'boolean',
-		default: 'false'
 	}
 ];
 
@@ -85,10 +105,11 @@ export const emptyOptionSlots: Slot[] = [
 
 export const example = `
 <script lang="ts">
-   import { Autocomplete } from 'stwui';
+   import { Autocomplete, Icon } from 'stwui';
+
+	const email = "svg-path";
 
    let value: string;
-
    let options = ['Option 1', 'Option 2', 'Option 3'];
 
    function filter(e: Event) {
@@ -107,16 +128,20 @@ export const example = `
 	$: filterOptions(value);
 </script>
 
-<Autocomplete name="autocomplete" placeholder="Basic" bind:value={value} on:input={filter}>
-   <Autocomplete.List slot="list">
-      {#if filtered.length > 0}
-         {#each filtered as option}
-            <Autocomplete.List.Option value={option} selected={value === option} />
-         {/each}
-      {:else}
-         <Autocomplete.List.EmptyOption />
-      {/if}
-   </Autocomplete.List>
+<Autocomplete name="autocomplete" bind:value={value} on:input={filter}>
+	<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+	<Autocomplete.Leading slot="leading">
+		<Icon path={email} />
+	</Autocomplete.Leading>
+	<Autocomplete.Options slot="options">
+		{#if filtered.length > 0}
+			{#each filtered as option}
+				<Autocomplete.Options.Option {option} />
+			{/each}
+		{:else}
+			<Autocomplete.Options.EmptyOption />
+		{/if}
+	</Autocomplete.Options>
 </Autocomplete>`;
 
 export const allowNonOptionExample = `
@@ -143,14 +168,20 @@ export const allowNonOptionExample = `
 	$: filterOptions(value);
 </script>
 
-<Autocomplete name="autocomplete" placeholder="Basic" bind:value={value} on:input={filter} allowNonListValue>
-   <Autocomplete.List slot="list">
-      {#if filtered.length > 0}
-         {#each filtered as option}
-            <Autocomplete.List.Option value={option} selected={value === option} />
-         {/each}
-      {:else}
-         <Autocomplete.List.EmptyOption />
-      {/if}
-   </Autocomplete.List>
+<Autocomplete
+	name="autocomplete"
+	placeholder="Basic"
+	bind:value={value}
+	on:input={filter}
+	allowNonListValue
+>
+	<Autocomplete.Options slot="options">
+		{#if filtered.length > 0}
+			{#each filtered as option}
+				<Autocomplete.Options.Option {option} />
+			{/each}
+		{:else}
+			<Autocomplete.Options.EmptyOption />
+		{/if}
+	</Autocomplete.Options>
 </Autocomplete>`;

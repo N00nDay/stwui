@@ -5,6 +5,8 @@
 		allowNonOptionExample,
 		props,
 		slots,
+		labelSlots,
+		leadingSlots,
 		optionsSlots,
 		optionProps,
 		emptyOptionSlots
@@ -180,6 +182,14 @@
 
 <Col class="col-24">
 	<SlotsTable component="Autocomplete" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Autocomplete.Label" slots={labelSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Autocomplete.Leading" slots={leadingSlots} />
 </Col>
 
 <Col class="col-24">

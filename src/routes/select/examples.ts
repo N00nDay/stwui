@@ -48,12 +48,28 @@ export const slots: Slot[] = [
 	{
 		id: '2',
 		slot: 'leading',
-		component: ''
+		component: '<Select.Leading slot="leading" />'
 	},
 	{
 		id: '3',
 		slot: 'options',
 		component: '<Select.Options slot="options" />'
+	}
+];
+
+export const labelSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const leadingSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
 	}
 ];
 
