@@ -36,12 +36,6 @@ export const props: Prop[] = [
 		prop: 'visible',
 		type: 'boolean',
 		default: 'false'
-	},
-	{
-		id: '7',
-		prop: 'options',
-		type: 'string[]',
-		default: '[]'
 	}
 ];
 
@@ -55,13 +49,35 @@ export const slots: Slot[] = [
 		id: '2',
 		slot: 'leading',
 		component: ''
+	},
+	{
+		id: '3',
+		slot: 'options',
+		component: '<Select.Options slot="options" />'
+	}
+];
+
+export const optionsSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const optionProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'option',
+		type: 'string',
+		default: ''
 	}
 ];
 
 export const example = `
 <script lang="ts">
 	import { Select, Icon } from 'stwui';
-	
+
 	const email = "svg-path";
 	const options = ['Option 1', 'Option 2', 'Option 3'];
 </script>
