@@ -11,7 +11,7 @@
 		optionProps,
 		emptyOptionSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, BetaComponent, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
 	import { email } from '../../docs/icons';
 
 	let value1: string;
@@ -84,7 +84,7 @@
 </script>
 
 <Col class="col-24">
-	<BetaComponent />
+	<UpdatedComponent version="v0.0.28-next" />
 </Col>
 
 <Col class="col-24 md:col-12">

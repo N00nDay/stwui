@@ -7,6 +7,7 @@
 		title: string;
 		href: string;
 		beta?: boolean;
+		updated?: boolean;
 	}
 
 	const sidebarItems: Item[] = [
@@ -21,7 +22,7 @@
 		{
 			title: 'Autocomplete',
 			href: '/autocomplete',
-			beta: true
+			updated: true
 		},
 		{
 			title: 'Avatar',
@@ -146,7 +147,8 @@
 		},
 		{
 			title: 'Select',
-			href: '/select'
+			href: '/select',
+			updated: true
 		},
 		{
 			title: 'Slider',
@@ -233,6 +235,15 @@
 				on:click={() => handleClick(item.href)}
 			>
 				<Badge slot="extra" type="error">BETA</Badge>
+			</Menu.Item>
+		{:else if item.updated}
+			<Menu.Item
+				key={item.href}
+				label={item.title}
+				href={item.href}
+				on:click={() => handleClick(item.href)}
+			>
+				<Badge slot="extra" type="success">UPDATED</Badge>
 			</Menu.Item>
 		{:else}
 			<Menu.Item

@@ -9,11 +9,15 @@
 		optionsSlots,
 		optionProps
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, UpdatedComponent } from '../../docs';
 	import { email } from '../../docs/icons';
 
 	const options = ['Option 1', 'Option 2', 'Option 3'];
 </script>
+
+<Col class="col-24">
+	<UpdatedComponent version="v0.0.28-next" />
+</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
