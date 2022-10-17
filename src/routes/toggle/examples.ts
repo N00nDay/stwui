@@ -64,12 +64,11 @@ export const contentRightSlots: Slot[] = [
 	}
 ];
 
-export const iconProps: Prop[] = [
+export const iconSlots: Slot[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
-		default: ''
+		slot: 'default',
+		component: ''
 	}
 ];
 
@@ -124,4 +123,21 @@ export const example = `
          (10% off)
       </Toggle.ContentRight.Description>
    </Toggle.ContentRight>
+</Toggle>`;
+
+export const iconsExample = `
+<script lang="ts">
+	import { Toggle } from 'stwui';
+
+	const brightness_4 = "svg-path";
+	const brightness_5 = "svg-path";
+</script>
+
+<Toggle name="toggle">
+	<Toggle.LeftIcon slot="left-icon">
+		<Icon path={brightness_4} viewBox="0 0 24 24" class="h-4 w-4" />
+	</Toggle.LeftIcon>
+	<Toggle.RightIcon slot="right-icon">
+		<Icon path={brightness_5} viewBox="0 0 24 24" class="h-4 w-4" />
+	</Toggle.RightIcon>
 </Toggle>`;

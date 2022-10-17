@@ -4,11 +4,12 @@
 		example,
 		props,
 		slots,
-		iconProps,
+		iconSlots,
 		titleSlots,
 		descriptionSlots,
 		contentLeftSlots,
-		contentRightSlots
+		contentRightSlots,
+		iconsExample
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, UpdatedComponent } from '../../docs';
 	import { brightness_4, brightness_5 } from '../../docs/icons';
@@ -76,7 +77,7 @@
 
 			<br />
 
-			<CodeBlock language="svelte" code={example} />
+			<CodeBlock language="svelte" code={iconsExample} />
 		</Card.Content>
 	</Card>
 </Col>
@@ -90,11 +91,11 @@
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Toggle.LeftIcon" props={iconProps} />
+	<SlotsTable component="Toggle.LeftIcon" slots={iconSlots} />
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Toggle.RightIcon" props={iconProps} />
+	<SlotsTable component="Toggle.RightIcon" slots={iconSlots} />
 </Col>
 
 <Col class="col-24">
