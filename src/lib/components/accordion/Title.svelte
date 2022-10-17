@@ -5,11 +5,13 @@
 	import { ACCORDION_ITEM_CONTEXT_ID } from './Item.svelte';
 	import { useContext } from '../../utils/useContext';
 	import type { Writable } from 'svelte/store';
-
+	import Icon from '../icon';
+	import { chevron_down } from '../../icons';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	useContext({
@@ -40,7 +42,7 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
-	<span class="material-icons transition-transform duration-300" class:-rotate-180={$open}
-		>expand_more</span
+	<span class="transition-transform duration-300" class:-rotate-180={$open}
+		><Icon path={chevron_down} /></span
 	>
 </button>
