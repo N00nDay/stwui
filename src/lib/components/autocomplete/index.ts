@@ -1,22 +1,28 @@
 import OriginalAutocomplete from './Autocomplete.svelte';
-import OriginalList from './List.svelte';
+import OriginalOptions from './Options.svelte';
 import Option from './Option.svelte';
 import EmptyOption from './EmptyOption.svelte';
+import Label from './Label.svelte';
+import Leading from './Leading.svelte';
 
 const Autocomplete = OriginalAutocomplete as AutocompleteStatic;
-Autocomplete.List = OriginalList as AutocompleteListStatic;
-Autocomplete.List.Option = Option;
-Autocomplete.List.EmptyOption = EmptyOption;
+Autocomplete.Options = OriginalOptions as OptionsStatic;
+Autocomplete.Options.Option = Option;
+Autocomplete.Options.EmptyOption = EmptyOption;
+Autocomplete.Label = Label;
+Autocomplete.Leading = Leading;
 
 export default Autocomplete;
 
 export interface AutocompleteStatic {
 	new (...args: ConstructorParameters<typeof OriginalAutocomplete>): OriginalAutocomplete;
-	List: AutocompleteListStatic;
+	Options: OptionsStatic;
+	Label: typeof Label;
+	Leading: typeof Leading;
 }
 
-export interface AutocompleteListStatic {
-	new (...args: ConstructorParameters<typeof OriginalList>): OriginalList;
+export interface OptionsStatic {
+	new (...args: ConstructorParameters<typeof OriginalOptions>): OriginalOptions;
 	Option: typeof Option;
 	EmptyOption: typeof EmptyOption;
 }

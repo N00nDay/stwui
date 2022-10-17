@@ -3,33 +3,30 @@
 </script>
 
 <script lang="ts">
-	import type { MaterialIcon } from '../../types';
 	import { slide, scale } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
 	import { onMount, setContext } from 'svelte';
+	import { error as errorIcon, unfold_more_horizontal, close } from '../../icons';
+	import Icon from '../icon';
+	import { writable, type Writable } from 'svelte/store';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
-	import { writable, type Writable } from 'svelte/store';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	export let leading: MaterialIcon | undefined = undefined;
 	export let name: string;
-	export let label: string | undefined = undefined;
-	export let srOnly = false;
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
 	export let autofocus = false;
-	export let handleLeadingClick: (() => void) | undefined = undefined;
 	export let allowNonListValue = false;
-	export let leadingAriaLabel = 'autocomplete leading';
 
 	let visible = false;
 	let input: HTMLInputElement;
 	let button: HTMLButtonElement;
 	let options: Writable<string[]> = writable([]);
+	let selectedOption: Writable<string | undefined> = writable(value);
 
 	function handleOpen() {
 		visible = true;
@@ -50,6 +47,7 @@
 			} else {
 				input.value = '';
 				value = undefined;
+				$selectedOption = undefined;
 				visible = false;
 			}
 		}
@@ -58,12 +56,14 @@
 	function handleSelect(option: string) {
 		value = option;
 		input.value = option;
+		$selectedOption = option;
 		visible = false;
 	}
 
 	function handleClear() {
 		input.value = '';
 		value = undefined;
+		$selectedOption = undefined;
 	}
 
 	onMount(() => {
@@ -76,7 +76,10 @@
 	setContext(AUTOCOMPLETE_CONTEXT_ID, {
 		autocomplete: true,
 		handleSelect,
-		options
+		options,
+		name,
+		error,
+		value: selectedOption
 	});
 </script>
 
@@ -87,15 +90,7 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	{#if label}
-		<label
-			for={name}
-			class="block text-sm font-medium{srOnly ? ' sr-only' : ''}"
-			class:text-light-secondary-content={!error}
-			class:dark:text-dark-secondary-content={!error}
-			class:text-danger={error}>{label}</label
-		>
-	{/if}
+	<slot name="label" />
 	<div class="mt-1 relative rounded-md h-[2.5rem]">
 		<button
 			aria-label="Autocomplete Toggle"
@@ -127,32 +122,10 @@
 				class:dark:focus:border-primary={!error}
 				class:light-border={!error}
 				class:dark:dark-border={!error}
-				class:pl-10={leading}
+				class:pl-10={$$slots.leading}
 			/>
 
-			{#if leading}
-				{#if handleLeadingClick}
-					<button
-						aria-label={leadingAriaLabel}
-						on:click|stopPropagation={handleLeadingClick}
-						class="absolute inset-y-0 left-0 pl-3"
-					>
-						<span
-							class="material-icons flex items-center"
-							class:text-light-secondary-content={!error}
-							class:dark:text-dark-secondary-content={!error}
-							class:text-danger={error}>{leading}</span
-						>
-					</button>
-				{:else}
-					<span
-						class="material-icons absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-						class:text-light-secondary-content={!error}
-						class:dark:text-dark-secondary-content={!error}
-						class:text-danger={error}>{leading}</span
-					>
-				{/if}
-			{/if}
+			<slot name="leading" />
 
 			{#if value && value.length > 0}
 				<button
@@ -160,29 +133,32 @@
 					on:click={handleClear}
 					class="absolute inset-y-0 right-8 items-center hidden group-focus-within:flex active:flex"
 				>
-					<span transition:scale|local class="flex items-center">
-						<span class="material-icons text-light-icon dark:text-dark-icon text-base">
-							clear
-						</span>
+					<span
+						transition:scale|local
+						class="flex items-center text-light-icon dark:text-dark-icon"
+					>
+						<Icon path={close} />
 					</span>
 				</button>
 			{/if}
 
 			{#if error}
 				<span
-					transition:scale|local
-					class="material-icons absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-danger"
-					>error</span
+					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-danger"
 				>
+					<Icon path={errorIcon} />
+				</span>
 			{:else}
-				<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-					<span class="material-icons text-light-icon dark:text-dark-icon"> unfold_more </span>
+				<span
+					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-light-icon dark:text-dark-icon"
+				>
+					<Icon path={unfold_more_horizontal} />
 				</span>
 			{/if}
 		</button>
 
 		{#if visible}
-			<slot name="list" />
+			<slot name="options" />
 		{/if}
 	</div>
 	{#if error}

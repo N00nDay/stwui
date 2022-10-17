@@ -1,20 +1,21 @@
 <script lang="ts">
-	import { Autocomplete, Card, Col } from '../../lib';
+	import { Autocomplete, Card, Col, Icon } from '../../lib';
 	import {
 		example,
 		allowNonOptionExample,
 		props,
 		slots,
-		listSlots,
+		optionsSlots,
 		optionProps,
 		emptyOptionSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, BetaComponent, CodeBlock } from '../../docs';
+	import { email } from '../../docs/icons';
 
 	let value1: string;
 	let value2: string;
 	let value3: string;
-	let value4 = 'I am not in the list!';
+	let value4 = 'I am not in the options!';
 
 	let options1 = ['Option 1', 'Option 2', 'Option 3'];
 	let options2 = ['Option 1', 'Option 2', 'Option 3'];
@@ -89,54 +90,52 @@
 		<Card.Header slot="header">Basic</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Autocomplete name="select-1" placeholder="Basic" bind:value={value1} on:input={filter1}>
-				<Autocomplete.List slot="list">
+				<Autocomplete.Options slot="options">
 					{#if filtered1.length > 0}
 						{#each filtered1 as option}
-							<Autocomplete.List.Option value={option} selected={value1 === option} />
+							<Autocomplete.Options.Option {option} />
 						{/each}
 					{:else}
-						<Autocomplete.List.EmptyOption />
+						<Autocomplete.Options.EmptyOption />
 					{/if}
-				</Autocomplete.List>
+				</Autocomplete.Options>
 			</Autocomplete>
 			<br />
-			<Autocomplete
-				name="select-2"
-				label="Label"
-				leading="email"
-				trailing="phone"
-				bind:value={value2}
-				on:input={filter2}
-			>
-				<Autocomplete.List slot="list">
+			<Autocomplete name="select-2" bind:value={value2} on:input={filter2}>
+				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+				<Autocomplete.Leading slot="leading">
+					<Icon path={email} />
+				</Autocomplete.Leading>
+				<Autocomplete.Options slot="options">
 					{#if filtered2.length > 0}
 						{#each filtered2 as option}
-							<Autocomplete.List.Option value={option} selected={value2 === option} />
+							<Autocomplete.Options.Option {option} />
 						{/each}
 					{:else}
-						<Autocomplete.List.EmptyOption />
+						<Autocomplete.Options.EmptyOption />
 					{/if}
-				</Autocomplete.List>
+				</Autocomplete.Options>
 			</Autocomplete>
 			<br />
 			<Autocomplete
 				name="select-3"
-				label="Label"
-				leading="email"
-				trailing="phone"
 				error="There has been an error"
 				bind:value={value3}
 				on:input={filter3}
 			>
-				<Autocomplete.List slot="list">
+				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+				<Autocomplete.Leading slot="leading">
+					<Icon path={email} />
+				</Autocomplete.Leading>
+				<Autocomplete.Options slot="options">
 					{#if filtered3.length > 0}
 						{#each filtered3 as option}
-							<Autocomplete.List.Option value={option} selected={value3 === option} />
+							<Autocomplete.Options.Option {option} />
 						{/each}
 					{:else}
-						<Autocomplete.List.EmptyOption />
+						<Autocomplete.Options.EmptyOption />
 					{/if}
-				</Autocomplete.List>
+				</Autocomplete.Options>
 			</Autocomplete>
 
 			<br />
@@ -157,15 +156,15 @@
 				on:input={filter4}
 				allowNonListValue
 			>
-				<Autocomplete.List slot="list">
+				<Autocomplete.Options slot="options">
 					{#if filtered4.length > 0}
 						{#each filtered4 as option}
-							<Autocomplete.List.Option value={option} selected={value4 === option} />
+							<Autocomplete.Options.Option {option} />
 						{/each}
 					{:else}
-						<Autocomplete.List.EmptyOption />
+						<Autocomplete.Options.EmptyOption />
 					{/if}
-				</Autocomplete.List>
+				</Autocomplete.Options>
 			</Autocomplete>
 
 			<br />
@@ -184,13 +183,13 @@
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="Autocomplete.List" slots={listSlots} />
+	<SlotsTable component="Autocomplete.Options" slots={optionsSlots} />
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Autocomplete.List.Option" props={optionProps} />
+	<PropsTable component="Autocomplete.Options.Option" props={optionProps} />
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="Autocomplete.List.EmptyOption" slots={emptyOptionSlots} />
+	<SlotsTable component="Autocomplete.Options.EmptyOption" slots={emptyOptionSlots} />
 </Col>

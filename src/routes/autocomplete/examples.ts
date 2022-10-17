@@ -3,90 +3,60 @@ import type { Slot, Prop } from '../../docs';
 export const props: Prop[] = [
 	{
 		id: '1',
-		prop: 'leading',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
-		default: ''
-	},
-	{
-		id: '2',
 		prop: 'name',
 		type: 'string',
 		default: ''
 	},
 	{
-		id: '3',
-		prop: 'label',
-		type: 'string',
-		default: ''
-	},
-	{
-		id: '4',
-		prop: 'srOnly',
-		type: 'boolean',
-		default: 'false'
-	},
-	{
-		id: '5',
+		id: '2',
 		prop: 'error',
 		type: 'string',
 		default: ''
 	},
 	{
-		id: '6',
+		id: '3',
 		prop: 'placeholder',
 		type: 'string',
 		default: ''
 	},
 	{
-		id: '7',
+		id: '4',
 		prop: 'value',
 		type: 'string',
 		default: ''
 	},
 	{
-		id: '8',
+		id: '5',
 		prop: 'autofocus',
 		type: 'boolean',
 		default: 'false'
 	},
 	{
-		id: '9',
-		prop: 'handleLeadingClick',
-		type: '() => void',
-		default: ''
-	},
-	{
-		id: '10',
+		id: '6',
 		prop: 'allowNonListValue',
 		type: 'boolean',
 		default: 'false'
-	},
-	{
-		id: '11',
-		prop: 'leadingAriaLabel',
-		type: 'string',
-		default: 'autocomplete leading'
 	}
 ];
 
 export const slots: Slot[] = [
 	{
 		id: '1',
-		slot: 'list',
-		component: '<Autocomplete.List slot="list" />'
+		slot: 'options',
+		component: '<Autocomplete.Options slot="options" />'
 	}
 ];
 
-export const listSlots: Slot[] = [
+export const optionsSlots: Slot[] = [
 	{
 		id: '1',
 		slot: 'default',
-		component: '<Autocomplete.List.Option />'
+		component: '<Autocomplete.Options.Option />'
 	},
 	{
 		id: '2',
 		slot: 'default',
-		component: '<Autocomplete.List.EmptyOption />'
+		component: '<Autocomplete.Options.EmptyOption />'
 	}
 ];
 

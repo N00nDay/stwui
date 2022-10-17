@@ -92,16 +92,7 @@
 				autocomplete="off"
 			/>
 
-			{#if $$slots.leading}
-				<span
-					class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
-					class:text-light-secondary-content={!error}
-					class:dark:text-dark-secondary-content={!error}
-					class:text-danger={error}
-				>
-					<slot name="leading" />
-				</span>
-			{/if}
+			<slot name="leading" />
 
 			{#if error}
 				<span

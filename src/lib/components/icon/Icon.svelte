@@ -22,5 +22,5 @@
 	{viewBox}
 	use:useActions={use}
 	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}><path {fill} d={path} /></svg
+	{...exclude($$props, ['use', 'class', 'path'])}><path {fill} d={path} /></svg
 >

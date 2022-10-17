@@ -20,7 +20,9 @@
 			<br />
 			<Select name="select-2">
 				<Select.Label slot="label">Label</Select.Label>
-				<Icon slot="leading" path={email} />
+				<Select.Leading slot="leading">
+					<Icon path={email} />
+				</Select.Leading>
 				<Select.Options slot="options">
 					{#each options as option}
 						<Select.Options.Option {option} />
@@ -30,7 +32,9 @@
 			<br />
 			<Select name="select-3" error="There has been an error">
 				<Select.Label slot="label">Label</Select.Label>
-				<Icon slot="leading" path={email} />
+				<Select.Leading slot="leading">
+					<Icon path={email} />
+				</Select.Leading>
 				<Select.Options slot="options">
 					{#each options as option}
 						<Select.Options.Option {option} />
