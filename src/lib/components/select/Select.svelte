@@ -4,12 +4,12 @@
 
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import { slide, scale } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
-	import HoverBackground from '../HoverBackground.svelte';
 	import { onMount } from 'svelte';
 	import { Icon } from '../../';
-	import { unfold_more_horizontal, error as errorIcon } from '../../../docs/icons';
+	import { unfold_more_horizontal, error as errorIcon } from '../../icons';
+	import { writable } from 'svelte/store';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -17,16 +17,11 @@
 	export let value: string | undefined = undefined;
 	export let autofocus = false;
 	export let visible = false;
-	export let options: string[] = [];
+
+	let selectedValue = writable(value);
 
 	let input: HTMLInputElement;
 	let button: HTMLButtonElement;
-
-	setContext(SELECT_CONTEXT_ID, {
-		select: true,
-		error,
-		name
-	});
 
 	function toggleVisible() {
 		visible = !visible;
@@ -39,8 +34,17 @@
 	function handleSelect(option: string) {
 		input.value = option;
 		value = option;
+		$selectedValue = option;
 		toggleVisible();
 	}
+
+	setContext(SELECT_CONTEXT_ID, {
+		select: true,
+		error,
+		name,
+		value: selectedValue,
+		handleSelect
+	});
 
 	onMount(() => {
 		if (autofocus) {
@@ -115,55 +119,7 @@
 		</button>
 
 		{#if visible}
-			<ul
-				class="origin-top-right absolute z-10 border light-border dark:dark-border left-0 right-0 w-full mt-1 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface"
-				in:scale={{ start: 0.9, duration: 100, delay: 150 }}
-				out:scale={{ start: 0.95, duration: 75 }}
-				role="listbox"
-			>
-				{#each options as option}
-					<li
-						class="group text-light-content dark:text-dark-content cursor-pointer select-none p-0.5 w-full"
-						role="option"
-						aria-selected={option === value}
-					>
-						<button
-							aria-label="select option"
-							on:click={() => handleSelect(option)}
-							class="w-full text-left"
-						>
-							<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
-								<span class="font-normal block truncate" class:font-semibold={option === value}>
-									{option}
-								</span>
-
-								{#if option === value}
-									<span
-										transition:scale|local
-										class="text-primary absolute inset-y-0 right-0 flex items-center pr-4"
-									>
-										<svg
-											class="h-5 w-5"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 20 20"
-											fill="currentColor"
-											aria-hidden="true"
-										>
-											<path
-												fill-rule="evenodd"
-												d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-												clip-rule="evenodd"
-											/>
-										</svg>
-									</span>
-								{/if}
-
-								<HoverBackground />
-							</div>
-						</button>
-					</li>
-				{/each}
-			</ul>
+			<slot name="options" />
 		{/if}
 	</div>
 	{#if error}

@@ -61,21 +61,35 @@ export const slots: Slot[] = [
 export const example = `
 <script lang="ts">
 	import { Select, Icon } from 'stwui';
+	
 	const email = "svg-path";
+	const options = ['Option 1', 'Option 2', 'Option 3'];
 </script>
 
-<Select name="select-1" placeholder="Basic" options={['Option 1', 'Option 2', 'Option 3']} />
-
-<Select name="select-2" options={['Option 1', 'Option 2', 'Option 3']}>
-	<Select.Label slot="label">Label</Select.Label>
-	<Icon slot="leading" path={email} />
+<Select name="select-1" placeholder="Basic">
+	<Select.Options slot="options">
+		{#each options as option}
+			<Select.Options.Option {option} />
+		{/each}
+	</Select.Options>
 </Select>
 
-<Select
-	name="select-3"
-	error="There has been an error"
-	options={['Option 1', 'Option 2', 'Option 3']}
->
+<Select name="select-2">
 	<Select.Label slot="label">Label</Select.Label>
 	<Icon slot="leading" path={email} />
+	<Select.Options slot="options">
+		{#each options as option}
+			<Select.Options.Option {option} />
+		{/each}
+	</Select.Options>
+</Select>
+
+<Select name="select-3" error="There has been an error">
+	<Select.Label slot="label">Label</Select.Label>
+	<Icon slot="leading" path={email} />
+	<Select.Options slot="options">
+		{#each options as option}
+			<Select.Options.Option {option} />
+		{/each}
+	</Select.Options>
 </Select>`;
