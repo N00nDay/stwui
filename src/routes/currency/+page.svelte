@@ -1,11 +1,13 @@
 <script lang="ts">
-	import { Card, Col, Currency } from '../../lib';
-	import { example, props } from './examples';
-	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
+	import { Card, Col, Currency, Icon } from '../../lib';
+	import { example, props, slots, leadingSlots, labelSlots, trailingSlots } from './examples';
+	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
+	import { email, phone } from '../../docs/icons';
+	import { currency_usd } from '../../lib/icons';
 </script>
 
 <Col class="col-24">
-	<BetaComponent />
+	<UpdatedComponent version="v0.0.28-next" />
 </Col>
 
 <Col class="col-24 md:col-12">
@@ -13,15 +15,22 @@
 		<Card.Content slot="content" class="p-4">
 			<Currency name="currency-1" placeholder="Basic" />
 			<br />
-			<Currency name="currency-2" label="Label" leading="email" trailing="phone" />
+			<Currency name="currency-2">
+				<Currency.Label slot="label">Label</Currency.Label>
+				<Currency.Leading slot="leading">
+					<Icon path={currency_usd} />
+				</Currency.Leading>
+				<Currency.Trailing slot="trailing">
+					<Icon path={phone} />
+				</Currency.Trailing>
+			</Currency>
 			<br />
-			<Currency
-				name="currency-3"
-				label="Label"
-				leading="email"
-				trailing="phone"
-				error="There has been an error"
-			/>
+			<Currency name="currency-3" error="There has been an error">
+				<Currency.Label slot="label">Label</Currency.Label>
+				<Currency.Leading slot="leading">
+					<Icon path={email} />
+				</Currency.Leading>
+			</Currency>
 
 			<br />
 
@@ -31,5 +40,21 @@
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Input" {props} />
+	<PropsTable component="Currency" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Currency" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Currency.Label" slots={labelSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Currency.Leading" slots={leadingSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Currency.Trailing" slots={trailingSlots} />
 </Col>

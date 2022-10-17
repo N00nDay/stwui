@@ -1,11 +1,14 @@
-<script lang="ts">
-	import type { MaterialIcon } from '../../types';
-	import { slide, scale } from 'svelte/transition';
+<script lang="ts" context="module">
+	export const CURRENCY_CONTEXT_ID = 'currency-context-id';
+</script>
 
-	export let trailing: MaterialIcon | undefined = undefined;
+<script lang="ts">
+	import { slide } from 'svelte/transition';
+	import { setContext } from 'svelte';
+	import Icon from '../icon';
+	import { error as errorIcon } from '../../icons';
+
 	export let name: string;
-	export let label: string | undefined = undefined;
-	export let srOnly = false;
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
@@ -13,11 +16,7 @@
 	export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
 	export let autofocus = false;
 	export let disabled = false;
-	export let handleLeadingClick: (() => void) | undefined = undefined;
-	export let handleTrailingClick: (() => void) | undefined = undefined;
 	export let readonly = false;
-	export let leadingAriaLabel = 'currency leading';
-	export let trailingAriaLabel = 'currency trailing';
 
 	function onlyNumeric(e: KeyboardEvent) {
 		if (!e.key.match(/^[0-9]+$/)) e.preventDefault();
@@ -35,18 +34,16 @@
 			}
 		}
 	}
+
+	setContext(CURRENCY_CONTEXT_ID, {
+		currency: true,
+		name,
+		error
+	});
 </script>
 
-<div class={$$props.class}>
-	{#if label}
-		<label
-			for={name}
-			class="block text-sm font-medium {srOnly ? 'sr-only' : ''}"
-			class:text-light-secondary-content={!error}
-			class:dark:text-dark-secondary-content={!error}
-			class:text-danger={error}>{label}</label
-		>
-	{/if}
+<div class={$$props.class} style={$$props.style}>
+	<slot name="label" />
 	<div class="mt-1 relative rounded-md shadow-sm dark:shadow-black h-[2.5rem]">
 		<input
 			type="number"
@@ -68,7 +65,8 @@
 			class:dark:focus:border-primary={!error}
 			class:light-border={!error}
 			class:dark:dark-border={!error}
-			class:pr-10={trailing || error}
+			class:pl-10={$$slots.leading}
+			class:pr-10={$$slots.trailing || error}
 			class:bg-gray-100={disabled}
 			{placeholder}
 			bind:value
@@ -76,60 +74,16 @@
 			on:input={setTwoNumberDecimal}
 			on:keypress={onlyNumeric}
 		/>
-		{#if handleLeadingClick}
-			<button
-				aria-label={leadingAriaLabel}
-				on:click={handleLeadingClick}
-				class="absolute inset-y-0 left-0 pl-3"
-			>
-				<span
-					class="material-icons flex items-center"
-					class:text-light-secondary-content={!error}
-					class:dark:text-dark-secondary-content={!error}
-					class:text-danger={error}>attach_money</span
-				>
-			</button>
-		{:else}
-			<span
-				class="material-icons flex items-center absolute inset-y-0 left-0 pl-3 pointer-events-none"
-				class:text-light-secondary-content={!error}
-				class:dark:text-dark-secondary-content={!error}
-				class:text-danger={error}>attach_money</span
-			>
-		{/if}
-		{#if trailing && !error}
-			{#if handleTrailingClick}
-				<button
-					aria-label={trailingAriaLabel}
-					on:click={handleTrailingClick}
-					class="absolute inset-y-0 right-0 pr-3"
-				>
-					<span
-						transition:scale|local
-						class="material-icons flex items-center"
-						class:pointer-events-none={!handleTrailingClick}
-						class:pointer-events-auto={handleTrailingClick}
-						class:cursor-pointer={handleTrailingClick}
-						class:text-light-secondary-content={!error}
-						class:dark:text-dark-secondary-content={!error}
-						class:text-danger={error}>{trailing}</span
-					>
-				</button>
-			{:else}
-				<span
-					transition:scale|local
-					class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
-					class:text-light-secondary-content={!error}
-					class:dark:text-dark-secondary-content={!error}
-					class:text-danger={error}>{trailing}</span
-				>
-			{/if}
+		<slot name="leading" />
+
+		{#if $$slots.trailing && !error}
+			<slot name="trailing" />
 		{:else if error}
 			<span
-				transition:scale|local
-				class="material-icons absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-danger"
-				>error</span
+				class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-danger"
 			>
+				<Icon path={errorIcon} />
+			</span>
 		{/if}
 	</div>
 	{#if error}

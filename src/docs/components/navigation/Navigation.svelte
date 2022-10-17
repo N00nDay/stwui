@@ -67,7 +67,7 @@
 		{
 			title: 'Currency',
 			href: '/currency',
-			beta: true
+			updated: true
 		},
 		{
 			title: 'Datepicker',
