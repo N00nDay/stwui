@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import type { MaterialIcon } from '../../types';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];

@@ -51,20 +51,14 @@ export const placeholderSlots: Slot[] = [
 		id: '1',
 		slot: 'icon',
 		component: '<Avatar.Placeholder.Icon slot="icon" />'
-	},
-	{
-		id: '2',
-		slot: 'default',
-		component: ''
 	}
 ];
 
-export const iconProps: Prop[] = [
+export const iconSlots: Slot[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
-		default: ''
+		slot: 'default',
+		component: ''
 	}
 ];
 

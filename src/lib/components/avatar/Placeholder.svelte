@@ -49,9 +49,8 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	{#if $$slots.icon || $$slots.default}
+	{#if $$slots.icon}
 		<slot name="icon" />
-		<slot />
 	{:else}
 		<Icon class="text-light-icon dark:text-dark-icon" />
 	{/if}
