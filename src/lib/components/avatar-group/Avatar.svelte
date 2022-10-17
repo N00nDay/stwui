@@ -18,9 +18,9 @@
 	export let alt = 'avatar';
 	export let initials: string | undefined = undefined;
 
-	let loaded = true;
+	let loaded = false;
 	let failed = false;
-	let loading = false;
+	let loading = true;
 
 	useContext({
 		context_id: AVATAR_GROUP_CONTEXT_ID,

@@ -26,22 +26,17 @@
 
 	const { size }: { size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' } = getContext(AVATAR_CONTEXT_ID);
 
-	let defaultClass = 'material-icons absolute text-light-icon dark:text-dark-icon';
-	let iconClass = 'h-12 w-12';
+	let defaultClass = 'absolute text-light-icon dark:text-dark-icon';
 	if (size === 'xs') {
-		defaultClass += ' text-2xl bottom-[-0.5rem]';
-		iconClass = 'h-7 w-7';
+		defaultClass += ' text-2xl bottom-[-0.5rem] h-7 w-7';
 	} else if (size === 'sm') {
-		defaultClass += ' text-4xl bottom-[-0.5rem]';
-		iconClass = 'h-10 w-10';
+		defaultClass += ' text-4xl bottom-[-0.5rem] h-10 w-10';
 	} else if (size === 'md') {
-		defaultClass += ' text-5xl bottom-[-0.5rem]';
+		defaultClass += ' text-5xl bottom-[-0.5rem] h-12 w-12';
 	} else if (size === 'lg') {
-		defaultClass += ' text-6xl bottom-[-0.75rem]';
-		iconClass = 'h-14 w-14';
+		defaultClass += ' text-6xl bottom-[-0.75rem] h-14 w-14';
 	} else if (size === 'xl') {
-		defaultClass += ' text-7xl bottom-[-0.75rem]';
-		iconClass = 'h-[4.5rem] w-[4.5rem]';
+		defaultClass += ' text-7xl bottom-[-0.75rem] h-[4.5rem] w-[4.5rem]';
 	}
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
@@ -55,6 +50,6 @@
 	{#if $$slots.default}
 		<slot />
 	{:else}
-		<Icon path={account} class={iconClass} />
+		<Icon path={account} class="h-full w-full" />
 	{/if}
 </span>

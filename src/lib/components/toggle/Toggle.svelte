@@ -38,7 +38,7 @@
 			aria-label="toggle"
 			on:click={toggle}
 			type="button"
-			class="relative inline-flex flex-shrink-0 h-full w-full border-2 border-transparent rounded-full cursor-pointer ease-in-out outline-none focus:outline-none"
+			class="relative inline-flex items-center justify-between flex-shrink-0 h-full w-full border-2 border-transparent rounded-full cursor-pointer ease-in-out outline-none focus:outline-none"
 			class:bg-light-icon-background={!on}
 			class:dark:bg-dark-background={!on}
 			class:bg-primary={on}
@@ -46,7 +46,9 @@
 			<span
 				aria-hidden="true"
 				class="relative z-10 inline-block bg-light-surface dark:bg-dark-surface h-5 w-5 rounded-full shadow transform transition-transform ease-in-out duration-150 border light-border dark:dark-border"
-				class:translate-x-[calc(100%+0.1rem)]={on}
+				class:translate-x-[calc(100%+0.2rem)]={on &&
+					($$slots['left-icon'] || $$slots['right-icon'])}
+				class:translate-x-[calc(100%)]={on && !$$slots['left-icon'] && !$$slots['right-icon']}
 				class:translate-x-0={!on}
 			/>
 			<input type="checkbox" class="hidden" {name} id={name} checked={on} />

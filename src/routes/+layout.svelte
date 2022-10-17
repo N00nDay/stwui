@@ -104,10 +104,10 @@
 			<Layout.Header.Extra slot="extra">
 				<Toggle name="toggle" bind:on={darkTheme}>
 					<Toggle.LeftIcon slot="left-icon">
-						<Icon path={brightness_4} viewBox="0 0 24 24" class="h-4 w-4" />
+						<Icon path={brightness_5} />
 					</Toggle.LeftIcon>
 					<Toggle.RightIcon slot="right-icon">
-						<Icon path={brightness_5} viewBox="0 0 24 24" class="h-4 w-4" />
+						<Icon path={brightness_4} />
 					</Toggle.RightIcon>
 				</Toggle>
 
