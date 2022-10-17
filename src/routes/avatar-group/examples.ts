@@ -59,12 +59,11 @@ export const placeholderSlots: Slot[] = [
 	}
 ];
 
-export const iconProps: Prop[] = [
+export const iconSlots: Slot[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
-		default: ''
+		slot: 'default',
+		component: ''
 	}
 ];
 
