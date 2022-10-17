@@ -178,7 +178,7 @@
 		{
 			title: 'TextArea',
 			href: '/text-area',
-			beta: true
+			updated: true
 		},
 		{
 			title: 'Timeline',

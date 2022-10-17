@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { Card, Col, TextArea } from '../../lib';
-	import { example, props } from './examples';
-	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
+	import { example, props, slots, labelSlots } from './examples';
+	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
 </script>
 
 <Col class="col-24">
-	<BetaComponent />
+	<UpdatedComponent version="v0.0.28-next" />
 </Col>
 
 <Col class="col-24 md:col-12">
@@ -13,15 +13,13 @@
 		<Card.Content slot="content" class="p-4">
 			<TextArea name="input-1" placeholder="Basic" />
 			<br />
-			<TextArea name="input-2" label="Label" leading="email" trailing="phone" />
+			<TextArea name="input-2">
+				<TextArea.Label slot="label">Label</TextArea.Label>
+			</TextArea>
 			<br />
-			<TextArea
-				name="input-3"
-				label="Label"
-				leading="email"
-				trailing="phone"
-				error="There has been an error"
-			/>
+			<TextArea name="input-3" error="There has been an error">
+				<TextArea.Label slot="label">Label</TextArea.Label>
+			</TextArea>
 
 			<br />
 
@@ -31,5 +29,13 @@
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Input" {props} />
+	<PropsTable component="TextArea" {props} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="TextArea" {slots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="TextArea.Label" slots={labelSlots} />
 </Col>

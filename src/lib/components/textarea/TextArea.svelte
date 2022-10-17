@@ -1,9 +1,12 @@
+<script lang="ts" context="module">
+	export const TEXT_AREA_CONTEXT_ID = 'text-area-context-id';
+</script>
+
 <script lang="ts">
 	import { slide } from 'svelte/transition';
+	import { setContext } from 'svelte';
 
 	export let name: string;
-	export let label: string | undefined = undefined;
-	export let srOnly = false;
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
@@ -12,19 +15,17 @@
 	export let autofocus = false;
 	export let readonly = false;
 
+	setContext(TEXT_AREA_CONTEXT_ID, {
+		textArea: true,
+		error,
+		name
+	});
+
 	// TODO: add action buttons/pills
 </script>
 
 <div class={$$props.class} style={$$props.style}>
-	{#if label}
-		<label
-			for={name}
-			class="block text-sm font-medium{srOnly ? ' sr-only' : ''}"
-			class:text-light-secondary-content={!error}
-			class:dark:text-dark-secondary-content={!error}
-			class:text-danger={error}>{label}</label
-		>
-	{/if}
+	<slot name="label" />
 	<div class="mt-1">
 		<textarea
 			rows="4"

@@ -1,4 +1,4 @@
-import type { Prop } from '../../docs';
+import type { Slot, Prop } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -9,57 +9,61 @@ export const props: Prop[] = [
 	},
 	{
 		id: '2',
-		prop: 'label',
-		type: 'string | undefined',
-		default: ''
-	},
-	{
-		id: '3',
-		prop: 'srOnly',
-		type: 'boolean',
-		default: 'false'
-	},
-	{
-		id: '4',
 		prop: 'error',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '5',
+		id: '3',
 		prop: 'placholder',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '6',
+		id: '4',
 		prop: 'value',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '7',
+		id: '5',
 		prop: 'autocomplete',
 		type: "'on' | 'off' | undefined",
 		default: ''
 	},
 	{
-		id: '8',
+		id: '6',
 		prop: 'autocapitalize',
 		type: "'off' | 'none' | 'sentences' | 'words' | 'characters'",
 		default: 'off'
 	},
 	{
-		id: '9',
+		id: '7',
 		prop: 'autofocus',
 		type: "'true' | undefined",
 		default: ''
 	},
 	{
-		id: '10',
+		id: '8',
 		prop: 'readonly',
 		type: 'true | undefined',
 		default: ''
+	}
+];
+
+export const slots: Slot[] = [
+	{
+		id: '1',
+		slot: 'label',
+		component: '<TextArea.Label slot="label" />'
+	}
+];
+
+export const labelSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
 	}
 ];
 
@@ -68,14 +72,12 @@ export const example = `
 	import { TextArea } from 'stwui';
 </script>
 
-<TextArea name="input-1" placeholder="Basic" />
-<br />
-<TextArea name="input-2" label="Label" leading="email" trailing="phone" />
-<br />
-<TextArea
-   name="input-3"
-   label="Label"
-   leading="email"
-   trailing="phone"
-   error="There has been an error"
-/>`;
+<TextArea name="text-area-1" placeholder="Basic" />
+
+<TextArea name="text-area-2">
+	<TextArea.Label slot="label">Label</TextArea.Label>
+</TextArea>
+
+<TextArea name="text-area-3" error="There has been an error">
+	<TextArea.Label slot="label">Label</TextArea.Label>
+</TextArea>`;
