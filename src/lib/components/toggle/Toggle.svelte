@@ -32,6 +32,7 @@
 	<slot name="content-left" />
 	<div
 		class="border light-border dark:dark-border relative inline-flex flex-shrink-0 h-[1.6rem] w-[2.8rem] rounded-full cursor-pointer outline-none focus:outline-none"
+		class:w-[48px]={$$slots['left-icon'] || $$slots['right-icon']}
 	>
 		<button
 			aria-label="toggle"
@@ -45,7 +46,7 @@
 			<span
 				aria-hidden="true"
 				class="relative z-10 inline-block bg-light-surface dark:bg-dark-surface h-5 w-5 rounded-full shadow transform transition-transform ease-in-out duration-150 border light-border dark:dark-border"
-				class:translate-x-[1.1rem]={on}
+				class:translate-x-[calc(100%+0.1rem)]={on}
 				class:translate-x-0={!on}
 			/>
 			<input type="checkbox" class="hidden" {name} id={name} checked={on} />

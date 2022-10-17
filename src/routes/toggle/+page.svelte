@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Toggle } from '../../lib';
+	import { Card, Col, Toggle, Icon } from '../../lib';
 	import {
 		example,
 		props,
@@ -10,15 +10,17 @@
 		contentLeftSlots,
 		contentRightSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, BetaComponent } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, UpdatedComponent } from '../../docs';
+	import { brightness_4, brightness_5 } from '../../docs/icons';
 </script>
 
 <Col class="col-24">
-	<BetaComponent />
+	<UpdatedComponent version="v0.0.28-next" />
 </Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
+		<Card.Header slot="header">Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Toggle name="toggle-1" />
 			<br />
@@ -50,6 +52,26 @@
 						>(10% off)</Toggle.ContentRight.Description
 					>
 				</Toggle.ContentRight>
+			</Toggle>
+
+			<br />
+
+			<CodeBlock language="svelte" code={example} />
+		</Card.Content>
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-12">
+	<Card bordered={false}>
+		<Card.Header slot="header">with Left and Right icons</Card.Header>
+		<Card.Content slot="content" class="p-4">
+			<Toggle name="toggle">
+				<Toggle.LeftIcon slot="left-icon">
+					<Icon path={brightness_4} viewBox="0 0 24 24" class="h-4 w-4" />
+				</Toggle.LeftIcon>
+				<Toggle.RightIcon slot="right-icon">
+					<Icon path={brightness_5} viewBox="0 0 24 24" class="h-4 w-4" />
+				</Toggle.RightIcon>
 			</Toggle>
 
 			<br />

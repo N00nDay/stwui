@@ -187,7 +187,7 @@
 		{
 			title: 'Toggle',
 			href: '/toggle',
-			beta: true
+			updated: true
 		}
 	];
 

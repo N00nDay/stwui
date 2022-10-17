@@ -6,6 +6,7 @@
 	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle, Col, Divider } from '../lib';
 	import { browser } from '$app/environment';
 	import { Navigation, Search } from '../docs';
+	import { brightness_4, brightness_5 } from '../docs/icons';
 
 	let openMenu = false;
 	let darkTheme = false;
@@ -102,8 +103,12 @@
 
 			<Layout.Header.Extra slot="extra">
 				<Toggle name="toggle" bind:on={darkTheme}>
-					<Toggle.LeftIcon slot="left-icon" icon="light_mode" />
-					<Toggle.RightIcon slot="right-icon" icon="dark_mode" />
+					<Toggle.LeftIcon slot="left-icon">
+						<Icon path={brightness_4} viewBox="0 0 24 24" class="h-4 w-4" />
+					</Toggle.LeftIcon>
+					<Toggle.RightIcon slot="right-icon">
+						<Icon path={brightness_5} viewBox="0 0 24 24" class="h-4 w-4" />
+					</Toggle.RightIcon>
 				</Toggle>
 
 				<Search />
