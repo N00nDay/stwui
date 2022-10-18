@@ -6,7 +6,6 @@
 		exampleInitials,
 		props,
 		slots,
-		iconSlots,
 		placeholderSlots,
 		indicatorProps
 	} from './examples';
@@ -118,10 +117,6 @@
 
 <Col class="col-24">
 	<SlotsTable component="Avatar.Placeholder" slots={placeholderSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Avatar.Placeholder.Icon" slots={iconSlots} />
 </Col>
 
 <Col class="col-24">

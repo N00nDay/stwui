@@ -50,14 +50,6 @@ export const placeholderSlots: Slot[] = [
 	{
 		id: '1',
 		slot: 'icon',
-		component: '<Avatar.Placeholder.Icon slot="icon" />'
-	}
-];
-
-export const iconSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'default',
 		component: ''
 	}
 ];
