@@ -30,9 +30,51 @@ export const slots: Slot[] = [
 export const iconProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
 		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -47,6 +89,8 @@ export const labelSlots: Slot[] = [
 export const example = `
 <script lang="ts">
 	import { Divider, Button } from 'stwui';
+
+	const plus_circle = "svg-path";
 </script>
 
 <Divider>
@@ -55,7 +99,7 @@ export const example = `
    </Divider.Label>
 </Divider>
 <Divider>
-   <Divider.Icon slot="icon" icon="add" />
+   <Divider.Icon slot="icon" data={plus_circle} />
 </Divider>
 <Divider position="left">
    <Divider.Label slot="label">Divider</Divider.Label>

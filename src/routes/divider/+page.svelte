@@ -2,6 +2,8 @@
 	import { Button, Card, Col, Divider } from '../../lib';
 	import { example, props, slots, iconProps, labelSlots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+
+	import { plus_circle } from '../../docs/icons';
 </script>
 
 <Col class="col-24 md:col-12">
@@ -11,7 +13,7 @@
 				<Divider.Label slot="label"><h3>Divider</h3></Divider.Label>
 			</Divider>
 			<Divider>
-				<Divider.Icon slot="icon" icon="add" />
+				<Divider.Icon slot="icon" data={plus_circle} />
 			</Divider>
 			<Divider position="left">
 				<Divider.Label slot="label">Divider</Divider.Label>

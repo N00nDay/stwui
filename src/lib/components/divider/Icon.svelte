@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { MaterialIcon } from '../../types';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -7,16 +6,43 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	export let icon: MaterialIcon;
+	export let data = '';
+	export let viewBox = extractViewBox(data);
+
+	export let size = '24px';
+	export let width = size;
+	export let height = size;
+
+	export let color = 'currentColor';
+	export let stroke: string | undefined = undefined;
+	export let fill = color;
+
+	$: elements = data.replace(/<svg ([^>]*)>/, '').replace('</svg>', '');
+
+	function extractViewBox(svg: string) {
+		const regex = /viewBox="([\d\- ]+)"/;
+		const res = regex.exec(svg);
+		if (!res) return '0 0 24 24'; // default value
+		return res[1];
+	}
 
 	const defaultClass =
-		'material-icons px-2 bg-light-surface dark:bg-dark-surface text-light-content dark:text-dark-content';
+		'px-2 bg-light-surface dark:bg-dark-surface text-light-content dark:text-dark-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span
-	class={finalClass}
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}>{icon}</span
->
+<span class={finalClass} style={$$props.style}>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		{width}
+		{height}
+		{viewBox}
+		{stroke}
+		{fill}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class', 'fill', 'viewBox', 'width', 'height', 'stroke', 'style'])}
+	>
+		{@html elements}
+	</svg>
+</span>
