@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Media, Icon } from '../../lib';
+	import { Card, Col, Media } from '../../lib';
 	import {
 		example,
 		exampleOverlay,
@@ -13,7 +13,8 @@
 		footerSlots,
 		actionsSlots,
 		actionSlots,
-		labelSlots
+		labelSlots,
+		iconProps
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { cog, plus_circle, numeric_1_box, numeric_2_box } from '../../docs/icons';
@@ -31,10 +32,10 @@
 			</Card.Cover>
 			<Card.Actions slot="actions">
 				<Card.Actions.Action>
-					<Icon data={cog} slot="icon" />
+					<Card.Actions.Action.Icon data={cog} slot="icon" />
 				</Card.Actions.Action>
 				<Card.Actions.Action>
-					<Icon data={plus_circle} slot="icon" />
+					<Card.Actions.Action.Icon data={plus_circle} slot="icon" />
 				</Card.Actions.Action>
 			</Card.Actions>
 		</Card>
@@ -102,10 +103,10 @@
 			<Card.Footer slot="footer">Card Footer</Card.Footer>
 			<Card.Actions slot="actions">
 				<Card.Actions.Action>
-					<Icon data={numeric_1_box} slot="icon" />
+					<Card.Actions.Action.Icon data={numeric_1_box} slot="icon" />
 				</Card.Actions.Action>
 				<Card.Actions.Action>
-					<Icon data={numeric_2_box} slot="icon" />
+					<Card.Actions.Action.Icon data={numeric_2_box} slot="icon" />
 				</Card.Actions.Action>
 			</Card.Actions>
 		</Card>
@@ -146,6 +147,10 @@
 
 <Col class="col-24">
 	<SlotsTable component="Card.Actions.Action" slots={actionSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Card.Actions.Action.Icon" props={iconProps} />
 </Col>
 
 <Col class="col-24">

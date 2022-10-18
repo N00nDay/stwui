@@ -114,7 +114,7 @@ export const actionSlots: Slot[] = [
 	{
 		id: '1',
 		slot: 'icon',
-		component: ''
+		component: '<Card.Actions.Action.Icon slot="icon" />'
 	},
 	{
 		id: '2',
@@ -131,9 +131,63 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
+export const iconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
+		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
+	}
+];
+
 export const example = `
 <script lang="ts">
 	import { Card } from 'stwui';
+
+	const cog = "svg-path";
+	const plus_circle = "svg-path";
 </script>
 
 <Card bordered={false}>
@@ -145,9 +199,13 @@ export const example = `
       />
    </Card.Cover>
    <Card.Actions slot="actions">
-      <Card.Actions.Action icon="settings" />
-      <Card.Actions.Action icon="description" />
-   </Card.Actions>
+		<Card.Actions.Action>
+			<Card.Actions.Action.Icon data={cog} slot="icon" />
+		</Card.Actions.Action>
+		<Card.Actions.Action>
+			<Card.Actions.Action.Icon data={plus_circle} slot="icon" />
+		</Card.Actions.Action>
+	</Card.Actions>
 </Card>`;
 
 export const exampleOverlay = `
@@ -199,6 +257,9 @@ export const exampleContent = `
 export const exampleAnatomy = `
 <script lang="ts">
 	import { Card } from 'stwui';
+
+	const numeric_1_box = "svg-path";
+	const numeric_2_box = "svg-path";
 </script>
 
 <Card bordered={false}>
@@ -206,7 +267,11 @@ export const exampleAnatomy = `
    <Card.Content slot="content">Card Content</Card.Content>
    <Card.Footer slot="footer">Card Footer</Card.Footer>
    <Card.Actions slot="actions">
-      <Card.Actions.Action icon="looks_one" />
-      <Card.Actions.Action icon="looks_two" />
-   </Card.Actions>
+		<Card.Actions.Action>
+			<Card.Actions.Action.Icon data={numeric_1_box} slot="icon" />
+		</Card.Actions.Action>
+		<Card.Actions.Action>
+			<Card.Actions.Action.Icon data={numeric_2_box} slot="icon" />
+		</Card.Actions.Action>
+	</Card.Actions>
 </Card>`;

@@ -7,6 +7,7 @@ import Footer from './Footer.svelte';
 import OriginalActions from './Actions.svelte';
 import OriginalAction from './Action.svelte';
 import ActionLabel from './ActionLabel.svelte';
+import Icon from '../icon/Icon.svelte';
 
 const Card = OriginalCard as CardStatic;
 Card.Header = Header;
@@ -17,6 +18,7 @@ Card.Footer = Footer;
 Card.Actions = OriginalActions as ActionsStatic;
 Card.Actions.Action = OriginalAction as ActionStatic;
 Card.Actions.Action.Label = ActionLabel;
+Card.Actions.Action.Icon = Icon;
 
 export default Card;
 
@@ -42,4 +44,5 @@ export interface ActionsStatic {
 export interface ActionStatic {
 	new (...args: ConstructorParameters<typeof OriginalAction>): OriginalAction;
 	Label: typeof ActionLabel;
+	Icon: typeof Icon;
 }
