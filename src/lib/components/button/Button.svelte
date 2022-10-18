@@ -43,15 +43,15 @@
 	if (size === 'xs') {
 		iconSize = '16px';
 	} else if (size === 'sm') {
-		iconSize = '20px';
+		iconSize = '18px';
 	} else if (size === 'md') {
-		iconSize = '24px';
+		iconSize = '20px';
 	} else if (size === 'lg') {
-		iconSize = '28px';
+		iconSize = '24px';
 	} else if (size === 'xl') {
-		iconSize = '32px';
+		iconSize = '28px';
 	} else if (size === 'fab') {
-		iconSize = '36px';
+		iconSize = '34px';
 	}
 
 	let defaultClass =
@@ -103,8 +103,8 @@
 		{#if $$slots.leading && $$slots.icon}
 			<div
 				class="flex justify-center items-center relative"
-				class:mr-1={size === 'xs' || size === 'sm' || size === 'md'}
-				class:mr-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				class:mr-1={size === 'xs' || size === 'sm'}
+				class:mr-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 				style="width: {iconSize};"
 			>
 				<Swap {loading} style="width: {iconSize};">
@@ -121,8 +121,8 @@
 		{:else if $$slots.leading}
 			<div
 				class="flex justify-center items-center relative"
-				class:mr-1={size === 'xs' || size === 'sm' || size === 'md'}
-				class:mr-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				class:mr-1={size === 'xs' || size === 'sm'}
+				class:mr-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 				style="width: {iconSize};"
 			>
 				<Swap {loading} style="width: {iconSize};">
@@ -141,8 +141,8 @@
 			<div
 				transition:scale|local
 				class="flex justify-center items-center relative"
-				class:mr-1={size === 'xs' || size === 'sm' || size === 'md'}
-				class:mr-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				class:mr-1={size === 'xs' || size === 'sm'}
+				class:mr-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 			>
 				<ButtonLoader />
 			</div>
@@ -151,8 +151,8 @@
 		{#if $$slots.trailing}
 			<div
 				class="flex justify-center items-center relative"
-				class:ml-1={size === 'xs' || size === 'sm' || size === 'md'}
-				class:ml-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				class:ml-1={size === 'xs' || size === 'sm'}
+				class:ml-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 				style="width: {iconSize};"
 			>
 				<slot name="trailing" size={iconSize} />
@@ -162,8 +162,8 @@
 		{#if $$slots.leading}
 			<div
 				class="flex justify-center items-center relative"
-				class:mr-1={size === 'xs' || size === 'sm' || size === 'md'}
-				class:mr-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				class:mr-1={size === 'xs' || size === 'sm'}
+				class:mr-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 				style="width: {iconSize};"
 			>
 				<slot name="leading" size={iconSize} />
@@ -181,8 +181,8 @@
 		{#if $$slots.trailing}
 			<div
 				class="flex justify-center items-center relative"
-				class:ml-1={size === 'xs' || size === 'sm' || size === 'md'}
-				class:ml-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				class:ml-1={size === 'xs' || size === 'sm'}
+				class:ml-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 				style="width: {iconSize};"
 			>
 				<slot name="trailing" size={iconSize} />

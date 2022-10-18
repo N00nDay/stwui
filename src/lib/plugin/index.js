@@ -103,16 +103,16 @@ module.exports = plugin(
 			'button.btn.sm': {
 				'padding-left': '0.75rem',
 				'padding-right': '0.75rem',
-				'padding-top': '0.5rem',
-				'padding-bottom': '0.5rem',
+				'padding-top': '0.45rem',
+				'padding-bottom': '0.45rem',
 				'font-size': '0.875rem',
 				'line-height': '1.25rem'
 			},
 			'button.btn.md': {
 				'padding-left': '0.75rem',
 				'padding-right': '0.75rem',
-				'padding-top': '0.5rem',
-				'padding-bottom': '0.5rem',
+				'padding-top': '0.55rem',
+				'padding-bottom': '0.55rem',
 				'font-size': '0.875rem',
 				'line-height': '1.25rem'
 			},

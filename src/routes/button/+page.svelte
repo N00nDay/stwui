@@ -208,6 +208,10 @@
 				<Icon data={home} slot="icon" let:size {size} />
 			</Button>
 
+			<Button type="primary" size="fab" shape="circle">
+				<Icon data={home} slot="icon" let:size {size} />
+			</Button>
+
 			<Button type="default" size="xs">
 				<Icon data={home} slot="leading" let:size {size} />
 				xs</Button
