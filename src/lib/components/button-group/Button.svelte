@@ -24,6 +24,8 @@
 	export let ariaLabel: undefined | string = undefined;
 	export let htmlType = 'button';
 
+	const iconSize = '24px';
+
 	useContext({
 		context_id: BUTTON_GROUP_CONTEXT_ID,
 		parent: 'ButtonGroup',
@@ -62,15 +64,11 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	{#if defaultLoading && $$slots.leading}
+	<!-- {#if defaultLoading && $$slots.leading}
 		<div class="mr-2 flex justify-center items-center relative">
 			<Swap {loading}>
-				<svelte:fragment slot="on">
-					<slot name="leading" />
-				</svelte:fragment>
-				<svelte:fragment slot="off">
-					<ButtonLoader />
-				</svelte:fragment>
+					<slot name="leading" slot="on" />
+					<ButtonLoader slot="off" />
 			</Swap>
 		</div>
 		<slot />
@@ -78,12 +76,8 @@
 	{:else if defaultLoading && $$slots.icon}
 		<div class="flex justify-center items-center relative">
 			<Swap {loading}>
-				<svelte:fragment slot="on">
-					<slot name="icon" />
-				</svelte:fragment>
-				<svelte:fragment slot="off">
-					<ButtonLoader />
-				</svelte:fragment>
+					<slot name="icon" slot="on" />
+					<ButtonLoader slot="off" />
 			</Swap>
 		</div>
 		<slot />
@@ -99,6 +93,67 @@
 		<slot name="icon" />
 		<slot />
 		<slot name="trailing" />
+	{/if} -->
+
+	{#if defaultLoading}
+		{#if $$slots.leading && $$slots.icon}
+			<div class="flex justify-center items-center relative mr-1" style="width: {iconSize};">
+				<Swap {loading} style="width: {iconSize};">
+					<slot name="leading" slot="on" size={iconSize} />
+					<ButtonLoader slot="off" />
+				</Swap>
+			</div>
+			<div class="flex justify-center items-center relative">
+				<Swap {loading}>
+					<slot name="icon" slot="on" />
+					<ButtonLoader slot="off" />
+				</Swap>
+			</div>
+		{:else if $$slots.leading}
+			<div class="flex justify-center items-center relative mr-1" style="width: {iconSize};">
+				<Swap {loading} style="width: {iconSize};">
+					<slot name="leading" slot="on" size={iconSize} />
+					<ButtonLoader slot="off" />
+				</Swap>
+			</div>
+		{:else if $$slots.icon}
+			<div class="flex justify-center items-center relative" style="width: {iconSize};">
+				<Swap {loading} style="width: {iconSize};">
+					<slot name="icon" slot="on" size={iconSize} />
+					<ButtonLoader slot="off" />
+				</Swap>
+			</div>
+		{:else if loading}
+			<div transition:scale|local class="flex justify-center items-center relative mr-1">
+				<ButtonLoader />
+			</div>
+		{/if}
+		<slot />
+		{#if $$slots.trailing}
+			<div class="flex justify-center items-center relative ml-1" style="width: {iconSize};">
+				<slot name="trailing" size={iconSize} />
+			</div>
+		{/if}
+	{:else}
+		{#if $$slots.leading}
+			<div class="flex justify-center items-center relative mr-1" style="width: {iconSize};">
+				<slot name="leading" size={iconSize} />
+			</div>
+		{/if}
+		{#if $$slots.icon}
+			<div class="flex justify-center items-center relative" style="width: {iconSize};">
+				<Swap {loading} style="width: {iconSize};">
+					<slot name="icon" slot="on" size={iconSize} />
+					<ButtonLoader slot="off" />
+				</Swap>
+			</div>
+		{/if}
+		<slot />
+		{#if $$slots.trailing}
+			<div class="flex justify-center items-center relative ml-1" style="width: {iconSize};">
+				<slot name="trailing" size={iconSize} />
+			</div>
+		{/if}
 	{/if}
 
 	{#if !disabled}

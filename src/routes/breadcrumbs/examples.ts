@@ -89,14 +89,14 @@ export const exampleDefault = `
 		{#if crumb.icon && crumb.label}
 			<Breadcrumbs.Crumb href={crumb.href}>
 				<Breadcrumbs.Crumb.Icon slot="icon">
-					<Icon path={crumb.icon} />
+					<Icon data={crumb.icon} />
 				</Breadcrumbs.Crumb.Icon>
 				<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 			</Breadcrumbs.Crumb>
 		{:else if crumb.icon}
 			<Breadcrumbs.Crumb href={crumb.href}>
 				<Breadcrumbs.Crumb.Icon slot="icon">
-					<Icon path={crumb.icon} />
+					<Icon data={crumb.icon} />
 				</Breadcrumbs.Crumb.Icon>
 			</Breadcrumbs.Crumb>
 		{:else}
@@ -131,14 +131,14 @@ export const exampleSolid = `
 		{#if crumb.icon && crumb.label}
 			<Breadcrumbs.Crumb href={crumb.href}>
 				<Breadcrumbs.Crumb.Icon slot="icon">
-					<Icon path={crumb.icon} />
+					<Icon data={crumb.icon} />
 				</Breadcrumbs.Crumb.Icon>
 				<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 			</Breadcrumbs.Crumb>
 		{:else if crumb.icon}
 			<Breadcrumbs.Crumb href={crumb.href}>
 				<Breadcrumbs.Crumb.Icon slot="icon">
-					<Icon path={crumb.icon} />
+					<Icon data={crumb.icon} />
 				</Breadcrumbs.Crumb.Icon>
 			</Breadcrumbs.Crumb>
 		{:else}
@@ -174,7 +174,7 @@ export const exampleDivider = `
 			<Breadcrumbs.Crumb href={crumb.href}>
 				<div slot="divider" class="divider">|</div>
 				<Breadcrumbs.Crumb.Icon slot="icon">
-					<Icon path={crumb.icon} />
+					<Icon data={crumb.icon} />
 				</Breadcrumbs.Crumb.Icon>
 				<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 			</Breadcrumbs.Crumb>
@@ -182,7 +182,7 @@ export const exampleDivider = `
 			<Breadcrumbs.Crumb href={crumb.href}>
 				<div slot="divider" class="divider">|</div>
 				<Breadcrumbs.Crumb.Icon slot="icon">
-					<Icon path={crumb.icon} />
+					<Icon data={crumb.icon} />
 				</Breadcrumbs.Crumb.Icon>
 			</Breadcrumbs.Crumb>
 		{:else}

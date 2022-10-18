@@ -39,6 +39,21 @@
 		size
 	});
 
+	let iconSize = '';
+	if (size === 'xs') {
+		iconSize = '16px';
+	} else if (size === 'sm') {
+		iconSize = '20px';
+	} else if (size === 'md') {
+		iconSize = '24px';
+	} else if (size === 'lg') {
+		iconSize = '28px';
+	} else if (size === 'xl') {
+		iconSize = '32px';
+	} else if (size === 'fab') {
+		iconSize = '36px';
+	}
+
 	let defaultClass =
 		'btn group relative inline-flex justify-center items-center font-medium active:hover:animate-none active:hover:scale-95 outline-none';
 	if (loading) {
@@ -86,60 +101,93 @@
 >
 	{#if defaultLoading}
 		{#if $$slots.leading && $$slots.icon}
-			<div class="mr-2 flex justify-center items-center relative">
-				<Swap {loading}>
-					<svelte:fragment slot="on">
-						<slot name="leading" />
-					</svelte:fragment>
-					<svelte:fragment slot="off">
-						<ButtonLoader />
-					</svelte:fragment>
+			<div
+				class="flex justify-center items-center relative"
+				class:mr-1={size === 'xs' || size === 'sm' || size === 'md'}
+				class:mr-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				style="width: {iconSize};"
+			>
+				<Swap {loading} style="width: {iconSize};">
+					<slot name="leading" slot="on" size={iconSize} />
+					<ButtonLoader slot="off" />
 				</Swap>
 			</div>
 			<div class="flex justify-center items-center relative">
 				<Swap {loading}>
-					<svelte:fragment slot="on">
-						<slot name="icon" />
-					</svelte:fragment>
-					<svelte:fragment slot="off">
-						<ButtonLoader />
-					</svelte:fragment>
+					<slot name="icon" slot="on" />
+					<ButtonLoader slot="off" />
 				</Swap>
 			</div>
 		{:else if $$slots.leading}
-			<div class="mr-2 flex justify-center items-center relative">
-				<Swap {loading}>
-					<svelte:fragment slot="on">
-						<slot name="leading" />
-					</svelte:fragment>
-					<svelte:fragment slot="off">
-						<ButtonLoader />
-					</svelte:fragment>
+			<div
+				class="flex justify-center items-center relative"
+				class:mr-1={size === 'xs' || size === 'sm' || size === 'md'}
+				class:mr-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				style="width: {iconSize};"
+			>
+				<Swap {loading} style="width: {iconSize};">
+					<slot name="leading" slot="on" size={iconSize} />
+					<ButtonLoader slot="off" />
 				</Swap>
 			</div>
 		{:else if $$slots.icon}
-			<div class="flex justify-center items-center relative">
-				<Swap {loading}>
-					<svelte:fragment slot="on">
-						<slot name="icon" />
-					</svelte:fragment>
-					<svelte:fragment slot="off">
-						<ButtonLoader />
-					</svelte:fragment>
+			<div class="flex justify-center items-center relative" style="width: {iconSize};">
+				<Swap {loading} style="width: {iconSize};">
+					<slot name="icon" slot="on" size={iconSize} />
+					<ButtonLoader slot="off" />
 				</Swap>
 			</div>
 		{:else if loading}
-			<div transition:scale|local class="mr-2 flex justify-center items-center relative">
+			<div
+				transition:scale|local
+				class="flex justify-center items-center relative"
+				class:mr-1={size === 'xs' || size === 'sm' || size === 'md'}
+				class:mr-2={size === 'lg' || size === 'xl' || size === 'fab'}
+			>
 				<ButtonLoader />
 			</div>
 		{/if}
 		<slot />
-		<slot name="trailing" />
+		{#if $$slots.trailing}
+			<div
+				class="flex justify-center items-center relative"
+				class:ml-1={size === 'xs' || size === 'sm' || size === 'md'}
+				class:ml-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				style="width: {iconSize};"
+			>
+				<slot name="trailing" size={iconSize} />
+			</div>
+		{/if}
 	{:else}
-		<slot name="leading" />
-		<slot name="icon" />
+		{#if $$slots.leading}
+			<div
+				class="flex justify-center items-center relative"
+				class:mr-1={size === 'xs' || size === 'sm' || size === 'md'}
+				class:mr-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				style="width: {iconSize};"
+			>
+				<slot name="leading" size={iconSize} />
+			</div>
+		{/if}
+		{#if $$slots.icon}
+			<div class="flex justify-center items-center relative" style="width: {iconSize};">
+				<Swap {loading} style="width: {iconSize};">
+					<slot name="icon" slot="on" size={iconSize} />
+					<ButtonLoader slot="off" />
+				</Swap>
+			</div>
+		{/if}
 		<slot />
-		<slot name="trailing" />
+		{#if $$slots.trailing}
+			<div
+				class="flex justify-center items-center relative"
+				class:ml-1={size === 'xs' || size === 'sm' || size === 'md'}
+				class:ml-2={size === 'lg' || size === 'xl' || size === 'fab'}
+				style="width: {iconSize};"
+			>
+				<slot name="trailing" size={iconSize} />
+			</div>
+		{/if}
 	{/if}
 
 	{#if !disabled && !disableHover}

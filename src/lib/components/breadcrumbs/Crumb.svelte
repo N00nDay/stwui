@@ -6,7 +6,7 @@
 	import { twMerge } from 'tailwind-merge';
 	import { BREADCRUMBS_CONTEXT_ID } from './Breadcrumbs.svelte';
 	import { useContext } from '$lib/utils/useContext';
-	import { getContext, setContext } from 'svelte/internal';
+	import { setContext } from 'svelte/internal';
 	import Divider from './Divider.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -25,8 +25,6 @@
 	setContext(BREADCRUMBS_CRUMB_CONTEXT_ID, {
 		crumb: true
 	});
-
-	const { type }: { type: 'solid' | 'ghost' } = getContext(BREADCRUMBS_CONTEXT_ID);
 
 	const defaultClass =
 		'flex items-center text-light-secondary-content dark:text-dark-secondary-content';

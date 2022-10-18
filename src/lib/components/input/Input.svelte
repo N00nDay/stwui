@@ -109,7 +109,7 @@
 				class:right-3={!showPasswordToggle && !$$slots.trailing && !error}
 			>
 				<span transition:scale|local class="items-center flex text-light-icon dark:text-dark-icon">
-					<Icon path={close} />
+					<Icon data={close} />
 				</span>
 			</button>
 		{/if}
@@ -121,8 +121,8 @@
 				type="flip"
 				class="absolute left-[unset] inset-y-0 right-1 flex items-center w-9 text-light-secondary-content dark:text-dark-secondary-content"
 			>
-				<Icon slot="on" path={eye} />
-				<Icon slot="off" path={eye_off} />
+				<Icon slot="on" data={eye} />
+				<Icon slot="off" data={eye_off} />
 			</Swap>
 		{:else if $$slots.trailing && !error}
 			<slot name="trailing" />
@@ -130,7 +130,7 @@
 			<span
 				class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-danger"
 			>
-				<Icon path={errorIcon} />
+				<Icon data={errorIcon} />
 			</span>
 		{/if}
 	</div>

@@ -43,6 +43,6 @@
 >
 	<slot />
 	<span class="transition-transform duration-300" class:-rotate-180={$open}
-		><Icon path={chevron_down} /></span
+		><Icon data={chevron_down} /></span
 	>
 </button>

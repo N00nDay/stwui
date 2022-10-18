@@ -131,7 +131,7 @@ export const example = `
 <Autocomplete name="autocomplete" bind:value={value} on:input={filter}>
 	<Autocomplete.Label slot="label">Label</Autocomplete.Label>
 	<Autocomplete.Leading slot="leading">
-		<Icon path={email} />
+		<Icon data={email} />
 	</Autocomplete.Leading>
 	<Autocomplete.Options slot="options">
 		{#if filtered.length > 0}

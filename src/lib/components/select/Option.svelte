@@ -59,7 +59,7 @@
 					transition:scale|local
 					class="text-primary absolute inset-y-0 right-0 flex items-center pr-1.5"
 				>
-					<Icon path={check} />
+					<Icon data={check} />
 				</span>
 			{/if}
 

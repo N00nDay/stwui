@@ -113,16 +113,16 @@ export const example = `
 <Currency name="currency-2">
 	<Currency.Label slot="label">Label</Currency.Label>
 	<Currency.Leading slot="leading">
-		<Icon path={currency_usd} />
+		<Icon data={currency_usd} />
 	</Currency.Leading>
 	<Currency.Trailing slot="trailing">
-		<Icon path={phone} />
+		<Icon data={phone} />
 	</Currency.Trailing>
 </Currency>
 <br />
 <Currency name="currency-3" error="There has been an error">
 	<Currency.Label slot="label">Label</Currency.Label>
 	<Currency.Leading slot="leading">
-		<Icon path={email} />
+		<Icon data={email} />
 	</Currency.Leading>
 </Currency>`;

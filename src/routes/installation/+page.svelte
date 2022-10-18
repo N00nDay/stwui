@@ -27,10 +27,6 @@ module.exports = {
 	],
 	darkMode: 'class',
 };`;
-
-	const htmlCode = `
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet" />
-`;
 </script>
 
 <Col class="col-24">
@@ -72,15 +68,4 @@ module.exports = {
 	</p>
 
 	<CodeBlock language="javascript" code={tailwindCode} />
-
-	<h2 class="text-light-content dark:text-dark-content mb-0 mt-12">Configure Material Icons</h2>
-	<Divider />
-
-	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
-		Modify your <InlineCode>app.html</InlineCode> file and add the following to the <InlineCode
-			>head</InlineCode
-		> section:
-	</p>
-
-	<CodeBlock language="html" code={htmlCode} />
 </Col>

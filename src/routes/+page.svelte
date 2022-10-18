@@ -18,6 +18,8 @@
 	} from '../lib';
 	import { formatDate, formatNumber } from '../lib/utils';
 	import type { CarouselSlide, LightboxAction } from '../lib/types';
+	import { arrow_right, home, send, trash } from '../docs/icons';
+	import { close } from '../lib/icons';
 
 	const items = [
 		{
@@ -110,9 +112,7 @@
 				</p>
 				<Button ariaLabel="get started" class="mt-4" type="primary" on:click={handleGetStarted}
 					>Get Started
-					<Button.Trailing slot="trailing">
-						<Button.Trailing.Icon slot="icon" icon="arrow_forward" />
-					</Button.Trailing>
+					<Icon slot="trailing" data={arrow_right} let:size {size} />
 				</Button>
 			</div>
 		</Col>
@@ -241,7 +241,7 @@
 							<div class="p-4">
 								<Notification class="cursor-default">
 									<Notification.Leading slot="leading">
-										<Icon icon="account_tree" class="text-pink-500" />
+										<Icon data={home} class="text-pink-500" />
 									</Notification.Leading>
 									<Notification.Content slot="content">
 										<Notification.Content.Title slot="title"
@@ -253,7 +253,7 @@
 									</Notification.Content>
 									<Notification.Extra slot="extra">
 										<Button on:click={() => console.log('notification closed!')} shape="circle">
-											<Button.Icon slot="icon" icon="close" />
+											<Icon slot="icon" data={close} let:size {size} />
 										</Button>
 									</Notification.Extra>
 								</Notification>
@@ -275,9 +275,7 @@
 									on:click={() => (sendLoading = !sendLoading)}
 									loading={sendLoading}
 								>
-									<Button.Leading slot="leading">
-										<Button.Leading.Icon slot="icon" icon="send" />
-									</Button.Leading>
+									<Icon slot="leading" data={send} let:size {size} />
 									Click Me!
 								</Button>
 
@@ -286,9 +284,7 @@
 									on:click={() => (deleteLoading = !deleteLoading)}
 									loading={deleteLoading}
 								>
-									<Button.Leading slot="leading">
-										<Button.Leading.Icon slot="icon" icon="delete" />
-									</Button.Leading>
+									<Icon slot="leading" data={trash} let:size {size} />
 									Click Me!
 								</Button>
 
@@ -299,7 +295,7 @@
 									on:click={() => (deleteLoading = !deleteLoading)}
 									loading={deleteLoading}
 								>
-									<Button.Icon slot="icon" icon="paid" />
+									<Icon slot="icon" data={home} let:size {size} />
 								</Button>
 							</div>
 						</Col>

@@ -109,8 +109,8 @@ module.exports = plugin(
 				'line-height': '1.25rem'
 			},
 			'button.btn.md': {
-				'padding-left': '1rem',
-				'padding-right': '1rem',
+				'padding-left': '0.75rem',
+				'padding-right': '0.75rem',
 				'padding-top': '0.5rem',
 				'padding-bottom': '0.5rem',
 				'font-size': '0.875rem',
@@ -125,8 +125,8 @@ module.exports = plugin(
 				'line-height': '1.5rem'
 			},
 			'button.btn.xl': {
-				'padding-left': '1.5rem',
-				'padding-right': '1.5rem',
+				'padding-left': '1rem',
+				'padding-right': '1rem',
 				'padding-top': '0.75rem',
 				'padding-bottom': '0.75rem',
 				'font-size': '1rem',

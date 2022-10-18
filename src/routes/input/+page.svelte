@@ -17,10 +17,10 @@
 			<Input name="input-2" allowClear>
 				<Input.Label slot="label">Label</Input.Label>
 				<Input.Leading slot="leading">
-					<Icon path={email} />
+					<Icon data={email} />
 				</Input.Leading>
 				<Input.Trailing slot="trailing">
-					<Icon path={phone} />
+					<Icon data={phone} />
 				</Input.Trailing>
 			</Input>
 			<br />
@@ -31,17 +31,17 @@
 			>
 				<Input.Label slot="label">Label</Input.Label>
 				<Input.Leading slot="leading">
-					<Icon path={email} />
+					<Icon data={email} />
 				</Input.Leading>
 				<Input.Trailing slot="trailing">
-					<Icon path={phone} />
+					<Icon data={phone} />
 				</Input.Trailing>
 			</Input>
 			<br />
 			<Input type="password" name="input-4" showPasswordToggle>
 				<Input.Label slot="label">Password</Input.Label>
 				<Input.Leading slot="leading">
-					<Icon path={lock} />
+					<Icon data={lock} />
 				</Input.Leading>
 			</Input>
 

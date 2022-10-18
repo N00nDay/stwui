@@ -8,7 +8,7 @@
 	import HoverBackground from '../HoverBackground.svelte';
 	import { check } from '../../icons';
 	import Icon from '../icon';
-	import { get_current_component, onMount } from 'svelte/internal';
+	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
@@ -65,7 +65,7 @@
 					transition:scale|local
 					class="text-primary absolute inset-y-0 right-0 flex items-center pr-2.5"
 				>
-					<Icon path={check} />
+					<Icon data={check} />
 				</span>
 			{/if}
 

@@ -135,9 +135,9 @@ export const iconsExample = `
 
 <Toggle name="toggle">
 	<Toggle.LeftIcon slot="left-icon">
-		<Icon path={brightness_5} />
+		<Icon data={brightness_5} />
 	</Toggle.LeftIcon>
 	<Toggle.RightIcon slot="right-icon">
-		<Icon path={brightness_4} />
+		<Icon data={brightness_4} />
 	</Toggle.RightIcon>
 </Toggle>`;

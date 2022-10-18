@@ -8,11 +8,9 @@
 	import DatePicker from './DatePicker.svelte';
 	import { writable } from 'svelte/store';
 	import dayjs, { Dayjs } from 'dayjs';
-	// import Input from '../input';
 	import Dropdown from '../dropdown';
-	// import type { MaterialIcon } from '../../types';
 	import Icon from '../icon';
-	import { calendar, error as errorIcon } from '../../icons';
+	import { error as errorIcon } from '../../icons';
 	import { get_current_component, setContext } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -163,7 +161,7 @@
 					<span
 						class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-danger"
 					>
-						<Icon path={errorIcon} />
+						<Icon data={errorIcon} />
 					</span>
 				{/if}
 			</div>

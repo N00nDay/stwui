@@ -108,7 +108,7 @@ export const example = `
 
 <Select name="select-2">
 	<Select.Label slot="label">Label</Select.Label>
-	<Icon slot="leading" path={email} />
+	<Icon slot="leading" data={email} />
 	<Select.Options slot="options">
 		{#each options as option}
 			<Select.Options.Option {option} />
@@ -118,7 +118,7 @@ export const example = `
 
 <Select name="select-3" error="There has been an error">
 	<Select.Label slot="label">Label</Select.Label>
-	<Icon slot="leading" path={email} />
+	<Icon slot="leading" data={email} />
 	<Select.Options slot="options">
 		{#each options as option}
 			<Select.Options.Option {option} />

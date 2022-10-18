@@ -106,7 +106,7 @@
 			<Autocomplete name="select-2" bind:value={value2} on:input={filter2}>
 				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
 				<Autocomplete.Leading slot="leading">
-					<Icon path={email} />
+					<Icon data={email} />
 				</Autocomplete.Leading>
 				<Autocomplete.Options slot="options">
 					{#if filtered2.length > 0}
@@ -127,7 +127,7 @@
 			>
 				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
 				<Autocomplete.Leading slot="leading">
-					<Icon path={email} />
+					<Icon data={email} />
 				</Autocomplete.Leading>
 				<Autocomplete.Options slot="options">
 					{#if filtered3.length > 0}

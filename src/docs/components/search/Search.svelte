@@ -5,6 +5,14 @@
 	import { goto } from '$app/navigation';
 	import { scale } from 'svelte/transition';
 	import Kbd from '../kbd/Kbd.svelte';
+	import {
+		format_list_numbered,
+		function_variant,
+		lightning_bolt_circle,
+		magnify,
+		toggle_switch
+	} from '../../icons';
+	import { info } from '../../../lib/icons';
 
 	let input: HTMLInputElement;
 
@@ -74,17 +82,15 @@
 	on:click={handleOpen}
 	class="border-light-border dark:border-dark-border border ml-4 shadow-md dark:shadow-black hidden md:flex"
 >
-	<Button.Leading slot="leading">
-		<Button.Leading.Icon slot="icon" icon="search" />
-	</Button.Leading>
+	<Icon slot="leading" data={magnify} let:size {size} />
 	<div class="w-12 md:w-32 text-left">Search</div>
-	<Button.Trailing slot="trailing" class="justify-self-end hidden sm:flex">
+	<div class="justify-self-end hidden sm:flex">
 		<Kbd>
 			{#if os === 'MacOS'}⌘{:else}CTRL{/if}
 		</Kbd>
 		+
 		<Kbd>k</Kbd>
-	</Button.Trailing>
+	</div>
 </Button>
 
 <Button
@@ -93,7 +99,7 @@
 	shape="circle"
 	class="flex md:hidden ml-4 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
 >
-	<Button.Icon slot="icon" icon="search" />
+	<Icon slot="icon" data={magnify} let:size {size} />
 </Button>
 
 {#if open}
@@ -103,10 +109,12 @@
 				class="mx-auto max-w-xl transform divide-y divide-light-border dark:divide-dark-border overflow-hidden rounded-xl bg-light-surface dark:bg-dark-surface shadow-2xl"
 			>
 				<div class="relative">
-					<Icon
-						icon="search"
-						class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-light-secondary-content dark:text-dark-secondary-content opacity-50"
-					/>
+					<span>
+						<Icon
+							data={magnify}
+							class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-light-secondary-content dark:text-dark-secondary-content opacity-50"
+						/>
+					</span>
 					<input
 						bind:this={input}
 						type="text"
@@ -155,13 +163,13 @@
 									class:bg-error-content={item.type === 'Utility'}
 								>
 									{#if item.type === 'Component'}
-										<Icon icon="toggle_on" class="text-dark-content" />
+										<Icon data={toggle_switch} class="text-dark-content" />
 									{:else if item.type === 'Guide'}
-										<Icon icon="checklist" class="text-dark-content" />
+										<Icon data={format_list_numbered} class="text-dark-content" />
 									{:else if item.type === 'Action'}
-										<Icon icon="offline_bolt" class="text-dark-content" />
+										<Icon data={lightning_bolt_circle} class="text-dark-content" />
 									{:else if item.type === 'Utility'}
-										<Icon icon="functions" class="text-dark-content" />
+										<Icon data={function_variant} class="text-dark-content" />
 									{/if}
 								</div>
 								<div class="ml-4 flex-auto">
@@ -177,10 +185,11 @@
 					</ul>
 				{:else}
 					<div class="py-14 px-6 text-center text-sm sm:px-14">
-						<Icon
-							icon="info"
+						<span
 							class="mx-auto text-5xl text-light-secondary-content dark:text-dark-secondary-content"
-						/>
+						>
+							<Icon data={info} />
+						</span>
 						<h2 class="mt-4 text-light-content dark:text-dark-content">No results found</h2>
 						<p class="mt-2 text-light-secondary-content dark:text-dark-secondary-content">
 							No components found for this search term. Please try again.

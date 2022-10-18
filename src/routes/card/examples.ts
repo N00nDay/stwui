@@ -110,18 +110,24 @@ export const actionsSlots: Slot[] = [
 	}
 ];
 
-export const actionProps: Prop[] = [
+export const actionSlots: Slot[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" class="link" href="/types#MaterialIcon">MaterialIcon</a>',
-		default: ''
+		slot: 'icon',
+		component: ''
 	},
 	{
 		id: '2',
-		prop: 'label',
-		type: 'string',
-		default: ''
+		slot: 'label',
+		component: '<Card.Actions.Action.Label slot="label" />'
+	}
+];
+
+export const labelSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
 	}
 ];
 

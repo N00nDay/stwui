@@ -17,7 +17,7 @@
 			<InputNumber name="input-number-2">
 				<InputNumber.Label slot="label">Number</InputNumber.Label>
 				<InputNumber.Trailing slot="trailing">
-					<Icon path={phone} />
+					<Icon data={phone} />
 				</InputNumber.Trailing>
 			</InputNumber>
 

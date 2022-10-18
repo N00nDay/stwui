@@ -69,12 +69,12 @@ export const buttonSlots: Slot[] = [
 	{
 		id: '1',
 		slot: 'leading',
-		component: '<Button.Leading slot="leading" />'
+		component: ''
 	},
 	{
 		id: '2',
 		slot: 'icon',
-		component: '<Button.Icon slot="icon" />'
+		component: ''
 	},
 	{
 		id: '3',
@@ -84,29 +84,15 @@ export const buttonSlots: Slot[] = [
 	{
 		id: '4',
 		slot: 'trailing',
-		component: '<Button.Trailing slot="trailing" />'
-	}
-];
-
-export const leadingTrailingIconSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'icon',
-		component: '<Button.Leading.Icon slot="icon" />'
-	},
-	{
-		id: '2',
-		slot: 'default',
 		component: ''
 	}
 ];
 
-export const iconProps: Prop[] = [
+export const iconSlots: Slot[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
-		default: ''
+		slot: 'default',
+		component: ''
 	}
 ];
 
@@ -165,50 +151,56 @@ export const exampleDisabled = `
 
 export const exampleIcon = `
 <script lang="ts">
-	import { ButtonGroup } from 'stwui';
+	import { ButtonGroup, Icon } from 'stwui';
+
+	const home = "svg-path";
+	const send = "svg-path";
+	const lock = "svg-path";
 </script>
 
 <ButtonGroup>
-   <ButtonGroup.Button>
-      <ButtonGroup.Button.Icon slot="icon" icon="paid" />
-   </ButtonGroup.Button>
-   <ButtonGroup.Button>
-      <ButtonGroup.Button.Icon slot="icon" icon="add_circle" />
-   </ButtonGroup.Button>
-   <ButtonGroup.Button>
-      <ButtonGroup.Button.Icon slot="icon" icon="workspaces" />
-   </ButtonGroup.Button>
+	<ButtonGroup.Button>
+		<Icon slot="icon" data={home} />
+	</ButtonGroup.Button>
+	<ButtonGroup.Button>
+		<Icon slot="icon" data={send} />
+	</ButtonGroup.Button>
+	<ButtonGroup.Button>
+		<Icon slot="icon" data={lock} />
+	</ButtonGroup.Button>
 </ButtonGroup>`;
 
 export const exampleLeading = `
 <script lang="ts">
-	import { ButtonGroup } from 'stwui';
+	import { ButtonGroup, Icon } from 'stwui';
+
+	const home = "svg-path";
+	const send = "svg-path";
+	const lock = "svg-path";
 </script>
 
 <ButtonGroup>
-   <ButtonGroup.Button>
-      <ButtonGroup.Button.Leading slot="leading">
-         <ButtonGroup.Button.Leading.Icon slot="icon" icon="paid" />
-      </ButtonGroup.Button.Leading>
-      Paid
-   </ButtonGroup.Button>
-   <ButtonGroup.Button>
-      <ButtonGroup.Button.Leading slot="leading">
-         <ButtonGroup.Button.Leading.Icon slot="icon" icon="add_circle" />
-      </ButtonGroup.Button.Leading>
-      Add
-   </ButtonGroup.Button>
-   <ButtonGroup.Button>
-      <ButtonGroup.Button.Leading slot="leading">
-         <ButtonGroup.Button.Leading.Icon slot="icon" icon="workspaces" />
-      </ButtonGroup.Button.Leading>
-      Workspaces
-   </ButtonGroup.Button>
+	<ButtonGroup.Button>
+		<Icon slot="leading" data={home} />
+		Paid
+	</ButtonGroup.Button>
+	<ButtonGroup.Button>
+		<Icon slot="leading" data={send} />
+		Add
+	</ButtonGroup.Button>
+	<ButtonGroup.Button>
+		<Icon slot="leading" data={lock} />
+		Workspaces
+	</ButtonGroup.Button>
 </ButtonGroup>`;
 
 export const exampleLoading = `
 <script lang="ts">
-	import { ButtonGroup } from 'stwui';
+	import { ButtonGroup, Icon } from 'stwui';
+
+	const home = "svg-path";
+	const send = "svg-path";
+	const lock = "svg-path";
 
    let activeItem: number;
 	let loading = false;
@@ -224,25 +216,25 @@ export const exampleLoading = `
 </script>
 
 <ButtonGroup>
-   <ButtonGroup.Button
-      on:click={() => changeActive(0)}
-      active={activeItem === 0}
-      loading={activeItem === 0 && loading}
-   >
-      <ButtonGroup.Button.Icon slot="icon" icon="paid" />
-   </ButtonGroup.Button>
-   <ButtonGroup.Button
-      on:click={() => changeActive(1)}
-      active={activeItem === 1}
-      loading={activeItem === 1 && loading}
-   >
-      <ButtonGroup.Button.Icon slot="icon" icon="add_circle" />
-   </ButtonGroup.Button>
-   <ButtonGroup.Button
-      on:click={() => changeActive(2)}
-      active={activeItem === 2}
-      loading={activeItem === 2 && loading}
-   >
-      <ButtonGroup.Button.Icon slot="icon" icon="workspaces" />
-   </ButtonGroup.Button>
+	<ButtonGroup.Button
+		on:click={() => changeActive(0)}
+		active={activeItem === 0}
+		loading={activeItem === 0 && loading}
+	>
+		<Icon slot="icon" data={home} />
+	</ButtonGroup.Button>
+	<ButtonGroup.Button
+		on:click={() => changeActive(1)}
+		active={activeItem === 1}
+		loading={activeItem === 1 && loading}
+	>
+		<Icon slot="icon" data={send} />
+	</ButtonGroup.Button>
+	<ButtonGroup.Button
+		on:click={() => changeActive(2)}
+		active={activeItem === 2}
+		loading={activeItem === 2 && loading}
+	>
+		<Icon slot="icon" data={lock} />
+	</ButtonGroup.Button>
 </ButtonGroup>`;

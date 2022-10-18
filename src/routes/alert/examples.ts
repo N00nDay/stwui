@@ -32,12 +32,11 @@ export const slots: Slot[] = [
 	}
 ];
 
-export const iconProps: Prop[] = [
+export const iconSlots: Slot[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
-		default: ''
+		slot: 'default',
+		component: ''
 	}
 ];
 
@@ -59,20 +58,23 @@ export const descriptionSlots: Slot[] = [
 
 export const example = `
 <script lang="ts">
-	import { Alert } from 'stwui';
+	import { Alert, Icon } from 'stwui';
+
+	const clear = "svg-path";
+	const close = "svg-path";
 </script>
 
 <Alert>
 	<Alert.Title slot="title">Title</Alert.Title>
 </Alert>
-<br />
+
 <Alert type="warn">
 	<Alert.Title slot="title">Title</Alert.Title>
 </Alert>
-<br />
+
 <Alert type="error">
 	<Alert.Icon slot="icon">
-		<Icon icon="cancel" class="text-current" />
+		<Icon data={clear} class="text-current" />
 	</Alert.Icon>
 	<Alert.Title slot="title">Title</Alert.Title>
 	<Alert.Description slot="description">I am a description</Alert.Description>
@@ -83,6 +85,6 @@ export const example = `
 		class="top-[-0.5rem] right-[-0.5rem] text-error-icon dark:text-dark-error-icon"
 		on:click={() => console.log('I clicked extra')}
 	>
-		<Button.Icon slot="icon" icon="close" />
+		<Icon slot="icon" data={close} let:size {size} />
 	</Button>
 </Alert>`;

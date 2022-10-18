@@ -71,7 +71,7 @@
 			<span
 				class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-danger"
 			>
-				<Icon path={errorIcon} />
+				<Icon data={errorIcon} />
 			</span>
 		{/if}
 	</div>

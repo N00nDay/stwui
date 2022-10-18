@@ -50,6 +50,6 @@
 	{#if $$slots.default}
 		<slot />
 	{:else}
-		<Icon path={account} class="h-full w-full" />
+		<Icon data={account} class="h-full w-full" />
 	{/if}
 </span>

@@ -98,13 +98,13 @@
 				<span
 					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-danger"
 				>
-					<Icon path={errorIcon} />
+					<Icon data={errorIcon} />
 				</span>
 			{:else}
 				<span
 					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-light-icon dark:text-dark-icon"
 				>
-					<Icon path={unfold_more_horizontal} />
+					<Icon data={unfold_more_horizontal} />
 				</span>
 			{/if}
 		</button>

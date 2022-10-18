@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ButtonGroup, Card, Col } from '../../lib';
+	import { ButtonGroup, Card, Col, Icon } from '../../lib';
 	import {
 		example,
 		exampleActive,
@@ -9,11 +9,10 @@
 		exampleLoading,
 		slots,
 		buttonProps,
-		buttonSlots,
-		leadingTrailingIconSlots,
-		iconProps
+		buttonSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { lock, send, home } from '../../docs/icons';
 
 	let activeItem1 = 1;
 
@@ -108,13 +107,13 @@
 		<Card.Content slot="content" class="p-4">
 			<ButtonGroup>
 				<ButtonGroup.Button on:click={() => changeActive1(0)} active={activeItem1 === 0}>
-					<ButtonGroup.Button.Icon slot="icon" icon="paid" />
+					<Icon slot="icon" data={home} />
 				</ButtonGroup.Button>
 				<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}>
-					<ButtonGroup.Button.Icon slot="icon" icon="add_circle" />
+					<Icon slot="icon" data={send} />
 				</ButtonGroup.Button>
 				<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}>
-					<ButtonGroup.Button.Icon slot="icon" icon="workspaces" />
+					<Icon slot="icon" data={lock} />
 				</ButtonGroup.Button>
 			</ButtonGroup>
 
@@ -132,21 +131,15 @@
 		<Card.Content slot="content" class="p-4">
 			<ButtonGroup>
 				<ButtonGroup.Button on:click={() => changeActive1(0)} active={activeItem1 === 0}>
-					<ButtonGroup.Button.Leading slot="leading">
-						<ButtonGroup.Button.Leading.Icon slot="icon" icon="paid" />
-					</ButtonGroup.Button.Leading>
+					<Icon slot="leading" data={home} />
 					Paid
 				</ButtonGroup.Button>
 				<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}>
-					<ButtonGroup.Button.Leading slot="leading">
-						<ButtonGroup.Button.Leading.Icon slot="icon" icon="add_circle" />
-					</ButtonGroup.Button.Leading>
+					<Icon slot="leading" data={send} />
 					Add
 				</ButtonGroup.Button>
 				<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}>
-					<ButtonGroup.Button.Leading slot="leading">
-						<ButtonGroup.Button.Leading.Icon slot="icon" icon="workspaces" />
-					</ButtonGroup.Button.Leading>
+					<Icon slot="leading" data={lock} />
 					Workspaces
 				</ButtonGroup.Button>
 			</ButtonGroup>
@@ -169,21 +162,21 @@
 					active={activeItem2 === 0}
 					loading={activeItem2 === 0 && loading}
 				>
-					<ButtonGroup.Button.Icon slot="icon" icon="paid" />
+					<Icon slot="icon" data={home} />
 				</ButtonGroup.Button>
 				<ButtonGroup.Button
 					on:click={() => changeActive2(1)}
 					active={activeItem2 === 1}
 					loading={activeItem2 === 1 && loading}
 				>
-					<ButtonGroup.Button.Icon slot="icon" icon="add_circle" />
+					<Icon slot="icon" data={send} />
 				</ButtonGroup.Button>
 				<ButtonGroup.Button
 					on:click={() => changeActive2(2)}
 					active={activeItem2 === 2}
 					loading={activeItem2 === 2 && loading}
 				>
-					<ButtonGroup.Button.Icon slot="icon" icon="workspaces" />
+					<Icon slot="icon" data={lock} />
 				</ButtonGroup.Button>
 			</ButtonGroup>
 
@@ -205,24 +198,4 @@
 
 <Col class="col-24">
 	<SlotsTable component="ButtonGroup.Button" slots={buttonSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="ButtonGroup.Button.Leading" slots={leadingTrailingIconSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="ButtonGroup.Button.Leading.Icon" props={iconProps} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="ButtonGroup.Button.Icon" props={iconProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="ButtonGroup.Button.Trailing" slots={leadingTrailingIconSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="ButtonGroup.Button.Trailing.Icon" props={iconProps} />
 </Col>

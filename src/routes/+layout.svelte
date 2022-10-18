@@ -30,7 +30,7 @@
 	let path = $page.url.pathname;
 
 	async function scrollToTop(pathname: string) {
-		const newPath = $page.url.pathname;
+		const newPath = pathname;
 		if (path !== newPath) {
 			if (browser) {
 				const scrollEl = document.getElementById('content-body') as HTMLDivElement;
@@ -104,10 +104,10 @@
 			<Layout.Header.Extra slot="extra">
 				<Toggle name="toggle" bind:on={darkTheme}>
 					<Toggle.LeftIcon slot="left-icon">
-						<Icon path={brightness_5} />
+						<Icon data={brightness_5} />
 					</Toggle.LeftIcon>
 					<Toggle.RightIcon slot="right-icon">
-						<Icon path={brightness_4} />
+						<Icon data={brightness_4} />
 					</Toggle.RightIcon>
 				</Toggle>
 

@@ -127,13 +127,13 @@ export const example = `
 <DatePicker name="date-2" label="Date" max={date2Max} min={date2Min}>
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
 	<DatePicker.Trailing slot="trailing">
-		<Icon path={calendar} />
+		<Icon data={calendar} />
 	</DatePicker.Trailing>
 </DatePicker>
 
 <DatePicker name="date-3" min={date2Min} error="Your doing it wrong">
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
 	<DatePicker.Leading slot="leading">
-		<Icon path={phone} />
+		<Icon data={phone} />
 	</DatePicker.Leading>
 </DatePicker>`;

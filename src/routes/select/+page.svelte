@@ -33,7 +33,7 @@
 			<Select name="select-2">
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Leading slot="leading">
-					<Icon path={email} />
+					<Icon data={email} />
 				</Select.Leading>
 				<Select.Options slot="options">
 					{#each options as option}
@@ -45,7 +45,7 @@
 			<Select name="select-3" error="There has been an error">
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Leading slot="leading">
-					<Icon path={email} />
+					<Icon data={email} />
 				</Select.Leading>
 				<Select.Options slot="options">
 					{#each options as option}
