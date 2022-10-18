@@ -3,7 +3,6 @@
 	import {
 		exampleGroup,
 		slots,
-		iconSlots,
 		placeholderSlots,
 		indicatorProps,
 		groupProps,
@@ -79,10 +78,6 @@
 
 <Col class="col-24">
 	<SlotsTable component="AvatarGroup.Avatar.Placeholder" slots={placeholderSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="AvatarGroup.Avatar.Placeholder.Icon" slots={iconSlots} />
 </Col>
 
 <Col class="col-24">

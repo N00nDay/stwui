@@ -73,8 +73,9 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	{#if $$slots.icon}
+	{#if $$slots.icon || $$slots.default}
 		<slot name="icon" />
+		<slot />
 	{:else}
 		<span class={iconContainerClass}>
 			<Icon data={account} size={iconSize} />
