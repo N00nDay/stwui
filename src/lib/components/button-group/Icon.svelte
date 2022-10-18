@@ -17,7 +17,7 @@
 	export let height = size;
 
 	export let color = 'currentColor';
-	export let stroke = color;
+	export let stroke: string | undefined = undefined;
 	export let fill = color;
 
 	$: elements = data.replace(/<svg ([^>]*)>/, '').replace('</svg>', '');

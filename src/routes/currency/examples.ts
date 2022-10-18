@@ -86,6 +86,11 @@ export const labelSlots: Slot[] = [
 export const leadingSlots: Slot[] = [
 	{
 		id: '1',
+		slot: 'icon',
+		component: '<Currency.Leading.Icon slot="icon" />'
+	},
+	{
+		id: '2',
 		slot: 'default',
 		component: ''
 	}
@@ -94,14 +99,70 @@ export const leadingSlots: Slot[] = [
 export const trailingSlots: Slot[] = [
 	{
 		id: '1',
+		slot: 'icon',
+		component: '<Currency.Trailing.Icon slot="icon" />'
+	},
+	{
+		id: '2',
 		slot: 'default',
 		component: ''
 	}
 ];
 
+export const iconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
+		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
+	}
+];
+
 export const example = `
 <script lang="ts">
-	import { Currency, Icon } from 'stwui';
+	import { Currency } from 'stwui';
 
 	const currency_usd = "svg-path";
 	const phone = "svg-path";
@@ -113,16 +174,16 @@ export const example = `
 <Currency name="currency-2">
 	<Currency.Label slot="label">Label</Currency.Label>
 	<Currency.Leading slot="leading">
-		<Icon data={currency_usd} />
+		<Currency.Leading.Icon data={currency_usd} />
 	</Currency.Leading>
 	<Currency.Trailing slot="trailing">
-		<Icon data={phone} />
+		<Currency.Trailing.Icon data={phone} />
 	</Currency.Trailing>
 </Currency>
 <br />
 <Currency name="currency-3" error="There has been an error">
 	<Currency.Label slot="label">Label</Currency.Label>
 	<Currency.Leading slot="leading">
-		<Icon data={email} />
+		<Currency.Leading.Icon data={email} />
 	</Currency.Leading>
 </Currency>`;

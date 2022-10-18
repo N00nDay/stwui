@@ -128,8 +128,8 @@ export const iconProps: Prop[] = [
 	{
 		id: '7',
 		prop: 'stroke',
-		type: 'string',
-		default: 'currentColor'
+		type: 'string | undefined',
+		default: ''
 	},
 	{
 		id: '8',
