@@ -8,7 +8,8 @@
 		exampleShape,
 		exampleSwap,
 		props,
-		slots
+		slots,
+		iconProps
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { home } from '../../docs/icons';
@@ -92,27 +93,27 @@
 		<Card.Header slot="header">Leading & Trailing</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Button {loading} on:click={toggleLoading}>
-				<Icon data={home} slot="leading" let:size {size} />
+				<Button.Leading data={home} slot="leading" />
 				Default button
 			</Button>
 
 			<Button type="primary">
-				<Icon data={home} slot="leading" let:size {size} />I am primary</Button
+				<Button.Leading data={home} slot="leading" />I am primary</Button
 			>
 
 			<Button type="danger" {loading}
 				>I am scary
-				<Icon data={home} slot="trailing" let:size {size} />
+				<Button.Trailing data={home} slot="trailing" />
 			</Button>
 
 			<Button type="ghost"
 				>Boo I am a ghost
-				<Icon data={home} slot="trailing" let:size {size} />
+				<Button.Trailing data={home} slot="trailing" />
 			</Button>
 
 			<Button type="link"
 				>I am a link
-				<Icon data={home} slot="trailing" let:size {size} />
+				<Button.Trailing data={home} slot="trailing" />
 			</Button>
 
 			<br />
@@ -128,7 +129,7 @@
 		<Card.Header slot="header">Shape</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Button shape="circle" on:click={toggleLoading} {loading}>
-				<Icon data={home} slot="icon" let:size {size} />
+				<Button.Icon data={home} slot="icon" />
 			</Button>
 
 			<Button type="primary" shape="square">I am primary</Button>
@@ -152,16 +153,16 @@
 		<Card.Header slot="header">Swap Icon</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Button shape="circle" on:click={toggleLoading}>
-				<Swap slot="icon" {loading} let:size>
-					<Icon data={menu} slot="on" {size} />
-					<Icon data={close} slot="off" {size} />
+				<Swap slot="icon" {loading}>
+					<Button.Icon data={menu} slot="on" />
+					<Button.Icon data={close} slot="off" />
 				</Swap>
 			</Button>
 
 			<Button type="primary">
-				<Swap {loading} slot="leading" let:size>
-					<Icon data={menu} slot="on" {size} />
-					<Icon data={close} slot="off" {size} />
+				<Swap {loading} slot="leading">
+					<Button.Icon data={menu} slot="on" />
+					<Button.Icon data={close} slot="off" />
 				</Swap>
 				I am primary
 			</Button>
@@ -189,51 +190,51 @@
 			<Button type="primary" size="xl">xl</Button>
 
 			<Button type="primary" size="xs" shape="circle">
-				<Icon data={home} slot="icon" let:size {size} />
+				<Button.Icon data={home} slot="icon" />
 			</Button>
 
 			<Button type="primary" size="sm" shape="circle">
-				<Icon data={home} slot="icon" let:size {size} />
+				<Button.Icon data={home} slot="icon" />
 			</Button>
 
 			<Button type="primary" size="md" shape="circle">
-				<Icon data={home} slot="icon" let:size {size} />
+				<Button.Icon data={home} slot="icon" />
 			</Button>
 
 			<Button type="primary" size="lg" shape="circle">
-				<Icon data={home} slot="icon" let:size {size} />
+				<Button.Icon data={home} slot="icon" />
 			</Button>
 
 			<Button type="primary" size="xl" shape="circle">
-				<Icon data={home} slot="icon" let:size {size} />
+				<Button.Icon data={home} slot="icon" />
 			</Button>
 
 			<Button type="primary" size="fab" shape="circle">
-				<Icon data={home} slot="icon" let:size {size} />
+				<Button.Icon data={home} slot="icon" />
 			</Button>
 
 			<Button type="default" size="xs">
-				<Icon data={home} slot="leading" let:size {size} />
+				<Button.Leading data={home} slot="leading" />
 				xs</Button
 			>
 
 			<Button type="default" size="sm">
-				<Icon data={home} slot="leading" let:size {size} />
+				<Button.Leading data={home} slot="leading" />
 				sm</Button
 			>
 
 			<Button type="default" size="md">
-				<Icon data={home} slot="leading" let:size {size} />
+				<Button.Leading data={home} slot="leading" />
 				md</Button
 			>
 
 			<Button type="default" size="lg">
-				<Icon data={home} slot="leading" let:size {size} />
+				<Button.Leading data={home} slot="leading" />
 				lg</Button
 			>
 
 			<Button type="default" size="xl">
-				<Icon data={home} slot="leading" let:size {size} />
+				<Button.Leading data={home} slot="leading" />
 				xl</Button
 			>
 		</Card.Content>
@@ -246,4 +247,16 @@
 
 <Col class="col-24">
 	<SlotsTable component="Button" {slots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Button.Leading" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Button.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Button.Trailing" props={iconProps} />
 </Col>

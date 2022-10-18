@@ -34,11 +34,6 @@
 	export let disableHover = false;
 	export let ariaLabel: undefined | string = undefined;
 
-	setContext(BUTTON_CONTEXT_ID, {
-		button: true,
-		size
-	});
-
 	let iconSize = '';
 	if (size === 'xs') {
 		iconSize = '16px';
@@ -53,6 +48,11 @@
 	} else if (size === 'fab') {
 		iconSize = '34px';
 	}
+
+	setContext(BUTTON_CONTEXT_ID, {
+		button: true,
+		iconSize
+	});
 
 	let defaultClass =
 		'btn group relative inline-flex justify-center items-center font-medium active:hover:animate-none active:hover:scale-95 outline-none';

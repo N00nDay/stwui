@@ -61,12 +61,12 @@ export const slots: Slot[] = [
 	{
 		id: '1',
 		slot: 'leading',
-		component: '<Icon path="" slot="leading" let:size {size} />'
+		component: '<Button.Leading slot="leading" />'
 	},
 	{
 		id: '2',
 		slot: 'icon',
-		component: '<Icon path="" slot="icon" let:size {size} />'
+		component: '<Button.Icon slot="icon" />'
 	},
 	{
 		id: '3',
@@ -76,7 +76,58 @@ export const slots: Slot[] = [
 	{
 		id: '4',
 		slot: 'trailing',
-		component: '<Icon path="" slot="trailing" let:size {size} />'
+		component: '<Button.Trailing slot="trailing" />'
+	}
+];
+
+export const iconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
+		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -115,45 +166,45 @@ export const exampleDisabled = `
 
 export const exampleLeadingTrailing = `
 <script lang="ts">
-	import { Button, Icon } from 'stwui';
+	import { Button } from 'stwui';
 
 	const home = "svg-path";
 </script>
 
 <Button>
-	<Icon data={home} slot="leading" let:size {size} />
+	<Button.Leading data={home} slot="leading" />
 	Default button
 </Button>
 
 <Button type="primary">
-	<Icon data={home} slot="leading" let:size {size} />
+	<Button.Leading data={home} slot="leading" />
 	I am primary
 </Button>
 
 <Button type="danger">
 	I am scary
-	<Icon data={home} slot="trailing" let:size {size} />
+	<Button.Trailing data={home} slot="trailing" />
 </Button>
 
 <Button type="ghost">
 	Boo I am a ghost
-	<Icon data={home} slot="trailing" let:size {size} />
+	<Button.Trailing data={home} slot="trailing" />
 </Button>
 
 <Button type="link">
 	I am a link
-	<Icon data={home} slot="trailing" let:size {size} />
+	<Button.Trailing data={home} slot="trailing" />
 </Button>`;
 
 export const exampleShape = `
 <script lang="ts">
-	import { Button, Icon } from 'stwui';
+	import { Button } from 'stwui';
 
 	const home = "svg-path";
 </script>
 
 <Button shape="circle">
-	<Icon data={home} slot="icon" let:size {size} />
+	<Button.Icon data={home} slot="icon" />
 </Button>
 
 <Button type="primary" shape="square">I am primary</Button>
@@ -176,16 +227,16 @@ export const exampleSwap = `
 </script>
 
 <Button shape="circle" on:click={toggleLoading}>
-	<Swap slot="icon" {loading} let:size>
-		<Icon data={menu} slot="on" {size} />
-		<Icon data={close} slot="off" {size} />
+	<Swap slot="icon" {loading}>
+		<Button.Icon data={menu} slot="on" />
+		<Button.Icon data={close} slot="off" />
 	</Swap>
 </Button>
 
 <Button type="primary">
-	<Swap {loading} slot="leading" let:size>
-		<Icon data={menu} slot="on" {size} />
-		<Icon data={close} slot="off" {size} />
+	<Swap {loading} slot="leading">
+		<Button.Icon data={menu} slot="on" />
+		<Button.Icon data={close} slot="off" />
 	</Swap>
 	I am primary
 </Button>`;
