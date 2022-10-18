@@ -12,8 +12,8 @@ export const props: Prop[] = [
 export const slots: Slot[] = [
 	{
 		id: '1',
-		slot: 'icon',
-		component: '<Alert.Icon slot="icon" />'
+		slot: 'leading',
+		component: '<Alert.Leading slot="leading" />'
 	},
 	{
 		id: '2',
@@ -32,11 +32,67 @@ export const slots: Slot[] = [
 	}
 ];
 
-export const iconSlots: Slot[] = [
+export const leadingSlots: Slot[] = [
 	{
 		id: '1',
 		slot: 'default',
 		component: ''
+	},
+	{
+		id: '1',
+		slot: 'icon',
+		component: '<Alert.Leading.Icon slot="icon" />'
+	}
+];
+
+export const iconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
+		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -58,7 +114,7 @@ export const descriptionSlots: Slot[] = [
 
 export const example = `
 <script lang="ts">
-	import { Alert, Icon } from 'stwui';
+	import { Alert } from 'stwui';
 
 	const clear = "svg-path";
 	const close = "svg-path";
@@ -73,9 +129,9 @@ export const example = `
 </Alert>
 
 <Alert type="error">
-	<Alert.Icon slot="icon">
-		<Icon data={clear} class="text-current" />
-	</Alert.Icon>
+	<Alert.Leading slot="leading">
+		<Alert.Leading.Icon slot="icon" data={clear} class="text-current" />
+	</Alert.Leading>
 	<Alert.Title slot="title">Title</Alert.Title>
 	<Alert.Description slot="description">I am a description</Alert.Description>
 	<Button
@@ -85,6 +141,6 @@ export const example = `
 		class="top-[-0.5rem] right-[-0.5rem] text-error-icon dark:text-dark-error-icon"
 		on:click={() => console.log('I clicked extra')}
 	>
-		<Icon slot="icon" data={close} let:size {size} />
+		<Button.Icon slot="icon" data={close} />
 	</Button>
 </Alert>`;

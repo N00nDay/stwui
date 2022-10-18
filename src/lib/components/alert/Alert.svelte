@@ -41,9 +41,9 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<div class="flex">
-		<slot name="icon" />
+		<slot name="leading" />
 		{#if $$slots.title || $$slots.description}
-			<div class="flex items-start justify-start flex-col w-full" class:ml-3={$$slots.icon}>
+			<div class="flex items-start justify-start flex-col w-full" class:ml-3={$$slots.leading}>
 				<slot name="title" />
 				<slot name="description" />
 			</div>

@@ -24,11 +24,11 @@
 				<Chip.Avatar slot="avatar" src={avatar} />
 				<Chip.Label slot="label">Castor Troy</Chip.Label>
 			</Chip>
-			<Chip size="lg" type="error">
-				<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip size="lg">
+				<Chip.Avatar slot="avatar" src="no-image.png" />
 				<Chip.Label slot="label">Castor Troy</Chip.Label>
 			</Chip>
-			<Chip size="xl">
+			<Chip size="xl" type="error">
 				<Chip.Avatar slot="avatar" src={avatar} />
 				<Chip.Label slot="label">Castor Troy</Chip.Label>
 			</Chip>

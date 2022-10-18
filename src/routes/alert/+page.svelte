@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { Alert, Button, Card, Col, Icon } from '../../lib';
-	import { example, props, slots, iconSlots, titleSlots, descriptionSlots } from './examples';
+	import {
+		example,
+		props,
+		slots,
+		iconProps,
+		leadingSlots,
+		titleSlots,
+		descriptionSlots
+	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { close, clear } from '../../lib/icons';
 </script>
@@ -17,9 +25,9 @@
 			</Alert>
 			<br />
 			<Alert type="error">
-				<Alert.Icon slot="icon">
-					<Icon data={clear} class="text-current" />
-				</Alert.Icon>
+				<Alert.Leading slot="leading">
+					<Alert.Leading.Icon data={clear} class="text-current" />
+				</Alert.Leading>
 				<Alert.Title slot="title">Title</Alert.Title>
 				<Alert.Description slot="description">I am a description</Alert.Description>
 				<Button
@@ -49,7 +57,11 @@
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="Alert.Icon" slots={iconSlots} />
+	<SlotsTable component="Alert.Leading" slots={leadingSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Alert.Leading.Icon" props={iconProps} />
 </Col>
 
 <Col class="col-24">

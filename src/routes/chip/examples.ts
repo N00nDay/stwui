@@ -79,11 +79,11 @@ export const example = `
    <Chip.Avatar slot="avatar" src="image.png" />
    <Chip.Label slot="label">Castor Troy</Chip.Label>
 </Chip>
-<Chip size="lg" type="error">
-   <Chip.Avatar slot="avatar" src="image.png" />
+<Chip size="lg">
+   <Chip.Avatar slot="avatar" src="no-image.png" />
    <Chip.Label slot="label">Castor Troy</Chip.Label>
 </Chip>
-<Chip size="xl">
+<Chip size="xl" type="error">
    <Chip.Avatar slot="avatar" src="image.png" />
    <Chip.Label slot="label">Castor Troy</Chip.Label>
 </Chip>`;

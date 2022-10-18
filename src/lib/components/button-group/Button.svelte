@@ -24,7 +24,7 @@
 	export let ariaLabel: undefined | string = undefined;
 	export let htmlType = 'button';
 
-	const iconSize = '24px';
+	const iconSize = '20px';
 
 	useContext({
 		context_id: BUTTON_GROUP_CONTEXT_ID,
