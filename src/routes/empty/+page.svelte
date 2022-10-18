@@ -2,21 +2,21 @@
 	import { Button, Card, Col, Empty } from '../../lib';
 	import { example, slots, iconProps, titleSlots, descriptionSlots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+
+	import { plus_circle, lock } from '../../docs/icons';
 </script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
 		<Card.Content slot="content" class="p-4">
 			<Empty>
-				<Empty.Icon slot="icon" icon="edit_document" />
+				<Empty.Icon slot="icon" data={lock} />
 				<Empty.Title slot="title">No Projects</Empty.Title>
 				<Empty.Description slot="description"
 					>Get started by creating a new project.</Empty.Description
 				>
 				<Button class="mt-6" type="primary" on:click={() => console.log('clicked new project')}>
-					<Button.Leading slot="leading">
-						<Button.Leading.Icon slot="icon" icon="add" />
-					</Button.Leading>
+					<Button.Leading slot="leading" data={plus_circle} />
 					New Project</Button
 				>
 			</Empty>

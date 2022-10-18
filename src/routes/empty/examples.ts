@@ -31,9 +31,51 @@ export const slots: Slot[] = [
 export const iconProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
 		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -56,18 +98,19 @@ export const descriptionSlots: Slot[] = [
 export const example = `
 <script lang="ts">
 	import { Empty, Button } from 'stwui';
+
+	const lock = "svg-path";
+	const plus_circle = "svg-path";
 </script>
 
 <Empty>
-   <Empty.Icon slot="icon" icon="edit_document" />
+   <Empty.Icon slot="icon" data={lock} />
    <Empty.Title slot="title">No Projects</Empty.Title>
    <Empty.Description slot="description">
       Get started by creating a new project.
    </Empty.Description>
    <Button class="mt-6" type="primary" on:click={() => console.log('clicked new project')}>
-      <Button.Leading slot="leading">
-         <Button.Leading.Icon slot="icon" icon="add" />
-      </Button.Leading>
+      <Button.Leading slot="leading" data={plus_circle} />>
       New Project
    </Button>
 </Empty>`;
