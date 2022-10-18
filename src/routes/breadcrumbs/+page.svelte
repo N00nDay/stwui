@@ -8,7 +8,7 @@
 		slots,
 		crumbProps,
 		crumbSlots,
-		iconSlots,
+		iconProps,
 		labelSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
@@ -35,16 +35,12 @@
 				{#each crumbs as crumb}
 					{#if crumb.icon && crumb.label}
 						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon">
-								<Icon data={crumb.icon} />
-							</Breadcrumbs.Crumb.Icon>
+							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
 							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 						</Breadcrumbs.Crumb>
 					{:else if crumb.icon}
 						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon">
-								<Icon data={crumb.icon} />
-							</Breadcrumbs.Crumb.Icon>
+							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
 						</Breadcrumbs.Crumb>
 					{:else}
 						<Breadcrumbs.Crumb href={crumb.href}>
@@ -69,16 +65,12 @@
 				{#each crumbs as crumb}
 					{#if crumb.icon && crumb.label}
 						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon">
-								<Icon data={crumb.icon} />
-							</Breadcrumbs.Crumb.Icon>
+							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
 							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 						</Breadcrumbs.Crumb>
 					{:else if crumb.icon}
 						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon">
-								<Icon data={crumb.icon} />
-							</Breadcrumbs.Crumb.Icon>
+							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
 						</Breadcrumbs.Crumb>
 					{:else}
 						<Breadcrumbs.Crumb href={crumb.href}>
@@ -104,17 +96,13 @@
 					{#if crumb.icon && crumb.label}
 						<Breadcrumbs.Crumb href={crumb.href}>
 							<div slot="divider" class="divider">|</div>
-							<Breadcrumbs.Crumb.Icon slot="icon">
-								<Icon data={crumb.icon} />
-							</Breadcrumbs.Crumb.Icon>
+							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
 							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
 						</Breadcrumbs.Crumb>
 					{:else if crumb.icon}
 						<Breadcrumbs.Crumb href={crumb.href}>
 							<div slot="divider" class="divider">|</div>
-							<Breadcrumbs.Crumb.Icon slot="icon">
-								<Icon data={crumb.icon} />
-							</Breadcrumbs.Crumb.Icon>
+							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
 						</Breadcrumbs.Crumb>
 					{:else}
 						<Breadcrumbs.Crumb href={crumb.href}>
@@ -149,7 +137,7 @@
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="Breadcrumbs.Crumb.Icon" slots={iconSlots} />
+	<PropsTable component="Breadcrumbs.Crumb.Icon" props={iconProps} />
 </Col>
 
 <Col class="col-24">

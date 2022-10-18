@@ -27,7 +27,7 @@
 	});
 
 	const defaultClass =
-		'flex items-center text-light-secondary-content dark:text-dark-secondary-content';
+		'flex items-center text-light-secondary-content dark:text-dark-secondary-content hover:text-primary';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
