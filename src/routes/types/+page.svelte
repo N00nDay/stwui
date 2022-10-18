@@ -7,9 +7,10 @@
 		tableColumn,
 		timelineItem,
 		tooltipConfig,
-		formatNumber
+		formatNumber,
+		iconData
 	} from './examples';
-	import { InlineCode, CodeBlock } from '../../docs';
+	import { CodeBlock } from '../../docs';
 </script>
 
 <Col class="col-24">
@@ -40,6 +41,20 @@
 
 	<br />
 
+	<h2 id="IconData" class="text-light-content dark:text-dark-content mb-0 mt-12">IconData</h2>
+	<Divider />
+
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		Used in conjunction with any <a class="link" href="/icon">Icon</a> components. IconData is just
+		an svg element as a string. The interal icons for this package utilize icons from
+		<a href="https://materialdesignicons.com/" class="link">https://materialdesignicons.com/</a> but
+		you can use any library that provides the raw svg element.
+	</p>
+
+	<CodeBlock language="typescript" code={iconData} />
+
+	<br />
+
 	<h2 id="LightboxAction" class="text-light-content dark:text-dark-content mb-0 mt-12">
 		LightboxAction
 	</h2>
@@ -61,23 +76,6 @@
 	</p>
 
 	<CodeBlock language="typescript" code={locale} />
-
-	<br />
-
-	<h2 id="MaterialIcon" class="text-light-content dark:text-dark-content mb-0 mt-12">
-		MaterialIcon
-	</h2>
-	<Divider />
-
-	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
-		All Icon components use <a
-			class="link"
-			target="_blank"
-			href="https://fonts.google.com/icons?selected=Material+Icons">Material Design Icons</a
-		>
-		under the hood. Use the string value for any
-		<InlineCode>icon=""</InlineCode> properties.
-	</p>
 
 	<br />
 
