@@ -4,7 +4,7 @@ import Option from './Option.svelte';
 import EmptyOption from './EmptyOption.svelte';
 import Label from './Label.svelte';
 import OriginalLeading from './Leading.svelte';
-import Icon from './Icon.svelte';
+import Icon from '../icon/Icon.svelte';
 
 const Autocomplete = OriginalAutocomplete as AutocompleteStatic;
 Autocomplete.Options = OriginalOptions as OptionsStatic;

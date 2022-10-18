@@ -1,5 +1,5 @@
 import OriginalAlert from './Alert.svelte';
-import Icon from './Icon.svelte';
+import Icon from '../icon/Icon.svelte';
 import Title from './Title.svelte';
 import Description from './Description.svelte';
 import OriginalLeading from './Leading.svelte';
