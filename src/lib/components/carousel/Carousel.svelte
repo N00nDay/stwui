@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { CarouselSlide } from '../../types';
+	import Icon from '../icon/Icon.svelte';
+	import { arrow_back, arrow_forward } from '../../icons';
 
 	export let slides: CarouselSlide[] = [];
 	export let activeSlide = 0;
@@ -62,9 +64,9 @@
 		type="button"
 	>
 		<div
-			class="flex items-center justify-center h-12 w-12 bg-white bg-opacity-10 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
+			class="flex items-center justify-center h-12 w-12 text-dark-content bg-white bg-opacity-10 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
 		>
-			<span class="material-icons text-3xl text-dark-content"> arrow_back </span>
+			<Icon data={arrow_back} />
 			<span class="sr-only">Previous</span>
 		</div>
 	</button>
@@ -75,9 +77,9 @@
 		type="button"
 	>
 		<div
-			class="flex items-center justify-center h-14 w-14 bg-white bg-opacity-10 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
+			class="flex items-center justify-center h-12 w-12 text-dark-content bg-white bg-opacity-10 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
 		>
-			<span class="material-icons text-3xl text-dark-content"> arrow_forward </span>
+			<Icon data={arrow_forward} />
 			<span class="sr-only">Next</span>
 		</div>
 	</button>

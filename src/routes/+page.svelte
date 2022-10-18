@@ -18,8 +18,8 @@
 	} from '../lib';
 	import { formatDate, formatNumber } from '../lib/utils';
 	import type { CarouselSlide, LightboxAction } from '../lib/types';
-	import { arrow_right, home, send, trash } from '../docs/icons';
-	import { close } from '../lib/icons';
+	import { home, send, trash } from '../docs/icons';
+	import { close, arrow_forward } from '../lib/icons';
 
 	const items = [
 		{
@@ -112,7 +112,7 @@
 				</p>
 				<Button ariaLabel="get started" class="mt-4" type="primary" on:click={handleGetStarted}
 					>Get Started
-					<Icon slot="trailing" data={arrow_right} let:size {size} />
+					<Icon slot="trailing" data={arrow_forward} let:size {size} />
 				</Button>
 			</div>
 		</Col>
