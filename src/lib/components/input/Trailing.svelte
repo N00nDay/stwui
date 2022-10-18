@@ -32,5 +32,6 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
+	<slot name="icon" />
 	<slot />
 </span>

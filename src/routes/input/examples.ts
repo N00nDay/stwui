@@ -106,6 +106,11 @@ export const leadingSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	},
+	{
+		id: '2',
+		slot: 'icon',
+		component: '<Input.Leading.Icon slot="icon" />'
 	}
 ];
 
@@ -114,12 +119,68 @@ export const trailingSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	},
+	{
+		id: '2',
+		slot: 'icon',
+		component: '<Input.Trailing.Icon slot="icon" />'
+	}
+];
+
+export const iconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
+		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
 export const example = `
 <script lang="ts">
-	import { Input, Icon } from 'stwui';
+	import { Input } from 'stwui';
 
 	const email = "svg-path";
 	const phone = "svg-path";
@@ -131,10 +192,10 @@ export const example = `
 <Input name="input-2" allowClear>
 	<Input.Label slot="label">Label</Input.Label>
 	<Input.Leading slot="leading">
-		<Icon data={email} />
+		<Input.Leading.Icon slot="icon" data={email} />
 	</Input.Leading>
 	<Input.Trailing slot="trailing">
-		<Icon data={phone} />
+		<Input.Trailing.Icon slot="icon" data={phone} />
 	</Input.Trailing>
 </Input>
 
@@ -145,16 +206,16 @@ export const example = `
 >
 	<Input.Label slot="label">Label</Input.Label>
 	<Input.Leading slot="leading">
-		<Icon data={email} />
+		<Input.LeadingIcon slot="icon" data={email} />
 	</Input.Leading>
 	<Input.Trailing slot="trailing">
-		<Icon data={phone} />
+		<Input.Trailing.Icon slot="icon" data={phone} />
 	</Input.Trailing>
 </Input>
 
 <Input type="password" name="input-4" showPasswordToggle>
 	<Input.Label slot="label">Password</Input.Label>
 	<Input.Leading slot="leading">
-		<Icon data={lock} />
+		<Input.Leading.Icon slot="icon" data={lock} />
 	</Input.Leading>
 </Input>`;
