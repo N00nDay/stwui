@@ -53,6 +53,22 @@ export const avatarProps: Prop[] = [
 	}
 ];
 
+export const avatarSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'placeholder',
+		component: '<Avatar.Placeholder slot="placeholder" />'
+	}
+];
+
+export const placeholderSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'icon',
+		component: ''
+	}
+];
+
 export const labelSlots: Slot[] = [
 	{
 		id: '1',

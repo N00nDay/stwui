@@ -1,6 +1,15 @@
 <script lang="ts">
 	import { Card, Chip, Col } from '../../lib';
-	import { example, closeExample, props, slots, avatarProps, labelSlots } from './examples';
+	import {
+		example,
+		closeExample,
+		props,
+		slots,
+		avatarProps,
+		labelSlots,
+		placeholderSlots,
+		avatarSlots
+	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	const avatar =
@@ -74,6 +83,14 @@
 
 <Col class="col-24">
 	<PropsTable component="Chip.Avatar" props={avatarProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Chip.Avatar" slots={avatarSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Chip.Avatar.Placeholder" slots={placeholderSlots} />
 </Col>
 
 <Col class="col-24">

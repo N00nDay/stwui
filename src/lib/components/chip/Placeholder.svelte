@@ -8,7 +8,8 @@
 	import { useContext } from '../../utils/useContext';
 	import { getContext, setContext } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
-	import Icon from './Icon.svelte';
+	import Icon from '../icon/Icon.svelte';
+	import { account } from '../../icons';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -23,14 +24,37 @@
 		component: 'Chip.Avatar.Placeholder'
 	});
 
-	const { shape }: { shape: 'circle' | 'rounded' | 'square' } = getContext(CHIP_AVATAR_CONTEXT_ID);
+	const {
+		shape,
+		size
+	}: { shape: 'circle' | 'rounded' | 'square'; size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' } =
+		getContext(CHIP_AVATAR_CONTEXT_ID);
 
 	setContext(CHIP_AVATAR_PLACEHOLDER_CONTEXT_ID, {
 		placeholder: true
 	});
 
+	let iconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
+	let iconSize = '';
+	if (size === 'xs') {
+		iconContainerClass += ' bottom-[-0.25rem]';
+		iconSize = '24px';
+	} else if (size === 'sm') {
+		iconContainerClass += ' bottom-[-0.35rem]';
+		iconSize = '32px';
+	} else if (size === 'md') {
+		iconContainerClass += ' bottom-[-0.5rem]';
+		iconSize = '40px';
+	} else if (size === 'lg') {
+		iconContainerClass += ' text-6xl bottom-[-0.6rem]';
+		iconSize = '48px';
+	} else if (size === 'xl') {
+		iconContainerClass += ' bottom-[-0.75rem]';
+		iconSize = '64px';
+	}
+
 	let defaultClass =
-		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';
+		'absolute inset-0 h-full w-full text-light-icon dark:text-dark-icon flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';
 	if (shape === 'circle') {
 		defaultClass += ' rounded-full';
 	} else if (shape === 'rounded') {
@@ -53,7 +77,10 @@
 		<slot name="icon" />
 		<slot />
 	{:else}
-		<Icon class="text-light-icon dark:text-dark-icon" />
+		<Icon class="" />
+		<span class={iconContainerClass}>
+			<Icon data={account} size={iconSize} />
+		</span>
 	{/if}
 </div>
 
