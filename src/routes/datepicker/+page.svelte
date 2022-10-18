@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { Card, Col, DatePicker, Icon } from '../../lib';
-	import { example, props, slots, labelSlots, leadingSlots, trailingSlots } from './examples';
+	import {
+		example,
+		props,
+		slots,
+		labelSlots,
+		leadingSlots,
+		trailingSlots,
+		iconProps
+	} from './examples';
 	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
 	import { phone } from '../../docs/icons';
 	import { calendar } from '../../lib/icons';
@@ -22,7 +30,7 @@
 			<DatePicker name="date-2" label="Date" max={date2Max} min={date2Min}>
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Trailing slot="trailing">
-					<Icon data={calendar} />
+					<DatePicker.Trailing.Icon slot="icon" data={calendar} />
 				</DatePicker.Trailing>
 			</DatePicker>
 			<br />
@@ -30,7 +38,7 @@
 			<DatePicker name="date-3" min={date2Min} error="Your doing it wrong">
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Leading slot="leading">
-					<Icon data={phone} />
+					<DatePicker.Leading.Icon slot="icon" data={phone} />
 				</DatePicker.Leading>
 			</DatePicker>
 
@@ -59,5 +67,13 @@
 </Col>
 
 <Col class="col-24">
+	<PropsTable component="DatePicker.Leading.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
 	<SlotsTable component="DatePicker.Trailing" slots={trailingSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="DatePicker.Trailing.Icon" props={iconProps} />
 </Col>

@@ -100,6 +100,11 @@ export const leadingSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	},
+	{
+		id: '2',
+		slot: 'icon',
+		component: '<DatePicker.Leading.Icon slot="icon" />'
 	}
 ];
 
@@ -108,12 +113,68 @@ export const trailingSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	},
+	{
+		id: '2',
+		slot: 'icon',
+		component: '<DatePicker.Trailing.Icon slot="icon" />'
+	}
+];
+
+export const iconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
+		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
 export const example = `
 <script lang="ts">
-	import { DatePicker, Icon } from 'stwui';
+	import { DatePicker } from 'stwui';
 
 	const date2Max = new Date(2022, 7, 30);
 	const date2Min = new Date(2022, 7, 3);
@@ -127,13 +188,13 @@ export const example = `
 <DatePicker name="date-2" label="Date" max={date2Max} min={date2Min}>
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
 	<DatePicker.Trailing slot="trailing">
-		<Icon data={calendar} />
+		<DatePicker.Trailing.Icon slot="icon" data={calendar} />
 	</DatePicker.Trailing>
 </DatePicker>
 
 <DatePicker name="date-3" min={date2Min} error="Your doing it wrong">
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
 	<DatePicker.Leading slot="leading">
-		<Icon data={phone} />
+		<DatePicker.Leading.Icon slot="icon" data={phone} />
 	</DatePicker.Leading>
 </DatePicker>`;
