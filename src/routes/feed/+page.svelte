@@ -13,9 +13,11 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
+	import { check, currency_usd } from '../../lib/icons';
+
 	interface Item {
 		avatar?: string;
-		icon?: MaterialIcon;
+		icon?: string;
 		content: string;
 		date: Date;
 	}
@@ -28,25 +30,25 @@
 			date: new Date(2022, 8, 21)
 		},
 		{
-			icon: 'thumb_up',
+			icon: currency_usd,
 			content:
 				'<span>Advanced to phone screeingin by <a href="#item2" class="font-bold">Bethany Blake</a></span>',
 			date: new Date(2022, 8, 19)
 		},
 		{
-			icon: 'done',
+			icon: check,
 			content:
 				'<span>Completed phone screening with <a href="#item3" class="font-bold">Martha Gardner</a></span>',
 			date: new Date(2022, 8, 15)
 		},
 		{
-			icon: 'thumb_up',
+			icon: currency_usd,
 			content:
 				'<span>Advanced to interview by <a href="#item4" class="font-bold">Bethany Blake</a></span>',
 			date: new Date(2022, 8, 2)
 		},
 		{
-			icon: 'done',
+			icon: check,
 			content:
 				'<span>Completed interview with <a href="#item5" class="font-bold">Katherine Snyder</a></span>',
 			date: new Date(2022, 7, 22)
@@ -73,11 +75,8 @@
 						</Feed.Item>
 					{:else if item.icon}
 						<Feed.Item>
-							<Feed.Item.Leading
-								slot="leading"
-								class={item.icon === 'thumb_up' ? 'bg-info-background' : 'bg-success-background'}
-							>
-								<Feed.Item.Leading.Icon slot="avatar" icon={item.icon} />
+							<Feed.Item.Leading slot="leading" class="bg-info-background">
+								<Feed.Item.Leading.Icon slot="icon" data={item.icon} />
 							</Feed.Item.Leading>
 							<Feed.Item.Content slot="content">
 								{@html item.content}

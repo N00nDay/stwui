@@ -73,9 +73,51 @@ export const avatarProps: Prop[] = [
 export const iconProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
 		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -93,9 +135,12 @@ export const example = `
    import { Feed } from 'stwui';
    import { formatDate } from 'stwui/utils';
 
+	const check = "svg-path";
+	const currency_usd = "svg-path";
+
 	interface Item {
 		avatar?: string;
-		icon?: MaterialIcon;
+		icon?: string;
 		content: string;
 		date: Date;
 	}
@@ -108,25 +153,25 @@ export const example = `
 			date: new Date(2022, 8, 21)
 		},
 		{
-			icon: 'thumb_up',
+			icon: currency_usd,
 			content:
 				'<span>Advanced to phone screeingin by <a href="#item2" class="font-bold">Bethany Blake</a></span>',
 			date: new Date(2022, 8, 19)
 		},
 		{
-			icon: 'done',
+			icon: check,
 			content:
 				'<span>Completed phone screening with <a href="#item3" class="font-bold">Martha Gardner</a></span>',
 			date: new Date(2022, 8, 15)
 		},
 		{
-			icon: 'thumb_up',
+			icon: currency_usd,
 			content:
 				'<span>Advanced to interview by <a href="#item4" class="font-bold">Bethany Blake</a></span>',
 			date: new Date(2022, 8, 2)
 		},
 		{
-			icon: 'done',
+			icon: check,
 			content:
 				'<span>Completed interview with <a href="#item5" class="font-bold">Katherine Snyder</a></span>',
 			date: new Date(2022, 7, 22)
@@ -152,9 +197,9 @@ export const example = `
          <Feed.Item>
             <Feed.Item.Leading
                slot="leading"
-               class={item.icon === 'thumb_up' ? 'bg-info-background' : 'bg-success-background'}
+               class="bg-info-background"
             >
-               <Feed.Item.Leading.Icon slot="avatar" icon={item.icon} />
+               <Feed.Item.Leading.Icon slot="icon" data={item.icon} />
             </Feed.Item.Leading>
             <Feed.Item.Content slot="content">
                {@html item.content}
