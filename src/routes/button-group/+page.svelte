@@ -9,7 +9,8 @@
 		exampleLoading,
 		slots,
 		buttonProps,
-		buttonSlots
+		buttonSlots,
+		iconProps
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { lock, send, home } from '../../docs/icons';
@@ -107,13 +108,13 @@
 		<Card.Content slot="content" class="p-4">
 			<ButtonGroup>
 				<ButtonGroup.Button on:click={() => changeActive1(0)} active={activeItem1 === 0}>
-					<Icon slot="icon" data={home} />
+					<ButtonGroup.Button.Icon slot="icon" data={home} />
 				</ButtonGroup.Button>
 				<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}>
-					<Icon slot="icon" data={send} />
+					<ButtonGroup.Button.Icon slot="icon" data={send} />
 				</ButtonGroup.Button>
 				<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}>
-					<Icon slot="icon" data={lock} />
+					<ButtonGroup.Button.Icon slot="icon" data={lock} />
 				</ButtonGroup.Button>
 			</ButtonGroup>
 
@@ -131,15 +132,15 @@
 		<Card.Content slot="content" class="p-4">
 			<ButtonGroup>
 				<ButtonGroup.Button on:click={() => changeActive1(0)} active={activeItem1 === 0}>
-					<Icon slot="leading" data={home} />
+					<ButtonGroup.Button.Leading slot="leading" data={home} />
 					Paid
 				</ButtonGroup.Button>
 				<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}>
-					<Icon slot="leading" data={send} />
+					<ButtonGroup.Button.Leading slot="leading" data={send} />
 					Add
 				</ButtonGroup.Button>
 				<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}>
-					<Icon slot="leading" data={lock} />
+					<ButtonGroup.Button.Leading slot="leading" data={lock} />
 					Workspaces
 				</ButtonGroup.Button>
 			</ButtonGroup>
@@ -162,21 +163,21 @@
 					active={activeItem2 === 0}
 					loading={activeItem2 === 0 && loading}
 				>
-					<Icon slot="icon" data={home} />
+					<ButtonGroup.Button.Icon slot="icon" data={home} />
 				</ButtonGroup.Button>
 				<ButtonGroup.Button
 					on:click={() => changeActive2(1)}
 					active={activeItem2 === 1}
 					loading={activeItem2 === 1 && loading}
 				>
-					<Icon slot="icon" data={send} />
+					<ButtonGroup.Button.Icon slot="icon" data={send} />
 				</ButtonGroup.Button>
 				<ButtonGroup.Button
 					on:click={() => changeActive2(2)}
 					active={activeItem2 === 2}
 					loading={activeItem2 === 2 && loading}
 				>
-					<Icon slot="icon" data={lock} />
+					<ButtonGroup.Button.Icon slot="icon" data={lock} />
 				</ButtonGroup.Button>
 			</ButtonGroup>
 
@@ -198,4 +199,16 @@
 
 <Col class="col-24">
 	<SlotsTable component="ButtonGroup.Button" slots={buttonSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="ButtonGroup.Button.Leading" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="ButtonGroup.Button.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="ButtonGroup.Button.Trailing" props={iconProps} />
 </Col>
