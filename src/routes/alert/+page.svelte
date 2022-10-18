@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Alert, Button, Card, Col, Icon } from '../../lib';
+	import { Alert, Button, Card, Col } from '../../lib';
 	import {
 		example,
 		props,
@@ -7,7 +7,8 @@
 		iconProps,
 		leadingSlots,
 		titleSlots,
-		descriptionSlots
+		descriptionSlots,
+		extraSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { close, clear } from '../../lib/icons';
@@ -30,15 +31,11 @@
 				</Alert.Leading>
 				<Alert.Title slot="title">Title</Alert.Title>
 				<Alert.Description slot="description">I am a description</Alert.Description>
-				<Button
-					ariaLabel="close"
-					slot="extra"
-					shape="circle"
-					class="top-[-0.5rem] right-[-0.5rem] text-error-icon dark:text-dark-error-icon"
-					on:click={() => console.log('I clicked extra')}
-				>
-					<Icon slot="icon" data={close} let:size {size} />
-				</Button>
+				<Alert.Extra slot="extra">
+					<Button ariaLabel="close" shape="circle" on:click={() => console.log('I clicked extra')}>
+						<Button.Icon slot="icon" data={close} />
+					</Button>
+				</Alert.Extra>
 			</Alert>
 
 			<br />
@@ -70,4 +67,8 @@
 
 <Col class="col-24">
 	<SlotsTable component="Alert.Description" slots={descriptionSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Alert.Extra" slots={extraSlots} />
 </Col>

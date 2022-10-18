@@ -28,20 +28,28 @@ export const slots: Slot[] = [
 	{
 		id: '4',
 		slot: 'extra',
-		component: ''
+		component: '<Alert.Extra slot="extra" />'
 	}
 ];
 
 export const leadingSlots: Slot[] = [
 	{
 		id: '1',
-		slot: 'default',
-		component: ''
-	},
-	{
-		id: '1',
 		slot: 'icon',
 		component: '<Alert.Leading.Icon slot="icon" />'
+	},
+	{
+		id: '2',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const extraSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
 	}
 ];
 
@@ -134,13 +142,9 @@ export const example = `
 	</Alert.Leading>
 	<Alert.Title slot="title">Title</Alert.Title>
 	<Alert.Description slot="description">I am a description</Alert.Description>
-	<Button
-		ariaLabel="close"
-		slot="extra"
-		shape="circle"
-		class="top-[-0.5rem] right-[-0.5rem] text-error-icon dark:text-dark-error-icon"
-		on:click={() => console.log('I clicked extra')}
-	>
-		<Button.Icon slot="icon" data={close} />
-	</Button>
+	<Alert.Extra slot="extra">
+		<Button ariaLabel="close" shape="circle" on:click={() => console.log('I clicked extra')}>
+			<Button.Icon slot="icon" data={close} />
+		</Button>
+	</Alert.Extra>
 </Alert>`;
