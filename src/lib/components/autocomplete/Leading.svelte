@@ -33,4 +33,5 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
+	<slot name="icon" />
 </span>

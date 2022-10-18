@@ -70,6 +70,11 @@ export const leadingSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	},
+	{
+		id: '2',
+		slot: 'icon',
+		component: '<Autocomplete.Leading.Icon slot="icon" />'
 	}
 ];
 
@@ -103,9 +108,60 @@ export const emptyOptionSlots: Slot[] = [
 	}
 ];
 
+export const iconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
+		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
+	}
+];
+
 export const example = `
 <script lang="ts">
-   import { Autocomplete, Icon } from 'stwui';
+   import { Autocomplete } from 'stwui';
 
 	const email = "svg-path";
 
@@ -131,7 +187,7 @@ export const example = `
 <Autocomplete name="autocomplete" bind:value={value} on:input={filter}>
 	<Autocomplete.Label slot="label">Label</Autocomplete.Label>
 	<Autocomplete.Leading slot="leading">
-		<Icon data={email} />
+		<Autocomplete.Leading.Icon slot="icon" data={email} />
 	</Autocomplete.Leading>
 	<Autocomplete.Options slot="options">
 		{#if filtered.length > 0}

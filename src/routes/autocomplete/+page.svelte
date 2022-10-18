@@ -9,7 +9,8 @@
 		leadingSlots,
 		optionsSlots,
 		optionProps,
-		emptyOptionSlots
+		emptyOptionSlots,
+		iconProps
 	} from './examples';
 	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
 	import { email } from '../../docs/icons';
@@ -106,7 +107,7 @@
 			<Autocomplete name="select-2" bind:value={value2} on:input={filter2}>
 				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
 				<Autocomplete.Leading slot="leading">
-					<Icon data={email} />
+					<Autocomplete.Leading.Icon slot="icon" data={email} />
 				</Autocomplete.Leading>
 				<Autocomplete.Options slot="options">
 					{#if filtered2.length > 0}
@@ -127,7 +128,7 @@
 			>
 				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
 				<Autocomplete.Leading slot="leading">
-					<Icon data={email} />
+					<Autocomplete.Leading.Icon slot="icon" data={email} />
 				</Autocomplete.Leading>
 				<Autocomplete.Options slot="options">
 					{#if filtered3.length > 0}
@@ -190,6 +191,10 @@
 
 <Col class="col-24">
 	<SlotsTable component="Autocomplete.Leading" slots={leadingSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Autocomplete.Leading.Icon" props={iconProps} />
 </Col>
 
 <Col class="col-24">
