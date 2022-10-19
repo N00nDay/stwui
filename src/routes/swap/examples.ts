@@ -38,6 +38,9 @@ export const example1 = `
 <script lang="ts">
 import { Icon, Swap } from 'stwui';
 
+const menu = "svg-path";
+const close = "svg-path";
+
 let swapped = false;
 
 function toggleSwap() {
@@ -46,13 +49,16 @@ function toggleSwap() {
 </script>
 
 <Swap on:click={toggleSwap} {swapped}>
-   <Icon slot="on" class="h-8 w-8" icon="menu" />
-   <Icon slot="off" class="h-8 w-8" icon="close" />
+   <Icon slot="on" class="h-8 w-8" data={menu} />
+   <Icon slot="off" class="h-8 w-8" data={close} />
 </Swap>`;
 
 export const example2 = `
 <script lang="ts">
 import { Icon, Swap } from 'stwui';
+
+const menu = "svg-path";
+const close = "svg-path";
 
 let swapped = false;
 
@@ -62,6 +68,6 @@ function toggleSwap() {
 </script>
 
 <Swap type="flip" on:click={toggleSwap} {swapped}>
-   <Icon slot="on" class="h-8 w-8" icon="paid" />
-   <Icon slot="off" class="h-8 w-8" icon="account_circle" />
+   <Icon slot="on" class="h-8 w-8" data={menu} />
+   <Icon slot="off" class="h-8 w-8" data={close} />
 </Swap>`;

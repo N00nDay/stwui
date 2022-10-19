@@ -27,7 +27,7 @@ export const timelineItem = `interface TimelineItem {
 	creator: string;
 	created: Date;
 	description: string;
-	icon?: MaterialIcon;
+	icon?: string (IconData);
 }`;
 
 export const tooltipConfig = `interface TooltipConfig {

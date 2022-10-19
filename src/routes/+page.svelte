@@ -18,8 +18,8 @@
 	} from '../lib';
 	import { formatDate, formatNumber } from '../lib/utils';
 	import type { CarouselSlide, LightboxAction } from '../lib/types';
-	import { home, send, trash } from '../docs/icons';
-	import { close, arrow_forward } from '../lib/icons';
+	import { file_document, folder, home, send, trash } from '../docs/icons';
+	import { close, arrow_forward, thumb_up, comment, share } from '../lib/icons';
 
 	const items = [
 		{
@@ -127,7 +127,7 @@
 						<Col class="col-12">
 							<div class="w-full p-4">
 								<Statistic class="bg-gradient-to-r from-cyan-500 to-blue-500 w-full">
-									<Statistic.Icon class="text-white" slot="icon" icon="assessment" />
+									<Statistic.Icon class="text-white" slot="icon" data={file_document} />
 									<Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
 									<Statistic.Value class="text-white" slot="value">
 										{formatNumber(2660000, {
@@ -146,11 +146,7 @@
 												minimumFractionDigits: 1
 											})}
 										</Statistic.Comparison.Value>
-										<Statistic.Comparison.Trend
-											class="bg-white text-white"
-											icon="trending_up"
-											slot="trend"
-										>
+										<Statistic.Comparison.Trend class="bg-white text-white" trend="up" slot="trend">
 											{formatNumber(getTrendValue(2660000, 2580000), {
 												style: 'currency',
 												notation: 'compact',
@@ -193,9 +189,18 @@
 									<Post.Status slot="status" {likes} {comments} />
 
 									<Post.Actions slot="actions">
-										<Post.Actions.Action icon="thumb_up" label="Like" />
-										<Post.Actions.Action icon="comment" label="Comment" />
-										<Post.Actions.Action icon="share" label="Share" />
+										<Post.Actions.Action>
+											<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+											Like
+										</Post.Actions.Action>
+										<Post.Actions.Action>
+											<Post.Actions.Action.Icon slot="icon" data={comment} />
+											Comment
+										</Post.Actions.Action>
+										<Post.Actions.Action>
+											<Post.Actions.Action.Icon slot="icon" data={share} />
+											Share
+										</Post.Actions.Action>
 									</Post.Actions>
 								</Post>
 							</div>
@@ -241,7 +246,7 @@
 							<div class="p-4">
 								<Notification class="cursor-default">
 									<Notification.Leading slot="leading">
-										<Icon data={home} class="text-pink-500" />
+										<Icon data={folder} class="text-pink-500" />
 									</Notification.Leading>
 									<Notification.Content slot="content">
 										<Notification.Content.Title slot="title"

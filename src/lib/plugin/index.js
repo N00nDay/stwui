@@ -708,11 +708,6 @@ module.exports = plugin(
 			'.isOff *': {
 				animation: 'none !important'
 			},
-			'span.material-icons': {
-				'-webkit-user-select': 'none',
-				'-ms-user-select': 'none',
-				'user-select': 'none'
-			},
 			'::-webkit-scrollbar': {
 				width: '0.5rem'
 			},

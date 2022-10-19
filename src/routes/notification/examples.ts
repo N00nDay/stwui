@@ -181,6 +181,8 @@ export const example = `
 export const typeExample = `
 <script lang="ts">
 	import { Notification, Button } from 'stwui';
+
+	const close = "svg-path";
 </script>
 
 <Notification type="success">
@@ -192,7 +194,7 @@ export const typeExample = `
    </Notification.Content>
    <Notification.Extra slot="extra" class="-top-2 -right-2">
       <Button on:click={() => console.log('notification closed!')} shape="circle">
-         <Button.Icon slot="icon" icon="close" />
+         <Button.Icon slot="icon" data={close} />
       </Button>
    </Notification.Extra>
 </Notification>`;
@@ -200,6 +202,8 @@ export const typeExample = `
 export const type2Example = `
 <script lang="ts">
 	import { Notification, Button } from 'stwui';
+
+	const close = "svg-path";
 </script>
 
 <Notification type="info">
@@ -211,7 +215,7 @@ export const type2Example = `
    </Notification.Content>
    <Notification.Extra slot="extra" class="-top-2 -right-2">
       <Button on:click={() => console.log('notification closed!')} shape="circle">
-         <Button.Icon slot="icon" icon="close" />
+         <Button.Icon slot="icon" data={close} />
       </Button>
    </Notification.Extra>
 </Notification>`;
@@ -219,6 +223,8 @@ export const type2Example = `
 export const basicExample = `
 <script lang="ts">
 	import { Notification, Button } from 'stwui';
+
+	const arrow_forward = "svg-path";
 </script>
 
 <Notification>
@@ -232,9 +238,9 @@ export const basicExample = `
          type="primary"
          size="sm"
          on:click={() => console.log('notification extra clicked!')}
-         trailing="arrow_forward"
       >
          Details
+			<Button.Trailing slot="trailing" data={arrow_forward} />
       </Button>
    </Notification.Extra>
 </Notification>`;

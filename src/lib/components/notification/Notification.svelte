@@ -6,6 +6,9 @@
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
+	import Icon from '../icon/Icon.svelte';
+	import { error as errorIcon, warn, check_circle, info } from '../../icons';
+
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -14,13 +17,13 @@
 
 	export let type: 'info' | 'warn' | 'error' | 'success' | undefined = undefined;
 
-	let typeIcon = 'info';
+	let typeIcon = info;
 	if (type === 'warn') {
-		typeIcon = 'warning';
+		typeIcon = warn;
 	} else if (type === 'success') {
-		typeIcon = 'check_circle';
+		typeIcon = check_circle;
 	} else if (type === 'error') {
-		typeIcon = 'cancel';
+		typeIcon = errorIcon;
 	}
 
 	let leading = writable(false);
@@ -47,14 +50,14 @@
 	{#if $$slots.leading}
 		<slot name="leading" />
 	{:else if type}
-		<div class="flex-shrink-0 text-light-content dark:text-dark-content">
-			<span
-				class="material-icons"
-				class:text-info-icon={type === 'info'}
-				class:text-warn-icon={type === 'warn'}
-				class:text-success-icon={type === 'success'}
-				class:text-error-icon={type === 'error'}>{typeIcon}</span
-			>
+		<div
+			class="flex-shrink-0 text-light-content dark:text-dark-content"
+			class:text-info-icon={type === 'info'}
+			class:text-warn-icon={type === 'warn'}
+			class:text-success-icon={type === 'success'}
+			class:text-error-icon={type === 'error'}
+		>
+			<Icon data={typeIcon} />
 		</div>
 	{/if}
 	<slot name="content" />

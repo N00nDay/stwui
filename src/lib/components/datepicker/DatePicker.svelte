@@ -6,6 +6,12 @@
 	import { fly } from 'svelte/transition';
 	import Card from '../card';
 	import Button from '../button';
+	import {
+		chevron_double_left,
+		chevron_double_right,
+		chevron_left,
+		chevron_right
+	} from '../../icons';
 
 	export let value: Dayjs | null = null;
 	export let handleSelect: (d: Dayjs) => void;
@@ -223,7 +229,7 @@
 			class="mr-1 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 			on:click={() => handleArrow('year', 'subtract')}
 		>
-			<Button.Icon slot="icon" icon="keyboard_double_arrow_left" />
+			<Button.Icon slot="icon" data={chevron_double_left} />
 		</Button>
 		<Button
 			ariaLabel="previous month"
@@ -233,7 +239,7 @@
 			class="bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 			on:click={() => handleArrow('month', 'subtract')}
 		>
-			<Button.Icon slot="icon" icon="chevron_left" />
+			<Button.Icon slot="icon" data={chevron_left} />
 		</Button>
 		<div class="flex-grow px-2 text-center font-medium relative overflow-hidden h-full">
 			<!-- {#key calendarDays} -->
@@ -253,7 +259,7 @@
 			class="bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 			on:click={() => handleArrow('month', 'add')}
 		>
-			<Button.Icon slot="icon" icon="chevron_right" />
+			<Button.Icon slot="icon" data={chevron_right} />
 		</Button>
 		<Button
 			ariaLabel="next month"
@@ -263,7 +269,7 @@
 			class="ml-1 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
 			on:click={() => handleArrow('year', 'add')}
 		>
-			<Button.Icon slot="icon" icon="keyboard_double_arrow_right" />
+			<Button.Icon slot="icon" data={chevron_double_right} />
 		</Button>
 	</div>
 	<div class="h-8 grid grid-cols-7 px-3 pt-2">

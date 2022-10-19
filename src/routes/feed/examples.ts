@@ -131,7 +131,6 @@ export const contentSlots: Slot[] = [
 
 export const example = `
 <script lang="ts">
-   import type { MaterialIcon } from 'stwui/types';
    import { Feed } from 'stwui';
    import { formatDate } from 'stwui/utils';
 

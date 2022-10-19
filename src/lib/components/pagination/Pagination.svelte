@@ -2,14 +2,16 @@
 	import HoverBackground from '../HoverBackground.svelte';
 	import { page } from '$app/stores';
 	import { encodeSearchParams } from '../../utils';
+	import Icon from '../icon/Icon.svelte';
+	import { chevron_left, chevron_right } from '../../icons';
 
 	export let start: number;
 	export let end: number;
 	export let total: number;
 	export let scrollElement: string | undefined = undefined;
 
-	$: orderBy = $page.url.searchParams.get('orderBy');
-	$: order = $page.url.searchParams.get('order');
+	$: orderBy = $page.url.searchParams.get('orderBy') || '';
+	$: order = $page.url.searchParams.get('order') || '';
 	$: currentPage = parseInt($page.url.searchParams.get('page') || '1');
 
 	function pageRange(cp: number, tp: number): (number | string)[] {
@@ -42,7 +44,7 @@
 		encodeSearchParams({
 			orderBy,
 			order,
-			page: currentPage - 1
+			page: currentPage - 1 + ''
 		});
 
 	$: nextRoute =
@@ -50,7 +52,7 @@
 		encodeSearchParams({
 			orderBy,
 			order,
-			page: currentPage + 1
+			page: currentPage + 1 + ''
 		});
 
 	function scrollToTop() {
@@ -105,8 +107,8 @@
 					class="relative overflow-hidden group inline-flex items-center rounded-l-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20"
 					class:pointer-events-none={currentPage === 1}
 				>
+					<Icon data={chevron_left} />
 					<span class="sr-only">Previous</span>
-					<span class="material-icons"> chevron_left </span>
 					<HoverBackground />
 				</a>
 				{#each pagination as pageNumber}
@@ -145,8 +147,8 @@
 					class="relative group overflow-hidden inline-flex items-center rounded-r-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20"
 					class:pointer-events-none={end === total}
 				>
+					<Icon data={chevron_right} />
 					<span class="sr-only">Next</span>
-					<span class="material-icons"> chevron_right </span>
 					<HoverBackground />
 				</a>
 			</nav>

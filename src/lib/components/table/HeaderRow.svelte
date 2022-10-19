@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { sort } from '$lib/icons';
 	import { twMerge } from 'tailwind-merge';
 
 	import type { TableColumn } from '../../types/table-column';
+	import Icon from '../icon';
 
 	export let column: TableColumn;
 	export let columnCount: number;
@@ -70,7 +72,7 @@
 				class:scale-y-flip={column.column !== orderBy ||
 					(column.column === orderBy && order === 'asc')}
 			>
-				<span class="material-icons text-xl"> sort </span>
+				<Icon data={sort} />
 			</span>
 		{/if}
 	</button></th

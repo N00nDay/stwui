@@ -56,7 +56,7 @@
 			</Notification.Content>
 			<Notification.Extra slot="extra" class="-top-2 -right-2">
 				<Button on:click={() => console.log('notification closed!')} shape="circle">
-					<Button.Icon slot="icon" icon="close" />
+					<Button.Icon slot="icon" data={close} />
 				</Button>
 			</Notification.Extra>
 		</Notification>
@@ -78,7 +78,7 @@
 			</Notification.Content>
 			<Notification.Extra slot="extra" class="-top-2 -right-2">
 				<Button on:click={() => console.log('notification closed!')} shape="circle">
-					<Button.Icon slot="icon" icon="close" />
+					<Button.Icon slot="icon" data={close} />
 				</Button>
 			</Notification.Extra>
 		</Notification>

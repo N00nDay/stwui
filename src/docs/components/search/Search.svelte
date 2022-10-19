@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { data } from '../../search-data';
-	import { Modal, Portal, Icon, Button } from '../../../lib';
+	import { Modal, Portal, Icon, Button, Empty } from '../../../lib';
 	import { goto } from '$app/navigation';
 	import { scale } from 'svelte/transition';
 	import Kbd from '../kbd/Kbd.svelte';
@@ -12,7 +12,7 @@
 		magnify,
 		toggle_switch
 	} from '../../icons';
-	import { info } from '../../../lib/icons';
+	import { close, info } from '../../../lib/icons';
 
 	let input: HTMLInputElement;
 
@@ -134,8 +134,8 @@
 							on:click={handleClear}
 							on:keypress
 						>
-							<span class="material-icons text-light-icon dark:text-dark-icon text-base">
-								clear
+							<span class="text-light-icon dark:text-dark-icon">
+								<Icon data={close} />
 							</span>
 						</span>
 					{/if}
@@ -184,17 +184,13 @@
 						{/each}
 					</ul>
 				{:else}
-					<div class="py-14 px-6 text-center text-sm sm:px-14">
-						<span
-							class="mx-auto text-5xl text-light-secondary-content dark:text-dark-secondary-content"
+					<Empty class="p-12">
+						<Empty.Icon slot="icon" data={info} />
+						<Empty.Title slot="title">No results found</Empty.Title>
+						<Empty.Description slot="description"
+							>No results found for this search. Please try again.</Empty.Description
 						>
-							<Icon data={info} />
-						</span>
-						<h2 class="mt-4 text-light-content dark:text-dark-content">No results found</h2>
-						<p class="mt-2 text-light-secondary-content dark:text-dark-secondary-content">
-							No components found for this search term. Please try again.
-						</p>
-					</div>
+					</Empty>
 				{/if}
 			</Modal.Content>
 		</Modal>

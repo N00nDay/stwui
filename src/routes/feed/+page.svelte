@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { MaterialIcon } from '../../lib/types';
 	import { Card, Col, Feed } from '../../lib';
 	import { formatDate } from '../../lib/utils';
 	import {

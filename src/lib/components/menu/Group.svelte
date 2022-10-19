@@ -10,6 +10,8 @@
 	import { MENU_CONTEXT_ID } from './Menu.svelte';
 	import { useContext } from '$lib/utils/useContext';
 	import { twMerge } from 'tailwind-merge';
+	import Icon from '../icon/Icon.svelte';
+	import { chevron_down } from '../../icons';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -121,8 +123,8 @@
 					<span class="truncate">{label}</span>
 				</span>
 
-				<span class="material-icons expand-icon pointer-events-none" class:-rotate-180={active}
-					>expand_more</span
+				<span class="pointer-events-none transition-transform" class:-rotate-180={active}
+					><Icon data={chevron_down} /></span
 				>
 			</button>
 			<HoverBackground class="rounded-md pointer-events-none " />

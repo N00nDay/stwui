@@ -1,5 +1,4 @@
 <script lang="ts" context="module">
-	import type { MaterialIcon } from '../../lib/types';
 	import { calendar } from '../../lib/icons';
 	import { home, account_multiple, folder, file_document, poll } from '../../docs/icons';
 

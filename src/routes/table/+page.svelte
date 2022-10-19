@@ -15,6 +15,7 @@
 		footerSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, BetaComponent } from '../../docs';
+	import { plus } from '../../lib/icons';
 
 	const columns: TableColumn[] = [
 		{
@@ -71,9 +72,7 @@
 			<Card.Header slot="header" class="font-bold text-lg flex justify-between items-center py-3">
 				Card Header
 				<Button slot="extra" type="primary">
-					<Button.Leading slot="leading">
-						<Button.Leading.Icon slot="icon" icon="add" />
-					</Button.Leading>
+					<Button.Leading slot="leading" data={plus} />
 					New Item
 				</Button>
 			</Card.Header>

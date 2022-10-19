@@ -3,10 +3,13 @@
 	import { getContext } from 'svelte';
 	import { useContext } from '../../utils/useContext';
 	import { CHIP_CONTEXT_ID } from './Chip.svelte';
+	import Icon from '../icon/Icon.svelte';
+	import { close } from '../../icons';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let defaultClass =
@@ -56,5 +59,5 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<span class="sr-only">Remove option</span>
-	<span class="material-icons">close</span>
+	<Icon data={close} />
 </button>

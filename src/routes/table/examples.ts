@@ -100,6 +100,8 @@ export const example = `
    import { Table } from 'stwui';
    import type { TableColumn } from 'stwui/types';
 
+   const plus = "svg-path";
+
    const columns: TableColumn[] = [
       {
          column: 'project_name',
@@ -149,9 +151,7 @@ export const example = `
    <Card.Header slot="header" class="font-bold text-lg flex justify-between items-center py-3">
       Card Header
       <Button slot="extra" type="primary">
-         <Button.Leading slot="leading">
-            <Button.Leading.Icon slot="icon" icon="add" />
-         </Button.Leading>
+         <Button.Leading slot="leading" data={plus} />
          New Item
       </Button>
    </Card.Header>

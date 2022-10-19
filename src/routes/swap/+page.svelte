@@ -2,6 +2,7 @@
 	import { Card, Icon, Swap, Col } from '../../lib';
 	import { example1, example2, props, slots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { menu, close } from '../../lib/icons';
 
 	let swapped = false;
 
@@ -15,8 +16,8 @@
 		<Card.Header slot="header">Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Swap on:click={toggleSwap} {swapped}>
-				<Icon slot="on" class="h-8 w-8" icon="menu" />
-				<Icon slot="off" class="h-8 w-8" icon="close" />
+				<Icon slot="on" class="h-8 w-8" data={menu} />
+				<Icon slot="off" class="h-8 w-8" data={close} />
 			</Swap>
 
 			<br />
@@ -31,8 +32,8 @@
 		<Card.Header slot="header">Flip</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Swap type="flip" on:click={toggleSwap} {swapped}>
-				<Icon slot="on" class="h-8 w-8" icon="paid" />
-				<Icon slot="off" class="h-8 w-8" icon="account_circle" />
+				<Icon slot="on" class="h-8 w-8" data={menu} />
+				<Icon slot="off" class="h-8 w-8" data={close} />
 			</Swap>
 
 			<br />

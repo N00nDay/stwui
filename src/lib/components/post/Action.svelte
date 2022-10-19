@@ -3,16 +3,12 @@
 	import { POST_CONTEXT_ID } from './Post.svelte';
 	import { POST_ACTIONS_CONTEXT_ID } from './Actions.svelte';
 	import { useContext } from '../../utils/useContext';
-	import type { MaterialIcon } from '../../types';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
-
-	export let icon: MaterialIcon;
-	export let label: string | undefined = undefined;
 
 	useContext({
 		context_id: POST_CONTEXT_ID,
@@ -37,17 +33,14 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<div
-		class="group relative flex flex-col items-center justify-center h-full w-full group-active:hover:animate-none group-active:hover:scale-90"
+		class="group text-sm text-light-icon dark:text-dark-icon group-hover:text-primary relative flex flex-col items-center justify-center h-full w-full group-active:hover:animate-none group-active:hover:scale-90"
 	>
-		<span
-			class="material-icons h-6 w-6 text-light-icon dark:text-dark-icon group-hover:text-primary"
-			>{icon}</span
-		>
-		{#if label}
-			<span class="text-xs text-light-icon dark:text-dark-icon group-hover:text-primary"
-				>{label}</span
-			>
+		{#if $$slots.icon}
+			<span class="h-4 w-4 mb-1">
+				<slot name="icon" />
+			</span>
 		{/if}
+		<slot />
 	</div>
 	<HoverBackground />
 </div>

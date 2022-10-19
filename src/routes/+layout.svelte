@@ -7,6 +7,7 @@
 	import { browser } from '$app/environment';
 	import { Navigation, Search } from '../docs';
 	import { brightness_4, brightness_5 } from '../docs/icons';
+	import { menu, close } from '../lib/icons';
 
 	let openMenu = false;
 	let darkTheme = false;
@@ -84,8 +85,8 @@
 				on:click={handleOpenMenu}
 			>
 				<Swap slot="icon">
-					<Icon slot="on" icon="menu" />
-					<Icon slot="off" icon="close" />
+					<Icon slot="on" data={menu} />
+					<Icon slot="off" data={close} />
 				</Swap>
 			</Button>
 

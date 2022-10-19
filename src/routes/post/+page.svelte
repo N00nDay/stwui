@@ -18,9 +18,12 @@
 		imagesProps,
 		statusProps,
 		actionsSlots,
-		actionProps
+		actionSlots,
+		labelSlots,
+		iconProps
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { comment, share, thumb_up } from '../../lib/icons';
 
 	let creator = {
 		avatar:
@@ -229,9 +232,18 @@
 			<Post.Status slot="status" likes={[]} comments={[]} />
 
 			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+					Like
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={comment} />
+					Comment
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={share} />
+					Share
+				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
 
@@ -260,9 +272,18 @@
 			<Post.Status slot="status" {likes} comments={[]} />
 
 			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+					Like
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={comment} />
+					Comment
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={share} />
+					Share
+				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
 
@@ -290,9 +311,18 @@
 			<Post.Status slot="status" {likes} {comments} />
 
 			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+					Like
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={comment} />
+					Comment
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={share} />
+					Share
+				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
 
@@ -320,9 +350,18 @@
 			<Post.Status slot="status" {likes} comments={[]} />
 
 			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+					Like
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={comment} />
+					Comment
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={share} />
+					Share
+				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
 
@@ -350,9 +389,18 @@
 			<Post.Status slot="status" likes={[]} {comments} />
 
 			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+					Like
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={comment} />
+					Comment
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={share} />
+					Share
+				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
 
@@ -380,9 +428,18 @@
 			<Post.Status slot="status" likes={[]} {comments} />
 
 			<Post.Actions slot="actions">
-				<Post.Actions.Action icon="thumb_up" label="Like" />
-				<Post.Actions.Action icon="comment" label="Comment" />
-				<Post.Actions.Action icon="share" label="Share" />
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+					Like
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={comment} />
+					Comment
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={share} />
+					Share
+				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
 
@@ -429,5 +486,13 @@
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Post.Actions.Action" props={actionProps} />
+	<SlotsTable component="Post.Actions.Action" slots={actionSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Post.Actions.Action.Icon" props={iconProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Post.Actions.Action.Label" slots={labelSlots} />
 </Col>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Avatar from '../avatar';
 	import Icon from '../icon/Icon.svelte';
+	import { comment } from '../../icons';
 	import { formatDate } from '../../utils';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -34,8 +35,8 @@
 					<span
 						class="absolute -bottom-1.5 -right-1 rounded-tl bg-light-surface dark:bg-dark-surface px-0.5 py-px z-10"
 					>
-						<span class="material-icons text-lg text-light-content dark:text-dark-content">
-							message
+						<span class="text-light-content dark:text-dark-content">
+							<Icon data={comment} size="16px" class="scale-x-[-1]" />
 						</span>
 					</span>
 				</div>
@@ -69,7 +70,7 @@
 						<div
 							class="flex h-8 w-8 items-center justify-center rounded-full bg-light-icon-background dark:bg-dark-icon-background ring-8 ring-light-surface dark:ring-dark-surface"
 						>
-							<span class="material-icons text-light-content dark:text-dark-content">
+							<span class="text-light-content dark:text-dark-content">
 								<Icon data={icon} />
 							</span>
 						</div>

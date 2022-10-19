@@ -157,24 +157,85 @@ export const actionsSlots: Slot[] = [
 	}
 ];
 
-export const actionProps: Prop[] = [
+export const actionSlots: Slot[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
+		slot: 'icon',
+		component: '<Card.Actions.Action.Icon slot="icon" />'
+	},
+	{
+		id: '2',
+		slot: 'label',
+		component: '<Card.Actions.Action.Label slot="label" />'
+	}
+];
+
+export const labelSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const iconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
 		default: ''
 	},
 	{
 		id: '2',
-		prop: 'label',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
 		type: 'string | undefined',
 		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
 export const example1 = `
 <script lang="ts">
    import { Post } from 'stwui';
+
+	const thumb_up = "svg-path";
+	const comment = "svg-path";
+	const share = "svg-path";
 
    let avatar = 'image.png',
    let creator = 'Joe Montana';
@@ -206,15 +267,28 @@ export const example1 = `
    <Post.Status slot="status" {likes} {comments} />
 
    <Post.Actions slot="actions">
-      <Post.Actions.Action icon="thumb_up" label="Like" />
-      <Post.Actions.Action icon="comment" label="Comment" />
-      <Post.Actions.Action icon="share" label="Share" />
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+			Like
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={comment} />
+			Comment
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={share} />
+			Share
+		</Post.Actions.Action>
    </Post.Actions>
 </Post>`;
 
 export const example2 = `
 <script lang="ts">
    import { Post } from 'stwui';
+
+	const thumb_up = "svg-path";
+	const comment = "svg-path";
+	const share = "svg-path";
 
    let avatar = 'image.png',
    let creator = 'Joe Montana';
@@ -250,15 +324,28 @@ export const example2 = `
    <Post.Status slot="status" {likes} {comments} />
 
    <Post.Actions slot="actions">
-      <Post.Actions.Action icon="thumb_up" label="Like" />
-      <Post.Actions.Action icon="comment" label="Comment" />
-      <Post.Actions.Action icon="share" label="Share" />
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+			Like
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={comment} />
+			Comment
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={share} />
+			Share
+		</Post.Actions.Action>
    </Post.Actions>
 </Post>`;
 
 export const example3 = `
 <script lang="ts">
    import { Post } from 'stwui';
+
+	const thumb_up = "svg-path";
+	const comment = "svg-path";
+	const share = "svg-path";
 
    let avatar = 'image.png',
    let creator = 'Joe Montana';
@@ -298,15 +385,28 @@ export const example3 = `
    <Post.Status slot="status" {likes} {comments} />
 
    <Post.Actions slot="actions">
-      <Post.Actions.Action icon="thumb_up" label="Like" />
-      <Post.Actions.Action icon="comment" label="Comment" />
-      <Post.Actions.Action icon="share" label="Share" />
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+			Like
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={comment} />
+			Comment
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={share} />
+			Share
+		</Post.Actions.Action>
    </Post.Actions>
 </Post>`;
 
 export const example4 = `
 <script lang="ts">
    import { Post } from 'stwui';
+
+	const thumb_up = "svg-path";
+	const comment = "svg-path";
+	const share = "svg-path";
 
    let avatar = 'image.png',
    let creator = 'Joe Montana';
@@ -350,15 +450,28 @@ export const example4 = `
    <Post.Status slot="status" {likes} {comments} />
 
    <Post.Actions slot="actions">
-      <Post.Actions.Action icon="thumb_up" label="Like" />
-      <Post.Actions.Action icon="comment" label="Comment" />
-      <Post.Actions.Action icon="share" label="Share" />
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+			Like
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={comment} />
+			Comment
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={share} />
+			Share
+		</Post.Actions.Action>
    </Post.Actions>
 </Post>`;
 
 export const example5 = `
 <script lang="ts">
    import { Post } from 'stwui';
+
+	const thumb_up = "svg-path";
+	const comment = "svg-path";
+	const share = "svg-path";
 
    let avatar = 'image.png',
    let creator = 'Joe Montana';
@@ -406,15 +519,28 @@ export const example5 = `
    <Post.Status slot="status" {likes} {comments} />
 
    <Post.Actions slot="actions">
-      <Post.Actions.Action icon="thumb_up" label="Like" />
-      <Post.Actions.Action icon="comment" label="Comment" />
-      <Post.Actions.Action icon="share" label="Share" />
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+			Like
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={comment} />
+			Comment
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={share} />
+			Share
+		</Post.Actions.Action>
    </Post.Actions>
 </Post>`;
 
 export const example6 = `
 <script lang="ts">
    import { Post } from 'stwui';
+
+	const thumb_up = "svg-path";
+	const comment = "svg-path";
+	const share = "svg-path";
 
    let avatar = 'image.png',
    let creator = 'Joe Montana';
@@ -466,8 +592,17 @@ export const example6 = `
    <Post.Status slot="status" {likes} {comments} />
 
    <Post.Actions slot="actions">
-      <Post.Actions.Action icon="thumb_up" label="Like" />
-      <Post.Actions.Action icon="comment" label="Comment" />
-      <Post.Actions.Action icon="share" label="Share" />
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+			Like
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={comment} />
+			Comment
+		</Post.Actions.Action>
+		<Post.Actions.Action>
+			<Post.Actions.Action.Icon slot="icon" data={share} />
+			Share
+		</Post.Actions.Action>
    </Post.Actions>
 </Post>`;

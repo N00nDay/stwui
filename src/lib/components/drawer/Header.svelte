@@ -2,6 +2,7 @@
 	import { twMerge } from 'tailwind-merge';
 	import { getContext } from 'svelte';
 	import Button from '../button';
+	import { close } from '../../icons';
 	import { DRAWER_CONTEXT_ID } from './Drawer.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { get_current_component } from 'svelte/internal';
@@ -34,9 +35,9 @@
 		</h2>
 		<!-- TODO: pull out to allow for customization? -->
 		{#if handleClose}
-			<div class="ml-3 flex h-7 items-center">
+			<div class="ml-3 flex items-center">
 				<Button ariaLabel="close" type="ghost" on:click={handleClose} shape="circle">
-					<Button.Icon slot="icon" icon="close" />
+					<Button.Icon slot="icon" data={close} />
 				</Button>
 			</div>
 		{/if}

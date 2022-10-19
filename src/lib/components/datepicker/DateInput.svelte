@@ -34,10 +34,7 @@
 		};
 	})();
 
-	// export let trailing: MaterialIcon | undefined = 'calendar_month';
 	export let name: string;
-	// export let label: string | undefined = undefined;
-	// export let srOnly = false;
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: Date | null = null;

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { MaterialIcon } from '../../lib/types';
 	import { Card, Col, Tabs } from '../../lib';
 	import {
 		example1,
