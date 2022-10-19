@@ -80,16 +80,20 @@
 <Button
 	ariaLabel="open search"
 	on:click={handleOpen}
-	class="border-light-border dark:border-dark-border border ml-4 shadow-md dark:shadow-black hidden md:flex"
+	class="border-light-border dark:border-dark-border border ml-4 shadow-md dark:shadow-black hidden md:flex !py-1.5"
 >
-	<Icon slot="leading" data={magnify} let:size {size} />
-	<div class="w-12 md:w-32 text-left">Search</div>
-	<div class="justify-self-end hidden sm:flex">
-		<Kbd>
-			{#if os === 'MacOS'}⌘{:else}CTRL{/if}
-		</Kbd>
-		+
-		<Kbd>k</Kbd>
+	<Button.Icon slot="leading" data={magnify} />
+	<div class="w-12 md:w-32 text-left py-px">Search</div>
+	<div class="hidden sm:flex w-24 justify-end">
+		{#if os !== 'Unknown'}
+			<div transition:scale class="items-center justify-end hidden sm:flex">
+				<Kbd>
+					{#if os === 'MacOS'}⌘{:else}CTRL{/if}
+				</Kbd>
+				+
+				<Kbd>k</Kbd>
+			</div>
+		{/if}
 	</div>
 </Button>
 
@@ -99,7 +103,7 @@
 	shape="circle"
 	class="flex md:hidden ml-4 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
 >
-	<Icon slot="icon" data={magnify} let:size {size} />
+	<Button.Icon slot="icon" data={magnify} />
 </Button>
 
 {#if open}
@@ -184,7 +188,7 @@
 						{/each}
 					</ul>
 				{:else}
-					<Empty class="p-12">
+					<Empty>
 						<Empty.Icon slot="icon" data={info} />
 						<Empty.Title slot="title">No results found</Empty.Title>
 						<Empty.Description slot="description"
