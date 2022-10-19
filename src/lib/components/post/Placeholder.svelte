@@ -9,7 +9,8 @@
 	import { useContext } from '../../utils/useContext';
 	import { getContext, setContext } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
-	import Icon from './Icon.svelte';
+	import Icon from '../icon/Icon.svelte';
+	import { account } from '../../icons';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -27,6 +28,9 @@
 	const { shape }: { shape: 'circle' | 'rounded' | 'square' } = getContext(
 		POST_HEADER_AVATAR_CONTEXT_ID
 	);
+
+	let iconContainerClass =
+		'absolute text-light-icon dark:text-dark-icon h-full w-full bottom-[-0.5rem]';
 
 	setContext(POST_HEADER_AVATAR_PLACEHOLDER_CONTEXT_ID, {
 		placeholder: true
@@ -56,7 +60,9 @@
 		<slot name="icon" />
 		<slot />
 	{:else}
-		<Icon class="text-light-icon dark:text-dark-icon" />
+		<span class={iconContainerClass}>
+			<Icon data={account} size="40px" />
+		</span>
 	{/if}
 </div>
 
