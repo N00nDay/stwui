@@ -64,11 +64,54 @@ export const contentRightSlots: Slot[] = [
 	}
 ];
 
-export const iconSlots: Slot[] = [
+export const iconProps: Prop[] = [
 	{
 		id: '1',
-		slot: 'default',
-		component: ''
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
+		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -134,10 +177,6 @@ export const iconsExample = `
 </script>
 
 <Toggle name="toggle">
-	<Toggle.LeftIcon slot="left-icon">
-		<Icon data={brightness_5} />
-	</Toggle.LeftIcon>
-	<Toggle.RightIcon slot="right-icon">
-		<Icon data={brightness_4} />
-	</Toggle.RightIcon>
+	<Toggle.LeftIcon slot="left-icon" data={brightness_5} class="text-white" />
+	<Toggle.RightIcon slot="right-icon" data={brightness_4} />
 </Toggle>`;

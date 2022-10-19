@@ -4,7 +4,7 @@
 		example,
 		props,
 		slots,
-		iconSlots,
+		iconProps,
 		titleSlots,
 		descriptionSlots,
 		contentLeftSlots,
@@ -87,11 +87,11 @@
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="Toggle.LeftIcon" slots={iconSlots} />
+	<PropsTable component="Toggle.LeftIcon" props={iconProps} />
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="Toggle.RightIcon" slots={iconSlots} />
+	<PropsTable component="Toggle.RightIcon" props={iconProps} />
 </Col>
 
 <Col class="col-24">
