@@ -22,25 +22,29 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { contentSlots } from '../accordion/examples';
+	import { account, print, info } from '../../lib/icons';
 
 	const items = [
 		{
 			avatar:
 				'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 			title: 'Calvin Hawkins',
-			description: 'calvin.hawkins@example.com'
+			description: 'calvin.hawkins@example.com',
+			data: account
 		},
 		{
 			avatar:
 				'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 			title: 'Kristen Ramos',
-			description: 'kristen.ramos@example.com'
+			description: 'kristen.ramos@example.com',
+			data: print
 		},
 		{
 			avatar:
 				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 			title: 'Ted Fox',
-			description: 'ted.fox@example.com'
+			description: 'ted.fox@example.com',
+			data: info
 		}
 	];
 </script>
@@ -74,13 +78,13 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">No Dividers</Card.Header>
+		<Card.Header slot="header">No Dividers & Icon</Card.Header>
 		<Card.Content slot="content">
 			<List divided={false}>
 				{#each items as item}
 					<List.Item>
 						<List.Item.Leading slot="leading">
-							<List.Item.Leading.Avatar slot="avatar" src={item.avatar} />
+							<List.Item.Leading.Icon slot="icon" data={item.data} />
 						</List.Item.Leading>
 						<List.Item.Content slot="content">
 							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>

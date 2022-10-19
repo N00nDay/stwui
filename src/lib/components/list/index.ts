@@ -5,7 +5,7 @@ import OriginalLeading from './Leading.svelte';
 import Avatar from './Avatar.svelte';
 import Description from './Description.svelte';
 import Extra from './Extra.svelte';
-import Icon from './Icon.svelte';
+import Icon from '../icon/Icon.svelte';
 import Title from './Title.svelte';
 
 const List = OriginalList as ListStatic;

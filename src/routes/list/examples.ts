@@ -68,9 +68,51 @@ export const leadingSlots: Slot[] = [
 export const iconProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
 		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -192,22 +234,23 @@ export const noDividersExample = `
 <script lang="ts">
    import { List } from 'stwui';
 
+	const account = "svg-path";
+	const print = "svg-path";
+	const info = "svg-path";
+
    const items = [
 		{
-			avatar:
-				'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+			data: account,
 			title: 'Calvin Hawkins',
 			description: 'calvin.hawkins@example.com'
 		},
 		{
-			avatar:
-				'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+			data: print,
 			title: 'Kristen Ramos',
 			description: 'kristen.ramos@example.com'
 		},
 		{
-			avatar:
-				'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+			data: info,
 			title: 'Ted Fox',
 			description: 'ted.fox@example.com'
 		}
@@ -218,7 +261,7 @@ export const noDividersExample = `
    {#each items as item}
       <List.Item>
          <List.Item.Leading slot="leading">
-            <List.Item.Leading.Avatar slot="avatar" src={item.avatar} />
+				<List.Item.Leading.Icon slot="icon" data={item.data} />
          </List.Item.Leading>
          <List.Item.Content slot="content">
             <List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
