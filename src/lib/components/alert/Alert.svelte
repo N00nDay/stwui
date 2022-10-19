@@ -21,6 +21,17 @@
 		type: reactiveType
 	});
 
+	let leadingClass = '';
+	if ($reactiveType === 'info') {
+		leadingClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center text-info-icon';
+	} else if ($reactiveType === 'warn') {
+		leadingClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center text-warn-icon';
+	} else if ($reactiveType === 'success') {
+		leadingClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center text-success-icon';
+	} else if ($reactiveType === 'error') {
+		leadingClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center text-error-icon';
+	}
+
 	let defaultClass = '';
 	$: if ($reactiveType === 'info') {
 		defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 bg-info-background';
@@ -41,7 +52,12 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<div class="flex">
-		<slot name="leading" />
+		{#if $$slots.leading}
+			<div class={leadingClass}>
+				<slot name="leading" />
+			</div>
+		{/if}
+
 		{#if $$slots.title || $$slots.description}
 			<div class="flex items-start justify-start flex-col w-full" class:ml-3={$$slots.leading}>
 				<slot name="title" />

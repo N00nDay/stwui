@@ -5,7 +5,6 @@
 		props,
 		slots,
 		iconProps,
-		leadingSlots,
 		titleSlots,
 		descriptionSlots,
 		extraSlots
@@ -26,9 +25,7 @@
 			</Alert>
 			<br />
 			<Alert type="error">
-				<Alert.Leading slot="leading">
-					<Alert.Leading.Icon data={clear} class="text-current" />
-				</Alert.Leading>
+				<Alert.Leading slot="leading" data={clear} />
 				<Alert.Title slot="title">Title</Alert.Title>
 				<Alert.Description slot="description">I am a description</Alert.Description>
 				<Alert.Extra slot="extra">
@@ -54,11 +51,7 @@
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="Alert.Leading" slots={leadingSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Alert.Leading.Icon" props={iconProps} />
+	<PropsTable component="Alert.Leading" props={iconProps} />
 </Col>
 
 <Col class="col-24">

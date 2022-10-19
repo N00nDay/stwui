@@ -32,19 +32,6 @@ export const slots: Slot[] = [
 	}
 ];
 
-export const leadingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'icon',
-		component: '<Alert.Leading.Icon slot="icon" />'
-	},
-	{
-		id: '2',
-		slot: 'default',
-		component: ''
-	}
-];
-
 export const extraSlots: Slot[] = [
 	{
 		id: '1',
@@ -137,9 +124,7 @@ export const example = `
 </Alert>
 
 <Alert type="error">
-	<Alert.Leading slot="leading">
-		<Alert.Leading.Icon slot="icon" data={clear} class="text-current" />
-	</Alert.Leading>
+<Alert.Leading slot="leading" data={clear} />
 	<Alert.Title slot="title">Title</Alert.Title>
 	<Alert.Description slot="description">I am a description</Alert.Description>
 	<Alert.Extra slot="extra">
