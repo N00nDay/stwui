@@ -44,9 +44,51 @@ export const titleSlots: Slot[] = [
 export const iconProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
 		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '38px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '38px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '38px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -83,9 +125,79 @@ export const comparisonSlots: Slot[] = [
 export const trendProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: "'trending_up' | 'trending_down' | undefined",
+		prop: 'trend',
+		type: "'up' | 'down' | 'neutral' | undefined",
 		default: ''
+	},
+	{
+		id: '2',
+		prop: 'showIcon',
+		type: 'boolean',
+		default: 'true'
+	}
+];
+
+export const trendslots: Slot[] = [
+	{
+		id: '1',
+		slot: 'icon',
+		component: '<Statistic.Comparison.Trend.Icon slot="icon" />'
+	},
+	{
+		id: '2',
+		slot: 'default',
+		component: ''
+	}
+];
+
+export const trendIconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
+		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '16px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '16px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '16px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -93,10 +205,12 @@ export const example1 = `
 <script lang="ts">
    import { Statistic } from 'stwui';
    import { formatNumber } from 'stwui/utils';
+
+   const favorite = "svg-path";
 </script>
 
 <Statistic>
-   <Statistic.Icon slot="icon" icon="favorite" />
+   <Statistic.Icon slot="icon" data={favorite} />
    <Statistic.Title slot="title">Total Likes</Statistic.Title>
    <Statistic.Value slot="value">
       {formatNumber(25660000, {
@@ -115,7 +229,7 @@ export const example1 = `
             minimumFractionDigits: 1
          })}
       </Statistic.Comparison.Value>
-      <Statistic.Comparison.Trend icon="trending_down" slot="trend">
+      <Statistic.Comparison.Trend slot="trend" trend="down">
          {formatNumber(-2000000, {
             style: 'decimal',
             notation: 'compact',
@@ -132,10 +246,13 @@ export const example2 = `
 <script lang="ts">
    import { Statistic } from 'stwui';
    import { formatNumber } from 'stwui/utils';
+
+   const chart_box = "svg-path";
+   const home = "svg-path";
 </script>
 
 <Statistic>
-   <Statistic.Icon slot="icon" icon="assessment" />
+   <Statistic.Icon slot="icon" data={chart_box} />
    <Statistic.Title slot="title">Page Views</Statistic.Title>
    <Statistic.Value slot="value">
       {formatNumber(2660000, {
@@ -154,7 +271,8 @@ export const example2 = `
             minimumFractionDigits: 1
          })}
       </Statistic.Comparison.Value>
-      <Statistic.Comparison.Trend icon="trending_up" slot="trend">
+      <Statistic.Comparison.Trend trend="up" slot="trend">
+         <Statistic.Comparison.Trend.Icon slot="icon" data={home} />
          {formatNumber(80000, {
             style: 'currency',
             notation: 'compact',
@@ -171,10 +289,12 @@ export const example3 = `
 <script lang="ts">
    import { Statistic } from 'stwui';
    import { formatNumber } from 'stwui/utils';
+
+   const chart_box = "svg-path";
 </script>
 
 <Statistic>
-   <Statistic.Icon slot="icon" icon="assessment" />
+   <Statistic.Icon slot="icon" data={chart_box} />
    <Statistic.Title slot="title">New Users</Statistic.Title>
    <Statistic.Value slot="value">
       {formatNumber(82001, {
@@ -191,10 +311,12 @@ export const example4 = `
 <script lang="ts">
    import { Statistic } from 'stwui';
    import { formatNumber } from 'stwui/utils';
+
+   const favorite = "svg-path";
 </script>
 
 <Statistic>
-   <Statistic.Icon class="text-primary" slot="icon" icon="favorite" />
+   <Statistic.Icon class="text-primary" slot="icon" data={favorite} />
    <Statistic.Title slot="title">Total Likes</Statistic.Title>
    <Statistic.Value class="text-primary" slot="value">
       {formatNumber(25660000, {
@@ -210,10 +332,12 @@ export const example5 = `
 <script lang="ts">
    import { Statistic } from 'stwui';
    import { formatNumber } from 'stwui/utils';
+
+   const chart_box = "svg-path";
 </script>
 
 <Statistic class="bg-gradient-to-r from-cyan-500 to-blue-500">
-   <Statistic.Icon class="text-white" slot="icon" icon="assessment" />
+   <Statistic.Icon class="text-white" slot="icon" data={chart_box} />
    <Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
    <Statistic.Value class="text-white" slot="value">
       {formatNumber(2660000, {
@@ -232,7 +356,7 @@ export const example5 = `
             minimumFractionDigits: 1
          })}
       </Statistic.Comparison.Value>
-      <Statistic.Comparison.Trend class="bg-white text-white" icon="trending_up" slot="trend">
+      <Statistic.Comparison.Trend class="bg-white text-white" showIcon={false} slot="trend">
          {formatNumber(80000, {
             style: 'currency',
             notation: 'compact',

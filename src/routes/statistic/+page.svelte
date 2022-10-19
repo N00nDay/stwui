@@ -14,15 +14,18 @@
 		comparisonSlots,
 		valueSlots,
 		goalProps,
-		trendProps
+		trendProps,
+		trendslots,
+		trendIconProps
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { chart_box, favorite, home } from '../../docs/icons';
 </script>
 
 <Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Statistic>
-			<Statistic.Icon slot="icon" icon="favorite" />
+			<Statistic.Icon slot="icon" data={favorite} />
 			<Statistic.Title slot="title">Total Likes</Statistic.Title>
 			<Statistic.Value slot="value">
 				{formatNumber(25660000, {
@@ -41,7 +44,7 @@
 						minimumFractionDigits: 1
 					})}
 				</Statistic.Comparison.Value>
-				<Statistic.Comparison.Trend icon="trending_down" slot="trend">
+				<Statistic.Comparison.Trend slot="trend" trend="down">
 					{formatNumber(-2000000, {
 						style: 'decimal',
 						notation: 'compact',
@@ -63,7 +66,7 @@
 <Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Statistic>
-			<Statistic.Icon slot="icon" icon="assessment" />
+			<Statistic.Icon slot="icon" data={chart_box} />
 			<Statistic.Title slot="title">Page Views</Statistic.Title>
 			<Statistic.Value slot="value">
 				{formatNumber(2660000, {
@@ -82,7 +85,8 @@
 						minimumFractionDigits: 1
 					})}
 				</Statistic.Comparison.Value>
-				<Statistic.Comparison.Trend icon="trending_up" slot="trend">
+				<Statistic.Comparison.Trend trend="up" slot="trend">
+					<Statistic.Comparison.Trend.Icon slot="icon" data={home} />
 					{formatNumber(80000, {
 						style: 'currency',
 						notation: 'compact',
@@ -104,7 +108,7 @@
 <Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Statistic>
-			<Statistic.Icon slot="icon" icon="assessment" />
+			<Statistic.Icon slot="icon" data={chart_box} />
 			<Statistic.Title slot="title">New Users</Statistic.Title>
 			<Statistic.Value slot="value">
 				{formatNumber(82001, {
@@ -126,7 +130,7 @@
 <Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Statistic>
-			<Statistic.Icon class="text-primary" slot="icon" icon="favorite" />
+			<Statistic.Icon class="text-primary" slot="icon" data={favorite} />
 			<Statistic.Title slot="title">Total Likes</Statistic.Title>
 			<Statistic.Value class="text-primary" slot="value">
 				{formatNumber(25660000, {
@@ -147,7 +151,7 @@
 <Col class="col-24 md:col-8">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Statistic class="bg-gradient-to-r from-cyan-500 to-blue-500">
-			<Statistic.Icon class="text-white" slot="icon" icon="assessment" />
+			<Statistic.Icon class="text-white" slot="icon" data={chart_box} />
 			<Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
 			<Statistic.Value class="text-white" slot="value">
 				{formatNumber(2660000, {
@@ -166,7 +170,7 @@
 						minimumFractionDigits: 1
 					})}
 				</Statistic.Comparison.Value>
-				<Statistic.Comparison.Trend class="bg-white text-white" icon="trending_up" slot="trend">
+				<Statistic.Comparison.Trend class="bg-white text-white" showIcon={false} slot="trend">
 					{formatNumber(80000, {
 						style: 'currency',
 						notation: 'compact',
@@ -232,6 +236,14 @@
 
 <Col class="col-24">
 	<PropsTable component="Statistic.Comparison.Trend" props={trendProps} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Statistic.Comparison.Trend.Slots" slots={trendslots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Statistic.Comparison.Trend.Icon" props={trendIconProps} />
 </Col>
 
 <Col class="col-24">

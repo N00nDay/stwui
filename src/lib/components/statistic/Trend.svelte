@@ -1,14 +1,17 @@
 <script lang="ts">
+	import { trending_down, trending_neutral, trending_up } from '$lib/icons';
 	import { twMerge } from 'tailwind-merge';
 	import Badge from '../badge';
+	import TrendIcon from './TrendIcon.svelte';
 
-	export let icon: 'trending_up' | 'trending_down' | undefined = undefined;
+	export let trend: 'up' | 'down' | 'neutral' | undefined = undefined;
+	export let showIcon = true;
 
 	let defaultClass = 'bg-opacity-20 dark:bg-opacity-20';
-	if (icon === 'trending_up') {
+	if (trend === 'up') {
 		defaultClass =
 			'bg-success-background dark:bg-dark-success-background text-success-content dark:text-dark-success-content';
-	} else if (icon === 'trending_down') {
+	} else if (trend === 'down') {
 		defaultClass =
 			'bg-error-background dark:bg-dark-error-background text-error-content dark:text-dark-error-content';
 	} else {
@@ -19,6 +22,22 @@
 </script>
 
 <Badge class={finalClass} style={$$props.style}>
-	<span class="material-icons text-sm mr-1">{icon}</span>
+	{#if showIcon}
+		{#if $$slots.icon}
+			<span class="mr-1">
+				<slot name="icon" />
+			</span>
+		{:else}
+			<span class="mr-1">
+				{#if trend === 'up'}
+					<TrendIcon data={trending_up} />
+				{:else if trend === 'down'}
+					<TrendIcon data={trending_down} />
+				{:else}
+					<TrendIcon data={trending_neutral} />
+				{/if}
+			</span>
+		{/if}
+	{/if}
 	<span><slot /></span>
 </Badge>

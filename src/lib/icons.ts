@@ -36,3 +36,9 @@ export const print =
 	'<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M18,3H6V7H18M19,12A1,1 0 0,1 18,11A1,1 0 0,1 19,10A1,1 0 0,1 20,11A1,1 0 0,1 19,12M16,19H8V14H16M19,8H5A3,3 0 0,0 2,11V17H6V21H18V17H22V11A3,3 0 0,0 19,8Z" /></svg>';
 export const download =
 	'<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" /></svg>';
+export const trending_down =
+	'<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M16,18L18.29,15.71L13.41,10.83L9.41,14.83L2,7.41L3.41,6L9.41,12L13.41,8L19.71,14.29L22,12V18H16Z" /></svg>';
+export const trending_neutral =
+	'<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M22,12L18,8V11H3V13H18V16L22,12Z" /></svg>';
+export const trending_up =
+	'<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M16,6L18.29,8.29L13.41,13.17L9.41,9.17L2,16.59L3.41,18L9.41,12L13.41,16L19.71,9.71L22,12V6H16Z" /></svg>';

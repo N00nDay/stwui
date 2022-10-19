@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -9,7 +8,7 @@
 	export let data = '';
 	export let viewBox = extractViewBox(data);
 
-	export let size = '38px';
+	export let size = '12px';
 	export let width = size;
 	export let height = size;
 
@@ -25,28 +24,18 @@
 		if (!res) return '0 0 24 24'; // default value
 		return res[1];
 	}
-
-	const defaultClass = 'text-light-content dark:text-dark-content absolute -top-3 -right-2';
-	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<dd
-	class={finalClass}
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	{width}
+	{height}
+	{viewBox}
+	{stroke}
+	{fill}
 	use:useActions={use}
 	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
+	{...exclude($$props, ['use', 'fill', 'viewBox', 'width', 'height', 'stroke'])}
 >
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		{width}
-		{height}
-		{viewBox}
-		{stroke}
-		{fill}
-		use:useActions={use}
-		use:forwardEvents
-		{...exclude($$props, ['use', 'fill', 'viewBox', 'width', 'height', 'stroke'])}
-	>
-		{@html elements}
-	</svg>
-</dd>
+	{@html elements}
+</svg>
