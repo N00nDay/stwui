@@ -98,6 +98,7 @@
 			type="button"
 			on:click={handleOpen}
 			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface shadow-sm dark:shadow-black"
+			class:text-danger={error}
 		>
 			<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
 			<input
@@ -125,7 +126,11 @@
 				class:pl-10={$$slots.leading}
 			/>
 
-			<slot name="leading" />
+			{#if $$slots.leading}
+				<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+					<slot name="leading" />
+				</span>
+			{/if}
 
 			{#if value && value.length > 0}
 				<button
@@ -143,9 +148,7 @@
 			{/if}
 
 			{#if error}
-				<span
-					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-danger"
-				>
+				<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
 					<Icon data={errorIcon} />
 				</span>
 			{:else}

@@ -6,7 +6,6 @@
 		props,
 		slots,
 		labelSlots,
-		leadingSlots,
 		optionsSlots,
 		optionProps,
 		emptyOptionSlots,
@@ -106,9 +105,7 @@
 			<br />
 			<Autocomplete name="select-2" bind:value={value2} on:input={filter2}>
 				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
-				<Autocomplete.Leading slot="leading">
-					<Autocomplete.Leading.Icon slot="icon" data={email} />
-				</Autocomplete.Leading>
+				<Autocomplete.Leading slot="leading" data={email} />
 				<Autocomplete.Options slot="options">
 					{#if filtered2.length > 0}
 						{#each filtered2 as option}
@@ -127,9 +124,7 @@
 				on:input={filter3}
 			>
 				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
-				<Autocomplete.Leading slot="leading">
-					<Autocomplete.Leading.Icon slot="icon" data={email} />
-				</Autocomplete.Leading>
+				<Autocomplete.Leading slot="leading" data={email} />
 				<Autocomplete.Options slot="options">
 					{#if filtered3.length > 0}
 						{#each filtered3 as option}
@@ -190,11 +185,7 @@
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="Autocomplete.Leading" slots={leadingSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Autocomplete.Leading.Icon" props={iconProps} />
+	<PropsTable component="Autocomplete.Leading" props={iconProps} />
 </Col>
 
 <Col class="col-24">

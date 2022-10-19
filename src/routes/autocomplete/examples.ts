@@ -65,19 +65,6 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
-export const leadingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'default',
-		component: ''
-	},
-	{
-		id: '2',
-		slot: 'icon',
-		component: '<Autocomplete.Leading.Icon slot="icon" />'
-	}
-];
-
 export const optionsSlots: Slot[] = [
 	{
 		id: '1',
@@ -186,9 +173,7 @@ export const example = `
 
 <Autocomplete name="autocomplete" bind:value={value} on:input={filter}>
 	<Autocomplete.Label slot="label">Label</Autocomplete.Label>
-	<Autocomplete.Leading slot="leading">
-		<Autocomplete.Leading.Icon slot="icon" data={email} />
-	</Autocomplete.Leading>
+	<Autocomplete.Leading slot="leading" data={email} />
 	<Autocomplete.Options slot="options">
 		{#if filtered.length > 0}
 			{#each filtered as option}
