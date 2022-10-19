@@ -63,9 +63,51 @@ export const avatarProps: Prop[] = [
 export const iconProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
 		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -114,11 +156,14 @@ export const extraSlots: Slot[] = [
 export const example = `
 <script lang="ts">
 	import { Notification, Button } from 'stwui';
+
+	const folder = "svg-path";
+	const close = "svg-path";
 </script>
 
 <Notification>
    <Notification.Leading slot="leading">
-      <Notification.Leading.Icon icon="account_tree" class="text-pink-500" />
+		<Notification.Leading.Icon data={folder} class="text-pink-500" />
    </Notification.Leading>
    <Notification.Content slot="content">
       <Notification.Content.Title slot="title">Successfully Saved!</Notification.Content.Title>
@@ -128,7 +173,7 @@ export const example = `
    </Notification.Content>
    <Notification.Extra slot="extra" class="-top-2 -right-2">
       <Button on:click={() => console.log('notification closed!')} shape="circle">
-         <Button.Icon slot="icon" icon="close" />
+         <Button.Icon slot="icon" data={close} />
       </Button>
    </Notification.Extra>
 </Notification>`;

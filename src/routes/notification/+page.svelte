@@ -16,13 +16,15 @@
 		extraSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { folder } from '../../docs/icons';
+	import { close } from '../../lib/icons';
 </script>
 
-<Col class="col-24 sm:col-12 md:col-6">
+<Col class="col-24 sm:col-12">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Notification>
 			<Notification.Leading slot="leading">
-				<Notification.Leading.Icon icon="account_tree" class="text-pink-500" />
+				<Notification.Leading.Icon data={folder} class="text-pink-500" />
 			</Notification.Leading>
 			<Notification.Content slot="content">
 				<Notification.Content.Title slot="title">Successfully Saved!</Notification.Content.Title>
@@ -32,7 +34,7 @@
 			</Notification.Content>
 			<Notification.Extra slot="extra" class="-top-2 -right-2">
 				<Button on:click={() => console.log('notification closed!')} shape="circle">
-					<Button.Icon slot="icon" icon="close" />
+					<Button.Icon slot="icon" data={close} />
 				</Button>
 			</Notification.Extra>
 		</Notification>
@@ -43,7 +45,7 @@
 	</Card>
 </Col>
 
-<Col class="col-24 sm:col-12 md:col-6">
+<Col class="col-24 sm:col-12">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Notification type="success">
 			<Notification.Content slot="content">
@@ -65,7 +67,7 @@
 	</Card>
 </Col>
 
-<Col class="col-24 sm:col-12 md:col-6">
+<Col class="col-24 sm:col-12">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Notification type="info">
 			<Notification.Content slot="content">
@@ -87,7 +89,7 @@
 	</Card>
 </Col>
 
-<Col class="col-24 sm:col-12 md:col-6">
+<Col class="col-24 sm:col-12">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Notification>
 			<Notification.Content slot="content">

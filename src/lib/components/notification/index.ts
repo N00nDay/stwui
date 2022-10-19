@@ -5,7 +5,7 @@ import Avatar from './Avatar.svelte';
 import Description from './Description.svelte';
 import Extra from './Extra.svelte';
 import Title from './Title.svelte';
-import Icon from './Icon.svelte';
+import Icon from '../icon/Icon.svelte';
 
 const Notification = OriginalNotification as NotificationStatic;
 Notification.Leading = OriginalLeading as LeadingStatic;
