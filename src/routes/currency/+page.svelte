@@ -1,14 +1,6 @@
 <script lang="ts">
-	import { Card, Col, Currency, Icon } from '../../lib';
-	import {
-		example,
-		props,
-		slots,
-		leadingSlots,
-		labelSlots,
-		trailingSlots,
-		iconProps
-	} from './examples';
+	import { Card, Col, Currency } from '../../lib';
+	import { example, props, slots, labelSlots, iconProps } from './examples';
 	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
 	import { email, phone } from '../../docs/icons';
 	import { currency_usd } from '../../lib/icons';
@@ -25,19 +17,13 @@
 			<br />
 			<Currency name="currency-2">
 				<Currency.Label slot="label">Label</Currency.Label>
-				<Currency.Leading slot="leading">
-					<Currency.Leading.Icon data={currency_usd} />
-				</Currency.Leading>
-				<Currency.Trailing slot="trailing">
-					<Currency.Trailing.Icon data={phone} />
-				</Currency.Trailing>
+				<Currency.Leading slot="leading" data={currency_usd} />
+				<Currency.Trailing slot="trailing" data={phone} />
 			</Currency>
 			<br />
 			<Currency name="currency-3" error="There has been an error">
 				<Currency.Label slot="label">Label</Currency.Label>
-				<Currency.Leading slot="leading">
-					<Currency.Leading.Icon data={email} />
-				</Currency.Leading>
+				<Currency.Leading slot="leading" data={email} />
 			</Currency>
 
 			<br />
@@ -60,17 +46,9 @@
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="Currency.Leading" slots={leadingSlots} />
+	<PropsTable component="Currency.Leading" props={iconProps} />
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="Currency.Leading.Icon" props={iconProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Currency.Trailing" slots={trailingSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Currency.Trailing.Icon" props={iconProps} />
+	<PropsTable component="Currency.Trailing" props={iconProps} />
 </Col>

@@ -83,32 +83,6 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
-export const leadingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'icon',
-		component: '<Currency.Leading.Icon slot="icon" />'
-	},
-	{
-		id: '2',
-		slot: 'default',
-		component: ''
-	}
-];
-
-export const trailingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'icon',
-		component: '<Currency.Trailing.Icon slot="icon" />'
-	},
-	{
-		id: '2',
-		slot: 'default',
-		component: ''
-	}
-];
-
 export const iconProps: Prop[] = [
 	{
 		id: '1',
@@ -170,20 +144,14 @@ export const example = `
 </script>
 
 <Currency name="currency-1" placeholder="Basic" />
-<br />
+
 <Currency name="currency-2">
 	<Currency.Label slot="label">Label</Currency.Label>
-	<Currency.Leading slot="leading">
-		<Currency.Leading.Icon data={currency_usd} />
-	</Currency.Leading>
-	<Currency.Trailing slot="trailing">
-		<Currency.Trailing.Icon data={phone} />
-	</Currency.Trailing>
+	<Currency.Leading slot="leading" data={currency_usd} />
+	<Currency.Trailing slot="trailing" data={phone} />
 </Currency>
-<br />
+
 <Currency name="currency-3" error="There has been an error">
 	<Currency.Label slot="label">Label</Currency.Label>
-	<Currency.Leading slot="leading">
-		<Currency.Leading.Icon data={email} />
-	</Currency.Leading>
+	<Currency.Leading slot="leading" data={email} />
 </Currency>`;
