@@ -12,28 +12,30 @@
 		tabSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { home } from '../../docs/icons';
+	import { check, info } from '../../lib/icons';
 
 	interface Tab {
 		href: string;
 		title: string;
-		icon: MaterialIcon;
+		data: string;
 	}
 
 	const tabs: Tab[] = [
 		{
 			href: '#tab1',
 			title: 'Tab 1',
-			icon: 'home'
+			data: home
 		},
 		{
 			href: '#tab2',
 			title: 'Tab 2',
-			icon: 'done'
+			data: check
 		},
 		{
 			href: '#tab3',
 			title: 'Tab 3',
-			icon: 'info'
+			data: info
 		}
 	];
 
@@ -47,7 +49,7 @@
 			<Tabs {currentTab}>
 				{#each tabs as tab, i}
 					<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
-						<Tabs.Tab.Icon slot="icon" icon={tab.icon} />
+						<Tabs.Tab.Icon slot="icon" data={tab.data} />
 						{tab.title}
 					</Tabs.Tab>
 				{/each}
@@ -67,7 +69,7 @@
 			<Tabs {currentTab} variant="full-width">
 				{#each tabs as tab, i}
 					<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
-						<Tabs.Tab.Icon slot="icon" icon={tab.icon} />
+						<Tabs.Tab.Icon slot="icon" data={tab.data} />
 						{tab.title}
 					</Tabs.Tab>
 				{/each}
@@ -87,7 +89,7 @@
 			<Tabs {currentTab} variant="bar">
 				{#each tabs as tab, i}
 					<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
-						<Tabs.Tab.Icon slot="icon" icon={tab.icon} />
+						<Tabs.Tab.Icon slot="icon" data={tab.data} />
 						{tab.title}
 					</Tabs.Tab>
 				{/each}

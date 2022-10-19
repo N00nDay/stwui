@@ -60,9 +60,51 @@ export const tabSlots: Slot[] = [
 export const iconProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
 		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -70,27 +112,31 @@ export const example1 = `
 <script lang="ts">
 	import { Tabs } from 'stwui';
 
+	const home = "svg-path";
+	const check = "svg-path";
+	const info = "svg-path";
+
    interface Tab {
 		href: string;
 		title: string;
-		icon: MaterialIcon;
+		data: string;
 	}
 
 	const tabs: Tab[] = [
 		{
 			href: '#tab1',
 			title: 'Tab 1',
-			icon: 'home'
+			data: home
 		},
 		{
 			href: '#tab2',
 			title: 'Tab 2',
-			icon: 'done'
+			data: check
 		},
 		{
 			href: '#tab3',
 			title: 'Tab 3',
-			icon: 'info'
+			data: info
 		}
 	];
 
@@ -100,7 +146,7 @@ export const example1 = `
 <Tabs {currentTab}>
    {#each tabs as tab, i}
       <Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
-         <Tabs.Tab.Icon slot="icon" icon={tab.icon} />
+         <Tabs.Tab.Icon slot="icon" data={tab.data} />
          {tab.title}
       </Tabs.Tab>
    {/each}
@@ -110,27 +156,31 @@ export const example2 = `
 <script lang="ts">
 	import { Tabs } from 'stwui';
 
+   const home = "svg-path";
+	const check = "svg-path";
+	const info = "svg-path";
+
    interface Tab {
 		href: string;
 		title: string;
-		icon: MaterialIcon;
+		data: string;
 	}
 
 	const tabs: Tab[] = [
 		{
 			href: '#tab1',
 			title: 'Tab 1',
-			icon: 'home'
+			data: home
 		},
 		{
 			href: '#tab2',
 			title: 'Tab 2',
-			icon: 'done'
+			data: check
 		},
 		{
 			href: '#tab3',
 			title: 'Tab 3',
-			icon: 'info'
+			data: info
 		}
 	];
 
@@ -140,7 +190,7 @@ export const example2 = `
 <Tabs {currentTab} variant="full-width">
    {#each tabs as tab, i}
       <Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
-         <Tabs.Tab.Icon slot="icon" icon={tab.icon} />
+         <Tabs.Tab.Icon slot="icon" data={tab.data} />
          {tab.title}
       </Tabs.Tab>
    {/each}
@@ -150,27 +200,31 @@ export const example3 = `
 <script lang="ts">
 	import { Tabs } from 'stwui';
 
+   const home = "svg-path";
+	const check = "svg-path";
+	const info = "svg-path";
+
    interface Tab {
 		href: string;
 		title: string;
-		icon: MaterialIcon;
+		data: string;
 	}
 
 	const tabs: Tab[] = [
 		{
 			href: '#tab1',
 			title: 'Tab 1',
-			icon: 'home'
+			data: home
 		},
 		{
 			href: '#tab2',
 			title: 'Tab 2',
-			icon: 'done'
+			data: check
 		},
 		{
 			href: '#tab3',
 			title: 'Tab 3',
-			icon: 'info'
+			data: info
 		}
 	];
 
@@ -180,7 +234,7 @@ export const example3 = `
 <Tabs {currentTab} variant="bar">
    {#each tabs as tab, i}
       <Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
-         <Tabs.Tab.Icon slot="icon" icon={tab.icon} />
+         <Tabs.Tab.Icon slot="icon" data={tab.data} />
          {tab.title}
       </Tabs.Tab>
    {/each}

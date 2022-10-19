@@ -70,7 +70,11 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<slot name="icon" />
+	{#if $$slots.icon}
+		<span class="mr-2">
+			<slot name="icon" />
+		</span>
+	{/if}
 	<slot />
 	{#if variant === 'bar'}
 		<span

@@ -1,6 +1,6 @@
 import OriginalTabs from './Tabs.svelte';
 import OriginalTab from './Tab.svelte';
-import Icon from './Icon.svelte';
+import Icon from '../icon/Icon.svelte';
 
 const Tabs = OriginalTabs as TabsStatic;
 Tabs.Tab = OriginalTab as TabStatic;
