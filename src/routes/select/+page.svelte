@@ -7,7 +7,8 @@
 		labelSlots,
 		leadingSlots,
 		optionsSlots,
-		optionProps
+		optionProps,
+		iconProps
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, UpdatedComponent } from '../../docs';
 	import { email } from '../../docs/icons';
@@ -33,7 +34,7 @@
 			<Select name="select-2">
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Leading slot="leading">
-					<Icon data={email} />
+					<Select.Leading.Icon data={email} />
 				</Select.Leading>
 				<Select.Options slot="options">
 					{#each options as option}
@@ -45,7 +46,7 @@
 			<Select name="select-3" error="There has been an error">
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Leading slot="leading">
-					<Icon data={email} />
+					<Select.Leading.Icon data={email} />
 				</Select.Leading>
 				<Select.Options slot="options">
 					{#each options as option}
@@ -75,6 +76,10 @@
 
 <Col class="col-24">
 	<SlotsTable component="Select.Leading" slots={leadingSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Select.Leading.Icon" props={iconProps} />
 </Col>
 
 <Col class="col-24">

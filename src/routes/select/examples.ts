@@ -70,6 +70,11 @@ export const leadingSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	},
+	{
+		id: '2',
+		slot: 'icon',
+		component: '<Select.Leading.Icon slot="icon" />'
 	}
 ];
 
@@ -90,9 +95,60 @@ export const optionProps: Prop[] = [
 	}
 ];
 
+export const iconProps: Prop[] = [
+	{
+		id: '1',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
+		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
+	}
+];
+
 export const example = `
 <script lang="ts">
-	import { Select, Icon } from 'stwui';
+	import { Select } from 'stwui';
 
 	const email = "svg-path";
 	const options = ['Option 1', 'Option 2', 'Option 3'];
