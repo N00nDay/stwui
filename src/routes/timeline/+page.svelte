@@ -2,7 +2,9 @@
 	import { Card, Col, Timeline } from '../../lib';
 	import type { TimelineItem } from '../../lib/types/timeline-item';
 	import { example, slots, itemProps } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, BetaComponent } from '../../docs';
+
+	import { account, currency_usd } from '../../lib/icons';
 
 	const timeline: TimelineItem[] = [
 		{
@@ -15,7 +17,7 @@
 				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam.'
 		},
 		{
-			icon: 'account_circle',
+			icon: account,
 			created: new Date(2022, 8, 5),
 			avatar:
 				'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -24,7 +26,7 @@
 				'<span class="text-light-content dark:text-dark-content font-medium">Hilary Mahy</span> assigned <span class="text-light-content dark:text-dark-content font-medium">Kristin Watson</span>'
 		},
 		{
-			icon: 'local_offer',
+			icon: currency_usd,
 			created: new Date(2022, 8, 6),
 			avatar:
 				'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -43,6 +45,10 @@
 		}
 	];
 </script>
+
+<Col class="col-24">
+	<BetaComponent />
+</Col>
 
 <Col class="col-24">
 	<Card bordered={false}>

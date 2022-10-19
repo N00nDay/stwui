@@ -42,7 +42,7 @@ export const itemProps: Prop[] = [
 	{
 		id: '6',
 		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a> | undefined',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a> | undefined',
 		default: ''
 	}
 ];
@@ -51,6 +51,9 @@ export const example = `
 <script lang="ts">
 	import { Timeline } from 'stwui';
 	import type { TimelineItem } from '../../lib/types/timeline-item';
+
+	const account = "svg-path";
+	const currency_usd = "svg-path";
 
 	const timeline: TimelineItem[] = [
 		{
@@ -61,14 +64,14 @@ export const example = `
 			description: 'Lorem ipsum...'
 		},
 		{
-			icon: 'account_circle',
+			icon: account,
 			created: new Date(2022, 8, 5),
 			avatar: "image.png",
 			creator: 'Hilary Mahy',
 			description: 'Lorem ipsum...'
 		},
 		{
-			icon: 'local_offer',
+			icon: currency_usd,
 			created: new Date(2022, 8, 6),
 			avatar: "image.png",
 			creator: 'Hilary Mahy',

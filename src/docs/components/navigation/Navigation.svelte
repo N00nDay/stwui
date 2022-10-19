@@ -21,8 +21,7 @@
 		},
 		{
 			title: 'Autocomplete',
-			href: '/autocomplete',
-			updated: true
+			href: '/autocomplete'
 		},
 		{
 			title: 'Avatar',
@@ -66,13 +65,11 @@
 		},
 		{
 			title: 'Currency',
-			href: '/currency',
-			updated: true
+			href: '/currency'
 		},
 		{
 			title: 'Datepicker',
-			href: '/datepicker',
-			updated: true
+			href: '/datepicker'
 		},
 		{
 			title: 'Divider',
@@ -96,13 +93,11 @@
 		},
 		{
 			title: 'Input',
-			href: '/input',
-			updated: true
+			href: '/input'
 		},
 		{
 			title: 'InputNumber',
-			href: '/input-number',
-			updated: true
+			href: '/input-number'
 		},
 		{
 			title: 'List',
@@ -147,8 +142,7 @@
 		},
 		{
 			title: 'Select',
-			href: '/select',
-			updated: true
+			href: '/select'
 		},
 		{
 			title: 'Slider',
@@ -177,17 +171,16 @@
 		},
 		{
 			title: 'TextArea',
-			href: '/text-area',
-			updated: true
+			href: '/text-area'
 		},
 		{
 			title: 'Timeline',
-			href: '/timeline'
+			href: '/timeline',
+			beta: true
 		},
 		{
 			title: 'Toggle',
-			href: '/toggle',
-			updated: true
+			href: '/toggle'
 		}
 	];
 

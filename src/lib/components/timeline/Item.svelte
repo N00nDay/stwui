@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { MaterialIcon } from '../../types';
 	import Avatar from '../avatar';
+	import Icon from '../icon/Icon.svelte';
 	import { formatDate } from '../../utils';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -13,7 +13,7 @@
 	export let creator: string;
 	export let created: Date;
 	export let description: string;
-	export let icon: MaterialIcon | undefined = undefined;
+	export let icon: string | undefined = undefined;
 </script>
 
 {#if type === 'comment'}
@@ -69,7 +69,9 @@
 						<div
 							class="flex h-8 w-8 items-center justify-center rounded-full bg-light-icon-background dark:bg-dark-icon-background ring-8 ring-light-surface dark:ring-dark-surface"
 						>
-							<span class="material-icons text-light-content dark:text-dark-content">{icon}</span>
+							<span class="material-icons text-light-content dark:text-dark-content">
+								<Icon data={icon} />
+							</span>
 						</div>
 					</div>
 				</div>
