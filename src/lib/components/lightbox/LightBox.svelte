@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { crossfade } from '../../utils/crossfade';
 	import { fade, fly, scale } from 'svelte/transition';
-
 	import type { CarouselSlide, LightboxAction } from '../../types';
 	import Control from './Control.svelte';
 	import Portal from '../portal/Portal.svelte';
+	import { undo, redo, close, print, download } from '../../icons';
 
 	export let slides: CarouselSlide[] = [];
 	export let activeSlide = 0;
@@ -101,20 +101,20 @@
 							class="rounded-[1.85rem] bg-dark-surface p-2 text-sm text-dark-content bg-opacity-70 flex flex-row gap-1 justify-center items-center"
 						>
 							{#if showClose}
-								<Control icon="close" on:click={handleClose} />
+								<Control data={close} on:click={handleClose} />
 							{/if}
 							{#if allowRotation}
-								<Control icon="undo" on:click={rotateLeft} />
-								<Control icon="redo" on:click={rotateRight} />
+								<Control data={undo} on:click={rotateLeft} />
+								<Control data={redo} on:click={rotateRight} />
 							{/if}
 							{#if allowPrint}
-								<Control icon="print" on:click={handlePrint} />
+								<Control data={print} on:click={handlePrint} />
 							{/if}
 							{#if allowDownload}
-								<Control icon="download" on:click={handleDownload} />
+								<Control data={download} on:click={handleDownload} />
 							{/if}
 							{#each actions as action}
-								<Control icon={action.icon} on:click={action.action} />
+								<Control data={action.data} on:click={action.action} />
 							{/each}
 						</div>
 					</div>

@@ -1,6 +1,4 @@
-import type { MaterialIcon } from './';
-
 export interface Action {
-	icon: MaterialIcon;
+	data: string;
 	action: () => void;
 }

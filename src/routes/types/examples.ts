@@ -11,7 +11,7 @@ export const locale = `type Locale = {
 };`;
 
 export const lightboxAction = `interface LightboxAction {
-	icon: MaterialIcon;
+	data: string (IconData);
 	action: () => void;
 }`;
 
