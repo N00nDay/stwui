@@ -1,5 +1,7 @@
 <script lang="ts" context="module">
 	import type { MaterialIcon } from '../../lib/types';
+	import { calendar } from '../../lib/icons';
+	import { home, account_multiple, folder, file_document, poll } from '../../docs/icons';
 
 	interface GroupMenuItem {
 		key: string;
@@ -8,7 +10,7 @@
 	}
 	interface MenuItem {
 		key: string;
-		icon?: MaterialIcon;
+		data?: string;
 		label: string;
 		badge?: string;
 		badgeType?: 'info' | 'warn' | 'error' | 'success';
@@ -35,7 +37,7 @@
 	const items: MenuItem[] = [
 		{
 			key: 'dashboard',
-			icon: 'home',
+			data: home,
 			label: 'Dashboard',
 			badge: '5',
 			badgeType: 'info',
@@ -43,7 +45,7 @@
 		},
 		{
 			key: 'team',
-			icon: 'people',
+			data: account_multiple,
 			label: 'Team',
 			href: '#item2',
 			children: [
@@ -61,7 +63,7 @@
 		},
 		{
 			key: 'projects',
-			icon: 'folder',
+			data: folder,
 			label: 'Projects',
 			badge: '19',
 			badgeType: 'warn',
@@ -69,7 +71,7 @@
 		},
 		{
 			key: 'calendar',
-			icon: 'calendar_month',
+			data: calendar,
 			label: 'Calendar',
 			badge: '20+',
 			badgeType: 'error',
@@ -77,13 +79,13 @@
 		},
 		{
 			key: 'documents',
-			icon: 'description',
+			data: file_document,
 			label: 'Documents',
 			href: '#item5'
 		},
 		{
 			key: 'reports',
-			icon: 'leaderboard',
+			data: poll,
 			label: 'Reports',
 			href: '#item6'
 		}
@@ -107,9 +109,9 @@
 			<Menu {collapsed} {active}>
 				{#each items as item}
 					{#if item.children && item.children.length > 0}
-						{#if item.icon}
+						{#if item.data}
 							<Menu.Group key={item.key} label={item.label} href={item.href}>
-								<Menu.Item.Icon slot="icon" icon={item.icon} />
+								<Menu.Item.Icon slot="icon" data={item.data} />
 								{#each item.children as child}
 									<Menu.Group.Item
 										key={child.key}
@@ -131,24 +133,24 @@
 								{/each}
 							</Menu.Group>
 						{/if}
-					{:else if item.icon && item.badge}
+					{:else if item.data && item.badge}
 						<Menu.Item
 							key={item.key}
 							label={item.label}
 							href={item.href}
 							on:click={() => (active = item.key)}
 						>
-							<Menu.Item.Icon slot="icon" icon={item.icon} />
+							<Menu.Item.Icon slot="icon" data={item.data} />
 							<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
 						</Menu.Item>
-					{:else if item.icon}
+					{:else if item.data}
 						<Menu.Item
 							key={item.key}
 							label={item.label}
 							href={item.href}
 							on:click={() => (active = item.key)}
 						>
-							<Menu.Item.Icon slot="icon" icon={item.icon} />
+							<Menu.Item.Icon slot="icon" data={item.data} />
 						</Menu.Item>
 					{:else if item.badge}
 						<Menu.Item

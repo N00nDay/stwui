@@ -66,9 +66,51 @@ export const itemSlots: Slot[] = [
 export const iconProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'icon',
-		type: '<a class="link" href="/types#MaterialIcon">MaterialIcon</a>',
+		prop: 'data',
+		type: '<a href="/types#IconData" class="link">string (IconData)</a>',
 		default: ''
+	},
+	{
+		id: '2',
+		prop: 'viewBox',
+		type: 'string',
+		default: '0 0 24 24'
+	},
+	{
+		id: '3',
+		prop: 'size',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '4',
+		prop: 'width',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '5',
+		prop: 'height',
+		type: 'string',
+		default: '24px'
+	},
+	{
+		id: '6',
+		prop: 'color',
+		type: 'string',
+		default: 'currentColor'
+	},
+	{
+		id: '7',
+		prop: 'stroke',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '8',
+		prop: 'fill',
+		type: 'string',
+		default: 'currentColor'
 	}
 ];
 
@@ -119,7 +161,13 @@ export const groupItemsProps: Prop[] = [
 export const example = `
 <script lang="ts">
    import { Menu } from 'stwui';
-   import type { MaterialIcon } from 'stwui/types';
+
+	const home = "svg-path";
+	const account_multiple = "svg-path";
+	const folder = "svg-path";
+	const calendar = "svg-path";
+	const file_document = "svg-path";
+	const poll = "svg-path";
 
 	interface GroupMenuItem {
 		key: string;
@@ -128,7 +176,7 @@ export const example = `
 	}
 	interface MenuItem {
 		key: string;
-		icon?: MaterialIcon;
+		data?: string;
 		label: string;
 		badge?: string;
 		badgeType?: 'info' | 'warn' | 'error' | 'success';
@@ -139,7 +187,7 @@ export const example = `
    const items: MenuItem[] = [
 		{
 			key: 'dashboard',
-			icon: 'home',
+			data: home,
 			label: 'Dashboard',
 			badge: '5',
 			badgeType: 'info',
@@ -147,7 +195,7 @@ export const example = `
 		},
 		{
 			key: 'team',
-			icon: 'people',
+			data: account_multiple,
 			label: 'Team',
 			href: '#item2',
 			children: [
@@ -165,7 +213,7 @@ export const example = `
 		},
 		{
 			key: 'projects',
-			icon: 'folder',
+			data: folder,
 			label: 'Projects',
 			badge: '19',
 			badgeType: 'warn',
@@ -173,7 +221,7 @@ export const example = `
 		},
 		{
 			key: 'calendar',
-			icon: 'calendar_month',
+			data: calendar,
 			label: 'Calendar',
 			badge: '20+',
 			badgeType: 'error',
@@ -181,13 +229,13 @@ export const example = `
 		},
 		{
 			key: 'documents',
-			icon: 'description',
+			data: file_document,
 			label: 'Documents',
 			href: '#item5'
 		},
 		{
 			key: 'reports',
-			icon: 'leaderboard',
+			data: poll,
 			label: 'Reports',
 			href: '#item6'
 		}
@@ -204,9 +252,9 @@ export const example = `
 <Menu {collapsed} {active}>
    {#each items as item}
       {#if item.children && item.children.length > 0}
-         {#if item.icon}
+         {#if item.data}
             <Menu.Group key={item.key} label={item.label} href={item.href}>
-               <Menu.Item.Icon slot="icon" icon={item.icon} />
+               <Menu.Item.Icon slot="icon" data={item.data} />
                {#each item.children as child}
                   <Menu.Group.Item
                      key={child.key}
@@ -228,24 +276,24 @@ export const example = `
                {/each}
             </Menu.Group>
          {/if}
-      {:else if item.icon && item.badge}
+      {:else if item.data && item.badge}
          <Menu.Item
             key={item.key}
             label={item.label}
             href={item.href}
             on:click={() => (active = item.key)}
          >
-            <Menu.Item.Icon slot="icon" icon={item.icon} />
+            <Menu.Item.Icon slot="icon" data={item.data} />
             <Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
          </Menu.Item>
-      {:else if item.icon}
+      {:else if item.data}
          <Menu.Item
             key={item.key}
             label={item.label}
             href={item.href}
             on:click={() => (active = item.key)}
          >
-            <Menu.Item.Icon slot="icon" icon={item.icon} />
+            <Menu.Item.Icon slot="icon" data={item.data} />
          </Menu.Item>
       {:else if item.badge}
          <Menu.Item
