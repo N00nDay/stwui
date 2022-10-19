@@ -124,25 +124,25 @@ export const exampleGroup = `
 		<AvatarGroup.Avatar src={avatar} />
 	{/each}
 </AvatarGroup>
-<br />
+
 <AvatarGroup size="sm">
 	{#each avatars as avatar}
 		<AvatarGroup.Avatar src={avatar} />
 	{/each}
 </AvatarGroup>
-<br />
+
 <AvatarGroup>
 	{#each avatars as avatar}
 		<AvatarGroup.Avatar src={avatar} />
 	{/each}
 </AvatarGroup>
-<br />
+
 <AvatarGroup size="lg">
 	{#each avatars as avatar}
 		<AvatarGroup.Avatar src={avatar} class="ring-primary dark:ring-primary" />
 	{/each}
 </AvatarGroup>
-<br />
+
 <AvatarGroup size="xl">
 	{#each avatars as avatar}
 		<AvatarGroup.Avatar src={avatar} />
