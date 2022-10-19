@@ -103,12 +103,8 @@
 
 			<Layout.Header.Extra slot="extra">
 				<Toggle name="toggle" bind:on={darkTheme}>
-					<Toggle.LeftIcon slot="left-icon">
-						<Icon data={brightness_5} />
-					</Toggle.LeftIcon>
-					<Toggle.RightIcon slot="right-icon">
-						<Icon data={brightness_4} />
-					</Toggle.RightIcon>
+					<Toggle.LeftIcon slot="left-icon" data={brightness_5} />
+					<Toggle.RightIcon slot="right-icon" data={brightness_4} />
 				</Toggle>
 
 				<Search />

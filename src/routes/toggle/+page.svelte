@@ -67,12 +67,8 @@
 		<Card.Header slot="header">with Left and Right icons</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Toggle name="toggle">
-				<Toggle.LeftIcon slot="left-icon">
-					<Icon data={brightness_5} />
-				</Toggle.LeftIcon>
-				<Toggle.RightIcon slot="right-icon">
-					<Icon data={brightness_4} />
-				</Toggle.RightIcon>
+				<Toggle.LeftIcon slot="left-icon" data={brightness_5} class="text-white" />
+				<Toggle.RightIcon slot="right-icon" data={brightness_4} />
 			</Toggle>
 
 			<br />

@@ -53,8 +53,16 @@
 				class:translate-x-0={!on}
 			/>
 			<input type="checkbox" class="hidden" {name} id={name} checked={on} />
-			<slot name="left-icon" />
-			<slot name="right-icon" />
+			{#if $$slots['left-icon']}
+				<span class="text-sm absolute left-0.5 flex items-center justify-center h-4 w-4">
+					<slot name="left-icon" />
+				</span>
+			{/if}
+			{#if $$slots['right-icon']}
+				<span class="text-sm absolute right-0.5 flex items-center justify-center h-4 w-4">
+					<slot name="right-icon" />
+				</span>
+			{/if}
 		</button>
 	</div>
 	<slot name="content-right" />
