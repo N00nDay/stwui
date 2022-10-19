@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Button, Card, Col, Empty } from '../../lib';
-	import { example, slots, iconProps, titleSlots, descriptionSlots } from './examples';
+	import { example, slots, iconProps, titleSlots, descriptionSlots, actionSlots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
 	import { plus_circle, lock } from '../../docs/icons';
@@ -12,13 +12,15 @@
 			<Empty>
 				<Empty.Icon slot="icon" data={lock} />
 				<Empty.Title slot="title">No Projects</Empty.Title>
-				<Empty.Description slot="description"
-					>Get started by creating a new project.</Empty.Description
-				>
-				<Button class="mt-6" type="primary" on:click={() => console.log('clicked new project')}>
-					<Button.Leading slot="leading" data={plus_circle} />
-					New Project</Button
-				>
+				<Empty.Description slot="description">
+					Get started by creating a new project.
+				</Empty.Description>
+				<Empty.Action slot="action">
+					<Button type="primary" on:click={() => console.log('clicked new project')}>
+						<Button.Leading slot="leading" data={plus_circle} />
+						New Project
+					</Button>
+				</Empty.Action>
 			</Empty>
 
 			<br />
@@ -42,4 +44,8 @@
 
 <Col class="col-24">
 	<SlotsTable component="Empty.Description" slots={descriptionSlots} />
+</Col>
+
+<Col class="col-24">
+	<SlotsTable component="Empty.Action" slots={actionSlots} />
 </Col>

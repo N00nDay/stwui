@@ -6,19 +6,15 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'text-center py-12';
+	const defaultClass = 'mt-6 text-sm';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div
+<p
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<slot name="icon" />
-	<slot name="title" />
-	<slot name="description" />
-	<slot name="action" />
 	<slot />
-</div>
+</p>

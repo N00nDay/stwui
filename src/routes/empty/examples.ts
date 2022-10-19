@@ -95,6 +95,14 @@ export const descriptionSlots: Slot[] = [
 	}
 ];
 
+export const actionSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'default',
+		component: ''
+	}
+];
+
 export const example = `
 <script lang="ts">
 	import { Empty, Button } from 'stwui';
@@ -104,13 +112,15 @@ export const example = `
 </script>
 
 <Empty>
-   <Empty.Icon slot="icon" data={lock} />
-   <Empty.Title slot="title">No Projects</Empty.Title>
-   <Empty.Description slot="description">
-      Get started by creating a new project.
-   </Empty.Description>
-   <Button class="mt-6" type="primary" on:click={() => console.log('clicked new project')}>
-      <Button.Leading slot="leading" data={plus_circle} />>
-      New Project
-   </Button>
+	<Empty.Icon slot="icon" data={lock} />
+	<Empty.Title slot="title">No Projects</Empty.Title>
+	<Empty.Description slot="description">
+		Get started by creating a new project.
+	</Empty.Description>
+	<Empty.Action slot="action">
+		<Button type="primary" on:click={() => console.log('clicked new project')}>
+			<Button.Leading slot="leading" data={plus_circle} />
+			New Project
+		</Button>
+	</Empty.Action>
 </Empty>`;
