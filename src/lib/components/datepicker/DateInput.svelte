@@ -113,7 +113,10 @@
 	<svelte:fragment slot="trigger">
 		<div class={$$props.class} style={$$props.style}>
 			<slot name="label" />
-			<div class="mt-1 relative rounded-md shadow-sm h-[2.5rem] dark:shadow-black">
+			<div
+				class="mt-1 relative rounded-md shadow-sm h-[2.5rem] dark:shadow-black"
+				class:text-danger={error}
+			>
 				<input
 					readonly={true}
 					autocomplete="off"
@@ -150,14 +153,18 @@
 					{...exclude($$props, ['use', 'class'])}
 				/>
 
-				<slot name="leading" />
+				{#if $$slots.leading}
+					<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+						<slot name="leading" />
+					</span>
+				{/if}
 
 				{#if $$slots.trailing && !error}
-					<slot name="trailing" />
+					<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+						<slot name="trailing" />
+					</span>
 				{:else if error}
-					<span
-						class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-danger"
-					>
+					<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
 						<Icon data={errorIcon} />
 					</span>
 				{/if}

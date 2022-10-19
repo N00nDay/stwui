@@ -95,32 +95,6 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
-export const leadingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'default',
-		component: ''
-	},
-	{
-		id: '2',
-		slot: 'icon',
-		component: '<DatePicker.Leading.Icon slot="icon" />'
-	}
-];
-
-export const trailingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'default',
-		component: ''
-	},
-	{
-		id: '2',
-		slot: 'icon',
-		component: '<DatePicker.Trailing.Icon slot="icon" />'
-	}
-];
-
 export const iconProps: Prop[] = [
 	{
 		id: '1',
@@ -187,14 +161,10 @@ export const example = `
 
 <DatePicker name="date-2" label="Date" max={date2Max} min={date2Min}>
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
-	<DatePicker.Trailing slot="trailing">
-		<DatePicker.Trailing.Icon slot="icon" data={calendar} />
-	</DatePicker.Trailing>
+	<DatePicker.Trailing slot="trailing" data={calendar} />
 </DatePicker>
 
 <DatePicker name="date-3" min={date2Min} error="Your doing it wrong">
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
-	<DatePicker.Leading slot="leading">
-		<DatePicker.Leading.Icon slot="icon" data={phone} />
-	</DatePicker.Leading>
+	<DatePicker.Leading slot="leading" data={phone} />
 </DatePicker>`;
