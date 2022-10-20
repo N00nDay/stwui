@@ -89,32 +89,6 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
-export const leadingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'default',
-		component: ''
-	},
-	{
-		id: '2',
-		slot: 'icon',
-		component: '<InputNumber.Leading.Icon slot="icon" />'
-	}
-];
-
-export const trailingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'default',
-		component: ''
-	},
-	{
-		id: '2',
-		slot: 'icon',
-		component: '<InputNumber.Leading.Icon slot="icon" />'
-	}
-];
-
 export const iconProps: Prop[] = [
 	{
 		id: '1',
@@ -177,7 +151,5 @@ export const example = `
 
 <InputNumber name="input-number-2">
 	<InputNumber.Label slot="label">Number</InputNumber.Label>
-	<InputNumber.Trailing slot="trailing">
-		<InputNumber.Trailing.Icon slot="icon" data={phone} />
-	</InputNumber.Trailing>
+	<InputNumber.Trailing slot="trailing" data={phone} />
 </InputNumber>`;

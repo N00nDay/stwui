@@ -1,14 +1,6 @@
 <script lang="ts">
 	import { Card, Col, InputNumber } from '../../lib';
-	import {
-		example,
-		props,
-		slots,
-		leadingSlots,
-		labelSlots,
-		trailingSlots,
-		iconProps
-	} from './examples';
+	import { example, props, slots, labelSlots, iconProps } from './examples';
 	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
 	import { phone } from '../../docs/icons';
 </script>
@@ -24,9 +16,7 @@
 			<br />
 			<InputNumber name="input-number-2">
 				<InputNumber.Label slot="label">Number</InputNumber.Label>
-				<InputNumber.Trailing slot="trailing">
-					<InputNumber.Trailing.Icon slot="icon" data={phone} />
-				</InputNumber.Trailing>
+				<InputNumber.Trailing slot="trailing" data={phone} />
 			</InputNumber>
 
 			<br />
@@ -49,17 +39,9 @@
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="InputNumber.Leading" slots={leadingSlots} />
+	<PropsTable component="InputNumber.Leading" props={iconProps} />
 </Col>
 
 <Col class="col-24">
-	<PropsTable component="InputNumber.Leading.Icon" props={iconProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="InputNumber.Trailing" slots={trailingSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="InputNumber.Trailing.Icon" props={iconProps} />
+	<PropsTable component="InputNumber.Trailing" props={iconProps} />
 </Col>
