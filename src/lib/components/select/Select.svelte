@@ -15,7 +15,6 @@
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
-	export let autofocus = false;
 	export let visible = false;
 
 	let selectedValue = writable(value);
@@ -44,13 +43,6 @@
 		name,
 		value: selectedValue,
 		handleSelect
-	});
-
-	onMount(() => {
-		if (autofocus) {
-			button.focus();
-			toggleVisible();
-		}
 	});
 </script>
 

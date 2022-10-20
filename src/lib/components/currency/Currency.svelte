@@ -14,7 +14,6 @@
 	export let value: string | undefined = undefined;
 	export let autocomplete: string | undefined = undefined;
 	export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
-	export let autofocus = false;
 	export let disabled = false;
 	export let readonly = false;
 
@@ -52,7 +51,6 @@
 			type="number"
 			inputmode="numeric"
 			pattern="\d*"
-			{autofocus}
 			{autocapitalize}
 			{autocomplete}
 			{name}

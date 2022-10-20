@@ -127,7 +127,6 @@
 						role="combobox"
 						aria-expanded="false"
 						aria-controls="options"
-						autofocus={true}
 						bind:value
 						on:input={filterData}
 					/>

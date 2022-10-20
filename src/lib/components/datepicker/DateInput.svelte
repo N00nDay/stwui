@@ -47,7 +47,6 @@
 	export let closeOnSelect = true;
 	export let handleSelect: ((d: Dayjs) => void) | undefined = undefined;
 	export let tabindex: string | undefined = undefined;
-	export let autofocus: true | undefined = undefined;
 
 	$: store.set(value);
 
@@ -122,7 +121,6 @@
 					autocomplete="off"
 					name="{name}-visual"
 					id="{name}-visual"
-					{autofocus}
 					{tabindex}
 					{placeholder}
 					type="text"

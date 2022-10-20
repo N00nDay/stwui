@@ -39,24 +39,18 @@ export const props: Prop[] = [
 	},
 	{
 		id: '7',
-		prop: 'autofocus',
-		type: 'boolean',
-		default: ''
-	},
-	{
-		id: '8',
 		prop: 'readonly',
 		type: 'boolean',
 		default: ''
 	},
 	{
-		id: '9',
+		id: '8',
 		prop: 'disabled',
 		type: 'boolean',
 		default: 'false'
 	},
 	{
-		id: '10',
+		id: '9',
 		prop: 'step',
 		type: 'numbers',
 		default: '1'

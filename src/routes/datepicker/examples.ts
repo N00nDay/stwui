@@ -40,7 +40,7 @@ export const props: Prop[] = [
 	{
 		id: '9',
 		prop: 'format',
-		type: 'string (<a class="link" target="_blank" href="https://day.js.org/docs/en/display/format">dayjs format</a>)',
+		type: 'string (<a class="link" target="_blank" rel="noreferrer" href="https://day.js.org/docs/en/display/format">dayjs format</a>)',
 		default: 'MMMM D, YYYY'
 	},
 	{
@@ -64,7 +64,7 @@ export const props: Prop[] = [
 	{
 		id: '13',
 		prop: 'handleSelect',
-		type: '(d: <a class="link" target="_blank" href="https://day.js.org/docs/en/display/format">Dayjs</a>) => void) | undefined',
+		type: '(d: <a class="link" target="_blank" rel="noreferrer" href="https://day.js.org/docs/en/display/format">Dayjs</a>) => void) | undefined',
 		default: ''
 	}
 ];

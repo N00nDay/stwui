@@ -45,30 +45,24 @@ export const props: Prop[] = [
 	},
 	{
 		id: '8',
-		prop: 'autofocus',
-		type: 'true | undefined',
-		default: ''
-	},
-	{
-		id: '9',
 		prop: 'readonly',
 		type: 'true | undefined',
 		default: ''
 	},
 	{
-		id: '10',
+		id: '9',
 		prop: 'tabindex',
 		type: 'string | undefined',
 		default: ''
 	},
 	{
-		id: '11',
+		id: '10',
 		prop: 'showPasswordToggle',
 		type: 'boolean',
 		default: 'false'
 	},
 	{
-		id: '12',
+		id: '11',
 		prop: 'allowClear',
 		type: 'boolean',
 		default: 'false'

@@ -39,12 +39,6 @@ export const props: Prop[] = [
 	},
 	{
 		id: '7',
-		prop: 'autofocus',
-		type: "'true' | undefined",
-		default: ''
-	},
-	{
-		id: '8',
 		prop: 'readonly',
 		type: 'true | undefined',
 		default: ''

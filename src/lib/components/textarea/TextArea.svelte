@@ -12,7 +12,6 @@
 	export let value: string | undefined = undefined;
 	export let autocomplete: string | undefined = undefined;
 	export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
-	export let autofocus = false;
 	export let readonly = false;
 
 	setContext(TEXT_AREA_CONTEXT_ID, {
@@ -29,7 +28,6 @@
 	<div class="mt-1">
 		<textarea
 			rows="4"
-			{autofocus}
 			{autocapitalize}
 			{autocomplete}
 			{name}

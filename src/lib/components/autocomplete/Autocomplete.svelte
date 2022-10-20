@@ -19,7 +19,6 @@
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
-	export let autofocus = false;
 	export let allowNonListValue = false;
 
 	let visible = false;
@@ -66,13 +65,6 @@
 		$selectedOption = undefined;
 	}
 
-	onMount(() => {
-		if (autofocus) {
-			button.focus();
-			visible = true;
-		}
-	});
-
 	setContext(AUTOCOMPLETE_CONTEXT_ID, {
 		autocomplete: true,
 		handleSelect,
@@ -107,7 +99,6 @@
 				bind:this={input}
 				bind:value
 				{placeholder}
-				{autofocus}
 				on:input
 				on:change
 				autocomplete="off"

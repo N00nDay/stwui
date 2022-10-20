@@ -27,12 +27,6 @@ export const props: Prop[] = [
 	},
 	{
 		id: '5',
-		prop: 'autofocus',
-		type: 'boolean',
-		default: 'false'
-	},
-	{
-		id: '6',
 		prop: 'allowNonListValue',
 		type: 'boolean',
 		default: 'false'

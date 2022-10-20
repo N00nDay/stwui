@@ -41,8 +41,8 @@
 		"@sveltejs/package": "1.0.0-next.5",
 		"@tailwindcss/forms": "^0.5.3",
 		"@types/cookie": "^0.5.1",
-		"@typescript-eslint/eslint-plugin": "^5.40.0",
-		"@typescript-eslint/parser": "^5.40.0",
+		"@typescript-eslint/eslint-plugin": "^5.40.1",
+		"@typescript-eslint/parser": "^5.40.1",
 		"autoprefixer": "^10.4.12",
 		"eslint": "^8.25.0",
 		"eslint-config-prettier": "^8.5.0",
@@ -53,11 +53,11 @@
 		"postcss": "^8.4.18",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.8.0",
-		"svelte": "^3.51.0",
+		"svelte": "^3.52.0",
 		"svelte-check": "^2.9.2",
 		"svelte-preprocess": "^4.10.7",
 		"svelte2tsx": "^0.5.20",
-		"tailwindcss": "^3.1.8",
+		"tailwindcss": "^3.2.0",
 		"tslib": "^2.4.0",
 		"typescript": "^4.8.4",
 		"vite": "^3.1.8"
@@ -65,7 +65,7 @@
 	"type": "module",
 	"dependencies": {
 		"dayjs": "^1.11.5",
-		"tailwind-merge": "^1.6.1",
+		"tailwind-merge": "^1.6.2",
 		"tippy.js": "^6.3.7"
 	},
 	"peerDependencies": {
@@ -76,7 +76,8 @@
 		"./actions": "./actions/index.js",
 		"./plugin": "./plugin/index.js",
 		"./types": "./types/index.js",
-		"./utils": "./utils/index.js"
+		"./utils": "./utils/index.js",
+		"./icons": "./icons.js"
 	},
 	"svelte": "."
 }
