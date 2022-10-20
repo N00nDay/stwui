@@ -13,6 +13,7 @@
 		toggle_switch
 	} from '../../icons';
 	import { close, info } from '../../../lib/icons';
+	import { browser } from '$app/environment';
 
 	let input: HTMLInputElement;
 
@@ -73,6 +74,10 @@
 		if (navigator.appVersion.indexOf('X11') != -1) os = 'UNIX';
 		if (navigator.appVersion.indexOf('Linux') != -1) os = 'Linux';
 	});
+
+	$: if (open && browser && input) {
+		input.focus();
+	}
 </script>
 
 <svelte:window on:keydown={captureEscapeEvent} />
