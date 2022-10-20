@@ -56,7 +56,7 @@
 
 <div class={$$props.class} style={$$props.style} use:clickOutside={handleClose}>
 	<slot name="label" />
-	<div class="mt-1 relative rounded-md h-[2.5rem]">
+	<div class="mt-1 relative rounded-md h-[2.5rem]" class:text-danger={error}>
 		<button
 			aria-label="toggle select"
 			bind:this={button}
@@ -92,18 +92,18 @@
 				autocomplete="off"
 			/>
 
-			<slot name="leading" />
+			{#if $$slots.leading}
+				<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+					<slot name="leading" />
+				</span>
+			{/if}
 
 			{#if error}
-				<span
-					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-danger"
-				>
+				<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
 					<Icon data={errorIcon} />
 				</span>
 			{:else}
-				<span
-					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-light-icon dark:text-dark-icon"
-				>
+				<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
 					<Icon data={unfold_more_horizontal} />
 				</span>
 			{/if}

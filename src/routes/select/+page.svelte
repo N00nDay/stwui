@@ -5,7 +5,6 @@
 		props,
 		slots,
 		labelSlots,
-		leadingSlots,
 		optionsSlots,
 		optionProps,
 		iconProps
@@ -33,9 +32,7 @@
 			<br />
 			<Select name="select-2">
 				<Select.Label slot="label">Label</Select.Label>
-				<Select.Leading slot="leading">
-					<Select.Leading.Icon data={email} />
-				</Select.Leading>
+				<Select.Leading slot="leading" data={email} />
 				<Select.Options slot="options">
 					{#each options as option}
 						<Select.Options.Option {option} />
@@ -45,9 +42,7 @@
 			<br />
 			<Select name="select-3" error="There has been an error">
 				<Select.Label slot="label">Label</Select.Label>
-				<Select.Leading slot="leading">
-					<Select.Leading.Icon data={email} />
-				</Select.Leading>
+				<Select.Leading slot="leading" data={email} />
 				<Select.Options slot="options">
 					{#each options as option}
 						<Select.Options.Option {option} />
@@ -75,11 +70,7 @@
 </Col>
 
 <Col class="col-24">
-	<SlotsTable component="Select.Leading" slots={leadingSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Select.Leading.Icon" props={iconProps} />
+	<PropsTable component="Select.Leading" props={iconProps} />
 </Col>
 
 <Col class="col-24">

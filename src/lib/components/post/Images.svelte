@@ -257,7 +257,6 @@
 					{/if}
 
 					{#if !lightBox4Open}
-						<!-- {#if images.length === 4} -->
 						<div
 							class="w-full h-full max-w-full max-h-full relative"
 							in:receive|local={{ key: images[3].id }}
@@ -279,23 +278,6 @@
 								on:keypress
 							/>
 						</div>
-						<!-- {:else}
-							<div
-								class="w-full h-full max-w-full max-h-full relative"
-								class:cursor-pointer={handleClick || includeLightBox}
-								on:click={() => onClick(3)}
-								on:keypress
-								in:receive|local={{ key: images[3].id }}
-								out:send|local={{ key: images[3].id }}
-							>
-								
-								<img
-									src={images[3].src}
-									alt="post-4"
-									class="w-full h-full object-center object-cover"
-								/>
-							</div>
-						{/if} -->
 					{/if}
 				</div>
 			</div>

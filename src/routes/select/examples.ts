@@ -65,19 +65,6 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
-export const leadingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'default',
-		component: ''
-	},
-	{
-		id: '2',
-		slot: 'icon',
-		component: '<Select.Leading.Icon slot="icon" />'
-	}
-];
-
 export const optionsSlots: Slot[] = [
 	{
 		id: '1',
@@ -164,7 +151,7 @@ export const example = `
 
 <Select name="select-2">
 	<Select.Label slot="label">Label</Select.Label>
-	<Icon slot="leading" data={email} />
+	<Select.Leading slot="leading" data={email} />
 	<Select.Options slot="options">
 		{#each options as option}
 			<Select.Options.Option {option} />
@@ -174,7 +161,7 @@ export const example = `
 
 <Select name="select-3" error="There has been an error">
 	<Select.Label slot="label">Label</Select.Label>
-	<Icon slot="leading" data={email} />
+	<Select.Leading slot="leading" data={email} />
 	<Select.Options slot="options">
 		{#each options as option}
 			<Select.Options.Option {option} />
