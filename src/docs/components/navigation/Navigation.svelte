@@ -92,6 +92,14 @@
 			href: '/feed'
 		},
 		{
+			title: 'Grid',
+			href: '/grid'
+		},
+		{
+			title: 'Icon',
+			href: '/icon'
+		},
+		{
 			title: 'Input',
 			href: '/input'
 		},
@@ -171,7 +179,8 @@
 		},
 		{
 			title: 'TextArea',
-			href: '/text-area'
+			href: '/text-area',
+			beta: true
 		},
 		{
 			title: 'Timeline',

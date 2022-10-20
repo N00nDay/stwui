@@ -78,3 +78,41 @@ export const iconData = `
 export const menu = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>';
 export const account = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" /></svg>';
 `;
+
+export const twSizes = `
+type TwSizes =
+	| '0'
+	| '0.5'
+	| '1'
+	| '1.5'
+	| '2'
+	| '2.5'
+	| '3'
+	| '3.5'
+	| '4'
+	| '5'
+	| '6'
+	| '7'
+	| '8'
+	| '9'
+	| '10'
+	| '11'
+	| '12'
+	| '14'
+	| '16'
+	| '20'
+	| '24'
+	| '28'
+	| '32'
+	| '36'
+	| '40'
+	| '44'
+	| '48'
+	| '52'
+	| '56'
+	| '60'
+	| '64'
+	| '72'
+	| '80'
+	| '96';
+`;

@@ -22,13 +22,13 @@
 	if (gutter.constructor === Array) {
 		const verticalGutter = twSizes[gutter[0]] / 2;
 		const horizontalGutter = twSizes[gutter[1]] / 2;
-		// margin = `margin: -${verticalGutter}px -${horizontalGutter}rem;`;
-		padding = `padding: ${verticalGutter}px ${horizontalGutter}rem;`;
+		margin = `margin: -${verticalGutter}rem -${horizontalGutter}rem;`;
+		padding = `padding: ${verticalGutter}rem ${horizontalGutter}rem;`;
 	} else if (typeof gutter === 'string') {
-		// margin = `margin: -${twSizes[gutter] / 2}rem;`;
+		margin = `margin: -${twSizes[gutter] / 2}rem;`;
 		padding = `padding: ${twSizes[gutter] / 2}rem;`;
 	} else {
-		// margin = 'margin: 0;';
+		margin = 'margin: 0;';
 		padding = 'padding: 0;';
 	}
 
@@ -36,8 +36,7 @@
 		padding
 	});
 
-	const defaultClass =
-		"relative mr-0 ml-0 block box-border before:table before:content-[''] after:table after:content-[''] after:clear-both";
+	const defaultClass = 'relative mr-0 ml-0 block box-border';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -46,8 +45,6 @@
 	class:flex={justify !== undefined}
 	class:flex-row={justify !== undefined}
 	class:flex-wrap={justify !== undefined}
-	class:before:flex={justify !== undefined}
-	class:after:flex={justify !== undefined}
 	class:justify-start={justify === 'start'}
 	class:justify-center={justify === 'center'}
 	class:justify-end={justify === 'end'}
@@ -63,4 +60,3 @@
 >
 	<slot />
 </div>
-<!-- TODO: add documentation -->

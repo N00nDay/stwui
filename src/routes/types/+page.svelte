@@ -8,7 +8,8 @@
 		timelineItem,
 		tooltipConfig,
 		formatNumber,
-		iconData
+		iconData,
+		twSizes
 	} from './examples';
 	import { CodeBlock } from '../../docs';
 </script>
@@ -47,8 +48,9 @@
 	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
 		Used in conjunction with any <a class="link" href="/icon">Icon</a> components. IconData is just
 		an svg element as a string. The interal icons for this package utilize icons from
-		<a href="https://materialdesignicons.com/" class="link">https://materialdesignicons.com/</a> but
-		you can use any library that provides the raw svg element.
+		<a href="https://materialdesignicons.com/" target="_blank" rel="noreferrer" class="link"
+			>https://materialdesignicons.com/</a
+		> but you can use any library that provides the raw svg element.
 	</p>
 
 	<CodeBlock language="typescript" code={iconData} />
@@ -113,4 +115,19 @@
 	</p>
 
 	<CodeBlock language="typescript" code={tooltipConfig} />
+
+	<br />
+
+	<h2 id="TwSizes" class="text-light-content dark:text-dark-content mb-0 mt-12">TwSizes</h2>
+	<Divider />
+
+	<p class="mb-3 mt-5 text-light-content dark:text-dark-content">
+		Used in conjunction with the <a class="link" href="/grid">Row</a> component. TwSizes is an
+		interface of all TailwindCSS sizes. These can be referenced on the TailwindCSS website here:
+		<a href="https://tailwindcss.com/docs/height" target="_blank" rel="noreferrer" class="link"
+			>https://tailwindcss.com/docs/height</a
+		>
+	</p>
+
+	<CodeBlock language="typescript" code={twSizes} />
 </Col>
