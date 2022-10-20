@@ -5,6 +5,7 @@
 		typeExample,
 		type2Example,
 		basicExample,
+		avatarExample,
 		props,
 		slots,
 		leadingSlots,
@@ -18,9 +19,12 @@
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { folder } from '../../docs/icons';
 	import { close } from '../../lib/icons';
+
+	const avatar =
+		'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
 </script>
 
-<Col class="col-24 sm:col-12">
+<Col class="col-24 md:col-8 sm:col-12">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Notification>
 			<Notification.Leading slot="leading">
@@ -45,7 +49,27 @@
 	</Card>
 </Col>
 
-<Col class="col-24 sm:col-12">
+<Col class="col-24 md:col-8 sm:col-12">
+	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+		<Notification>
+			<Notification.Leading slot="leading">
+				<Notification.Leading.Avatar slot="avatar" src={avatar} />
+			</Notification.Leading>
+			<Notification.Content slot="content">
+				<Notification.Content.Title slot="title">New Message</Notification.Content.Title>
+				<Notification.Content.Description slot="description">
+					Nice work on that proposal!
+				</Notification.Content.Description>
+			</Notification.Content>
+		</Notification>
+
+		<br />
+
+		<CodeBlock language="svelte" code={avatarExample} />
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-8 sm:col-12">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Notification type="success">
 			<Notification.Content slot="content">
@@ -67,7 +91,7 @@
 	</Card>
 </Col>
 
-<Col class="col-24 sm:col-12">
+<Col class="col-24 md:col-8 sm:col-12">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Notification type="info">
 			<Notification.Content slot="content">
@@ -89,7 +113,7 @@
 	</Card>
 </Col>
 
-<Col class="col-24 sm:col-12">
+<Col class="col-24 md:col-8 sm:col-12">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Notification>
 			<Notification.Content slot="content">

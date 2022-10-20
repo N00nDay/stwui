@@ -244,3 +244,22 @@ export const basicExample = `
       </Button>
    </Notification.Extra>
 </Notification>`;
+
+export const avatarExample = `
+<script lang="ts">
+	import { Notification } from 'stwui';
+
+	const avatar = "image.png";
+</script>
+
+<Notification>
+	<Notification.Leading slot="leading">
+		<Notification.Leading.Avatar slot="avatar" src={avatar} />
+	</Notification.Leading>
+	<Notification.Content slot="content">
+		<Notification.Content.Title slot="title">New Message</Notification.Content.Title>
+		<Notification.Content.Description slot="description">
+			Nice work on that proposal!
+		</Notification.Content.Description>
+	</Notification.Content>
+</Notification>`;
