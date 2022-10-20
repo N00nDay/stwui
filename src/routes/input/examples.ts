@@ -101,32 +101,6 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
-export const leadingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'default',
-		component: ''
-	},
-	{
-		id: '2',
-		slot: 'icon',
-		component: '<Input.Leading.Icon slot="icon" />'
-	}
-];
-
-export const trailingSlots: Slot[] = [
-	{
-		id: '1',
-		slot: 'default',
-		component: ''
-	},
-	{
-		id: '2',
-		slot: 'icon',
-		component: '<Input.Trailing.Icon slot="icon" />'
-	}
-];
-
 export const iconProps: Prop[] = [
 	{
 		id: '1',
@@ -191,12 +165,8 @@ export const example = `
 
 <Input name="input-2" allowClear>
 	<Input.Label slot="label">Label</Input.Label>
-	<Input.Leading slot="leading">
-		<Input.Leading.Icon slot="icon" data={email} />
-	</Input.Leading>
-	<Input.Trailing slot="trailing">
-		<Input.Trailing.Icon slot="icon" data={phone} />
-	</Input.Trailing>
+	<Input.Leading slot="leading" data={email} />
+	<Input.Trailing slot="trailing" data={phone} />
 </Input>
 
 <Input
@@ -205,17 +175,11 @@ export const example = `
 	handleLeadingClick={() => console.log('clicking leading')}
 >
 	<Input.Label slot="label">Label</Input.Label>
-	<Input.Leading slot="leading">
-		<Input.LeadingIcon slot="icon" data={email} />
-	</Input.Leading>
-	<Input.Trailing slot="trailing">
-		<Input.Trailing.Icon slot="icon" data={phone} />
-	</Input.Trailing>
+	<Input.Leading slot="leading" data={email} />
+	<Input.Trailing slot="trailing" data={phone} />
 </Input>
 
 <Input type="password" name="input-4" showPasswordToggle>
 	<Input.Label slot="label">Password</Input.Label>
-	<Input.Leading slot="leading">
-		<Input.Leading.Icon slot="icon" data={lock} />
-	</Input.Leading>
+	<Input.Leading slot="leading" data={lock} />
 </Input>`;
