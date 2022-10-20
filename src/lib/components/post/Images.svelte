@@ -257,22 +257,29 @@
 					{/if}
 
 					{#if !lightBox4Open}
-						{#if images.length === 4}
-							<div
-								class="w-full h-full max-w-full max-h-full relative"
-								in:receive|local={{ key: images[3].id }}
-								out:send|local={{ key: images[3].id }}
-							>
-								<img
-									src={images[3].src}
-									alt="post-4"
-									class="w-full h-full max-w-full max-h-full object-center object-cover"
-									class:cursor-pointer={handleClick || includeLightBox}
-									on:click={() => onClick(3)}
-									on:keypress
-								/>
-							</div>
-						{:else}
+						<!-- {#if images.length === 4} -->
+						<div
+							class="w-full h-full max-w-full max-h-full relative"
+							in:receive|local={{ key: images[3].id }}
+							out:send|local={{ key: images[3].id }}
+						>
+							{#if images.length > 4}
+								<div
+									class="w-full h-full absolute inset-0 pointer-events-none bg-light-surface dark:bg-dark-surface backdrop-blur-sm bg-opacity-40 dark:bg-opacity-10 text-light-content dark:text-dark-content font-semibold text-3xl flex items-center justify-center"
+								>
+									{images.length - 4}+
+								</div>
+							{/if}
+							<img
+								src={images[3].src}
+								alt="post-4"
+								class="w-full h-full max-w-full max-h-full object-center object-cover"
+								class:cursor-pointer={handleClick || includeLightBox}
+								on:click={() => onClick(3)}
+								on:keypress
+							/>
+						</div>
+						<!-- {:else}
 							<div
 								class="w-full h-full max-w-full max-h-full relative"
 								class:cursor-pointer={handleClick || includeLightBox}
@@ -281,18 +288,14 @@
 								in:receive|local={{ key: images[3].id }}
 								out:send|local={{ key: images[3].id }}
 							>
-								<div
-									class="w-full h-full absolute inset-0 bg-light-surface dark:bg-dark-surface backdrop-blur-sm bg-opacity-40 dark:bg-opacity-10 text-light-content dark:text-dark-content font-semibold text-3xl flex items-center justify-center"
-								>
-									{images.length - 4}+
-								</div>
+								
 								<img
 									src={images[3].src}
 									alt="post-4"
 									class="w-full h-full object-center object-cover"
 								/>
 							</div>
-						{/if}
+						{/if} -->
 					{/if}
 				</div>
 			</div>

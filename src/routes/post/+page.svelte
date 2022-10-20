@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CarouselSlide, LightboxAction } from '../../lib/types';
-	import { Avatar, Col, Post, Card } from '../../lib';
+	import { Col, Post, Card } from '../../lib';
 	import { formatDate } from '../../lib/utils';
 	import {
 		example1,
@@ -257,8 +257,7 @@
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Post>
 			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
-
+				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
 				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
 				<Post.Header.Created slot="created">{formatDate(created2)}</Post.Header.Created>
 			</Post.Header>
@@ -297,7 +296,7 @@
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Post>
 			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
 				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
 				<Post.Header.Created slot="created">{formatDate(created3)}</Post.Header.Created>
 			</Post.Header>
@@ -336,7 +335,7 @@
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Post>
 			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
 				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
 				<Post.Header.Created slot="created">{formatDate(created4)}</Post.Header.Created>
 			</Post.Header>
@@ -375,7 +374,7 @@
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Post>
 			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
 				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
 				<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
 			</Post.Header>
@@ -414,7 +413,7 @@
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
 		<Post>
 			<Post.Header slot="header">
-				<Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
 				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
 				<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
 			</Post.Header>
