@@ -1,7 +1,17 @@
 <script lang="ts">
-	import { Dropdown, Button, Card, Col } from '../../lib';
-	import { example, props, slots, itemsProps, itemsSlots, itemSlots } from './examples';
+	import { Dropdown, Button, Card, Col, Badge } from '../../lib';
+	import {
+		example,
+		props,
+		slots,
+		itemsProps,
+		itemsSlots,
+		itemSlots,
+		itemProps,
+		iconProps
+	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { home, trash } from '../../docs/icons';
 
 	let visible1 = false;
 	let visible2 = false;
@@ -32,9 +42,21 @@
 				<Dropdown bind:visible={visible1}>
 					<Button slot="trigger" type="primary" on:click={toggleDropdown1}>Toggle Dropdown</Button>
 					<Dropdown.Items slot="items">
-						<Dropdown.Items.Item on:click={closeDropdown1}>Item 1</Dropdown.Items.Item>
-						<Dropdown.Items.Item on:click={closeDropdown1}>Item 2</Dropdown.Items.Item>
-						<Dropdown.Items.Item on:click={closeDropdown1}>Item 3</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={closeDropdown1} label="Item 1">
+							<Dropdown.Items.Item.Icon slot="icon" data={trash} />
+						</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={closeDropdown1} label="Item 2">
+							<Dropdown.Items.Item.Icon slot="extra" data={trash} />
+						</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={closeDropdown1} label="Notifications">
+							<Badge type="info" slot="extra">+99</Badge>
+						</Dropdown.Items.Item>
+						<Dropdown.Items.Divider />
+						<Button type="danger" class="w-full justify-between">
+							<Button.Leading slot="leading" data={home} />
+							Home
+							<Button.Trailing slot="trailing" data={home} />
+						</Button>
 					</Dropdown.Items>
 				</Dropdown>
 
@@ -55,9 +77,9 @@
 						/>
 					</button>
 					<Dropdown.Items slot="items" placement="right">
-						<Dropdown.Items.Item on:click={closeDropdown2}>Item 1</Dropdown.Items.Item>
-						<Dropdown.Items.Item on:click={closeDropdown2}>Item 2</Dropdown.Items.Item>
-						<Dropdown.Items.Item on:click={closeDropdown2}>Item 3</Dropdown.Items.Item>
+						<Dropdown.Items.Item on:click={closeDropdown2} label="Item 1" />
+						<Dropdown.Items.Item on:click={closeDropdown2} label="Item 2" />
+						<Dropdown.Items.Item on:click={closeDropdown2} label="Item 3" />
 					</Dropdown.Items>
 				</Dropdown>
 			</div>
@@ -85,5 +107,13 @@
 </Col>
 
 <Col class="col-24">
+	<PropsTable component="Dropdown.Items.Item" props={itemProps} />
+</Col>
+
+<Col class="col-24">
 	<SlotsTable component="Dropdown.Items.Item" slots={itemSlots} />
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Dropdown.Items.Item.Icon" props={iconProps} />
 </Col>

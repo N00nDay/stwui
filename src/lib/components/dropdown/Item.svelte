@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { DROPDOWN_CONTEXT_ID } from './Dropdown.svelte';
+	import HoverBackground from '../HoverBackground.svelte';
 	import { useContext } from '../../utils/useContext';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
@@ -8,6 +9,8 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
+	export let label: string;
+
 	useContext({
 		context_id: DROPDOWN_CONTEXT_ID,
 		parent: 'Dropdown',
@@ -15,7 +18,7 @@
 	});
 
 	const defaultClass =
-		'w-full group flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-light-secondary-content dark:text-dark-secondary-content dark:hover:bg-dark-icon-background-hover hover:bg-light-icon-background-hover hover:text-light-content dark:hover:text-dark-content';
+		'w-full group relative flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-light-secondary-content dark:text-dark-secondary-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -26,5 +29,11 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<slot />
+	<span class="flex items-center justify-start flex-grow">
+		<slot name="icon" />
+		<span class="truncate" class:ml-3={$$slots.icon}>{label}</span>
+	</span>
+
+	<slot name="extra" />
+	<HoverBackground class="rounded-md" />
 </button>
