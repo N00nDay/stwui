@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Autocomplete, Card, Col, Icon } from '../../lib';
+	import { Autocomplete, Card, Col } from '../../lib';
 	import {
 		example,
 		allowNonOptionExample,

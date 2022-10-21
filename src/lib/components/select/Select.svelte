@@ -6,7 +6,6 @@
 	import { setContext } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
-	import { onMount } from 'svelte';
 	import { Icon } from '../../';
 	import { unfold_more_horizontal, error as errorIcon } from '../../icons';
 	import { writable } from 'svelte/store';
@@ -20,7 +19,6 @@
 	let selectedValue = writable(value);
 
 	let input: HTMLInputElement;
-	let button: HTMLButtonElement;
 
 	function toggleVisible() {
 		visible = !visible;
@@ -51,7 +49,6 @@
 	<div class="mt-1 relative rounded-md h-[2.5rem]" class:text-danger={error}>
 		<button
 			aria-label="toggle select"
-			bind:this={button}
 			type="button"
 			on:click={toggleVisible}
 			class="relative border shadow-sm dark:shadow-black h-[2.5rem] cursor-pointer pl-3 pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md bg-light-surface dark:bg-dark-surface"

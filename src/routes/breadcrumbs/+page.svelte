@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Breadcrumbs, Card, Col, Icon } from '../../lib';
+	import { Breadcrumbs, Card, Col } from '../../lib';
 	import {
 		exampleDefault,
 		exampleSolid,

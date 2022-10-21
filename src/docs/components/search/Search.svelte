@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { data } from '../../search-data';
 	import { Modal, Portal, Icon, Button, Empty } from '../../../lib';
 	import { goto } from '$app/navigation';

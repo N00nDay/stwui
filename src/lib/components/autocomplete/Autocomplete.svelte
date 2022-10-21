@@ -5,7 +5,7 @@
 <script lang="ts">
 	import { slide, scale } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
-	import { onMount, setContext } from 'svelte';
+	import { setContext } from 'svelte';
 	import { error as errorIcon, unfold_more_horizontal, close } from '../../icons';
 	import Icon from '../icon';
 	import { writable, type Writable } from 'svelte/store';

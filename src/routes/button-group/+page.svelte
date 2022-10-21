@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ButtonGroup, Card, Col, Icon } from '../../lib';
+	import { ButtonGroup, Card, Col } from '../../lib';
 	import {
 		example,
 		exampleActive,

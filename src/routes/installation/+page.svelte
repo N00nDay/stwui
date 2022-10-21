@@ -1,32 +1,7 @@
 <script lang="ts">
-	import { Col, Divider } from '$lib';
+	import { Col } from '../../lib';
+	import { svelteKitSetUp, installCode, tailwindCode, tailwindInstall } from './examples';
 	import { CodeBlock, InlineCode } from '../../docs';
-
-	const svelteKitSetUp = `
-npm create svelte@latest my-app
-cd my-app
-npm install
-`;
-
-	const installCode = 'npm i -D stwui';
-
-	const tailwindInstall = `
-npx svelte-add@latest tailwindcss
-npm install
-`;
-
-	const tailwindCode = `
-module.exports = {
-	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/stwui/**/*.{svelte,js,ts,html}
-	],
-	plugins: [
-		require('@tailwindcss/forms'),
-		require('stwui/plugin')
-	],
-	darkMode: 'class',
-};`;
 </script>
 
 <Col class="col-24">

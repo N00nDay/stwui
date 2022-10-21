@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Select, Icon } from '../../lib';
+	import { Card, Col, Select } from '../../lib';
 	import {
 		example,
 		props,
