@@ -68,12 +68,12 @@
 		}
 	}
 
-	onMount(() => {
-		if (navigator.appVersion.indexOf('Win') != -1) os = 'Windows';
-		if (navigator.appVersion.indexOf('Mac') != -1) os = 'MacOS';
-		if (navigator.appVersion.indexOf('X11') != -1) os = 'UNIX';
-		if (navigator.appVersion.indexOf('Linux') != -1) os = 'Linux';
-	});
+	// onMount(() => {
+	// 	if (navigator.appVersion.indexOf('Win') != -1) os = 'Windows';
+	// 	if (navigator.appVersion.indexOf('Mac') != -1) os = 'MacOS';
+	// 	if (navigator.appVersion.indexOf('X11') != -1) os = 'UNIX';
+	// 	if (navigator.appVersion.indexOf('Linux') != -1) os = 'Linux';
+	// });
 
 	$: if (open && browser && input) {
 		input.focus();
@@ -82,7 +82,7 @@
 
 <svelte:window on:keydown={captureEscapeEvent} />
 
-<Button
+<!-- <Button
 	ariaLabel="open search"
 	on:click={handleOpen}
 	class="border-light-border dark:border-dark-border border ml-4 shadow-md dark:shadow-black hidden md:flex !py-1.5"
@@ -100,15 +100,15 @@
 			</div>
 		{/if}
 	</div>
-</Button>
+</Button> -->
 
 <Button
 	ariaLabel="open search"
 	on:click={handleOpen}
 	shape="circle"
-	class="flex md:hidden ml-4 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
+	class="flex ml-4 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
 >
-	<Button.Icon slot="icon" data={magnify} />
+	<Button.Icon slot="icon" data={magnify} stroke="currentColor" />
 </Button>
 
 {#if open}

@@ -72,8 +72,6 @@
 				<Divider.Label slot="label">Horizontal</Divider.Label>
 			</Divider>
 
-			<br />
-
 			<Row gutter={['0', '4']}>
 				<Col class="col-6">
 					<div class={lightBlock}>col-6</div>
@@ -102,13 +100,9 @@
 				</Col>
 			</Row>
 
-			<br />
-
 			<Divider position="left">
 				<Divider.Label slot="label">Vertical</Divider.Label>
 			</Divider>
-
-			<br />
 
 			<Row gutter={['4', '0']}>
 				<Col class="col-6">
@@ -138,13 +132,9 @@
 				</Col>
 			</Row>
 
-			<br />
-
 			<Divider position="left">
 				<Divider.Label slot="label">Horizontal & Vertical</Divider.Label>
 			</Divider>
-
-			<br />
 
 			<Row gutter="4">
 				<Col class="col-6">
@@ -189,8 +179,6 @@
 				<Divider.Label slot="label">Start</Divider.Label>
 			</Divider>
 
-			<br />
-
 			<Row justify="start" class="bg-light-background dark:bg-dark-background p-2">
 				<Col class="col-4">
 					<div class={lightBlock}>col-4</div>
@@ -206,13 +194,9 @@
 				</Col>
 			</Row>
 
-			<br />
-
 			<Divider position="left">
 				<Divider.Label slot="label">Center</Divider.Label>
 			</Divider>
-
-			<br />
 
 			<Row justify="center" class="bg-light-background dark:bg-dark-background p-2">
 				<Col class="col-4">
@@ -229,13 +213,9 @@
 				</Col>
 			</Row>
 
-			<br />
-
 			<Divider position="left">
 				<Divider.Label slot="label">End</Divider.Label>
 			</Divider>
-
-			<br />
 
 			<Row justify="end" class="bg-light-background dark:bg-dark-background p-2">
 				<Col class="col-4">
@@ -252,13 +232,9 @@
 				</Col>
 			</Row>
 
-			<br />
-
 			<Divider position="left">
 				<Divider.Label slot="label">Between</Divider.Label>
 			</Divider>
-
-			<br />
 
 			<Row justify="between" class="bg-light-background dark:bg-dark-background p-2">
 				<Col class="col-4">
@@ -275,13 +251,9 @@
 				</Col>
 			</Row>
 
-			<br />
-
 			<Divider position="left">
 				<Divider.Label slot="label">Around</Divider.Label>
 			</Divider>
-
-			<br />
 
 			<Row justify="around" class="bg-light-background dark:bg-dark-background p-2">
 				<Col class="col-4">
@@ -313,8 +285,6 @@
 				<Divider.Label slot="label">Start</Divider.Label>
 			</Divider>
 
-			<br />
-
 			<Row align="start" justify="center" class="bg-light-background dark:bg-dark-background p-2">
 				<Col class="col-4">
 					<div class={lightBlock} style="height: 5rem;">col-4</div>
@@ -330,13 +300,9 @@
 				</Col>
 			</Row>
 
-			<br />
-
 			<Divider position="left">
 				<Divider.Label slot="label">Center</Divider.Label>
 			</Divider>
-
-			<br />
 
 			<Row align="center" justify="between" class="bg-light-background dark:bg-dark-background p-2">
 				<Col class="col-4">
@@ -353,13 +319,9 @@
 				</Col>
 			</Row>
 
-			<br />
-
 			<Divider position="left">
 				<Divider.Label slot="label">End</Divider.Label>
 			</Divider>
-
-			<br />
 
 			<Row align="end" justify="center" class="bg-light-background dark:bg-dark-background p-2">
 				<Col class="col-4">

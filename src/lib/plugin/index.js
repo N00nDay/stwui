@@ -626,9 +626,6 @@ module.exports = plugin(
 				top: '50%',
 				transform: 'translateY(-50%)',
 				cursor: 'pointer'
-				// 'transition-property': 'all',
-				// 'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
-				// 'transition-duration': '150ms'
 			},
 			".dark input[type='range']::-webkit-slider-thumb": {
 				'background-color': 'rgb(36, 37, 38)'

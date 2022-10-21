@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Badge, Menu } from '../../../lib';
+	import { Badge, Menu, Divider } from '../../../lib';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte/internal';
 
@@ -204,16 +204,14 @@
 		}
 	}
 
+	const menuTitleClass = 'text-xs font-bold text-primary py-2 px-3 h-10';
+
 	onMount(() => {
 		active = $page.url.pathname;
 	});
 </script>
 
-<h3
-	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2"
->
-	GET STARTED
-</h3>
+<h3 class={menuTitleClass}>GET STARTED</h3>
 <Menu {active}>
 	<Menu.Item
 		key="/installation"
@@ -221,12 +219,15 @@
 		href="/installation"
 		on:click={() => handleClick('/installation')}
 	/>
+	<Menu.Item
+		key="/typography"
+		label="Typography"
+		href="/typography"
+		on:click={() => handleClick('/typography')}
+	/>
 </Menu>
-<h3
-	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
->
-	COMPONENTS
-</h3>
+<Divider />
+<h3 class={menuTitleClass}>COMPONENTS</h3>
 <Menu {active}>
 	{#each sidebarItems as item}
 		{#if item.beta}
@@ -257,11 +258,8 @@
 		{/if}
 	{/each}
 </Menu>
-<h3
-	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
->
-	ACTIONS
-</h3>
+<Divider />
+<h3 class={menuTitleClass}>ACTIONS</h3>
 <Menu {active}>
 	<Menu.Item
 		key="/click-outside"
@@ -282,12 +280,8 @@
 		on:click={() => handleClick('/tooltip')}
 	/>
 </Menu>
-
-<h3
-	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
->
-	UTILITIES
-</h3>
+<Divider />
+<h3 class={menuTitleClass}>UTILITIES</h3>
 <Menu {active}>
 	<Menu.Item
 		key="/compute-progress"
@@ -332,12 +326,8 @@
 		on:click={() => handleClick('/format-number')}
 	/>
 </Menu>
-
-<h3
-	class="text-xs font-bold text-light-content dark:text-dark-content text-opacity-40 dark:text-opacity-40 mb-2 mt-4"
->
-	TYPES
-</h3>
+<Divider />
+<h3 class={menuTitleClass}>TYPES</h3>
 <Menu {active}>
 	<Menu.Item key="/types" label="Types" href="/types" on:click={() => handleClick('/types')} />
 </Menu>

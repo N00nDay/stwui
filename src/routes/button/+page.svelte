@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Col, Icon, Swap } from '../../lib';
+	import { Button, Card, Col, Swap } from '../../lib';
 	import {
 		exampleDefault,
 		exampleLoading,
@@ -154,15 +154,15 @@
 		<Card.Content slot="content" class="p-4">
 			<Button shape="circle" on:click={toggleLoading}>
 				<Swap slot="icon" {loading}>
-					<Button.Icon data={menu} slot="on" />
-					<Button.Icon data={close} slot="off" />
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
 				</Swap>
 			</Button>
 
 			<Button type="primary">
 				<Swap {loading} slot="leading">
-					<Button.Icon data={menu} slot="on" />
-					<Button.Icon data={close} slot="off" />
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
 				</Swap>
 				I am primary
 			</Button>
