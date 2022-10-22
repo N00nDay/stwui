@@ -85,8 +85,8 @@
 				on:click={handleOpenMenu}
 			>
 				<Swap slot="icon">
-					<Icon slot="on" data={menu} />
-					<Icon slot="off" data={close} />
+					<Icon slot="on" data={menu} stroke="currentColor" />
+					<Icon slot="off" data={close} stroke="currentColor" />
 				</Swap>
 			</Button>
 
