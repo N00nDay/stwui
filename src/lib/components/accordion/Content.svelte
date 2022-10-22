@@ -13,6 +13,7 @@
 </script>
 
 <div
+	data-testid="accordion.item.content"
 	transition:slide|local
 	class={finalClass}
 	use:useActions={use}
