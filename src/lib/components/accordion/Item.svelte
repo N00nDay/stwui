@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { writable } from 'svelte/store';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -9,8 +8,6 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let open = false;
-	let isOpen = writable(open);
-	$: $isOpen = open;
 
 	setContext('open', open);
 

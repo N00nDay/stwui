@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { getContext } from 'svelte';
-	import type { Writable } from 'svelte/store';
 	import Icon from '../icon';
 	import { chevron_down } from '../../icons';
 	import { get_current_component } from 'svelte/internal';
@@ -11,7 +10,7 @@
 
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const open: Writable<boolean> = getContext('open');
+	const open: boolean = getContext('open');
 
 	const defaultClass =
 		'relative flex items-center w-full py-4 px-5 text-base text-light-content dark:text-dark-content hover:text-primary dark:hover:text-primary text-left bg-light-surface dark:bg-dark-surface border-0 rounded-none justify-between  outline-none focus:outline-none';
@@ -28,7 +27,7 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
-	<span class="transition-transform duration-300" class:-rotate-180={$open}>
+	<span class="transition-transform duration-300" class:-rotate-180={open}>
 		<Icon data={chevron_down} />
 	</span>
 </button>
