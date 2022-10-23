@@ -1,28 +1,11 @@
-<script lang="ts" context="module">
-	export let AUTOCOMPLETE_LIST_CONTEXT_ID = 'autocomplete-list-context-id';
-</script>
-
 <script lang="ts">
-	import { setContext } from 'svelte';
 	import { scale } from 'svelte/transition';
 	import { twMerge } from 'tailwind-merge';
-	import { useContext } from '../../utils/useContext';
-	import { AUTOCOMPLETE_CONTEXT_ID } from './Autocomplete.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
-
-	useContext({
-		context_id: AUTOCOMPLETE_CONTEXT_ID,
-		parent: 'Autocomplete',
-		component: 'Autocomplete.List'
-	});
-
-	setContext(AUTOCOMPLETE_LIST_CONTEXT_ID, {
-		list: true
-	});
 
 	const defaultclass =
 		'origin-top-right absolute mt-1 z-10 border light-border dark:dark-border left-0 right-0 w-full p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface transition transform duration-150';

@@ -81,6 +81,13 @@
 	$: filterOptions(value2, 2);
 	$: filterOptions(value3, 3);
 	$: filterOptions(value4, 4);
+
+	let error: string | undefined = "You're doing it wrong!";
+	$: if (value3 && value3.length > 0) {
+		error = undefined;
+	} else {
+		error = "You're doing it wrong!";
+	}
 </script>
 
 <Col class="col-24">
@@ -91,7 +98,13 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Basic</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Autocomplete name="select-1" placeholder="Basic" bind:value={value1} on:input={filter1}>
+			<Autocomplete
+				name="select-1"
+				placeholder="Basic"
+				bind:value={value1}
+				on:input={filter1}
+				options={options1}
+			>
 				<Autocomplete.Options slot="options">
 					{#if filtered1.length > 0}
 						{#each filtered1 as option}
@@ -103,7 +116,7 @@
 				</Autocomplete.Options>
 			</Autocomplete>
 			<br />
-			<Autocomplete name="select-2" bind:value={value2} on:input={filter2}>
+			<Autocomplete name="select-2" bind:value={value2} on:input={filter2} options={options2}>
 				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
 				<Autocomplete.Leading slot="leading" data={email} />
 				<Autocomplete.Options slot="options">
@@ -119,9 +132,10 @@
 			<br />
 			<Autocomplete
 				name="select-3"
-				error="There has been an error"
+				{error}
 				bind:value={value3}
 				on:input={filter3}
+				options={options3}
 			>
 				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
 				<Autocomplete.Leading slot="leading" data={email} />
@@ -152,6 +166,7 @@
 				placeholder="Basic"
 				bind:value={value4}
 				on:input={filter4}
+				options={options4}
 				allowNonListValue
 			>
 				<Autocomplete.Options slot="options">

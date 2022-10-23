@@ -1,10 +1,7 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { getContext } from 'svelte';
-	import { AUTOCOMPLETE_CONTEXT_ID } from './Autocomplete.svelte';
-	import { AUTOCOMPLETE_LIST_CONTEXT_ID } from './Options.svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { useContext } from '$lib/utils/useContext';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { check } from '../../icons';
 	import Icon from '../icon';
@@ -17,25 +14,8 @@
 
 	export let option: string;
 
-	useContext({
-		context_id: AUTOCOMPLETE_CONTEXT_ID,
-		parent: 'Autocomplete',
-		component: 'Autocomplete.List.Item'
-	});
-
-	useContext({
-		context_id: AUTOCOMPLETE_LIST_CONTEXT_ID,
-		parent: 'Autocomplete.List',
-		component: 'Autocomplete.List.Item'
-	});
-
-	const {
-		handleSelect,
-		value
-	}: {
-		handleSelect: (option: string) => void;
-		value: Writable<string | undefined>;
-	} = getContext(AUTOCOMPLETE_CONTEXT_ID);
+	const handleSelect: (option: string) => void = getContext('autocomplete-handleSelect');
+	const value: Writable<string | undefined> = getContext('autocomplete-value');
 
 	const defaultClass =
 		'group text-light-content dark:text-dark-content cursor-pointer select-none p-0.5 w-full';

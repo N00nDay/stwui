@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export let AUTOCOMPLETE_CONTEXT_ID = 'autocomplete-context-id';
-</script>
-
 <script lang="ts">
 	import { slide, scale } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
@@ -20,12 +16,13 @@
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
 	export let allowNonListValue = false;
+	export let options: string[] = [];
 
 	let visible = false;
 	let input: HTMLInputElement;
-	let button: HTMLButtonElement;
-	let options: Writable<string[]> = writable([]);
 	let selectedOption: Writable<string | undefined> = writable(value);
+	let currentError: Writable<string | undefined> = writable(error);
+	$: currentError.set(error);
 
 	function handleOpen() {
 		visible = true;
@@ -39,7 +36,7 @@
 		if (visible) {
 			if (!value) {
 				visible = false;
-			} else if ($options.includes(value)) {
+			} else if (options.includes(value)) {
 				visible = false;
 			} else if (allowNonListValue) {
 				visible = false;
@@ -65,14 +62,10 @@
 		$selectedOption = undefined;
 	}
 
-	setContext(AUTOCOMPLETE_CONTEXT_ID, {
-		autocomplete: true,
-		handleSelect,
-		options,
-		name,
-		error,
-		value: selectedOption
-	});
+	setContext('autocomplete-handleSelect', handleSelect);
+	setContext('autocomplete-name', name);
+	setContext('autocomplete-error', currentError);
+	setContext('autocomplete-value', selectedOption);
 </script>
 
 <div
@@ -86,7 +79,6 @@
 	<div class="mt-1 relative rounded-md h-[2.5rem]">
 		<button
 			aria-label="Autocomplete Toggle"
-			bind:this={button}
 			type="button"
 			on:click={handleOpen}
 			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface shadow-sm dark:shadow-black"

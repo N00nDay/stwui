@@ -30,6 +30,12 @@ export const props: Prop[] = [
 		prop: 'allowNonListValue',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '6',
+		prop: 'options',
+		type: 'string[]',
+		default: '[]'
 	}
 ];
 
