@@ -1,12 +1,5 @@
-<script lang="ts" context="module">
-	export const BREADCRUMBS_CRUMB_CONTEXT_ID = 'breadcrumbs-crumb-context-id';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { BREADCRUMBS_CONTEXT_ID } from './Breadcrumbs.svelte';
-	import { useContext } from '$lib/utils/useContext';
-	import { setContext } from 'svelte/internal';
 	import Divider from './Divider.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -15,16 +8,6 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let href: string;
-
-	useContext({
-		context_id: BREADCRUMBS_CONTEXT_ID,
-		parent: 'Breadcrumbs',
-		component: 'Breadcrumbs.Crumb'
-	});
-
-	setContext(BREADCRUMBS_CRUMB_CONTEXT_ID, {
-		crumb: true
-	});
 
 	const defaultClass =
 		'flex items-center text-light-secondary-content dark:text-dark-secondary-content hover:text-primary';

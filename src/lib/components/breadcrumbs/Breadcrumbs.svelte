@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const BREADCRUMBS_CONTEXT_ID = 'breadcrumbs-context-id';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte/internal';
@@ -13,10 +9,7 @@
 
 	export let type: 'solid' | 'ghost' = 'ghost';
 
-	setContext(BREADCRUMBS_CONTEXT_ID, {
-		breadcrumbs: true,
-		type
-	});
+	setContext('breadcrumbs-type', type);
 
 	let defaultClass = 'breadcrumbs flex items-center space-x-4';
 	if (type === 'solid') {

@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { BREADCRUMBS_CONTEXT_ID } from './Breadcrumbs.svelte';
-	import { useContext } from '$lib/utils/useContext';
 	import { getContext } from 'svelte/internal';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -9,13 +7,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: BREADCRUMBS_CONTEXT_ID,
-		parent: 'Breadcrumbs',
-		component: 'Breadcrumbs.Crumb'
-	});
-
-	const { type }: { type: 'solid' | 'ghost' } = getContext(BREADCRUMBS_CONTEXT_ID);
+	const type: 'solid' | 'ghost' = getContext('breadcrumbs-type');
 
 	let defaultClass = '';
 	if (type === 'ghost') {
