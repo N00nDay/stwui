@@ -26,6 +26,7 @@
 </script>
 
 <div
+	data-testid="alert.description"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents

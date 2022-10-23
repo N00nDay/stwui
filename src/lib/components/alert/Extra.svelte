@@ -28,6 +28,7 @@
 </script>
 
 <div
+	data-testid="alert.extra"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents

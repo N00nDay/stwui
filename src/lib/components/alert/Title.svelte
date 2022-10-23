@@ -28,6 +28,7 @@
 </script>
 
 <h3
+	data-testid="alert.title"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents
