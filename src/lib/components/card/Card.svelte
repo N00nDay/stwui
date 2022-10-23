@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const CARD_CONTEXT_ID = 'card-context-id';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
@@ -16,10 +12,7 @@
 	export let hoverable = false;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
-	setContext(CARD_CONTEXT_ID, {
-		card: true,
-		divided
-	});
+	setContext('card-divided', divided);
 
 	const defaultClass =
 		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md';

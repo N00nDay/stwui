@@ -1,24 +1,10 @@
 <script lang="ts">
-	import { CARD_CONTEXT_ID } from './Card.svelte';
-	import { CARD_COVER_CONTEXT_ID } from './Cover.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
-
-	useContext({
-		context_id: CARD_CONTEXT_ID,
-		parent: 'Card',
-		component: 'Card.CoverOverlay'
-	});
-	useContext({
-		context_id: CARD_COVER_CONTEXT_ID,
-		parent: 'Card.Cover',
-		component: 'Card.CoverOverlay'
-	});
 
 	export let verticalAlign: 'top' | 'center' | 'bottom' = 'bottom';
 	export let horizontalAlign: 'left' | 'center' | 'right' = 'left';

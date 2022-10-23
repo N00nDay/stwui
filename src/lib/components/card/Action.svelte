@@ -1,25 +1,11 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { CARD_CONTEXT_ID } from './Card.svelte';
-	import { CARD_ACTIONS_CONTEXT_ID } from './Actions.svelte';
-	import { useContext } from '../../utils/useContext';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
-
-	useContext({
-		context_id: CARD_CONTEXT_ID,
-		parent: 'Card',
-		component: 'CardAction'
-	});
-	useContext({
-		context_id: CARD_ACTIONS_CONTEXT_ID,
-		parent: 'CardActions',
-		component: 'CardAction'
-	});
 
 	const defaultClass =
 		'group relative w-full h-full cursor-pointer first:rounded-bl-md last:rounded-br-md overflow-hidden';

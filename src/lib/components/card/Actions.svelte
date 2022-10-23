@@ -1,29 +1,13 @@
-<script lang="ts" context="module">
-	export const CARD_ACTIONS_CONTEXT_ID = 'card-actions-context-id';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { setContext, getContext } from 'svelte';
-	import { CARD_CONTEXT_ID } from './Card.svelte';
-	import { useContext } from '../../utils/useContext';
+	import { getContext } from 'svelte/internal';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: CARD_CONTEXT_ID,
-		parent: 'Card',
-		component: 'CardActions'
-	});
-
-	setContext(CARD_ACTIONS_CONTEXT_ID, {
-		actions: true
-	});
-
-	const { divided }: { divided: boolean } = getContext(CARD_CONTEXT_ID);
+	const divided: boolean = getContext('card-divided');
 
 	const defaultClass =
 		'flex flex-row h-14 justify-evenly divide-x divide-light-icon-background dark:divide-dark-icon-background first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0';
