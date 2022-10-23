@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const BUTTON_CONTEXT_ID = 'button-context-id';
-</script>
-
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { setContext } from 'svelte';
@@ -49,10 +45,7 @@
 		iconSize = '34px';
 	}
 
-	setContext(BUTTON_CONTEXT_ID, {
-		button: true,
-		iconSize
-	});
+	setContext('button-icon-size', iconSize);
 
 	let defaultClass =
 		'btn group relative inline-flex justify-center items-center font-medium active:hover:animate-none active:hover:scale-95 outline-none';
