@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const CHIP_CONTEXT_ID = 'chip-context-id';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
@@ -13,6 +9,9 @@
 
 	export let type: 'info' | 'success' | 'warn' | 'error' | 'default' = 'default';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+
+	setContext('chip-size', size);
+	setContext('chip-type', type);
 
 	let defaultClass =
 		'inline-flex items-center pr-3 text-sm font-medium border border-light-border dark:border-dark-border dark:shadow-black shadow-md bg-opacity-20 dark:bg-opacity-20 rounded-full';
@@ -44,13 +43,7 @@
 		defaultClass += ' pr-1.5';
 	}
 
-	const finalClass = twMerge(defaultClass, $$props.class);
-
-	setContext(CHIP_CONTEXT_ID, {
-		chip: true,
-		size,
-		type
-	});
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <span

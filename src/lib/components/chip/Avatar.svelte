@@ -1,13 +1,7 @@
-<script lang="ts" context="module">
-	export const CHIP_AVATAR_CONTEXT_ID = 'chip-avatar-context-id';
-</script>
-
 <script lang="ts">
 	import { getContext, setContext, onMount } from 'svelte';
-	import { useContext } from '../../utils/useContext';
 	import Placeholder from './Placeholder.svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { CHIP_CONTEXT_ID } from './Chip.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -19,25 +13,16 @@
 	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
 	export let initials: string | undefined = undefined;
 
-	useContext({
-		context_id: CHIP_CONTEXT_ID,
-		parent: 'Chip',
-		component: 'Chip.Avatar'
-	});
-
-	const { size }: { size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' } = getContext(CHIP_CONTEXT_ID);
-
 	let loaded = false;
 	let failed = false;
 	let loading = true;
 
-	setContext(CHIP_AVATAR_CONTEXT_ID, {
-		avatar: true,
-		src,
-		alt,
-		shape,
-		size
-	});
+	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('chip-size');
+
+	setContext('avatar-src', src);
+	setContext('avatar-alt', alt);
+	setContext('avatar-shape', shape);
+	setContext('avatar-size', size);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';
