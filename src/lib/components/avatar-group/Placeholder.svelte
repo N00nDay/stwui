@@ -1,13 +1,6 @@
-<script lang="ts" context="module">
-	export const AVATAR_GROUP_AVATAR_PLACEHOLDER_CONTEXT_ID =
-		'avatar-group-avatar-placeholder-context-id';
-</script>
-
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { AVATAR_GROUP_AVATAR_CONTEXT_ID } from './Avatar.svelte';
-	import { useContext } from '../../utils/useContext';
-	import { getContext, setContext } from 'svelte/internal';
+	import { getContext } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon/Icon.svelte';
 	import { account } from '../../icons';
@@ -19,21 +12,8 @@
 
 	export let loading = false;
 
-	useContext({
-		context_id: AVATAR_GROUP_AVATAR_CONTEXT_ID,
-		parent: 'Avatar',
-		component: 'Avatar.Placeholder'
-	});
-
-	const {
-		shape,
-		size
-	}: { shape: 'circle' | 'rounded' | 'square'; size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' } =
-		getContext(AVATAR_GROUP_AVATAR_CONTEXT_ID);
-
-	setContext(AVATAR_GROUP_AVATAR_PLACEHOLDER_CONTEXT_ID, {
-		placeholder: true
-	});
+	const shape: 'circle' | 'rounded' | 'square' = getContext('avatar-group-shape');
+	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('avatar-group-size');
 
 	let iconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
 	let iconSize = '';

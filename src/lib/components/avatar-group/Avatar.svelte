@@ -1,10 +1,4 @@
-<script lang="ts" context="module">
-	export const AVATAR_GROUP_AVATAR_CONTEXT_ID = 'avatar-group-avatar-context-id';
-</script>
-
 <script lang="ts">
-	import { AVATAR_GROUP_CONTEXT_ID } from './AvatarGroup.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { setContext, getContext, onMount } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Placeholder from './Placeholder.svelte';
@@ -22,25 +16,11 @@
 	let failed = false;
 	let loading = true;
 
-	useContext({
-		context_id: AVATAR_GROUP_CONTEXT_ID,
-		parent: 'AvatarGroup',
-		component: 'AvatarGroup.Avatar'
-	});
+	const shape: 'circle' | 'rounded' | 'square' = getContext('avatar-group-shape');
+	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('avatar-group-size');
 
-	const {
-		shape,
-		size
-	}: { shape: 'circle' | 'rounded' | 'square'; size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' } =
-		getContext(AVATAR_GROUP_CONTEXT_ID);
-
-	setContext(AVATAR_GROUP_AVATAR_CONTEXT_ID, {
-		avatar: true,
-		src,
-		alt,
-		shape,
-		size
-	});
+	setContext('avatar-src', src);
+	setContext('avatar-alt', alt);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';

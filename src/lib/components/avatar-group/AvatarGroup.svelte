@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const AVATAR_GROUP_CONTEXT_ID = 'avatar-group-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
@@ -14,11 +10,8 @@
 	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
-	setContext(AVATAR_GROUP_CONTEXT_ID, {
-		avatarGroup: true,
-		shape,
-		size
-	});
+	setContext('avatar-group-shape', shape);
+	setContext('avatar-group-size', size);
 
 	let defaultClass = '';
 	if (size === 'xs') {
