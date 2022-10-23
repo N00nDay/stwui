@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte/internal';
-	import { AVATAR_CONTEXT_ID } from './Avatar.svelte';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -11,17 +9,8 @@
 
 	export let placement: 'top-right' | 'bottom-right' | 'top-left' | 'bottom-left' = 'top-right';
 
-	useContext({
-		context_id: AVATAR_CONTEXT_ID,
-		parent: 'Avatar',
-		component: 'Avatar.Indicator'
-	});
-
-	const {
-		shape,
-		size
-	}: { size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'; shape: 'circle' | 'rounded' | 'square' } =
-		getContext(AVATAR_CONTEXT_ID);
+	const shape: 'circle' | 'rounded' | 'square' = getContext('avatar-shape');
+	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('avatar-size');
 
 	let defaultClass = '';
 	if (placement === 'top-right') {
