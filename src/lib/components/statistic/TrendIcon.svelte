@@ -7,11 +7,9 @@
 
 	export let data = '';
 	export let viewBox = extractViewBox(data);
-
 	export let size = '12px';
 	export let width = size;
 	export let height = size;
-
 	export let color = 'currentColor';
 	export let stroke: string | undefined = undefined;
 	export let fill = color;
@@ -35,7 +33,17 @@
 	{fill}
 	use:useActions={use}
 	use:forwardEvents
-	{...exclude($$props, ['use', 'fill', 'viewBox', 'width', 'height', 'stroke'])}
+	{...exclude($$props, [
+		'use',
+		'fill',
+		'viewBox',
+		'width',
+		'height',
+		'stroke',
+		'size',
+		'color',
+		'data'
+	])}
 >
 	{@html elements}
 </svg>
