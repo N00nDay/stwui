@@ -10,7 +10,6 @@ const config: UserConfig = {
 	test: {
 		globals: true,
 		environment: 'jsdom',
-		// setupFiles: ['src/lib/components/accordion/Accordion.test.js']
 		exclude: [...configDefaults.exclude, '**/package/**', '**/build/**']
 	}
 };

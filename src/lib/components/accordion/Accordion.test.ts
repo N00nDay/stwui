@@ -1,5 +1,5 @@
-import { render } from '@testing-library/svelte';
-import { describe, it, expect } from 'vitest';
+import { render, fireEvent } from '@testing-library/svelte';
+import { describe, it, expect, vi } from 'vitest';
 
 import Accordion from '.';
 
@@ -52,6 +52,18 @@ describe('Accordion.Item.Title', () => {
 		});
 		expect(getByTestId('accordion.item.title')).toBeTruthy();
 		expect(getByTestId('accordion.item.title').className).to.contain('bg-primary');
+	});
+
+	it('Should be clickable', async () => {
+		const { getByTestId, component } = render(Accordion.Item.Title);
+
+		const mock = vi.fn();
+		const accordionItemTitle = getByTestId('accordion.item.title');
+
+		component.$on('click', mock);
+		fireEvent.click(accordionItemTitle);
+
+		expect(mock).toHaveBeenCalled();
 	});
 });
 

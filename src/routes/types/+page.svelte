@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Divider, Col } from '../../lib';
+	import { Col } from '../../lib';
 	import {
 		carouselSlide,
 		locale,
