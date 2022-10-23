@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const ALERT_CONTEXT_ID = 'alert-context-id';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
@@ -13,33 +9,30 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let type: 'info' | 'warn' | 'success' | 'error' = 'info';
-	let reactiveType = writable(type);
-	$: $reactiveType = type;
+	const currentType = writable(type);
+	$: currentType.set(type);
 
-	setContext(ALERT_CONTEXT_ID, {
-		alert: true,
-		type: reactiveType
-	});
+	setContext('alert-type', currentType);
 
 	let leadingClass = '';
-	if ($reactiveType === 'info') {
+	$: if (type === 'info') {
 		leadingClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center text-info-icon';
-	} else if ($reactiveType === 'warn') {
+	} else if (type === 'warn') {
 		leadingClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center text-warn-icon';
-	} else if ($reactiveType === 'success') {
+	} else if (type === 'success') {
 		leadingClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center text-success-icon';
-	} else if ($reactiveType === 'error') {
+	} else if (type === 'error') {
 		leadingClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center text-error-icon';
 	}
 
 	let defaultClass = '';
-	$: if ($reactiveType === 'info') {
+	$: if (type === 'info') {
 		defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 bg-info-background';
-	} else if ($reactiveType === 'warn') {
+	} else if (type === 'warn') {
 		defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 bg-warn-background';
-	} else if ($reactiveType === 'success') {
+	} else if (type === 'success') {
 		defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 bg-success-background';
-	} else if ($reactiveType === 'error') {
+	} else if (type === 'error') {
 		defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20 bg-error-background';
 	}
 	$: finalClass = twMerge(defaultClass, $$props.class);

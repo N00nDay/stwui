@@ -2,27 +2,27 @@
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
-	import { ALERT_CONTEXT_ID } from './Alert.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const { type }: { type: Writable<'info' | 'warn' | 'success' | 'error'> } =
-		getContext(ALERT_CONTEXT_ID);
+	const type: Writable<'info' | 'warn' | 'success' | 'error'> = getContext('alert-type');
 
 	let defaultClass = '';
 	$: if ($type === 'info') {
-		defaultClass = 'relative flex-shrink-0 h-5 w-5 flex items-center justify-center text-info-icon';
+		defaultClass =
+			'relative flex-shrink-0 flex items-center justify-center text-info-icon -top-2 -right-2';
 	} else if ($type === 'warn') {
-		defaultClass = 'relative flex-shrink-0 h-5 w-5 flex items-center justify-center text-warn-icon';
+		defaultClass =
+			'relative flex-shrink-0 flex items-center justify-center text-warn-icon -top-2 -right-2';
 	} else if ($type === 'success') {
 		defaultClass =
-			'relative flex-shrink-0 h-5 w-5 flex items-center justify-center text-success-icon';
+			'relative flex-shrink-0 flex items-center justify-center text-success-icon -top-2 -right-2';
 	} else if ($type === 'error') {
 		defaultClass =
-			'relative flex-shrink-0 h-5 w-5 flex items-center justify-center text-error-icon';
+			'relative flex-shrink-0 flex items-center justify-center text-error-icon -top-2 -right-2';
 	}
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>

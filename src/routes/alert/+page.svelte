@@ -10,7 +10,17 @@
 		extraSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
-	import { close, clear } from '../../lib/icons';
+	import { close, clear, thumb_up } from '../../lib/icons';
+
+	let type: 'info' | 'warn' | 'success' | 'error' = 'info';
+
+	function handleClick() {
+		if (type === 'info') {
+			type = 'success';
+		} else {
+			type = 'info';
+		}
+	}
 </script>
 
 <Col class="col-24 md:col-12">
@@ -32,6 +42,16 @@
 					<Button ariaLabel="close" shape="circle" on:click={() => console.log('I clicked extra')}>
 						<Button.Icon slot="icon" data={close} />
 					</Button>
+				</Alert.Extra>
+			</Alert>
+
+			<br />
+			<Alert {type}>
+				<Alert.Leading slot="leading" data={type === 'info' ? clear : thumb_up} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Alert.Extra slot="extra">
+					<Button type="primary" on:click={handleClick}>Toggle</Button>
 				</Alert.Extra>
 			</Alert>
 
