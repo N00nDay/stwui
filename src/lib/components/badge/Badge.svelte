@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const BADGE_CONTEXT_ID = 'badge-context-id';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte/internal';
@@ -15,12 +11,7 @@
 	export let size: 'default' | 'large' = 'default';
 	export let shape: 'default' | 'rounded' | 'square' = 'default';
 
-	setContext(BADGE_CONTEXT_ID, {
-		badge: true,
-		type,
-		size,
-		shape
-	});
+	setContext('badge-type', type);
 
 	let defaultClass =
 		'inline-flex items-center py-0.5 font-medium bg-opacity-20 dark:bg-opacity-20 dark:text-dark-content text-light-content bg-dark-icon-background bg-light-icon-background';

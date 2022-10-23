@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { BADGE_CONTEXT_ID } from './Badge.svelte';
-	import { useContext } from '../..//utils/useContext';
 	import { getContext } from 'svelte/internal';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -9,17 +7,10 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: BADGE_CONTEXT_ID,
-		parent: 'Badge',
-		component: 'Badge.Close'
-	});
-
-	const { type }: { type: 'info' | 'success' | 'warn' | 'error' | undefined } =
-		getContext(BADGE_CONTEXT_ID);
+	const type: 'info' | 'success' | 'warn' | 'error' | undefined = getContext('badge-type');
 
 	let defaultClass =
-		'flex-shrink-0 ml-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:focus:text-white hover:text-white dark:hover:text-white';
+		'ml-1.5 flex-shrink-0 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:focus:text-white hover:text-white dark:hover:text-white';
 	if (type === 'info') {
 		defaultClass +=
 			' hover:bg-info-background dark:hover:bg-dark-info-background text-info-content dark:text-dark-info-content';
