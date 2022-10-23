@@ -11,7 +11,6 @@
 </script>
 
 <div
-	data-testid="accordion"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents

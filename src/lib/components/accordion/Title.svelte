@@ -19,7 +19,6 @@
 </script>
 
 <button
-	data-testid="accordion.item.title"
 	aria-label="Accordion Item Toggle"
 	class={finalClass}
 	type="button"
