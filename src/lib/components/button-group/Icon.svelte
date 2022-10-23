@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { BUTTON_GROUP_BUTTON_CONTEXT_ID } from './Button.svelte';
 	import { getContext } from 'svelte/internal';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -7,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const { iconSize }: { iconSize: string } = getContext(BUTTON_GROUP_BUTTON_CONTEXT_ID);
+	const iconSize: string = getContext('button-icon-size');
 
 	export let data = '';
 	export let viewBox = extractViewBox(data);
