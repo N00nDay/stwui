@@ -1,12 +1,9 @@
-<script lang="ts" context="module">
-	export const CURRENCY_CONTEXT_ID = 'currency-context-id';
-</script>
-
 <script lang="ts">
 	import { slide } from 'svelte/transition';
 	import { setContext } from 'svelte';
 	import Icon from '../icon';
 	import { error as errorIcon } from '../../icons';
+	import { writable, type Writable } from 'svelte/store';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -16,6 +13,12 @@
 	export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
 	export let disabled = false;
 	export let readonly = false;
+
+	let currentError: Writable<string | undefined> = writable(error);
+	$: currentError.set(error);
+
+	setContext('currency-name', name);
+	setContext('currency-error', currentError);
 
 	function onlyNumeric(e: KeyboardEvent) {
 		if (!e.key.match(/^[0-9]+$/)) e.preventDefault();
@@ -33,12 +36,6 @@
 			}
 		}
 	}
-
-	setContext(CURRENCY_CONTEXT_ID, {
-		currency: true,
-		name,
-		error
-	});
 </script>
 
 <div class={$$props.class} style={$$props.style}>

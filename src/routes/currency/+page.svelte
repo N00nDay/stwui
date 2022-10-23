@@ -4,6 +4,16 @@
 	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
 	import { email, phone } from '../../docs/icons';
 	import { currency_usd } from '../../lib/icons';
+
+	let value: string | undefined;
+	let error: string | undefined = "You're doing it wrong!";
+	$: if (value && value.length > 0 && value !== '0.00') {
+		error = undefined;
+	} else {
+		error = "You're doing it wrong!";
+	}
+
+	$: console.log('value', value);
 </script>
 
 <Col class="col-24">
@@ -21,7 +31,7 @@
 				<Currency.Trailing slot="trailing" data={phone} />
 			</Currency>
 			<br />
-			<Currency name="currency-3" error="There has been an error">
+			<Currency name="currency-3" {error} bind:value>
 				<Currency.Label slot="label">Label</Currency.Label>
 				<Currency.Leading slot="leading" data={email} />
 			</Currency>
