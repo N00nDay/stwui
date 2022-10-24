@@ -12,8 +12,6 @@
 	} else {
 		error = "You're doing it wrong!";
 	}
-
-	$: console.log('value', value);
 </script>
 
 <Col class="col-24">
@@ -31,7 +29,7 @@
 				<Currency.Trailing slot="trailing" data={phone} />
 			</Currency>
 			<br />
-			<Currency name="currency-3" {error} bind:value>
+			<Currency name="currency-3" {error} bind:value allowClear>
 				<Currency.Label slot="label">Label</Currency.Label>
 				<Currency.Leading slot="leading" data={email} />
 			</Currency>

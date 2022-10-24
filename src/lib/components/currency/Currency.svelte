@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
+	import { slide, scale } from 'svelte/transition';
 	import { setContext } from 'svelte';
 	import Icon from '../icon';
-	import { error as errorIcon } from '../../icons';
+	import { error as errorIcon, close } from '../../icons';
 	import { writable, type Writable } from 'svelte/store';
 
 	export let name: string;
@@ -13,7 +13,9 @@
 	export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
 	export let disabled = false;
 	export let readonly = false;
+	export let allowClear = false;
 
+	let input: HTMLInputElement;
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
 
@@ -36,6 +38,12 @@
 			}
 		}
 	}
+
+	function handleClear() {
+		input.focus();
+		input.value = '';
+		value = undefined;
+	}
 </script>
 
 <div class={$$props.class} style={$$props.style}>
@@ -45,6 +53,7 @@
 		class:text-danger={error}
 	>
 		<input
+			bind:this={input}
 			type="number"
 			inputmode="numeric"
 			pattern="\d*"
@@ -64,7 +73,7 @@
 			class:light-border={!error}
 			class:dark:dark-border={!error}
 			class:pl-10={$$slots.leading}
-			class:pr-10={$$slots.trailing || error}
+			class:pr-10={$$slots.trailing || error || allowClear}
 			class:bg-gray-100={disabled}
 			{placeholder}
 			bind:value
@@ -77,6 +86,20 @@
 			<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 				<slot name="leading" />
 			</span>
+		{/if}
+
+		{#if allowClear && value}
+			<button
+				aria-label="clear"
+				on:click={handleClear}
+				class="absolute inset-y-0 group-focus-within:flex active:flex items-center"
+				class:right-10={$$slots.trailing || error}
+				class:right-3={!$$slots.trailing && !error}
+			>
+				<span transition:scale|local class="items-center flex">
+					<Icon data={close} />
+				</span>
+			</button>
 		{/if}
 
 		{#if $$slots.trailing && !error}

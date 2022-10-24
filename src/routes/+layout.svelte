@@ -50,7 +50,7 @@
 	}
 
 	function redirectToDiscord() {
-		goto('https://discord.gg/dPuteC7z');
+		goto('https://discord.gg/YVgwp48Tcm');
 	}
 </script>
 
