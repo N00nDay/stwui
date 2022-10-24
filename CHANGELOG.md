@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.0.29-next](https://github.com/N00nDay/stwui/compare/v0.0.28-next...v0.0.29-next) (2022-10-24)
+
+
+### Bug Fixes
+
+* **Accordion:** cleaned up context ([369c20f](https://github.com/N00nDay/stwui/commit/369c20fa9f44490d054d316cfea5211a7760b10a))
+* **Accordion:** finalized changes to context ([974dd0b](https://github.com/N00nDay/stwui/commit/974dd0b78145bcde47bd304b194a1846192729cc))
+* **Accordion:** removed data-testid for now ([3825a9e](https://github.com/N00nDay/stwui/commit/3825a9efad48f67fbb06229cd2f0306621f98c3e))
+* **Accordion:** removed uneeded store once context was adjusted ([a97dad0](https://github.com/N00nDay/stwui/commit/a97dad0ffe32e43dbfb0872797e35a20df12df4f))
+* **Accordion:** removed vitest testing for now ([3825a9e](https://github.com/N00nDay/stwui/commit/3825a9efad48f67fbb06229cd2f0306621f98c3e))
+* **Accordion:** renamed context open to accordion-open to avoid collision ([31ce354](https://github.com/N00nDay/stwui/commit/31ce35458cca427051842f2eedbec0c195f391df))
+* **Alert:** added testing ([cdd93c6](https://github.com/N00nDay/stwui/commit/cdd93c6341d23996e11e95720de392a25b587a8a))
+* **Alert:** removed data-testid for now ([c310853](https://github.com/N00nDay/stwui/commit/c310853b93d0797e1e3cb279aa59c9b03070ec6e))
+* **Alert:** updated context ([974dd0b](https://github.com/N00nDay/stwui/commit/974dd0b78145bcde47bd304b194a1846192729cc))
+* **Autocomplete:** added prop options to force selection of available options ([c800798](https://github.com/N00nDay/stwui/commit/c800798352da6a227f67a10e9a77bab6231704b9))
+* **Autocomplete:** cleaned up context ([c800798](https://github.com/N00nDay/stwui/commit/c800798352da6a227f67a10e9a77bab6231704b9))
+* **Avatar:** cleaned up context ([4392f3b](https://github.com/N00nDay/stwui/commit/4392f3b3a4c8f464c6e4c0497afa55e74a53ad72))
+* **AvatarGroup:** cleaned up context ([1655545](https://github.com/N00nDay/stwui/commit/1655545d8c6dad25a6f2f39e995fb33315b03e22))
+* **Badge:** cleaned up context ([75ebc6f](https://github.com/N00nDay/stwui/commit/75ebc6fd03632816d7f7b2440c46a61c3ab8119b))
+* **Breadcrumbs:** cleaned up context ([d2f44b1](https://github.com/N00nDay/stwui/commit/d2f44b12ac4ba59b841a441ec53be0b6b396998c))
+* **Button:** cleaned up context ([e4c4bfa](https://github.com/N00nDay/stwui/commit/e4c4bfabb654d7a8a9a3f9f4ea7d4f18c7c23dec))
+* **ButtonGroup:** cleaned up context ([ebb455a](https://github.com/N00nDay/stwui/commit/ebb455a64daf505828eb295fd02e25bb952461aa))
+* **Card:** cleaned up context ([4a7398d](https://github.com/N00nDay/stwui/commit/4a7398d27e217e19e0b12fdcd6a4351709d746df))
+* **Checkbox:** cleaned up context ([a413b6a](https://github.com/N00nDay/stwui/commit/a413b6a17a75c2f83bceaba5c8b1ff9ea8c63f82))
+* **Chip:** cleaned up context ([a731ccb](https://github.com/N00nDay/stwui/commit/a731ccb2aa33d6f8730ad28ebcb5aa630959035c))
+* **Currency:** cleaned up context ([4a1deb7](https://github.com/N00nDay/stwui/commit/4a1deb778bdfd32c5fc0ebf38ba35d21eda065e6))
+* updated exclude for all Icons to stop cluttering the dom elements ([7dcedd9](https://github.com/N00nDay/stwui/commit/7dcedd9d51ea971e4accc2e29af9eb82642539b6))
+
 ## [0.0.28-next](https://github.com/N00nDay/stwui/compare/v0.0.27-next...v0.0.28-next) (2022-10-21)
 
 
