@@ -7,6 +7,16 @@
 
 	const date2Max = new Date(2022, 7, 30);
 	const date2Min = new Date(2022, 7, 3);
+
+	let value: Date | null;
+	let error: string | undefined = "You're doing it wrong!";
+	$: if (value) {
+		error = undefined;
+	} else {
+		error = "You're doing it wrong!";
+	}
+
+	$: console.log('value', value);
 </script>
 
 <Col class="col-24">
@@ -25,7 +35,7 @@
 			</DatePicker>
 			<br />
 			<br />
-			<DatePicker name="date-3" min={date2Min} error="Your doing it wrong">
+			<DatePicker name="date-3" min={date2Min} {error} bind:value allowClear>
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Leading slot="leading" data={phone} />
 			</DatePicker>

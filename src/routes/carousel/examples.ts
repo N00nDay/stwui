@@ -45,4 +45,6 @@ export const example = `
 	];
 </script>
 
-<Carousel {slides} />`;
+<div class="h-[36rem]">
+	<Carousel {slides} />
+</div>`;
