@@ -1,38 +1,21 @@
-<script lang="ts" context="module">
-	export const DATE_PICKER_CONTEXT_ID = 'date-picker-context-id';
-</script>
-
 <script lang="ts">
 	import { scale, slide } from 'svelte/transition';
 	import type { Locale } from './locale';
 	import DatePicker from './DatePicker.svelte';
-	import { writable } from 'svelte/store';
+	import { writable, type Writable } from 'svelte/store';
 	import dayjs, { Dayjs } from 'dayjs';
 	import Dropdown from '../dropdown';
 	import Icon from '../icon';
-	import { error as errorIcon } from '../../icons';
+	import { error as errorIcon, close } from '../../icons';
 	import { get_current_component, setContext } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import { browser } from '$app/environment';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const innerStore = writable(null as Dayjs | null);
-	const store = (() => {
-		return {
-			subscribe: innerStore.subscribe,
-			set: (d: Date | null) => {
-				const date = dayjs(d);
-				if (d === null) {
-					innerStore.set(null);
-					value = d;
-				} else if (!date.isSame($innerStore)) {
-					innerStore.set(date);
-					value = new Date(date.toISOString());
-				}
-			}
-		};
-	})();
+	let input: HTMLInputElement;
+	let valueInput: HTMLInputElement;
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -42,18 +25,27 @@
 	export let max: Date | undefined = undefined;
 	export let format = 'MMMM D, YYYY';
 	export let locale: Locale = {};
-	export let text = $store?.format(format) ?? '';
 	export let visible = false;
 	export let closeOnSelect = true;
-	export let handleSelect: ((d: Dayjs) => void) | undefined = undefined;
+	export let handleSelect: ((d: Date) => void) | undefined = undefined;
 	export let tabindex: string | undefined = undefined;
+	export let allowClear = false;
 
-	$: store.set(value);
+	let valueDayJS: Dayjs | null;
+	let text: string | undefined;
 
-	function valueUpdate(value: Dayjs | null) {
-		text = value?.format(format) ?? '';
+	$: {
+		valueDayJS = value === null ? null : dayjs(value);
+		text = valueDayJS?.format(format);
+		if (browser) {
+			if (input && input.value) {
+				input.value = text || '';
+			}
+		}
 	}
-	$: valueUpdate($store);
+
+	let currentError: Writable<string | undefined> = writable(error);
+	$: currentError.set(error);
 
 	function onFocusOut(event: unknown) {
 		const e = event as FocusEvent;
@@ -85,9 +77,8 @@
 
 	function onSelect(d: Dayjs) {
 		value = new Date(d.toISOString());
-		const dateInput = document.getElementById(name) as HTMLInputElement;
-		dateInput.value = value.toISOString();
-		if (handleSelect) handleSelect(d);
+		valueInput.value = value.toISOString();
+		if (handleSelect) handleSelect(value);
 		if (closeOnSelect) {
 			visible = false;
 		}
@@ -101,11 +92,13 @@
 		visible = true;
 	}
 
-	setContext(DATE_PICKER_CONTEXT_ID, {
-		datePicker: true,
-		name,
-		error
-	});
+	setContext('datepicker-name', name);
+	setContext('datepicker-error', currentError);
+
+	function handleClear() {
+		input.value = '';
+		value = null;
+	}
 </script>
 
 <Dropdown {handleClose} on:focusout={onFocusOut} on:keydown={keydown} {visible} class="w-full">
@@ -117,14 +110,25 @@
 				class:text-danger={error}
 			>
 				<input
+					type="text"
+					{name}
+					id={name}
+					tabindex="-1"
+					readonly={true}
+					class="h-0 w-0 invisible hidden"
+					bind:value
+					bind:this={valueInput}
+				/>
+				<input
+					bind:this={input}
 					readonly={true}
 					autocomplete="off"
 					name="{name}-visual"
 					id="{name}-visual"
+					bind:value={text}
 					{tabindex}
 					{placeholder}
 					type="text"
-					bind:value={text}
 					on:focus={handleOpen}
 					on:mousedown={handleOpen}
 					on:keydown={keydown}
@@ -145,11 +149,25 @@
 					class:group-active:border-primary={!error}
 					class:dark:group-active:border-primary={!error}
 					class:pl-10={$$slots.leading}
-					class:pr-10={$$slots.trailing || error}
+					class:pr-10={$$slots.trailing || error || allowClear}
 					use:useActions={use}
 					use:forwardEvents
-					{...exclude($$props, ['use', 'class'])}
+					{...exclude($$props, ['use', 'class', 'value'])}
 				/>
+
+				{#if allowClear && value}
+					<button
+						aria-label="clear"
+						on:click={handleClear}
+						class="absolute inset-y-0 group-focus-within:flex active:flex items-center"
+						class:right-10={$$slots.trailing || error}
+						class:right-3={!$$slots.trailing && !error}
+					>
+						<span transition:scale|local class="items-center flex">
+							<Icon data={close} />
+						</span>
+					</button>
+				{/if}
 
 				{#if $$slots.leading}
 					<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -171,16 +189,6 @@
 				<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
 			{/if}
 		</div>
-
-		<input
-			type="text"
-			{name}
-			id={name}
-			tabindex="-1"
-			readonly={true}
-			class="h-0 w-0 invisible hidden"
-			bind:value
-		/>
 	</svelte:fragment>
 	<div
 		slot="items"
@@ -192,7 +200,7 @@
 		<DatePicker
 			on:focusout={onFocusOut}
 			handleSelect={onSelect}
-			bind:value={$store}
+			bind:value={valueDayJS}
 			min={min ? dayjs(min) : undefined}
 			max={max ? dayjs(max) : undefined}
 			{locale}
