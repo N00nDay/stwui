@@ -12,7 +12,9 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	export let sortable = true;
+	export let orderBy: string;
+	export let order: 'asc' | 'desc' = 'asc';
+	export let onColumnHeaderClick: ((column: string) => void) | undefined = undefined;
 
 	useContext({
 		context_id: TABLE_CONTEXT_ID,
@@ -41,7 +43,9 @@
 					classes="{index !== 0 ? 'hidden ' : ''}truncate md:table-cell"
 					{column}
 					columnCount={columns.length}
-					{sortable}
+					{order}
+					{orderBy}
+					{onColumnHeaderClick}
 				/>
 			{/each}
 		</tr>

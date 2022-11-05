@@ -11,7 +11,7 @@
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
-	import { browser } from '$app/environment';
+	// import { browser } from '$app/environment';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let input: HTMLInputElement;
@@ -37,11 +37,11 @@
 	$: {
 		valueDayJS = value === null ? null : dayjs(value);
 		text = valueDayJS?.format(format);
-		if (browser) {
-			if (input && input.value) {
-				input.value = text || '';
-			}
+		// if (browser) {
+		if (input && input.value) {
+			input.value = text || '';
 		}
+		// }
 	}
 
 	let currentError: Writable<string | undefined> = writable(error);

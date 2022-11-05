@@ -1,18 +1,15 @@
 <script lang="ts">
 	import HoverBackground from '../HoverBackground.svelte';
-	import { page } from '$app/stores';
-	import { encodeSearchParams } from '../../utils';
 	import Icon from '../icon/Icon.svelte';
 	import { chevron_left, chevron_right } from '../../icons';
 
 	export let start: number;
 	export let end: number;
+	export let currentPage: number;
 	export let total: number;
-	export let scrollElement: string | undefined = undefined;
-
-	$: orderBy = $page.url.searchParams.get('orderBy') || '';
-	$: order = $page.url.searchParams.get('order') || '';
-	$: currentPage = parseInt($page.url.searchParams.get('page') || '1');
+	export let onPreviousClick: () => void;
+	export let onNextClick: () => void;
+	export let onPageClick: (page: number) => void;
 
 	function pageRange(cp: number, tp: number): (number | string)[] {
 		if (tp <= 6) {
@@ -38,52 +35,27 @@
 	const lastPage = pages.slice(-1)[0];
 
 	$: pagination = pageRange(currentPage, totalPages);
-
-	$: previousRoute =
-		`${$page.url.pathname}` +
-		encodeSearchParams({
-			orderBy,
-			order,
-			page: currentPage - 1 + ''
-		});
-
-	$: nextRoute =
-		`${$page.url.pathname}` +
-		encodeSearchParams({
-			orderBy,
-			order,
-			page: currentPage + 1 + ''
-		});
-
-	function scrollToTop() {
-		if (scrollElement) {
-			const el = document.getElementById(scrollElement);
-			if (el) {
-				el.scrollTop = 0;
-			}
-		}
-	}
 </script>
 
 <div class="flex items-center justify-between px-4 py-3 sm:px-6">
 	<div class="flex flex-1 justify-between md:hidden">
-		<a
-			on:click={scrollToTop}
-			href={previousRoute}
+		<button
+			type="button"
+			on:click={onPreviousClick}
 			disabled={currentPage === 1}
 			class="relative group shadow-sm dark:shadow-black overflow-hidden inline-flex items-center rounded-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
 			class:pointer-events-none={currentPage === 1}
 			>Previous
 			<HoverBackground />
-		</a>
-		<a
-			on:click={scrollToTop}
-			href={nextRoute}
+		</button>
+		<button
+			type="button"
+			on:click={onNextClick}
 			disabled={end === total}
 			class="relative group shadow-sm dark:shadow-black overflow-hidden inline-flex items-center rounded-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
 			class:pointer-events-none={end === total}
 			>Next
-			<HoverBackground /></a
+			<HoverBackground /></button
 		>
 	</div>
 	<div class="hidden md:flex sm:flex-1 sm:items-center sm:justify-between">
@@ -100,9 +72,9 @@
 		</div>
 		<div>
 			<nav class="isolate inline-flex -space-x-px rounded-md shadow-md dark:shadow-black">
-				<a
-					on:click={scrollToTop}
-					href={previousRoute}
+				<button
+					type="button"
+					on:click={onPreviousClick}
 					disabled={currentPage === 1}
 					class="relative overflow-hidden group inline-flex items-center rounded-l-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20"
 					class:pointer-events-none={currentPage === 1}
@@ -110,7 +82,7 @@
 					<Icon data={chevron_left} />
 					<span class="sr-only">Previous</span>
 					<HoverBackground />
-				</a>
+				</button>
 				{#each pagination as pageNumber}
 					{#if typeof pageNumber === 'string'}
 						<span
@@ -118,11 +90,10 @@
 						>
 							...
 						</span>
-					{:else}
-						<a
-							data-sveltekit-prefetch
-							on:click={scrollToTop}
-							href={`${$page.url.pathname}?orderBy=${orderBy}&order=${order}&page=${pageNumber}`}
+					{:else if typeof pageNumber === 'number'}
+						<button
+							type="button"
+							on:click={() => onPageClick(pageNumber)}
 							class="relative group overflow-hidden z-10 inline-flex items-center border px-4 py-2 text-sm font-medium focus:z-20"
 							class:bg-primary={pageNumber === currentPage}
 							class:border-primary={pageNumber === currentPage}
@@ -137,12 +108,12 @@
 						>
 							{pageNumber}
 							<HoverBackground />
-						</a>
+						</button>
 					{/if}
 				{/each}
-				<a
-					on:click={scrollToTop}
-					href={nextRoute}
+				<button
+					type="button"
+					on:click={onNextClick}
 					disabled={end === total}
 					class="relative group overflow-hidden inline-flex items-center rounded-r-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20"
 					class:pointer-events-none={end === total}
@@ -150,7 +121,7 @@
 					<Icon data={chevron_right} />
 					<span class="sr-only">Next</span>
 					<HoverBackground />
-				</a>
+				</button>
 			</nav>
 		</div>
 	</div>

@@ -30,9 +30,21 @@ export const slots: Slot[] = [
 export const headerProps: Prop[] = [
 	{
 		id: '1',
-		prop: 'sortable',
-		type: 'boolean',
-		default: 'false'
+		prop: 'order',
+		type: "'asc' | 'desc'",
+		default: 'asc'
+	},
+	{
+		id: '2',
+		prop: 'orderBy',
+		type: 'string',
+		default: ''
+	},
+	{
+		id: '3',
+		prop: 'onColumnHeaderClick',
+		type: '((page: number) => void) | undefined',
+		default: ''
 	}
 ];
 
@@ -97,10 +109,25 @@ export const footerSlots: Slot[] = [
 
 export const example = `
 <script lang="ts">
+   import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
+	import { encodeSearchParams } from 'stwui/utils';
    import { Table } from 'stwui';
    import type { TableColumn } from 'stwui/types';
 
    const plus = "svg-path";
+
+   let baseUrl: string;
+	let orderBy: string;
+	let order: 'asc' | 'desc';
+	let currentPage: string;
+
+	$: {
+		baseUrl = $page.url.pathname;
+		orderBy = $page.url.searchParams.get('orderBy') || 'created_at';
+		order = $page.url.searchParams.get('order') === 'desc' ? 'desc' : 'asc';
+		currentPage = $page.url.searchParams.get('page') || '1';
+	}
 
    const columns: TableColumn[] = [
       {
@@ -145,6 +172,49 @@ export const example = `
       end: 0,
       total: 0
    };
+
+   function onPreviousClick() {
+		let newPage = parseInt(currentPage) - 1 + '';
+		goto(\`\${baseUrl}\` +
+			encodeSearchParams({
+				orderBy: orderBy,
+				order: order,
+				page: newPage
+			})
+		);
+	}
+
+	function onNextClick() {
+		let newPage = parseInt(currentPage) + 1 + '';
+		goto(\`\${baseUrl}\` +
+			encodeSearchParams({
+				orderBy: orderBy,
+				order: order,
+				page: newPage
+			})
+		);
+	}
+
+	function onPageClick(page: number) {
+		let newPage = page + '';
+		goto(\`\${baseUrl}\` +
+			encodeSearchParams({
+				orderBy: orderBy,
+				order: order,
+				page: newPage
+			})
+		);
+	}
+
+	function onColumnHeaderClick(column: string) {
+		goto(\`\${baseUrl}\` +
+			encodeSearchParams({
+				orderBy: column,
+				order: column === orderBy && order === 'asc' ? 'desc' : 'asc',
+				page: currentPage
+			})
+		);
+	}
 </script>
 
 <Card bordered={false} class="h-[calc(100vh-14rem)]">
@@ -157,7 +227,7 @@ export const example = `
    </Card.Header>
    <Card.Content slot="content" class="p-0 sm:p-0" style="height: calc(100% - 64px);">
       <Table class="rounded-md overflow-hidden h-full" {columns}>
-         <Table.Header slot="header" />
+         <Table.Header slot="header" {order} {orderBy} {onColumnHeaderClick} />
          <Table.Body slot="body">
             {#each data.results as item}
                <Table.Body.Row id={item.id}>
@@ -170,12 +240,15 @@ export const example = `
             {/each}
          </Table.Body>
          <Table.Footer slot="footer">
-            <Pagination
-               start={data.start}
-               end={data.end}
-               total={data.total}
-               scrollElement="table-body"
-            />
+         <Pagination
+            start={data.start}
+            end={data.end}
+            total={data.total}
+            currentPage={parseInt(currentPage)}
+            {onPreviousClick}
+            {onNextClick}
+            {onPageClick}
+         />
          </Table.Footer>
       </Table>
    </Card.Content>

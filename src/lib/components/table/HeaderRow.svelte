@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
+	// import { goto } from '$app/navigation';
+	// import { page } from '$app/stores';
 	import { sort } from '$lib/icons';
 	import { twMerge } from 'tailwind-merge';
 
@@ -9,31 +9,41 @@
 
 	export let column: TableColumn;
 	export let columnCount: number;
-	export let sortable = true;
+	// export let sortable = true;
+
+	export let orderBy: string;
+	export let order: 'asc' | 'desc' = 'asc';
+	export let onColumnHeaderClick: ((column: string) => void) | undefined = undefined;
 
 	$: columnWidth = 100 / columnCount;
-	$: baseRoute = $page.url.pathname;
-	$: orderBy = $page.url.searchParams.get('orderBy');
-	$: order = $page.url.searchParams.get('order');
 
-	async function changeOrder() {
-		try {
-			if (sortable) {
-				const route =
-					`${baseRoute}?` +
-					new URLSearchParams({
-						orderBy: column.column,
-						order: column.column === orderBy && order === 'asc' ? 'desc' : 'asc',
-						page: '1'
-					});
-
-				goto(route);
-			}
-			return;
-		} catch (err) {
-			console.log('changeOrder err', err);
+	function handleClick() {
+		if (onColumnHeaderClick) {
+			onColumnHeaderClick(column.column);
 		}
 	}
+	// $: baseRoute = $page.url.pathname;
+	// $: orderBy = $page.url.searchParams.get('orderBy');
+	// $: order = $page.url.searchParams.get('order');
+
+	// async function changeOrder() {
+	// 	try {
+	// 		if (sortable) {
+	// 			const route =
+	// 				`${baseRoute}?` +
+	// 				new URLSearchParams({
+	// 					orderBy: column.column,
+	// 					order: column.column === orderBy && order === 'asc' ? 'desc' : 'asc',
+	// 					page: '1'
+	// 				});
+
+	// 			goto(route);
+	// 		}
+	// 		return;
+	// 	} catch (err) {
+	// 		console.log('changeOrder err', err);
+	// 	}
+	// }
 
 	const defaultClass =
 		'sticky top-0 py-4 last:hover:active last:focus:active last:active:active first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 text-sm sm:pl-6';
@@ -42,8 +52,8 @@
 
 <th
 	class={finalClass}
-	class:cursor-pointer={sortable}
-	class:cursor-default={!sortable}
+	class:cursor-pointer={onColumnHeaderClick}
+	class:cursor-default={!onColumnHeaderClick}
 	class:text-right={column.placement === 'right'}
 	class:last:text-right={column.placement === 'right'}
 	class:text-left={column.placement === 'left'}
@@ -58,14 +68,14 @@
 	class:active={column.column === orderBy}
 	style="width: {columnWidth}%;"
 	scope="col"
-	on:click={changeOrder}
+	on:click={handleClick}
 	><button
 		aria-label="{column.label} column sort"
 		class="group inline-flex items-center text-light-secondary-content dark:text-dark-secondary-content"
-		class:cursor-default={!sortable}
+		class:cursor-default={!onColumnHeaderClick}
 	>
 		<span class="text-sm">{column.label}</span>
-		{#if sortable}
+		{#if onColumnHeaderClick}
 			<span
 				class="last:ml-2 sort-container flex-none rounded opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-transform"
 				class:ml-2={column.placement === 'left'}
