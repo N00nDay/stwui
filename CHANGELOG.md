@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.30-next](https://github.com/N00nDay/stwui/compare/v0.0.29-next...v0.0.30-next) (2022-11-05)
+
+
+### Bug Fixes
+
+* **Currency.Label:** error functionality has been fixed ([9e638a3](https://github.com/N00nDay/stwui/commit/9e638a399f731d8003575ee178ed4416ddfeee97))
+* **DatePicker:** cleaned up context ([9e638a3](https://github.com/N00nDay/stwui/commit/9e638a399f731d8003575ee178ed4416ddfeee97))
+* **DatePicker:** error functionality has been fixed ([9e638a3](https://github.com/N00nDay/stwui/commit/9e638a399f731d8003575ee178ed4416ddfeee97))
+* **DatePicker:** fixed bind:value bug ([9e638a3](https://github.com/N00nDay/stwui/commit/9e638a399f731d8003575ee178ed4416ddfeee97))
+* **DatePicker:** removed reliance on svelte kit browser ([c9596e7](https://github.com/N00nDay/stwui/commit/c9596e7c1ea32c8dfe78827bde8bfed1be2696c4))
+* **Pagination:** component no longer automatically updates the url on page change ([c9596e7](https://github.com/N00nDay/stwui/commit/c9596e7c1ea32c8dfe78827bde8bfed1be2696c4))
+* **Table.Header:** component no longer automatically updates the url or sort ([c9596e7](https://github.com/N00nDay/stwui/commit/c9596e7c1ea32c8dfe78827bde8bfed1be2696c4))
+
 ## [0.0.29-next](https://github.com/N00nDay/stwui/compare/v0.0.28-next...v0.0.29-next) (2022-10-24)
 
 
