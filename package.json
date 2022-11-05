@@ -77,5 +77,13 @@
 	"peerDependencies": {
 		"svelte": "^3.52.0"
 	},
-	"module": "index.js"
+	"exports": {
+		".": "./index.js",
+		"./actions": "./actions/index.js",
+		"./plugin": "./plugin/index.js",
+		"./types": "./types/index.js",
+		"./utils": "./utils/index.js",
+		"./icons": "./icons.js"
+	},
+	"svelte": "."
 }
