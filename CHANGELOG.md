@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.31-next](https://github.com/N00nDay/stwui/compare/v0.0.30-next...v0.0.31-next) (2022-11-10)
+
+
+### Bug Fixes
+
+* **package.json:** should fix build issues ([3648c3a](https://github.com/N00nDay/stwui/commit/3648c3ad8c03795dfa110007751c15ad3e087031))
+
 ## [0.0.30-next](https://github.com/N00nDay/stwui/compare/v0.0.29-next...v0.0.30-next) (2022-11-05)
 
 
