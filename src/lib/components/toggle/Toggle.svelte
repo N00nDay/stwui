@@ -13,7 +13,7 @@
 		on && ($$slots['left-icon'] || $$slots['right-icon'])
 			? 'translate-x-[calc(100%+0.1rem)]'
 			: !on
-			? 'translate-x-[0.1rem['
+			? 'translate-x-[0.1rem]'
 			: 'translate-x-[calc(100%-0.1rem)]';
 
 	function toggle() {
