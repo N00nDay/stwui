@@ -37,11 +37,9 @@
 	$: {
 		valueDayJS = value === null ? null : dayjs(value);
 		text = valueDayJS?.format(format);
-		// if (browser) {
 		if (input && input.value) {
 			input.value = text || '';
 		}
-		// }
 	}
 
 	let currentError: Writable<string | undefined> = writable(error);

@@ -1,18 +1,10 @@
 <script lang="ts">
-	import { DRAWER_CONTEXT_ID } from './Drawer.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
-
-	useContext({
-		context_id: DRAWER_CONTEXT_ID,
-		parent: 'Drawer',
-		component: 'DrawerFooter'
-	});
 
 	const defaultClass = 'relative flex-grow text-light-content dark:text-dark-content p-4';
 	$: finalClass = twMerge(defaultClass, $$props.class);

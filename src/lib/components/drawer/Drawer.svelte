@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const DRAWER_CONTEXT_ID = 'drawer-context-name';
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { fly } from 'svelte/transition';
@@ -34,11 +30,8 @@
 		flyConfig = { y: 448 };
 	}
 
-	setContext(DRAWER_CONTEXT_ID, {
-		drawer: true,
-		handleClose,
-		disableOverlayClose
-	});
+	setContext('handleClose', handleClose);
+	setContext('disableOverlayClose', disableOverlayClose);
 
 	const defaultClass =
 		'flex inner-panel flex-col bg-light-surface dark:bg-dark-surface overflow-hidden';
