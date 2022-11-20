@@ -1,11 +1,6 @@
-<script lang="ts" context="module">
+<script lang="ts">
 	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-
-	export const ROW_CONTEXT_ID = 'row-context-id';
-</script>
-
-<script lang="ts">
 	import type TwSizes from '../../types/twSizes';
 	import { twSizes } from '../../utils/twSizes';
 	import { get_current_component } from 'svelte/internal';
@@ -32,9 +27,7 @@
 		padding = 'padding: 0;';
 	}
 
-	setContext(ROW_CONTEXT_ID, {
-		padding
-	});
+	setContext('padding', padding);
 
 	const defaultClass = 'relative mr-0 ml-0 block box-border';
 	$: finalClass = twMerge(defaultClass, $$props.class);
