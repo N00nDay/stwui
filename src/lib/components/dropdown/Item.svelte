@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { DROPDOWN_CONTEXT_ID } from './Dropdown.svelte';
 	import HoverBackground from '../HoverBackground.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -10,12 +8,6 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let label: string;
-
-	useContext({
-		context_id: DROPDOWN_CONTEXT_ID,
-		parent: 'Dropdown',
-		component: 'DropdownItem'
-	});
 
 	const defaultClass =
 		'w-full group relative flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-light-secondary-content dark:text-dark-secondary-content';

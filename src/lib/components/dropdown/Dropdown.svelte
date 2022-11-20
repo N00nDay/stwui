@@ -1,9 +1,4 @@
-<script lang="ts" context="module">
-	export const DROPDOWN_CONTEXT_ID = 'dropdown-context-id';
-</script>
-
 <script lang="ts">
-	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import { clickOutside } from '../../actions';
 	import { get_current_component } from 'svelte/internal';
@@ -12,16 +7,11 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	// export let handleClose: () => void;
 	export let visible = false;
 
 	function handleClose() {
 		visible = false;
 	}
-
-	setContext(DROPDOWN_CONTEXT_ID, {
-		dropdown: true
-	});
 
 	const defaultClass = 'relative inline-block';
 	$: finalClass = twMerge(defaultClass, $$props.class);
