@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.0.32-next](https://github.com/N00nDay/stwui/compare/v0.0.31-next...v0.0.32-next) (2022-11-20)
+
+
+### Bug Fixes
+
+* **Dropdown:** cleaned up needless context ([c3380bc](https://github.com/N00nDay/stwui/commit/c3380bc3c39712c0455ff9a83cc4afc308c28a7e))
+* **Feed:** cleaned up needless context ([5eeb627](https://github.com/N00nDay/stwui/commit/5eeb62704d1aeafcae0822c455eefcd197042b7e))
+* **Grid:** cleaned up needless context ([1a31490](https://github.com/N00nDay/stwui/commit/1a31490086bde17293f3e36ac12043e207a9d192))
+* **Input:** cleaned up needless context ([98c2f2d](https://github.com/N00nDay/stwui/commit/98c2f2d0aaa70b54a7a229a39e38b7a73fdf01b5))
+* **Input:** fixed label error color ([9c181a3](https://github.com/N00nDay/stwui/commit/9c181a301548fdaa71275f478789c00c2760b102))
+* **Pagination:** added pageSize prop ([264cea7](https://github.com/N00nDay/stwui/commit/264cea75cb2ba5401bb3fd1b06f82b839eed38d1))
+* **Toggle:** fixed translate position when off ([1381239](https://github.com/N00nDay/stwui/commit/1381239f91aed9520ef01e5b68a74dee0c7346fc))
+
 ## [0.0.31-next](https://github.com/N00nDay/stwui/compare/v0.0.30-next...v0.0.31-next) (2022-11-10)
 
 
