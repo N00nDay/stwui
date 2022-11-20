@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const INPUT_CONTEXT_ID = 'input-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte/internal';
 	import { slide, scale } from 'svelte/transition';
@@ -49,11 +45,8 @@
 		value = undefined;
 	}
 
-	setContext(INPUT_CONTEXT_ID, {
-		input: true,
-		name,
-		error
-	});
+	setContext('name', name);
+	setContext('error', error);
 
 	const defaultClass = 'group';
 	$: finalClass = twMerge(defaultClass, $$props.class);

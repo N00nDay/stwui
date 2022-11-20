@@ -1,21 +1,14 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { useContext } from '../../utils/useContext';
-	import { INPUT_CONTEXT_ID } from './Input.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: INPUT_CONTEXT_ID,
-		parent: 'Input',
-		component: 'Input.Label'
-	});
-
-	const { name, error }: { name: string; error: string } = getContext(INPUT_CONTEXT_ID);
+	const name: string = getContext('name');
+	const error: string = getContext('error');
 
 	let defaultClass = 'block text-sm font-medium';
 	if (error) {
