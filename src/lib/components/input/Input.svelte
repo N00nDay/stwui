@@ -9,6 +9,7 @@
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import { writable, type Writable } from 'svelte/store';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let name: string;
@@ -24,6 +25,8 @@
 	export let allowClear = false;
 
 	let input: HTMLInputElement;
+	let currentError: Writable<string | undefined> = writable(error);
+	$: currentError.set(error);
 
 	function useType(node: HTMLInputElement) {
 		node.type = type;
@@ -46,7 +49,7 @@
 	}
 
 	setContext('name', name);
-	setContext('error', error);
+	setContext('error', currentError);
 
 	const defaultClass = 'group';
 	$: finalClass = twMerge(defaultClass, $$props.class);

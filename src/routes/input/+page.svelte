@@ -3,6 +3,14 @@
 	import { example, props, slots, labelSlots, iconProps } from './examples';
 	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
 	import { email, phone, lock } from '../../docs/icons';
+
+	let value: string | undefined;
+	let error: string | undefined = "You're doing it wrong!";
+	$: if (value && value.length > 0) {
+		error = undefined;
+	} else {
+		error = "You're doing it wrong!";
+	}
 </script>
 
 <Col class="col-24">
@@ -22,7 +30,8 @@
 			<br />
 			<Input
 				name="input-3"
-				error="There has been an error"
+				bind:value
+				{error}
 				handleLeadingClick={() => console.log('clicking leading')}
 			>
 				<Input.Label slot="label">Label</Input.Label>

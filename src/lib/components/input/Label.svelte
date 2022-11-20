@@ -5,13 +5,14 @@
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import type { Writable } from 'svelte/store';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const name: string = getContext('name');
-	const error: string = getContext('error');
+	const error: Writable<string | undefined> = getContext('error');
 
 	let defaultClass = 'block text-sm font-medium';
-	if (error) {
+	$: if ($error && $error.length > 0) {
 		defaultClass = defaultClass + ' text-danger';
 	} else {
 		defaultClass = defaultClass + ' text-light-secondary-content dark:text-dark-secondary-content';
