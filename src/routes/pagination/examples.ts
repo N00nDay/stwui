@@ -61,10 +61,10 @@ export const example = `
 <script lang="ts">
 	import { Pagination } from 'stwui';
 
-	let rowsPerPage = 25;
+	let rowsPerPage = 10;
 
 	let start = 1;
-	let end = 25;
+	let end = 10;
 	let total = 97;
 	let currentPage = 1;
 
@@ -94,6 +94,7 @@ export const example = `
 	{start}
 	{end}
 	{total}
+	pageSize={rowsPerPage}
 	{currentPage}
 	{onNextClick}
 	{onPageClick}

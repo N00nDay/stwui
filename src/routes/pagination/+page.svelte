@@ -3,10 +3,10 @@
 	import { example, props } from './examples';
 	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
 
-	let rowsPerPage = 25;
+	let rowsPerPage = 10;
 
 	let start = 1;
-	let end = 25;
+	let end = 10;
 	let total = 97;
 	let currentPage = 1;
 
@@ -43,6 +43,7 @@
 				{start}
 				{end}
 				{total}
+				pageSize={rowsPerPage}
 				{currentPage}
 				{onNextClick}
 				{onPageClick}
