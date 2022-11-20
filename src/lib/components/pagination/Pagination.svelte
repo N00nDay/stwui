@@ -10,6 +10,7 @@
 	export let onPreviousClick: () => void;
 	export let onNextClick: () => void;
 	export let onPageClick: (page: number) => void;
+	export let pageSize = 25;
 
 	function pageRange(cp: number, tp: number): (number | string)[] {
 		if (tp <= 6) {
@@ -27,9 +28,7 @@
 		return [1, '...', ...pages.slice(cp - 3, cp + 2), '...', lastPage];
 	}
 
-	let size = 25;
-
-	const totalPages = Math.ceil(total / size);
+	const totalPages = Math.ceil(total / pageSize);
 	const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
 	const lastPage = pages.slice(-1)[0];

@@ -48,6 +48,12 @@ export const props: Prop[] = [
 		prop: 'onPageClick',
 		type: '(page: number) => void',
 		default: ''
+	},
+	{
+		id: '9',
+		prop: 'pageSize',
+		type: 'number',
+		default: '25'
 	}
 ];
 
