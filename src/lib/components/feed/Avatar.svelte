@@ -21,12 +21,9 @@
 	let failed = false;
 	let loading = true;
 
-	setContext(FEED_ITEM_LEADING_AVATAR_CONTEXT_ID, {
-		avatar: true,
-		src,
-		alt,
-		shape
-	});
+	setContext('src', src);
+	setContext('alt', alt);
+	setContext('shape', shape);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';

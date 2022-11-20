@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { FEED_ITEM_LEADING_AVATAR_CONTEXT_ID } from './Avatar.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon/Icon.svelte';
@@ -14,17 +12,8 @@
 
 	export let loading = false;
 
-	useContext({
-		context_id: FEED_ITEM_LEADING_AVATAR_CONTEXT_ID,
-		parent: 'Avatar',
-		component: 'Avatar.Placeholder'
-	});
-
-	const {
-		shape,
-		size
-	}: { shape: 'circle' | 'rounded' | 'square'; size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' } =
-		getContext(FEED_ITEM_LEADING_AVATAR_CONTEXT_ID);
+	const shape: 'circle' | 'rounded' | 'square' = getContext('shape');
+	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('size');
 
 	let iconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
 	let iconSize = '';
