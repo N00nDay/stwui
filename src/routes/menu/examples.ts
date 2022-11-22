@@ -160,7 +160,7 @@ export const groupItemsProps: Prop[] = [
 
 export const example = `
 <script lang="ts">
-   import { Menu } from 'stwui';
+   import { Menu, Badge } from 'stwui';
 
 	const home = "svg-path";
 	const account_multiple = "svg-path";
