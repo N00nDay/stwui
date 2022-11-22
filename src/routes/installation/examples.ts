@@ -15,7 +15,7 @@ export const tailwindCode = `
 module.exports = {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/stwui/**/*.{svelte,js,ts,html}
+		'./node_modules/stwui/**/*.{svelte,js,ts,html}'
 	],
 	plugins: [
 		require('@tailwindcss/forms'),
