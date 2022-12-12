@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { useContext } from '../../utils/useContext';
-	import { LAYOUT_CONTEXT_ID } from './Layout.svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { LAYOUT_CONTENT_CONTEXT_ID } from './Content.svelte';
 	import type { Writable } from 'svelte/store';
 	import { getContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
@@ -11,27 +8,9 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: LAYOUT_CONTEXT_ID,
-		parent: 'Layout',
-		component: 'Layout.Content.Sidebar'
-	});
-
-	useContext({
-		context_id: LAYOUT_CONTENT_CONTEXT_ID,
-		parent: 'Layout.Content',
-		component: 'Layout.Content.Sidebar'
-	});
-
-	const {
-		collapsed,
-		collapsedWidth,
-		expandedWidth
-	}: {
-		collapsed: Writable<boolean>;
-		collapsedWidth: Writable<string>;
-		expandedWidth: Writable<string>;
-	} = getContext(LAYOUT_CONTENT_CONTEXT_ID);
+	const collapsed: Writable<boolean> = getContext('layout-collapsed');
+	const collapsedWidth: Writable<string> = getContext('collapsedWidth');
+	const expandedWidth: Writable<string> = getContext('expandedWidth');
 
 	const defaultClass = 'hidden h-full lg:flex lg:flex-shrink-0 relative';
 	$: finalClass = twMerge(defaultClass, $$props.class);

@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const LAYOUT_CONTEXT_ID = 'layout-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -22,11 +18,8 @@
 		}
 	}
 
-	setContext(LAYOUT_CONTEXT_ID, {
-		layout: true,
-		sideBarWidth,
-		toggleSidebarWidth
-	});
+	setContext('sideBarWidth', sideBarWidth);
+	setContext('toggleSidebarWidth', toggleSidebarWidth);
 
 	const defaultClass = 'w-full h-full flex flex-col';
 	$: finalClass = twMerge(defaultClass, $$props.class);

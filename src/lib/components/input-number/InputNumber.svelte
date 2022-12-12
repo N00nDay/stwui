@@ -7,6 +7,7 @@
 	import { setContext } from 'svelte';
 	import Icon from '../icon';
 	import { error as errorIcon } from '../../icons';
+	import { writable, type Writable } from 'svelte/store';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -18,15 +19,15 @@
 	export let step = '1';
 	export let readonly = false;
 
+	let currentError: Writable<string | undefined> = writable(error);
+	$: currentError.set(error);
+
 	function onlyNumeric(e: KeyboardEvent) {
 		if (!e.key.match(/^[0-9]+$/)) e.preventDefault();
 	}
 
-	setContext(INPUT_NUMBER_CONTEXT_ID, {
-		inputNumber: true,
-		name,
-		error
-	});
+	setContext('name', name);
+	setContext('error', currentError);
 </script>
 
 <div class={$$props.class}>
