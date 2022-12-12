@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const LIST_ITEM_LEADING_AVATAR_CONTEXT_ID = 'list-item-leading-avatar-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext, onMount } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
@@ -22,13 +18,10 @@
 	let failed = false;
 	let loading = true;
 
-	setContext(LIST_ITEM_LEADING_AVATAR_CONTEXT_ID, {
-		avatar: true,
-		src,
-		alt,
-		shape,
-		size
-	});
+	setContext('avatar-src', src);
+	setContext('avatar-alt', alt);
+	setContext('avatar-shape', shape);
+	setContext('avatar-size', size);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';

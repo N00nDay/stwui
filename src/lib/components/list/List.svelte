@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const LIST_CONTEXT_ID = 'list-context-name';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
@@ -15,10 +11,7 @@
 	export let bordered = false;
 	export let edgeToEdge = false;
 
-	setContext(LIST_CONTEXT_ID, {
-		list: true,
-		bordered: bordered || edgeToEdge
-	});
+	setContext('list-bordered', bordered || edgeToEdge);
 
 	let defaultClass = '';
 	const defaultDividedClass = 'divide-y divide-light-border dark:divide-dark-border';

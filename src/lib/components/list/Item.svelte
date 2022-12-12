@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { LIST_CONTEXT_ID } from './List.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -9,12 +7,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: LIST_CONTEXT_ID,
-		parent: 'List',
-		component: 'List.Item'
-	});
-	const { bordered }: { bordered: boolean } = getContext(LIST_CONTEXT_ID);
+	const bordered: boolean = getContext('list-bordered');
 
 	let defaultClass = 'flex py-4';
 	if (bordered) {
