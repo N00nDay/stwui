@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext, getContext, onMount } from 'svelte/internal';
+	import { getContext, onMount } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Placeholder from './Placeholder.svelte';
 	import { get_current_component } from 'svelte/internal';
@@ -18,9 +18,6 @@
 
 	const shape: 'circle' | 'rounded' | 'square' = getContext('avatar-group-shape');
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('avatar-group-size');
-
-	setContext('avatar-src', src);
-	setContext('avatar-alt', alt);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';
