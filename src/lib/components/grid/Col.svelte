@@ -7,7 +7,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const padding: string = getContext('padding');
+	const padding: string = getContext('grid-padding');
 
 	const defaultClass = 'col';
 	$: finalClass = twMerge(defaultClass, $$props.class);
