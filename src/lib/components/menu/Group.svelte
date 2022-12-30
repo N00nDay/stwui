@@ -1,14 +1,8 @@
-<script lang="ts" context="module">
-	export const MENU_GROUP_CONTEXT_ID = 'menu-group-context-id';
-</script>
-
 <script lang="ts">
 	import HoverBackground from '../HoverBackground.svelte';
 	import { slide, scale, type TransitionConfig } from 'svelte/transition';
 	import { getContext, setContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
-	import { MENU_CONTEXT_ID } from './Menu.svelte';
-	import { useContext } from '$lib/utils/useContext';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon/Icon.svelte';
 	import { chevron_down } from '../../icons';
@@ -24,24 +18,10 @@
 	let active = false;
 	let collapsable: HTMLDivElement;
 
-	useContext({
-		context_id: MENU_CONTEXT_ID,
-		parent: 'Menu',
-		component: 'Menu.Group'
-	});
+	setContext('menu-group-key', key);
 
-	setContext(MENU_GROUP_CONTEXT_ID, {
-		group: true,
-		groupKey: key
-	});
-
-	const {
-		menuCollapse,
-		activeItem
-	}: {
-		menuCollapse: Writable<boolean>;
-		activeItem: Writable<string>;
-	} = getContext(MENU_CONTEXT_ID);
+	const menuCollapse: Writable<boolean> = getContext('menu-collapse');
+	const activeItem: Writable<string> = getContext('menu-active-item');
 
 	$: menuActive = $activeItem.includes(key);
 

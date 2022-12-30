@@ -1,11 +1,8 @@
 <script lang="ts">
 	import HoverBackground from '../HoverBackground.svelte';
 	import { getContext } from 'svelte';
-	import { MENU_CONTEXT_ID } from './Menu.svelte';
-	import { MENU_GROUP_CONTEXT_ID } from './Group.svelte';
 	import type { Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
-	import { useContext } from '$lib/utils/useContext';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -16,27 +13,9 @@
 	export let label: string;
 	export let key: string;
 
-	useContext({
-		context_id: MENU_CONTEXT_ID,
-		parent: 'Menu',
-		component: 'Menu.Group.Item'
-	});
-
-	useContext({
-		context_id: MENU_GROUP_CONTEXT_ID,
-		parent: 'Menu.Group',
-		component: 'Menu.Group.Item'
-	});
-
-	const {
-		menuCollapse,
-		activeItem
-	}: {
-		menuCollapse: Writable<boolean>;
-		activeItem: Writable<string>;
-	} = getContext(MENU_CONTEXT_ID);
-
-	const { groupKey }: { groupKey: string } = getContext(MENU_GROUP_CONTEXT_ID);
+	const menuCollapse: Writable<boolean> = getContext('menu-collapse');
+	const activeItem: Writable<string> = getContext('menu-active-item');
+	const groupKey: { groupKey: string } = getContext('menu-group-key');
 
 	$: active = $activeItem === `${groupKey}-${key}`;
 

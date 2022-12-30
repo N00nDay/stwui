@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const MENU_CONTEXT_ID = 'menu-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -22,12 +18,9 @@
 	let activeItem = writable(active);
 	$: activeItem.set(active);
 
-	setContext(MENU_CONTEXT_ID, {
-		menu: true,
-		menuCollapse,
-		collapsedWidth,
-		activeItem
-	});
+	setContext('menu-collapse', menuCollapse);
+	// setContext('menu-collapsed-width', collapsedWidth);
+	setContext('menu-active-item', activeItem);
 
 	let defaultClass = 'space-y-1 transition-all duration-300';
 	$: if ($menuCollapse) {

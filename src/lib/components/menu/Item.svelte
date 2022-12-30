@@ -3,7 +3,6 @@
 	import HoverBackground from '../HoverBackground.svelte';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
-	import { MENU_CONTEXT_ID } from './Menu.svelte';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -15,13 +14,8 @@
 	export let href: string;
 	export let key: string;
 
-	const {
-		menuCollapse,
-		activeItem
-	}: {
-		menuCollapse: Writable<boolean>;
-		activeItem: Writable<string>;
-	} = getContext(MENU_CONTEXT_ID);
+	const menuCollapse: Writable<boolean> = getContext('menu-collapse');
+	const activeItem: Writable<string> = getContext('menu-active-item');
 
 	$: active = $activeItem === key;
 
