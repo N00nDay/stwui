@@ -6,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const iconSize: string = getContext('button-icon-size');
+	const iconSize: string = getContext('button-group-button-icon-size');
 
 	export let data = '';
 	export let viewBox = extractViewBox(data);
