@@ -26,8 +26,8 @@
 		if (!e.key.match(/^[0-9]+$/)) e.preventDefault();
 	}
 
-	setContext('name', name);
-	setContext('error', currentError);
+	setContext('input-number-name', name);
+	setContext('input-number-error', currentError);
 </script>
 
 <div class={$$props.class}>
