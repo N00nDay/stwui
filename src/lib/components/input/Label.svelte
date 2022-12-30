@@ -8,8 +8,8 @@
 	import type { Writable } from 'svelte/store';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const name: string = getContext('name');
-	const error: Writable<string | undefined> = getContext('error');
+	const name: string = getContext('input-name');
+	const error: Writable<string | undefined> = getContext('input-error');
 
 	let defaultClass = 'block text-sm font-medium';
 	$: if ($error && $error.length > 0) {

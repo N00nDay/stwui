@@ -48,8 +48,8 @@
 		value = undefined;
 	}
 
-	setContext('name', name);
-	setContext('error', currentError);
+	setContext('input-name', name);
+	setContext('input-error', currentError);
 
 	const defaultClass = 'group';
 	$: finalClass = twMerge(defaultClass, $$props.class);
