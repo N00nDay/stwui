@@ -1,27 +1,10 @@
-<script lang="ts" context="module">
-	export const POST_HEADER_CONTEXT_ID = 'post-header-context-id';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { POST_CONTEXT_ID } from './Post.svelte';
-	import { useContext } from '../../utils/useContext';
-	import { setContext } from 'svelte/internal';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
-
-	useContext({
-		context_id: POST_CONTEXT_ID,
-		parent: 'Post',
-		component: 'Post.Header'
-	});
-
-	setContext(POST_HEADER_CONTEXT_ID, {
-		header: true
-	});
 
 	const defaultClass =
 		'first:rounded-t-md last:rounded-b-md py-1.5 px-1.5 sm:px-3 h-14 flex flex-row border-b border-light-border dark:border-dark-border';

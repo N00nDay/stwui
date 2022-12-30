@@ -1,13 +1,6 @@
-<script lang="ts" context="module">
-	export const POST_HEADER_AVATAR_PLACEHOLDER_CONTEXT_ID =
-		'post-header-avatar-placeholder-context-id';
-</script>
-
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { POST_HEADER_AVATAR_CONTEXT_ID } from './Avatar.svelte';
-	import { useContext } from '../../utils/useContext';
-	import { getContext, setContext } from 'svelte/internal';
+	import { getContext } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon/Icon.svelte';
 	import { account } from '../../icons';
@@ -19,22 +12,10 @@
 
 	export let loading = false;
 
-	useContext({
-		context_id: POST_HEADER_AVATAR_CONTEXT_ID,
-		parent: 'Avatar',
-		component: 'Avatar.Placeholder'
-	});
-
-	const { shape }: { shape: 'circle' | 'rounded' | 'square' } = getContext(
-		POST_HEADER_AVATAR_CONTEXT_ID
-	);
+	const shape: 'circle' | 'rounded' | 'square' = getContext('post-avatar-shape');
 
 	let iconContainerClass =
 		'absolute text-light-icon dark:text-dark-icon h-full w-full bottom-[-0.5rem]';
-
-	setContext(POST_HEADER_AVATAR_PLACEHOLDER_CONTEXT_ID, {
-		placeholder: true
-	});
 
 	let defaultClass =
 		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';

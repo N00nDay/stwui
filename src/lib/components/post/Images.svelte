@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { crossfade } from '../../utils/crossfade';
 	import { twMerge } from 'tailwind-merge';
-	import { useContext } from '../../utils/useContext';
-	import { POST_CONTEXT_ID } from './Post.svelte';
 	import type { CarouselSlide, LightboxAction } from '../../types';
 	import LightBox from '../lightbox/LightBox.svelte';
 	import { get_current_component } from 'svelte/internal';
@@ -25,12 +23,6 @@
 	let lightBox4Open = false;
 
 	const [send, receive] = crossfade;
-
-	useContext({
-		context_id: POST_CONTEXT_ID,
-		parent: 'Post',
-		component: 'Post.Images'
-	});
 
 	function openLightBox(index: number) {
 		setTimeout(() => {

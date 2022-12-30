@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const POST_HEADER_AVATAR_CONTEXT_ID = 'avatar-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext, onMount } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
@@ -20,12 +16,7 @@
 	let failed = false;
 	let loading = true;
 
-	setContext(POST_HEADER_AVATAR_CONTEXT_ID, {
-		avatar: true,
-		src,
-		alt,
-		shape
-	});
+	setContext('post-avatar-shape', shape);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';

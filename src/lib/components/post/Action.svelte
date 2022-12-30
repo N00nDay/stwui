@@ -1,25 +1,11 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { POST_CONTEXT_ID } from './Post.svelte';
-	import { POST_ACTIONS_CONTEXT_ID } from './Actions.svelte';
-	import { useContext } from '../../utils/useContext';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
-
-	useContext({
-		context_id: POST_CONTEXT_ID,
-		parent: 'Post',
-		component: 'Post.Actions.Action'
-	});
-	useContext({
-		context_id: POST_ACTIONS_CONTEXT_ID,
-		parent: 'Post.Actions',
-		component: 'Post.Actions.Action'
-	});
 
 	const defaultClass =
 		'group relative w-full h-full cursor-pointer first:rounded-bl-md last:rounded-br-md overflow-hidden';
