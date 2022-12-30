@@ -7,8 +7,8 @@
 		'fixed inset-0 bg-dark-background dark:bg-light-background bg-opacity-10 dark:bg-opacity-10 backdrop-blur-sm transition-opacity pointer-events-auto';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
-	const handleClose: () => void = getContext('handleClose');
-	const disableOverlayClose: boolean = getContext('disableOverlayClose');
+	const handleClose: () => void = getContext('drawer-handleClose');
+	const disableOverlayClose: boolean = getContext('drawer-disableOverlayClose');
 </script>
 
 <div

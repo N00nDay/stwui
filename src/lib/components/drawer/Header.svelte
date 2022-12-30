@@ -9,7 +9,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const handleClose: () => void = getContext('handleClose');
+	const handleClose: () => void = getContext('drawer-handleClose');
 
 	const defaultClass =
 		'px-4 sm:px-6 py-4 shadow-md dark:shadow-black flex-shrink text-lg font-medium text-light-content dark:text-dark-content';

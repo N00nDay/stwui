@@ -30,8 +30,8 @@
 		flyConfig = { y: 448 };
 	}
 
-	setContext('handleClose', handleClose);
-	setContext('disableOverlayClose', disableOverlayClose);
+	setContext('drawer-handleClose', handleClose);
+	setContext('drawer-disableOverlayClose', disableOverlayClose);
 
 	const defaultClass =
 		'flex inner-panel flex-col bg-light-surface dark:bg-dark-surface overflow-hidden';
