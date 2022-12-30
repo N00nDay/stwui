@@ -12,27 +12,10 @@
 
 	export let loading = false;
 
-	const shape: 'circle' | 'rounded' | 'square' = getContext('shape');
-	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('size');
+	const shape: 'circle' | 'rounded' | 'square' = getContext('feed-avatar-shape');
 
 	let iconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
 	let iconSize = '';
-	if (size === 'xs') {
-		iconContainerClass += ' bottom-[-0.25rem]';
-		iconSize = '24px';
-	} else if (size === 'sm') {
-		iconContainerClass += ' bottom-[-0.35rem]';
-		iconSize = '32px';
-	} else if (size === 'md') {
-		iconContainerClass += ' bottom-[-0.5rem]';
-		iconSize = '40px';
-	} else if (size === 'lg') {
-		iconContainerClass += ' text-6xl bottom-[-0.6rem]';
-		iconSize = '48px';
-	} else if (size === 'xl') {
-		iconContainerClass += ' bottom-[-0.75rem]';
-		iconSize = '64px';
-	}
 
 	let defaultClass =
 		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';

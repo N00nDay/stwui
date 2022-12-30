@@ -21,9 +21,7 @@
 	let failed = false;
 	let loading = true;
 
-	setContext('src', src);
-	setContext('alt', alt);
-	setContext('shape', shape);
+	setContext('feed-avatar-shape', shape);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';
