@@ -1,7 +1,5 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { NOTIFICATION_CONTEXT_ID } from './Notification.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { twMerge } from 'tailwind-merge';
 	import type { Writable } from 'svelte/store';
 	import { get_current_component } from 'svelte/internal';
@@ -10,13 +8,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: NOTIFICATION_CONTEXT_ID,
-		parent: 'Notification',
-		component: 'Notification.Extra'
-	});
-
-	const { extra }: { extra: Writable<boolean> } = getContext(NOTIFICATION_CONTEXT_ID);
+	const extra: Writable<boolean> = getContext('notification-extra');
 
 	$: $extra = true;
 

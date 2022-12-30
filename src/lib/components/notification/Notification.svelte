@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const NOTIFICATION_CONTEXT_ID = 'notification-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -29,12 +25,9 @@
 	let leading = writable(false);
 	let extra = writable(false);
 
-	setContext(NOTIFICATION_CONTEXT_ID, {
-		notification: true,
-		leading,
-		extra,
-		type
-	});
+	setContext('notification-leading', leading);
+	setContext('notification-extra', extra);
+	setContext('notification-type', type);
 
 	const defaultClass =
 		'relative cursor-pointer flex items-start pointer-events-auto p-4 w-full max-w-sm overflow-hidden rounded-lg bg-light-surface dark:bg-dark-surface shadow-lg border light-border dark:dark-border dark:shadow-black';

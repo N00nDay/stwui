@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const NOTIFICATION_AVATAR_CONTEXT_ID = 'notification-avatar-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext, onMount } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
@@ -22,13 +18,8 @@
 	let failed = false;
 	let loading = true;
 
-	setContext(NOTIFICATION_AVATAR_CONTEXT_ID, {
-		avatar: true,
-		src,
-		alt,
-		shape,
-		size
-	});
+	setContext('notification-avatar-shape', shape);
+	setContext('notification-avatar-size', size);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';

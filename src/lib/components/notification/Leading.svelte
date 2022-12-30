@@ -1,11 +1,5 @@
-<script lang="ts" context="module">
-	export const NOTIFICATION_LEADING_CONTEXT_ID = 'notification-leading-context-id';
-</script>
-
 <script lang="ts">
-	import { getContext, setContext } from 'svelte';
-	import { useContext } from '../../utils/useContext';
-	import { NOTIFICATION_CONTEXT_ID } from './Notification.svelte';
+	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import type { Writable } from 'svelte/store';
 	import { get_current_component } from 'svelte/internal';
@@ -14,17 +8,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: NOTIFICATION_CONTEXT_ID,
-		parent: 'Notification',
-		component: 'Notification.Leading'
-	});
-
-	setContext(NOTIFICATION_LEADING_CONTEXT_ID, {
-		leading: true
-	});
-
-	const { leading }: { leading: Writable<boolean> } = getContext(NOTIFICATION_CONTEXT_ID);
+	const leading: Writable<boolean> = getContext('notification-leading');
 
 	$: $leading = true;
 

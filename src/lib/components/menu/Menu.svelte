@@ -19,7 +19,6 @@
 	$: activeItem.set(active);
 
 	setContext('menu-collapse', menuCollapse);
-	// setContext('menu-collapsed-width', collapsedWidth);
 	setContext('menu-active-item', activeItem);
 
 	let defaultClass = 'space-y-1 transition-all duration-300';

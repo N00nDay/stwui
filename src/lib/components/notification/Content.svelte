@@ -1,11 +1,5 @@
-<script lang="ts" context="module">
-	export const NOTIFICATION_CONTENT_CONTEXT_ID = 'notification-content-context-id';
-</script>
-
 <script lang="ts">
-	import { NOTIFICATION_CONTEXT_ID } from './Notification.svelte';
 	import { getContext, setContext } from 'svelte';
-	import { useContext } from '../../utils/useContext';
 	import { twMerge } from 'tailwind-merge';
 	import { writable, type Writable } from 'svelte/store';
 	import { get_current_component } from 'svelte/internal';
@@ -16,22 +10,10 @@
 
 	let title = writable(false);
 
-	useContext({
-		context_id: NOTIFICATION_CONTEXT_ID,
-		parent: 'Notification',
-		component: 'Notificaiton.Content'
-	});
+	setContext('notification-title', title);
 
-	setContext(NOTIFICATION_CONTENT_CONTEXT_ID, {
-		content: true,
-		title
-	});
-
-	const {
-		leading,
-		type
-	}: { leading: Writable<boolean>; type: 'info' | 'warn' | 'error' | 'success' | undefined } =
-		getContext(NOTIFICATION_CONTEXT_ID);
+	const leading: Writable<boolean> = getContext('notification-leading');
+	const type: 'info' | 'warn' | 'error' | 'success' | undefined = getContext('notification-type');
 
 	let defaultClass = 'w-0 flex-1 pt-0.5';
 	$: if ($leading || type) {
