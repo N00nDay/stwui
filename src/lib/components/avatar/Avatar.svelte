@@ -18,8 +18,6 @@
 	let failed = false;
 	let loading = true;
 
-	setContext('avatar-src', src);
-	setContext('avatar-alt', alt);
 	setContext('avatar-shape', shape);
 	setContext('avatar-size', size);
 
