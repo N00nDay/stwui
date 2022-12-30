@@ -18,10 +18,8 @@
 	let failed = false;
 	let loading = true;
 
-	setContext('avatar-src', src);
-	setContext('avatar-alt', alt);
-	setContext('avatar-shape', shape);
-	setContext('avatar-size', size);
+	setContext('list-avatar-shape', shape);
+	setContext('list-avatar-size', size);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';
