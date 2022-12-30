@@ -1,11 +1,5 @@
-<script lang="ts" context="module">
-	export const RADIO_GROUP_RADIO_CONTEXT_ID = 'radio-group-radio-context-id';
-</script>
-
 <script lang="ts">
-	import { RADIO_GROUP_CONTEXT_ID } from './RadioGroup.svelte';
 	import { getContext, setContext } from 'svelte';
-	import { useContext } from '../../utils/useContext';
 	import HoverBackground from '../HoverBackground.svelte';
 	import type { Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
@@ -13,23 +7,11 @@
 	export let id: string | undefined = undefined;
 	export let value: string;
 
-	useContext({
-		context_id: RADIO_GROUP_CONTEXT_ID,
-		parent: 'RadioGroup',
-		component: 'RadioGroup.Radio'
-	});
+	setContext('radio-id', id);
 
-	setContext(RADIO_GROUP_RADIO_CONTEXT_ID, {
-		radio: true,
-		id
-	});
-
-	const {
-		name,
-		type,
-		selected
-	}: { name: string; type: 'default' | 'pill'; selected: Writable<string | undefined> } =
-		getContext(RADIO_GROUP_CONTEXT_ID);
+	const name: string = getContext('radio-name');
+	const type: 'default' | 'pill' = getContext('radio-type');
+	const selected: Writable<string | undefined> = getContext('radio-selected');
 
 	function handleClick() {
 		$selected = value;

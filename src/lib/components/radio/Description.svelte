@@ -1,28 +1,13 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { getContext } from 'svelte';
-	import { useContext } from '$lib/utils/useContext';
-	import { RADIO_GROUP_RADIO_CONTEXT_ID } from './Radio.svelte';
-	import { RADIO_GROUP_CONTEXT_ID } from './RadioGroup.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: RADIO_GROUP_CONTEXT_ID,
-		parent: 'RadioGroup',
-		component: 'RadioGroup.Radio.Description'
-	});
-
-	useContext({
-		context_id: RADIO_GROUP_RADIO_CONTEXT_ID,
-		parent: 'RadioGroup.Radio',
-		component: 'RadioGroup.Radio.Description'
-	});
-
-	const { id }: { id: string } = getContext(RADIO_GROUP_RADIO_CONTEXT_ID);
+	const id: string = getContext('radio-id');
 
 	const defaultClass = 'text-light-secondary-content dark:text-dark-secondary-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);

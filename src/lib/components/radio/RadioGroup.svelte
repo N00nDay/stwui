@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const RADIO_GROUP_CONTEXT_ID = 'radio-group-context-id';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
@@ -13,12 +9,9 @@
 
 	let selectedRadio = writable(selected);
 
-	setContext(RADIO_GROUP_CONTEXT_ID, {
-		radioGroup: true,
-		name,
-		type,
-		selected: selectedRadio
-	});
+	setContext('radio-name', name);
+	setContext('radio-type', type);
+	setContext('radio-selected', selectedRadio);
 
 	let defaultClass = 'mt-1 grid-cols-4 gap-2';
 	if (type === 'default') {
