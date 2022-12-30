@@ -19,10 +19,10 @@
 
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('chip-size');
 
-	setContext('avatar-src', src);
-	setContext('avatar-alt', alt);
-	setContext('avatar-shape', shape);
-	setContext('avatar-size', size);
+	setContext('chip-avatar-src', src);
+	setContext('chip-avatar-alt', alt);
+	setContext('chip-avatar-shape', shape);
+	setContext('chip-avatar-size', size);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';

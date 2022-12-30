@@ -12,8 +12,8 @@
 
 	export let loading = false;
 
-	const shape: 'circle' | 'rounded' | 'square' = getContext('avatar-shape');
-	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('avatar-size');
+	const shape: 'circle' | 'rounded' | 'square' = getContext('chip-avatar-shape');
+	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('chip-avatar-size');
 
 	let iconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
 	let iconSize = '';
