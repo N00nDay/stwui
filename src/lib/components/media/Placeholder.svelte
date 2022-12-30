@@ -1,12 +1,6 @@
-<script lang="ts" context="module">
-	export const MEDIA_AVATAR_PLACEHOLDER_ID = 'media-avatar-placeholder-id';
-</script>
-
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { MEDIA_AVATAR_CONTEXT_ID } from './Avatar.svelte';
-	import { useContext } from '../../utils/useContext';
-	import { getContext, setContext } from 'svelte/internal';
+	import { getContext } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon/Icon.svelte';
 	import { account } from '../../icons';
@@ -18,21 +12,8 @@
 
 	export let loading = false;
 
-	useContext({
-		context_id: MEDIA_AVATAR_CONTEXT_ID,
-		parent: 'Media.Avatar',
-		component: 'Media.Avatar.Placeholder'
-	});
-
-	setContext(MEDIA_AVATAR_PLACEHOLDER_ID, {
-		placeholder: true
-	});
-
-	const {
-		shape,
-		size
-	}: { shape: 'circle' | 'rounded' | 'square'; size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' } =
-		getContext(MEDIA_AVATAR_CONTEXT_ID);
+	const shape: 'circle' | 'rounded' | 'square' = getContext('media-avatar-shape');
+	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('media-avatar-size');
 
 	let iconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
 	let iconSize = '';

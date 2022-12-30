@@ -1,10 +1,4 @@
-<script lang="ts" context="module">
-	export const MEDIA_AVATAR_CONTEXT_ID = 'media-avatar-context-id';
-</script>
-
 <script lang="ts">
-	import { MEDIA_CONTEXT_ID } from './Media.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { setContext, onMount } from 'svelte/internal';
 	import { twMerge } from 'tailwind-merge';
 	import Placeholder from './Placeholder.svelte';
@@ -25,19 +19,8 @@
 	let failed = false;
 	let loading = true;
 
-	useContext({
-		context_id: MEDIA_CONTEXT_ID,
-		parent: 'Media',
-		component: 'Media.Avatar'
-	});
-
-	setContext(MEDIA_AVATAR_CONTEXT_ID, {
-		avatar: true,
-		src,
-		alt,
-		shape,
-		size
-	});
+	setContext('media-avatar-shape', shape);
+	setContext('media-avatar-size', size);
 
 	let defaultClass = '';
 	let containerDefaultClass = '';
