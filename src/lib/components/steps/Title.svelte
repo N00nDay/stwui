@@ -1,7 +1,4 @@
 <script lang="ts">
-	import { STEPS_CONTEXT_ID } from './Steps.svelte';
-	import { STEPS_STEP_CONTEXT_ID } from './Step.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import type { Writable } from 'svelte/store';
@@ -11,29 +8,13 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: STEPS_CONTEXT_ID,
-		parent: 'Steps',
-		component: 'Steps.Step.Title'
-	});
-
-	useContext({
-		context_id: STEPS_STEP_CONTEXT_ID,
-		parent: 'Steps.Step',
-		component: 'Steps.Step.Title'
-	});
-
-	const {
-		currentStep,
-		variant
-	}: {
-		currentStep: Writable<number>;
-		variant: 'simple' | 'bullets' | 'bullets-text' | 'circles-text';
-	} = getContext(STEPS_CONTEXT_ID);
-	const { step }: { step: number } = getContext(STEPS_STEP_CONTEXT_ID);
+	const currentStep: Writable<number> = getContext('steps-currentStep');
+	const variant: 'simple' | 'bullets' | 'bullets-text' | 'circles-text' =
+		getContext('steps-variant');
+	const step: number = getContext('steps-step');
 
 	let defaultClass = '';
-	if (variant === 'bullets') {
+	$: if (variant === 'bullets') {
 		if ($currentStep > step) {
 			defaultClass = 'sr-only';
 		} else if ($currentStep === step) {

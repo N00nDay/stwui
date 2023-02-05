@@ -1,11 +1,5 @@
-<script lang="ts" context="module">
-	export const STEPS_STEP_CONTEXT_ID = 'steps-step-context-id';
-</script>
-
 <script lang="ts">
 	import { getContext, setContext } from 'svelte';
-	import { useContext } from '../../utils/useContext';
-	import { STEPS_CONTEXT_ID } from './Steps.svelte';
 	import { twMerge } from 'tailwind-merge';
 	import type { Writable } from 'svelte/store';
 	import { get_current_component } from 'svelte/internal';
@@ -17,23 +11,11 @@
 	export let href: string;
 	export let step: number;
 
-	useContext({
-		context_id: STEPS_CONTEXT_ID,
-		parent: 'Steps',
-		component: 'Steps.Step'
-	});
+	setContext('steps-step', step);
 
-	setContext(STEPS_STEP_CONTEXT_ID, {
-		step
-	});
-
-	const {
-		variant,
-		currentStep
-	}: {
-		variant: 'simple' | 'bullets' | 'bullets-text' | 'circles-text';
-		currentStep: Writable<number>;
-	} = getContext(STEPS_CONTEXT_ID);
+	const currentStep: Writable<number> = getContext('steps-currentStep');
+	const variant: 'simple' | 'bullets' | 'bullets-text' | 'circles-text' =
+		getContext('steps-variant');
 
 	let defaultClass = '';
 	$: if (variant === 'bullets') {

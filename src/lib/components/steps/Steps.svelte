@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const STEPS_CONTEXT_ID = 'steps-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -13,14 +9,11 @@
 	let acitveStep = writable(currentStep);
 	$: $acitveStep = currentStep;
 
-	setContext(STEPS_CONTEXT_ID, {
-		steps: true,
-		variant,
-		currentStep: acitveStep
-	});
+	setContext('steps-variant', variant);
+	setContext('steps-currentStep', acitveStep);
 
 	let defaultClass = '';
-	if (variant === 'bullets') {
+	$: if (variant === 'bullets') {
 		defaultClass = 'flex items-center justify-center';
 	} else if (variant === 'bullets-text') {
 		defaultClass = 'py-12 px-4 sm:px-6 lg:px-8';
