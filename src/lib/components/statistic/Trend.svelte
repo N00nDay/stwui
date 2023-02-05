@@ -8,7 +8,7 @@
 	export let showIcon = true;
 
 	let defaultClass = 'bg-opacity-20 dark:bg-opacity-20';
-	if (trend === 'up') {
+	$: if (trend === 'up') {
 		defaultClass =
 			'bg-success-background dark:bg-dark-success-background text-success-content dark:text-dark-success-content';
 	} else if (trend === 'down') {
