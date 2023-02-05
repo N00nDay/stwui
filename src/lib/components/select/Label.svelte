@@ -12,7 +12,7 @@
 	const error: Writable<string | undefined> = getContext('select-error');
 
 	let defaultClass = 'block text-sm font-medium';
-	$: if (error) {
+	$: if ($error && $error.length > 0) {
 		defaultClass = defaultClass + ' text-danger';
 	} else {
 		defaultClass = defaultClass + ' text-light-secondary-content dark:text-dark-secondary-content';

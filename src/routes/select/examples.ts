@@ -133,6 +133,14 @@ export const example = `
 
 	const email = "svg-path";
 	const options = ['Option 1', 'Option 2', 'Option 3'];
+
+	let value: string | undefined;
+	let error: string | undefined = "You're doing it wrong!";
+	$: if (value && value.length > 0) {
+		error = undefined;
+	} else {
+		error = "You're doing it wrong!";
+	}
 </script>
 
 <Select name="select-1" placeholder="Basic">
@@ -153,7 +161,7 @@ export const example = `
 	</Select.Options>
 </Select>
 
-<Select name="select-3" error="There has been an error">
+<Select name="select-3" {error} bind:value>
 	<Select.Label slot="label">Label</Select.Label>
 	<Select.Leading slot="leading" data={email} />
 	<Select.Options slot="options">

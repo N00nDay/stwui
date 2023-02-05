@@ -30,7 +30,6 @@
 		input.value = option;
 		value = option;
 		$selectedValue = option;
-		error = undefined;
 		toggleVisible();
 	}
 
