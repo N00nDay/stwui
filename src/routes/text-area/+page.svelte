@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { Card, Col, TextArea } from '../../lib';
 	import { example, props, slots, labelSlots } from './examples';
-	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
-</script>
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 
-<Col class="col-24">
-	<UpdatedComponent version="v0.0.28-next" />
-</Col>
+	let value: string | undefined;
+	let error: string | undefined = "You're doing it wrong!";
+	$: if (value && value.length > 0) {
+		error = undefined;
+	} else {
+		error = "You're doing it wrong!";
+	}
+</script>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
@@ -17,7 +21,7 @@
 				<TextArea.Label slot="label">Label</TextArea.Label>
 			</TextArea>
 			<br />
-			<TextArea name="input-3" error="There has been an error">
+			<TextArea name="input-3" {error} bind:value>
 				<TextArea.Label slot="label">Label</TextArea.Label>
 			</TextArea>
 

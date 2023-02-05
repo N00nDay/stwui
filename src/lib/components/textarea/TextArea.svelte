@@ -1,10 +1,7 @@
-<script lang="ts" context="module">
-	export const TEXT_AREA_CONTEXT_ID = 'text-area-context-id';
-</script>
-
 <script lang="ts">
 	import { slide } from 'svelte/transition';
 	import { setContext } from 'svelte';
+	import { writable, type Writable } from 'svelte/store';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -14,11 +11,12 @@
 	export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
 	export let readonly = false;
 
-	setContext(TEXT_AREA_CONTEXT_ID, {
-		textArea: true,
-		error,
-		name
-	});
+	let textarea: HTMLTextAreaElement;
+	let currentError: Writable<string | undefined> = writable(error);
+	$: currentError.set(error);
+
+	setContext('textarea-error', currentError);
+	setContext('textarea-name', name);
 
 	// TODO: add action buttons/pills
 </script>
@@ -27,6 +25,7 @@
 	<slot name="label" />
 	<div class="mt-1">
 		<textarea
+			bind:this={textarea}
 			rows="4"
 			{autocapitalize}
 			{autocomplete}

@@ -1,24 +1,18 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { useContext } from '../../utils/useContext';
-	import { TEXT_AREA_CONTEXT_ID } from './TextArea.svelte';
+	import type { Writable } from 'svelte/store';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: TEXT_AREA_CONTEXT_ID,
-		parent: 'TextArea',
-		component: 'TextArea.Label'
-	});
-
-	const { name, error }: { name: string; error: string } = getContext(TEXT_AREA_CONTEXT_ID);
+	const name: string = getContext('textarea-name');
+	const error: Writable<string | undefined> = getContext('textarea-error');
 
 	let defaultClass = 'block text-sm font-medium';
-	if (error) {
+	$: if ($error && $error.length > 0) {
 		defaultClass = defaultClass + ' text-danger';
 	} else {
 		defaultClass = defaultClass + ' text-light-secondary-content dark:text-dark-secondary-content';

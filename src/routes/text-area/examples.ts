@@ -64,6 +64,14 @@ export const labelSlots: Slot[] = [
 export const example = `
 <script lang="ts">
 	import { TextArea } from 'stwui';
+
+	let value: string | undefined;
+	let error: string | undefined = "You're doing it wrong!";
+	$: if (value && value.length > 0) {
+		error = undefined;
+	} else {
+		error = "You're doing it wrong!";
+	}
 </script>
 
 <TextArea name="text-area-1" placeholder="Basic" />
@@ -72,6 +80,6 @@ export const example = `
 	<TextArea.Label slot="label">Label</TextArea.Label>
 </TextArea>
 
-<TextArea name="text-area-3" error="There has been an error">
+<TextArea name="text-area-3" {error} bind:value>
 	<TextArea.Label slot="label">Label</TextArea.Label>
 </TextArea>`;
