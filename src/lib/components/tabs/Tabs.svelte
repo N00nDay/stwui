@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const TABS_CONTEXT_ID = 'tabs-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
@@ -19,14 +15,11 @@
 	let selected: Writable<string> = writable(currentTab);
 	$: $selected = currentTab;
 
-	setContext(TABS_CONTEXT_ID, {
-		tabs: true,
-		variant,
-		currentTab: selected
-	});
+	setContext('tabs-variant', variant);
+	setContext('tabs-currentTab', selected);
 
 	let defaultContainerClass = '';
-	if (variant === 'bar') {
+	$: if (variant === 'bar') {
 		defaultContainerClass =
 			'border-light-border dark:border-dark-border overflow-hidden rounded-md shadow-md border dark:shadow-black';
 	} else {
@@ -35,7 +28,7 @@
 	$: finalContainerClass = twMerge(defaultContainerClass, containerClass);
 
 	let defaultClass = '';
-	if (variant === 'bar') {
+	$: if (variant === 'bar') {
 		defaultClass =
 			'-mb-px flex justify-evenly isolate divide-x divide-light-border dark:divide-dark-border';
 	} else if (variant === 'full-width') {

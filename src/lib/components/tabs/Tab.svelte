@@ -1,10 +1,4 @@
-<script lang="ts" context="module">
-	export const TABS_TAB_CONTEXT_ID = 'tabs-tab-context-id';
-</script>
-
 <script lang="ts">
-	import { TABS_CONTEXT_ID } from './Tabs.svelte';
-	import { useContext } from '$lib/utils/useContext';
 	import { getContext, setContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import HoverBackground from '../HoverBackground.svelte';
@@ -18,19 +12,10 @@
 	export let href: string;
 	export let key: string;
 
-	useContext({
-		context_id: TABS_CONTEXT_ID,
-		parent: 'Tabs',
-		component: 'Tabs.Tab'
-	});
+	setContext('tab-key', key);
 
-	setContext(TABS_TAB_CONTEXT_ID, {
-		tab: true,
-		key
-	});
-
-	const { variant, currentTab }: { variant: string; currentTab: Writable<string> } =
-		getContext(TABS_CONTEXT_ID);
+	const variant: string = getContext('tabs-variant');
+	const currentTab: Writable<string> = getContext('tabs-currentTab');
 
 	let defaultClass = '';
 	$: if (key === $currentTab) {
