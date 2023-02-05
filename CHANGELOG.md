@@ -1,5 +1,44 @@
 # Changelog
 
+## [0.0.33-next](https://github.com/N00nDay/stwui/compare/v0.0.32-next...v0.0.33-next) (2023-02-05)
+
+
+### Bug Fixes
+
+* **Autocomplete:** prevent form submission on item select ([25536b0](https://github.com/N00nDay/stwui/commit/25536b0d2119e12044d5616f20b47e4c1b5bc3a0))
+* **AvatarGroup:** removed needless context ([655aa01](https://github.com/N00nDay/stwui/commit/655aa01cf6cc2bae866cf794fee0345ab84f2ca7))
+* **Avatar:** removed needless context ([87aa7c5](https://github.com/N00nDay/stwui/commit/87aa7c5e3c06526cf473de753f5c22efeda7c60f))
+* **Button:** fixed ghost hover style when disabled ([c6d261f](https://github.com/N00nDay/stwui/commit/c6d261f202ec23b8b06bf7aa45d7f2371c8edf4a))
+* **ButtonGroup:** fixed naming for existing context ([5287e19](https://github.com/N00nDay/stwui/commit/5287e19518235b5032f5b9b253036acae03d8f4c))
+* **Chip:** fixed naming for existing context ([a458fe7](https://github.com/N00nDay/stwui/commit/a458fe767c9e0b19f774d5ae5d81bd576994f0e3))
+* **Drawer:** fixed naming for existing context ([32e3202](https://github.com/N00nDay/stwui/commit/32e320200a69ad097aca578d9b063bad8f392fcf))
+* **Feed:** fixed naming for existing context and removed needless context ([b18e0b0](https://github.com/N00nDay/stwui/commit/b18e0b02faea880272cf2853cd9826f14cd064a8))
+* **Grid:** fixed naming for existing context ([b8ecf19](https://github.com/N00nDay/stwui/commit/b8ecf19128b98cdab92306945ab4461b49a7633d))
+* **HoverBackground:** removed scale animation ([c6d261f](https://github.com/N00nDay/stwui/commit/c6d261f202ec23b8b06bf7aa45d7f2371c8edf4a))
+* **Input:** fixed naming for existing context ([2d1fa6f](https://github.com/N00nDay/stwui/commit/2d1fa6f7d8456fef82bd1854d166e375c4a40a25))
+* **InputNumber:** fixed naming for existing context ([18f21b8](https://github.com/N00nDay/stwui/commit/18f21b875a40c65401bd224251b2f3c96e5c67c8))
+* **InputNumber:** removed context overhead ([6721691](https://github.com/N00nDay/stwui/commit/6721691fd0ea46cf567597c6783c2b65ab38c394))
+* **Layout:** removed context overhead ([6721691](https://github.com/N00nDay/stwui/commit/6721691fd0ea46cf567597c6783c2b65ab38c394))
+* **List:** removed context overhead ([7719c1e](https://github.com/N00nDay/stwui/commit/7719c1e3977180c1de55131dfa4f2aec29c60542))
+* **List:** removed needles context and fixed naming for remaining context ([6c2c383](https://github.com/N00nDay/stwui/commit/6c2c38399e533c643f7ea65fca552500ef267648))
+* **Media:** removed needless context ([17e4278](https://github.com/N00nDay/stwui/commit/17e42785b607be3026ab035886631e6b4c7962dc))
+* **Menu:** removed needless context and fixed naming of existing context ([4a5e493](https://github.com/N00nDay/stwui/commit/4a5e4930668c000988486106051c3bf55633eb63))
+* **Notification:** removed needless context and fixed naming of existing context ([83de529](https://github.com/N00nDay/stwui/commit/83de5296bd147a53054332c7788efb1a7b2142f1))
+* **Post:** fixed naming of existing context and removed needless context ([269dd64](https://github.com/N00nDay/stwui/commit/269dd6456a141cca771f3bf5bbf416dc1dc43d71))
+* **Radio:** fixed naming of existing context and removed needless context ([ec7f458](https://github.com/N00nDay/stwui/commit/ec7f458e7219fac72c61608619d7640f111f31e9))
+* **Select:** cleaned up needless context ([4942d31](https://github.com/N00nDay/stwui/commit/4942d318c92b43bd20d4637a101a2a9a3bacf16f))
+* **Select:** error handling has been corrected ([bd7468e](https://github.com/N00nDay/stwui/commit/bd7468e2118646bb506795a343dbc46adc72ad85))
+* **Select:** fixed error clear on update ([4942d31](https://github.com/N00nDay/stwui/commit/4942d318c92b43bd20d4637a101a2a9a3bacf16f))
+* **Select:** prevent form submission on item select ([e42c588](https://github.com/N00nDay/stwui/commit/e42c5882adf978bd44e222a5d7cf316d621e7714))
+* **Statistic.Trend:** trend styling is now dynamic ([a62353b](https://github.com/N00nDay/stwui/commit/a62353b430871ed40503158118d65e2d6951a896))
+* **Steps:** removed needless context ([e875a33](https://github.com/N00nDay/stwui/commit/e875a337aff1fda00e088b82428d545518275b34))
+* **Steps:** variants are now reactive ([e875a33](https://github.com/N00nDay/stwui/commit/e875a337aff1fda00e088b82428d545518275b34))
+* **Table:** removed needless context ([af36615](https://github.com/N00nDay/stwui/commit/af36615053dd6c4f4663d5b595f48ea8852853e2))
+* **Tabs:** removed neeless context ([1157efd](https://github.com/N00nDay/stwui/commit/1157efd9a6be5ed6bc0a16169f97df4245b5d3a2))
+* **Tabs:** variant styles are now reactive ([1157efd](https://github.com/N00nDay/stwui/commit/1157efd9a6be5ed6bc0a16169f97df4245b5d3a2))
+* **TextArea:** removed needless context ([8574757](https://github.com/N00nDay/stwui/commit/857475773b93198cd2fbd6e31af090723d8f1bd1))
+* **Toggle:** removed needless context ([d652b95](https://github.com/N00nDay/stwui/commit/d652b95e13cca83b26a302c188cf483995669439))
+
 ## [0.0.32-next](https://github.com/N00nDay/stwui/compare/v0.0.31-next...v0.0.32-next) (2022-11-20)
 
 
