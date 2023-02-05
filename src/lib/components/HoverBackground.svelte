@@ -2,7 +2,7 @@
 	import { twMerge } from 'tailwind-merge';
 
 	const defaultClass =
-		'absolute bg-light-icon-background-hover dark:bg-dark-icon-background-hover left-[50%] top-[50%] translate-y-[-50%] translate-x-[-50%] duration-150 transition-size h-0 w-0 group-hover:h-full group-hover:w-full';
+		'absolute bg-light-icon-background-hover dark:bg-dark-icon-background-hover duration-150 transition-opacity h-full w-full inset-0 group-hover:opacity-100 opacity-0';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

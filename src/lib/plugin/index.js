@@ -327,6 +327,8 @@ module.exports = plugin(
 				'box-shadow':
 					'var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)',
 				'background-color': 'transparent',
+				'--tw-text-opacity': '1',
+				color: 'rgba(0, 0, 0, 0.65)',
 				opacity: '0.7'
 			},
 			'button.btn.ghost:disabled:active:hover': {
@@ -758,6 +760,7 @@ module.exports = plugin(
 					'light-icon-background-hover': 'rgba(0, 0, 0, 0.05)',
 					'light-border': 'rgba(25,25,25,0.05)',
 					'light-border-base': 'rgba(25,25,25,0.1)',
+					'light-hover': 'rgba(0, 0, 0, 0.05)',
 
 					'dark-surface': '#242526',
 					'dark-background': '#18191A',
@@ -768,6 +771,7 @@ module.exports = plugin(
 					'dark-icon-background-hover': 'rgba(255, 255, 255, 0.1)',
 					'dark-border': 'rgba(89,90,92,0.35)',
 					'dark-border-base': 'rgba(89,90,92,0.4)',
+					'dark-hover': 'rgba(255, 255, 255, 0.1)',
 
 					'info-content': '#1d4ed8',
 					'dark-info-content': '#eff6ff',
