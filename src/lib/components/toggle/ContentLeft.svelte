@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { TOGGLE_CONTEXT_ID } from './Toggle.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
@@ -9,14 +7,8 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: TOGGLE_CONTEXT_ID,
-		parent: 'Toggle',
-		component: 'Toggle.ContentLeft'
-	});
-
-	const { name, toggleOff }: { name: string; toggleOff: () => void } =
-		getContext(TOGGLE_CONTEXT_ID);
+	const name: string = getContext('toggle-name');
+	const toggleOff: () => void = getContext('toggle-off');
 
 	const defaultClass = 'mr-3 cursor-pointer';
 	$: finalClass = twMerge(defaultClass, $$props.class);

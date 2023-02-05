@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const TOGGLE_CONTEXT_ID = 'toggle-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte';
 
@@ -28,12 +24,9 @@
 		on = false;
 	}
 
-	setContext(TOGGLE_CONTEXT_ID, {
-		toggle: true,
-		name,
-		toggleOn,
-		toggleOff
-	});
+	setContext('toggle-name', name);
+	setContext('toggle-on', toggleOn);
+	setContext('toggle-off', toggleOff);
 </script>
 
 <div class="flex items-center">
