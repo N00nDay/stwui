@@ -46,7 +46,7 @@
 		<button
 			aria-label="toggle select"
 			type="button"
-			on:click={toggleVisible}
+			on:click|stopPropagation|preventDefault={toggleVisible}
 			class="relative border shadow-sm dark:shadow-black h-[2.5rem] cursor-pointer pl-3 pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md bg-light-surface dark:bg-dark-surface"
 			class:border-red-400={error}
 			class:text-danger={error}
