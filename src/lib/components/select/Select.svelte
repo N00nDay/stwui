@@ -1,14 +1,10 @@
-<script lang="ts" context="module">
-	export const SELECT_CONTEXT_ID = 'select-context-id';
-</script>
-
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
 	import { Icon } from '../../';
 	import { unfold_more_horizontal, error as errorIcon } from '../../icons';
-	import { writable } from 'svelte/store';
+	import { writable, type Writable } from 'svelte/store';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -17,6 +13,8 @@
 	export let visible = false;
 
 	let selectedValue = writable(value);
+	let currentError: Writable<string | undefined> = writable(error);
+	$: currentError.set(error);
 
 	let input: HTMLInputElement;
 
@@ -32,16 +30,14 @@
 		input.value = option;
 		value = option;
 		$selectedValue = option;
+		error = undefined;
 		toggleVisible();
 	}
 
-	setContext(SELECT_CONTEXT_ID, {
-		select: true,
-		error,
-		name,
-		value: selectedValue,
-		handleSelect
-	});
+	setContext('select-error', currentError);
+	setContext('select-name', name);
+	setContext('select-value', selectedValue);
+	setContext('select-handleSelect', handleSelect);
 </script>
 
 <div class={$$props.class} style={$$props.style} use:clickOutside={handleClose}>

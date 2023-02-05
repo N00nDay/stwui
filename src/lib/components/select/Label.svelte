@@ -1,24 +1,18 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { useContext } from '../../utils/useContext';
-	import { SELECT_CONTEXT_ID } from './Select.svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import type { Writable } from 'svelte/store';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: SELECT_CONTEXT_ID,
-		parent: 'Select',
-		component: 'Select.Label'
-	});
-
-	const { name, error }: { name: string; error: string } = getContext(SELECT_CONTEXT_ID);
+	const name: string = getContext('select-name');
+	const error: Writable<string | undefined> = getContext('select-error');
 
 	let defaultClass = 'block text-sm font-medium';
-	if (error) {
+	$: if (error) {
 		defaultClass = defaultClass + ' text-danger';
 	} else {
 		defaultClass = defaultClass + ' text-light-secondary-content dark:text-dark-secondary-content';

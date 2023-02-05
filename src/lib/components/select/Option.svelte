@@ -2,9 +2,6 @@
 	import { scale } from 'svelte/transition';
 	import type { Writable } from 'svelte/store';
 	import { getContext } from 'svelte/internal';
-	import { useContext } from '../../utils/useContext';
-	import { SELECT_CONTEXT_ID } from './Select.svelte';
-	import { SELECT_OPTIONS_CONTEXT_ID } from './Options.svelte';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon';
@@ -17,23 +14,8 @@
 
 	export let option: string;
 
-	useContext({
-		context_id: SELECT_CONTEXT_ID,
-		parent: 'Select',
-		component: 'Select.Options.Option'
-	});
-
-	useContext({
-		context_id: SELECT_OPTIONS_CONTEXT_ID,
-		parent: 'Select.Options',
-		component: 'Select.Options.Option'
-	});
-
-	const {
-		value,
-		handleSelect
-	}: { value: Writable<string>; handleSelect: (option: string) => void } =
-		getContext(SELECT_CONTEXT_ID);
+	const value: Writable<string> = getContext('select-value');
+	const handleSelect: (option: string) => void = getContext('select-handleSelect');
 
 	const defaultClass =
 		'group text-light-content dark:text-dark-content cursor-pointer select-none p-0.5 w-full';
