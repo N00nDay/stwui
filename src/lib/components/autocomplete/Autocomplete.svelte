@@ -80,7 +80,7 @@
 		<button
 			aria-label="Autocomplete Toggle"
 			type="button"
-			on:click={handleOpen}
+			on:click|stopPropagation|preventDefault={handleOpen}
 			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface shadow-sm dark:shadow-black"
 			class:text-danger={error}
 		>
