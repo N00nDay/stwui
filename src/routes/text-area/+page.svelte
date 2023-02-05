@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Card, Col, TextArea } from '../../lib';
 	import { example, props, slots, labelSlots } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, BetaComponent } from '../../docs';
 
 	let value: string | undefined;
 	let error: string | undefined = "You're doing it wrong!";
@@ -11,6 +11,10 @@
 		error = "You're doing it wrong!";
 	}
 </script>
+
+<Col class="col-24">
+	<BetaComponent />
+</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>

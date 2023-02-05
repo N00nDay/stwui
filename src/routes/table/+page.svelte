@@ -17,7 +17,7 @@
 		cellSlots,
 		footerSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, BetaComponent } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { plus } from '../../lib/icons';
 
 	let baseUrl: string;
@@ -123,10 +123,6 @@
 		);
 	}
 </script>
-
-<Col class="col-24">
-	<BetaComponent />
-</Col>
 
 <Col class="col-24 h-full">
 	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
