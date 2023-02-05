@@ -11,13 +11,9 @@
 		contentRightSlots,
 		iconsExample
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, UpdatedComponent } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { brightness_4, brightness_5 } from '../../docs/icons';
 </script>
-
-<Col class="col-24">
-	<UpdatedComponent version="v0.0.28-next" />
-</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>

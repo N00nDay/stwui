@@ -170,8 +170,7 @@
 		},
 		{
 			title: 'Table',
-			href: '/table?orderBy=created_at&order=asc&page=1',
-			beta: true
+			href: '/table?orderBy=created_at&order=asc&page=1'
 		},
 		{
 			title: 'Tabs',

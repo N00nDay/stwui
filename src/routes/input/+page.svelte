@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Card, Col, Input } from '../../lib';
 	import { example, props, slots, labelSlots, iconProps } from './examples';
-	import { PropsTable, SlotsTable, UpdatedComponent, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { email, phone, lock } from '../../docs/icons';
 
 	let value: string | undefined;
@@ -12,10 +12,6 @@
 		error = "You're doing it wrong!";
 	}
 </script>
-
-<Col class="col-24">
-	<UpdatedComponent version="v0.0.28-next" />
-</Col>
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
