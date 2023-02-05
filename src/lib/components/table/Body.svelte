@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { TABLE_CONTEXT_ID } from './Table.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
@@ -12,12 +10,7 @@
 
 	export let id = 'table-body';
 
-	useContext({
-		context_id: TABLE_CONTEXT_ID,
-		parent: 'Table',
-		component: 'Table.Body'
-	});
-	let { header }: { header: Writable<boolean> } = getContext(TABLE_CONTEXT_ID);
+	const header: Writable<boolean> = getContext('table-header');
 
 	let headerHeight = $header ? 61 : 0;
 

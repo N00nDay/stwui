@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { TABLE_CONTEXT_ID } from './Table.svelte';
 	import { getContext } from 'svelte';
 	import type { TableColumn } from '../../types/table-column';
 	import { twMerge } from 'tailwind-merge';
@@ -11,7 +10,7 @@
 
 	export let column: number;
 
-	let { columns }: { columns: TableColumn[] } = getContext(TABLE_CONTEXT_ID);
+	const columns: TableColumn[] = getContext('table-columns');
 	$: columnWidth = 100 / columns.length;
 
 	let defaultClass =

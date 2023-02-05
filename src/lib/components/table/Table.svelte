@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const TABLE_CONTEXT_ID = 'table-context-id';
-</script>
-
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
@@ -18,12 +14,9 @@
 	let header = writable(false);
 	let footer = writable(false);
 
-	setContext(TABLE_CONTEXT_ID, {
-		table: true,
-		columns,
-		header,
-		footer
-	});
+	setContext('table-columns', columns);
+	setContext('table-header', header);
+	setContext('table-footer', footer);
 
 	const defaultClass = 'bg-light-surface dark:bg-dark-surface';
 	$: finalClass = twMerge(defaultClass, $$props.class);

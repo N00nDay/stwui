@@ -1,15 +1,10 @@
 <script lang="ts">
-	// import { goto } from '$app/navigation';
-	// import { page } from '$app/stores';
 	import { sort } from '$lib/icons';
 	import { twMerge } from 'tailwind-merge';
-
 	import type { TableColumn } from '../../types/table-column';
 	import Icon from '../icon';
-
 	export let column: TableColumn;
 	export let columnCount: number;
-	// export let sortable = true;
 
 	export let orderBy: string;
 	export let order: 'asc' | 'desc' = 'asc';
@@ -22,28 +17,6 @@
 			onColumnHeaderClick(column.column);
 		}
 	}
-	// $: baseRoute = $page.url.pathname;
-	// $: orderBy = $page.url.searchParams.get('orderBy');
-	// $: order = $page.url.searchParams.get('order');
-
-	// async function changeOrder() {
-	// 	try {
-	// 		if (sortable) {
-	// 			const route =
-	// 				`${baseRoute}?` +
-	// 				new URLSearchParams({
-	// 					orderBy: column.column,
-	// 					order: column.column === orderBy && order === 'asc' ? 'desc' : 'asc',
-	// 					page: '1'
-	// 				});
-
-	// 			goto(route);
-	// 		}
-	// 		return;
-	// 	} catch (err) {
-	// 		console.log('changeOrder err', err);
-	// 	}
-	// }
 
 	const defaultClass =
 		'sticky top-0 py-4 last:hover:active last:focus:active last:active:active first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 text-sm sm:pl-6';

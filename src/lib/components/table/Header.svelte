@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { TABLE_CONTEXT_ID } from './Table.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
 	import HeaderRow from './HeaderRow.svelte';
 	import type { Writable } from 'svelte/store';
@@ -16,13 +14,8 @@
 	export let order: 'asc' | 'desc' = 'asc';
 	export let onColumnHeaderClick: ((column: string) => void) | undefined = undefined;
 
-	useContext({
-		context_id: TABLE_CONTEXT_ID,
-		parent: 'Table',
-		component: 'Table.Header'
-	});
-	let { header, columns }: { header: Writable<boolean>; columns: TableColumn[] } =
-		getContext(TABLE_CONTEXT_ID);
+	const header: Writable<boolean> = getContext('table-header');
+	const columns: TableColumn[] = getContext('table-columns');
 	header.set(true);
 
 	const defaultClass =

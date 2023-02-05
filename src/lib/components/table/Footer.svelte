@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { TABLE_CONTEXT_ID } from './Table.svelte';
-	import { useContext } from '../../utils/useContext';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
@@ -10,12 +8,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	useContext({
-		context_id: TABLE_CONTEXT_ID,
-		parent: 'Table',
-		component: 'TableFooter'
-	});
-	let { footer }: { footer: Writable<boolean> } = getContext(TABLE_CONTEXT_ID);
+	const footer: Writable<boolean> = getContext('table-footer');
 	footer.set(true);
 
 	const defaultClass =
