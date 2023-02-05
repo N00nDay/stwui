@@ -17,8 +17,11 @@
 		$selected = value;
 	}
 
+	$: console.log('selected', $selected);
+	$: console.log('value', value);
+
 	let defaultClass = '';
-	if (type === 'default') {
+	$: if (type === 'default') {
 		defaultClass =
 			'radio bg-light-surface dark:bg-dark-surface text-light-surface dark:text-dark-surface light-border dark:dark-border checked:bg-none border checked:border-primary group-hover:border-primary dark:checked:border-primary dark:group-hover:border-primary group-focus:border-primary dark:group-focus:border-primary active:border-primary dark:active:border-primary focus:active:border-primary dark:focus:active:border-primary rounded-full cursor-pointer h-6 w-6';
 	} else if (type === 'pill') {
@@ -33,7 +36,9 @@
 		<div class="flex items-center justify-center h-6 w-6 relative group">
 			<input on:click {id} {name} type="radio" {value} bind:group={$selected} class={finalClass} />
 			<div
-				class="absolute rounded-full h-0 w-0 bg-primary transition-size duration-200 z-10"
+				class="absolute rounded-full bg-primary transition-size duration-200 z-10"
+				class:h-0={$selected !== value}
+				class:w-0={$selected !== value}
 				class:h-4={$selected === value}
 				class:w-4={$selected === value}
 			/>

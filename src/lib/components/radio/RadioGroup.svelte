@@ -14,7 +14,7 @@
 	setContext('radio-selected', selectedRadio);
 
 	let defaultClass = 'mt-1 grid-cols-4 gap-2';
-	if (type === 'default') {
+	$: if (type === 'default') {
 		defaultClass = defaultClass + ' space-y-4';
 	} else if (type === 'pill') {
 		defaultClass = defaultClass + ' grid';
