@@ -108,6 +108,10 @@
 			href: '/input-number'
 		},
 		{
+			title: 'Layout',
+			href: '/layout'
+		},
+		{
 			title: 'List',
 			href: '/list'
 		},
