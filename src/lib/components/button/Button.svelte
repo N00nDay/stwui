@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { setContext } from 'svelte';
-	import { twMerge } from 'tailwind-merge';
+	import clsx from 'clsx';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -9,7 +9,6 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	import ButtonLoader from './Loader.svelte';
-	import HoverBackground from '../HoverBackground.svelte';
 	import Swap from '../swap';
 
 	export let disabled: false | true = false;
@@ -48,15 +47,6 @@
 
 	setContext('button-icon-size', iconSize);
 
-	let defaultClass =
-		'btn group relative inline-flex justify-center items-center font-medium active:hover:animate-none active:hover:scale-95 outline-none';
-	if (loading) {
-		defaultClass += ' cursor-wait';
-	} else {
-		defaultClass += ' cursor-pointer';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
-
 	const hoverClass =
 		shape === 'circle'
 			? 'rounded-full'
@@ -67,6 +57,19 @@
 			: 'rounded-none';
 
 	const isButton = href === '';
+
+	$: finalClass = clsx(
+		'btn group relative inline-flex justify-center items-center font-medium active:hover:animate-none active:hover:scale-95 outline-none',
+		{
+			'cursor-wait': loading,
+			'cursor-pointer': !loading,
+			'text-decoration-none px-[0.75rem] py-[0.75rem]': !isButton,
+			'hover:bg-light-icon-background-hover hover:dark:bg-dark-icon-background-hover hover:duration-150 hover:transition-opacity hover:inset-0 hover:group-hover:opacity-100':
+				!disabled && !disableHover,
+			[hoverClass]: !disabled && !disableHover
+		},
+		$$props.class
+	);
 </script>
 
 <svelte:element
@@ -187,8 +190,10 @@
 			</div>
 		{/if}
 	{/if}
-
-	{#if !disabled && !disableHover}
-		<HoverBackground class={hoverClass} />
-	{/if}
 </svelte:element>
+
+<style>
+	.text-decoration-none {
+		text-decoration: none;
+	}
+</style>
