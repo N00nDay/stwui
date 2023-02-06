@@ -6,6 +6,7 @@
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import { trapFocus } from '$lib/utils';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let handleClose: () => void;
@@ -31,12 +32,16 @@
 
 	<div
 		class={finalClass}
+		use:trapFocus
 		use:useActions={use}
 		use:forwardEvents
 		{...exclude($$props, ['use', 'class'])}
 		in:scale={{ start: 0.9, duration: 250, delay: 150 }}
 		out:scale={{ start: 0.95, duration: 150 }}
 	>
+		<button
+			class="h-0 w-0 border-none outline-none ring-0 focus:border-none focus:outline-none focus:ring-0"
+		/>
 		<slot name="content" />
 		<slot />
 	</div>

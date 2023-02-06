@@ -3,6 +3,7 @@
 	import {
 		example,
 		placementExample,
+		multiOneExample,
 		props,
 		slots,
 		headerSlots,
@@ -15,6 +16,24 @@
 	let drawerLeftOpen = false;
 	let drawerTopOpen = false;
 	let drawerBottomOpen = false;
+	let drawerMultiOne = false;
+	let drawerInsideOpen = false;
+
+	function openMultiOneDrawer() {
+		drawerMultiOne = true;
+	}
+
+	function closeMultiOneDrawer() {
+		drawerMultiOne = false;
+	}
+
+	function openInsideDrawer() {
+		drawerInsideOpen = true;
+	}
+
+	function closeInsideDrawer() {
+		drawerInsideOpen = false;
+	}
 
 	function openDrawerRight() {
 		drawerRightOpen = true;
@@ -83,11 +102,28 @@
 	</Card>
 </Col>
 
+<Col class="col-24 md:col-12">
+	<Card bordered={false}>
+		<Card.Header slot="header">Multiple Drawer Levels</Card.Header>
+		<Card.Content slot="content" class="p-4">
+			<Button type="primary" on:click={openMultiOneDrawer}>Open Right</Button>
+
+			<br />
+			<br />
+
+			<CodeBlock language="svelte" code={multiOneExample} />
+		</Card.Content>
+	</Card>
+</Col>
+
 <Portal>
 	{#if drawerRightOpen}
 		<Drawer handleClose={closeDrawerRight}>
 			<Drawer.Header slot="header">Drawer Header</Drawer.Header>
-			<Drawer.Content slot="content">Drawer Content</Drawer.Content>
+			<Drawer.Content slot="content"
+				>Drawer Content
+				<Button type="primary" on:click={openInsideDrawer}>Open Drawer</Button>
+			</Drawer.Content>
 			<Drawer.Footer slot="footer">Drawer Footer</Drawer.Footer>
 		</Drawer>
 	{/if}
@@ -108,6 +144,25 @@
 <Portal>
 	{#if drawerBottomOpen}
 		<Drawer handleClose={closeDrawerBottom} placement="bottom" />
+	{/if}
+</Portal>
+
+<Portal>
+	{#if drawerMultiOne}
+		<Drawer handleClose={closeMultiOneDrawer}>
+			<Drawer.Header slot="header">Drawer Header</Drawer.Header>
+			<Drawer.Content slot="content"
+				>Drawer Content
+				<Button type="primary" on:click={openInsideDrawer}>Open Drawer</Button>
+			</Drawer.Content>
+			<Drawer.Footer slot="footer">Drawer Footer</Drawer.Footer>
+
+			<Portal>
+				{#if drawerInsideOpen}
+					<Drawer handleClose={closeInsideDrawer}>Content</Drawer>
+				{/if}
+			</Portal>
+		</Drawer>
 	{/if}
 </Portal>
 

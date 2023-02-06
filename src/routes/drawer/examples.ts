@@ -81,7 +81,7 @@ export const footerSlots: Slot[] = [
 
 export const example = `
 <script lang="ts">
-	import { Dropdown, Button, Portal } from 'stwui';
+	import { Button, Portal } from 'stwui';
 
    let open = false;
 
@@ -94,7 +94,7 @@ export const example = `
 	}
 </script>
 
-<Button type="primary" on:click={open}>Open</Button>
+<Button type="primary" on:click={openDrawer}>Open</Button>
 
 <Portal>
 	{#if open}
@@ -108,7 +108,7 @@ export const example = `
 
 export const placementExample = `
 <script lang="ts">
-	import { Dropdown, Button, Portal } from 'stwui';
+	import { Button, Portal } from 'stwui';
 
    let drawerLeftOpen = false;
 	let drawerTopOpen = false;
@@ -160,5 +160,50 @@ export const placementExample = `
 <Portal>
 	{#if drawerBottomOpen}
 		<Drawer handleClose={closeDrawerBottom} placement="bottom" />
+	{/if}
+</Portal>`;
+
+export const multiOneExample = `
+<script lang="ts">
+	import { Button, Portal } from 'stwui';
+
+   let open = false;
+	let drawerInsideOpen = false;
+
+	function openDrawer() {
+		drawerMultiOne = true;
+	}
+
+	function closeDrawer() {
+		drawerMultiOne = false;
+	}
+
+	function openInsideDrawer() {
+		drawerInsideOpen = true;
+	}
+
+	function closeInsideDrawer() {
+		drawerInsideOpen = false;
+	}
+</script>
+
+<Button type="primary" on:click={openDrawer}>Open</Button>
+
+<Portal>
+	{#if open}
+		<Drawer handleClose={closeDrawer}>
+			<Drawer.Header slot="header">Drawer Header</Drawer.Header>
+			<Drawer.Content slot="content"
+				>Drawer Content
+				<Button type="primary" on:click={openInsideDrawer}>Open Drawer</Button>
+			</Drawer.Content>
+			<Drawer.Footer slot="footer">Drawer Footer</Drawer.Footer>
+
+			<Portal>
+				{#if drawerInsideOpen}
+					<Drawer handleClose={closeInsideDrawer}>Content</Drawer>
+				{/if}
+			</Portal>
+		</Drawer>
 	{/if}
 </Portal>`;

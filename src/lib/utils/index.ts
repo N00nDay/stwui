@@ -5,6 +5,7 @@ import computeTrendValue from './computeTrendValue';
 import computeTrendPercent from './computeTrendPercent';
 import computeProgress from './computeProgress';
 import { copyToClipboard } from './copyToClipboard';
+import { trapFocus } from './trapFocus';
 
 export {
 	formatDate,
@@ -13,5 +14,6 @@ export {
 	computeProgress,
 	computeTrendPercent,
 	computeTrendValue,
-	copyToClipboard
+	copyToClipboard,
+	trapFocus
 };

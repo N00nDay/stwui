@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { setContext } from 'svelte';
+	import { trapFocus } from '$lib/utils';
+	import { onMount, setContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { twMerge } from 'tailwind-merge';
 	import Backdrop from './Backdrop.svelte';
@@ -17,6 +18,36 @@
 			!disableEscClose &&
 			handleClose
 		) {
+			onClose();
+		}
+	}
+
+	function onClose() {
+		const dialogs = document.querySelectorAll(
+			`[data-placement=${placement}]`
+		) as unknown as HTMLDivElement[];
+
+		let offset = 0;
+
+		for (let i = dialogs.length - 1; i >= 0; i--) {
+			if (i !== dialogs.length - 1) {
+				if (placement === 'left') {
+					dialogs[i].style.transform = `translateX(${offset}px)`;
+					offset -= 180;
+				} else if (placement === 'top') {
+					dialogs[i].style.transform = `translateY(${offset}px)`;
+					offset -= 180;
+				} else if (placement === 'bottom') {
+					dialogs[i].style.transform = `translateY(${offset}px)`;
+					offset += 180;
+				} else {
+					dialogs[i].style.transform = `translateX(${offset}px)`;
+					offset += 180;
+				}
+			}
+		}
+
+		if (handleClose) {
 			handleClose();
 		}
 	}
@@ -30,12 +61,42 @@
 		flyConfig = { y: 448 };
 	}
 
-	setContext('drawer-handleClose', handleClose);
+	setContext('drawer-handleClose', onClose);
 	setContext('drawer-disableOverlayClose', disableOverlayClose);
+
+	function shiftDrawers() {
+		const dialogs = document.querySelectorAll(
+			`[data-placement=${placement}]`
+		) as unknown as HTMLDivElement[];
+
+		let offset = 0;
+
+		for (let i = 0; i < dialogs.length; i++) {
+			if (i !== dialogs.length - 1) {
+				if (placement === 'left') {
+					offset += 180;
+					dialogs[i].style.transform = `translateX(${offset}px)`;
+				} else if (placement === 'top') {
+					offset += 180;
+					dialogs[i].style.transform = `translateY(${offset}px)`;
+				} else if (placement === 'bottom') {
+					offset -= 180;
+					dialogs[i].style.transform = `translateY(${offset}px)`;
+				} else {
+					offset -= 180;
+					dialogs[i].style.transform = `translateX(${offset}px)`;
+				}
+			}
+		}
+	}
 
 	const defaultClass =
 		'flex inner-panel flex-col bg-light-surface dark:bg-dark-surface overflow-hidden';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+
+	onMount(() => {
+		shiftDrawers();
+	});
 </script>
 
 <svelte:window on:keydown={captureEscapeEvent} />
@@ -57,7 +118,8 @@
 				class:bottom={placement === 'bottom'}
 			>
 				<div
-					class="pointer-events-auto panel dark:shadow-black"
+					use:trapFocus
+					class="pointer-events-auto panel dark:shadow-black transition-transform duration-200"
 					class:left={placement === 'left'}
 					class:right={placement === 'right'}
 					class:top={placement === 'top'}
@@ -66,6 +128,8 @@
 					class:shadow-negative-2xl={placement === 'bottom'}
 					style="opactiy: 1"
 					transition:fly={flyConfig}
+					data-dialog
+					data-placement={placement}
 				>
 					<div
 						class={finalClass}
@@ -75,6 +139,9 @@
 						class:bottom={placement === 'bottom'}
 						style={$$props.style}
 					>
+						<button
+							class="h-0 w-0 border-none outline-none ring-0 focus:border-none focus:outline-none focus:ring-0"
+						/>
 						<slot name="header" />
 						<slot name="content" />
 						<slot />
