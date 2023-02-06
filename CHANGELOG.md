@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.34-next](https://github.com/N00nDay/stwui/compare/v0.0.33-next...v0.0.34-next) (2023-02-06)
+
+
+### Bug Fixes
+
+* **AutoComplete:** label error displayed fixed ([9178e9f](https://github.com/N00nDay/stwui/commit/9178e9f93c9d5423020b769b5aa2e09b812b1673))
+* **Drawer:** added example for multi-level drawers ([d15858f](https://github.com/N00nDay/stwui/commit/d15858fd7f6eeaff7d74b33a5538f07d06e4e6a8))
+* **Drawer:** added trapFocus ([d15858f](https://github.com/N00nDay/stwui/commit/d15858fd7f6eeaff7d74b33a5538f07d06e4e6a8))
+* **Modal:** added trapFocus ([d15858f](https://github.com/N00nDay/stwui/commit/d15858fd7f6eeaff7d74b33a5538f07d06e4e6a8))
+* **Radio:** fixed active styling ([9178e9f](https://github.com/N00nDay/stwui/commit/9178e9f93c9d5423020b769b5aa2e09b812b1673))
+* **trapFocus:** added to keep focus when dialogs are open ([d15858f](https://github.com/N00nDay/stwui/commit/d15858fd7f6eeaff7d74b33a5538f07d06e4e6a8))
+
 ## [0.0.33-next](https://github.com/N00nDay/stwui/compare/v0.0.32-next...v0.0.33-next) (2023-02-05)
 
 
