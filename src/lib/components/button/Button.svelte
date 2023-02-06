@@ -29,6 +29,7 @@
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fab' = 'md';
 	export let disableHover = false;
 	export let ariaLabel: undefined | string = undefined;
+	export let href: string = '';
 
 	let iconSize = '';
 	if (size === 'xs') {
@@ -64,11 +65,14 @@
 			: shape === 'pill'
 			? 'rounded-3xl'
 			: 'rounded-none';
+
+	const isButton = href === '';
 </script>
 
-<button
+<svelte:element
+	this={isButton ? 'button' : 'a'}
 	aria-label={ariaLabel}
-	type={htmlType}
+	type={isButton ? htmlType : null}
 	{disabled}
 	class={finalClass}
 	class:primary={type === 'primary'}
@@ -88,6 +92,7 @@
 	class:lg={size === 'lg'}
 	class:xl={size === 'xl'}
 	class:fab={size === 'fab'}
+	href={!isButton ? href : null}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
@@ -186,4 +191,4 @@
 	{#if !disabled && !disableHover}
 		<HoverBackground class={hoverClass} />
 	{/if}
-</button>
+</svelte:element>
