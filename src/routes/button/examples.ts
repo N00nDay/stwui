@@ -146,7 +146,7 @@ export const exampleDefault = `
 <Button type="primary">I am primary</Button>
 <Button type="danger">I am scary</Button>
 <Button type="ghost">Boo I am a ghost</Button>
-<Button type="link">I am a link</Button>`;
+<Button type="link" href="https://google.com">I am a link</Button>`;
 
 export const exampleLoading = `
 <script lang="ts">
