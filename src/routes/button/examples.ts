@@ -52,7 +52,13 @@ export const props: Prop[] = [
 	{
 		id: '9',
 		prop: 'ariaLabel',
-		type: 'undefined | string',
+		type: 'string | undefined',
+		default: ''
+	},
+	{
+		id: '10',
+		prop: 'href',
+		type: 'string | undefined',
 		default: ''
 	}
 ];

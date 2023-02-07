@@ -34,7 +34,7 @@
 
 			<Button type="ghost">Boo I am a ghost</Button>
 
-			<Button type="link">I am a link</Button>
+			<Button type="link" href="https://google.com">I am a link</Button>
 
 			<br />
 			<br />
