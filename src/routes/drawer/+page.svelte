@@ -120,10 +120,7 @@
 	{#if drawerRightOpen}
 		<Drawer handleClose={closeDrawerRight}>
 			<Drawer.Header slot="header">Drawer Header</Drawer.Header>
-			<Drawer.Content slot="content"
-				>Drawer Content
-				<Button type="primary" on:click={openInsideDrawer}>Open Drawer</Button>
-			</Drawer.Content>
+			<Drawer.Content slot="content">Drawer Content</Drawer.Content>
 			<Drawer.Footer slot="footer">Drawer Footer</Drawer.Footer>
 		</Drawer>
 	{/if}
