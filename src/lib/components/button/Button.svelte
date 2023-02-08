@@ -11,6 +11,38 @@
 	import ButtonLoader from './Loader.svelte';
 	import HoverBackground from '../HoverBackground.svelte';
 	import Swap from '../swap';
+	import {
+		defaultClass,
+		xs,
+		sm,
+		md,
+		lg,
+		xl,
+		fab,
+		defaultButton,
+		primaryButton,
+		dangerButton,
+		ghostButton,
+		linkButton,
+		textButton,
+		darkButton,
+		baseDisabled,
+		defaultDisabled,
+		primaryDisabled,
+		dangerDisabled,
+		ghostDisabled,
+		linkDisabled,
+		textDisabled,
+		circleShape,
+		squareShape,
+		roundedShape,
+		pillShape,
+		circleXs,
+		circleSm,
+		circleMd,
+		circleLg,
+		circleXl
+	} from './styles';
 
 	export let disabled: false | true = false;
 	export let htmlType: 'button' | 'submit' | 'reset' = 'button';
@@ -47,49 +79,6 @@
 	}
 
 	setContext('button-icon-size', iconSize);
-
-	const defaultClass =
-		'btn group relative inline-flex justify-center items-center font-medium active:hover:animate-none active:hover:scale-95 outline-none';
-
-	const xs = 'px-2.5 py-1.5 text-xs';
-	const sm = 'px-3 py-[0.45rem] text-sm';
-	const md = 'px-3 py-[0.55rem] text-sm';
-	const lg = 'px-4 py-2 text-base';
-	const xl = 'px-4 py-3 text-base';
-	const fab = 'p-5 h-[58px] w-[58px]';
-
-	const defaultButton =
-		'border shadow-md bg-default text-default-content border-light-border hover:border-primary-hover hover:text-primary-hover dark:shadow-black dark:border-dark-border';
-	const primaryButton =
-		'border-none text-primary-content shadow-md bg-primary dark:shadow-black hover:bg-primary-hover';
-	const dangerButton =
-		'border-none shadow-md text-danger-content bg-danger hover:bg-danger-hover dark:shadow-black';
-	const ghostButton =
-		'border-none border-transparent shadow-none bg-transparent text-light-secondary-content hover:text-light-content dark:text-dark-content dark:hover:text-primary-hover';
-	const linkButton =
-		'border-none border-transparent bg-transparent shadow-none text-primary hover:text-primary-hover';
-	const textButton = 'border-transparent';
-	const darkButton = 'text-primary-content bg-[#2a303c] shadow-md';
-
-	const baseDisabled = 'active:hover:scale-100 opacity-70';
-	const defaultDisabled =
-		'shadow-md text-default-content bg-default border border-[#e4e6eb] hover:text-default-content hover:border-[#e4e6eb] dark:shadow-black';
-	const primaryDisabled = 'hover:bg-primary';
-	const dangerDisabled = 'hover:bg-danger';
-	const ghostDisabled = 'hover:text-light-secondary-content';
-	const linkDisabled = 'hover:bg-transparent';
-	const textDisabled = 'border-transparent';
-
-	const circleShape = 'rounded-full';
-	const squareShape = 'rounded-none';
-	const roundedShape = 'rounded-md';
-	const pillShape = 'rounded-3xl';
-
-	const circleXs = 'p-1 h-[30px] w-[30px]';
-	const circleSm = 'p-1 h-[38px] w-[38px]';
-	const circleMd = 'p-2 h-[38px] w-[38px]';
-	const circleLg = 'p-3 h-[42px] w-[42px]';
-	const circleXl = 'p-4 h-[50px] w-[50px]';
 
 	$: finalClass = clsx(
 		defaultClass,
