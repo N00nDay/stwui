@@ -2,7 +2,7 @@
 	import { scale } from 'svelte/transition';
 	import { setContext } from 'svelte';
 	import clsx from 'clsx';
-	import { get_current_component, text } from 'svelte/internal';
+	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
