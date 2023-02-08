@@ -92,22 +92,6 @@ module.exports = plugin(
 			'.col-24': {
 				width: '100%'
 			},
-			'button.btn-group:disabled': {
-				'--tw-text-opacity': '1',
-				color: 'rgb(31 41 55 / var(--tw-text-opacity))',
-				'--tw-bg-opacity': '1',
-				'background-color': 'rgb(255 255 255 / var(--tw-bg-opacity))',
-				'border-width': '1px',
-				'--tw-border-opacity': '1',
-				'border-color': 'rgb(228 230 235 / var(--tw-border-opacity))',
-				opacity: '0.7'
-			},
-			'button.btn-group:disabled:hover': {
-				'--tw-text-opacity': '1',
-				color: 'rgb(31 41 55 / var(--tw-text-opacity))',
-				'--tw-border-opacity': '1',
-				'border-color': 'rgb(228 230 235 / var(--tw-border-opacity))'
-			},
 			'a.link': {
 				'text-decoration-line': 'underline',
 				color: '#2563eb'

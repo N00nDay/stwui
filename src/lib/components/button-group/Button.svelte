@@ -2,7 +2,7 @@
 	import { scale } from 'svelte/transition';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { getContext } from 'svelte';
-	import { twMerge } from 'tailwind-merge';
+	import clsx from 'clsx';
 	import Swap from '../swap';
 	import ButtonLoader from './Loader.svelte';
 	import { get_current_component, setContext } from 'svelte/internal';
@@ -21,11 +21,20 @@
 	const block: boolean = getContext('button-group-block');
 	const iconSize = '20px';
 
-	setContext('button-group-button-icon-size', iconSize);
-
-	let defaultClass =
+	const defaultClass =
 		'btn-group group overflow-hidden relative inline-flex items-center justify-center px-4 py-2 border light-border dark:dark-border text-sm font-medium text-light-content dark:text-dark-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md';
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const disabledClass =
+		'opacity-70 bg-light-icon-background dark:bg-dark-icon-background hover:bg-light-icon-background dark:hover:bg-dark-icon-background';
+
+	$: finalClass = clsx(
+		defaultClass,
+		{
+			[disabledClass]: disabled
+		},
+		$$props.class
+	);
+
+	setContext('button-group-button-icon-size', iconSize);
 </script>
 
 <button
