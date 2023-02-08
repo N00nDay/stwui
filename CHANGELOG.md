@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.35-next](https://github.com/N00nDay/stwui/compare/v0.0.34-next...v0.0.35-next) (2023-02-08)
+
+
+### Bug Fixes
+
+* **Button:** moved styling from tw plugin to file to allow customization ([8782608](https://github.com/N00nDay/stwui/commit/8782608b1173a532c4a6f887e118156729001dad))
+* **Button:** replaced twmerge with clsx ([8782608](https://github.com/N00nDay/stwui/commit/8782608b1173a532c4a6f887e118156729001dad))
+* **package.json:** updated dependancies and added clsx ([8782608](https://github.com/N00nDay/stwui/commit/8782608b1173a532c4a6f887e118156729001dad))
+
 ## [0.0.34-next](https://github.com/N00nDay/stwui/compare/v0.0.33-next...v0.0.34-next) (2023-02-06)
 
 
