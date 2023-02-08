@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { twMerge } from 'tailwind-merge';
+	import clsx from 'clsx';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -7,7 +7,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass = 'button-loader';
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = clsx(defaultClass, $$props.class);
 </script>
 
 <svg
