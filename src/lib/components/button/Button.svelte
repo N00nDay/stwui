@@ -43,6 +43,7 @@
 		circleLg,
 		circleXl
 	} from './styles';
+	import { composeIconSize } from '$lib/utils';
 
 	export let disabled: false | true = false;
 	export let htmlType: 'button' | 'submit' | 'reset' = 'button';
@@ -63,22 +64,7 @@
 	export let ariaLabel: undefined | string = undefined;
 	export let href: string | undefined = undefined;
 
-	let iconSize = '';
-	if (size === 'xs') {
-		iconSize = '16px';
-	} else if (size === 'sm') {
-		iconSize = '18px';
-	} else if (size === 'md') {
-		iconSize = '20px';
-	} else if (size === 'lg') {
-		iconSize = '24px';
-	} else if (size === 'xl') {
-		iconSize = '28px';
-	} else if (size === 'fab') {
-		iconSize = '34px';
-	}
-
-	setContext('button-icon-size', iconSize);
+	$: iconSize = composeIconSize(size);
 
 	$: finalClass = clsx(
 		defaultClass,
@@ -129,6 +115,8 @@
 		'rounded-3xl': shape === 'pill',
 		'rounded-none': shape === 'square'
 	});
+
+	setContext('button-icon-size', iconSize);
 </script>
 
 <svelte:element

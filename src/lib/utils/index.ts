@@ -6,6 +6,7 @@ import computeTrendPercent from './computeTrendPercent';
 import computeProgress from './computeProgress';
 import { copyToClipboard } from './copyToClipboard';
 import { trapFocus } from './trapFocus';
+import { composeIconSize } from './composeIconSize';
 
 export {
 	formatDate,
@@ -15,5 +16,6 @@ export {
 	computeTrendPercent,
 	computeTrendValue,
 	copyToClipboard,
-	trapFocus
+	trapFocus,
+	composeIconSize
 };
