@@ -2,7 +2,6 @@
 	import { setContext } from 'svelte/internal';
 	import { slide, scale } from 'svelte/transition';
 	import Swap from '../swap';
-	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon';
 	import { error as errorIcon, close, eye, eye_off } from '../../icons';
 	import { get_current_component } from 'svelte/internal';
@@ -10,6 +9,7 @@
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	import { writable, type Writable } from 'svelte/store';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let name: string;
@@ -48,19 +48,16 @@
 		value = undefined;
 	}
 
-	setContext('input-name', name);
-	setContext('input-error', currentError);
-
 	const defaultClass = 'group';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+
+	setContext('input-name', name);
+	setContext('input-error', currentError);
 </script>
 
 <div class={finalClass} style={$$props.style}>
 	<slot name="label" />
-	<div
-		class="mt-1 relative rounded-md shadow-sm h-[2.5rem] dark:shadow-black"
-		class:text-danger={error}
-	>
+	<div class="mt-1 relative rounded-md h-[2.5rem]" class:text-danger={error}>
 		<input
 			bind:this={input}
 			use:useType
@@ -70,9 +67,9 @@
 			id={name}
 			{readonly}
 			{tabindex}
-			class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface"
-			class:light-border={!error}
-			class:dark:dark-border={!error}
+			class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface outline-offset-0"
+			class:border-light-border-base={!error}
+			class:dark:border-dark-border-base={!error}
 			class:border-red-400={error}
 			class:text-danger={error}
 			class:dark:text-danger={error}

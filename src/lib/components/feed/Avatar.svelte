@@ -21,28 +21,33 @@
 	let failed = false;
 	let loading = true;
 
+	const srcClass = 'inline-block absolute';
+	const srcContainerClass = 'inline-block h-8 w-8 relative align-middle';
+	const initialsClass =
+		'inline-flex h-8 w-8 items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
+
+	const circleClass = 'rounded-full';
+	const roundedClass = 'rounded-md';
+
+	$: finalClass = twMerge(
+		src && !initials ? srcClass : false,
+		initials && !src ? initialsClass : false,
+
+		shape === 'circle' ? circleClass : false,
+		shape === 'rounded' ? roundedClass : false,
+
+		$$props.class
+	);
+	$: finalContainerClass = twMerge(
+		src && !initials ? srcContainerClass : false,
+
+		shape === 'circle' ? circleClass : false,
+		shape === 'rounded' ? roundedClass : false,
+
+		$$props.class
+	);
+
 	setContext('feed-avatar-shape', shape);
-
-	let defaultClass = '';
-	let containerDefaultClass = '';
-	if (src) {
-		defaultClass = 'inline-block absolute';
-		containerDefaultClass = 'inline-block h-8 w-8 relative align-middle';
-	} else if (initials) {
-		defaultClass =
-			'inline-flex h-8 w-8 items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
-	}
-
-	if (shape === 'circle') {
-		defaultClass += ' rounded-full';
-		containerDefaultClass += ' rounded-full';
-	} else if (shape === 'rounded') {
-		defaultClass += ' rounded-md';
-		containerDefaultClass += ' rounded-md';
-	}
-
-	$: finalClass = twMerge(defaultClass, $$props.class);
-	$: finalContainerClass = twMerge(containerDefaultClass, $$props.class);
 
 	onMount(() => {
 		if (src) {

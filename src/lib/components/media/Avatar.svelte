@@ -19,46 +19,50 @@
 	let failed = false;
 	let loading = true;
 
+	const srcClass = 'inline-block absolute';
+	const srcContainerClass = 'inline-block relative align-middle';
+	const initialClass =
+		'inline-flex items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
+	const xsClass = 'h-6 w-6';
+	const smClass = 'h-8 w-8';
+	const mdClass = 'h-10 w-10';
+	const lgClass = 'h-12 w-12';
+	const xlClass = 'h-16 w-16';
+	const circleClass = 'rounded-full';
+	const roundedClass = 'rounded-md';
+
+	$: finalClass = twMerge(
+		src && !initials ? srcClass : false,
+		initials && !src ? initialClass : false,
+
+		size === 'xs' ? xsClass : false,
+		size === 'sm' ? smClass : false,
+		size === 'md' ? mdClass : false,
+		size === 'lg' ? lgClass : false,
+		size === 'xl' ? xlClass : false,
+
+		shape === 'circle' ? circleClass : false,
+		shape === 'rounded' ? roundedClass : false,
+
+		$$props.class
+	);
+	$: finalContainerClass = twMerge(
+		src && !initials ? srcContainerClass : false,
+
+		size === 'xs' ? xsClass : false,
+		size === 'sm' ? smClass : false,
+		size === 'md' ? mdClass : false,
+		size === 'lg' ? lgClass : false,
+		size === 'xl' ? xlClass : false,
+
+		shape === 'circle' ? circleClass : false,
+		shape === 'rounded' ? roundedClass : false,
+
+		$$props.class
+	);
+
 	setContext('media-avatar-shape', shape);
 	setContext('media-avatar-size', size);
-
-	let defaultClass = '';
-	let containerDefaultClass = '';
-
-	if (src) {
-		defaultClass = 'inline-block absolute';
-		containerDefaultClass = 'inline-block h-8 w-8 relative align-middle';
-	} else if (initials) {
-		defaultClass =
-			'inline-flex h-8 w-8 items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
-	}
-
-	if (size === 'xs') {
-		defaultClass += ' h-6 w-6';
-		containerDefaultClass += ' h-6 w-6';
-	} else if (size === 'sm') {
-		defaultClass += ' h-8 w-8';
-		containerDefaultClass += ' h-8 w-8';
-	} else if (size === 'md') {
-		defaultClass += ' h-10 w-10';
-		containerDefaultClass += ' h-10 w-10';
-	} else if (size === 'lg') {
-		defaultClass += ' h-12 w-12';
-		containerDefaultClass += ' h-12 w-12';
-	} else if (size === 'xl') {
-		defaultClass += ' h-16 w-16';
-		containerDefaultClass += ' h-16 w-16';
-	}
-	if (shape === 'circle') {
-		defaultClass += ' rounded-full';
-		containerDefaultClass += ' rounded-full';
-	} else if (shape === 'rounded') {
-		defaultClass += ' rounded-md';
-		containerDefaultClass += ' rounded-md';
-	}
-
-	$: finalClass = twMerge(defaultClass, $$props.class);
-	$: finalContainerClass = twMerge(containerDefaultClass, $$props.class);
 
 	onMount(() => {
 		if (src) {

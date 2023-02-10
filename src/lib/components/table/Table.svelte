@@ -14,12 +14,12 @@
 	let header = writable(false);
 	let footer = writable(false);
 
+	const defaultClass = 'bg-light-surface dark:bg-dark-surface';
+	$: finalClass = twMerge(defaultClass, $$props.class);
+
 	setContext('table-columns', columns);
 	setContext('table-header', header);
 	setContext('table-footer', footer);
-
-	const defaultClass = 'bg-light-surface dark:bg-dark-surface';
-	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div

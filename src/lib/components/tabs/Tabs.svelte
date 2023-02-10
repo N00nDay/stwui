@@ -15,28 +15,32 @@
 	let selected: Writable<string> = writable(currentTab);
 	$: $selected = currentTab;
 
+	const barContainerClass =
+		'border-light-border-base dark:border-dark-border-base overflow-hidden rounded-md shadow-md border dark:shadow-black';
+	const defaultContainerClass =
+		'border-light-border-base dark:border-dark-border-base overflow-hidden border-b';
+
+	$: finalContainerClass = twMerge(
+		variant === 'bar' ? barContainerClass : defaultContainerClass,
+
+		containerClass
+	);
+
+	const barClass =
+		'-mb-px flex justify-evenly isolate divide-x divide-light-border-base dark:divide-dark-border';
+	const fullWidthClass = '-mb-px flex justify-evently';
+	const defaultClass = '-mb-px flex space-x-8';
+
+	$: finalClass = twMerge(
+		variant === 'bar' ? barClass : false,
+		variant === 'full-width' ? fullWidthClass : false,
+		variant === 'default' ? defaultClass : false,
+
+		$$props.class
+	);
+
 	setContext('tabs-variant', variant);
 	setContext('tabs-currentTab', selected);
-
-	let defaultContainerClass = '';
-	$: if (variant === 'bar') {
-		defaultContainerClass =
-			'border-light-border dark:border-dark-border overflow-hidden rounded-md shadow-md border dark:shadow-black';
-	} else {
-		defaultContainerClass = 'border-light-border dark:border-dark-border overflow-hidden border-b';
-	}
-	$: finalContainerClass = twMerge(defaultContainerClass, containerClass);
-
-	let defaultClass = '';
-	$: if (variant === 'bar') {
-		defaultClass =
-			'-mb-px flex justify-evenly isolate divide-x divide-light-border dark:divide-dark-border';
-	} else if (variant === 'full-width') {
-		defaultClass = '-mb-px flex justify-evently';
-	} else {
-		defaultClass = '-mb-px flex space-x-8';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 {#if variant === 'bar'}

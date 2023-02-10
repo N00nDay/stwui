@@ -18,11 +18,11 @@
 		}
 	}
 
-	setContext('sideBarWidth', sideBarWidth);
-	setContext('toggleSidebarWidth', toggleSidebarWidth);
-
 	const defaultClass = 'w-full h-full flex flex-col';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+
+	setContext('sideBarWidth', sideBarWidth);
+	setContext('toggleSidebarWidth', toggleSidebarWidth);
 </script>
 
 <div

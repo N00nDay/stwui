@@ -11,35 +11,34 @@
 	export let href: string;
 	export let step: number;
 
-	setContext('steps-step', step);
-
 	const currentStep: Writable<number> = getContext('steps-currentStep');
 	const variant: 'simple' | 'bullets' | 'bullets-text' | 'circles-text' =
 		getContext('steps-variant');
 
-	let defaultClass = '';
-	$: if (variant === 'bullets') {
-		if ($currentStep > step) {
-			defaultClass = 'block h-2.5 w-2.5 rounded-full bg-primary hover:bg-primary-hover';
-		} else if ($currentStep === step) {
-			defaultClass = 'relative flex items-center justify-center';
-		} else {
-			defaultClass =
-				'block h-2.5 w-2.5 rounded-full bg-light-border dark:bg-dark-border hover:bg-light-border-base dark:hover:bg-dark-border-base';
-		}
-	} else if (variant === 'simple') {
-		if ($currentStep > step) {
-			defaultClass =
-				'group flex flex-col border-l-4 border-primary hover:border-primary-hover py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
-		} else if ($currentStep === step) {
-			defaultClass =
-				'flex flex-col border-l-4 border-primary dark:border-primary py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
-		} else {
-			defaultClass =
-				'group flex flex-col border-l-4 border-light-border dark:border-dark-border hover:border-light-border-base dark:hover:border-dark-border-base py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
-		}
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const bulletsPreviousStep =
+		'block h-2.5 w-2.5 rounded-full bg-light-border dark:bg-dark-border hover:bg-light-border-base dark:hover:bg-dark-border-base';
+	const bulletsCurrentStep = 'relative flex items-center justify-center';
+	const bulletsNextStep = 'block h-2.5 w-2.5 rounded-full bg-primary hover:bg-primary-hover';
+
+	const simplePreviousStep =
+		'group flex flex-col border-l-4 border-light-border-base dark:border-dark-border-base hover:border-light-border-base dark:hover:border-dark-border-base py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
+	const simpleCurrentStep =
+		'flex flex-col border-l-4 border-primary dark:border-primary py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
+	const simpleNextStep =
+		'group flex flex-col border-l-4 border-primary hover:border-primary-hover py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
+
+	$: finalClass = twMerge(
+		variant === 'bullets' && $currentStep < step ? bulletsPreviousStep : false,
+		variant === 'bullets' && $currentStep === step ? bulletsCurrentStep : false,
+		variant === 'bullets' && $currentStep > step ? bulletsNextStep : false,
+		variant === 'simple' && $currentStep < step ? simplePreviousStep : false,
+		variant === 'simple' && $currentStep === step ? simpleCurrentStep : false,
+		variant === 'simple' && $currentStep > step ? simpleNextStep : false,
+
+		$$props.class
+	);
+
+	setContext('steps-step', step);
 </script>
 
 {#if variant === 'simple'}
@@ -191,7 +190,7 @@
 				<div class="flex items-start">
 					<div class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
 						<div
-							class="h-2 w-2 rounded-full bg-light-border dark:bg-dark-border group-hover:bg-light-border-base dark:group-hover:bg-dark-border-base"
+							class="h-2 w-2 rounded-full bg-light-border dark:bg-dark-border group-hover:bg-light-border dark:group-hover:bg-dark-border-base"
 						/>
 					</div>
 					<slot name="title" />
@@ -278,7 +277,7 @@
 			>
 				<span class="flex h-9 items-center">
 					<span
-						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-light-border dark:border-dark-border bg-light-surface dark:bg-dark-surface group-hover:border-light-border-base dark:group-hover:border-dark-border-base"
+						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-light-border-base dark:border-dark-border bg-light-surface dark:bg-dark-surface group-hover:border-light-border-base dark:group-hover:border-dark-border-base"
 					>
 						<span
 							class="h-2.5 w-2.5 rounded-full bg-transparent group-hover:bg-light-border dark:group-hover:bg-dark-border"

@@ -9,17 +9,22 @@
 
 	const type: 'info' | 'success' | 'warn' | 'error' | undefined = getContext('badge-type');
 
-	let defaultClass = '-ml-0.5 mr-1.5 h-2 w-2';
-	if (type === 'info') {
-		defaultClass += ' text-info-content dark:text-dark-info-content';
-	} else if (type === 'success') {
-		defaultClass += ' text-success-content dark:text-dark-success-content';
-	} else if (type === 'warn') {
-		defaultClass += ' text-warn-content dark:text-dark-warn-content';
-	} else if (type === 'error') {
-		defaultClass += ' text-error-content dark:text-dark-error-content';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const defaultClass = '-ml-0.5 mr-1.5 h-2 w-2';
+	const infoClass = 'text-info-content dark:text-dark-info-content';
+	const successClass = 'text-success-content dark:text-dark-success-content';
+	const warnClass = 'text-warn-content dark:text-dark-warn-content';
+	const errorClass = 'text-error-content dark:text-dark-error-content';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		type === 'info' ? infoClass : false,
+		type === 'success' ? successClass : false,
+		type === 'warn' ? warnClass : false,
+		type === 'error' ? errorClass : false,
+
+		$$props.class
+	);
 </script>
 
 <svg

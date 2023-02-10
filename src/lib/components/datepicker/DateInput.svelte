@@ -11,7 +11,6 @@
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
-	// import { browser } from '$app/environment';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let input: HTMLInputElement;
@@ -90,23 +89,20 @@
 		visible = true;
 	}
 
-	setContext('datepicker-name', name);
-	setContext('datepicker-error', currentError);
-
 	function handleClear() {
 		input.value = '';
 		value = null;
 	}
+
+	setContext('datepicker-name', name);
+	setContext('datepicker-error', currentError);
 </script>
 
 <Dropdown {handleClose} on:focusout={onFocusOut} on:keydown={keydown} {visible} class="w-full">
 	<svelte:fragment slot="trigger">
 		<div class={$$props.class} style={$$props.style}>
 			<slot name="label" />
-			<div
-				class="mt-1 relative rounded-md shadow-sm h-[2.5rem] dark:shadow-black"
-				class:text-danger={error}
-			>
+			<div class="mt-1 relative rounded-md h-[2.5rem]" class:text-danger={error}>
 				<input
 					type="text"
 					{name}
@@ -131,8 +127,8 @@
 					on:mousedown={handleOpen}
 					on:keydown={keydown}
 					class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface"
-					class:light-border={!error}
-					class:dark:dark-border={!error}
+					class:border-light-border-base={!error}
+					class:dark:border-dark-border-base={!error}
 					class:border-red-400={error}
 					class:text-danger={error}
 					class:dark:text-danger={error}

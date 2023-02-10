@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-	export const INPUT_NUMBER_CONTEXT_ID = 'input-number-context-id';
-</script>
-
 <script lang="ts">
 	import { slide } from 'svelte/transition';
 	import { setContext } from 'svelte';
@@ -53,8 +49,8 @@
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
 			class:dark:focus:border-primary={!error}
-			class:light-border={!error}
-			class:dark:dark-border={!error}
+			class:border-light-border-base={!error}
+			class:dark:border-dark-border-base={!error}
 			class:pl-10={$$slots.leading}
 			class:pr-10={$$slots.trailing || error}
 			class:bg-gray-100={disabled}

@@ -10,11 +10,16 @@
 
 	const title: Writable<boolean> = getContext('notification-title');
 
-	let defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
-	$: if ($title) {
-		defaultClass = defaultClass + ' mt-1';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
+	const titleClass = 'mt-1';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		$title ? titleClass : false,
+
+		$$props.class
+	);
 </script>
 
 <p

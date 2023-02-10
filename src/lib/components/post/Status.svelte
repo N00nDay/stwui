@@ -13,7 +13,7 @@
 	export let comments: string[] = [];
 
 	const defaultClass =
-		'flex flex-row justify-evenly items-center py-1 px-2 border border-light-border dark:border-dark-border';
+		'flex flex-row justify-evenly items-center py-1 px-2 border border-light-border-base dark:border-dark-border';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

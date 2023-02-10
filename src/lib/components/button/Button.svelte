@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { setContext } from 'svelte';
-	import clsx from 'clsx';
+	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -66,55 +66,57 @@
 
 	$: iconSize = composeIconSize(size);
 
-	$: finalClass = clsx(
+	$: finalClass = twMerge(
 		defaultClass,
-		{
-			'cursor-wait': loading,
-			'cursor-pointer': !loading,
 
-			[xs]: size === 'xs' && shape !== 'circle',
-			[sm]: size === 'sm' && shape !== 'circle',
-			[md]: size === 'md' && shape !== 'circle',
-			[lg]: size === 'lg' && shape !== 'circle',
-			[xl]: size === 'xl' && shape !== 'circle',
-			[fab]: size === 'fab',
+		loading ? 'cursor-wait' : false,
+		!loading ? 'cursor-pointer' : false,
 
-			[defaultButton]: type === 'default',
-			[primaryButton]: type === 'primary',
-			[dangerButton]: type === 'danger',
-			[ghostButton]: type === 'ghost',
-			[linkButton]: type === 'link',
-			[textButton]: type === 'text',
-			[darkButton]: type === 'dark',
+		size === 'xs' && shape !== 'circle' ? xs : false,
+		size === 'sm' && shape !== 'circle' ? sm : false,
+		size === 'md' && shape !== 'circle' ? md : false,
+		size === 'lg' && shape !== 'circle' ? lg : false,
+		size === 'xl' && shape !== 'circle' ? xl : false,
+		size === 'fab' ? fab : false,
 
-			[baseDisabled]: disabled,
-			[defaultDisabled]: (type === 'default' || type === 'dark' || type === undefined) && disabled,
-			[primaryDisabled]: type === 'primary' && disabled,
-			[dangerDisabled]: type === 'danger' && disabled,
-			[ghostDisabled]: type === 'ghost' && disabled,
-			[linkDisabled]: type === 'link' && disabled,
-			[textDisabled]: type === 'text' && disabled,
+		type === 'default' ? defaultButton : false,
+		type === 'primary' ? primaryButton : false,
+		type === 'danger' ? dangerButton : false,
+		type === 'ghost' ? ghostButton : false,
+		type === 'link' ? linkButton : false,
+		type === 'text' ? textButton : false,
+		type === 'dark' ? darkButton : false,
 
-			[circleShape]: shape === 'circle',
-			[squareShape]: shape === 'square',
-			[roundedShape]: shape === 'rounded',
-			[pillShape]: shape === 'pill',
+		disabled ? baseDisabled : false,
+		(type === 'default' || type === 'dark' || type === undefined) && disabled
+			? defaultDisabled
+			: false,
+		type === 'primary' && disabled ? primaryDisabled : false,
+		type === 'danger' && disabled ? dangerDisabled : false,
+		type === 'ghost' && disabled ? ghostDisabled : false,
+		type === 'link' && disabled ? linkDisabled : false,
+		type === 'text' && disabled ? textDisabled : false,
 
-			[circleXs]: shape === 'circle' && size === 'xs',
-			[circleSm]: shape === 'circle' && size === 'sm',
-			[circleMd]: shape === 'circle' && size === 'md',
-			[circleLg]: shape === 'circle' && size === 'lg',
-			[circleXl]: shape === 'circle' && size === 'xl'
-		},
+		shape === 'circle' ? circleShape : false,
+		shape === 'square' ? squareShape : false,
+		shape === 'rounded' ? roundedShape : false,
+		shape === 'pill' ? pillShape : false,
+
+		shape === 'circle' && size === 'xs' ? circleXs : false,
+		shape === 'circle' && size === 'sm' ? circleSm : false,
+		shape === 'circle' && size === 'md' ? circleMd : false,
+		shape === 'circle' && size === 'lg' ? circleLg : false,
+		shape === 'circle' && size === 'xl' ? circleXl : false,
+
 		$$props.class
 	);
 
-	$: hoverClass = clsx({
-		'rounded-full': shape === 'circle',
-		'rounded-md': shape === 'rounded',
-		'rounded-3xl': shape === 'pill',
-		'rounded-none': shape === 'square'
-	});
+	$: hoverClass = twMerge(
+		shape === 'circle' ? 'rounded-full' : false,
+		shape === 'rounded' ? 'rounded-md' : false,
+		shape === 'pill' ? 'rounded-3xl' : false,
+		shape === 'square' ? 'rounded-none' : false
+	);
 
 	setContext('button-icon-size', iconSize);
 </script>

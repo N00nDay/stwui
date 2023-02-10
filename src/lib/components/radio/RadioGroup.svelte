@@ -9,17 +9,22 @@
 
 	let selectedRadio = writable(selected);
 
+	const defaultClass = 'mt-1 grid-cols-4 gap-2';
+	const defaultType = 'space-y-4';
+	const pillType = 'grid';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		type === 'default' ? defaultType : false,
+		type === 'pill' ? pillType : false,
+
+		$$props.class
+	);
+
 	setContext('radio-name', name);
 	setContext('radio-type', type);
 	setContext('radio-selected', selectedRadio);
-
-	let defaultClass = 'mt-1 grid-cols-4 gap-2';
-	$: if (type === 'default') {
-		defaultClass = defaultClass + ' space-y-4';
-	} else if (type === 'pill') {
-		defaultClass = defaultClass + ' grid';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div>

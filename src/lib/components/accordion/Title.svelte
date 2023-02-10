@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { twMerge } from 'tailwind-merge';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import Icon from '../icon';
@@ -8,7 +7,7 @@
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
-
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const open: Writable<boolean> = getContext('accordion-open');

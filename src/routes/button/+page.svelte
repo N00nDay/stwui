@@ -26,7 +26,7 @@
 	<Card bordered>
 		<Card.Header slot="header">Basic</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Button on:click={() => console.log("I've been clicked!")}>Default button</Button>
+			<Button on:click={() => console.log("I've been clicked!")}>Base button</Button>
 
 			<Button type="primary">I am primary</Button>
 
@@ -48,7 +48,7 @@
 	<Card bordered>
 		<Card.Header slot="header">Loading</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Button loading>Default button</Button>
+			<Button loading>Base button</Button>
 
 			<Button type="primary" loading>I am primary</Button>
 
@@ -70,7 +70,7 @@
 	<Card bordered>
 		<Card.Header slot="header">Disabled</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Button disabled>Default button</Button>
+			<Button disabled>Base button</Button>
 
 			<Button type="primary" disabled>I am primary</Button>
 
@@ -94,7 +94,7 @@
 		<Card.Content slot="content" class="p-4">
 			<Button {loading} on:click={toggleLoading}>
 				<Button.Leading data={home} slot="leading" />
-				Default button
+				Base button
 			</Button>
 
 			<Button type="primary">

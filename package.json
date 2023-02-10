@@ -72,7 +72,6 @@
 	"type": "module",
 	"types": "index.d.ts",
 	"dependencies": {
-		"clsx": "^1.2.1",
 		"dayjs": "^1.11.7",
 		"tailwind-merge": "^1.9.1",
 		"tippy.js": "^6.3.7"

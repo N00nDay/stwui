@@ -11,20 +11,17 @@
 	export let bordered = false;
 	export let edgeToEdge = false;
 
-	setContext('list-bordered', bordered || edgeToEdge);
+	const dividedClass = 'divide-y divide-light-border-base dark:divide-dark-border-base';
+	const borderedClass = 'border border-light-border-base dark:border-dark-border-base';
 
-	let defaultClass = '';
-	const defaultDividedClass = 'divide-y divide-light-border dark:divide-dark-border';
-	const defaultBorderedClass = 'border border-light-border dark:border-dark-border';
-	if (divided) {
-		defaultClass += defaultDividedClass;
-	}
-	if (bordered && defaultClass.length > 0) {
-		defaultClass += ` ${defaultBorderedClass}`;
-	} else if (bordered) {
-		defaultClass += defaultBorderedClass;
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(
+		divided ? dividedClass : false,
+		bordered ? borderedClass : false,
+
+		$$props.class
+	);
+
+	setContext('list-bordered', bordered || edgeToEdge);
 </script>
 
 <ul

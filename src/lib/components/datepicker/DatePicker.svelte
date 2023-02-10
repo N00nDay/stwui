@@ -217,6 +217,8 @@
 
 	// TODO: add month/year picker
 	// TODO: add month/year quick pick by clicking title
+	// TODO: mobile date picker
+	// TODO: time picker
 </script>
 
 <Card class="max-w-[300px] mt-1 w-[300px]" on:focusout tabindex="-1" on:keydown={keydown}>

@@ -10,11 +10,16 @@
 
 	const collapsed: Writable<boolean> = getContext('layout-collapsed');
 
-	let defaultClass = 'w-full h-full';
-	$: if ($collapsed) {
-		defaultClass = 'w-full h-full lg:pl-0';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const defaultClass = 'w-full h-full';
+	const collapsedClass = 'lg:pl-0';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		$collapsed ? collapsedClass : false,
+
+		$$props.class
+	);
 </script>
 
 <div

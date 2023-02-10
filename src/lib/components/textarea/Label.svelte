@@ -11,13 +11,17 @@
 	const name: string = getContext('textarea-name');
 	const error: Writable<string | undefined> = getContext('textarea-error');
 
-	let defaultClass = 'block text-sm font-medium';
-	$: if ($error && $error.length > 0) {
-		defaultClass = defaultClass + ' text-danger';
-	} else {
-		defaultClass = defaultClass + ' text-light-secondary-content dark:text-dark-secondary-content';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const defaultClass =
+		'block text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
+	const errorClass = 'text-danger dark:text-danger';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		$error && $error.length > 0 ? errorClass : false,
+
+		$$props.class
+	);
 </script>
 
 <label

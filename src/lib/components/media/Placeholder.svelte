@@ -15,36 +15,49 @@
 	const shape: 'circle' | 'rounded' | 'square' = getContext('media-avatar-shape');
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('media-avatar-size');
 
-	let iconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
-	let iconSize = '';
-	if (size === 'xs') {
-		iconContainerClass += ' bottom-[-0.25rem]';
-		iconSize = '24px';
-	} else if (size === 'sm') {
-		iconContainerClass += ' bottom-[-0.35rem]';
-		iconSize = '32px';
-	} else if (size === 'md') {
-		iconContainerClass += ' bottom-[-0.5rem]';
-		iconSize = '40px';
-	} else if (size === 'lg') {
-		iconContainerClass += ' text-6xl bottom-[-0.6rem]';
-		iconSize = '48px';
-	} else if (size === 'xl') {
-		iconContainerClass += ' bottom-[-0.75rem]';
-		iconSize = '64px';
-	}
+	const defaultClass =
+		'absolute text-light-icon dark:text-dark-icon inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';
+	const circleClass = 'rounded-full';
+	const roundedClass = 'rounded-md';
 
-	let defaultClass =
-		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';
-	if (shape === 'circle') {
-		defaultClass += ' rounded-full';
-	} else if (shape === 'rounded') {
-		defaultClass += ' rounded-md';
-	}
-	if (loading) {
-		defaultClass += ' loading';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const defaultIconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
+	const xsContainerClass = 'bottom-[-0.25rem]';
+	const smContainerClass = 'bottom-[-0.35rem]';
+	const mdContainerClass = 'bottom-[-0.5rem]';
+	const lgContainerClass = 'text-6xl bottom-[-0.6rem]';
+	const xlContainerClass = 'bottom-[-0.75rem]';
+	const xsIconSize = '24px';
+	const smIconSize = '32px';
+	const mdIconSize = '40px';
+	const lgIconSize = '48px';
+	const xlIconSize = '64px';
+
+	$: iconContainerClass = twMerge(
+		defaultIconContainerClass,
+
+		size === 'xs' ? xsContainerClass : false,
+		size === 'sm' ? smContainerClass : false,
+		size === 'md' ? mdContainerClass : false,
+		size === 'lg' ? lgContainerClass : false,
+		size === 'xl' ? xlContainerClass : false
+	);
+	$: iconSize = twMerge(
+		size === 'xs' ? xsIconSize : false,
+		size === 'sm' ? smIconSize : false,
+		size === 'md' ? mdIconSize : false,
+		size === 'lg' ? lgIconSize : false,
+		size === 'xl' ? xlIconSize : false
+	);
+	$: finalClass = twMerge(
+		defaultClass,
+
+		loading ? 'loading' : false,
+
+		shape === 'circle' ? circleClass : false,
+		shape === 'rounded' ? roundedClass : false,
+
+		$$props.class
+	);
 </script>
 
 <div

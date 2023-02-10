@@ -27,10 +27,10 @@
 		padding = 'padding: 0;';
 	}
 
-	setContext('grid-padding', padding);
-
 	const defaultClass = 'relative mr-0 ml-0 block box-border';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+
+	setContext('grid-padding', padding);
 </script>
 
 <div

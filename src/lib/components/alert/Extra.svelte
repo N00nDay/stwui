@@ -1,30 +1,30 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
-	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const type: Writable<'info' | 'warn' | 'success' | 'error'> = getContext('alert-type');
 
-	let defaultClass = '';
-	$: if ($type === 'info') {
-		defaultClass =
-			'relative flex-shrink-0 flex items-center justify-center text-info-icon -top-2 -right-2';
-	} else if ($type === 'warn') {
-		defaultClass =
-			'relative flex-shrink-0 flex items-center justify-center text-warn-icon -top-2 -right-2';
-	} else if ($type === 'success') {
-		defaultClass =
-			'relative flex-shrink-0 flex items-center justify-center text-success-icon -top-2 -right-2';
-	} else if ($type === 'error') {
-		defaultClass =
-			'relative flex-shrink-0 flex items-center justify-center text-error-icon -top-2 -right-2';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const defaultClass = 'relative flex-shrink-0 flex items-center justify-center -top-2 -right-2';
+	const infoClass = 'text-info-icon ';
+	const warnClass = 'text-warn-icon';
+	const successClass = 'text-success-icon';
+	const errorClass = 'text-error-icon';
+	$: finalClass = twMerge(
+		defaultClass,
+
+		$type === 'info' ? infoClass : false,
+		$type === 'warn' ? warnClass : false,
+		$type === 'success' ? successClass : false,
+		$type === 'error' ? errorClass : false,
+
+		$$props.class
+	);
 </script>
 
 <div

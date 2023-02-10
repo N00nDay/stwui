@@ -19,7 +19,7 @@
 
 	$: active = $activeItem === key;
 
-	let defaultClass = 'transition-all duration-300';
+	const defaultClass = 'transition-all duration-300';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

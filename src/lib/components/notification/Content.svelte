@@ -10,16 +10,21 @@
 
 	let title = writable(false);
 
-	setContext('notification-title', title);
-
 	const leading: Writable<boolean> = getContext('notification-leading');
 	const type: 'info' | 'warn' | 'error' | 'success' | undefined = getContext('notification-type');
 
-	let defaultClass = 'w-0 flex-1 pt-0.5';
-	$: if ($leading || type) {
-		defaultClass = 'ml-3 w-0 flex-1 pt-0.5';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const defaultClass = 'w-0 flex-1 pt-0.5';
+	const leadingTypeClass = 'ml-3 w-0 flex-1 pt-0.5';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		$leading || type ? leadingTypeClass : false,
+
+		$$props.class
+	);
+
+	setContext('notification-title', title);
 </script>
 
 <div

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { twMerge } from 'tailwind-merge';
 	import { setContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let divided = true;
@@ -12,19 +12,19 @@
 	export let hoverable = false;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
-	setContext('card-divided', divided);
-
 	const defaultClass =
 		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+
+	setContext('card-divided', divided);
 </script>
 
 <div
 	class={finalClass}
 	class:hoverable
 	class:border={bordered}
-	class:border-light-border={bordered}
-	class:dark:border-dark-border={bordered}
+	class:border-light-border-base={bordered}
+	class:dark:border-dark-border-base={bordered}
 	class:shadow-none={elevation === 'none'}
 	class:shadow-sm={elevation === 'sm'}
 	class:shadow-md={elevation === 'md'}

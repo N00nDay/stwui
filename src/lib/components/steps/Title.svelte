@@ -13,43 +13,37 @@
 		getContext('steps-variant');
 	const step: number = getContext('steps-step');
 
-	let defaultClass = '';
-	$: if (variant === 'bullets') {
-		if ($currentStep > step) {
-			defaultClass = 'sr-only';
-		} else if ($currentStep === step) {
-			defaultClass = 'sr-only';
-		} else {
-			defaultClass = 'sr-only';
-		}
-	} else if (variant === 'bullets-text') {
-		if ($currentStep > step) {
-			defaultClass = 'ml-3 text-sm font-medium text-light-content dark:text-dark-content';
-		} else if ($currentStep === step) {
-			defaultClass = 'ml-3 text-sm font-medium text-primary';
-		} else {
-			defaultClass =
-				'ml-3 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content group-hover:text-light-content dark:group-hover:text-dark-content';
-		}
-	} else if (variant === 'circles-text') {
-		if ($currentStep > step) {
-			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
-		} else if ($currentStep === step) {
-			defaultClass = 'text-sm font-medium text-primary';
-		} else {
-			defaultClass =
-				'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
-		}
-	} else if (variant === 'simple') {
-		if ($currentStep > step) {
-			defaultClass = 'text-sm font-medium text-primary group-hover:text-primary-hover';
-		} else if ($currentStep === step) {
-			defaultClass = 'text-sm font-medium text-primary dark:text-primary';
-		} else {
-			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
-		}
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const bulletsTextNextStep = 'ml-3 text-sm font-medium text-light-content dark:text-dark-content';
+	const bulletsTextCurrentStep = 'ml-3 text-sm font-medium text-primary';
+	const bulletsTextPreviousStep =
+		'ml-3 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content group-hover:text-light-content dark:group-hover:text-dark-content';
+
+	const circlesTextNextStep = 'text-sm font-medium text-light-content dark:text-dark-content';
+	const circlesTextCurrentStep = 'text-sm font-medium text-primary';
+	const circlesTextPreviousStep =
+		'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
+
+	const simpleNextStep = 'text-sm font-medium text-primary group-hover:text-primary-hover';
+	const simpleCurrentStep = 'text-sm font-medium text-primary dark:text-primary';
+	const simplePreviousStep = 'text-sm font-medium text-light-content dark:text-dark-content';
+
+	$: finalClass = twMerge(
+		variant === 'bullets' ? 'sr-only' : false,
+
+		variant === 'bullets-text' && $currentStep < step ? bulletsTextPreviousStep : false,
+		variant === 'bullets-text' && $currentStep === step ? bulletsTextCurrentStep : false,
+		variant === 'bullets-text' && $currentStep > step ? bulletsTextNextStep : false,
+
+		variant === 'circles-text' && $currentStep < step ? circlesTextPreviousStep : false,
+		variant === 'circles-text' && $currentStep === step ? circlesTextCurrentStep : false,
+		variant === 'circles-text' && $currentStep > step ? circlesTextNextStep : false,
+
+		variant === 'simple' && $currentStep < step ? simplePreviousStep : false,
+		variant === 'simple' && $currentStep === step ? simpleCurrentStep : false,
+		variant === 'simple' && $currentStep > step ? simpleNextStep : false,
+
+		$$props.class
+	);
 </script>
 
 {#if variant === 'simple'}

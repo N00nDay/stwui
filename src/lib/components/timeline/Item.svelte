@@ -21,7 +21,7 @@
 	<li use:useActions={use} use:forwardEvents {...exclude($$props, ['use'])}>
 		<div class="relative pb-8">
 			<span
-				class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-light-border dark:bg-dark-border"
+				class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-light-border-base dark:bg-dark-border-base"
 			/>
 			<div class="relative flex items-start space-x-3">
 				<div class="relative">
@@ -62,7 +62,7 @@
 	<li use:useActions={use} use:forwardEvents {...exclude($$props, ['use'])}>
 		<div class="relative pb-8">
 			<span
-				class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-light-border dark:bg-dark-border"
+				class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-light-border-base dark:bg-dark-border-base"
 			/>
 			<div class="relative flex items-start space-x-3">
 				<div>

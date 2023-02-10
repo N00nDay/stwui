@@ -9,11 +9,16 @@
 
 	const bordered: boolean = getContext('list-bordered');
 
-	let defaultClass = 'flex py-4';
-	if (bordered) {
-		defaultClass += ' px-3';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const defaultClass = 'flex py-4';
+	const borderedClass = 'px-3';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		bordered ? borderedClass : false,
+
+		$$props.class
+	);
 </script>
 
 <li

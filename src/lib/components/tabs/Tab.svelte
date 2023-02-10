@@ -12,40 +12,28 @@
 	export let href: string;
 	export let key: string;
 
-	setContext('tab-key', key);
-
 	const variant: string = getContext('tabs-variant');
 	const currentTab: Writable<string> = getContext('tabs-currentTab');
 
-	let defaultClass = '';
-	$: if (key === $currentTab) {
-		defaultClass =
-			'group border-transparent group inline-flex items-center py-4 px-1 font-medium text-sm';
-		if (variant === 'full-width' || variant === 'bar') {
-			defaultClass += ' w-full flex justify-center';
-		}
-		if (variant === 'bar') {
-			defaultClass += ' focus:z-10 relative';
-		} else {
-			defaultClass += ' border-b-2';
-		}
-		defaultClass += ' text-primary border-primary';
-	} else {
-		defaultClass =
-			'group border-transparent group inline-flex items-center py-4 px-1 font-medium text-sm';
-		if (variant === 'full-width' || variant === 'bar') {
-			defaultClass += ' w-full flex justify-center';
-		}
-		if (variant === 'bar') {
-			defaultClass += ' focus:z-10 relative';
-		} else {
-			defaultClass += ' border-b-2';
-		}
-		defaultClass +=
-			' dark:hover:border-dark-border-base hover:border-light-border-base dark:hover:text-dark-content hover:text-light-content dark:text-dark-secondary-content text-light-secondary-content';
-	}
+	const baseActiveClass =
+		'group border-transparent group inline-flex items-center py-4 px-1 font-medium text-sm text-primary border-primary';
+	const baseClass =
+		'group border-transparent group inline-flex items-center py-4 px-1 font-medium text-sm dark:hover:border-dark-border-base hover:border-light-border-base dark:hover:text-dark-content hover:text-light-content dark:text-dark-secondary-content text-light-secondary-content';
 
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const fullWidthClass = 'w-full flex justify-center';
+	const barClass = 'focus:z-10 relative';
+	const defaultClass = 'border-b-2';
+
+	$: finalClass = twMerge(
+		key === $currentTab ? baseActiveClass : baseClass,
+		variant === 'full-width' || variant === 'bar' ? fullWidthClass : false,
+		variant === 'bar' ? barClass : false,
+		variant === 'default' || variant === 'full-width' ? defaultClass : false,
+
+		$$props.class
+	);
+
+	setContext('tab-key', key);
 </script>
 
 <a

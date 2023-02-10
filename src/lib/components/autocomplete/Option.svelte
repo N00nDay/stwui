@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { getContext } from 'svelte';
-	import { twMerge } from 'tailwind-merge';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { check } from '../../icons';
 	import Icon from '../icon';
@@ -10,6 +9,7 @@
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	import type { Writable } from 'svelte/store';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let option: string;

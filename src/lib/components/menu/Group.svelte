@@ -18,8 +18,6 @@
 	let active = false;
 	let collapsable: HTMLDivElement;
 
-	setContext('menu-group-key', key);
-
 	const menuCollapse: Writable<boolean> = getContext('menu-collapse');
 	const activeItem: Writable<string> = getContext('menu-active-item');
 
@@ -62,8 +60,10 @@
 		}
 	}
 
-	let defaultClass = 'transition-all duration-300';
+	const defaultClass = 'transition-all duration-300';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+
+	setContext('menu-group-key', key);
 </script>
 
 <div
@@ -125,8 +125,8 @@
 				class="space-y-1 pt-1"
 				class:p-1={$menuCollapse}
 				class:border={$menuCollapse}
-				class:border-light-border={$menuCollapse}
-				class:dark:border-dark-border={$menuCollapse}
+				class:border-light-border-base={$menuCollapse}
+				class:dark:border-dark-border-base={$menuCollapse}
 				class:shadow-md={$menuCollapse}
 				class:dark:shadow-black={$menuCollapse}
 				class:bg-light-surface={$menuCollapse}

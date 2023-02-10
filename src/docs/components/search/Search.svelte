@@ -53,7 +53,6 @@
 	}
 
 	let os = 'Unknown';
-	// let open = false;
 
 	function captureEscapeEvent(e: KeyboardEvent) {
 		if (os === 'MacOS') {
@@ -67,39 +66,12 @@
 		}
 	}
 
-	// onMount(() => {
-	// 	if (navigator.appVersion.indexOf('Win') != -1) os = 'Windows';
-	// 	if (navigator.appVersion.indexOf('Mac') != -1) os = 'MacOS';
-	// 	if (navigator.appVersion.indexOf('X11') != -1) os = 'UNIX';
-	// 	if (navigator.appVersion.indexOf('Linux') != -1) os = 'Linux';
-	// });
-
 	$: if (open && browser && input) {
 		input.focus();
 	}
 </script>
 
 <svelte:window on:keydown={captureEscapeEvent} />
-
-<!-- <Button
-	ariaLabel="open search"
-	on:click={handleOpen}
-	class="border-light-border dark:border-dark-border border ml-4 shadow-md dark:shadow-black hidden md:flex !py-1.5"
->
-	<Button.Icon slot="leading" data={magnify} />
-	<div class="w-12 md:w-32 text-left py-px">Search</div>
-	<div class="hidden sm:flex w-24 justify-end">
-		{#if os !== 'Unknown'}
-			<div transition:scale class="items-center justify-end hidden sm:flex">
-				<Kbd>
-					{#if os === 'MacOS'}⌘{:else}CTRL{/if}
-				</Kbd>
-				+
-				<Kbd>k</Kbd>
-			</div>
-		{/if}
-	</div>
-</Button> -->
 
 <Button
 	ariaLabel="open search"

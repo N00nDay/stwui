@@ -32,7 +32,7 @@
 			{name}
 			{readonly}
 			id={name}
-			class="block w-full outline-none focus:outline-none shadow-sm dark:shadow-black sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface light-border dark:dark-border"
+			class="block w-full outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface"
 			class:border-red-400={error}
 			class:text-danger={error}
 			class:dark:text-danger={error}
@@ -40,8 +40,8 @@
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
 			class:dark:focus:border-primary={!error}
-			class:light-border={!error}
-			class:dark:dark-border={!error}
+			class:border-light-border-base={!error}
+			class:dark:border-dark-border-base={!error}
 			{placeholder}
 			bind:value
 		/>

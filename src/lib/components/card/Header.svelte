@@ -1,23 +1,26 @@
 <script lang="ts">
-	import { twMerge } from 'tailwind-merge';
 	import { getContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const divided: boolean = getContext('card-divided');
 
-	let defaultClass = 'first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 h-16';
-	if ($$props.extras) {
-		defaultClass += ' flex flex-row items-center justify-between';
-	}
-	if (divided) {
-		defaultClass += ' border-b light-border dark:dark-border last:border-b-none';
-	}
+	const defaultClass = 'first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 h-16';
+	const extrasClass = 'flex flex-row items-center justify-between';
+	const dividedClass =
+		'border-b border-light-border-base dark:border-dark-border-base last:border-b-none';
+	$: finalClass = twMerge(
+		defaultClass,
 
-	$: finalClass = twMerge(defaultClass, $$props.class);
+		$$props.extras ? extrasClass : false,
+		divided ? dividedClass : false,
+
+		$$props.class
+	);
 </script>
 
 <div

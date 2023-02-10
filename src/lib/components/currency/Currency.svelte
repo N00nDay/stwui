@@ -19,9 +19,6 @@
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
 
-	setContext('currency-name', name);
-	setContext('currency-error', currentError);
-
 	function onlyNumeric(e: KeyboardEvent) {
 		if (!e.key.match(/^[0-9]+$/)) e.preventDefault();
 	}
@@ -44,14 +41,14 @@
 		input.value = '';
 		value = undefined;
 	}
+
+	setContext('currency-name', name);
+	setContext('currency-error', currentError);
 </script>
 
 <div class={$$props.class} style={$$props.style}>
 	<slot name="label" />
-	<div
-		class="mt-1 relative rounded-md shadow-sm dark:shadow-black h-[2.5rem]"
-		class:text-danger={error}
-	>
+	<div class="mt-1 relative rounded-md h-[2.5rem]" class:text-danger={error}>
 		<input
 			bind:this={input}
 			type="number"
@@ -70,8 +67,8 @@
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
 			class:dark:focus:border-primary={!error}
-			class:light-border={!error}
-			class:dark:dark-border={!error}
+			class:border-light-border-base={!error}
+			class:dark:border-dark-border-base={!error}
 			class:pl-10={$$slots.leading}
 			class:pr-10={$$slots.trailing || error || allowClear}
 			class:bg-gray-100={disabled}

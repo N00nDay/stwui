@@ -9,22 +9,27 @@
 
 	const type: 'info' | 'success' | 'warn' | 'error' | undefined = getContext('badge-type');
 
-	let defaultClass =
+	const defaultClass =
 		'ml-1.5 flex-shrink-0 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:focus:text-white hover:text-white dark:hover:text-white';
-	if (type === 'info') {
-		defaultClass +=
-			' hover:bg-info-background dark:hover:bg-dark-info-background text-info-content dark:text-dark-info-content';
-	} else if (type === 'success') {
-		defaultClass +=
-			' hover:bg-success-background dark:hover:bg-dark-success-background text-success-content dark:text-dark-success-content';
-	} else if (type === 'warn') {
-		defaultClass +=
-			' hover:bg-warn-background dark:hover:bg-dark-warn-background text-warn-content dark:text-dark-warn-content';
-	} else if (type === 'error') {
-		defaultClass +=
-			' hover:bg-error-background dark:hover:bg-dark-error-background text-error-content dark:text-dark-error-content';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const infoClass =
+		'hover:bg-info-background dark:hover:bg-dark-info-background text-info-content dark:text-dark-info-content';
+	const successClass =
+		'hover:bg-success-background dark:hover:bg-dark-success-background text-success-content dark:text-dark-success-content';
+	const warnClass =
+		'hover:bg-warn-background dark:hover:bg-dark-warn-background text-warn-content dark:text-dark-warn-content';
+	const errorClass =
+		'hover:bg-error-background dark:hover:bg-dark-error-background text-error-content dark:text-dark-error-content';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		type === 'info' ? infoClass : false,
+		type === 'success' ? successClass : false,
+		type === 'warn' ? warnClass : false,
+		type === 'error' ? errorClass : false,
+
+		$$props.class
+	);
 </script>
 
 <button

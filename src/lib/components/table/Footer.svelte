@@ -12,7 +12,7 @@
 	footer.set(true);
 
 	const defaultClass =
-		'flex-shrink shadow-negative-md dark:shadow-black sticky bottom-0 bg-light-surface dark:bg-dark-surface border-light-border border-t text-sm';
+		'flex-shrink shadow-negative-md dark:shadow-black sticky bottom-0 bg-light-surface dark:bg-dark-surface border-light-border-base dark:border-dark-border-base border-t text-sm';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

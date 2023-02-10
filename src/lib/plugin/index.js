@@ -413,7 +413,8 @@ module.exports = plugin(
 					'light-icon-background': '#E4E6EB',
 					'light-icon-background-hover': 'rgba(0, 0, 0, 0.05)',
 					'light-border': 'rgba(25,25,25,0.05)',
-					'light-border-base': 'rgba(25,25,25,0.1)',
+					// 'light-border-base': '#d1d5db',
+					'light-border-base': 'rgba(25,25,25,0.15)',
 					'light-hover': 'rgba(0, 0, 0, 0.05)',
 
 					'dark-surface': '#242526',
@@ -424,7 +425,8 @@ module.exports = plugin(
 					'dark-icon-background': '#404040',
 					'dark-icon-background-hover': 'rgba(255, 255, 255, 0.1)',
 					'dark-border': 'rgba(89,90,92,0.35)',
-					'dark-border-base': 'rgba(89,90,92,0.4)',
+					// 'dark-border-base': 'rgba(89,90,92,0.4)',
+					'dark-border-base': 'rgba(89,90,92,0.7)',
 					'dark-hover': 'rgba(255, 255, 255, 0.1)',
 
 					'info-content': '#1d4ed8',

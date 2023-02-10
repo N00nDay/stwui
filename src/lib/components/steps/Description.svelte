@@ -13,26 +13,21 @@
 		getContext('steps-variant');
 	const step: number = getContext('steps-step');
 
-	let defaultClass = '';
-	$: if (variant === 'circles-text') {
-		if ($currentStep > step) {
-			defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
-		} else if ($currentStep === step) {
-			defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
-		} else {
-			defaultClass = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
-		}
-	} else if (variant === 'simple') {
-		if ($currentStep > step) {
-			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
-		} else if ($currentStep === step) {
-			defaultClass = 'text-sm font-medium text-light-content dark:text-dark-content';
-		} else {
-			defaultClass =
-				'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
-		}
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const circleStep = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
+	const simpleStep = 'text-sm font-medium text-light-content dark:text-dark-content';
+	const simplePreviousStep =
+		'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
+
+	$: finalClass = twMerge(
+		variant === 'circles-text' ? circleStep : false,
+		variant === 'simple' && $currentStep < step
+			? simplePreviousStep
+			: variant === 'simple'
+			? simpleStep
+			: false,
+
+		$$props.class
+	);
 </script>
 
 {#if variant === 'simple'}

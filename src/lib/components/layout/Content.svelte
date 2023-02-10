@@ -20,12 +20,12 @@
 	$: cWidth.set(collapsedWidth);
 	$: eWidth.set(expandedWidth);
 
+	const defaultClass = 'flex flex-row w-full h-full items-start justify-start';
+	$: finalClass = twMerge(defaultClass, $$props.class);
+
 	setContext('layout-collapsed', sidebarCollapsed);
 	setContext('collapsedWidth', cWidth);
 	setContext('expandedWidth', eWidth);
-
-	const defaultClass = 'flex flex-row w-full h-full items-start justify-start';
-	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div

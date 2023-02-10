@@ -16,25 +16,27 @@
 	let failed = false;
 	let loading = true;
 
+	const defaultClass = 'inline-block absolute h-10 w-10';
+	const containerDefaultClass = 'inline-block relative align-middle h-10 w-10';
+
+	$: finalClass = twMerge(
+		src ? defaultClass : false,
+
+		shape === 'circle' ? 'rounded-full' : false,
+		shape === 'rounded' ? 'rounded-md' : false,
+
+		$$props.class
+	);
+	$: finalContainerClass = twMerge(
+		src ? containerDefaultClass : false,
+
+		shape === 'circle' ? 'rounded-full' : false,
+		shape === 'rounded' ? 'rounded-md' : false,
+
+		$$props.class
+	);
+
 	setContext('post-avatar-shape', shape);
-
-	let defaultClass = '';
-	let containerDefaultClass = '';
-	if (src) {
-		defaultClass = 'inline-block absolute h-10 w-10';
-		containerDefaultClass = 'inline-block relative align-middle h-10 w-10';
-	}
-
-	if (shape === 'circle') {
-		defaultClass += ' rounded-full';
-		containerDefaultClass += ' rounded-full';
-	} else if (shape === 'rounded') {
-		defaultClass += ' rounded-md';
-		containerDefaultClass += ' rounded-md';
-	}
-
-	$: finalClass = twMerge(defaultClass, $$props.class);
-	$: finalContainerClass = twMerge(containerDefaultClass, $$props.class);
 
 	onMount(() => {
 		if (src) {

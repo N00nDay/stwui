@@ -1,5 +1,14 @@
 import type { Slot, Prop } from '../../docs';
 
+export const props: Prop[] = [
+	{
+		id: '1',
+		prop: 'bordered',
+		type: 'boolean',
+		default: 'false'
+	}
+];
+
 export const slots: Slot[] = [
 	{
 		id: '1',

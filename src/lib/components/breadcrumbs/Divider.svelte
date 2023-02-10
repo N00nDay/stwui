@@ -9,13 +9,17 @@
 
 	const type: 'solid' | 'ghost' = getContext('breadcrumbs-type');
 
-	let defaultClass = '';
-	if (type === 'ghost') {
-		defaultClass = 'divider flex-shrink-0 h-5 w-5 opacity-30';
-	} else {
-		defaultClass = 'divider flex-shrink-0 w-6 h-full opacity-30';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const ghostClass =
+		'divider flex-shrink-0 h-5 w-5 fill-light-border-base dark:fill-dark-border-base';
+	const solidClass =
+		'divider flex-shrink-0 w-6 h-full fill-light-border-base dark:fill-dark-border-base';
+
+	$: finalClass = twMerge(
+		type === 'ghost' ? ghostClass : false,
+		type === 'solid' ? solidClass : false,
+
+		$$props.class
+	);
 </script>
 
 {#if type === 'ghost'}

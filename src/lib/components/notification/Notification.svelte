@@ -25,13 +25,13 @@
 	let leading = writable(false);
 	let extra = writable(false);
 
+	const defaultClass =
+		'relative cursor-pointer flex items-start pointer-events-auto p-4 w-full max-w-sm overflow-hidden rounded-lg bg-light-surface dark:bg-dark-surface shadow-lg border border-light-border-base dark:border-dark-border-base dark:shadow-black';
+	$: finalClass = twMerge(defaultClass, $$props.class);
+
 	setContext('notification-leading', leading);
 	setContext('notification-extra', extra);
 	setContext('notification-type', type);
-
-	const defaultClass =
-		'relative cursor-pointer flex items-start pointer-events-auto p-4 w-full max-w-sm overflow-hidden rounded-lg bg-light-surface dark:bg-dark-surface shadow-lg border light-border dark:dark-border dark:shadow-black';
-	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div

@@ -18,16 +18,18 @@
 	let activeItem = writable(active);
 	$: activeItem.set(active);
 
+	const defaultClass = 'space-y-1 transition-all duration-300';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		$menuCollapse ? collapsedWidth : 'w-full',
+
+		$$props.class
+	);
+
 	setContext('menu-collapse', menuCollapse);
 	setContext('menu-active-item', activeItem);
-
-	let defaultClass = 'space-y-1 transition-all duration-300';
-	$: if ($menuCollapse) {
-		defaultClass = defaultClass + ' ' + collapsedWidth;
-	} else {
-		defaultClass = defaultClass + ' w-full';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <nav

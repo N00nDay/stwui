@@ -1,23 +1,26 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	import type { Writable } from 'svelte/store';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const name: string = getContext('input-number-name');
 	const error: Writable<string> = getContext('input-number-error');
 
-	let defaultClass = 'block text-sm font-medium';
-	if ($error) {
-		defaultClass = defaultClass + ' text-danger';
-	} else {
-		defaultClass = defaultClass + ' text-light-secondary-content dark:text-dark-secondary-content';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const defaultClass =
+		'block text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
+	const errorClass = 'text-danger dark:text-danger';
+	$: finalClass = twMerge(
+		defaultClass,
+
+		$error && $error.length > 0 ? errorClass : false,
+
+		$$props.class
+	);
 </script>
 
 <label

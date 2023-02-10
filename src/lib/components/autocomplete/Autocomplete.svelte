@@ -81,7 +81,7 @@
 			aria-label="Autocomplete Toggle"
 			type="button"
 			on:click|stopPropagation|preventDefault={handleOpen}
-			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface shadow-sm dark:shadow-black"
+			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface"
 			class:text-danger={error}
 		>
 			<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
@@ -96,7 +96,7 @@
 				autocomplete="off"
 				role="presentation"
 				aria-controls="options"
-				class="bg-light-surface dark:bg-dark-surface w-full h-[2.5rem] pl-3 pr-10 py-2 shadow-sm dark:shadow-black border rounded-md outline-none"
+				class="bg-light-surface dark:bg-dark-surface w-full h-[2.5rem] pl-3 pr-10 py-2 border rounded-md outline-none"
 				class:border-red-400={error}
 				class:text-danger={error}
 				class:dark:text-danger={error}
@@ -104,8 +104,8 @@
 				class:focus:border-red-500={error}
 				class:focus:border-primary={!error}
 				class:dark:focus:border-primary={!error}
-				class:light-border={!error}
-				class:dark:dark-border={!error}
+				class:border-light-border-base={!error}
+				class:dark:border-dark-border-base={!error}
 				class:pl-10={$$slots.leading}
 			/>
 

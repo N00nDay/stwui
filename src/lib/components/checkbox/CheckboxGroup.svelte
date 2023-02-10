@@ -4,10 +4,10 @@
 
 	export let inline = false;
 
-	setContext('checkbox-inline', inline);
-
 	const defaultClass = 'space-y-5 mt-2';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+
+	setContext('checkbox-inline', inline);
 </script>
 
 <div>

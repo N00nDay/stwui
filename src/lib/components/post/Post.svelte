@@ -6,9 +6,19 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
+	export let bordered = false;
+
 	const defaultClass =
-		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md border border-light-border dark:border-dark-border shadow-md dark:shadow-black';
-	$: finalClass = twMerge(defaultClass, $$props.class);
+		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md shadow-md dark:shadow-black';
+	const borderClass = 'border border-light-border-base dark:border-dark-border-base';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		bordered ? borderClass : false,
+
+		$$props.class
+	);
 </script>
 
 <div

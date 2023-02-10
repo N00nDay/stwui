@@ -61,9 +61,6 @@
 		flyConfig = { y: 448 };
 	}
 
-	setContext('drawer-handleClose', onClose);
-	setContext('drawer-disableOverlayClose', disableOverlayClose);
-
 	function shiftDrawers() {
 		const dialogs = document.querySelectorAll(
 			`[data-placement=${placement}]`
@@ -93,6 +90,9 @@
 	const defaultClass =
 		'flex inner-panel flex-col bg-light-surface dark:bg-dark-surface overflow-hidden';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+
+	setContext('drawer-handleClose', onClose);
+	setContext('drawer-disableOverlayClose', disableOverlayClose);
 
 	onMount(() => {
 		shiftDrawers();

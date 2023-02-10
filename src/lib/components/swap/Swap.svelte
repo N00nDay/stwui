@@ -10,13 +10,18 @@
 	export let loading: false | true | undefined = undefined;
 	export let swapped: false | true | undefined = undefined;
 
-	let defaultClass = 'swap relative inset-0';
-	if (type === 'rotate') {
-		defaultClass = defaultClass + ' swap-rotate';
-	} else if (type === 'flip') {
-		defaultClass = defaultClass + ' swap-flip';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const defaultClass = 'swap relative inset-0';
+	const rotateClass = 'swap-rotate';
+	const flipClass = 'swap-flip';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		type === 'rotate' ? rotateClass : false,
+		type === 'flip' ? flipClass : false,
+
+		$$props.class
+	);
 </script>
 
 <div

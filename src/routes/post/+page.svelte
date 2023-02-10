@@ -9,6 +9,7 @@
 		example4,
 		example5,
 		example6,
+		props,
 		slots,
 		headerSlots,
 		avatarProps,
@@ -446,6 +447,10 @@
 
 		<CodeBlock language="svelte" code={example6} />
 	</Card>
+</Col>
+
+<Col class="col-24">
+	<PropsTable component="Post" {props} />
 </Col>
 
 <Col class="col-24">

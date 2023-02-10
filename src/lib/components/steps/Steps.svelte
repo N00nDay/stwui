@@ -9,20 +9,23 @@
 	let acitveStep = writable(currentStep);
 	$: $acitveStep = currentStep;
 
+	const bulletsClass = 'flex items-center justify-center';
+
+	const bulletsTextClass = 'py-12 px-4 sm:px-6 lg:px-8';
+	const circlesTextClass = 'overflow-hidden';
+	const simpleClass = 'space-y-4 md:flex md:space-y-0 md:space-x-8';
+
+	$: finalClass = twMerge(
+		variant === 'bullets' ? bulletsClass : false,
+		variant === 'bullets-text' ? bulletsTextClass : false,
+		variant === 'circles-text' ? circlesTextClass : false,
+		variant === 'simple' ? simpleClass : false,
+
+		$$props.class
+	);
+
 	setContext('steps-variant', variant);
 	setContext('steps-currentStep', acitveStep);
-
-	let defaultClass = '';
-	$: if (variant === 'bullets') {
-		defaultClass = 'flex items-center justify-center';
-	} else if (variant === 'bullets-text') {
-		defaultClass = 'py-12 px-4 sm:px-6 lg:px-8';
-	} else if (variant === 'circles-text') {
-		defaultClass = 'overflow-hidden';
-	} else if (variant === 'simple') {
-		defaultClass = 'space-y-4 md:flex md:space-y-0 md:space-x-8';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 {#if variant === 'simple'}

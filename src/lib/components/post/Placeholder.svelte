@@ -14,20 +14,23 @@
 
 	const shape: 'circle' | 'rounded' | 'square' = getContext('post-avatar-shape');
 
-	let iconContainerClass =
+	const iconContainerClass =
 		'absolute text-light-icon dark:text-dark-icon h-full w-full bottom-[-0.5rem]';
 
-	let defaultClass =
+	const defaultClass =
 		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';
-	if (shape === 'circle') {
-		defaultClass += ' rounded-full';
-	} else if (shape === 'rounded') {
-		defaultClass += ' rounded-md';
-	}
-	if (loading) {
-		defaultClass += ' loading';
-	}
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	const circleClass = 'rounded-full';
+	const roundedClass = 'rounded-md';
+
+	$: finalClass = twMerge(
+		defaultClass,
+
+		shape === 'circle' ? circleClass : false,
+		shape === 'rounded' ? roundedClass : false,
+		loading ? 'loading' : false,
+
+		$$props.class
+	);
 </script>
 
 <div

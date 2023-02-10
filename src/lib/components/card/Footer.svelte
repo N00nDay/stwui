@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { twMerge } from 'tailwind-merge';
 	import { getContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const divided: boolean = getContext('card-divided');
@@ -17,8 +17,8 @@
 <div
 	class={finalClass}
 	class:border-t={divided}
-	class:light-border={divided}
-	class:dark:dark-border={divided}
+	class:border-light-border-base={divided}
+	class:dark:border-dark-border-base={divided}
 	class:last:border-t-none={divided}
 	use:useActions={use}
 	use:forwardEvents
