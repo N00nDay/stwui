@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.0.36-next](https://github.com/N00nDay/stwui/compare/v0.0.35-next...v0.0.36-next) (2023-02-11)
+
+
+### Bug Fixes
+
+* **Card:** softened border ([c070c42](https://github.com/N00nDay/stwui/commit/c070c4263988bafcaf8360f50f7f0baf17967d93))
+* **Dropdown:** softened border ([c070c42](https://github.com/N00nDay/stwui/commit/c070c4263988bafcaf8360f50f7f0baf17967d93))
+* **InputNumber:** removed shadow ([c070c42](https://github.com/N00nDay/stwui/commit/c070c4263988bafcaf8360f50f7f0baf17967d93))
+* **List:** softened border and item divider ([c070c42](https://github.com/N00nDay/stwui/commit/c070c4263988bafcaf8360f50f7f0baf17967d93))
+* **Notifications:** softened border ([c070c42](https://github.com/N00nDay/stwui/commit/c070c4263988bafcaf8360f50f7f0baf17967d93))
+* **Pagination:** softened border and item divider ([c070c42](https://github.com/N00nDay/stwui/commit/c070c4263988bafcaf8360f50f7f0baf17967d93))
+* **Table:** softened border and item divider ([c070c42](https://github.com/N00nDay/stwui/commit/c070c4263988bafcaf8360f50f7f0baf17967d93))
+* **Toggle:** softened border ([c070c42](https://github.com/N00nDay/stwui/commit/c070c4263988bafcaf8360f50f7f0baf17967d93))
+* **tw plugin:** removed unused and duplicate styles ([c070c42](https://github.com/N00nDay/stwui/commit/c070c4263988bafcaf8360f50f7f0baf17967d93))
+
 ## [0.0.35-next](https://github.com/N00nDay/stwui/compare/v0.0.34-next...v0.0.35-next) (2023-02-08)
 
 
