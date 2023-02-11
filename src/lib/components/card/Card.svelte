@@ -24,7 +24,7 @@
 	class:hoverable
 	class:border={bordered}
 	class:border-light-border-base={bordered}
-	class:dark:border-dark-border-base={bordered}
+	class:dark:border-dark-border={bordered}
 	class:shadow-none={elevation === 'none'}
 	class:shadow-sm={elevation === 'sm'}
 	class:shadow-md={elevation === 'md'}

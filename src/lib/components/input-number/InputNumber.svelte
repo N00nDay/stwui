@@ -28,10 +28,7 @@
 
 <div class={$$props.class}>
 	<slot name="label" />
-	<div
-		class="mt-1 relative rounded-md shadow-sm dark:shadow-black h-[2.5rem]"
-		class:text-danger={error}
-	>
+	<div class="mt-1 relative rounded-md h-[2.5rem]" class:text-danger={error}>
 		<input
 			type="number"
 			inputmode="numeric"

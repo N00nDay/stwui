@@ -32,7 +32,7 @@
 <div class="flex items-center">
 	<slot name="content-left" />
 	<div
-		class="border light-border-base dark:dark-border-base relative inline-flex flex-shrink-0 h-[1.6rem] rounded-full cursor-pointer outline-none focus:outline-none {width}"
+		class="border border-light-border-base dark:border-dark-border relative inline-flex flex-shrink-0 h-[1.6rem] rounded-full cursor-pointer outline-none focus:outline-none {width}"
 	>
 		<button
 			aria-label="toggle"
@@ -45,7 +45,7 @@
 		>
 			<span
 				aria-hidden="true"
-				class="relative z-10 inline-block bg-light-surface dark:bg-dark-surface h-5 w-5 rounded-full shadow transform transition-transform ease-in-out duration-150 border light-border-base dark:dark-border-base {translate}"
+				class="relative z-10 inline-block bg-light-surface dark:bg-dark-surface h-5 w-5 rounded-full shadow transform transition-transform ease-in-out duration-150 border border-light-border-base dark:border-dark-border-base {translate}"
 			/>
 			<input type="checkbox" class="hidden" {name} id={name} checked={on} />
 			{#if $$slots['left-icon']}

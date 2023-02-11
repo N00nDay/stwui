@@ -10,7 +10,7 @@
 	export let placement: 'left' | 'right' = 'left';
 
 	const defaultClass =
-		'origin-top-right absolute z-10 border border-light-border-base dark:border-dark-border-base mt-2 w-56 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface';
+		'origin-top-right absolute z-10 border border-light-border-base dark:border-dark-border mt-2 w-56 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface';
 	$: finalClass = twMerge(
 		defaultClass,
 

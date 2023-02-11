@@ -42,7 +42,7 @@
 			type="button"
 			on:click={onPreviousClick}
 			disabled={currentPage === 1}
-			class="relative group shadow-sm dark:shadow-black overflow-hidden inline-flex items-center rounded-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
+			class="relative group shadow-sm dark:shadow-black overflow-hidden inline-flex items-center rounded-md border border-light-border-base dark:border-dark-border bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
 			class:pointer-events-none={currentPage === 1}
 			>Previous
 			<HoverBackground />
@@ -51,7 +51,7 @@
 			type="button"
 			on:click={onNextClick}
 			disabled={end === total}
-			class="relative group shadow-sm dark:shadow-black overflow-hidden inline-flex items-center rounded-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
+			class="relative group shadow-sm dark:shadow-black overflow-hidden inline-flex items-center rounded-md border border-light-border-base dark:border-dark-border bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
 			class:pointer-events-none={end === total}
 			>Next
 			<HoverBackground /></button
@@ -75,7 +75,7 @@
 					type="button"
 					on:click={onPreviousClick}
 					disabled={currentPage === 1}
-					class="relative overflow-hidden group inline-flex items-center rounded-l-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20"
+					class="relative overflow-hidden group inline-flex items-center rounded-l-md border border-light-border-base dark:border-dark-border bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20"
 					class:pointer-events-none={currentPage === 1}
 				>
 					<Icon data={chevron_left} />
@@ -85,7 +85,7 @@
 				{#each pagination as pageNumber}
 					{#if typeof pageNumber === 'string'}
 						<span
-							class="relative inline-flex items-center border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
+							class="relative inline-flex items-center border border-light-border-base dark:border-dark-border bg-light-surface dark:bg-dark-surface px-4 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content"
 						>
 							...
 						</span>
@@ -103,7 +103,7 @@
 							class:text-light-secondary-content={pageNumber !== currentPage}
 							class:dark:text-dark-secondary-content={pageNumber !== currentPage}
 							class:border-light-border-base={pageNumber !== currentPage}
-							class:dark:border-dark-border-base={pageNumber !== currentPage}
+							class:dark:border-dark-border={pageNumber !== currentPage}
 						>
 							{pageNumber}
 							<HoverBackground />
@@ -114,7 +114,7 @@
 					type="button"
 					on:click={onNextClick}
 					disabled={end === total}
-					class="relative group overflow-hidden inline-flex items-center rounded-r-md border border-light-border-base dark:border-dark-border-base bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20"
+					class="relative group overflow-hidden inline-flex items-center rounded-r-md border border-light-border-base dark:border-dark-border bg-light-surface dark:bg-dark-surface px-2 py-2 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content focus:z-20"
 					class:pointer-events-none={end === total}
 				>
 					<Icon data={chevron_right} />

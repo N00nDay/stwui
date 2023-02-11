@@ -228,18 +228,6 @@ module.exports = plugin(
 			"[type='radio']:checked:focus": {
 				'border-color': '#2563eb'
 			},
-			'.light-border': {
-				'border-color': 'rgba(25,25,25,0.05)'
-			},
-			'.dark-border': {
-				'border-color': 'rgba(89,90,92,0.35)'
-			},
-			'.light-border-base': {
-				'border-color': 'rgba(25,25,25,0.1)'
-			},
-			'.dark-border-base': {
-				'border-color': 'rgba(89,90,92,0.4)'
-			},
 			"input[type='range']": {
 				'-webkit-appearance': 'none',
 				position: 'relative',
@@ -425,7 +413,6 @@ module.exports = plugin(
 					'dark-icon-background': '#404040',
 					'dark-icon-background-hover': 'rgba(255, 255, 255, 0.1)',
 					'dark-border': 'rgba(89,90,92,0.35)',
-					// 'dark-border-base': 'rgba(89,90,92,0.4)',
 					'dark-border-base': 'rgba(89,90,92,0.7)',
 					'dark-hover': 'rgba(255, 255, 255, 0.1)',
 

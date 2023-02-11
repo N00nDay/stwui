@@ -26,7 +26,7 @@
 	let extra = writable(false);
 
 	const defaultClass =
-		'relative cursor-pointer flex items-start pointer-events-auto p-4 w-full max-w-sm overflow-hidden rounded-lg bg-light-surface dark:bg-dark-surface shadow-lg border border-light-border-base dark:border-dark-border-base dark:shadow-black';
+		'relative cursor-pointer flex items-start pointer-events-auto p-4 w-full max-w-sm overflow-hidden rounded-lg bg-light-surface dark:bg-dark-surface shadow-lg border border-light-border-base dark:border-dark-border dark:shadow-black';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('notification-leading', leading);
