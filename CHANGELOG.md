@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.37-next](https://github.com/N00nDay/stwui/compare/v0.0.36-next...v0.0.37-next) (2023-03-06)
+
+
+### Bug Fixes
+
+* Persist theme and main links now use href ([#86](https://github.com/N00nDay/stwui/issues/86)) ([2f88b91](https://github.com/N00nDay/stwui/commit/2f88b919e3dd02f4f59c0dd6ac8ffcbcbe968d08))
+
 ## [0.0.36-next](https://github.com/N00nDay/stwui/compare/v0.0.35-next...v0.0.36-next) (2023-02-11)
 
 
