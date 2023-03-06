@@ -26,8 +26,20 @@ export const itemsProps: Prop[] = [
 	{
 		id: '1',
 		prop: 'placement',
-		type: "'left' | 'right'",
-		default: 'left'
+		type: "'top' | 'bottom' | 'left' | 'right'",
+		default: 'bottom'
+	},
+	{
+		id: '2',
+		prop: 'alignment',
+		type: "'start' | 'center' | 'end'",
+		default: 'start'
+	},
+	{
+		id: '3',
+		prop: 'offset',
+		type: 'number',
+		default: '2'
 	}
 ];
 
@@ -130,7 +142,7 @@ export const example = `
 
 <Dropdown bind:visible={visible1}>
 	<Button slot="trigger" type="primary" on:click={toggleDropdown1}>Toggle Dropdown</Button>
-	<Dropdown.Items slot="items">
+	<Dropdown.Items slot="items" placement="bottom" alignment="start">
 		<Dropdown.Items.Item on:click={closeDropdown1} label="Item 1">
 			<Dropdown.Items.Item.Icon slot="icon" data={trash} />
 		</Dropdown.Items.Item>

@@ -7,18 +7,53 @@
 	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	export let placement: 'left' | 'right' = 'left';
+	export let placement: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
+	export let alignment: 'start' | 'center' | 'end' = 'start';
+	export let offset: number = 2;
 
 	const defaultClass =
-		'origin-top-right absolute z-10 border border-light-border-base dark:border-dark-border mt-2 w-56 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface';
-	$: finalClass = twMerge(
-		defaultClass,
+		'origin-top-right absolute z-10 border border-light-border-base dark:border-dark-border w-56 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface';
+	let positioning: string;
 
-		placement === 'left' ? 'left-0' : false,
-		placement === 'right' ? 'right-0' : false,
+	if (placement === 'top') {
+		positioning = twMerge(
+			`mb-${offset} `,
+			alignment === 'start'
+				? 'left-0 bottom-full'
+				: alignment === 'center'
+				? 'left-1/2 -translate-x-1/2 bottom-full'
+				: 'right-0 bottom-full'
+		);
+	} else if (placement === 'bottom') {
+		positioning = twMerge(
+			`mt-${offset} `,
+			alignment === 'start'
+				? 'left-0 top-full'
+				: alignment === 'center'
+				? 'left-1/2 -translate-x-1/2 top-full'
+				: 'right-0 top-full'
+		);
+	} else if (placement === 'left') {
+		positioning = twMerge(
+			`mr-${offset}`,
+			alignment === 'start'
+				? 'right-full top-0'
+				: alignment === 'center'
+				? 'right-full -translate-y-1/2 top-1/2'
+				: 'right-full bottom-0'
+		);
+	} else {
+		positioning = twMerge(
+			`ml-${offset}`,
+			alignment === 'start'
+				? 'left-full top-0'
+				: alignment === 'center'
+				? 'left-full -translate-y-1/2 top-1/2'
+				: 'left-full bottom-0'
+		);
+	}
 
-		$$props.class
-	);
+	$: finalClass = twMerge(defaultClass, positioning, $$props.class);
 </script>
 
 <div

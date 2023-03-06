@@ -41,7 +41,7 @@
 			<div class="flex justify-between items-center flex-row">
 				<Dropdown bind:visible={visible1}>
 					<Button slot="trigger" type="primary" on:click={toggleDropdown1}>Toggle Dropdown</Button>
-					<Dropdown.Items slot="items">
+					<Dropdown.Items slot="items" placement="bottom" alignment="start">
 						<Dropdown.Items.Item on:click={closeDropdown1} label="Item 1">
 							<Dropdown.Items.Item.Icon slot="icon" data={trash} />
 						</Dropdown.Items.Item>
@@ -76,7 +76,7 @@
 							alt=""
 						/>
 					</button>
-					<Dropdown.Items slot="items" placement="right">
+					<Dropdown.Items slot="items" placement="bottom" alignment="end">
 						<Dropdown.Items.Item on:click={closeDropdown2} label="Item 1" />
 						<Dropdown.Items.Item on:click={closeDropdown2} label="Item 2" />
 						<Dropdown.Items.Item on:click={closeDropdown2} label="Item 3" />
