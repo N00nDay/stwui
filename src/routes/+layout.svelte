@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import { goto } from '$app/navigation';
-
+	import { theme } from '$lib/stores';
 	import { page } from '$app/stores';
 	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle, Col, Divider } from '../lib';
 	import { browser } from '$app/environment';
@@ -10,7 +9,6 @@
 	import { menu, close } from '../lib/icons';
 
 	let openMenu = false;
-	let darkTheme = false;
 
 	function handleOpenMenu() {
 		openMenu = !openMenu;
@@ -20,12 +18,15 @@
 		openMenu = false;
 	}
 
+	$: darkTheme = $theme === 'dark';
 	$: if (browser && darkTheme) {
 		const htmlElement = document.documentElement;
 		htmlElement.classList.add('dark');
+		theme.set('dark');
 	} else if (browser) {
 		const htmlElement = document.documentElement;
 		htmlElement.classList.remove('dark');
+		theme.set('light');
 	}
 
 	let path = $page.url.pathname;
@@ -44,14 +45,6 @@
 	}
 
 	$: scrollToTop($page.url.pathname);
-
-	function redirectToGithub() {
-		goto('https://github.com/N00nDay/stwui');
-	}
-
-	function redirectToDiscord() {
-		goto('https://discord.gg/YVgwp48Tcm');
-	}
 </script>
 
 <svelte:head>
@@ -112,7 +105,7 @@
 
 				<Button
 					ariaLabel="open discord"
-					on:click={redirectToDiscord}
+					href="https://discord.gg/YVgwp48Tcm"
 					shape="circle"
 					class="ml-2 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
 				>
@@ -132,7 +125,7 @@
 
 				<Button
 					ariaLabel="open github"
-					on:click={redirectToGithub}
+					href="https://github.com/N00nDay/stwui"
 					shape="circle"
 					class="ml-2 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
 				>
