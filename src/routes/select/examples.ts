@@ -21,13 +21,19 @@ export const props: Prop[] = [
 	},
 	{
 		id: '4',
-		prop: 'value',
-		type: 'string | undefined',
-		default: ''
+		prop: 'values',
+		type: 'string[] | undefined',
+		default: '[]'
 	},
 	{
 		id: '5',
 		prop: 'visible',
+		type: 'boolean',
+		default: 'false'
+	},
+	{
+		id: '6',
+		prop: 'multiselect',
 		type: 'boolean',
 		default: 'false'
 	}
