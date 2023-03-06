@@ -9,10 +9,13 @@
 	export let name: string;
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
-	export let value: string | undefined = undefined;
+	export let values: string[] = [];
 	export let visible = false;
+	export let multiselect = false;
 
-	let selectedValue = writable(value);
+	let selectedValues = writable(values);
+	$: displayValue = () => (values.length == 0 ? undefined : values.join(', '));
+
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
 
@@ -27,16 +30,25 @@
 	}
 
 	function handleSelect(option: string) {
-		input.value = option;
-		value = option;
-		$selectedValue = option;
-		toggleVisible();
+		let index = values.indexOf(option);
+		if (multiselect) {
+			values =
+				index !== -1
+					? [...values.slice(0, index), ...values.slice(index + 1)]
+					: [...values, option];
+			values.sort();
+		} else {
+			values = index !== -1 ? [] : [option];
+			toggleVisible();
+		}
+		$selectedValues = values;
 	}
 
 	setContext('select-error', currentError);
 	setContext('select-name', name);
-	setContext('select-value', selectedValue);
+	setContext('select-values', selectedValues);
 	setContext('select-handleSelect', handleSelect);
+	setContext('select-multiselect', multiselect);
 </script>
 
 <div class={$$props.class} style={$$props.style} use:clickOutside={handleClose}>
@@ -61,16 +73,16 @@
 			<span
 				class="block truncate text-light-content dark:text-dark-content"
 				class:pl-1.5={$$slots.leading}
-				class:text-gray-500={placeholder && !value}
-				class:dark:text-gray-500={placeholder && !value}
+				class:text-gray-500={placeholder && values.length === 0}
+				class:dark:text-gray-500={placeholder && values.length === 0}
 			>
-				{value ? value : placeholder ? placeholder : ''}
+				{values.length !== 0 ? displayValue() : placeholder ? placeholder : ''}
 			</span>
 			<input
 				{name}
 				id={name}
 				bind:this={input}
-				bind:value
+				bind:value={values}
 				class="h-0 w-0 hidden invisible"
 				readonly
 				autocomplete="off"

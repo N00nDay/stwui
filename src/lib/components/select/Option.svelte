@@ -14,7 +14,7 @@
 
 	export let option: string;
 
-	const value: Writable<string> = getContext('select-value');
+	const values: Writable<string[]> = getContext('select-values');
 	const handleSelect: (option: string) => void = getContext('select-handleSelect');
 
 	const defaultClass =
@@ -25,18 +25,18 @@
 <li
 	class={finalClass}
 	role="option"
-	aria-selected={option === $value}
+	aria-selected={$values.includes(option)}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
 	<button aria-label="select option" on:click={() => handleSelect(option)} class="w-full text-left">
 		<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
-			<span class="font-normal block truncate" class:font-semibold={option === $value}>
+			<span class="font-normal block truncate" class:font-semibold={$values.includes(option)}>
 				{option}
 			</span>
 
-			{#if option === $value}
+			{#if $values.includes(option)}
 				<span
 					transition:scale|local
 					class="text-primary absolute inset-y-0 right-0 flex items-center pr-1.5"

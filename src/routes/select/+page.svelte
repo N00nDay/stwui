@@ -14,9 +14,9 @@
 
 	const options = ['Option 1', 'Option 2', 'Option 3'];
 
-	let value: string | undefined;
+	let values: string[] | undefined;
 	let error: string | undefined = "You're doing it wrong!";
-	$: if (value && value.length > 0) {
+	$: if (values && values.length > 0) {
 		error = undefined;
 	} else {
 		error = "You're doing it wrong!";
@@ -26,7 +26,7 @@
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
 		<Card.Content slot="content" class="p-4">
-			<Select name="select-1" placeholder="Basic">
+			<Select name="select-1" placeholder="Basic" multiselect>
 				<Select.Options slot="options">
 					{#each options as option}
 						<Select.Options.Option {option} />
@@ -44,7 +44,7 @@
 				</Select.Options>
 			</Select>
 			<br />
-			<Select name="select-3" {error} bind:value>
+			<Select name="select-3" {error} bind:values>
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Leading slot="leading" data={email} />
 				<Select.Options slot="options">
