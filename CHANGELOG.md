@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0-next](https://github.com/N00nDay/stwui/compare/v0.0.37-next...v0.1.0-next) (2023-03-06)
+
+
+### Features
+
+* **Dropdown:** Add placement and alignment props ([#87](https://github.com/N00nDay/stwui/issues/87)) ([7cda426](https://github.com/N00nDay/stwui/commit/7cda42636b2fabec1415b1cca4cf2915e79befe9))
+
 ## [0.0.37-next](https://github.com/N00nDay/stwui/compare/v0.0.36-next...v0.0.37-next) (2023-03-06)
 
 
