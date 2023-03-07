@@ -116,3 +116,10 @@ type TwSizes =
 	| '80'
 	| '96';
 `;
+
+export const selectOption = `
+interface SelectOption {
+	[key: string]: any;
+	value: string;
+}
+`;
