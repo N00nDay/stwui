@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0-next](https://github.com/N00nDay/stwui/compare/v0.1.0-next...v0.2.0-next) (2023-03-07)
+
+
+### Features
+
+* **Select:** added multi select ability ([314f30e](https://github.com/N00nDay/stwui/commit/314f30e59df8ffc20942d499c6ca0e1682a5fbb2))
+
 ## [0.1.0-next](https://github.com/N00nDay/stwui/compare/v0.0.37-next...v0.1.0-next) (2023-03-06)
 
 
