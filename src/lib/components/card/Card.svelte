@@ -50,7 +50,7 @@
 
 	.hoverable:hover {
 		@apply shadow-lg;
-		@apply bg-gray-100;
+		@apply dark:bg-light-icon-background-hover bg-dark-icon-background-hover;
 	}
 
 	.hoverable:active:hover {

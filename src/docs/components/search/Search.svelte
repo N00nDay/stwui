@@ -21,23 +21,25 @@
 	function handleClose() {
 		open = false;
 		value = '';
-		fiteredData = data;
+		filteredData = data;
 	}
 
 	function handleOpen() {
 		open = true;
 	}
 
-	let fiteredData = data;
+	let filteredData = data;
+	let selectedIndex: number | undefined = undefined;
 
 	let value = '';
 
 	function filterData(e: Event) {
 		if (value) {
-			fiteredData = data.filter((opt) => opt.name.toLowerCase().includes(value.toLowerCase()));
+			filteredData = data.filter((opt) => opt.name.toLowerCase().includes(value.toLowerCase()));
 		} else {
-			fiteredData = data;
+			filteredData = data;
 		}
+		selectedIndex = undefined;
 	}
 
 	function handleSelect(href: string) {
@@ -49,12 +51,12 @@
 		input.focus();
 		input.value = '';
 		value = '';
-		fiteredData = data;
+		filteredData = data;
 	}
 
 	let os = 'Unknown';
 
-	function captureEscapeEvent(e: KeyboardEvent) {
+	function handleKeyDown(e: KeyboardEvent) {
 		if (os === 'MacOS') {
 			if (e.key === 'k' && e.metaKey) {
 				open = true;
@@ -64,6 +66,40 @@
 				open = true;
 			}
 		}
+
+		if (filteredData.length < 1) {
+			selectedIndex = undefined;
+			return;
+		}
+
+		if (e.key === 'ArrowDown') {
+			if (selectedIndex != null && selectedIndex < filteredData.length - 1) {
+				selectedIndex += 1;
+			} else {
+				selectedIndex = 0;
+			}
+		} else if (e.key === 'ArrowUp') {
+			if (selectedIndex) {
+				selectedIndex -= 1;
+			} else {
+				selectedIndex = filteredData.length - 1;
+			}
+		} else if (e.key === 'Enter' && selectedIndex != null && filteredData.length > 0) {
+			handleSelect(filteredData[selectedIndex].href);
+		}
+
+		const option = document.getElementById(`option-${selectedIndex}`);
+		const searchModal = document.getElementById(`search-modal`);
+		if (!option || !searchModal) return;
+
+		const item = option.getBoundingClientRect();
+		const container = searchModal.getBoundingClientRect();
+
+		if (item.top < container.top || item.bottom > container.bottom) {
+			option.scrollIntoView({
+				behavior: 'smooth'
+			});
+		}
 	}
 
 	$: if (open && browser && input) {
@@ -71,7 +107,7 @@
 	}
 </script>
 
-<svelte:window on:keydown={captureEscapeEvent} />
+<svelte:window on:keydown={handleKeyDown} />
 
 <Button
 	ariaLabel="open search"
@@ -86,6 +122,7 @@
 	<Portal>
 		<Modal {handleClose}>
 			<Modal.Content
+				id="search-modal"
 				class="mx-auto max-w-xl transform divide-y divide-light-border dark:divide-dark-border overflow-hidden rounded-xl bg-light-surface dark:bg-dark-surface shadow-2xl"
 			>
 				<div class="relative">
@@ -124,12 +161,14 @@
 					</Kbd>
 				</div>
 
-				{#if fiteredData.length > 0}
+				{#if filteredData.length > 0}
 					<ul class="max-h-96 scroll-py-3 overflow-y-auto p-3" id="options" role="listbox">
-						{#each fiteredData as item}
+						{#each filteredData as item, index}
 							<li
 								class="group flex cursor-pointer select-none rounded-xl p-3 hover:bg-light-icon-background-hover dark:hover:bg-dark-icon-background-hover"
-								id="option-1"
+								class:bg-light-icon-background-hover={index === selectedIndex}
+								class:dark:bg-dark-icon-background-hover={index === selectedIndex}
+								id={`option-${index}`}
 								tabindex="-1"
 								on:click={() => handleSelect(item.href)}
 								on:keypress
