@@ -1,7 +1,5 @@
 import type { Slot, Prop } from '../../docs';
 
-// TODO: add close on select props
-
 export const props: Prop[] = [
 	{
 		id: '1',
@@ -156,9 +154,23 @@ export const iconProps: Prop[] = [
 export const example = `
 <script lang="ts">
 	import { Select } from 'stwui';
+	import { SelectOption } from 'stwui/types';
 
 	const email = "svg-path";
-	const options = ['Option 1', 'Option 2', 'Option 3'];
+	const options: SelectOption[] = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		}
+	];
 
 	let value: string | undefined;
 	let error: string | undefined = "You're doing it wrong!";
