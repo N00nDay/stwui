@@ -19,6 +19,7 @@ import Drawer from './components/drawer';
 import Dropdown from './components/dropdown';
 import Empty from './components/empty';
 import Feed from './components/feed';
+import FilePicker from './components/filepicker';
 import Icon from './components/icon';
 import Input from './components/input';
 import InputNumber from './components/input-number';
@@ -69,6 +70,7 @@ export {
 	Dropdown,
 	Empty,
 	Feed,
+	FilePicker,
 	Icon,
 	Input,
 	InputNumber,
