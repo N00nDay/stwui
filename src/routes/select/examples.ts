@@ -1,5 +1,7 @@
 import type { Slot, Prop } from '../../docs';
 
+// TODO: add close on select props
+
 export const props: Prop[] = [
 	{
 		id: '1',
@@ -36,6 +38,24 @@ export const props: Prop[] = [
 		prop: 'visible',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '7',
+		prop: 'optionLabel',
+		type: 'string',
+		default: 'label'
+	},
+	{
+		id: '8',
+		prop: 'optionValue',
+		type: 'string',
+		default: 'value'
+	},
+	{
+		id: '9',
+		prop: 'closeOnSelect',
+		type: 'boolean',
+		default: 'true'
 	}
 ];
 

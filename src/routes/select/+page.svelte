@@ -66,6 +66,7 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
+		<Card.Header slot="header">Single</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Select name="select-1" placeholder="Basic">
 				<Select.Options slot="options">
@@ -104,6 +105,7 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
+		<Card.Header slot="header">Multiple</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Select name="select-4" placeholder="Basic" multiple>
 				<Select.Options slot="options">
