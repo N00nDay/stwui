@@ -22,14 +22,38 @@ export const props: Prop[] = [
 	{
 		id: '4',
 		prop: 'value',
-		type: 'string | undefined',
+		type: '<a href="/types#SelectOption" class="link">SelectOption</a> | undefined',
 		default: ''
 	},
 	{
 		id: '5',
+		prop: 'multiple',
+		type: 'boolean',
+		default: 'false'
+	},
+	{
+		id: '6',
 		prop: 'visible',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '7',
+		prop: 'optionLabel',
+		type: 'string',
+		default: 'label'
+	},
+	{
+		id: '8',
+		prop: 'optionValue',
+		type: 'string',
+		default: 'value'
+	},
+	{
+		id: '9',
+		prop: 'closeOnSelect',
+		type: 'boolean',
+		default: 'true'
 	}
 ];
 
@@ -130,9 +154,23 @@ export const iconProps: Prop[] = [
 export const example = `
 <script lang="ts">
 	import { Select } from 'stwui';
+	import { SelectOption } from 'stwui/types';
 
 	const email = "svg-path";
-	const options = ['Option 1', 'Option 2', 'Option 3'];
+	const options: SelectOption[] = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		}
+	];
 
 	let value: string | undefined;
 	let error: string | undefined = "You're doing it wrong!";
@@ -170,3 +208,46 @@ export const example = `
 		{/each}
 	</Select.Options>
 </Select>`;
+
+export const exampleMultiple = `
+<script lang="ts">
+	import { Select } from 'stwui';
+	import { SelectOption } from 'stwui/types';
+
+	const email = "svg-path";
+	const options: SelectOption[] = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		},
+		{
+			value: 'option_4',
+			label: 'Option 4'
+		},
+		{
+			value: 'option_5',
+			label: 'Option 5'
+		},
+		{
+			value: 'option_6',
+			label: 'Option 6'
+		}
+	];
+</script>
+
+<Select name="select-4" placeholder="Basic" multiple>
+	<Select.Options slot="options">
+		{#each multipleOptions as option}
+			<Select.Options.Option {option} />
+		{/each}
+	</Select.Options>
+</Select>
+`;

@@ -2,6 +2,7 @@
 	import { Card, Col, Select } from '../../lib';
 	import {
 		example,
+		exampleMultiple,
 		props,
 		slots,
 		labelSlots,
@@ -11,12 +12,52 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { email } from '../../docs/icons';
+	import type { SelectOption } from '$lib/types';
 
-	const options = ['Option 1', 'Option 2', 'Option 3'];
+	const options = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		}
+	];
+	const multipleOptions = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		},
+		{
+			value: 'option_4',
+			label: 'Option 4'
+		},
+		{
+			value: 'option_5',
+			label: 'Option 5'
+		},
+		{
+			value: 'option_6',
+			label: 'Option 6'
+		}
+	];
 
-	let value: string | undefined;
+	let value: SelectOption | undefined;
 	let error: string | undefined = "You're doing it wrong!";
-	$: if (value && value.length > 0) {
+	$: if (value && value.value) {
 		error = undefined;
 	} else {
 		error = "You're doing it wrong!";
@@ -25,6 +66,7 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
+		<Card.Header slot="header">Single</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Select name="select-1" placeholder="Basic">
 				<Select.Options slot="options">
@@ -57,6 +99,25 @@
 			<br />
 
 			<CodeBlock language="svelte" code={example} />
+		</Card.Content>
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-12">
+	<Card bordered={false}>
+		<Card.Header slot="header">Multiple</Card.Header>
+		<Card.Content slot="content" class="p-4">
+			<Select name="select-4" placeholder="Basic" multiple>
+				<Select.Options slot="options">
+					{#each multipleOptions as option}
+						<Select.Options.Option {option} />
+					{/each}
+				</Select.Options>
+			</Select>
+
+			<br />
+
+			<CodeBlock language="svelte" code={exampleMultiple} />
 		</Card.Content>
 	</Card>
 </Col>

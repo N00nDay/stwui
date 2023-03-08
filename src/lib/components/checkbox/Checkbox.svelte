@@ -4,9 +4,10 @@
 
 	export let name: string;
 	export let value: string;
+	export let indeterminate = false;
 
 	const defaultClass =
-		'checkbox checked:bg-primary dark:checked:bg-primary hover:border-primary dark:hover:border-primary bg-light-surface dark:bg-dark-surface h-6 w-6 text-primary border-light-border-base dark:border-dark-border-base rounded-md cursor-pointer';
+		'checkbox checked:bg-primary dark:checked:bg-primary indeterminate:bg-primary dark:indeterminate:bg-primary hover:border-primary dark:hover:border-primary bg-light-surface dark:bg-dark-surface h-6 w-6 text-primary border-light-border-base dark:border-dark-border-base rounded-md cursor-pointer';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('checkbox-name', name);
@@ -14,7 +15,15 @@
 
 <div class="relative flex items-start">
 	<div class="flex items-center h-5">
-		<input id={name} {name} type="checkbox" {value} class={finalClass} style={$$props.style} />
+		<input
+			id={name}
+			{name}
+			{indeterminate}
+			type="checkbox"
+			{value}
+			class={finalClass}
+			style={$$props.style}
+		/>
 	</div>
 	<div class="ml-3 text-sm">
 		<slot name="label" />

@@ -10,6 +10,7 @@
 		formatNumber,
 		iconData,
 		twSizes,
+		selectOption,
 		dropResult
 	} from './examples';
 	import { CodeBlock } from '../../docs';
@@ -72,6 +73,16 @@
 	</p>
 
 	<CodeBlock language="typescript" code={locale} />
+
+	<h2 id="SelectOption" class="text-light-content dark:text-dark-content mb-0 mt-12">
+		SelectOption
+	</h2>
+
+	<p class="mb-5 mt-1 text-light-content dark:text-dark-content">
+		Used in conjunction with the <a class="link" href="/select">Select</a> component.
+	</p>
+
+	<CodeBlock language="typescript" code={selectOption} />
 
 	<h2 id="TableColumn" class="text-light-content dark:text-dark-content mb-0 mt-12">TableColumn</h2>
 

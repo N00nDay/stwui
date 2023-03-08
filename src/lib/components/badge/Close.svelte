@@ -10,7 +10,7 @@
 	const type: 'info' | 'success' | 'warn' | 'error' | undefined = getContext('badge-type');
 
 	const defaultClass =
-		'ml-1.5 flex-shrink-0 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:focus:text-white hover:text-white dark:hover:text-white';
+		'ml-1.5 flex-shrink-0 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:focus:text-white hover:text-white dark:hover:text-white hover:bg-light-secondary-content';
 	const infoClass =
 		'hover:bg-info-background dark:hover:bg-dark-info-background text-info-content dark:text-dark-info-content';
 	const successClass =

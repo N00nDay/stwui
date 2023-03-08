@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.3.0-next](https://github.com/N00nDay/stwui/compare/v0.2.0-next...v0.3.0-next) (2023-03-08)
+
+
+### Features
+
+* **Checkbox:** added indeterminate state ([07b202c](https://github.com/N00nDay/stwui/commit/07b202c61b9ccb43f59726653020a49edfbe5db1))
+* **Modal:** added new syntax, header, footer, body, and long content scrolling ([dbae9ef](https://github.com/N00nDay/stwui/commit/dbae9efbd4f433dd13b839ad213a277489041e01))
+
+## [0.2.0-next](https://github.com/N00nDay/stwui/compare/v0.1.0-next...v0.2.0-next) (2023-03-07)
+
+
+### Features
+
+* **Select:** added multi select ability ([314f30e](https://github.com/N00nDay/stwui/commit/314f30e59df8ffc20942d499c6ca0e1682a5fbb2))
+
 ## [0.1.0-next](https://github.com/N00nDay/stwui/compare/v0.0.37-next...v0.1.0-next) (2023-03-06)
 
 

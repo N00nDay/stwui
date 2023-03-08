@@ -12,7 +12,7 @@
 	export let shape: 'default' | 'rounded' | 'square' = 'default';
 
 	const defaultClass =
-		'inline-flex items-center py-0.5 font-medium bg-opacity-20 dark:bg-opacity-20 dark:text-dark-content text-light-content bg-dark-icon-background bg-light-icon-background';
+		'inline-flex items-center py-0.5 font-medium bg-opacity-20 dark:bg-opacity-20 dark:text-dark-content text-light-content bg-dark-icon-background dark:bg-light-icon-background';
 	const infoClass =
 		'bg-opacity-20 dark:bg-opacity-20 bg-info-background dark:bg-dark-info-background text-info-content dark:text-dark-info-content';
 	const successClass =

@@ -9,7 +9,7 @@
 
 	export let placement: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
 	export let alignment: 'start' | 'center' | 'end' = 'start';
-	export let offset: number = 2;
+	export let offset = 2;
 
 	const defaultClass =
 		'origin-top-right absolute z-10 border border-light-border-base dark:border-dark-border w-56 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface';
