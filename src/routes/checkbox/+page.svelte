@@ -29,7 +29,7 @@
 				<CheckboxGroup.Checkbox name="cb-3" value="cb-3">
 					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-3</CheckboxGroup.Checkbox.Label>
 				</CheckboxGroup.Checkbox>
-				<CheckboxGroup.Checkbox name="cb-4" value="cb-4">
+				<CheckboxGroup.Checkbox indeterminate name="cb-4" value="cb-4">
 					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-4</CheckboxGroup.Checkbox.Label>
 				</CheckboxGroup.Checkbox>
 			</CheckboxGroup>
