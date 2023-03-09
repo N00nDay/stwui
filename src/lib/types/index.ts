@@ -4,5 +4,14 @@ import type { TableColumn } from './table-column';
 import type { TimelineItem } from './timeline-item';
 import type TwSizes from './twSizes';
 import type { SelectOption } from './select-option';
+import type { DropResult } from './drop-result';
 
-export { CarouselSlide, LightboxAction, TableColumn, TimelineItem, TwSizes, SelectOption };
+export {
+	CarouselSlide,
+	DropResult,
+	LightboxAction,
+	SelectOption,
+	TableColumn,
+	TimelineItem,
+	TwSizes
+};

@@ -12,7 +12,7 @@
 	let width = size === 'xs' ? 5 : size === 'sm' ? 8 : size === 'md' ? 11 : size === 'lg' ? 14 : 17;
 
 	let circumference = radius * 2 * Math.PI;
-	let radialValue = circumference - (value / 100) * circumference;
+	$: radialValue = circumference - (value / 100) * circumference;
 </script>
 
 {#if !radial}

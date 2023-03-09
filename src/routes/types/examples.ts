@@ -4,6 +4,11 @@ export const carouselSlide = `interface Slide {
 	alt?: string;
 }`;
 
+export const dropResult = `interface DropResult {
+	accepted: File[];
+	rejected: File[];
+}`;
+
 export const locale = `type Locale = {
 	weekdays?: string[];
 	months?: string[];

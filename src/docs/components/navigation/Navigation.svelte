@@ -92,6 +92,10 @@
 			href: '/feed'
 		},
 		{
+			title: 'FilePicker',
+			href: '/filepicker'
+		},
+		{
 			title: 'Grid',
 			href: '/grid'
 		},
@@ -321,6 +325,12 @@
 		label="formatDate"
 		href="/format-date"
 		on:click={() => handleClick('/format-date')}
+	/>
+	<Menu.Item
+		key="/format-file-size"
+		label="formatFileSize"
+		href="/format-file-size"
+		on:click={() => handleClick('/format-file-size')}
 	/>
 	<Menu.Item
 		key="/format-number"
