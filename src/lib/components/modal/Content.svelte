@@ -1,23 +1,3 @@
-<!-- <script lang="ts">
-	import { twMerge } from 'tailwind-merge';
-	import { get_current_component } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
-	export let use: ActionArray = [];
-	import { exclude } from '../../utils/exclude';
-	const forwardEvents = forwardEventsBuilder(get_current_component());
-
-	const defaultClass = 'mx-auto max-w-xl transform overflow-hidden rounded-md pointer-events-auto';
-	$: finalClass = twMerge(defaultClass, $$props.class);
-</script>
-
-<div
-	class={finalClass}
-	use:useActions={use}
-	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
->
-	<slot />
-</div> -->
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
@@ -29,7 +9,6 @@
 
 	export let divided = true;
 	export let bordered = true;
-	export let hoverable = false;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
 	const defaultClass =
@@ -41,7 +20,6 @@
 
 <div
 	class={finalClass}
-	class:hoverable
 	class:border={bordered}
 	class:border-light-border-base={bordered}
 	class:dark:border-dark-border={bordered}
@@ -62,19 +40,3 @@
 	<slot name="footer" />
 	<slot name="actions" />
 </div>
-
-<style>
-	.hoverable {
-		@apply cursor-pointer;
-	}
-
-	.hoverable:hover {
-		@apply shadow-lg;
-		@apply bg-gray-100;
-	}
-
-	.hoverable:active:hover {
-		@apply scale-95;
-		@apply animate-none;
-	}
-</style>
