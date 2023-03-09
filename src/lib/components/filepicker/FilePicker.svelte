@@ -143,7 +143,7 @@
 	}
 
 	const defaultClass =
-		'relative transition-all text-center rounded-lg border border-dashed border-2 px-6 pt-5 pb-7 border-light-border-base dark:border-dark-border-base rounded-md bg-light-surface dark:bg-dark-surface outline-offset-0';
+		'relative text-center rounded-lg border border-dashed border-2 px-6 pt-5 pb-7 border-light-border-base dark:border-dark-border-base rounded-md bg-light-surface dark:bg-dark-surface outline-offset-0';
 
 	const disabledClass =
 		'border-light-icon-background dark:border-dark-icon-background-hover cursor-not-allowed bg-light-icon-background-hover dark:bg-dark-icon-background';
@@ -153,7 +153,7 @@
 	$: finalClass = twMerge(
 		defaultClass,
 		$hovering
-			? 'after:content-[""] after:w-full after:h-full after:absolute after:inset-0 after:bg-primary after:bg-opacity-30 after:transition-all after:border-primary dark:after:border-primary after:rounded-md after:border after:border-2 border-transparent'
+			? 'after:content-[""] after:w-full after:h-full after:absolute after:inset-0 after:bg-primary after:bg-opacity-30 after:border-primary dark:after:border-primary after:rounded-md after:border after:border-2 border-transparent'
 			: false,
 		$hasFocus ? 'border-primary border-solid' : false,
 		disabled ? disabledClass : notDisabledClass,
