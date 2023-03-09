@@ -51,12 +51,6 @@ export const contentProps: Prop[] = [
 	},
 	{
 		id: '3',
-		prop: 'hoverable',
-		type: 'boolean',
-		default: 'false'
-	},
-	{
-		id: '4',
 		prop: 'elevation',
 		type: "'none' | 'sm' | 'md' | 'lg' | 'xl'",
 		default: 'md'
