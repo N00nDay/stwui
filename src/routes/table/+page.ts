@@ -15,6 +15,7 @@ export async function load({ url }: LoadEvent) {
 			title: 'STWUI - Table',
 			description: 'Svelte TailwindCSS Table component',
 			header: 'Table',
+			subHeader: 'Table can be used to show a list of data in a table format.',
 			results,
 			start: start + 1,
 			end: end === total ? total : end + 1,

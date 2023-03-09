@@ -161,6 +161,11 @@
 						{#if $page.data.header}
 							<Col class="col-24 mb-4">
 								<h1 class="text-light-content dark:text-dark-content mb-0">{$page.data.header}</h1>
+								{#if $page.data.subHeader}
+									<p class="text-light-secondary-content dark:text-dark-secondary-content">
+										{$page.data.subHeader}
+									</p>
+								{/if}
 								<Divider />
 							</Col>
 						{/if}
