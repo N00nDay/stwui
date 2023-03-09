@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0-next](https://github.com/N00nDay/stwui/compare/v0.3.0-next...v0.4.0-next) (2023-03-09)
+
+
+### Features
+
+* Add basic FilePicker component ([#92](https://github.com/N00nDay/stwui/issues/92)) ([2c9abcf](https://github.com/N00nDay/stwui/commit/2c9abcf78d36532fd0696aacf04e65f45f955530))
+
 ## [0.3.0-next](https://github.com/N00nDay/stwui/compare/v0.2.0-next...v0.3.0-next) (2023-03-08)
 
 
