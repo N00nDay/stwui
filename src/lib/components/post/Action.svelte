@@ -19,11 +19,16 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<div
-		class="group text-sm text-light-icon dark:text-dark-icon group-hover:text-primary relative flex flex-col items-center justify-center h-full w-full group-active:hover:animate-none group-active:hover:scale-90"
+		class="group text-sm text-light-icon dark:text-dark-icon group-hover:text-primary relative flex flex-col items-center justify-center h-full w-full active:hover:animate-none active:hover:scale-90"
 	>
 		{#if $$slots.icon}
-			<span class="h-4 w-4 mb-1">
+			<span class="h-4 w-4" class:mb-1.5={$$slots.label}>
 				<slot name="icon" />
+			</span>
+		{/if}
+		{#if $$slots.label}
+			<span class="text-xs">
+				<slot name="label" />
 			</span>
 		{/if}
 		<slot />

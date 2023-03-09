@@ -9,6 +9,7 @@ import OriginalActions from './Actions.svelte';
 import OriginalAction from './Action.svelte';
 import Avatar from './Avatar.svelte';
 import Icon from './Icon.svelte';
+import Label from './Label.svelte';
 
 const Post = OriginalPost as PostStatic;
 Post.Header = OriginalHeader as PostHeaderStatic;
@@ -21,6 +22,7 @@ Post.Status = Status;
 Post.Actions = OriginalActions as PostActionsStatic;
 Post.Actions.Action = OriginalAction as ActionStatic;
 Post.Actions.Action.Icon = Icon;
+Post.Actions.Action.Label = Label;
 
 export default Post;
 
@@ -46,4 +48,5 @@ export interface PostActionsStatic {
 export interface ActionStatic {
 	new (...args: ConstructorParameters<typeof OriginalAction>): OriginalAction;
 	Icon: typeof Icon;
+	Label: typeof Label;
 }
