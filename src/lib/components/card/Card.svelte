@@ -18,7 +18,7 @@
 		defaultClass,
 
 		hoverable
-			? 'cursor-pointer hover:shadow-lg dark:bg-light-background-hover bg-dark-icon-background-hover hover:active:scale-95 hover:active:animate-none'
+			? 'active:[&:not(:focus):not(:focus-within)]:hover:animate-none active:[&:not(:focus):not(:focus-within)]:hover:scale-[97.5%] cursor-pointer hover:shadow-lg dark:bg-light-icon-background-hover bg-dark-icon-background-hover'
 			: false,
 
 		$$props.class
@@ -29,9 +29,6 @@
 
 <div
 	class={finalClass}
-	class:cursor-pointer={hoverable}
-	class:hover:shadow-lg={hoverable}
-	class:hover:dark:bg-light-icon-background-hover={hoverable}
 	class:border={bordered}
 	class:border-light-border-base={bordered}
 	class:dark:border-dark-border={bordered}

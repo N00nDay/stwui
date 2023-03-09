@@ -10,7 +10,7 @@
 	const divided: boolean = getContext('card-divided');
 
 	const defaultClass =
-		'flex flex-row h-14 justify-evenly divide-x divide-light-border-base dark:divide-dark-border-base first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0';
+		'flex flex-row h-14 justify-evenly divide-x divide-light-border-base dark:divide-dark-border-base first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0 bg-light-surface dark:bg-dark-surface';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
