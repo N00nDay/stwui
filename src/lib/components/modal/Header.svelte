@@ -31,4 +31,12 @@
 >
 	<slot />
 	<slot name="extra" />
+	<!-- TODO: pull out to allow for customization? -->
+	<!-- {#if handleClose}
+		<div class="ml-3 flex items-center">
+			<Button ariaLabel="close" type="ghost" on:click={handleClose} shape="circle">
+				<Button.Icon slot="icon" data={close} />
+			</Button>
+		</div>
+	{/if} -->
 </div>
