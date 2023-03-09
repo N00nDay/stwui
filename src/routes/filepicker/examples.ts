@@ -3,55 +3,60 @@ import type { Slot, Prop } from '../../docs';
 export const props: Prop[] = [
 	{
 		id: '1',
+		prop: 'name',
+		type: 'string',
+		default: ''
+	},
+	{
+		id: '2',
 		prop: 'onDrop',
 		type: 'function(files: DropResult)',
 		default: ''
 	},
 	{
-		id: '2',
+		id: '3',
 		prop: 'onEnter',
 		type: 'function | null',
 		default: 'null'
 	},
 	{
-		id: '3',
+		id: '4',
 		prop: 'onLeave',
 		type: 'function | null',
 		default: 'null'
 	},
-
 	{
-		id: '4',
+		id: '5',
 		prop: 'accept',
 		type: 'string | undefined',
 		default: 'undefined'
 	},
 	{
-		id: '5',
+		id: '6',
 		prop: 'allowedExtensions',
 		type: 'string[] | undefined',
 		default: 'undefined'
 	},
 	{
-		id: '6',
+		id: '7',
 		prop: 'maxFileSize',
 		type: 'number | undefined',
 		default: 'undefined'
 	},
 	{
-		id: '7',
+		id: '8',
 		prop: 'multiple',
 		type: 'boolean',
 		default: 'false'
 	},
 	{
-		id: '8',
+		id: '9',
 		prop: 'strict',
 		type: 'boolean',
 		default: 'false'
 	},
 	{
-		id: '9',
+		id: '10',
 		prop: 'border',
 		type: 'boolean',
 		default: 'true'
