@@ -50,15 +50,15 @@
 	/**
 	 * Enables the dashed border around the drop zone. Defaults to `true`
 	 */
-	export let border: boolean = true;
+	export let border = true;
 	/**
 	 * If `strict` is set to `true`, `accepted` will be empty if *any* error occurs.
 	 *
 	 * Otherwise the file(s) with no error(s) are still returned
 	 */
-	export let strict: boolean = false;
+	export let strict = false;
 
-	let hovering: boolean = false;
+	let hovering = false;
 	let input: HTMLElement;
 
 	function validate(files: File[]): DropResult {
@@ -134,13 +134,15 @@
 		if (!hovering) hovering = true;
 	}
 
-	const defaultClass = 'text-center py-12 rounded-lg ';
+	const defaultClass = 'text-center py-12 rounded-lg';
+
+	// .parent:active:not(:has(:active))
 
 	$: finalClass = twMerge(
 		defaultClass,
 		disabled
 			? 'border-gray-500 cursor-not-allowed'
-			: 'border-light-content dark:border-dark-content active:hover:animate-none active:hover:scale-[97.5%] cursor-pointer ',
+			: 'border-light-content dark:border-dark-content active:[&:not(:focus):not(:focus-within)]:hover:animate-none active:[&:not(:focus):not(:focus-within)]:hover:scale-[97.5%]active:[&:not(:focus):not(:focus-within)]:hover:animate-none active:[&:not(:focus):not(:focus-within)]:hover:scale-[97.5%] cursor-pointer',
 		border ? 'border-2 border-dashed' : false,
 		$$props.class
 	);
@@ -172,6 +174,7 @@
 	<slot />
 </div>
 
+<!-- TODO: id needs to be a prop to allow for multiple inputs in one view/form -->
 <input
 	id="dropzone"
 	class="opacity-0 absolute top-0 left-0 pointer-events-none"
