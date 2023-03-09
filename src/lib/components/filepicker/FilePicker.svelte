@@ -5,6 +5,7 @@
 	import { exclude } from '../../utils/exclude';
 	import { twMerge } from 'tailwind-merge';
 	import type { DropResult } from '../../types';
+	import { writable, type Writable } from 'svelte/store';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	type OnDrop = (files: DropResult) => void;
@@ -50,17 +51,14 @@
 	 */
 	export let allowedExtensions: string[] | undefined = undefined;
 	/**
-	 * Enables the dashed border around the drop zone. Defaults to `true`
-	 */
-	export let border = true;
-	/**
 	 * If `strict` is set to `true`, `accepted` will be empty if *any* error occurs.
 	 *
 	 * Otherwise the file(s) with no error(s) are still returned
 	 */
 	export let strict = false;
 
-	let hovering = false;
+	let hovering: Writable<boolean> = writable(false);
+	let hasFocus: Writable<boolean> = writable(false);
 	let input: HTMLElement;
 
 	function validate(files: File[]): DropResult {
@@ -105,7 +103,7 @@
 
 		const files = Array.from(fileList);
 		onDrop(validate(files));
-		hovering = false;
+		$hovering = false;
 	}
 
 	function handleDrop(e: DragEvent) {
@@ -115,37 +113,50 @@
 
 		const files = Array.from(e.dataTransfer.files);
 		onDrop(validate(files));
-		hovering = false;
+		$hovering = false;
 	}
 
 	function handleEnter() {
 		if (disabled) return;
-		hovering = true;
+		$hovering = true;
 		if (onEnter) onEnter();
 	}
 
 	function handleLeave() {
 		if (disabled) return;
-		hovering = false;
+		$hovering = false;
 		if (onLeave) onLeave();
 	}
 
 	function handleDragOver(e: DragEvent) {
 		if (disabled) return;
 		e.preventDefault();
-		if (!hovering) hovering = true;
+		if (!$hovering) $hovering = true;
 	}
 
-	const defaultClass = 'text-center py-12 rounded-lg';
+	function handleFocus(e: Event) {
+		$hasFocus = true;
+	}
 
-	// .parent:active:not(:has(:active))
+	function handleBlur() {
+		$hasFocus = false;
+	}
+
+	const defaultClass =
+		'relative transition-all text-center rounded-lg border border-dashed border-2 px-6 pt-5 pb-7 border-light-border-base dark:border-dark-border-base rounded-md bg-light-surface dark:bg-dark-surface outline-offset-0';
+
+	const disabledClass =
+		'border-light-icon-background dark:border-dark-icon-background-hover cursor-not-allowed bg-light-icon-background-hover dark:bg-dark-icon-background';
+	const notDisabledClass =
+		'active:[&:not(:focus):not(:focus-within)]:hover:animate-none active:[&:not(:focus):not(:focus-within)]:hover:scale-[97.5%] cursor-pointer block w-full px-3  outline-none focus:outline-none sm:text-sm';
 
 	$: finalClass = twMerge(
 		defaultClass,
-		disabled
-			? 'border-gray-500 cursor-not-allowed'
-			: 'border-light-content dark:border-dark-content active:[&:not(:focus):not(:focus-within)]:hover:animate-none active:[&:not(:focus):not(:focus-within)]:hover:scale-[97.5%]active:[&:not(:focus):not(:focus-within)]:hover:animate-none active:[&:not(:focus):not(:focus-within)]:hover:scale-[97.5%] cursor-pointer',
-		border ? 'border-2 border-dashed' : false,
+		$hovering
+			? 'after:content-[""] after:w-full after:h-full after:absolute after:inset-0 after:bg-primary after:bg-opacity-30 after:transition-all after:border-primary dark:after:border-primary after:rounded-md after:border after:border-2 border-transparent'
+			: false,
+		$hasFocus ? 'border-primary border-solid' : false,
+		disabled ? disabledClass : notDisabledClass,
 		$$props.class
 	);
 
@@ -154,11 +165,6 @@
 
 <div
 	class={finalClass}
-	class:bg-primary={hovering}
-	class:bg-opacity-30={hovering}
-	class:border-primary={hovering}
-	class:bg-light-surface={!hovering}
-	class:dark:bg-dark-surface={!hovering}
 	use:useActions={use}
 	use:forwardEvents
 	on:dragenter={handleEnter}
@@ -174,18 +180,18 @@
 	<slot name="divider" />
 	<slot name="action" />
 	<slot />
-</div>
 
-<!-- TODO: id needs to be a prop to allow for multiple inputs in one view/form -->
-<input
-	id={name}
-	{name}
-	class="opacity-0 absolute top-0 left-0 pointer-events-none"
-	bind:this={input}
-	type="file"
-	{multiple}
-	{accept}
-	{disabled}
-	on:change={handleChange}
-	hidden
-/>
+	<input
+		id={name}
+		{name}
+		class="opacity-0 absolute top-0 left-0 pointer-events-none"
+		bind:this={input}
+		type="file"
+		{multiple}
+		{accept}
+		{disabled}
+		on:change={handleChange}
+		on:focus={handleFocus}
+		on:blur={handleBlur}
+	/>
+</div>

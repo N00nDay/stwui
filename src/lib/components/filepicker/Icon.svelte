@@ -30,7 +30,7 @@
 	$: finalClass = twMerge(
 		defaultClass,
 		disabled
-			? 'text-light-secondary-content dark:text-dark-secondary-content'
+			? 'text-light-secondary-content dark:text-dark-secondary-content opacity-30'
 			: 'text-light-icon dark:text-dark-icon',
 		$$props.class
 	);

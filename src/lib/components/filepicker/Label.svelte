@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { getContext, get_current_component } from 'svelte/internal';
+	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';

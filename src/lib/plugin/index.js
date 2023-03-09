@@ -401,7 +401,6 @@ module.exports = plugin(
 					'light-icon-background': '#E4E6EB',
 					'light-icon-background-hover': 'rgba(0, 0, 0, 0.05)',
 					'light-border': 'rgba(25,25,25,0.05)',
-					// 'light-border-base': '#d1d5db',
 					'light-border-base': 'rgba(25,25,25,0.15)',
 					'light-hover': 'rgba(0, 0, 0, 0.05)',
 
