@@ -21,6 +21,8 @@
 	type OnLeave = () => void;
 	export let onLeave: OnLeave | null = null;
 
+	export let name: string;
+
 	/**
 	 * Whether or not to allow more than a single file to be returned per upload
 	 */
@@ -176,7 +178,8 @@
 
 <!-- TODO: id needs to be a prop to allow for multiple inputs in one view/form -->
 <input
-	id="dropzone"
+	id={name}
+	{name}
 	class="opacity-0 absolute top-0 left-0 pointer-events-none"
 	bind:this={input}
 	type="file"
