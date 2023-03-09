@@ -235,15 +235,15 @@
 			<Post.Actions slot="actions">
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-					Like
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={comment} />
-					Comment
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={share} />
-					Share
+					<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
@@ -274,15 +274,15 @@
 			<Post.Actions slot="actions">
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-					Like
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={comment} />
-					Comment
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={share} />
-					Share
+					<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
@@ -313,15 +313,15 @@
 			<Post.Actions slot="actions">
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-					Like
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={comment} />
-					Comment
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={share} />
-					Share
+					<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
@@ -352,15 +352,15 @@
 			<Post.Actions slot="actions">
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-					Like
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={comment} />
-					Comment
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={share} />
-					Share
+					<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
@@ -391,15 +391,15 @@
 			<Post.Actions slot="actions">
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-					Like
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={comment} />
-					Comment
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={share} />
-					Share
+					<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>
@@ -430,15 +430,15 @@
 			<Post.Actions slot="actions">
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-					Like
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={comment} />
-					Comment
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 				<Post.Actions.Action>
 					<Post.Actions.Action.Icon slot="icon" data={share} />
-					Share
+					<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 				</Post.Actions.Action>
 			</Post.Actions>
 		</Post>

@@ -176,6 +176,11 @@ export const actionSlots: Slot[] = [
 		id: '2',
 		slot: 'label',
 		component: '<Card.Actions.Action.Label slot="label" />'
+	},
+	{
+		id: '3',
+		slot: 'default',
+		component: ''
 	}
 ];
 
@@ -278,17 +283,17 @@ export const example1 = `
    <Post.Actions slot="actions">
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-			Like
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={comment} />
-			Comment
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={share} />
-			Share
+			<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 		</Post.Actions.Action>
-   </Post.Actions>
+	</Post.Actions>
 </Post>`;
 
 export const example2 = `
@@ -335,17 +340,17 @@ export const example2 = `
    <Post.Actions slot="actions">
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-			Like
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={comment} />
-			Comment
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={share} />
-			Share
+			<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 		</Post.Actions.Action>
-   </Post.Actions>
+	</Post.Actions>
 </Post>`;
 
 export const example3 = `
@@ -396,17 +401,17 @@ export const example3 = `
    <Post.Actions slot="actions">
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-			Like
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={comment} />
-			Comment
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={share} />
-			Share
+			<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 		</Post.Actions.Action>
-   </Post.Actions>
+	</Post.Actions>
 </Post>`;
 
 export const example4 = `
@@ -461,17 +466,17 @@ export const example4 = `
    <Post.Actions slot="actions">
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-			Like
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={comment} />
-			Comment
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={share} />
-			Share
+			<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 		</Post.Actions.Action>
-   </Post.Actions>
+	</Post.Actions>
 </Post>`;
 
 export const example5 = `
@@ -530,17 +535,17 @@ export const example5 = `
    <Post.Actions slot="actions">
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-			Like
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={comment} />
-			Comment
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={share} />
-			Share
+			<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 		</Post.Actions.Action>
-   </Post.Actions>
+	</Post.Actions>
 </Post>`;
 
 export const example6 = `
@@ -603,15 +608,15 @@ export const example6 = `
    <Post.Actions slot="actions">
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
-			Like
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={comment} />
-			Comment
+			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
 		</Post.Actions.Action>
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={share} />
-			Share
+			<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
 		</Post.Actions.Action>
-   </Post.Actions>
+	</Post.Actions>
 </Post>`;
