@@ -14,14 +14,24 @@
 
 	const defaultClass =
 		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md';
-	$: finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(
+		defaultClass,
+
+		hoverable
+			? 'cursor-pointer hover:shadow-lg dark:bg-light-background-hover bg-dark-icon-background-hover hover:active:scale-95 hover:active:animate-none'
+			: false,
+
+		$$props.class
+	);
 
 	setContext('card-divided', divided);
 </script>
 
 <div
 	class={finalClass}
-	class:hoverable
+	class:cursor-pointer={hoverable}
+	class:hover:shadow-lg={hoverable}
+	class:hover:dark:bg-light-icon-background-hover={hoverable}
 	class:border={bordered}
 	class:border-light-border-base={bordered}
 	class:dark:border-dark-border={bordered}
@@ -42,19 +52,3 @@
 	<slot name="footer" />
 	<slot name="actions" />
 </div>
-
-<style>
-	.hoverable {
-		@apply cursor-pointer;
-	}
-
-	.hoverable:hover {
-		@apply shadow-lg;
-		@apply dark:bg-light-icon-background-hover bg-dark-icon-background-hover;
-	}
-
-	.hoverable:active:hover {
-		@apply scale-95;
-		@apply animate-none;
-	}
-</style>
