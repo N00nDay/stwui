@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.6.0-next](https://github.com/N00nDay/stwui/compare/v0.5.0-next...v0.6.0-next) (2023-03-09)
+
+
+### Features
+
+* **Post:** added label slot for Action component ([04e5611](https://github.com/N00nDay/stwui/commit/04e56117788a86895bee98d4a0cb9c4f20f26076))
+
+
+### Bug Fixes
+
+* **Card:** fixed card hoverable styling ([bb67df9](https://github.com/N00nDay/stwui/commit/bb67df9991b50469bfdd181c37f3ef0b64e3902e))
+* **FilePicker:** added name prop ([a34f12f](https://github.com/N00nDay/stwui/commit/a34f12f3eccf69e19379003886ea64b7bd577b3a))
+* **HoverBackground:** removed pointer events as it was conflicting with certain components ([3e742f9](https://github.com/N00nDay/stwui/commit/3e742f9d1e86f545e63be8e0983b1edfef0bbf12))
+
 ## [0.5.0-next](https://github.com/N00nDay/stwui/compare/v0.4.0-next...v0.5.0-next) (2023-03-09)
 
 
