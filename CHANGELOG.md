@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.5.0-next](https://github.com/N00nDay/stwui/compare/v0.4.0-next...v0.5.0-next) (2023-03-09)
+
+
+### Features
+
+* **Search:** Add keyboard navigation to search ([#93](https://github.com/N00nDay/stwui/issues/93)) ([c5bc762](https://github.com/N00nDay/stwui/commit/c5bc76260178bb6d35f244b0f82cb0405f2490b8))
+
+
+### Bug Fixes
+
+* **Card:** Hoverable background in dark theme ([c5bc762](https://github.com/N00nDay/stwui/commit/c5bc76260178bb6d35f244b0f82cb0405f2490b8))
+* **Progress:** Radial not updating value ([c5bc762](https://github.com/N00nDay/stwui/commit/c5bc76260178bb6d35f244b0f82cb0405f2490b8))
+
 ## [0.4.0-next](https://github.com/N00nDay/stwui/compare/v0.3.0-next...v0.4.0-next) (2023-03-09)
 
 
