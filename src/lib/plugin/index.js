@@ -407,7 +407,7 @@ module.exports = plugin(
 					'dark-surface': '#242526',
 					'dark-background': '#18191A',
 					'dark-content': '#ffffff',
-					'dark-secondary-content': 'rgba(255, 255, 255, .85)',
+					'dark-secondary-content': 'rgba(255, 255, 255, .70)',
 					'dark-icon': '#ffffff',
 					'dark-icon-background': '#404040',
 					'dark-icon-background-hover': 'rgba(255, 255, 255, 0.1)',
