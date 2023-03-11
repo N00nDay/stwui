@@ -29,5 +29,6 @@
 >
 	<slot name="leading" />
 	<slot name="content" />
+	<slot />
 	<slot name="extra" />
 </li>
