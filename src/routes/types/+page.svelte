@@ -29,7 +29,7 @@
 	<h2 id="DropResult" class="text-light-content dark:text-dark-content mb-0 mt-12">DropResult</h2>
 
 	<p class="mb-5 mt-1 text-light-content dark:text-dark-content">
-		Used in conjunction with the <a class="link" href="/filepicker">FilePicker</a> utility.
+		Used in conjunction with the <a class="link" href="/file-picker">FilePicker</a> utility.
 	</p>
 
 	<CodeBlock language="typescript" code={dropResult} />
