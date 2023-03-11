@@ -93,7 +93,11 @@
 		},
 		{
 			title: 'FilePicker',
-			href: '/filepicker'
+			href: '/file-picker'
+		},
+		{
+			title: 'FilePreview',
+			href: '/file-preview'
 		},
 		{
 			title: 'Grid',
