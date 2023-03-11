@@ -4,7 +4,7 @@ import type { TableColumn } from './table-column';
 import type { TimelineItem } from './timeline-item';
 import type TwSizes from './twSizes';
 import type { SelectOption } from './select-option';
-import type { DropResult } from './drop-result';
+import type { DropResult, PickerPreviewFile } from './file-picker-preview';
 
 export {
 	CarouselSlide,
@@ -13,5 +13,6 @@ export {
 	SelectOption,
 	TableColumn,
 	TimelineItem,
-	TwSizes
+	TwSizes,
+	PickerPreviewFile
 };

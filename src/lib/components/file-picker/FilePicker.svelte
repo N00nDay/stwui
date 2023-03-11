@@ -153,9 +153,9 @@
 	$: finalClass = twMerge(
 		defaultClass,
 		$hovering
-			? 'after:content-[""] after:w-full after:h-full after:absolute after:inset-0 after:bg-primary after:bg-opacity-30 after:border-primary dark:after:border-primary after:rounded-md after:border after:border-2 border-transparent'
+			? 'after:content-[""] after:w-full after:h-full after:absolute after:inset-0 after:bg-primary after:bg-opacity-30 after:rounded-md border-primary dark:border-primary border-solid'
 			: false,
-		$hasFocus ? 'border-primary border-solid' : false,
+		$hasFocus ? 'border-transparent dark:border-transparent ring-[1px] ring-primary' : false,
 		disabled ? disabledClass : notDisabledClass,
 		$$props.class
 	);

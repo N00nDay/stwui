@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { writable, type Writable } from 'svelte/store';
 	import { Button, Card, Col, FilePicker, List, Progress } from '../../lib';
 	import {
 		props,
@@ -19,19 +20,12 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { cloud_upload } from '../../docs/icons';
-	import { check, close, play } from '$lib/icons';
-	import { formatFileSize } from '$lib/utils';
+	import { close } from '$lib/icons';
 	import { fade, slide } from 'svelte/transition';
-	import type { DropResult } from '../../lib/types';
+	import type { DropResult, PickerPreviewFile } from '../../lib/types';
+	import { UploadStatus } from '../../lib/enums/upload-status';
 
-	interface ImageFile {
-		file: File;
-		src: string;
-		progress: number | undefined;
-	}
-
-	let myFiles: ImageFile[] = [];
-	let errors: string[] = [];
+	let myFiles: Writable<PickerPreviewFile[]> = writable([]);
 
 	function handleButtonClick(event: Event) {
 		event.stopPropagation();
@@ -43,24 +37,33 @@
 		let newFiles = files.accepted.map((file) => ({
 			file,
 			src: URL.createObjectURL(file),
-			progress: undefined
+			progress: undefined,
+			status: UploadStatus.PENDING
 		}));
 
-		myFiles = [...myFiles, ...newFiles];
-		errors = files.rejected.map((file) => file.name);
+		let newRejectedFiles = files.rejected.map((file) => ({
+			file,
+			src: URL.createObjectURL(file),
+			progress: undefined,
+			status: UploadStatus.REJECTED
+		}));
+
+		$myFiles = [...$myFiles, ...newRejectedFiles, ...newFiles];
+
+		fakeUploadProgress();
 	}
 
 	/* Remove the file from the array if it exists */
-	function removeFile(file: ImageFile) {
+	function removeFile(file: PickerPreviewFile) {
 		URL.revokeObjectURL(file.src);
-		myFiles = [
-			...myFiles.slice(0, myFiles.indexOf(file)),
-			...myFiles.slice(myFiles.indexOf(file) + 1)
+		$myFiles = [
+			...$myFiles.slice(0, $myFiles.indexOf(file)),
+			...$myFiles.slice($myFiles.indexOf(file) + 1)
 		];
 	}
 
 	let minFile: File | undefined;
-	let minUploading: boolean = false;
+	let minUploading = false;
 	let minProgress: number | undefined = undefined;
 
 	async function minimalisticDrop(files: DropResult) {
@@ -78,7 +81,7 @@
 		minProgress = 0;
 	}
 
-	async function minFakeUpload(minFile: File, duration: number = 2000) {
+	async function minFakeUpload(minFile: File, duration = 2000) {
 		const startTime = Date.now();
 
 		return new Promise<void>((resolve) => {
@@ -102,39 +105,49 @@
 		});
 	}
 
-	let uploading: boolean = false;
-
 	/* This function simply fakes the upload for all the attached files. In reality you would calculate this */
 	async function fakeUpload(idx: number, duration: number) {
 		const startTime = Date.now();
-
 		return new Promise<void>((resolve) => {
 			const intervalId = setInterval(() => {
 				const elapsedTime = Date.now() - startTime;
 				let progress = (elapsedTime / duration) * 100;
-
-				if (!myFiles[idx]) {
+				if (!$myFiles[idx]) {
 					clearInterval(intervalId);
 					resolve();
 				} else if (progress >= 100 || elapsedTime > 10000) {
-					console.log(`Finished uploading file ${myFiles[idx].file.name}`);
-					myFiles[idx].progress = 100;
+					console.log(`Finished uploading file ${$myFiles[idx].file.name}`);
+					$myFiles[idx].progress = 100;
+					$myFiles[idx].status = UploadStatus.COMPLETE;
 					clearInterval(intervalId);
 					resolve();
 				} else {
-					myFiles[idx].progress = progress;
+					$myFiles[idx].status = UploadStatus.UPLOADING;
+					$myFiles[idx].progress = progress;
 				}
 			}, 100); // update every 100 milliseconds
 		});
 	}
 
 	async function fakeUploadProgress() {
-		myFiles.forEach((f) => (f.progress = 0));
-		uploading = true;
-		for (let i = 0; i < myFiles.length; i++) {
-			await fakeUpload(i, 3000);
+		for (const [index, file] of $myFiles.entries()) {
+			if (file.progress === undefined && file.status === UploadStatus.PENDING) {
+				await fakeUpload(index, 2000);
+			}
 		}
-		uploading = false;
+	}
+
+	async function onFileClick(index: number, status: UploadStatus) {
+		if (status === UploadStatus.COMPLETE) {
+			// remove file
+			console.log('FIRE Remove File Function', index);
+		} else if (status === UploadStatus.FAILED) {
+			// retry
+			console.log('FIRE Retry Upload Function', index);
+		} else if (status === UploadStatus.UPLOADING || status === UploadStatus.PENDING) {
+			// cancel
+			console.log('FIRE Cancel Upload Function', index);
+		}
 	}
 </script>
 
@@ -142,7 +155,7 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Basic</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<FilePicker onDrop={(files) => console.log(files)}>
+			<FilePicker name="file-picker-1" onDrop={(files) => console.log(files)}>
 				<FilePicker.Icon slot="icon" data={cloud_upload} />
 				<FilePicker.Title slot="title">Upload a profile picture</FilePicker.Title>
 				<FilePicker.Description slot="description">Drag & Drop your file</FilePicker.Description>
@@ -160,7 +173,7 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Complete</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<FilePicker onDrop={(files) => console.log(files)}>
+			<FilePicker name="file-picker-2" onDrop={(files) => console.log(files)}>
 				<FilePicker.Icon slot="icon" data={cloud_upload} />
 				<FilePicker.Title slot="title">Upload a profile picture</FilePicker.Title>
 				<FilePicker.Description slot="description">Drag & Drop your file</FilePicker.Description>
@@ -184,7 +197,7 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Multiple</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<FilePicker onDrop={(files) => console.log(files)} multiple>
+			<FilePicker name="file-picker-3" onDrop={(files) => console.log(files)} multiple>
 				<FilePicker.Icon slot="icon" data={cloud_upload} />
 				<FilePicker.Title slot="title">Upload multiple files</FilePicker.Title>
 			</FilePicker>
@@ -201,7 +214,7 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Disabled</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<FilePicker onDrop={(files) => console.log(files)} disabled>
+			<FilePicker name="file-picker-4" onDrop={(files) => console.log(files)} disabled>
 				<FilePicker.Icon slot="icon" data={cloud_upload} class="filter-gray-500" />
 				<FilePicker.Title slot="title">Cannot upload anything here</FilePicker.Title>
 			</FilePicker>
@@ -219,7 +232,10 @@
 		<Card.Header slot="header">Implementation with File list</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<FilePicker
+				name="file-picker-5"
+				files={$myFiles}
 				{onDrop}
+				{onFileClick}
 				multiple
 				accept="image/*"
 				allowedExtensions={['png', 'jpg', 'jpeg', 'gif']}
@@ -233,14 +249,14 @@
 
 			<br />
 
-			{#if errors.length > 0}
+			<!-- {#if errors.length > 0}
 				<span class="text-md text-danger">
 					Error uploading the following files: {errors.join(', ')}
 				</span>
 				<br />
-			{/if}
+			{/if} -->
 
-			<List>
+			<!-- <List>
 				{#each myFiles as myFile, index}
 					{@const { file, src, progress } = myFile}
 					<div transition:slide>
@@ -279,11 +295,11 @@
 						</List.Item>
 					</div>
 				{/each}
-			</List>
+			</List> -->
 
 			<br />
 
-			{#if myFiles.length > 0}
+			<!-- {#if myFiles.length > 0}
 				<div class="flex justify-end">
 					<Button
 						type="primary"
@@ -294,7 +310,7 @@
 						{uploading ? 'uploading ...' : 'Begin upload'}
 					</Button>
 				</div>
-			{/if}
+			{/if} -->
 
 			<br />
 
@@ -321,6 +337,7 @@
 					</div>
 				{:else}
 					<FilePicker
+						name="file-picker-6"
 						class="w-1/4 aspect-square flex flex-col justify-center"
 						onDrop={(files) => minimalisticDrop(files)}
 					>
