@@ -19,11 +19,13 @@
 		dividerLabelSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
-	import { cloud_upload } from '../../docs/icons';
+	import { cloud_upload, file_document } from '../../docs/icons';
 	import { close } from '$lib/icons';
 	import { fade, slide } from 'svelte/transition';
 	import type { DropResult, PickerPreviewFile } from '../../lib/types';
 	import { UploadStatus } from '../../lib/enums/upload-status';
+	import FilePreview from '$lib/components/file-preview';
+	import { formatFileSize } from '$lib/utils';
 
 	let myFiles: Writable<PickerPreviewFile[]> = writable([]);
 
@@ -137,16 +139,19 @@
 		}
 	}
 
-	async function onFileClick(index: number, status: UploadStatus) {
-		if (status === UploadStatus.COMPLETE) {
+	async function handleFileClick(file: PickerPreviewFile) {
+		if (file.status === UploadStatus.COMPLETE) {
 			// remove file
-			console.log('FIRE Remove File Function', index);
-		} else if (status === UploadStatus.FAILED) {
+			console.log('Remove Completed File');
+		} else if (file.status === UploadStatus.FAILED) {
 			// retry
-			console.log('FIRE Retry Upload Function', index);
-		} else if (status === UploadStatus.UPLOADING || status === UploadStatus.PENDING) {
+			console.log('Retry Failed Upload');
+		} else if (file.status === UploadStatus.UPLOADING || file.status === UploadStatus.PENDING) {
 			// cancel
-			console.log('FIRE Cancel Upload Function', index);
+			console.log('Cancel Upload Function');
+		} else if (file.status === UploadStatus.REJECTED) {
+			// remove file
+			console.log('Remove Rejected File');
 		}
 	}
 </script>
@@ -229,13 +234,12 @@
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
-		<Card.Header slot="header">Implementation with File list</Card.Header>
+		<Card.Header slot="header">With FilePreview</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<FilePicker
 				name="file-picker-5"
 				files={$myFiles}
 				{onDrop}
-				{onFileClick}
 				multiple
 				accept="image/*"
 				allowedExtensions={['png', 'jpg', 'jpeg', 'gif']}
@@ -249,68 +253,97 @@
 
 			<br />
 
-			<!-- {#if errors.length > 0}
-				<span class="text-md text-danger">
-					Error uploading the following files: {errors.join(', ')}
-				</span>
-				<br />
-			{/if} -->
+			{#if $myFiles.length > 0}
+				<div transition:fade>
+					<FilePreview bordered class="rounded-md">
+						{#each $myFiles as currentFile (currentFile.src)}
+							{@const { file, src, progress, status } = currentFile}
+							<div transition:slide|local>
+								<FilePreview.Item
+									class="flex flex-row cursor-pointer"
+									on:click={() => handleFileClick(currentFile)}
+								>
+									<FilePreview.Item.Leading
+										slot="leading"
+										class="h-8 w-8 min-w-[2rem] min-h-[2rem]"
+									>
+										{#if file.type.startsWith('image/')}
+											<FilePreview.Item.Leading.Avatar
+												slot="avatar"
+												size="sm"
+												{src}
+												alt={file.name}
+											/>
+										{:else}
+											<FilePreview.Item.Leading.Icon
+												slot="icon"
+												data={file_document}
+												class="h-5 w-5"
+											/>
+										{/if}
+									</FilePreview.Item.Leading>
 
-			<!-- <List>
-				{#each myFiles as myFile, index}
-					{@const { file, src, progress } = myFile}
-					<div transition:slide>
-						<List.Item>
-							<List.Item.Leading slot="leading">
-								{#if file.type.startsWith('image/')}
-									<List.Item.Leading.Avatar slot="avatar" {src} alt={file.name} />
-								{/if}
-							</List.Item.Leading>
-							<List.Item.Content slot="content">
-								<List.Item.Content.Title slot="title">{file.name}</List.Item.Content.Title>
-								<List.Item.Content.Description slot="description" class="w-full">
-									{#if progress != null}
-										<Progress value={parseFloat(progress.toFixed(0))} displayValue />
-									{:else}
-										{formatFileSize(file.size)}
-									{/if}
-								</List.Item.Content.Description>
-							</List.Item.Content>
-							<List.Item.Extra slot="extra" placement="start">
-								{#if progress === 100}
-									<Button>
-										<Button.Icon slot="icon" class="text-primary" data={check} />
-									</Button>
-								{:else}
-									{#if progress == null}
-										<Button on:click={() => fakeUpload(index, 2000)}>
-											<Button.Icon slot="icon" data={play} />
-										</Button>
-									{/if}
-									<Button on:click={() => removeFile(myFile)}>
-										<Button.Icon slot="icon" data={close} />
-									</Button>
-								{/if}
-							</List.Item.Extra>
-						</List.Item>
-					</div>
-				{/each}
-			</List> -->
+									<FilePreview.Item.FileContent slot="file-content">
+										<FilePreview.Item.FileContent.Title slot="title">
+											{file.name}
+										</FilePreview.Item.FileContent.Title>
+										<FilePreview.Item.FileContent.Description slot="description">
+											{formatFileSize(file.size)}
+										</FilePreview.Item.FileContent.Description>
+									</FilePreview.Item.FileContent>
 
-			<br />
+									<FilePreview.Item.UploadContent slot="upload-content">
+										<FilePreview.Item.UploadContent.Status slot="status">
+											{#if status === UploadStatus.FAILED}
+												Upload Failed
+											{:else if status === UploadStatus.COMPLETE}
+												Upload Complete
+											{:else if status === UploadStatus.UPLOADING}
+												Uploading {#if progress}{progress.toFixed(0)}%{:else}0%{/if}
+											{:else if status === UploadStatus.REJECTED}
+												Upload Rejected
+											{:else if status === UploadStatus.PENDING}
+												Pending Upload
+											{/if}
+										</FilePreview.Item.UploadContent.Status>
+										<FilePreview.Item.UploadContent.Action slot="action">
+											{#if status === UploadStatus.FAILED}
+												Tap to retry
+											{:else if status === UploadStatus.COMPLETE}
+												Tap to undo
+											{:else if status === UploadStatus.UPLOADING}
+												Tap to cancel
+											{:else if status === UploadStatus.REJECTED}
+												Tap to remove
+											{:else if status === UploadStatus.PENDING}
+												Tap to cancel
+											{/if}
+										</FilePreview.Item.UploadContent.Action>
+									</FilePreview.Item.UploadContent>
 
-			<!-- {#if myFiles.length > 0}
-				<div class="flex justify-end">
-					<Button
-						type="primary"
-						loading={uploading}
-						disabled={uploading}
-						on:click={fakeUploadProgress}
-					>
-						{uploading ? 'uploading ...' : 'Begin upload'}
-					</Button>
+									<FilePreview.Item.Extra
+										slot="extra"
+										placement="center"
+										class="justify-center items-center flex"
+									>
+										{#if status === UploadStatus.FAILED}
+											<FilePreview.Item.Extra.Failed />
+										{:else if status === UploadStatus.COMPLETE}
+											<FilePreview.Item.Extra.Complete />
+										{:else if status === UploadStatus.UPLOADING && progress !== undefined}
+											<FilePreview.Item.Extra.Uploading {progress} />
+										{:else if status === UploadStatus.REJECTED}
+											<FilePreview.Item.Extra.Rejected />
+										{:else if status === UploadStatus.PENDING}
+											<FilePreview.Item.Extra.Pending />
+										{/if}
+									</FilePreview.Item.Extra>
+								</FilePreview.Item>
+							</div>
+						{/each}
+					</FilePreview>
 				</div>
-			{/if} -->
+			{/if}
 
 			<br />
 
