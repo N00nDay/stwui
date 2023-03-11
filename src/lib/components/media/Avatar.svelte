@@ -92,7 +92,7 @@
 			class={finalContainerClass}
 			use:useActions={use}
 			use:forwardEvents
-			{...exclude($$props, ['use', 'class'])}
+			{...exclude($$props, ['use', 'class', 'src'])}
 		>
 			{#if loaded}
 				<img class={finalClass} style={$$props.style} src={src || ''} {alt} />
