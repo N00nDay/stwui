@@ -96,6 +96,7 @@
 			class:text-base={size === 'xs' || size === 'sm'}
 			class:text-lg={size === 'md'}
 			class:text-2xl={size === 'lg' || size === 'xl'}
+			class:hidden={!displayValue}
 		>
 			{value}%
 		</span>
