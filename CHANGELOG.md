@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.7.0-next](https://github.com/N00nDay/stwui/compare/v0.6.0-next...v0.7.0-next) (2023-03-11)
+
+
+### Features
+
+* **FilePreview:** added for displaying uploading files ([e3bffb9](https://github.com/N00nDay/stwui/commit/e3bffb9f1e2c93d5bb1ee774645b41947012eca9))
+
+
+### Bug Fixes
+
+* **FilePicker:** updated fakeUpload process ([9052430](https://github.com/N00nDay/stwui/commit/90524309131dadcccecb750fae82458f9cd6097b))
+* **List.Item:** added missing default slot ([c437f61](https://github.com/N00nDay/stwui/commit/c437f6117af040dc43771d90ad72a32ef046046c))
+* **Progress:** hide center value for radial when undefined ([72a14f1](https://github.com/N00nDay/stwui/commit/72a14f10c9c6e2c5b0d4ecb5124f4a9bad931d69))
+
 ## [0.6.0-next](https://github.com/N00nDay/stwui/compare/v0.5.0-next...v0.6.0-next) (2023-03-09)
 
 
