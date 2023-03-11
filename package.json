@@ -73,7 +73,7 @@
 	"types": "index.d.ts",
 	"dependencies": {
 		"dayjs": "^1.11.7",
-		"tailwind-merge": "^1.9.1",
+		"tailwind-merge": "^1.10.0",
 		"tippy.js": "^6.3.7"
 	},
 	"peerDependencies": {
@@ -85,6 +85,7 @@
 		"./plugin": "./plugin/index.js",
 		"./types": "./types/index.js",
 		"./utils": "./utils/index.js",
-		"./icons": "./icons.js"
+		"./icons": "./icons.js",
+		"./enums": "./enums.js"
 	}
 }
