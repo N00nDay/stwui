@@ -10,7 +10,9 @@
 		checkboxProps,
 		checkboxSlots,
 		labelSlots,
-		descriptionSlots
+		descriptionSlots,
+		disabledExample,
+		defaultCheckedExample
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 </script>
@@ -115,6 +117,43 @@
 			<br />
 
 			<CodeBlock language="svelte" code={inlineExample} />
+		</Card.Content>
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-12">
+	<Card bordered={false}>
+		<Card.Header slot="header">Default checked</Card.Header>
+		<Card.Content slot="content" class="p-4">
+			<CheckboxGroup>
+				<CheckboxGroup.Checkbox name="cb-19" value="cb-19" checked={true}>
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-19</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
+			</CheckboxGroup>
+
+			<br />
+
+			<CodeBlock language="svelte" code={defaultCheckedExample} />
+		</Card.Content>
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-12">
+	<Card bordered={false}>
+		<Card.Header slot="header">Disabled</Card.Header>
+		<Card.Content slot="content" class="p-4">
+			<CheckboxGroup>
+				<CheckboxGroup.Checkbox name="cb-17" value="cb-17" disabled={true}>
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-17</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
+				<CheckboxGroup.Checkbox name="cb-18" value="cb-18" disabled={true} checked={true}>
+					<CheckboxGroup.Checkbox.Label slot="label">Checkbox-18</CheckboxGroup.Checkbox.Label>
+				</CheckboxGroup.Checkbox>
+			</CheckboxGroup>
+
+			<br />
+
+			<CodeBlock language="svelte" code={disabledExample} />
 		</Card.Content>
 	</Card>
 </Col>

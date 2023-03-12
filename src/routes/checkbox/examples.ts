@@ -48,6 +48,18 @@ export const checkboxProps: Prop[] = [
 		prop: 'indeterminate',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '4',
+		prop: 'disabled',
+		type: 'boolean',
+		default: 'false'
+	},
+	{
+		id: '5',
+		prop: 'checked',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 
@@ -169,4 +181,29 @@ export const inlineExample = `
          desc-16
       </CheckboxGroup.Checkbox.Description>
    </CheckboxGroup.Checkbox>
+</CheckboxGroup>`;
+
+export const disabledExample = `
+<script lang="ts">
+	import { CheckboxGroup } from 'stwui';
+</script>
+
+<CheckboxGroup>
+	<CheckboxGroup.Checkbox name="cb-17" value="cb-17" disabled={true}>
+			<CheckboxGroup.Checkbox.Label slot="label">Checkbox-17</CheckboxGroup.Checkbox.Label>
+	</CheckboxGroup.Checkbox>
+	<CheckboxGroup.Checkbox name="cb-18" value="cb-18" disabled={true} checked={true}>
+			<CheckboxGroup.Checkbox.Label slot="label">Checkbox-18</CheckboxGroup.Checkbox.Label>
+	</CheckboxGroup.Checkbox>
+</CheckboxGroup>`;
+
+export const defaultCheckedExample = `
+<script lang="ts">
+	import { CheckboxGroup } from 'stwui';
+</script>
+
+<CheckboxGroup>
+	<CheckboxGroup.Checkbox name="cb-19" value="cb-19" checked={true}>
+			<CheckboxGroup.Checkbox.Label slot="label">Checkbox-19</CheckboxGroup.Checkbox.Label>
+	</CheckboxGroup.Checkbox>
 </CheckboxGroup>`;
