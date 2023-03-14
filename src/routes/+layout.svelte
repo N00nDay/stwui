@@ -21,11 +21,13 @@
 	$: darkTheme = $theme === 'dark';
 	$: if (browser && darkTheme) {
 		const htmlElement = document.documentElement;
-		htmlElement.classList.add('dark');
+		// htmlElement.classList.add('dark');
+		htmlElement.dataset.theme = 'dark';
 		theme.set('dark');
 	} else if (browser) {
 		const htmlElement = document.documentElement;
-		htmlElement.classList.remove('dark');
+		// htmlElement.classList.remove('dark');
+		htmlElement.dataset.theme = 'light';
 		theme.set('light');
 	}
 
@@ -67,14 +69,12 @@
 
 <div class="h-full w-full print:hidden">
 	<Layout>
-		<div
-			class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-light-surface dark:bg-dark-surface shadow-md dark:shadow-black"
-		/>
+		<div class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-surface shadow-md" />
 		<Layout.Header>
 			<Button
 				ariaLabel="open menu"
 				shape="circle"
-				class="inline-block lg:hidden mr-4 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
+				class="inline-block lg:hidden mr-4 bg-default text-default-content border-none outline-none"
 				on:click={handleOpenMenu}
 			>
 				<Swap slot="icon">
@@ -93,7 +93,7 @@
 				/>
 			</a>
 
-			<div class="font-bold text-xl opacity-80 dark:opacity-100">STWUI</div>
+			<div class="font-bold text-xl text-content">STWUI</div>
 
 			<Layout.Header.Extra slot="extra">
 				<Toggle name="toggle" bind:on={darkTheme}>
@@ -107,7 +107,7 @@
 					ariaLabel="open discord"
 					href="https://discord.gg/YVgwp48Tcm"
 					shape="circle"
-					class="ml-2 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
+					class="ml-2 bg-default text-default-content"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +127,7 @@
 					ariaLabel="open github"
 					href="https://github.com/N00nDay/stwui"
 					shape="circle"
-					class="ml-2 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
+					class="ml-2 bg-default text-default-content"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -145,10 +145,7 @@
 			</Layout.Header.Extra>
 		</Layout.Header>
 
-		<Layout.Content
-			class="h-[calc(100%-64px)] bg-light-background dark:bg-dark-background"
-			expandedWidth="17rem"
-		>
+		<Layout.Content class="h-[calc(100%-64px)] bg-background" expandedWidth="17rem">
 			<Layout.Content.Sidebar class="max-w-full">
 				<Navigation />
 			</Layout.Content.Sidebar>
@@ -160,9 +157,9 @@
 					<Row gutter="3" class="h-full w-full">
 						{#if $page.data.header}
 							<Col class="col-24 mb-4">
-								<h1 class="text-light-content dark:text-dark-content mb-0">{$page.data.header}</h1>
+								<h1 class="text-content mb-0">{$page.data.header}</h1>
 								{#if $page.data.subHeader}
-									<p class="text-light-secondary-content dark:text-dark-secondary-content">
+									<p class="text-secondary-content">
 										{$page.data.subHeader}
 									</p>
 								{/if}

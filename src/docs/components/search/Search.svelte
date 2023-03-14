@@ -13,6 +13,7 @@
 	} from '../../icons';
 	import { close, info } from '../../../lib/icons';
 	import { browser } from '$app/environment';
+	import HoverBackground from '$lib/components/HoverBackground.svelte';
 
 	let input: HTMLInputElement;
 
@@ -113,7 +114,7 @@
 	ariaLabel="open search"
 	on:click={handleOpen}
 	shape="circle"
-	class="flex ml-4 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
+	class="flex ml-4 bg-default text-default-content"
 >
 	<Button.Icon slot="icon" data={magnify} stroke="currentColor" />
 </Button>
@@ -123,19 +124,19 @@
 		<Modal {handleClose}>
 			<Modal.Content
 				id="search-modal"
-				class="mx-auto max-w-xl transform divide-y divide-light-border dark:divide-dark-border overflow-hidden rounded-xl bg-light-surface dark:bg-dark-surface shadow-2xl"
+				class="mx-auto max-w-xl transform divide-y divide-border overflow-hidden rounded-xl bg-surface shadow-2xl"
 			>
 				<div class="relative">
 					<span>
 						<Icon
 							data={magnify}
-							class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-light-secondary-content dark:text-dark-secondary-content opacity-50"
+							class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-secondary-content"
 						/>
 					</span>
 					<input
 						bind:this={input}
 						type="text"
-						class="h-12 w-full border-0 bg-transparent pl-11 pr-10 text-light-secondary-content dark:text-dark-secondary-content placeholder-light-secondary-content dark:placeholder-dark-secondary-content placeholder-opacity-50 focus:ring-0 sm:text-sm"
+						class="h-12 w-full border-0 bg-transparent pl-11 pr-10 text-secondary-content placeholder-secondary-content placeholder-opacity-80 focus:ring-0 sm:text-sm"
 						placeholder="Search..."
 						role="combobox"
 						aria-expanded="false"
@@ -150,7 +151,7 @@
 							on:click={handleClear}
 							on:keypress
 						>
-							<span class="text-light-icon dark:text-dark-icon">
+							<span class="text-content">
 								<Icon data={close} />
 							</span>
 						</span>
@@ -165,9 +166,8 @@
 					<ul class="max-h-96 scroll-py-3 overflow-y-auto p-3" id="options" role="listbox">
 						{#each filteredData as item, index}
 							<li
-								class="group flex cursor-pointer select-none rounded-xl p-3 hover:bg-light-icon-background-hover dark:hover:bg-dark-icon-background-hover"
-								class:bg-light-icon-background-hover={index === selectedIndex}
-								class:dark:bg-dark-icon-background-hover={index === selectedIndex}
+								class="group relative flex cursor-pointer select-none rounded-xl p-3 overflow-hidden"
+								class:bg-hover={index === selectedIndex}
 								id={`option-${index}`}
 								tabindex="-1"
 								on:click={() => handleSelect(item.href)}
@@ -175,29 +175,34 @@
 							>
 								<div
 									class="flex h-10 w-10 flex-none items-center justify-center rounded-lg"
-									class:bg-info-content={item.type === 'Component'}
-									class:bg-success-content={item.type === 'Guide'}
-									class:bg-warn-content={item.type === 'Action'}
-									class:bg-error-content={item.type === 'Utility'}
+									class:bg-info={item.type === 'Component'}
+									class:bg-success={item.type === 'Guide'}
+									class:bg-warn={item.type === 'Action'}
+									class:bg-error={item.type === 'Utility'}
+									class:text-info-content={item.type === 'Component'}
+									class:text-success-content={item.type === 'Guide'}
+									class:text-warn-content={item.type === 'Action'}
+									class:text-error-content={item.type === 'Utility'}
 								>
 									{#if item.type === 'Component'}
-										<Icon data={toggle_switch} class="text-dark-content" />
+										<Icon data={toggle_switch} />
 									{:else if item.type === 'Guide'}
-										<Icon data={format_list_numbered} class="text-dark-content" />
+										<Icon data={format_list_numbered} />
 									{:else if item.type === 'Action'}
-										<Icon data={lightning_bolt_circle} class="text-dark-content" />
+										<Icon data={lightning_bolt_circle} />
 									{:else if item.type === 'Utility'}
-										<Icon data={function_variant} class="text-dark-content" />
+										<Icon data={function_variant} />
 									{/if}
 								</div>
 								<div class="ml-4 flex-auto">
-									<p class="text-sm font-medium text-light-content dark:text-dark-content">
+									<p class="text-sm font-medium text-content">
 										{item.name}
 									</p>
-									<p class="text-sm text-light-secondary-content dark:text-dark-secondary-content">
+									<p class="text-sm text-secondary-content">
 										{item.type}
 									</p>
 								</div>
+								<HoverBackground class="rounded-xl" />
 							</li>
 						{/each}
 					</ul>

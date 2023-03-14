@@ -18,7 +18,7 @@
 	const baseActiveClass =
 		'group border-transparent group inline-flex items-center py-4 px-1 font-medium text-sm text-primary border-primary';
 	const baseClass =
-		'group border-transparent group inline-flex items-center py-4 px-1 font-medium text-sm dark:hover:border-dark-border-base hover:border-light-border-base dark:hover:text-dark-content hover:text-light-content dark:text-dark-secondary-content text-light-secondary-content';
+		'group border-transparent group inline-flex items-center py-4 px-1 font-medium text-sm hover:border-border hover:text-content text-secondary-content';
 
 	const fullWidthClass = 'w-full flex justify-center';
 	const barClass = 'focus:z-10 relative';

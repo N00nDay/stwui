@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Badge, Menu, Divider } from '../../../lib';
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte/internal';
 
 	interface Item {
 		title: string;
@@ -182,7 +181,7 @@
 		},
 		{
 			title: 'Table',
-			href: '/table?orderBy=created_at&order=asc&page=1'
+			href: '/table'
 		},
 		{
 			title: 'Tabs',
@@ -206,66 +205,40 @@
 
 	export let handleClose: (() => void) | undefined = undefined;
 
-	let active = '';
+	$: active =
+		$page.url.pathname.substring(0, $page.url.pathname.indexOf('?')) || $page.url.pathname;
 
-	function handleClick(item: string) {
-		active = item;
+	$: console.log('active', active);
+
+	function handleClick() {
 		if (handleClose) {
 			handleClose();
 		}
 	}
 
 	const menuTitleClass = 'text-xs font-bold text-primary py-2 px-3 h-10';
-
-	onMount(() => {
-		active = $page.url.pathname;
-	});
 </script>
 
 <h3 class={menuTitleClass}>GET STARTED</h3>
 <Menu {active}>
-	<Menu.Item
-		key="/installation"
-		label="Installation"
-		href="/installation"
-		on:click={() => handleClick('/installation')}
-	/>
-	<Menu.Item
-		key="/typography"
-		label="Typography"
-		href="/typography"
-		on:click={() => handleClick('/typography')}
-	/>
+	<Menu.Item key="/installation" label="Installation" href="/installation" on:click={handleClick} />
+	<Menu.Item key="/typography" label="Typography" href="/typography" on:click={handleClick} />
+	<Menu.Item key="/themes" label="Themes" href="/themes" on:click={handleClick} />
 </Menu>
 <Divider />
 <h3 class={menuTitleClass}>COMPONENTS</h3>
 <Menu {active}>
 	{#each sidebarItems as item}
 		{#if item.beta}
-			<Menu.Item
-				key={item.href}
-				label={item.title}
-				href={item.href}
-				on:click={() => handleClick(item.href)}
-			>
+			<Menu.Item key={item.href} label={item.title} href={item.href} on:click={handleClick}>
 				<Badge slot="extra" type="error">BETA</Badge>
 			</Menu.Item>
 		{:else if item.updated}
-			<Menu.Item
-				key={item.href}
-				label={item.title}
-				href={item.href}
-				on:click={() => handleClick(item.href)}
-			>
+			<Menu.Item key={item.href} label={item.title} href={item.href} on:click={handleClick}>
 				<Badge slot="extra" type="success">UPDATED</Badge>
 			</Menu.Item>
 		{:else}
-			<Menu.Item
-				key={item.href}
-				label={item.title}
-				href={item.href}
-				on:click={() => handleClick(item.href)}
-			/>
+			<Menu.Item key={item.href} label={item.title} href={item.href} on:click={handleClick} />
 		{/if}
 	{/each}
 </Menu>
@@ -276,20 +249,10 @@
 		key="/click-outside"
 		label="clickOutside"
 		href="/click-outside"
-		on:click={() => handleClick('/click-outside')}
+		on:click={handleClick}
 	/>
-	<Menu.Item
-		key="/clipboard"
-		label="clipboard"
-		href="/clipboard"
-		on:click={() => handleClick('/clipboard')}
-	/>
-	<Menu.Item
-		key="/tooltip"
-		label="tooltip"
-		href="/tooltip"
-		on:click={() => handleClick('/tooltip')}
-	/>
+	<Menu.Item key="/clipboard" label="clipboard" href="/clipboard" on:click={handleClick} />
+	<Menu.Item key="/tooltip" label="tooltip" href="/tooltip" on:click={handleClick} />
 </Menu>
 <Divider />
 <h3 class={menuTitleClass}>UTILITIES</h3>
@@ -298,53 +261,48 @@
 		key="/compute-progress"
 		label="computeProgress"
 		href="/compute-progress"
-		on:click={() => handleClick('/compute-progress')}
+		on:click={handleClick}
 	/>
 	<Menu.Item
 		key="/compute-trend-percent"
 		label="computeTrendPercent"
 		href="/compute-trend-percent"
-		on:click={() => handleClick('/compute-trend-percent')}
+		on:click={handleClick}
 	/>
 	<Menu.Item
 		key="/compute-trend-value"
 		label="computeTrendValue"
 		href="/compute-trend-value"
-		on:click={() => handleClick('/compute-trend-value')}
+		on:click={handleClick}
 	/>
 	<Menu.Item
 		key="/copy-to-clipboard"
 		label="copyToClipboard"
 		href="/copy-to-clipboard"
-		on:click={() => handleClick('/copy-to-clipboard')}
+		on:click={handleClick}
 	/>
 	<Menu.Item
 		key="/encode-search-params"
 		label="encodeSearchParams"
 		href="/encode-search-params"
-		on:click={() => handleClick('/encode-search-params')}
+		on:click={handleClick}
 	/>
-	<Menu.Item
-		key="/format-date"
-		label="formatDate"
-		href="/format-date"
-		on:click={() => handleClick('/format-date')}
-	/>
+	<Menu.Item key="/format-date" label="formatDate" href="/format-date" on:click={handleClick} />
 	<Menu.Item
 		key="/format-file-size"
 		label="formatFileSize"
 		href="/format-file-size"
-		on:click={() => handleClick('/format-file-size')}
+		on:click={handleClick}
 	/>
 	<Menu.Item
 		key="/format-number"
 		label="formatNumber"
 		href="/format-number"
-		on:click={() => handleClick('/format-number')}
+		on:click={handleClick}
 	/>
 </Menu>
 <Divider />
 <h3 class={menuTitleClass}>TYPES</h3>
 <Menu {active}>
-	<Menu.Item key="/types" label="Types" href="/types" on:click={() => handleClick('/types')} />
+	<Menu.Item key="/types" label="Types" href="/types" on:click={handleClick} />
 </Menu>

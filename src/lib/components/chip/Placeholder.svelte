@@ -16,16 +16,16 @@
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('chip-avatar-size');
 
 	const defaultClass =
-		'absolute text-light-icon dark:text-dark-icon inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';
+		'absolute text-default-content flex items-center justify-center overflow-hidden bg-default inset-[0.2rem] bg-background';
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';
 
-	const defaultIconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
-	const xsContainerClass = 'bottom-[-0.25rem]';
-	const smContainerClass = 'bottom-[-0.35rem]';
-	const mdContainerClass = 'bottom-[-0.5rem]';
-	const lgContainerClass = 'text-6xl bottom-[-0.6rem]';
-	const xlContainerClass = 'bottom-[-0.75rem]';
+	const defaultIconContainerClass = 'absolute text-default-content h-full w-full';
+	const xsContainerClass = 'bottom-[-0.1rem] left-[-0.2rem]';
+	const smContainerClass = 'bottom-[-0.2rem] left-[-0.2rem]';
+	const mdContainerClass = 'bottom-[-0.3rem] left-[-0.2rem]';
+	const lgContainerClass = 'bottom-[-0.5rem] left-[-0.2rem]';
+	const xlContainerClass = 'bottom-[-0.5rem] left-[-0.2rem]';
 	const xsIconSize = '24px';
 	const smIconSize = '32px';
 	const mdIconSize = '40px';
@@ -71,7 +71,6 @@
 		<slot name="icon" />
 		<slot />
 	{:else}
-		<Icon class="" />
 		<span class={iconContainerClass}>
 			<Icon data={account} size={iconSize} />
 		</span>

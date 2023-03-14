@@ -23,6 +23,7 @@
 	export let tabindex: string | undefined = undefined;
 	export let showPasswordToggle = false;
 	export let allowClear = false;
+	export let disabled = false;
 
 	let input: HTMLInputElement;
 	let currentError: Writable<string | undefined> = writable(error);
@@ -43,7 +44,6 @@
 	}
 
 	function handleClear() {
-		input.focus();
 		input.value = '';
 		value = undefined;
 	}
@@ -57,7 +57,11 @@
 
 <div class={finalClass} style={$$props.style}>
 	<slot name="label" />
-	<div class="mt-1 relative rounded-md h-[2.5rem]" class:text-danger={error}>
+	<div
+		class="mt-1 relative rounded-md h-[2.5rem]"
+		class:text-danger={error}
+		class:opacity-75={disabled}
+	>
 		<input
 			bind:this={input}
 			use:useType
@@ -67,22 +71,19 @@
 			id={name}
 			{readonly}
 			{tabindex}
-			class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface outline-offset-0"
-			class:border-light-border-base={!error}
-			class:dark:border-dark-border-base={!error}
-			class:border-red-400={error}
+			{disabled}
+			class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface outline-offset-0 placeholder-secondary-content placeholder-opacity-80"
+			class:border-border={!error}
+			class:border-danger={error}
 			class:text-danger={error}
-			class:dark:text-danger={error}
-			class:placeholder-red-300={error}
+			class:placeholder-danger={error}
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
-			class:dark:focus:border-primary={!error}
-			class:group-focus-within:border-red-500={error}
-			class:group-focus-within:border-primary={!error}
-			class:dark:group-focus-within:border-primary={!error}
-			class:group-active:border-red-500={error}
-			class:group-active:border-primary={!error}
-			class:dark:group-active:border-primary={!error}
+			class:group-focus-within:not(.disable-focus-active):border-red-500={error}
+			class:group-focus-within:not(.disable-focus-active):border-primary={!error}
+			class:group-active:not(.disable-focus-active):border-red-500={error}
+			class:group-active:not(.disable-focus-active):border-primary={!error}
+			class:bg-default={disabled}
 			class:pl-10={$$slots.leading}
 			class:pr-10={$$slots.trailing || error || allowClear}
 			{placeholder}
@@ -93,7 +94,9 @@
 		/>
 
 		{#if $$slots.leading}
-			<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+			<span
+				class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary-content"
+			>
 				<slot name="leading" />
 			</span>
 		{/if}
@@ -102,11 +105,11 @@
 			<button
 				aria-label="clear"
 				on:click={handleClear}
-				class="absolute inset-y-0 hidden group-focus-within:flex active:flex items-center"
+				class="disable-focus-active absolute inset-y-0 hidden group-focus-within:flex active:flex items-center"
 				class:right-10={showPasswordToggle || $$slots.trailing || error}
 				class:right-3={!showPasswordToggle && !$$slots.trailing && !error}
 			>
-				<span transition:scale|local class="items-center flex text-light-icon dark:text-dark-icon">
+				<span transition:scale|local class="items-center flex text-secondary-content">
 					<Icon data={close} />
 				</span>
 			</button>
@@ -117,13 +120,15 @@
 				on:click={togglePasswordVisibility}
 				swapped={passwordVisible}
 				type="flip"
-				class="absolute left-[unset] inset-y-0 right-1 flex items-center w-9 text-light-secondary-content dark:text-dark-secondary-content"
+				class="disable-focus-active absolute left-[unset] inset-y-0 right-1 flex items-center w-9 text-secondary-content"
 			>
 				<Icon slot="on" data={eye} />
 				<Icon slot="off" data={eye_off} />
 			</Swap>
 		{:else if $$slots.trailing && !error}
-			<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+			<span
+				class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-secondary-content"
+			>
 				<slot name="trailing" />
 			</span>
 		{:else if error}

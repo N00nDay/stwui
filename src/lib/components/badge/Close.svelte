@@ -10,15 +10,11 @@
 	const type: 'info' | 'success' | 'warn' | 'error' | undefined = getContext('badge-type');
 
 	const defaultClass =
-		'ml-1.5 flex-shrink-0 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:focus:text-white hover:text-white dark:hover:text-white hover:bg-light-secondary-content';
-	const infoClass =
-		'hover:bg-info-background dark:hover:bg-dark-info-background text-info-content dark:text-dark-info-content';
-	const successClass =
-		'hover:bg-success-background dark:hover:bg-dark-success-background text-success-content dark:text-dark-success-content';
-	const warnClass =
-		'hover:bg-warn-background dark:hover:bg-dark-warn-background text-warn-content dark:text-dark-warn-content';
-	const errorClass =
-		'hover:bg-error-background dark:hover:bg-dark-error-background text-error-content dark:text-dark-error-content';
+		'ml-1.5 flex-shrink-0 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:bg-default text-default-content hover:bg-background hover:bg-opacity-50 hover:text-content';
+	const infoClass = ' text-info-content';
+	const successClass = ' text-success-content';
+	const warnClass = ' text-warn-content';
+	const errorClass = 'text-error-content';
 
 	$: finalClass = twMerge(
 		defaultClass,

@@ -35,8 +35,8 @@
 						class="pr-2"
 					/>
 				</Col>
-				<Col class="col-24 sm:col-8 h-[56px]">
-					<div class="h-full flex items-end">
+				<Col class="col-24 sm:col-8 h-[44px]">
+					<div class="h-full flex items-center">
 						Trend: {formatNumber(trend, {
 							style: 'percent'
 						})}

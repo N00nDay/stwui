@@ -19,7 +19,7 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<div class="absolute inset-0 flex items-center" aria-hidden="true">
-		<div class="w-full border-t border-light-border-base dark:border-dark-border-base" />
+		<div class="w-full border-t border-border" />
 	</div>
 	{#if $$slots.label || $$slots.icon || $$slots.default}
 		<div

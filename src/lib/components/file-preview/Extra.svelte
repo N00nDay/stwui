@@ -21,9 +21,7 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<div
-		class="relative rounded-full bg-light-icon-background dark:bg-dark-icon-background flex items-center justify-center h-8 w-8"
-	>
+	<div class="relative rounded-full bg-default flex items-center justify-center h-8 w-8">
 		<slot name="pending" />
 		<slot name="complete" />
 		<slot name="uploading" />

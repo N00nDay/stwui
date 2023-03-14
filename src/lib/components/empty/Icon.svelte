@@ -24,7 +24,7 @@
 		return res[1];
 	}
 
-	const defaultClass = 'text-light-icon dark:text-dark-icon flex items-center justify-center';
+	const defaultClass = 'text-content flex items-center justify-center';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

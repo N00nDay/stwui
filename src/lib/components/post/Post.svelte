@@ -8,9 +8,8 @@
 
 	export let bordered = false;
 
-	const defaultClass =
-		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md shadow-md dark:shadow-black';
-	const borderClass = 'border border-light-border-base dark:border-dark-border-base';
+	const defaultClass = 'bg-surface text-content rounded-md shadow-md';
+	const borderClass = 'border border-border';
 
 	$: finalClass = twMerge(
 		defaultClass,

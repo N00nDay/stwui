@@ -9,7 +9,7 @@
 
 	const id: string = getContext('radio-name');
 
-	const defaultClass = 'font-medium cursor-pointer text-light-content dark:text-dark-content';
+	const defaultClass = 'font-medium cursor-pointer text-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

@@ -10,7 +10,7 @@
 		<Card.Content slot="content" class="p-4">
 			<Rating name="rating-1" showValue />
 			<br />
-			<Rating name="rating-2" value={3} class="text-orange-400" />
+			<Rating name="rating-2" value={3} type="info" />
 
 			<br />
 

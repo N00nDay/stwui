@@ -220,7 +220,7 @@
 		<Card.Header slot="header">Disabled</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<FilePicker name="file-picker-4" onDrop={(files) => console.log(files)} disabled>
-				<FilePicker.Icon slot="icon" data={cloud_upload} class="filter-gray-500" />
+				<FilePicker.Icon slot="icon" data={cloud_upload} />
 				<FilePicker.Title slot="title">Cannot upload anything here</FilePicker.Title>
 			</FilePicker>
 
@@ -374,7 +374,7 @@
 						class="w-1/4 aspect-square flex flex-col justify-center"
 						onDrop={(files) => minimalisticDrop(files)}
 					>
-						<FilePicker.Icon slot="icon" data={cloud_upload} class="filter-gray-500" />
+						<FilePicker.Icon slot="icon" data={cloud_upload} />
 					</FilePicker>
 				{/if}
 			</div>

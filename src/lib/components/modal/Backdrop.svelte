@@ -5,7 +5,7 @@
 	export let handleClose: () => void;
 
 	const defaultClass =
-		'overlay fixed inset-0 bg-dark-background dark:bg-light-background bg-opacity-10 dark:bg-opacity-10 backdrop-blur-sm transition-opacity pointer-events-auto';
+		'overlay fixed inset-0 bg-background bg-opacity-10 backdrop-blur-sm transition-opacity pointer-events-auto';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

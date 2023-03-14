@@ -25,7 +25,7 @@
 	];
 </script>
 
-<h1 class="mb-4 mt-8 text-xl font-semibold text-light-content dark:text-dark-content">
+<h1 class="mb-4 mt-8 text-xl font-semibold text-content">
 	{component} Props
 </h1>
 <Card bordered={false}>
@@ -33,10 +33,7 @@
 		<Table.Header slot="header" sortable={false} />
 		<Table.Body slot="body">
 			{#each props as prop}
-				<Table.Body.Row
-					id={prop.id}
-					class="cursor-default hover:bg-light-surface dark:hover:bg-dark-surface"
-				>
+				<Table.Body.Row id={prop.id} class="cursor-default hover:bg-surface">
 					<Table.Body.Row.Cell column={0}>{prop.prop}</Table.Body.Row.Cell>
 					<Table.Body.Row.Cell column={1}>{@html prop.type}</Table.Body.Row.Cell>
 					<Table.Body.Row.Cell column={2}>{prop.default}</Table.Body.Row.Cell>

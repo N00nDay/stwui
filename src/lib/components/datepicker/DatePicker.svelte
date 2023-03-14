@@ -228,7 +228,7 @@
 			size="xs"
 			shape="circle"
 			tabindex="-1"
-			class="mr-1 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
+			class="mr-1 bg-default text-default-content border-none outline-none"
 			on:click={() => handleArrow('year', 'subtract')}
 		>
 			<Button.Icon slot="icon" data={chevron_double_left} />
@@ -238,16 +238,14 @@
 			size="xs"
 			shape="circle"
 			tabindex="-1"
-			class="bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
+			class="bg-default text-default-content border-none outline-none"
 			on:click={() => handleArrow('month', 'subtract')}
 		>
 			<Button.Icon slot="icon" data={chevron_left} />
 		</Button>
 		<div class="flex-grow px-2 text-center font-medium relative overflow-hidden h-full">
 			<!-- {#key calendarDays} -->
-			<div
-				class="absolute inset-0 flex items-center justify-center text-light-content dark:text-dark-content"
-			>
+			<div class="absolute inset-0 flex items-center justify-center text-content">
 				{iLocale.months[browseDate.month()]}
 				{browseDate.year()}
 			</div>
@@ -258,7 +256,7 @@
 			size="xs"
 			shape="circle"
 			tabindex="-1"
-			class="bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
+			class="bg-default text-default-content border-none outline-none"
 			on:click={() => handleArrow('month', 'add')}
 		>
 			<Button.Icon slot="icon" data={chevron_right} />
@@ -268,7 +266,7 @@
 			size="xs"
 			shape="circle"
 			tabindex="-1"
-			class="ml-1 bg-light-icon-background text-light-icon dark:bg-dark-icon-background dark:text-dark-icon border-none outline-none"
+			class="ml-1 bg-default text-default-content border-none outline-none"
 			on:click={() => handleArrow('year', 'add')}
 		>
 			<Button.Icon slot="icon" data={chevron_double_right} />
@@ -297,7 +295,7 @@
 						{#each calendarDays.slice(weekIndex * 7, weekIndex * 7 + 7) as calendarDay}
 							{#if !dayIsInRange(calendarDay)}
 								<span
-									class="inactive w-full flex items-center justify-center h-10 rounded-none bg-light-icon-background dark:bg-dark-icon-background first-of-type:rounded-l-3xl last-of-type:rounded-r-3xl"
+									class="inactive w-full flex items-center justify-center h-10 rounded-none bg-default first-of-type:rounded-l-3xl last-of-type:rounded-r-3xl"
 								>
 									<span>{calendarDay.date()}</span>
 								</span>
@@ -310,14 +308,11 @@
 									on:click={() => selectDay(calendarDay)}
 									class:text-primary-content={calendarDay.isSame(value, 'date')}
 									class:hover:text-primary-content={calendarDay.isSame(value, 'date')}
-									class:text-[rgba(0,0,0,0.35)]={calendarDay.month() !== browseDate.month()}
-									class:dark:text-[rgba(255,255,255,0.35)]={calendarDay.month() !==
-										browseDate.month()}
-									class:text-light-content={calendarDay.month() === browseDate.month()}
-									class:hover:bg-light-icon-background-hover={dayIsInRange(calendarDay) &&
+									class:text-secondary-content={calendarDay.month() !== browseDate.month()}
+									class:text-content={calendarDay.month() === browseDate.month()}
+									class:hover:bg-hover={dayIsInRange(calendarDay) &&
 										!calendarDay.isSame(value, 'date')}
-									class:dark:text-dark-content={calendarDay.month() === browseDate.month()}
-									class:dark:hover:bg-dark-icon-background-hover={dayIsInRange(calendarDay) &&
+									class:hover:bg-opacity-[0.07]={dayIsInRange(calendarDay) &&
 										!calendarDay.isSame(value, 'date')}
 									class:border={calendarDay.isSame(defaultDate, 'day') &&
 										!calendarDay.isSame(value, 'date')}

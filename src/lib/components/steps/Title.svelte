@@ -13,19 +13,18 @@
 		getContext('steps-variant');
 	const step: number = getContext('steps-step');
 
-	const bulletsTextNextStep = 'ml-3 text-sm font-medium text-light-content dark:text-dark-content';
+	const bulletsTextNextStep = 'ml-3 text-sm font-medium text-content';
 	const bulletsTextCurrentStep = 'ml-3 text-sm font-medium text-primary';
 	const bulletsTextPreviousStep =
-		'ml-3 text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content group-hover:text-light-content dark:group-hover:text-dark-content';
+		'ml-3 text-sm font-medium text-secondary-content group-hover:text-content';
 
-	const circlesTextNextStep = 'text-sm font-medium text-light-content dark:text-dark-content';
+	const circlesTextNextStep = 'text-sm font-medium text-content';
 	const circlesTextCurrentStep = 'text-sm font-medium text-primary';
-	const circlesTextPreviousStep =
-		'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
+	const circlesTextPreviousStep = 'text-sm font-medium text-secondary-content';
 
 	const simpleNextStep = 'text-sm font-medium text-primary group-hover:text-primary-hover';
-	const simpleCurrentStep = 'text-sm font-medium text-primary dark:text-primary';
-	const simplePreviousStep = 'text-sm font-medium text-light-content dark:text-dark-content';
+	const simpleCurrentStep = 'text-sm font-medium text-primary';
+	const simplePreviousStep = 'text-sm font-medium text-content';
 
 	$: finalClass = twMerge(
 		variant === 'bullets' ? 'sr-only' : false,

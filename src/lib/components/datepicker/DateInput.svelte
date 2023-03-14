@@ -29,6 +29,7 @@
 	export let handleSelect: ((d: Date) => void) | undefined = undefined;
 	export let tabindex: string | undefined = undefined;
 	export let allowClear = false;
+	export let disabled = false;
 
 	let valueDayJS: Dayjs | null;
 	let text: string | undefined;
@@ -86,7 +87,9 @@
 	}
 
 	function handleOpen() {
-		visible = true;
+		if (!disabled) {
+			visible = true;
+		}
 	}
 
 	function handleClear() {
@@ -102,7 +105,11 @@
 	<svelte:fragment slot="trigger">
 		<div class={$$props.class} style={$$props.style}>
 			<slot name="label" />
-			<div class="mt-1 relative rounded-md h-[2.5rem]" class:text-danger={error}>
+			<div
+				class="mt-1 relative rounded-md h-[2.5rem]"
+				class:opacity-75={disabled}
+				class:text-danger={error}
+			>
 				<input
 					type="text"
 					{name}
@@ -110,6 +117,7 @@
 					tabindex="-1"
 					readonly={true}
 					class="h-0 w-0 invisible hidden"
+					{disabled}
 					bind:value
 					bind:this={valueInput}
 				/>
@@ -122,26 +130,23 @@
 					bind:value={text}
 					{tabindex}
 					{placeholder}
+					{disabled}
 					type="text"
 					on:focus={handleOpen}
 					on:mousedown={handleOpen}
 					on:keydown={keydown}
-					class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-light-surface dark:bg-dark-surface"
-					class:border-light-border-base={!error}
-					class:dark:border-dark-border-base={!error}
-					class:border-red-400={error}
+					class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80"
+					class:border-border={!error}
+					class:border-danger={error}
 					class:text-danger={error}
-					class:dark:text-danger={error}
-					class:placeholder-red-300={error}
+					class:placeholder-danger={error}
 					class:focus:border-red-500={error}
 					class:focus:border-primary={!error}
-					class:dark:focus:border-primary={!error}
 					class:group-focus-within:border-red-500={error}
 					class:group-focus-within:border-primary={!error}
-					class:dark:group-focus-within:border-primary={!error}
 					class:group-active:border-red-500={error}
 					class:group-active:border-primary={!error}
-					class:dark:group-active:border-primary={!error}
+					class:bg-default={disabled}
 					class:pl-10={$$slots.leading}
 					class:pr-10={$$slots.trailing || error || allowClear}
 					use:useActions={use}

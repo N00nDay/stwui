@@ -42,6 +42,12 @@ export const props: Prop[] = [
 		prop: 'readonly',
 		type: 'true | undefined',
 		default: ''
+	},
+	{
+		id: '8',
+		prop: 'disabled',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 

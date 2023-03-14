@@ -21,7 +21,7 @@
 </script>
 
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Card bordered={false}>
 			<Card.Cover slot="cover">
 				<img
@@ -46,7 +46,7 @@
 	</Card>
 </Col>
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Card bordered={false} hoverable>
 			<Card.Cover slot="cover" class="relative rounded-b-md">
 				<img
@@ -71,7 +71,7 @@
 	</Card>
 </Col>
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Card bordered={false}>
 			<Card.Cover slot="cover">
 				<img
@@ -96,7 +96,7 @@
 	</Card>
 </Col>
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Card bordered={false}>
 			<Card.Header slot="header">Card Header</Card.Header>
 			<Card.Content slot="content">Card Content</Card.Content>

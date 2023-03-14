@@ -7,17 +7,11 @@
 	export let trend: 'up' | 'down' | 'neutral' | undefined = undefined;
 	export let showIcon = true;
 
-	const defaultClass = 'bg-opacity-20 dark:bg-opacity-20';
-	const trendUpClass =
-		'bg-success-background dark:bg-dark-success-background text-success-content dark:text-dark-success-content';
-	const trendDownClass =
-		'bg-error-background dark:bg-dark-error-background text-error-content dark:text-dark-error-content';
-	const trendEvenClass =
-		'bg-info-background dark:bg-dark-info-background text-info-content dark:text-dark-info-content';
+	const trendUpClass = 'bg-success text-success-content';
+	const trendDownClass = 'bg-error text-error-content';
+	const trendEvenClass = 'bg-info text-info-content';
 
 	$: finalClass = twMerge(
-		defaultClass,
-
 		trend === 'up' ? trendUpClass : false,
 		trend === 'down' ? trendDownClass : false,
 		trend === 'neutral' ? trendEvenClass : false,

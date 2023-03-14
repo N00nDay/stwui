@@ -216,7 +216,7 @@
 </script>
 
 <Col class="col-24 sm:col-12 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Post>
 			<Post.Header slot="header">
 				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
@@ -255,7 +255,7 @@
 </Col>
 
 <Col class="col-24 sm:col-12 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Post>
 			<Post.Header slot="header">
 				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
@@ -294,7 +294,7 @@
 </Col>
 
 <Col class="col-24 sm:col-12 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Post>
 			<Post.Header slot="header">
 				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
@@ -333,7 +333,7 @@
 </Col>
 
 <Col class="col-24 sm:col-12 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Post>
 			<Post.Header slot="header">
 				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
@@ -372,7 +372,7 @@
 </Col>
 
 <Col class="col-24 sm:col-12 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Post>
 			<Post.Header slot="header">
 				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
@@ -411,7 +411,7 @@
 </Col>
 
 <Col class="col-24 sm:col-12 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Post>
 			<Post.Header slot="header">
 				<Post.Header.Avatar slot="avatar" src={creator.avatar} />

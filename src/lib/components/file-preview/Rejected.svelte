@@ -20,5 +20,5 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<Icon data={alert_circle} class="text-red-600 dark:text-red-600 h-5 w-5" />
+	<Icon data={alert_circle} class="text-danger h-5 w-5" />
 </span>

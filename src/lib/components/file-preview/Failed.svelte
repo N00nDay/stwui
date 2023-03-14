@@ -20,5 +20,5 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<Icon data={upload} slot="icon" class="text-light-icon dark:text-dark-icon h-5 w-5" />
+	<Icon data={upload} slot="icon" class="text-content h-5 w-5" />
 </span>

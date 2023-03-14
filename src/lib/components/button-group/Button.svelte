@@ -22,9 +22,8 @@
 	const iconSize = '20px';
 
 	const defaultClass =
-		'btn-group group overflow-hidden relative inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-light-content dark:text-dark-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md';
-	const disabledClass =
-		'opacity-70 bg-light-icon-background dark:bg-dark-icon-background hover:bg-light-icon-background dark:hover:bg-dark-icon-background';
+		'btn-group group overflow-hidden relative inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md';
+	const disabledClass = 'opacity-70 bg-default hover:bg-default';
 
 	$: finalClass = twMerge(
 		defaultClass,
@@ -42,15 +41,10 @@
 	type={htmlType}
 	class={finalClass}
 	class:bg-primary={active}
-	class:dark:bg-primary={active}
 	class:text-primary-content={active}
-	class:dark:text-primary-content={active}
 	class:focus:bg-primary={active}
-	class:dark:focus:bg-primary={active}
 	class:focus:text-primary-content={active}
-	class:dark:focus:text-primary-content={active}
-	class:bg-light-surface={!active}
-	class:dark:bg-dark-surface={!active}
+	class:bg-surface={!active}
 	class:disabled
 	class:w-full={block}
 	{disabled}

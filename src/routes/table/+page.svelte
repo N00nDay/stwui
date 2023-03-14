@@ -125,7 +125,7 @@
 </script>
 
 <Col class="col-24 h-full">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Card bordered={false} class="h-[calc(100vh-14rem)]">
 			<Card.Header slot="header" class="font-bold text-lg flex justify-between items-center py-3">
 				Card Header

@@ -66,6 +66,12 @@ export const props: Prop[] = [
 		prop: 'handleSelect',
 		type: '(d: <a class="link" target="_blank" rel="noreferrer" href="https://day.js.org/docs/en/display/format">Dayjs</a>) => void) | undefined',
 		default: ''
+	},
+	{
+		id: '14',
+		prop: 'disabled',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 

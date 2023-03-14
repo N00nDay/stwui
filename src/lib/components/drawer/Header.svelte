@@ -12,7 +12,7 @@
 	const handleClose: () => void = getContext('drawer-handleClose');
 
 	const defaultClass =
-		'px-4 sm:px-6 py-4 shadow-md dark:shadow-black flex-shrink text-lg font-medium text-light-content dark:text-dark-content';
+		'px-4 sm:px-6 py-4 shadow-md flex-shrink text-lg font-medium text-content border-b border-border';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

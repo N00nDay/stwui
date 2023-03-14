@@ -35,20 +35,10 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Custom</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Badge
-				class="bg-green-800 dark:bg-green-800 text-green-200 bg-opacity-100 dark:bg-opacity-100"
-				>Custom</Badge
-			>
-			<Badge class="bg-blue-800 dark:bg-blue-800 text-blue-200 bg-opacity-100 dark:bg-opacity-100"
-				>Custom</Badge
-			>
-			<Badge class="bg-red-800 dark:bg-red-800 text-red-200 bg-opacity-100 dark:bg-opacity-100"
-				>Custom</Badge
-			>
-			<Badge
-				class="bg-amber-800 dark:bg-amber-800 text-amber-200 bg-opacity-100 dark:bg-opacity-100"
-				>Custom</Badge
-			>
+			<Badge class="bg-green-800 text-green-200 bg-opacity-100">Custom</Badge>
+			<Badge class="bg-blue-800 text-blue-200 bg-opacity-100">Custom</Badge>
+			<Badge class="bg-red-800 text-red-200 bg-opacity-1000">Custom</Badge>
+			<Badge class="bg-amber-800 text-amber-200 bg-opacity-100">Custom</Badge>
 
 			<br />
 			<br />

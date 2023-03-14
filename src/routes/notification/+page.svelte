@@ -25,7 +25,7 @@
 </script>
 
 <Col class="col-24 md:col-8 sm:col-12">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Notification>
 			<Notification.Leading slot="leading">
 				<Notification.Leading.Icon data={folder} class="text-pink-500" />
@@ -50,7 +50,7 @@
 </Col>
 
 <Col class="col-24 md:col-8 sm:col-12">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Notification>
 			<Notification.Leading slot="leading">
 				<Notification.Leading.Avatar slot="avatar" src={avatar} />
@@ -70,7 +70,7 @@
 </Col>
 
 <Col class="col-24 md:col-8 sm:col-12">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Notification type="success">
 			<Notification.Content slot="content">
 				<Notification.Content.Title slot="title">Successfully Saved!</Notification.Content.Title>
@@ -92,7 +92,7 @@
 </Col>
 
 <Col class="col-24 md:col-8 sm:col-12">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Notification type="info">
 			<Notification.Content slot="content">
 				<Notification.Content.Title slot="title">Successfully Saved!</Notification.Content.Title>
@@ -114,7 +114,7 @@
 </Col>
 
 <Col class="col-24 md:col-8 sm:col-12">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Notification>
 			<Notification.Content slot="content">
 				<Notification.Content.Description slot="description">

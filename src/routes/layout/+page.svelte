@@ -9,17 +9,17 @@
 		<Card.Header slot="header">Default</Card.Header>
 		<Card.Content slot="content" class="p-4">
 			<Layout class="h-full">
-				<Layout.Header class="shadow-none border border-gray-500 static z-0"
+				<Layout.Header class="shadow-none border border-border static z-0"
 					>Header
 					<Layout.Header.Extra slot="extra">Header Extra</Layout.Header.Extra>
 				</Layout.Header>
 				<Layout.Content>
 					<Layout.Content.Sidebar
-						class="flex items-center justify-center border-l border-b border-gray-500 min-h-[200px]"
+						class="flex items-center justify-center border-l border-b border-border min-h-[200px]"
 						>Sidebar</Layout.Content.Sidebar
 					>
 					<Layout.Content.Body
-						class="flex items-center justify-center border-b border-r border-l border-gray-500 min-h-[200px]"
+						class="flex items-center justify-center border-b border-r border-l border-border min-h-[200px]"
 						>Body</Layout.Content.Body
 					>
 				</Layout.Content>

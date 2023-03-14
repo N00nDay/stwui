@@ -10,7 +10,7 @@
 	export let label: string;
 
 	const defaultClass =
-		'w-full group relative flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-light-secondary-content dark:text-dark-secondary-content';
+		'w-full group relative flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-secondary-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

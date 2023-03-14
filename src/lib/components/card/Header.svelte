@@ -11,8 +11,7 @@
 
 	const defaultClass = 'first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 h-16';
 	const extrasClass = 'flex flex-row items-center justify-between';
-	const dividedClass =
-		'border-b border-light-border-base dark:border-dark-border last:border-b-none';
+	const dividedClass = 'border-b border-border last:border-b-none';
 	$: finalClass = twMerge(
 		defaultClass,
 

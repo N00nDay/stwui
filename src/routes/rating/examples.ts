@@ -36,6 +36,18 @@ export const props: Prop[] = [
 		prop: 'showValue',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '7',
+		prop: 'disabled',
+		type: 'boolean',
+		default: 'false'
+	},
+	{
+		id: '8',
+		prop: 'type',
+		type: "'info' | 'success' | 'warn' | 'error' | undefined",
+		default: ''
 	}
 ];
 

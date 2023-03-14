@@ -14,9 +14,9 @@
 
 	const shape: 'circle' | 'rounded' | 'square' = getContext('feed-avatar-shape');
 
-	const iconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
+	const iconContainerClass = 'absolute text-content h-full w-full';
 	const defaultClass =
-		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';
+		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default';
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';
 

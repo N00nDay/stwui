@@ -256,7 +256,7 @@
 						>
 							{#if images.length > 4}
 								<div
-									class="w-full h-full absolute inset-0 pointer-events-none bg-light-surface dark:bg-dark-surface backdrop-blur-sm bg-opacity-40 dark:bg-opacity-10 text-light-content dark:text-dark-content font-semibold text-3xl flex items-center justify-center"
+									class="w-full h-full absolute inset-0 pointer-events-none bg-surface backdrop-blur-sm bg-opacity-40 text-content font-semibold text-3xl flex items-center justify-center"
 								>
 									{images.length - 4}+
 								</div>

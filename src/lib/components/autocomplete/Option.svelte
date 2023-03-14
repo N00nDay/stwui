@@ -17,8 +17,7 @@
 	const handleSelect: (option: string) => void = getContext('autocomplete-handleSelect');
 	const value: Writable<string | undefined> = getContext('autocomplete-value');
 
-	const defaultClass =
-		'group text-light-content dark:text-dark-content cursor-pointer select-none p-0.5 w-full';
+	const defaultClass = 'group text-content cursor-pointer select-none p-0.5 w-full';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

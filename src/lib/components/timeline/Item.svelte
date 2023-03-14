@@ -20,22 +20,13 @@
 {#if type === 'comment'}
 	<li use:useActions={use} use:forwardEvents {...exclude($$props, ['use'])}>
 		<div class="relative pb-8">
-			<span
-				class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-light-border-base dark:bg-dark-border-base"
-			/>
+			<span class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-default" />
 			<div class="relative flex items-start space-x-3">
 				<div class="relative">
-					<Avatar
-						src={avatar}
-						alt="user-avatar"
-						size="md"
-						class="ring-8 ring-light-surface dark:ring-dark-surface"
-					/>
+					<Avatar src={avatar} alt="user-avatar" size="md" class="ring-8 ring-surface" />
 
-					<span
-						class="absolute -bottom-1.5 -right-1 rounded-tl bg-light-surface dark:bg-dark-surface px-0.5 py-px z-10"
-					>
-						<span class="text-light-content dark:text-dark-content">
+					<span class="absolute -bottom-1.5 -right-1 rounded-tl bg-surface px-0.5 py-px z-10">
+						<span class="text-content">
 							<Icon data={comment} size="16px" class="scale-x-[-1]" />
 						</span>
 					</span>
@@ -43,13 +34,13 @@
 				<div class="min-w-0 flex-1">
 					<div>
 						<div class="text-sm">
-							<span class="font-medium text-light-content dark:text-dark-content">{creator}</span>
+							<span class="font-medium text-content">{creator}</span>
 						</div>
-						<p class="mt-0.5 text-sm text-light-secondary-content dark:text-dark-secondary-content">
+						<p class="mt-0.5 text-sm text-secondary-content">
 							Commented {formatDate(created)}
 						</p>
 					</div>
-					<div class="mt-2 text-sm text-light-secondary-content dark:text-dark-secondary-content">
+					<div class="mt-2 text-sm text-secondary-content">
 						<p>
 							{@html description}
 						</p>
@@ -61,23 +52,21 @@
 {:else}
 	<li use:useActions={use} use:forwardEvents {...exclude($$props, ['use'])}>
 		<div class="relative pb-8">
-			<span
-				class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-light-border-base dark:bg-dark-border-base"
-			/>
+			<span class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-default" />
 			<div class="relative flex items-start space-x-3">
 				<div>
 					<div class="relative px-1">
 						<div
-							class="flex h-8 w-8 items-center justify-center rounded-full bg-light-icon-background dark:bg-dark-icon-background ring-8 ring-light-surface dark:ring-dark-surface"
+							class="flex h-8 w-8 items-center justify-center rounded-full bg-default ring-8 ring-surface"
 						>
-							<span class="text-light-content dark:text-dark-content">
+							<span class="text-content">
 								<Icon data={icon} />
 							</span>
 						</div>
 					</div>
 				</div>
 				<div class="min-w-0 flex-1 py-1.5">
-					<div class="text-sm text-light-secondary-content dark:text-dark-secondary-content">
+					<div class="text-sm text-secondary-content">
 						{@html description}
 						<span class="whitespace-nowrap ml-1">{formatDate(created)}</span>
 					</div>

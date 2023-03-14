@@ -54,10 +54,10 @@ export const exampleCustom = `
 	import { Badge } from 'stwui';
 </script>
 
-<Badge class="bg-green-800 text-green-200 bg-opacity-100 dark:bg-opacity-100">Custom</Badge>
-<Badge class="bg-blue-800 text-blue-200 bg-opacity-100 dark:bg-opacity-100">Custom</Badge>
-<Badge class="bg-red-800 text-red-200 bg-opacity-100 dark:bg-opacity-100">Custom</Badge>
-<Badge class="bg-amber-800 text-amber-200 bg-opacity-100 dark:bg-opacity-100">Custom</Badge>`;
+<Badge class="bg-green-800 text-green-200 bg-opacity-100">Custom</Badge>
+<Badge class="bg-blue-800 text-blue-200 bg-opacity-100">Custom</Badge>
+<Badge class="bg-red-800 text-red-200 bg-opacity-100">Custom</Badge>
+<Badge class="bg-amber-800 text-amber-200 bg-opacity-100">Custom</Badge>`;
 
 export const exampleLarge = `
 <script lang="ts">

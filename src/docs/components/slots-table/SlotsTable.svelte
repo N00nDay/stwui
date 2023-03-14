@@ -21,7 +21,7 @@
 	];
 </script>
 
-<h1 class="mb-4 mt-8 text-xl font-semibold text-light-content dark:text-dark-content">
+<h1 class="mb-4 mt-8 text-xl font-semibold text-content">
 	{component} Slots
 </h1>
 <Card bordered={false}>
@@ -29,10 +29,7 @@
 		<Table.Header slot="header" sortable={false} />
 		<Table.Body slot="body">
 			{#each slots as slot}
-				<Table.Body.Row
-					id={slot.id}
-					class="cursor-default hover:bg-light-surface dark:hover:bg-dark-surface"
-				>
+				<Table.Body.Row id={slot.id} class="cursor-default hover:bg-surface">
 					<Table.Body.Row.Cell column={0}>{slot.slot}</Table.Body.Row.Cell>
 					<Table.Body.Row.Cell column={1}
 						>{slot.component}{#if slot.component.length > 0}

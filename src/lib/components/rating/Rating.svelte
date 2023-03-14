@@ -7,6 +7,8 @@
 	export let value = 0;
 	export let size: 'sm' | 'md' | 'lg' = 'md';
 	export let showValue = false;
+	export let disabled = false;
+	export let type: 'info' | 'warn' | 'success' | 'error' | undefined = undefined;
 
 	function handleSelect(rating: number) {
 		value = rating;
@@ -16,28 +18,39 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<div class="w-full flex flex-row items-center justify-start">
+<div class="w-full flex flex-row items-center justify-start" class:opacity-90={disabled}>
 	<div
 		class={finalClass}
 		class:rating-half={half}
 		class:sm={size === 'sm'}
 		class:md={size === 'md'}
 		class:lg={size === 'lg'}
+		class:text-default={disabled}
+		class:text-info={type === 'info' && !disabled}
+		class:text-warn={type === 'warn' && !disabled}
+		class:text-success={type === 'success' && !disabled}
+		class:text-error={type === 'error' && !disabled}
 	>
-		<input type="radio" {name} class="hidden" checked={value === 0} />
+		<input type="radio" {name} {disabled} class="hidden" checked={value === 0} />
 		{#if half}
 			{#each Array(outOf) as _, i}
 				<input
 					type="radio"
 					{name}
+					{disabled}
 					class="mask mask-star-2 mask-half-1"
+					class:cursor-pointer={!disabled}
+					class:cursor-default={disabled}
 					on:input={() => handleSelect(i + 0.5)}
 					checked={i + 0.5 === value}
 				/>
 				<input
 					type="radio"
 					{name}
+					{disabled}
 					class="mask mask-star-2 mask-half-2"
+					class:cursor-pointer={!disabled}
+					class:cursor-default={disabled}
 					on:input={() => handleSelect(i + 1)}
 					checked={i + 1 === value}
 				/>
@@ -47,7 +60,10 @@
 				<input
 					type="radio"
 					{name}
+					{disabled}
 					class="mask mask-star-2"
+					class:cursor-pointer={!disabled}
+					class:cursor-default={disabled}
 					on:input={() => handleSelect(i + 1)}
 					checked={i + 1 === value}
 				/>
@@ -56,7 +72,9 @@
 	</div>
 	{#if showValue}
 		<span
-			class="ml-2 text-light-secondary-content dark:text-dark-secondary-content"
+			class="ml-2"
+			class:text-default={disabled}
+			class:text-secondary-content={!disabled}
 			class:text-sm={size === 'sm'}
 			class:text-base={size === 'md'}
 			class:text-lg={size === 'lg'}>{value} of {outOf}</span
@@ -91,7 +109,6 @@
 	}
 
 	.rating :where(input) {
-		cursor: pointer;
 		height: 1.5rem;
 		width: 1.5rem;
 		color: inherit;
@@ -100,7 +117,7 @@
 		animation: rating-pop var(--animation-input, 0.25s) ease-out;
 	}
 
-	input[type='radio']:active {
+	input[type='radio']:active:not(:disabled) {
 		transition: all;
 		transition-duration: 200ms;
 		transform: translateY(-0.125em);
@@ -117,6 +134,10 @@
 
 	.rating input:checked ~ input {
 		opacity: 0.2;
+	}
+
+	.rating input:checked ~ input:disabled {
+		opacity: 0.5;
 	}
 
 	.rating-half.sm > input {

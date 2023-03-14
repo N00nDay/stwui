@@ -7,6 +7,8 @@
 	export let type: 'default' | 'pill' = 'default';
 	export let selected: string | undefined = undefined;
 
+	// TODO: allow changing radio color via prop
+
 	let selectedRadio = writable(selected);
 
 	const defaultClass = 'mt-1 grid-cols-4 gap-2';

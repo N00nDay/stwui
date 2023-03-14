@@ -12,10 +12,10 @@
 
 	const defaultClass =
 		'text-sm font-medium flex flex-row items-start justify-between w-full relative h-4';
-	const infoClass = 'text-info-content dark:text-dark-info-content';
-	const warnClass = 'text-warn-content dark:text-dark-warn-content';
-	const successClass = 'text-success-content dark:text-dark-success-content';
-	const errorClass = 'text-error-content dark:text-dark-error-content';
+	const infoClass = 'text-info-content';
+	const warnClass = 'text-warn-content';
+	const successClass = 'text-success-content';
+	const errorClass = 'text-error-content';
 	$: finalClass = twMerge(
 		defaultClass,
 

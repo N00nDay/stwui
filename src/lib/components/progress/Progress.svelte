@@ -18,7 +18,7 @@
 {#if !radial}
 	<div class="flex flex-row items-center justify-start">
 		<div
-			class="rounded-xl overflow-hidden bg-light-icon-background dark:bg-dark-icon-background flex-grow"
+			class="rounded-xl overflow-hidden bg-default flex-grow"
 			class:mr-2={displayValue}
 			class:h-2={size === 'md'}
 			class:h-1.5={size === 'sm'}
@@ -29,14 +29,10 @@
 		>
 			<div
 				class="h-full rounded-xl"
-				class:bg-info-background={type === 'info'}
-				class:dark:bg-info-background={type === 'info'}
-				class:bg-warn-background={type === 'warn'}
-				class:dark:bg-warn-background={type === 'warn'}
-				class:bg-error-background={type === 'error'}
-				class:dark:bg-error-background={type === 'error'}
-				class:bg-success-background={type === 'success'}
-				class:dark:bg-success-background={type === 'success'}
+				class:bg-info={type === 'info'}
+				class:bg-warn={type === 'warn'}
+				class:bg-error={type === 'error'}
+				class:bg-success={type === 'success'}
 				class:indeterminate
 				style="width: {indeterminate ? 30 : value}%"
 			/>
@@ -63,7 +59,7 @@
 			class:w-32={size === 'xl'}
 		>
 			<circle
-				class="text-light-icon-background dark:text-dark-icon-background"
+				class="text-default"
 				stroke-width={width}
 				stroke="currentColor"
 				fill="transparent"
@@ -72,14 +68,10 @@
 				cy={cxCy}
 			/>
 			<circle
-				class:text-info-background={type === 'info'}
-				class:dark:text-info-background={type === 'info'}
-				class:text-warn-background={type === 'warn'}
-				class:dark:text-warn-background={type === 'warn'}
-				class:text-error-background={type === 'error'}
-				class:dark:text-error-background={type === 'error'}
-				class:text-success-background={type === 'success'}
-				class:dark:text-success-background={type === 'success'}
+				class:text-info={type === 'info'}
+				class:text-warn={type === 'warn'}
+				class:text-error={type === 'error'}
+				class:text-success={type === 'success'}
 				stroke-width={width}
 				stroke-dasharray={circumference}
 				stroke-dashoffset={radialValue}
@@ -92,7 +84,7 @@
 			/>
 		</svg>
 		<span
-			class="absolute font-medium text-light-content dark:text-dark-content"
+			class="absolute font-medium text-content"
 			class:text-base={size === 'xs' || size === 'sm'}
 			class:text-lg={size === 'md'}
 			class:text-2xl={size === 'lg' || size === 'xl'}

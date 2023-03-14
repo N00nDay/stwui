@@ -15,15 +15,14 @@
 	const variant: 'simple' | 'bullets' | 'bullets-text' | 'circles-text' =
 		getContext('steps-variant');
 
-	const bulletsPreviousStep =
-		'block h-2.5 w-2.5 rounded-full bg-light-border dark:bg-dark-border hover:bg-light-border-base dark:hover:bg-dark-border-base';
+	const bulletsPreviousStep = 'block h-2.5 w-2.5 rounded-full bg-default hover:bg-default';
 	const bulletsCurrentStep = 'relative flex items-center justify-center';
 	const bulletsNextStep = 'block h-2.5 w-2.5 rounded-full bg-primary hover:bg-primary-hover';
 
 	const simplePreviousStep =
-		'group flex flex-col border-l-4 border-light-border-base dark:border-dark-border-base hover:border-light-border-base dark:hover:border-dark-border-base py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
+		'group flex flex-col border-l-4 border-border hover:border-border py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
 	const simpleCurrentStep =
-		'flex flex-col border-l-4 border-primary dark:border-primary py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
+		'flex flex-col border-l-4 border-primary py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
 	const simpleNextStep =
 		'group flex flex-col border-l-4 border-primary hover:border-primary-hover py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
 
@@ -189,9 +188,7 @@
 			>
 				<div class="flex items-start">
 					<div class="relative flex h-5 w-5 flex-shrink-0 items-center justify-center">
-						<div
-							class="h-2 w-2 rounded-full bg-light-border dark:bg-dark-border group-hover:bg-light-border dark:group-hover:bg-dark-border-base"
-						/>
+						<div class="h-2 w-2 rounded-full bg-border group-hover:bg-default" />
 					</div>
 					<slot name="title" />
 				</div>
@@ -237,9 +234,7 @@
 		</li>
 	{:else if $currentStep === step}
 		<li data-step={step} class="step relative pb-10">
-			<div
-				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border"
-			/>
+			<div class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-default" />
 			<!-- Current Step -->
 			<a
 				{href}
@@ -250,7 +245,7 @@
 			>
 				<span class="flex h-9 items-center">
 					<span
-						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary bg-light-surface dark:bg-dark-surface"
+						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary bg-surface"
 					>
 						<span class="h-2.5 w-2.5 rounded-full bg-primary" />
 					</span>
@@ -263,9 +258,7 @@
 		</li>
 	{:else}
 		<li data-step={step} class="step relative pb-10">
-			<div
-				class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-light-border dark:bg-dark-border"
-			/>
+			<div class="divider absolute top-4 left-4 -ml-px mt-0.5 h-full w-0.5 bg-default" />
 
 			<!-- Upcoming Step -->
 			<a
@@ -277,11 +270,9 @@
 			>
 				<span class="flex h-9 items-center">
 					<span
-						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-light-border-base dark:border-dark-border bg-light-surface dark:bg-dark-surface group-hover:border-light-border-base dark:group-hover:border-dark-border-base"
+						class="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-border bg-surface group-hover:border-border"
 					>
-						<span
-							class="h-2.5 w-2.5 rounded-full bg-transparent group-hover:bg-light-border dark:group-hover:bg-dark-border"
-						/>
+						<span class="h-2.5 w-2.5 rounded-full bg-transparent group-hover:bg-default" />
 					</span>
 				</span>
 				<span class="ml-4 flex min-w-0 flex-col">

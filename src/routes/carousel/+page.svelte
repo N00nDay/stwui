@@ -24,7 +24,7 @@
 </script>
 
 <Col class="col-24">
-	<Card bordered={false} class="bg-transparent dark:bg-transparent" elevation="none">
+	<Card bordered={false} class="bg-transparent" elevation="none">
 		<Card bordered={false}>
 			<Card.Content slot="content" class="p-0 h-[36rem] bg-black">
 				<Carousel {slides} />

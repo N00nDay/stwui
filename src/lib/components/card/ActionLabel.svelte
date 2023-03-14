@@ -6,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'text-xs text-light-icon dark:text-dark-icon group-hover:text-primary';
+	const defaultClass = 'text-xs text-content group-hover:text-primary';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

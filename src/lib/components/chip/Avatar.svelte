@@ -20,14 +20,14 @@
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('chip-size');
 
 	const srcClass = 'inline-block absolute';
-	const srcContainerClass = 'inline-block relative align-middle';
+	const srcContainerClass = 'inline-block relative align-middle flex items-center justify-center';
 	const initialClass =
-		'inline-flex items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
-	const xsClass = 'h-6 w-6';
-	const smClass = 'h-8 w-8';
-	const mdClass = 'h-10 w-10';
-	const lgClass = 'h-12 w-12';
-	const xlClass = 'h-16 w-16';
+		'inline-flex items-center justify-center align-middle bg-default text-default-content flex items-center justify-center';
+	const xsClass = 'h-6 w-6 p-0.5';
+	const smClass = 'h-8 w-8 p-0.5';
+	const mdClass = 'h-10 w-10 p-0.5';
+	const lgClass = 'h-12 w-12 p-1';
+	const xlClass = 'h-16 w-16 p-1';
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';
 

@@ -18,6 +18,7 @@
 	export let optionValue = 'value';
 	export let multiple = false;
 	export let closeOnSelect = true;
+	export let disabled = false;
 
 	$: stringifyValues = multiple
 		? JSON.stringify(value)
@@ -31,7 +32,9 @@
 	let input: HTMLInputElement;
 
 	function toggleVisible() {
-		visible = !visible;
+		if (!disabled) {
+			visible = !visible;
+		}
 	}
 
 	function handleClose() {
@@ -89,28 +92,30 @@
 
 <div class={$$props.class} style={$$props.style} use:clickOutside={handleClose}>
 	<slot name="label" />
-	<div class="mt-1 relative rounded-md" class:text-danger={error}>
+	<div class="mt-1 relative rounded-md" class:text-danger={error} class:opacity-50={disabled}>
 		<button
 			aria-label="toggle select"
 			type="button"
 			on:click|stopPropagation|preventDefault={toggleVisible}
-			class="relative border cursor-pointer pl-3 pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md bg-light-surface dark:bg-dark-surface"
-			class:border-red-400={error}
+			class="relative border pl-3 pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md"
+			class:border-danger={error}
 			class:text-danger={error}
-			class:dark:text-danger={error}
 			class:placeholder-red-300={error}
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
-			class:dark:focus:border-primary={!error}
-			class:border-light-border-base={!error}
-			class:dark:border-dark-border-base={!error}
+			class:border-border={!error}
+			class:bg-default={disabled}
+			class:bg-surface={!disabled}
+			class:cursor-pointer={!disabled}
+			class:cursor-default={disabled}
 			class:pl-10={$$slots.leading}
+			{disabled}
 		>
 			<span
-				class="flex flex-row flex-wrap gap-2  truncate text-light-content dark:text-dark-content"
+				class="flex flex-row flex-wrap gap-2 truncate text-content"
 				class:pl-1.5={$$slots.leading}
-				class:text-gray-500={placeholder && (!value || value.length === 0)}
-				class:dark:text-gray-500={placeholder && (!value || value.length === 0)}
+				class:text-secondary-content={placeholder && (!value || value.length === 0)}
+				class:placeholder-opacity-80={placeholder && (!value || value.length === 0)}
 			>
 				{#if multiple}
 					{#if value && value.length > 0 && Array.isArray(value)}
@@ -136,6 +141,7 @@
 			<input
 				{name}
 				id={name}
+				{disabled}
 				bind:this={input}
 				bind:value={stringifyValues}
 				class="h-0 w-0 hidden invisible"
@@ -144,7 +150,11 @@
 			/>
 
 			{#if $$slots.leading}
-				<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+				<span
+					class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+					class:text-secondary-content={!error}
+					class:text-error={error}
+				>
 					<slot name="leading" />
 				</span>
 			{/if}

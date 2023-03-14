@@ -16,11 +16,11 @@
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('avatar-group-size');
 
 	const defaultClass =
-		'absolute text-light-icon dark:text-dark-icon inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-light-icon-background dark:bg-dark-icon-background';
+		'absolute text-content inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default';
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';
 
-	const defaultIconContainerClass = 'absolute text-light-icon dark:text-dark-icon h-full w-full';
+	const defaultIconContainerClass = 'absolute text-content h-full w-full';
 	const xsContainerClass = 'bottom-[-0.25rem]';
 	const smContainerClass = 'bottom-[-0.35rem]';
 	const mdContainerClass = 'bottom-[-0.5rem]';

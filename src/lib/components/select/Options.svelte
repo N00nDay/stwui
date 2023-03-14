@@ -8,7 +8,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass =
-		'origin-top-right absolute z-10 border light-border-base dark:border-dark-border-base left-0 right-0 w-full mt-1 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface';
+		'origin-top-right absolute z-10 border border-border left-0 right-0 w-full mt-1 p-1 rounded-md shadow-xl py-1 bg-surface';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

@@ -39,10 +39,10 @@
 			<br />
 			<Progress value={100} size="xl" />
 			<br />
-			<Progress value={25} radial size="xs" />
+			<Progress value={25} radial size="xs" displayValue />
 			<Progress value={50} radial size="sm" />
 			<Progress value={75} radial />
-			<Progress value={85} radial size="lg" />
+			<Progress value={85} radial size="lg" displayValue />
 			<Progress value={100} radial size="xl" />
 
 			<br />
@@ -64,10 +64,10 @@
 			<br />
 			<Progress value={75} />
 			<br />
-			<Progress value={75} radial type="error" />
-			<Progress value={75} radial type="success" />
-			<Progress value={75} radial type="warn" />
-			<Progress value={75} radial />
+			<Progress value={75} radial type="error" displayValue />
+			<Progress value={75} radial type="success" displayValue />
+			<Progress value={75} radial type="warn" displayValue />
+			<Progress value={75} radial displayValue />
 
 			<br />
 

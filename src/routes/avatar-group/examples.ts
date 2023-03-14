@@ -139,7 +139,7 @@ export const exampleGroup = `
 
 <AvatarGroup size="lg">
 	{#each avatars as avatar}
-		<AvatarGroup.Avatar src={avatar} class="ring-primary dark:ring-primary" />
+		<AvatarGroup.Avatar src={avatar} class="ring-primary" />
 	{/each}
 </AvatarGroup>
 

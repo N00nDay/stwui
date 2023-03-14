@@ -17,6 +17,7 @@
 	export let value: string | undefined = undefined;
 	export let allowNonListValue = false;
 	export let options: string[] = [];
+	export let disabled = false;
 
 	let visible = false;
 	let input: HTMLInputElement;
@@ -25,7 +26,9 @@
 	$: currentError.set(error);
 
 	function handleOpen() {
-		visible = true;
+		if (!disabled) {
+			visible = true;
+		}
 	}
 
 	function handleClose() {
@@ -76,12 +79,12 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<slot name="label" />
-	<div class="mt-1 relative rounded-md h-[2.5rem]">
+	<div class="mt-1 relative rounded-md h-[2.5rem]" class:opacity-75={disabled}>
 		<button
 			aria-label="Autocomplete Toggle"
 			type="button"
 			on:click|stopPropagation|preventDefault={handleOpen}
-			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-light-surface dark:bg-dark-surface"
+			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-surface"
 			class:text-danger={error}
 		>
 			<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
@@ -91,26 +94,29 @@
 				bind:this={input}
 				bind:value
 				{placeholder}
+				{disabled}
 				on:input
 				on:change
 				autocomplete="off"
 				role="presentation"
 				aria-controls="options"
-				class="bg-light-surface dark:bg-dark-surface w-full h-[2.5rem] pl-3 pr-10 py-2 border rounded-md outline-none"
-				class:border-red-400={error}
+				class="bg-surface w-full h-[2.5rem] pl-3 pr-10 py-2 border rounded-md outline-none placeholder-secondary-content placeholder-opacity-80"
+				class:border-danger={error}
 				class:text-danger={error}
-				class:dark:text-danger={error}
 				class:placeholder-red-300={error}
-				class:focus:border-red-500={error}
+				class:focus:border-danger={error}
 				class:focus:border-primary={!error}
-				class:dark:focus:border-primary={!error}
-				class:border-light-border-base={!error}
-				class:dark:border-dark-border-base={!error}
+				class:border-border={!error}
+				class:bg-default={disabled}
 				class:pl-10={$$slots.leading}
 			/>
 
 			{#if $$slots.leading}
-				<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+				<span
+					class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+					class:text-danger={error}
+					class:text-secondary-content={!error}
+				>
 					<slot name="leading" />
 				</span>
 			{/if}
@@ -119,12 +125,9 @@
 				<button
 					aria-label="clear input"
 					on:click={handleClear}
-					class="absolute inset-y-0 right-8 items-center hidden group-focus-within:flex active:flex"
+					class="absolute inset-y-0 right-8 items-center hidden group-focus-within:flex active:flex text-secondary-content"
 				>
-					<span
-						transition:scale|local
-						class="flex items-center text-light-icon dark:text-dark-icon"
-					>
+					<span transition:scale|local class="flex items-center text-content">
 						<Icon data={close} />
 					</span>
 				</button>
@@ -136,7 +139,7 @@
 				</span>
 			{:else}
 				<span
-					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-light-icon dark:text-dark-icon"
+					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none text-secondary-content"
 				>
 					<Icon data={unfold_more_horizontal} />
 				</span>

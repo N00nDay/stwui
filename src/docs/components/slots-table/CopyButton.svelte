@@ -19,7 +19,7 @@
 	ariaLabel="copy"
 	on:click={onCopyClick}
 	size="xs"
-	class="ml-2 bg-light-icon-background dark:bg-dark-icon-background text-light-icon dark:text-dark-icon"
+	class="ml-2 bg-default text-default-content"
 >
 	{!copyState ? 'Copy' : 'Copied ✓'}
 </Button>

@@ -12,17 +12,12 @@
 	const type: 'info' | 'success' | 'warn' | 'error' | 'default' = getContext('chip-type');
 
 	const defaultClass =
-		'flex-shrink-0 ml-2 h-8 w-8 rounded-full inline-flex items-center justify-center outline-none focus:outline-none hover:text-white dark:hover:text-white';
-	const defaultType =
-		' hover:bg-light-background dark:hover:bg-dark-background text-light-content hover:text-light-content dark:text-dark-content dark:hover:text-dark-content';
-	const infoType =
-		' hover:bg-info-background dark:hover:bg-dark-info-background text-info-content dark:text-dark-info-content';
-	const successType =
-		' hover:bg-success-background dark:hover:bg-dark-success-background text-success-content dark:text-dark-success-content';
-	const warnType =
-		' hover:bg-warn-background dark:hover:bg-dark-warn-background text-warn-content dark:text-dark-warn-content';
-	const errorType =
-		' hover:bg-error-background dark:hover:bg-dark-error-background text-error-content dark:text-dark-error-content';
+		'flex-shrink-0 ml-2 h-8 w-8 rounded-full inline-flex items-center justify-center outline-none focus:outline-none hover:bg-default text-default-content hover:bg-background hover:bg-opacity-50 hover:text-content';
+	const defaultType = 'text-default-content';
+	const infoType = 'text-info-content';
+	const successType = 'text-success-content';
+	const warnType = 'text-warn-content';
+	const errorType = 'text-error-content';
 
 	$: finalClass = twMerge(
 		defaultClass,

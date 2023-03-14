@@ -19,10 +19,10 @@
 	const shape: 'circle' | 'rounded' | 'square' = getContext('avatar-group-shape');
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('avatar-group-size');
 
-	const srcClass = 'inline-block absolute ring-2 ring-light-surface dark:ring-dark-surface';
+	const srcClass = 'inline-block absolute ring-2 ring-surface';
 	const srcContainerClass = 'inline-block relative align-middle';
 	const initialClass =
-		'inline-flex items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content ring-2 ring-light-surface dark:ring-dark-surface';
+		'inline-flex items-center justify-center align-middle bg-default text-content ring-2 ring-surface';
 	const xsClass = 'h-6 w-6';
 	const smClass = 'h-8 w-8';
 	const mdClass = 'h-10 w-10';

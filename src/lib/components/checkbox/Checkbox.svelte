@@ -5,20 +5,30 @@
 	export let name: string;
 	export let value: string;
 	export let indeterminate = false;
+	export let disabled = false;
+	export let checked = false;
+
+	// TODO: allow checked status color prop
 
 	const defaultClass =
-		'checkbox checked:bg-primary dark:checked:bg-primary indeterminate:bg-primary dark:indeterminate:bg-primary hover:border-primary dark:hover:border-primary bg-light-surface dark:bg-dark-surface h-6 w-6 text-primary border-light-border-base dark:border-dark-border-base rounded-md cursor-pointer';
+		'checkbox checked:bg-primary indeterminate:bg-primary hover:border-primary bg-surface h-6 w-6 text-primary border-border disabled:hover:border-border rounded-md cursor-pointer disabled:checked:bg-default';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('checkbox-name', name);
 </script>
 
-<div class="relative flex items-start">
+<div
+	class="relative flex items-start"
+	class:pointer-events-none={disabled}
+	class:opacity-75={disabled}
+>
 	<div class="flex items-center h-5">
 		<input
 			id={name}
 			{name}
 			{indeterminate}
+			{disabled}
+			{checked}
 			type="checkbox"
 			{value}
 			class={finalClass}

@@ -19,6 +19,8 @@
 
 	$: active = $activeItem === key;
 
+	// TODO: allow for customizing active color
+
 	const defaultClass = 'transition-all duration-300';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
@@ -39,14 +41,10 @@
 		}}
 		{href}
 		class="group no-underline relative w-full h-10 overflow-hidden flex items-center justify-start px-3 py-2 text-sm font-medium rounded-md"
-		class:text-light-content={active}
-		class:dark:text-dark-content={active}
-		class:text-light-secondary-content={!active}
-		class:dark:text-dark-secondary-content={!active}
-		class:hover:text-light-content={!active}
-		class:dark:hover:text-dark-content={!active}
-		class:bg-light-icon-background-hover={active}
-		class:dark:bg-dark-icon-background-hover={active}
+		class:text-primary-content={active}
+		class:text-secondary-content={!active}
+		class:hover:text-content={!active}
+		class:bg-primary={active}
 	>
 		<span class="flex items-center justify-start flex-grow">
 			<slot name="icon" />

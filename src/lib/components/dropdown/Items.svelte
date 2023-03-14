@@ -12,7 +12,7 @@
 	export let offset = 2;
 
 	const defaultClass =
-		'origin-top-right absolute z-10 border border-light-border-base dark:border-dark-border w-56 p-1 rounded-md shadow-xl dark:shadow-black py-1 bg-light-surface dark:bg-dark-surface';
+		'origin-top-right absolute z-10 border border-border w-56 p-1 rounded-md shadow-xl py-1 bg-surface';
 	let positioning: string;
 
 	if (placement === 'top') {

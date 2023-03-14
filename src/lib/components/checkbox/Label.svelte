@@ -4,7 +4,7 @@
 
 	const name: string = getContext('checkbox-name');
 
-	const defaultClass = 'font-medium text-light-content dark:text-dark-content cursor-pointer';
+	const defaultClass = 'font-medium text-content cursor-pointer';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

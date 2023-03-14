@@ -25,7 +25,7 @@
 	}
 
 	const defaultClass =
-		'relative cursor-pointer flex items-center justify-center h-12 w-12 bg-white bg-opacity-10 rounded-full transition-reveal scale-90 hover:scale-100 hover:bg-opacity-20 hover:active:scale-95 pointer-events-auto text-light-surface';
+		'relative cursor-pointer flex items-center justify-center h-12 w-12 bg-white bg-opacity-10 rounded-full transition-reveal scale-90 hover:scale-100 hover:bg-opacity-20 hover:active:scale-95 pointer-events-auto text-white';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

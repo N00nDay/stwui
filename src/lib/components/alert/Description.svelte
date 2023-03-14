@@ -11,10 +11,10 @@
 	const type: Writable<'info' | 'warn' | 'success' | 'error'> = getContext('alert-type');
 
 	const defaultClass = 'mt-2 text-sm';
-	const infoClass = 'text-info-secondary-content dark:text-dark-info-secondary-content';
-	const warnClass = 'text-warn-secondary-content dark:text-dark-warn-secondary-content';
-	const successClass = 'text-success-secondary-content dark:text-dark-success-secondary-content';
-	const errorClass = 'text-error-secondary-content dark:text-dark-error-secondary-content=';
+	const infoClass = 'text-info-secondary-content';
+	const warnClass = 'text-warn-secondary-content';
+	const successClass = 'text-success-secondary-content';
+	const errorClass = 'text-error-secondary-content';
 	$: finalClass = twMerge(
 		defaultClass,
 

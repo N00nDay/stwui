@@ -66,6 +66,12 @@ export const props: Prop[] = [
 		prop: 'allowClear',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '12',
+		prop: 'disabled',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 

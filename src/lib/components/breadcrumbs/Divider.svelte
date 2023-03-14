@@ -9,10 +9,8 @@
 
 	const type: 'solid' | 'ghost' = getContext('breadcrumbs-type');
 
-	const ghostClass =
-		'divider flex-shrink-0 h-5 w-5 fill-light-border-base dark:fill-dark-border-base';
-	const solidClass =
-		'divider flex-shrink-0 w-6 h-full fill-light-border-base dark:fill-dark-border-base';
+	const ghostClass = 'divider flex-shrink-0 h-5 w-5 fill-border';
+	const solidClass = 'divider flex-shrink-0 w-6 h-full fill-border';
 
 	$: finalClass = twMerge(
 		type === 'ghost' ? ghostClass : false,

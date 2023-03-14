@@ -23,7 +23,7 @@
 		}
 	}
 
-	const defaultClass = 'overflow-hidden w-full shadow bg-[#141517] text-sm text-white rounded-md';
+	const defaultClass = 'overflow-hidden w-full shadow bg-black text-sm text-white rounded-md';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

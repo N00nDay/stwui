@@ -10,6 +10,10 @@
 		<Card.Content slot="content" class="p-4">
 			<InputNumber name="input-number-1" placeholder="Basic" />
 			<br />
+			<InputNumber name="input-number-1" placeholder="With Clear" allowClear>
+				<InputNumber.Leading slot="leading" data={phone} />
+			</InputNumber>
+			<br />
 			<InputNumber name="input-number-2">
 				<InputNumber.Label slot="label">Number</InputNumber.Label>
 				<InputNumber.Trailing slot="trailing" data={phone} />

@@ -12,16 +12,16 @@
 	const currentType = writable(type);
 	$: currentType.set(type);
 
-	const defaultClass = 'rounded-md p-4 bg-opacity-20 dark:bg-opacity-20';
+	const defaultClass = 'rounded-md p-4';
 	const defaultLeadingClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center';
 
 	$: finalClass = twMerge(
 		defaultClass,
 
-		type === 'info' ? 'bg-info-background' : false,
-		type === 'warn' ? 'bg-warn-background' : false,
-		type === 'success' ? 'bg-success-background' : false,
-		type === 'error' ? 'bg-error-background' : false,
+		type === 'info' ? 'bg-info' : false,
+		type === 'warn' ? 'bg-warn' : false,
+		type === 'success' ? 'bg-success' : false,
+		type === 'error' ? 'bg-error' : false,
 
 		$$props.class
 	);

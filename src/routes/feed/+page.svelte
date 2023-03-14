@@ -74,7 +74,7 @@
 						</Feed.Item>
 					{:else if item.icon}
 						<Feed.Item>
-							<Feed.Item.Leading slot="leading" class="bg-info-background">
+							<Feed.Item.Leading slot="leading" class="bg-info">
 								<Feed.Item.Leading.Icon slot="icon" data={item.icon} />
 							</Feed.Item.Leading>
 							<Feed.Item.Content slot="content">

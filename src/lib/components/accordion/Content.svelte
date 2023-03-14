@@ -7,8 +7,7 @@
 	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass =
-		'border-t border-light-border-base dark:border-dark-border text-light-secondary-content dark:text-dark-secondary-content';
+	const defaultClass = 'border-t border-border text-secondary-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

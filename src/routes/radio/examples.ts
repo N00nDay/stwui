@@ -50,10 +50,16 @@ export const radioProps: Prop[] = [
 		default: ''
 	},
 	{
-		id: '1',
+		id: '2',
 		prop: 'value',
 		type: 'string',
 		default: ''
+	},
+	{
+		id: '3',
+		prop: 'disabled',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 

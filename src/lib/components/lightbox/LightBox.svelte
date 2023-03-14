@@ -83,7 +83,7 @@
 <svelte:window on:keydown={captureEscapeEvent} />
 
 <div
-	class="fixed inset-0 w-full z-50 pointer-events-none h-full bg-dark-background"
+	class="fixed inset-0 w-full z-50 pointer-events-none h-full bg-[#18191A]"
 	role="dialog"
 	aria-modal="true"
 	in:receive={{ key }}
@@ -99,7 +99,7 @@
 						class="absolute z-10 right-0 left-0 top-0 flex items-center justify-center mt-3"
 					>
 						<div
-							class="rounded-[1.85rem] bg-dark-surface p-2 text-sm text-dark-content bg-opacity-70 flex flex-row gap-1 justify-center items-center"
+							class="rounded-[1.85rem] bg-[#242526] p-2 text-sm text-white bg-opacity-70 flex flex-row gap-1 justify-center items-center"
 						>
 							{#if showClose}
 								<Control data={close} on:click={handleClose} />
@@ -126,7 +126,7 @@
 					out:fade
 					class="absolute z-10 right-0 left-0 bottom-7 flex items-center justify-center"
 				>
-					<div class="rounded-xl bg-dark-surface px-2 py-1 text-sm text-dark-content bg-opacity-70">
+					<div class="rounded-xl bg-[#242526] px-2 py-1 text-sm text-white bg-opacity-70">
 						{activeSlide + 1} / {slides.length}
 					</div>
 				</div>
@@ -140,7 +140,7 @@
 						<button
 							aria-label="quick view slide {i + 1}"
 							on:click={() => handleGoTo(i)}
-							class="h-1.5 rounded-sm bg-light-surface max-w-[40px] hover:shadow-lg hover:opacity-90"
+							class="h-1.5 rounded-sm bg-surface max-w-[40px] hover:shadow-lg hover:opacity-90"
 							class:opacity-50={activeSlide !== i}
 							class:hover:opacity-90={activeSlide !== i}
 							style={`width: calc(100% / ${slides.length});`}
@@ -156,7 +156,7 @@
 							<img
 								src={slides[activeSlide].src}
 								style="--rotation: {rotation}deg"
-								class="image block max-w-full shadow-lg shadow-black max-h-full h-auto w-auto object-cover"
+								class="image block max-w-full shadow-lg max-h-full h-auto w-auto object-cover"
 								alt={slides[activeSlide].alt}
 							/>
 						</div>
@@ -172,7 +172,7 @@
 				>
 					<div
 						in:scale={{ delay: 350 }}
-						class="flex items-center justify-center h-12 w-12 text-dark-content bg-white bg-opacity-30 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
+						class="flex items-center justify-center h-12 w-12 text-white bg-white bg-opacity-30 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
 					>
 						<Icon data={arrow_back} />
 						<span class="sr-only">Previous</span>
@@ -188,7 +188,7 @@
 				>
 					<div
 						in:scale={{ delay: 350 }}
-						class="flex items-center justify-center h-12 w-12 text-dark-content bg-white bg-opacity-30 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
+						class="flex items-center justify-center h-12 w-12 text-white bg-white bg-opacity-30 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
 					>
 						<Icon data={arrow_forward} />
 						<span class="sr-only">Next</span>

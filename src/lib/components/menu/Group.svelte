@@ -81,16 +81,10 @@
 	>
 		<h2
 			class="group relative m-0 w-full outline-none rounded-md focus:outline-none overflow-hidden"
-			class:text-light-content={active}
-			class:dark:text-dark-content={active}
-			class:text-light-secondary-content={!active}
-			class:dark:text-dark-secondary-content={!active}
-			class:hover:text-light-content={!active}
-			class:dark:hover:text-dark-content={!active}
-			class:bg-light-icon-background-hover={($menuCollapse && menuActive) ||
-				(!$menuCollapse && !active && menuActive)}
-			class:dark:bg-dark-icon-background-hover={($menuCollapse && menuActive) ||
-				(!$menuCollapse && !active && menuActive)}
+			class:text-content={active}
+			class:text-secondary-content={!active}
+			class:hover:text-content={!active}
+			class:bg-hover={($menuCollapse && menuActive) || (!$menuCollapse && !active && menuActive)}
 		>
 			<button
 				aria-label="toggle collapse menu"
@@ -125,12 +119,9 @@
 				class="space-y-1 pt-1"
 				class:p-1={$menuCollapse}
 				class:border={$menuCollapse}
-				class:border-light-border-base={$menuCollapse}
-				class:dark:border-dark-border-base={$menuCollapse}
+				class:border-border={$menuCollapse}
 				class:shadow-md={$menuCollapse}
-				class:dark:shadow-black={$menuCollapse}
-				class:bg-light-surface={$menuCollapse}
-				class:dark:bg-dark-surface={$menuCollapse}
+				class:bg-surface={$menuCollapse}
 				class:overflow-hidden={$menuCollapse}
 				class:rounded-md={$menuCollapse}
 			>

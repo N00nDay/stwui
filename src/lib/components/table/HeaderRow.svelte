@@ -44,7 +44,7 @@
 	on:click={handleClick}
 	><button
 		aria-label="{column.label} column sort"
-		class="group inline-flex items-center text-light-secondary-content dark:text-dark-secondary-content"
+		class="group inline-flex items-center text-secondary-content"
 		class:cursor-default={!onColumnHeaderClick}
 	>
 		<span class="text-sm">{column.label}</span>

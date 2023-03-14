@@ -39,7 +39,7 @@
 				<Col class="col-11">
 					<Input label="Value" name="value" bind:value class="pr-2" />
 				</Col>
-				<Col class="col-2 flex justify-start items-end h-[62px]">
+				<Col class="col-2 flex justify-start items-center h-[44px]">
 					<Button type="primary" on:click={addParam}>Submit</Button>
 				</Col>
 				<Col class="col-24 h-[64px] flex items-center justify-center gap-2">
@@ -50,7 +50,7 @@
 						</Badge>
 					{/each}
 				</Col>
-				<Col class="col-24 h-full flex items-end justify-center">
+				<Col class="col-24 h-full flex items-center justify-center">
 					Search Params: https://some-site.com{encodeSearchParams($searchParams)}
 				</Col>
 			</Row>

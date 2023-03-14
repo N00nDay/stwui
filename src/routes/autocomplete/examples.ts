@@ -33,6 +33,12 @@ export const props: Prop[] = [
 	},
 	{
 		id: '6',
+		prop: 'disabled',
+		type: 'boolean',
+		default: 'false'
+	},
+	{
+		id: '7',
 		prop: 'options',
 		type: 'string[]',
 		default: '[]'

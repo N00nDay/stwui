@@ -25,11 +25,8 @@
 		ghostButton,
 		linkButton,
 		textButton,
-		darkButton,
 		baseDisabled,
 		defaultDisabled,
-		primaryDisabled,
-		dangerDisabled,
 		ghostDisabled,
 		linkDisabled,
 		textDisabled,
@@ -49,15 +46,8 @@
 	export let htmlType: 'button' | 'submit' | 'reset' = 'button';
 	export let loading: false | true | undefined = undefined;
 	export let defaultLoading = true;
-	export let type:
-		| 'default'
-		| 'primary'
-		| 'danger'
-		| 'ghost'
-		| 'link'
-		| 'text'
-		| 'dark'
-		| undefined = undefined;
+	export let type: 'default' | 'primary' | 'danger' | 'ghost' | 'link' | 'text' | undefined =
+		undefined;
 	export let shape: 'square' | 'circle' | 'rounded' | 'pill' = 'rounded';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fab' = 'md';
 	export let disableHover = false;
@@ -85,14 +75,9 @@
 		type === 'ghost' ? ghostButton : false,
 		type === 'link' ? linkButton : false,
 		type === 'text' ? textButton : false,
-		type === 'dark' ? darkButton : false,
 
 		disabled ? baseDisabled : false,
-		(type === 'default' || type === 'dark' || type === undefined) && disabled
-			? defaultDisabled
-			: false,
-		type === 'primary' && disabled ? primaryDisabled : false,
-		type === 'danger' && disabled ? dangerDisabled : false,
+		(type === 'default' || type === undefined) && disabled ? defaultDisabled : false,
 		type === 'ghost' && disabled ? ghostDisabled : false,
 		type === 'link' && disabled ? linkDisabled : false,
 		type === 'text' && disabled ? textDisabled : false,

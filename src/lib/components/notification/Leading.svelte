@@ -12,7 +12,7 @@
 
 	$: $leading = true;
 
-	const defaultClass = 'flex-shrink-0 text-light-content dark:text-dark-content';
+	const defaultClass = 'flex-shrink-0 text-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

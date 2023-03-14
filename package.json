@@ -72,7 +72,10 @@
 	"type": "module",
 	"types": "index.d.ts",
 	"dependencies": {
+		"color": "^4.2.3",
 		"dayjs": "^1.11.7",
+		"nanoid": "^4.0.1",
+		"randomcolor": "^0.6.2",
 		"tailwind-merge": "^1.10.0",
 		"tippy.js": "^6.3.7"
 	},

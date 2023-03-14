@@ -24,7 +24,7 @@
 		return res[1];
 	}
 
-	const defaultClass = 'text-light-content dark:text-dark-content absolute -top-3 -right-2';
+	const defaultClass = 'text-content absolute -top-3 -right-2';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

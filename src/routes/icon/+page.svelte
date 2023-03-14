@@ -37,7 +37,7 @@
 
 			<div
 				id={'icon-copy-' + i}
-				class="hidden absolute transition-all rounded-md z-10 inset-0 h-full w-full text-light-content dark:text-dark-content font-bold bg-dark-background dark:bg-light-background bg-opacity-10 dark:bg-opacity-10 backdrop-blur-sm items-center justify-center"
+				class="hidden absolute transition-all rounded-md z-10 inset-0 h-full w-full text-content font-bold bg-background bg-opacity-10 backdrop-blur-sm items-center justify-center"
 			>
 				Copied!
 			</div>

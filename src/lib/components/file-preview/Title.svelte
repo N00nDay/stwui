@@ -7,7 +7,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass =
-		'text-xs font-semibold text-light-content dark:text-dark-content text-ellipsis overflow-hidden whitespace-nowrap';
+		'text-xs font-semibold text-content text-ellipsis overflow-hidden whitespace-nowrap';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

@@ -8,7 +8,7 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Basic</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Slider value={20} />
+			<Slider value={20} type="info" />
 
 			<Slider value={40} type="warn" />
 
@@ -27,7 +27,9 @@
 	<Card bordered={false}>
 		<Card.Header slot="header">Step and Show Step</Card.Header>
 		<Card.Content slot="content" class="p-4">
-			<Slider value={20} class="mb-4" step={25} showStep />
+			<Slider value={20} type="info" step={25} showStep />
+
+			<br />
 
 			<Slider value={40} type="warn" step={10} showStep />
 

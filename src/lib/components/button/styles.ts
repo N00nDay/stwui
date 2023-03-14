@@ -9,25 +9,19 @@ export const xl = 'px-4 py-3 text-base';
 export const fab = 'p-5 h-[58px] w-[58px]';
 
 export const defaultButton =
-	'border shadow-md bg-default text-default-content border-light-border-base hover:border-primary-hover hover:text-primary-hover dark:shadow-black dark:border-dark-border';
-export const primaryButton =
-	'border-none text-primary-content shadow-md bg-primary dark:shadow-black hover:bg-primary-hover';
-export const dangerButton =
-	'border-none shadow-md text-danger-content bg-danger hover:bg-danger-hover dark:shadow-black';
+	'border shadow-md bg-default text-default-content border-border hover:text-primary-hover';
+export const primaryButton = 'border-none text-primary-content shadow-md bg-primary';
+export const dangerButton = 'border-none shadow-md text-danger-content bg-danger';
 export const ghostButton =
-	'border-none border-transparent shadow-none bg-transparent text-light-secondary-content hover:text-light-content dark:text-dark-content dark:hover:text-primary-hover';
+	'border-none border-transparent shadow-none bg-transparent text-secondary-content hover:text-content';
 export const linkButton =
 	'border-none border-transparent bg-transparent shadow-none text-primary hover:text-primary-hover';
 export const textButton = 'border-transparent';
-export const darkButton = 'text-primary-content bg-[#2a303c] shadow-md';
 
 export const baseDisabled = 'active:hover:scale-100 opacity-70';
 export const defaultDisabled = 'text-default-content bg-default hover:text-default-content';
-export const primaryDisabled = 'hover:bg-primary';
-export const dangerDisabled = 'hover:bg-danger';
-export const ghostDisabled =
-	'text-light-secondary-content dark:text-dark-secondary-content hover:text-light-secondary-content dark:hover:text-dark-secondary-content';
-export const linkDisabled = 'hover:bg-transparent text-primary-hover hover:text-primary-hover';
+export const ghostDisabled = 'text-secondary-content hover:text-secondary-content';
+export const linkDisabled = 'text-primary-hover hover:text-primary-hover';
 export const textDisabled = 'border-transparent';
 
 export const circleShape = 'rounded-full';

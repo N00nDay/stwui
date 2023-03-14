@@ -17,8 +17,7 @@
 <div
 	class={finalClass}
 	class:border-t={divided}
-	class:border-light-border-base={divided}
-	class:dark:border-dark-border={divided}
+	class:border-border={divided}
 	class:last:border-t-none={divided}
 	use:useActions={use}
 	use:forwardEvents

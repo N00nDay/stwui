@@ -14,7 +14,7 @@
 >
 	<svg class="rotate-[-90deg] origin-center h-5 w-5">
 		<circle
-			class="text-light-icon-background dark:text-dark-icon-background"
+			class="text-default"
 			stroke-width={width}
 			stroke="currentColor"
 			fill="transparent"
@@ -23,7 +23,7 @@
 			cy={cxCy}
 		/>
 		<circle
-			class="text-info-background dark:text-info-background"
+			class="text-info"
 			stroke-width={width}
 			stroke-dasharray={circumference}
 			stroke-dashoffset={radialValue}

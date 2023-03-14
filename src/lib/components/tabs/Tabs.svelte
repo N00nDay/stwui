@@ -15,10 +15,8 @@
 	let selected: Writable<string> = writable(currentTab);
 	$: $selected = currentTab;
 
-	const barContainerClass =
-		'border-light-border-base dark:border-dark-border-base overflow-hidden rounded-md shadow-md border dark:shadow-black';
-	const defaultContainerClass =
-		'border-light-border-base dark:border-dark-border-base overflow-hidden border-b';
+	const barContainerClass = 'border-border overflow-hidden rounded-md shadow-md border';
+	const defaultContainerClass = 'border-border overflow-hidden border-b';
 
 	$: finalContainerClass = twMerge(
 		variant === 'bar' ? barContainerClass : defaultContainerClass,
@@ -26,8 +24,7 @@
 		containerClass
 	);
 
-	const barClass =
-		'-mb-px flex justify-evenly isolate divide-x divide-light-border-base dark:divide-dark-border';
+	const barClass = '-mb-px flex justify-evenly isolate divide-x divide-border';
 	const fullWidthClass = '-mb-px flex justify-evently';
 	const defaultClass = '-mb-px flex space-x-8';
 

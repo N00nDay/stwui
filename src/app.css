@@ -21,8 +21,7 @@ body {
 	@apply w-full;
 	@apply flex;
 	@apply flex-col;
-	@apply bg-light-surface;
-	@apply dark:bg-dark-surface;
+	@apply bg-background;
 	@apply overflow-hidden;
 	overscroll-behavior: none;
 }

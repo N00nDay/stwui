@@ -11,18 +11,13 @@
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
 	const defaultClass =
-		'inline-flex items-center pr-3 text-sm font-medium border border-light-border-base dark:border-dark-border-base bg-opacity-20 dark:bg-opacity-20 rounded-full';
+		'inline-flex items-center pr-3 text-sm font-medium border border-border rounded-full';
 
-	const defaultTypeClass =
-		' bg-light-surface dark:bg-dark-surface text-light-content dark:text-dark-content';
-	const infoTypeClass =
-		' bg-info-background dark:bg-dark-info-background text-info-content dark:text-dark-info-content';
-	const successTypeClass =
-		' bg-success-background dark:bg-dark-success-background text-success-content dark:text-dark-success-content';
-	const warnTypeClass =
-		' bg-warn-background dark:bg-dark-warn-background text-warn-content dark:text-dark-warn-content';
-	const errorTypeClass =
-		' bg-error-background dark:bg-dark-error-background text-error-content dark:text-dark-error-content';
+	const defaultTypeClass = ' bg-default text-default-content';
+	const infoTypeClass = ' bg-info text-info-content';
+	const successTypeClass = ' bg-success text-success-content';
+	const warnTypeClass = ' bg-warn text-warn-content';
+	const errorTypeClass = ' bg-error text-error-content';
 	const closeSlotClass = 'pr-1.5';
 
 	$: finalClass = twMerge(

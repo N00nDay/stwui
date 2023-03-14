@@ -16,7 +16,7 @@
 </script>
 
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Card bordered={false}>
 			<Card.Content slot="content">
 				<Media>
@@ -36,7 +36,7 @@
 </Col>
 
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Card bordered={false}>
 			<Card.Content slot="content">
 				<Media>

@@ -12,8 +12,9 @@
 	const shape: 'circle' | 'rounded' | 'square' = getContext('avatar-group-shape');
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('avatar-group-size');
 
-	const defaultClass =
-		'absolute block rounded-full ring-2 ring-light-surface dark:ring-dark-surface bg-primary';
+	// TODO: add status prop to change color
+
+	const defaultClass = 'absolute block rounded-full ring-2 ring-surface bg-primary';
 	const topRightClass = 'top-0 right-0';
 	const topLeftClass = 'top-0 left-0';
 	const bottomLeftClass = 'bottom-0 left-0';

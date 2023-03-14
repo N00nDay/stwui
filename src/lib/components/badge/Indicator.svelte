@@ -10,10 +10,10 @@
 	const type: 'info' | 'success' | 'warn' | 'error' | undefined = getContext('badge-type');
 
 	const defaultClass = '-ml-0.5 mr-1.5 h-2 w-2';
-	const infoClass = 'text-info-content dark:text-dark-info-content';
-	const successClass = 'text-success-content dark:text-dark-success-content';
-	const warnClass = 'text-warn-content dark:text-dark-warn-content';
-	const errorClass = 'text-error-content dark:text-dark-error-content';
+	const infoClass = 'text-info-content';
+	const successClass = 'text-success-content';
+	const warnClass = 'text-warn-content';
+	const errorClass = 'text-error-content';
 
 	$: finalClass = twMerge(
 		defaultClass,

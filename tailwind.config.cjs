@@ -3,8 +3,10 @@ module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	plugins: [require('@tailwindcss/forms'), require('./src/lib/plugin')],
 	'headwind.runOnSave': true,
-	darkMode: 'class',
 	theme: {
 		extend: {}
+	},
+	stwui: {
+		themes: ['light', 'dark']
 	}
 };

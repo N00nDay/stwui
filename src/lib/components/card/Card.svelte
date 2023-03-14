@@ -12,13 +12,12 @@
 	export let hoverable = false;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
-	const defaultClass =
-		'bg-light-surface text-light-content dark:bg-dark-surface dark:text-dark-content rounded-md';
+	const defaultClass = 'bg-surface text-content rounded-md';
 	$: finalClass = twMerge(
 		defaultClass,
 
 		hoverable
-			? 'active:[&:not(:focus):not(:focus-within)]:hover:animate-none active:[&:not(:focus):not(:focus-within)]:hover:scale-[97.5%] cursor-pointer hover:shadow-lg dark:bg-light-icon-background-hover bg-dark-icon-background-hover'
+			? 'active:[&:not(:focus):not(:focus-within)]:hover:animate-none active:[&:not(:focus):not(:focus-within)]:hover:scale-[97.5%] cursor-pointer hover:shadow-lg hover:bg-hover hover:bg-opacity-5'
 			: false,
 
 		$$props.class
@@ -30,14 +29,12 @@
 <div
 	class={finalClass}
 	class:border={bordered}
-	class:border-light-border-base={bordered}
-	class:dark:border-dark-border={bordered}
+	class:border-border={bordered}
 	class:shadow-none={elevation === 'none'}
 	class:shadow-sm={elevation === 'sm'}
 	class:shadow-md={elevation === 'md'}
 	class:shadow-lg={elevation === 'lg'}
 	class:shadow-xl={elevation === 'xl'}
-	class:dark:shadow-black={elevation !== 'none'}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}

@@ -10,8 +10,7 @@
 	export let type: 'solid' | 'ghost' = 'ghost';
 
 	const defaultClass = 'breadcrumbs flex items-center space-x-4';
-	const solidClass =
-		'border border-light-border-base dark:border-dark-border bg-light-surface dark:bg-dark-surface rounded-md px-6';
+	const solidClass = 'border border-border bg-surface rounded-md px-6';
 	$: finalClass = twMerge(
 		defaultClass,
 

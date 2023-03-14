@@ -103,10 +103,8 @@
 				class="p-4 md:p-8 min-h-[500px] h-[calc(100vh-200px)] flex flex-col justify-center items-start"
 			>
 				<h1 class="mb-0 text-6xl font-extrabold text-primary">Components you want</h1>
-				<h1 class="mb-0 text-6xl font-extrabold text-light-content dark:text-dark-content">
-					the way you want them
-				</h1>
-				<p class="text-light-content dark:text-dark-content mt-4">
+				<h1 class="mb-0 text-6xl font-extrabold text-content">the way you want them</h1>
+				<p class="text-content mt-4">
 					STWUI provides a complete set of Svelte components and UI tools to help you develop faster
 					than ever.
 				</p>
@@ -265,13 +263,13 @@
 							</div>
 
 							<div class="p-4">
-								<Progress value={25} />
+								<Progress value={25} displayValue />
 								<br />
 								<Progress value={0} indeterminate />
 								<br />
-								<Progress value={100} radial type="success" />
-								<Progress value={50} radial />
-								<Progress value={25} radial type="error" />
+								<Progress value={100} radial type="success" displayValue />
+								<Progress value={50} radial displayValue />
+								<Progress value={25} radial type="error" displayValue />
 							</div>
 
 							<div class="p-4">

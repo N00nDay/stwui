@@ -21,7 +21,7 @@
 	const srcClass = 'inline-block absolute';
 	const srcContainerClass = 'inline-block relative align-middle';
 	const initialClass =
-		'inline-flex items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
+		'inline-flex items-center justify-center align-middle bg-default text-default-content';
 	const xsClass = 'h-6 w-6';
 	const smClass = 'h-8 w-8';
 	const mdClass = 'h-10 w-10';

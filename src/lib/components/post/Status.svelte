@@ -12,8 +12,7 @@
 	export let likes: string[] = [];
 	export let comments: string[] = [];
 
-	const defaultClass =
-		'flex flex-row justify-evenly items-center py-1 px-2 border border-light-border-base dark:border-dark-border';
+	const defaultClass = 'flex flex-row justify-evenly items-center py-1 px-2 border border-border';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -27,7 +26,7 @@
 	<div class="h-full w-full flex justify-start items-center text-sm">
 		{#if likes.length > 0}
 			<div
-				class="mr-1 h-5 w-5 rounded-full bg-primary text-primary-content shadow-md dark:shadow-black flex items-center justify-center"
+				class="mr-1 h-5 w-5 rounded-full bg-primary text-primary-content shadow-md flex items-center justify-center"
 			>
 				<Icon data={thumb_up} size="14px" />
 			</div>

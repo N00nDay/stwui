@@ -10,7 +10,7 @@
 	export let block = false;
 
 	const defaultClass =
-		'relative z-0 inline-flex shadow-md dark:shadow-black rounded-md border border-light-border-base divide-x divide-light-border-base dark:border-dark-border divide-dark-border';
+		'relative z-0 inline-flex shadow-md rounded-md border border-border divide-x divide-border';
 
 	$: finalClass = twMerge(
 		defaultClass,

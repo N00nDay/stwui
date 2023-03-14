@@ -23,7 +23,7 @@
 </script>
 
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Statistic>
 			<Statistic.Icon slot="icon" data={favorite} />
 			<Statistic.Title slot="title">Total Likes</Statistic.Title>
@@ -64,7 +64,7 @@
 </Col>
 
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Statistic>
 			<Statistic.Icon slot="icon" data={chart_box} />
 			<Statistic.Title slot="title">Page Views</Statistic.Title>
@@ -106,7 +106,7 @@
 </Col>
 
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Statistic>
 			<Statistic.Icon slot="icon" data={chart_box} />
 			<Statistic.Title slot="title">New Users</Statistic.Title>
@@ -128,7 +128,7 @@
 </Col>
 
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Statistic>
 			<Statistic.Icon class="text-primary" slot="icon" data={favorite} />
 			<Statistic.Title slot="title">Total Likes</Statistic.Title>
@@ -149,7 +149,7 @@
 </Col>
 
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Statistic class="bg-gradient-to-r from-cyan-500 to-blue-500">
 			<Statistic.Icon class="text-white" slot="icon" data={chart_box} />
 			<Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
@@ -170,7 +170,11 @@
 						minimumFractionDigits: 1
 					})}
 				</Statistic.Comparison.Value>
-				<Statistic.Comparison.Trend class="bg-white text-white" showIcon={false} slot="trend">
+				<Statistic.Comparison.Trend
+					class="bg-white text-white bg-opacity-20"
+					showIcon={false}
+					slot="trend"
+				>
 					{formatNumber(80000, {
 						style: 'currency',
 						notation: 'compact',
@@ -190,7 +194,7 @@
 </Col>
 
 <Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent dark:bg-transparent">
+	<Card bordered={false} elevation="none" class="bg-transparent">
 		<Statistic>
 			<Statistic.Title slot="title">New Users</Statistic.Title>
 			<Statistic.Value slot="value">

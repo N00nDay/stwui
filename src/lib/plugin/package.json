@@ -2,5 +2,8 @@
 	"name": "stui-plugin",
 	"description": "Tailwindcss plugin for stwui",
 	"version": "0.0.1",
-	"main": "index.js"
+	"main": "index.js",
+	"dependencies": {
+		"color": "^4.2.3"
+	}
 }

@@ -13,10 +13,9 @@
 		getContext('steps-variant');
 	const step: number = getContext('steps-step');
 
-	const circleStep = 'text-sm text-light-secondary-content dark:text-dark-secondary-content';
-	const simpleStep = 'text-sm font-medium text-light-content dark:text-dark-content';
-	const simplePreviousStep =
-		'text-sm font-medium text-light-secondary-content dark:text-dark-secondary-content';
+	const circleStep = 'text-sm text-secondary-content';
+	const simpleStep = 'text-sm font-medium text-content';
+	const simplePreviousStep = 'text-sm font-medium text-secondary-content';
 
 	$: finalClass = twMerge(
 		variant === 'circles-text' ? circleStep : false,

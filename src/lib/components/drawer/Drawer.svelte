@@ -87,8 +87,7 @@
 		}
 	}
 
-	const defaultClass =
-		'flex inner-panel flex-col bg-light-surface dark:bg-dark-surface overflow-hidden';
+	const defaultClass = 'flex inner-panel flex-col bg-surface overflow-hidden';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('drawer-handleClose', onClose);
@@ -119,7 +118,7 @@
 			>
 				<div
 					use:trapFocus
-					class="pointer-events-auto panel dark:shadow-black transition-transform duration-200"
+					class="pointer-events-auto panel transition-transform duration-200"
 					class:left={placement === 'left'}
 					class:right={placement === 'right'}
 					class:top={placement === 'top'}

@@ -34,7 +34,7 @@
 			<button
 				aria-label="quick view slide {i + 1}"
 				on:click={() => handleGoTo(i)}
-				class="h-1.5 bg-light-surface shadow-md max-w-[40px] hover:shadow-lg hover:opacity-90"
+				class="h-1.5 bg-white shadow-md max-w-[40px] hover:shadow-lg hover:opacity-90"
 				class:opacity-50={activeSlide !== i}
 				class:hover:opacity-90={activeSlide !== i}
 				style={`width: calc(100% / ${slides.length});`}
@@ -64,7 +64,7 @@
 		type="button"
 	>
 		<div
-			class="flex items-center justify-center h-12 w-12 text-dark-content bg-white bg-opacity-10 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
+			class="flex items-center justify-center h-12 w-12 text-white bg-white bg-opacity-10 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
 		>
 			<Icon data={arrow_back} />
 			<span class="sr-only">Previous</span>
@@ -77,7 +77,7 @@
 		type="button"
 	>
 		<div
-			class="flex items-center justify-center h-12 w-12 text-dark-content bg-white bg-opacity-10 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
+			class="flex items-center justify-center h-12 w-12 text-white bg-white bg-opacity-10 rounded-full transition-reveal scale-90 group-hover:scale-100 group-hover:bg-opacity-20 group-hover:active:scale-95"
 		>
 			<Icon data={arrow_forward} />
 			<span class="sr-only">Next</span>

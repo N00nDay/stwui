@@ -250,7 +250,7 @@ export const example3 = `
 	<Divider.Label slot="label">Between</Divider.Label>
 </Divider>
 
-<Row justify="between" class="bg-light-background dark:bg-dark-background p-2">
+<Row justify="between" class="bg-background p-2">
 	<Col class="col-4">
 		col-4
 	</Col>

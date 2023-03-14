@@ -11,8 +11,8 @@
 	export let bordered = false;
 	export let edgeToEdge = false;
 
-	const dividedClass = 'divide-y divide-light-border-base dark:divide-dark-border';
-	const borderedClass = 'border border-light-border-base dark:border-dark-border';
+	const dividedClass = 'divide-y divide-border';
+	const borderedClass = 'border border-border';
 
 	$: finalClass = twMerge(
 		divided ? dividedClass : false,

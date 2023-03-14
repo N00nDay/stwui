@@ -179,7 +179,7 @@
 				<Divider.Label slot="label">Start</Divider.Label>
 			</Divider>
 
-			<Row justify="start" class="bg-light-background dark:bg-dark-background p-2">
+			<Row justify="start" class="bg-background p-2">
 				<Col class="col-4">
 					<div class={lightBlock}>col-4</div>
 				</Col>
@@ -198,7 +198,7 @@
 				<Divider.Label slot="label">Center</Divider.Label>
 			</Divider>
 
-			<Row justify="center" class="bg-light-background dark:bg-dark-background p-2">
+			<Row justify="center" class="bg-background p-2">
 				<Col class="col-4">
 					<div class={lightBlock}>col-4</div>
 				</Col>
@@ -217,7 +217,7 @@
 				<Divider.Label slot="label">End</Divider.Label>
 			</Divider>
 
-			<Row justify="end" class="bg-light-background dark:bg-dark-background p-2">
+			<Row justify="end" class="bg-background p-2">
 				<Col class="col-4">
 					<div class={lightBlock}>col-4</div>
 				</Col>
@@ -236,7 +236,7 @@
 				<Divider.Label slot="label">Between</Divider.Label>
 			</Divider>
 
-			<Row justify="between" class="bg-light-background dark:bg-dark-background p-2">
+			<Row justify="between" class="bg-background p-2">
 				<Col class="col-4">
 					<div class={lightBlock}>col-4</div>
 				</Col>
@@ -255,7 +255,7 @@
 				<Divider.Label slot="label">Around</Divider.Label>
 			</Divider>
 
-			<Row justify="around" class="bg-light-background dark:bg-dark-background p-2">
+			<Row justify="around" class="bg-backgroundp-2">
 				<Col class="col-4">
 					<div class={lightBlock}>col-4</div>
 				</Col>
@@ -285,7 +285,7 @@
 				<Divider.Label slot="label">Start</Divider.Label>
 			</Divider>
 
-			<Row align="start" justify="center" class="bg-light-background dark:bg-dark-background p-2">
+			<Row align="start" justify="center" class="bg-background p-2">
 				<Col class="col-4">
 					<div class={lightBlock} style="height: 5rem;">col-4</div>
 				</Col>
@@ -304,7 +304,7 @@
 				<Divider.Label slot="label">Center</Divider.Label>
 			</Divider>
 
-			<Row align="center" justify="between" class="bg-light-background dark:bg-dark-background p-2">
+			<Row align="center" justify="between" class="bg-background p-2">
 				<Col class="col-4">
 					<div class={lightBlock} style="height: 4rem;">col-4</div>
 				</Col>
@@ -323,7 +323,7 @@
 				<Divider.Label slot="label">End</Divider.Label>
 			</Divider>
 
-			<Row align="end" justify="center" class="bg-light-background dark:bg-dark-background p-2">
+			<Row align="end" justify="center" class="bg-background p-2">
 				<Col class="col-4">
 					<div class={lightBlock} style="height: 4rem;">col-4</div>
 				</Col>

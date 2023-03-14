@@ -22,9 +22,7 @@
 		class="group cursor-pointer flex flex-col items-center justify-center h-full w-full active:hover:animate-none active:hover:scale-90"
 	>
 		{#if $$slots.icon}
-			<span class="h-6 w-6 text-light-icon dark:text-dark-icon group-hover:text-primary"
-				><slot name="icon" /></span
-			>
+			<span class="h-6 w-6 text-content group-hover:text-primary"><slot name="icon" /></span>
 		{/if}
 		<slot name="label" />
 	</button>

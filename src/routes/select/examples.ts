@@ -54,6 +54,12 @@ export const props: Prop[] = [
 		prop: 'closeOnSelect',
 		type: 'boolean',
 		default: 'true'
+	},
+	{
+		id: '10',
+		prop: 'disabled',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 

@@ -24,7 +24,7 @@
 	const srcClass = 'inline-block absolute';
 	const srcContainerClass = 'inline-block h-8 w-8 relative align-middle';
 	const initialsClass =
-		'inline-flex h-8 w-8 items-center justify-center align-middle bg-light-icon-background dark:bg-dark-icon-background text-light-content dark:text-dark-content';
+		'inline-flex h-8 w-8 items-center justify-center align-middle bg-default text-default-content';
 
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';

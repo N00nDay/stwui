@@ -18,8 +18,8 @@
 		<Card.Content>
 			<Row>
 				<Col class="col-24 flex items-center justify-center gap-4 md:gap-8">
-					<h4>Starting Number: {number}</h4>
-					<h4>Starting Percent: {percent}</h4>
+					<h4 class="w-full text-right">Starting Number: {number}</h4>
+					<h4 class="w-full">Starting Percent: {percent}</h4>
 				</Col>
 			</Row>
 			<br />

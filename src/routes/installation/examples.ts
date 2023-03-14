@@ -20,6 +20,5 @@ module.exports = {
 	plugins: [
 		require('@tailwindcss/forms'),
 		require('stwui/plugin')
-	],
-	darkMode: 'class',
+	]
 };`;

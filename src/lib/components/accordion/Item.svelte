@@ -14,7 +14,7 @@
 	$: itemOpen.set(open);
 
 	const defaultClass =
-		'bg-light-surface dark:bg-dark-surface first-of-type:rounded-t-md last-of-type:rounded-b-md overflow-hidden outline-none focus:outline-none';
+		'bg-surface first-of-type:rounded-t-md last-of-type:rounded-b-md overflow-hidden outline-none focus:outline-none';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('accordion-open', itemOpen);
