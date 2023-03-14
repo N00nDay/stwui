@@ -144,7 +144,11 @@
 												minimumFractionDigits: 1
 											})}
 										</Statistic.Comparison.Value>
-										<Statistic.Comparison.Trend class="bg-white text-white" trend="up" slot="trend">
+										<Statistic.Comparison.Trend
+											class="bg-white text-white bg-opacity-20"
+											trend="up"
+											slot="trend"
+										>
 											{formatNumber(getTrendValue(2660000, 2580000), {
 												style: 'currency',
 												notation: 'compact',
@@ -171,7 +175,7 @@
 								</ButtonGroup>
 							</div>
 							<div class="p-4">
-								<Post>
+								<Post class="border border-border">
 									<Post.Header slot="header">
 										<Avatar slot="avatar" src={creator.avatar} />
 										<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
