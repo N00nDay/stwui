@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.8.0-next](https://github.com/N00nDay/stwui/compare/v0.7.0-next...v0.8.0-next) (2023-03-14)
+
+
+### Features
+
+* disabled prop and styling for all form inputs ([c77e8ec](https://github.com/N00nDay/stwui/commit/c77e8ecb08e50b58367235d0f598c4d5c13913dc))
+* **Themes:** themes now available ([c77e8ec](https://github.com/N00nDay/stwui/commit/c77e8ecb08e50b58367235d0f598c4d5c13913dc))
+
 ## [0.7.0-next](https://github.com/N00nDay/stwui/compare/v0.6.0-next...v0.7.0-next) (2023-03-11)
 
 
