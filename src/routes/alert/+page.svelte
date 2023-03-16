@@ -11,10 +11,8 @@
 		descriptionSlots,
 		extraSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer, WrapContainer } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { alert_circle, alert, check_circle, info, arrow_right } from '../../docs/icons';
-
-	let type: 'info' | 'warn' | 'success' | 'error' = 'info';
 </script>
 
 <Col class="col-24 example-container">
