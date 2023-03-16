@@ -200,3 +200,62 @@ export const withExtraExample = `
 		<Button type="primary">Action</Button>
 	</Alert.Extra>
 </Alert>`;
+
+export const kitcheSinkExample = `
+<script lang="ts">
+	import { Alert } from 'stwui';
+
+	const info = "svg-path";
+	const alert = "svg-path";
+	const check_circle = "svg-path";
+	const alert_circle = "svg-path";
+</script>
+
+<Alert type="info" class="w-full max-w-lg m-auto">
+	<Alert.Leading slot="leading" data={info} />
+	<Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Description slot="description">I am a description</Alert.Description>
+	<Alert.Extra slot="extra">
+		<Button type="primary">
+			Action
+			<Button.Trailing slot="trailing" data={arrow_right} />
+		</Button>
+	</Alert.Extra>
+</Alert>
+
+<Alert type="warn" class="w-full max-w-lg m-auto">
+	<Alert.Leading slot="leading" data={alert} />
+	<Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Description slot="description">I am a description</Alert.Description>
+	<Alert.Extra slot="extra">
+		<Button type="primary">
+			Action
+			<Button.Trailing slot="trailing" data={arrow_right} />
+		</Button>
+	</Alert.Extra>
+</Alert>
+
+<Alert type="success" class="w-full max-w-lg m-auto">
+	<Alert.Leading slot="leading" data={check_circle} />
+	<Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Description slot="description">I am a description</Alert.Description>
+	<Alert.Extra slot="extra">
+		<Button type="primary">
+			Action
+			<Button.Trailing slot="trailing" data={arrow_right} />
+		</Button>
+	</Alert.Extra>
+</Alert>
+
+<Alert type="error" class="w-full max-w-lg m-auto">
+	<Alert.Leading slot="leading" data={alert_circle} />
+	<Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Description slot="description">I am a description</Alert.Description>
+	<Alert.Extra slot="extra">
+		<Button type="primary">
+			Action
+			<Button.Trailing slot="trailing" data={arrow_right} />
+		</Button>
+	</Alert.Extra>
+</Alert>
+`;

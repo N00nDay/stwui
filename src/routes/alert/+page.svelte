@@ -4,6 +4,7 @@
 		basicExample,
 		withDescriptionExample,
 		withExtraExample,
+		kitcheSinkExample,
 		props,
 		slots,
 		iconProps,
@@ -69,7 +70,7 @@
 </Col>
 
 <Col class="col-24 example-container">
-	<ExampleContainer title="With Description">
+	<ExampleContainer title="With Action">
 		<div slot="preview" class="w-full flex flex-col gap-2">
 			<Alert type="info" class="w-full max-w-lg m-auto">
 				<Alert.Leading slot="leading" data={info} />
@@ -117,6 +118,62 @@
 		</div>
 
 		<CodeBlock slot="code" language="svelte" code={withExtraExample} />
+	</ExampleContainer>
+</Col>
+
+<Col class="col-24 example-container">
+	<ExampleContainer title="The Kitchen Sink">
+		<div slot="preview" class="w-full flex flex-col gap-2">
+			<Alert type="info" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={info} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+
+			<Alert type="warn" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+
+			<Alert type="success" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={check_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+
+			<Alert type="error" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+		</div>
+
+		<CodeBlock slot="code" language="svelte" code={kitcheSinkExample} />
 	</ExampleContainer>
 </Col>
 
