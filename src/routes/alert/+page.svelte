@@ -19,31 +19,19 @@
 
 <Col class="col-24 example-container">
 	<ExampleContainer title="Basic">
-		<div
-			slot="preview"
-			class="w-full flex items-center justify-between flex-wrap gap-2"
-			let:breakpoints
-		>
-			<WrapContainer {breakpoints}>
-				<Alert type="info" class="w-full">
-					<Alert.Title slot="title">Title</Alert.Title>
-				</Alert>
-			</WrapContainer>
-			<WrapContainer {breakpoints}>
-				<Alert type="warn" class="w-full">
-					<Alert.Title slot="title">Title</Alert.Title>
-				</Alert>
-			</WrapContainer>
-			<WrapContainer {breakpoints}>
-				<Alert type="success" class="w-full">
-					<Alert.Title slot="title">Title</Alert.Title>
-				</Alert>
-			</WrapContainer>
-			<WrapContainer {breakpoints}>
-				<Alert type="error" class="w-full">
-					<Alert.Title slot="title">Title</Alert.Title>
-				</Alert>
-			</WrapContainer>
+		<div slot="preview" class="w-full flex flex-col gap-2">
+			<Alert type="info" class="w-full max-w-lg m-auto">
+				<Alert.Title slot="title">Title</Alert.Title>
+			</Alert>
+			<Alert type="warn" class="w-full max-w-lg m-auto">
+				<Alert.Title slot="title">Title</Alert.Title>
+			</Alert>
+			<Alert type="success" class="w-full max-w-lg m-auto">
+				<Alert.Title slot="title">Title</Alert.Title>
+			</Alert>
+			<Alert type="error" class="w-full max-w-lg m-auto">
+				<Alert.Title slot="title">Title</Alert.Title>
+			</Alert>
 		</div>
 
 		<CodeBlock slot="code" language="svelte" code={basicExample} />
@@ -52,39 +40,30 @@
 
 <Col class="col-24 example-container">
 	<ExampleContainer title="With Description">
-		<div
-			slot="preview"
-			class="w-full flex items-center justify-between flex-wrap gap-2"
-			let:breakpoints
-		>
-			<WrapContainer {breakpoints}>
-				<Alert type="info" class="w-full">
-					<Alert.Leading slot="leading" data={info} />
-					<Alert.Title slot="title">Title</Alert.Title>
-					<Alert.Description slot="description">I am a description</Alert.Description>
-				</Alert>
-			</WrapContainer>
-			<WrapContainer {breakpoints}>
-				<Alert type="warn" class="w-full">
-					<Alert.Leading slot="leading" data={alert} />
-					<Alert.Title slot="title">Title</Alert.Title>
-					<Alert.Description slot="description">I am a description</Alert.Description>
-				</Alert>
-			</WrapContainer>
-			<WrapContainer {breakpoints}>
-				<Alert type="success" class="w-full">
-					<Alert.Leading slot="leading" data={check_circle} />
-					<Alert.Title slot="title">Title</Alert.Title>
-					<Alert.Description slot="description">I am a description</Alert.Description>
-				</Alert>
-			</WrapContainer>
-			<WrapContainer {breakpoints}>
-				<Alert type="error" class="w-full">
-					<Alert.Leading slot="leading" data={alert_circle} />
-					<Alert.Title slot="title">Title</Alert.Title>
-					<Alert.Description slot="description">I am a description</Alert.Description>
-				</Alert>
-			</WrapContainer>
+		<div slot="preview" class="w-full flex flex-col gap-2">
+			<Alert type="info" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={info} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+			</Alert>
+
+			<Alert type="warn" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+			</Alert>
+
+			<Alert type="success" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={check_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+			</Alert>
+
+			<Alert type="error" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+			</Alert>
 		</div>
 
 		<CodeBlock slot="code" language="svelte" code={withDescriptionExample} />
@@ -93,53 +72,50 @@
 
 <Col class="col-24 example-container">
 	<ExampleContainer title="With Description">
-		<div
-			slot="preview"
-			class="w-full flex items-center justify-between flex-wrap gap-2"
-			let:breakpoints
-		>
-			<WrapContainer {breakpoints}>
-				<Alert type="info" class="w-full">
-					<Alert.Leading slot="leading" data={info} />
-					<Alert.Title slot="title">Title</Alert.Title>
-					<Alert.Extra slot="extra">
-						<Button type="primary">
-							Action
-							<Button.Trailing slot="trailing" data={arrow_right} />
-						</Button>
-					</Alert.Extra>
-				</Alert>
-			</WrapContainer>
-			<WrapContainer {breakpoints}>
-				<Alert type="warn" class="w-full">
-					<Alert.Leading slot="leading" data={alert} />
-					<Alert.Title slot="title">Title</Alert.Title>
-					<Alert.Extra slot="extra">
-						<Button type="primary">
-							Action
-							<Button.Trailing slot="trailing" data={arrow_right} />
-						</Button>
-					</Alert.Extra>
-				</Alert>
-			</WrapContainer>
-			<WrapContainer {breakpoints}>
-				<Alert type="success" class="w-full">
-					<Alert.Leading slot="leading" data={check_circle} />
-					<Alert.Title slot="title">Title</Alert.Title>
-					<Alert.Extra slot="extra">
-						<Button type="primary">Action</Button>
-					</Alert.Extra>
-				</Alert>
-			</WrapContainer>
-			<WrapContainer {breakpoints}>
-				<Alert type="error" class="w-full">
-					<Alert.Leading slot="leading" data={alert_circle} />
-					<Alert.Title slot="title">Title</Alert.Title>
-					<Alert.Extra slot="extra">
-						<Button type="primary">Action</Button>
-					</Alert.Extra>
-				</Alert>
-			</WrapContainer>
+		<div slot="preview" class="w-full flex flex-col gap-2">
+			<Alert type="info" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={info} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+
+			<Alert type="warn" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+
+			<Alert type="success" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={check_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+
+			<Alert type="error" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
 		</div>
 
 		<CodeBlock slot="code" language="svelte" code={withExtraExample} />
