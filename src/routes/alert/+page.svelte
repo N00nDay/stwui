@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { Alert, Button, Card, Col } from '../../lib';
+	import { Alert, Button, Col } from '../../lib';
 	import {
-		example,
+		basicExample,
+		withDescriptionExample,
+		withExtraExample,
 		props,
 		slots,
 		iconProps,
@@ -9,57 +11,139 @@
 		descriptionSlots,
 		extraSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
-	import { close, clear, thumb_up } from '../../lib/icons';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer, WrapContainer } from '../../docs';
+	import { alert_circle, alert, check_circle, info, arrow_right } from '../../docs/icons';
 
 	let type: 'info' | 'warn' | 'success' | 'error' = 'info';
-
-	function handleClick() {
-		if (type === 'info') {
-			type = 'success';
-		} else {
-			type = 'info';
-		}
-	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
-			<Alert>
-				<Alert.Title slot="title">Title</Alert.Title>
-			</Alert>
-			<br />
-			<Alert type="warn">
-				<Alert.Title slot="title">Title</Alert.Title>
-			</Alert>
-			<br />
-			<Alert type="error">
-				<Alert.Leading slot="leading" data={clear} />
-				<Alert.Title slot="title">Title</Alert.Title>
-				<Alert.Description slot="description">I am a description</Alert.Description>
-				<Alert.Extra slot="extra">
-					<Button ariaLabel="close" shape="circle" on:click={() => console.log('I clicked extra')}>
-						<Button.Icon slot="icon" data={close} />
-					</Button>
-				</Alert.Extra>
-			</Alert>
+<Col class="col-24 example-container">
+	<ExampleContainer title="Basic">
+		<div
+			slot="preview"
+			class="w-full flex items-center justify-between flex-wrap gap-2"
+			let:breakpoints
+		>
+			<WrapContainer {breakpoints}>
+				<Alert type="info" class="w-full">
+					<Alert.Title slot="title">Title</Alert.Title>
+				</Alert>
+			</WrapContainer>
+			<WrapContainer {breakpoints}>
+				<Alert type="warn" class="w-full">
+					<Alert.Title slot="title">Title</Alert.Title>
+				</Alert>
+			</WrapContainer>
+			<WrapContainer {breakpoints}>
+				<Alert type="success" class="w-full">
+					<Alert.Title slot="title">Title</Alert.Title>
+				</Alert>
+			</WrapContainer>
+			<WrapContainer {breakpoints}>
+				<Alert type="error" class="w-full">
+					<Alert.Title slot="title">Title</Alert.Title>
+				</Alert>
+			</WrapContainer>
+		</div>
 
-			<br />
-			<Alert {type}>
-				<Alert.Leading slot="leading" data={type === 'info' ? clear : thumb_up} />
-				<Alert.Title slot="title">Title</Alert.Title>
-				<Alert.Description slot="description">I am a description</Alert.Description>
-				<Alert.Extra slot="extra">
-					<Button type="primary" on:click={handleClick}>Toggle</Button>
-				</Alert.Extra>
-			</Alert>
+		<CodeBlock slot="code" language="svelte" code={basicExample} />
+	</ExampleContainer>
+</Col>
 
-			<br />
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Description">
+		<div
+			slot="preview"
+			class="w-full flex items-center justify-between flex-wrap gap-2"
+			let:breakpoints
+		>
+			<WrapContainer {breakpoints}>
+				<Alert type="info" class="w-full">
+					<Alert.Leading slot="leading" data={info} />
+					<Alert.Title slot="title">Title</Alert.Title>
+					<Alert.Description slot="description">I am a description</Alert.Description>
+				</Alert>
+			</WrapContainer>
+			<WrapContainer {breakpoints}>
+				<Alert type="warn" class="w-full">
+					<Alert.Leading slot="leading" data={alert} />
+					<Alert.Title slot="title">Title</Alert.Title>
+					<Alert.Description slot="description">I am a description</Alert.Description>
+				</Alert>
+			</WrapContainer>
+			<WrapContainer {breakpoints}>
+				<Alert type="success" class="w-full">
+					<Alert.Leading slot="leading" data={check_circle} />
+					<Alert.Title slot="title">Title</Alert.Title>
+					<Alert.Description slot="description">I am a description</Alert.Description>
+				</Alert>
+			</WrapContainer>
+			<WrapContainer {breakpoints}>
+				<Alert type="error" class="w-full">
+					<Alert.Leading slot="leading" data={alert_circle} />
+					<Alert.Title slot="title">Title</Alert.Title>
+					<Alert.Description slot="description">I am a description</Alert.Description>
+				</Alert>
+			</WrapContainer>
+		</div>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
+		<CodeBlock slot="code" language="svelte" code={withDescriptionExample} />
+	</ExampleContainer>
+</Col>
+
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Description">
+		<div
+			slot="preview"
+			class="w-full flex items-center justify-between flex-wrap gap-2"
+			let:breakpoints
+		>
+			<WrapContainer {breakpoints}>
+				<Alert type="info" class="w-full">
+					<Alert.Leading slot="leading" data={info} />
+					<Alert.Title slot="title">Title</Alert.Title>
+					<Alert.Extra slot="extra">
+						<Button type="primary">
+							Action
+							<Button.Trailing slot="trailing" data={arrow_right} />
+						</Button>
+					</Alert.Extra>
+				</Alert>
+			</WrapContainer>
+			<WrapContainer {breakpoints}>
+				<Alert type="warn" class="w-full">
+					<Alert.Leading slot="leading" data={alert} />
+					<Alert.Title slot="title">Title</Alert.Title>
+					<Alert.Extra slot="extra">
+						<Button type="primary">
+							Action
+							<Button.Trailing slot="trailing" data={arrow_right} />
+						</Button>
+					</Alert.Extra>
+				</Alert>
+			</WrapContainer>
+			<WrapContainer {breakpoints}>
+				<Alert type="success" class="w-full">
+					<Alert.Leading slot="leading" data={check_circle} />
+					<Alert.Title slot="title">Title</Alert.Title>
+					<Alert.Extra slot="extra">
+						<Button type="primary">Action</Button>
+					</Alert.Extra>
+				</Alert>
+			</WrapContainer>
+			<WrapContainer {breakpoints}>
+				<Alert type="error" class="w-full">
+					<Alert.Leading slot="leading" data={alert_circle} />
+					<Alert.Title slot="title">Title</Alert.Title>
+					<Alert.Extra slot="extra">
+						<Button type="primary">Action</Button>
+					</Alert.Extra>
+				</Alert>
+			</WrapContainer>
+		</div>
+
+		<CodeBlock slot="code" language="svelte" code={withExtraExample} />
+	</ExampleContainer>
 </Col>
 
 <Col class="col-24">

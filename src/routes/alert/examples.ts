@@ -107,29 +107,96 @@ export const descriptionSlots: Slot[] = [
 	}
 ];
 
-export const example = `
+export const basicExample = `
 <script lang="ts">
 	import { Alert } from 'stwui';
-
-	const clear = "svg-path";
-	const close = "svg-path";
 </script>
 
-<Alert>
+<Alert type="info">
 	<Alert.Title slot="title">Title</Alert.Title>
 </Alert>
-
 <Alert type="warn">
 	<Alert.Title slot="title">Title</Alert.Title>
 </Alert>
-
+<Alert type="success">
+	<Alert.Title slot="title">Title</Alert.Title>
+</Alert>
 <Alert type="error">
-	<Alert.Leading slot="leading" data={clear} />
+	<Alert.Title slot="title">Title</Alert.Title>
+</Alert>`;
+
+export const withDescriptionExample = `
+<script lang="ts">
+	import { Alert } from 'stwui';
+
+	const info = "svg-path";
+	const alert = "svg-path";
+	const check_circle = "svg-path";
+	const alert_circle = "svg-path";
+</script>
+
+<Alert type="info" class="w-full">
+	<Alert.Leading slot="leading" data={info} />
 	<Alert.Title slot="title">Title</Alert.Title>
 	<Alert.Description slot="description">I am a description</Alert.Description>
+</Alert>
+<Alert type="warn" class="w-full">
+	<Alert.Leading slot="leading" data={alert} />
+	<Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Description slot="description">I am a description</Alert.Description>
+</Alert>
+<Alert type="success" class="w-full">
+	<Alert.Leading slot="leading" data={check_circle} />
+	<Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Description slot="description">I am a description</Alert.Description>
+</Alert>
+<Alert type="error" class="w-full">
+	<Alert.Leading slot="leading" data={alert_circle} />
+	<Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Description slot="description">I am a description</Alert.Description>
+</Alert>`;
+
+export const withExtraExample = `
+<script lang="ts">
+	import { Alert } from 'stwui';
+
+	const info = "svg-path";
+	const alert = "svg-path";
+	const check_circle = "svg-path";
+	const alert_circle = "svg-path";
+</script>
+
+<Alert type="info" class="w-full">
+	<Alert.Leading slot="leading" data={info} />
+	<Alert.Title slot="title">Title</Alert.Title>
 	<Alert.Extra slot="extra">
-		<Button ariaLabel="close" shape="circle" on:click={() => console.log('I clicked extra')}>
-			<Button.Icon slot="icon" data={close} />
+		<Button type="primary">
+			Action
+			<Button.Trailing slot="trailing" data={arrow_right} />
 		</Button>
+	</Alert.Extra>
+</Alert>
+<Alert type="warn" class="w-full">
+	<Alert.Leading slot="leading" data={alert} />
+	<Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Extra slot="extra">
+		<Button type="primary">
+			Action
+			<Button.Trailing slot="trailing" data={arrow_right} />
+		</Button>
+	</Alert.Extra>
+</Alert>
+<Alert type="success" class="w-full">
+	<Alert.Leading slot="leading" data={check_circle} />
+	<Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Extra slot="extra">
+		<Button type="primary">Action</Button>
+	</Alert.Extra>
+</Alert>
+<Alert type="error" class="w-full">
+	<Alert.Leading slot="leading" data={alert_circle} />
+	<Alert.Title slot="title">Title</Alert.Title>
+	<Alert.Extra slot="extra">
+		<Button type="primary">Action</Button>
 	</Alert.Extra>
 </Alert>`;
