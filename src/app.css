@@ -30,3 +30,22 @@ body {
 	-webkit-backface-visibility: hidden;
 	-webkit-tap-highlight-color: transparent;
 }
+
+.example-container .divider.horizontal {
+	@apply w-2;
+	@apply rounded-md;
+	@apply bg-secondary-content;
+	@apply bg-opacity-50;
+	@apply shadow;
+	@apply ml-2;
+	@apply !h-12;
+	@apply flex;
+	@apply items-center;
+	@apply justify-center;
+	@apply !top-2/4;
+	transform: translate(-50%, -50%) !important;
+}
+
+.example-container .divider.horizontal::after {
+	@apply !h-12;
+}
