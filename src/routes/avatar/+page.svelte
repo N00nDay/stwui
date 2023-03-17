@@ -1,110 +1,179 @@
 <script lang="ts">
-	import { Avatar, Card, Col } from '../../lib';
+	import { Avatar, Col } from '../../lib';
 	import {
-		exampleSize,
-		exampleIndicator,
-		exampleInitials,
+		initialsExample,
 		props,
 		slots,
 		placeholderSlots,
-		indicatorProps
+		indicatorProps,
+		brokenImageExample,
+		sizeExample,
+		shapeExample
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Avatar</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Avatar
-				size="xs"
-				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-			/>
-			<Avatar
-				size="sm"
-				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-			/>
-			<Avatar src="noimage.jpg" />
-			<Avatar
-				size="lg"
-				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-			/>
-			<Avatar
-				size="xl"
-				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-			/>
+<Col class="col-24 example-container">
+	<ExampleContainer title="Sizes">
+		<div slot="preview" class="w-full">
+			<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2">
+				<Avatar
+					size="xs"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					size="sm"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					size="lg"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					size="xl"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+			</div>
+		</div>
 
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={exampleSize} />
-		</Card.Content>
-	</Card>
+		<CodeBlock language="svelte" code={sizeExample} slot="code" />
+	</ExampleContainer>
 </Col>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Indicator</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Avatar
-				class="mr-2"
-				size="xs"
-				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-			>
-				<Avatar.Indicator slot="indicator" placement="top-left" />
-			</Avatar>
-			<Avatar
-				class="mr-2"
-				size="sm"
-				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-			>
-				<Avatar.Indicator slot="indicator" placement="top-right" />
-			</Avatar>
-			<Avatar
-				class="mr-2"
-				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-			>
-				<Avatar.Indicator slot="indicator" placement="bottom-left" />
-			</Avatar>
-			<Avatar
-				class="mr-2"
-				size="lg"
-				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-			>
-				<Avatar.Indicator slot="indicator" placement="bottom-right" />
-			</Avatar>
-			<Avatar
-				class="mr-2"
-				size="xl"
-				src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-			>
-				<Avatar.Indicator slot="indicator" placement="top-right" />
-			</Avatar>
+<Col class="col-24 example-container">
+	<ExampleContainer title="Broken Image Fallback">
+		<div slot="preview" class="w-full">
+			<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2">
+				<Avatar size="xs" src="broken_image.png" />
+				<Avatar size="sm" src="broken_image.png" />
+				<Avatar src="broken_image.png" />
+				<Avatar size="lg" src="broken_image.png" />
+				<Avatar size="xl" src="broken_image.png" />
+			</div>
+		</div>
 
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={exampleIndicator} />
-		</Card.Content>
-	</Card>
+		<CodeBlock language="svelte" code={brokenImageExample} slot="code" />
+	</ExampleContainer>
 </Col>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Initials</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Avatar size="xs" initials="CH" />
-			<Avatar size="sm" initials="CH" />
-			<Avatar initials="CH" />
-			<Avatar size="lg" initials="CH" />
-			<Avatar size="xl" initials="CH" />
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Indicator">
+		<div slot="preview" class="w-full">
+			<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2">
+				<Avatar
+					size="xs"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				>
+					<Avatar.Indicator slot="indicator" placement="top-left" />
+				</Avatar>
+				<Avatar
+					size="sm"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				>
+					<Avatar.Indicator slot="indicator" placement="top-right" />
+				</Avatar>
+				<Avatar
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				>
+					<Avatar.Indicator slot="indicator" placement="bottom-right" />
+				</Avatar>
+				<Avatar
+					size="lg"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				>
+					<Avatar.Indicator slot="indicator" placement="bottom-left" />
+				</Avatar>
+				<Avatar
+					size="xl"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				>
+					<Avatar.Indicator slot="indicator" placement="top-left" />
+				</Avatar>
+			</div>
+		</div>
 
-			<br />
-			<br />
+		<CodeBlock language="svelte" code={sizeExample} slot="code" />
+	</ExampleContainer>
+</Col>
 
-			<CodeBlock language="svelte" code={exampleInitials} />
-		</Card.Content>
-	</Card>
+<Col class="col-24 example-container">
+	<ExampleContainer title="Shapes">
+		<div slot="preview" class="w-full">
+			<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2 mb-2">
+				<Avatar
+					size="xs"
+					shape="rounded"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					size="sm"
+					shape="rounded"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					shape="rounded"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					size="lg"
+					shape="rounded"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					size="xl"
+					shape="rounded"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+			</div>
+			<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2">
+				<Avatar
+					size="xs"
+					shape="square"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					size="sm"
+					shape="square"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					shape="square"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					size="lg"
+					shape="square"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+				<Avatar
+					size="xl"
+					shape="square"
+					src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+				/>
+			</div>
+		</div>
+
+		<CodeBlock language="svelte" code={shapeExample} slot="code" />
+	</ExampleContainer>
+</Col>
+
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Initials">
+		<div slot="preview" class="w-full">
+			<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2">
+				<Avatar size="xs" initials="CH" />
+				<Avatar size="sm" initials="CH" />
+				<Avatar initials="CH" />
+				<Avatar size="lg" initials="CH" />
+				<Avatar size="xl" initials="CH" />
+			</div>
+		</div>
+
+		<CodeBlock language="svelte" code={initialsExample} slot="code" />
+	</ExampleContainer>
 </Col>
 
 <Col class="col-24">
