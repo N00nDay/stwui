@@ -145,12 +145,13 @@
 	.pane {
 		width: 100%;
 		height: 100%;
-		overflow: auto;
+		/* overflow: auto; */
 	}
 	.pane > :global(*) {
 		width: 100%;
 		height: 100%;
-		overflow: hidden;
+		/* overflow: hidden; */
+		overflow: visible;
 	}
 	.mousecatcher {
 		position: absolute;

@@ -69,7 +69,7 @@
 	<div class="w-full" class:hidden={$active !== 'preview'}>
 		<SplitPane type="horizontal" pos="99.9%" min="400px" max="100%">
 			<section slot="a" class="py-1.5 px-0.5" bind:clientWidth>
-				<Card bordered={false}>
+				<Card bordered={false} class={$$props.class}>
 					<Card.Content slot="content" class="p-4">
 						<slot name="preview" {breakpoints} />
 					</Card.Content>

@@ -152,11 +152,9 @@ export const iconProps: Prop[] = [
 	}
 ];
 
-export const example = `
+export const basicExample = `
 <script lang="ts">
    import { Autocomplete } from 'stwui';
-
-	const email = "svg-path";
 
    let value: string;
    let options = ['Option 1', 'Option 2', 'Option 3'];
@@ -177,7 +175,191 @@ export const example = `
 	$: filterOptions(value);
 </script>
 
-<Autocomplete name="autocomplete" bind:value={value} on:input={filter}>
+<Autocomplete
+	name="autocomplete"
+	placeholder="Basic"
+	bind:value={value}
+	on:input={filter}
+	{options}
+>
+	<Autocomplete.Options slot="options">
+		{#if filtered.length > 0}
+			{#each filtered as option}
+				<Autocomplete.Options.Option {option} />
+			{/each}
+		{:else}
+			<Autocomplete.Options.EmptyOption />
+		{/if}
+	</Autocomplete.Options>
+</Autocomplete>`;
+
+export const withLabelExample = `
+<script lang="ts">
+   import { Autocomplete } from 'stwui';
+
+   let value: string;
+   let options = ['Option 1', 'Option 2', 'Option 3'];
+
+   function filter(e: Event) {
+		const target = e.target as HTMLInputElement;
+		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+	}
+
+   function filterOptions(option: string) {
+      if (option) {
+         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+      } else {
+         filtered = options;
+      }
+	}
+
+	$: filterOptions(value);
+</script>
+
+<Autocomplete
+	name="autocomplete"
+	placeholder="Basic"
+	bind:value={value}
+	on:input={filter}
+	{options}
+>
+	<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+	<Autocomplete.Options slot="options">
+		{#if filtered.length > 0}
+			{#each filtered as option}
+				<Autocomplete.Options.Option {option} />
+			{/each}
+		{:else}
+			<Autocomplete.Options.EmptyOption />
+		{/if}
+	</Autocomplete.Options>
+</Autocomplete>`;
+
+export const withLeadingExample = `
+<script lang="ts">
+   import { Autocomplete } from 'stwui';
+
+   let value: string;
+   let options = ['Option 1', 'Option 2', 'Option 3'];
+	let email = 'svg-path';
+
+   function filter(e: Event) {
+		const target = e.target as HTMLInputElement;
+		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+	}
+
+   function filterOptions(option: string) {
+      if (option) {
+         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+      } else {
+         filtered = options;
+      }
+	}
+
+	$: filterOptions(value);
+</script>
+
+<Autocomplete
+	name="autocomplete"
+	bind:value={value}
+	on:input={filter}
+	{options}
+>
+	<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+	<Autocomplete.Leading slot="leading" data={email} />
+	<Autocomplete.Options slot="options">
+		{#if filtered.length > 0}
+			{#each filtered as option}
+				<Autocomplete.Options.Option {option} />
+			{/each}
+		{:else}
+			<Autocomplete.Options.EmptyOption />
+		{/if}
+	</Autocomplete.Options>
+</Autocomplete>`;
+
+export const withErrorExample = `
+<script lang="ts">
+   import { Autocomplete } from 'stwui';
+
+   let value: string;
+   let options = ['Option 1', 'Option 2', 'Option 3'];
+	let email = 'svg-path';
+
+   function filter(e: Event) {
+		const target = e.target as HTMLInputElement;
+		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+	}
+
+   function filterOptions(option: string) {
+      if (option) {
+         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+      } else {
+         filtered = options;
+      }
+	}
+
+	$: filterOptions(value);
+
+	let error: string | undefined = "You're doing it wrong!";
+	$: if (value && value.length > 0) {
+		error = undefined;
+	} else {
+		error = "You're doing it wrong!";
+	}
+</script>
+
+<Autocomplete
+	name="autocomplete"
+	bind:value={value}
+	on:input={filter}
+	{options}
+	{error}
+>
+	<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+	<Autocomplete.Leading slot="leading" data={email} />
+	<Autocomplete.Options slot="options">
+		{#if filtered.length > 0}
+			{#each filtered as option}
+				<Autocomplete.Options.Option {option} />
+			{/each}
+		{:else}
+			<Autocomplete.Options.EmptyOption />
+		{/if}
+	</Autocomplete.Options>
+</Autocomplete>`;
+
+export const disabledExample = `
+<script lang="ts">
+   import { Autocomplete } from 'stwui';
+
+   let value: string;
+   let options = ['Option 1', 'Option 2', 'Option 3'];
+	let email = 'svg-path';
+
+   function filter(e: Event) {
+		const target = e.target as HTMLInputElement;
+		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+	}
+
+   function filterOptions(option: string) {
+      if (option) {
+         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+      } else {
+         filtered = options;
+      }
+	}
+
+	$: filterOptions(value);
+</script>
+
+<Autocomplete
+	name="autocomplete"
+	bind:value={value}
+	on:input={filter}
+	{options}
+	disabled
+>
 	<Autocomplete.Label slot="label">Label</Autocomplete.Label>
 	<Autocomplete.Leading slot="leading" data={email} />
 	<Autocomplete.Options slot="options">
