@@ -107,44 +107,138 @@ export const groupAvatarProps: Prop[] = [
 	}
 ];
 
-export const exampleGroup = `
+export const sizesExample = `
 <script lang="ts">
    import { AvatarGroup } from 'stwui';
-
-	const avatars = [
-		'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-		'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-		'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
-		'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
-	];
 </script>
 
 <AvatarGroup size="xs">
-	{#each avatars as avatar}
-		<AvatarGroup.Avatar src={avatar} />
-	{/each}
+	<AvatarGroup.Avatar src={avatars[0]} />
+	<AvatarGroup.Avatar src={avatars[1]} />
+	<AvatarGroup.Avatar src={avatars[2]} />
+	<AvatarGroup.Avatar src={avatars[3]} />
 </AvatarGroup>
 
 <AvatarGroup size="sm">
-	{#each avatars as avatar}
-		<AvatarGroup.Avatar src={avatar} />
-	{/each}
+	<AvatarGroup.Avatar src={avatars[0]} />
+	<AvatarGroup.Avatar src={avatars[1]} />
+	<AvatarGroup.Avatar src={avatars[2]} />
+	<AvatarGroup.Avatar src={avatars[3]} />
 </AvatarGroup>
 
 <AvatarGroup>
-	{#each avatars as avatar}
-		<AvatarGroup.Avatar src={avatar} />
-	{/each}
+	<AvatarGroup.Avatar src={avatars[0]} />
+	<AvatarGroup.Avatar src={avatars[1]} />
+	<AvatarGroup.Avatar src={avatars[2]} />
+	<AvatarGroup.Avatar src={avatars[3]} />
 </AvatarGroup>
 
 <AvatarGroup size="lg">
-	{#each avatars as avatar}
-		<AvatarGroup.Avatar src={avatar} class="ring-primary" />
-	{/each}
+	<AvatarGroup.Avatar src={avatars[0]} />
+	<AvatarGroup.Avatar src={avatars[1]} />
+	<AvatarGroup.Avatar src={avatars[2]} />
+	<AvatarGroup.Avatar src={avatars[3]} />
 </AvatarGroup>
 
 <AvatarGroup size="xl">
-	{#each avatars as avatar}
-		<AvatarGroup.Avatar src={avatar} />
-	{/each}
+	<AvatarGroup.Avatar src={avatars[0]} />
+	<AvatarGroup.Avatar src={avatars[1]} />
+	<AvatarGroup.Avatar src={avatars[2]} />
+	<AvatarGroup.Avatar src={avatars[3]} />
+</AvatarGroup>`;
+
+export const shapesExample = `
+<script lang="ts">
+   import { AvatarGroup } from 'stwui';
+</script>
+
+<AvatarGroup shape="rounded">
+	<AvatarGroup.Avatar src={avatars[0]} />
+	<AvatarGroup.Avatar src={avatars[1]} />
+	<AvatarGroup.Avatar src={avatars[2]} />
+	<AvatarGroup.Avatar src={avatars[3]} />
+</AvatarGroup>
+
+<AvatarGroup shape="square">
+	<AvatarGroup.Avatar src={avatars[0]} />
+	<AvatarGroup.Avatar src={avatars[1]} />
+	<AvatarGroup.Avatar src={avatars[2]} />
+	<AvatarGroup.Avatar src={avatars[3]} />
+</AvatarGroup>`;
+
+export const indicatorExample = `
+<script lang="ts">
+   import { AvatarGroup } from 'stwui';
+</script>
+
+<AvatarGroup size="lg">
+	<AvatarGroup.Avatar src={avatars[0]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-left" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[1]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-left" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[2]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-left" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[3]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-left" />
+	</AvatarGroup.Avatar>
+</AvatarGroup>
+
+<AvatarGroup size="lg">
+	<AvatarGroup.Avatar src={avatars[0]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-right" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[1]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-right" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[2]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-right" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[3]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-right" />
+	</AvatarGroup.Avatar>
+</AvatarGroup>
+
+<AvatarGroup size="lg">
+	<AvatarGroup.Avatar src={avatars[0]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-left" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[1]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-left" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[2]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-left" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[3]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-left" />
+	</AvatarGroup.Avatar>
+</AvatarGroup>
+
+<AvatarGroup size="lg">
+	<AvatarGroup.Avatar src={avatars[0]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-right" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[1]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-right" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[2]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-right" />
+	</AvatarGroup.Avatar>
+	<AvatarGroup.Avatar src={avatars[3]}>
+		<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-right" />
+	</AvatarGroup.Avatar>
+</AvatarGroup>`;
+
+export const initialsExample = `
+<script lang="ts">
+   import { AvatarGroup } from 'stwui';
+</script>
+
+<AvatarGroup>
+	<AvatarGroup.Avatar initials="ND" />
+	<AvatarGroup.Avatar initials="ND" />
+	<AvatarGroup.Avatar initials="ND" />
+	<AvatarGroup.Avatar initials="ND" />
 </AvatarGroup>`;

@@ -164,11 +164,11 @@
 	<ExampleContainer title="With Initials">
 		<div slot="preview" class="w-full">
 			<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2">
-				<Avatar size="xs" initials="CH" />
-				<Avatar size="sm" initials="CH" />
-				<Avatar initials="CH" />
-				<Avatar size="lg" initials="CH" />
-				<Avatar size="xl" initials="CH" />
+				<Avatar size="xs" initials="ND" />
+				<Avatar size="sm" initials="ND" />
+				<Avatar initials="ND" />
+				<Avatar size="lg" initials="ND" />
+				<Avatar size="xl" initials="ND" />
 			</div>
 		</div>
 
