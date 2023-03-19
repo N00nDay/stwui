@@ -2,6 +2,7 @@
 	import ExampleTitle from './ExampleTitle.svelte';
 	import SplitPane from './split-pane/SplitPane.svelte';
 	import Card from '$lib/components/card';
+	import Col from '$lib/components/grid/Col.svelte';
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
@@ -63,21 +64,23 @@
 	setContext('example-set-active-tab', setActive);
 </script>
 
-<div class="w-full">
-	<ExampleTitle {title} />
+<Col class="col-24 example-container">
+	<div class="w-full">
+		<ExampleTitle {title} />
 
-	<div class="w-full" class:hidden={$active !== 'preview'}>
-		<SplitPane type="horizontal" pos="99.9%" min="400px" max="100%">
-			<section slot="a" class="py-1.5 px-0.5" bind:clientWidth>
-				<Card bordered={false} class={$$props.class}>
-					<Card.Content slot="content" class="p-4">
-						<slot name="preview" {breakpoints} />
-					</Card.Content>
-				</Card>
-			</section>
-		</SplitPane>
+		<div class="w-full" class:hidden={$active !== 'preview'}>
+			<SplitPane type="horizontal" pos="99.9%" min="400px" max="100%">
+				<section slot="a" class="py-1.5 px-0.5" bind:clientWidth>
+					<Card bordered={false} class={$$props.class}>
+						<Card.Content slot="content" class="p-4">
+							<slot name="preview" {breakpoints} />
+						</Card.Content>
+					</Card>
+				</section>
+			</SplitPane>
+		</div>
+		<div class="w-full" class:hidden={$active !== 'code'}>
+			<slot name="code" />
+		</div>
 	</div>
-	<div class="w-full" class:hidden={$active !== 'code'}>
-		<slot name="code" />
-	</div>
-</div>
+</Col>
