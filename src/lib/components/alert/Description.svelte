@@ -10,7 +10,7 @@
 
 	const type: Writable<'info' | 'warn' | 'success' | 'error'> = getContext('alert-type');
 
-	const defaultClass = 'mt-2 text-sm';
+	const defaultClass = 'text-sm';
 	const infoClass = 'text-info-secondary-content';
 	const warnClass = 'text-warn-secondary-content';
 	const successClass = 'text-success-secondary-content';

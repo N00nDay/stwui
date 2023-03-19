@@ -63,16 +63,27 @@ export const indicatorProps: Prop[] = [
 	}
 ];
 
-export const exampleSize = `
+export const sizeExample = `
 <script lang="ts">
    import { Avatar } from 'stwui';
 </script>
 
 <Avatar src="image.png" size="xs" />
 <Avatar src="image.png" size="sm" />
-<Avatar src="broken-image.png" />
+<Avatar src="image.png" />
 <Avatar src="image.png" size="lg" />
 <Avatar src="image.png" size="xl" />`;
+
+export const brokenImageExample = `
+<script lang="ts">
+   import { Avatar } from 'stwui';
+</script>
+
+<Avatar src="broken_image.png" size="xs" />
+<Avatar src="broken_image.png" size="sm" />
+<Avatar src="broken_image.png" />
+<Avatar src="broken_image.png" size="lg" />
+<Avatar src="broken_image.png" size="xl" />`;
 
 export const exampleIndicator = `
 <script lang="ts">
@@ -95,7 +106,24 @@ export const exampleIndicator = `
 	<Avatar.Indicator slot="indicator" placement="bottom-right" />
 </Avatar>`;
 
-export const exampleInitials = `
+export const shapeExample = `
+<script lang="ts">
+   import { Avatar } from 'stwui';
+</script>
+
+<Avatar src="image.png" size="xs" shape="rounded" />
+<Avatar src="image.png" size="sm" shape="rounded" />
+<Avatar src="image.png" shape="rounded" />
+<Avatar src="image.png" size="lg" shape="rounded" />
+<Avatar src="image.png" size="xl" shape="rounded" />
+
+<Avatar src="image.png" size="xs" shape="square" />
+<Avatar src="image.png" size="sm" shape="square" />
+<Avatar src="image.png" shape="square" />
+<Avatar src="image.png" size="lg" shape="square" />
+<Avatar src="image.png" size="xl" shape="square" />`;
+
+export const initialsExample = `
 <script lang="ts">
    import { Avatar } from 'stwui';
 </script>

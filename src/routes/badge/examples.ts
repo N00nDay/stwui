@@ -4,7 +4,7 @@ export const props: Prop[] = [
 	{
 		id: '1',
 		prop: 'type',
-		type: "'info' | 'warn' | 'success' | 'error'",
+		type: "'info' | 'warn' | 'success' | 'error' | undefined",
 		default: ''
 	},
 	{
@@ -39,27 +39,28 @@ export const slots: Slot[] = [
 	}
 ];
 
-export const exampleDefault = `
+export const typeExample = `
 <script lang="ts">
 	import { Badge } from 'stwui';
 </script>
 
-<Badge type="info">Default</Badge>
-<Badge type="success">Default</Badge>
-<Badge type="warn">Default</Badge>
-<Badge type="error">Default</Badge>`;
+<Badge>default</Badge>
+<Badge type="info">info</Badge>
+<Badge type="success">success</Badge>
+<Badge type="warn">warn</Badge>
+<Badge type="error">error</Badge>`;
 
-export const exampleCustom = `
+export const customeExample = `
 <script lang="ts">
 	import { Badge } from 'stwui';
 </script>
 
-<Badge class="bg-green-800 text-green-200 bg-opacity-100">Custom</Badge>
-<Badge class="bg-blue-800 text-blue-200 bg-opacity-100">Custom</Badge>
-<Badge class="bg-red-800 text-red-200 bg-opacity-100">Custom</Badge>
-<Badge class="bg-amber-800 text-amber-200 bg-opacity-100">Custom</Badge>`;
+<Badge class="bg-green-800 text-green-200">bg-green-800</Badge>
+<Badge class="bg-blue-800 text-blue-200">bg-blue-800</Badge>
+<Badge class="bg-red-800 text-red-200">bg-red-800</Badge>
+<Badge class="bg-amber-800 text-amber-200">bg-amber-800</Badge>`;
 
-export const exampleLarge = `
+export const sizeExample = `
 <script lang="ts">
 	import { Badge } from 'stwui';
 </script>
@@ -69,7 +70,7 @@ export const exampleLarge = `
 <Badge type="warn" size="large">Large</Badge>
 <Badge type="error" size="large">Large</Badge>`;
 
-export const exampleIndicator = `
+export const indicatorExample = `
 <script lang="ts">
 	import { Badge } from 'stwui';
 </script>
@@ -89,7 +90,7 @@ export const exampleIndicator = `
 	Indicator
 </Badge>`;
 
-export const exampleShape = `
+export const shapeExample = `
 <script lang="ts">
 	import { Badge } from 'stwui';
 </script>
@@ -104,7 +105,7 @@ export const exampleShape = `
 <Badge type="warn" shape="square">Shape</Badge>
 <Badge type="error" shape="square">Shape</Badge>`;
 
-export const exampleClose = `
+export const closeExample = `
 <script lang="ts">
 	import { Badge } from 'stwui';
 </script>

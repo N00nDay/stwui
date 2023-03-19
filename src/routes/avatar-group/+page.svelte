@@ -1,7 +1,10 @@
 <script lang="ts">
-	import { AvatarGroup, Card, Col } from '../../lib';
+	import { AvatarGroup, Col } from '../../lib';
 	import {
-		exampleGroup,
+		sizesExample,
+		indicatorExample,
+		initialsExample,
+		shapesExample,
 		slots,
 		placeholderSlots,
 		indicatorProps,
@@ -9,55 +12,184 @@
 		groupSlots,
 		groupAvatarProps
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const avatars = [
 		'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 		'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-		'broken-image.png',
+		'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
 		'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
 	];
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
-			<AvatarGroup size="xs">
-				{#each avatars as avatar}
-					<AvatarGroup.Avatar src={avatar} />
-				{/each}
-			</AvatarGroup>
-			<br />
-			<AvatarGroup size="sm">
-				{#each avatars as avatar}
-					<AvatarGroup.Avatar src={avatar} />
-				{/each}
-			</AvatarGroup>
-			<br />
-			<AvatarGroup>
-				{#each avatars as avatar}
-					<AvatarGroup.Avatar src={avatar} />
-				{/each}
-			</AvatarGroup>
-			<br />
-			<AvatarGroup size="lg">
-				{#each avatars as avatar}
-					<AvatarGroup.Avatar src={avatar} class="ring-primary" />
-				{/each}
-			</AvatarGroup>
-			<br />
-			<AvatarGroup size="xl">
-				{#each avatars as avatar}
-					<AvatarGroup.Avatar src={avatar} />
-				{/each}
-			</AvatarGroup>
+<Col class="col-24 example-container">
+	<ExampleContainer title="Sizes">
+		<div slot="preview" class="w-full">
+			<div class="w-full max-w-lg m-auto flex flex-col gap-2">
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2 mb-2">
+					<AvatarGroup size="xs">
+						<AvatarGroup.Avatar src={avatars[0]} />
+						<AvatarGroup.Avatar src={avatars[1]} />
+						<AvatarGroup.Avatar src={avatars[2]} />
+						<AvatarGroup.Avatar src={avatars[3]} />
+					</AvatarGroup>
+				</div>
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2 mb-2">
+					<AvatarGroup size="sm">
+						<AvatarGroup.Avatar src={avatars[0]} />
+						<AvatarGroup.Avatar src={avatars[1]} />
+						<AvatarGroup.Avatar src={avatars[2]} />
+						<AvatarGroup.Avatar src={avatars[3]} />
+					</AvatarGroup>
+				</div>
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2 mb-2">
+					<AvatarGroup>
+						<AvatarGroup.Avatar src={avatars[0]} />
+						<AvatarGroup.Avatar src={avatars[1]} />
+						<AvatarGroup.Avatar src={avatars[2]} />
+						<AvatarGroup.Avatar src={avatars[3]} />
+					</AvatarGroup>
+				</div>
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2 mb-2">
+					<AvatarGroup size="lg">
+						<AvatarGroup.Avatar src={avatars[0]} />
+						<AvatarGroup.Avatar src={avatars[1]} />
+						<AvatarGroup.Avatar src={avatars[2]} />
+						<AvatarGroup.Avatar src={avatars[3]} />
+					</AvatarGroup>
+				</div>
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2 mb-2">
+					<AvatarGroup size="xl">
+						<AvatarGroup.Avatar src={avatars[0]} />
+						<AvatarGroup.Avatar src={avatars[1]} />
+						<AvatarGroup.Avatar src={avatars[2]} />
+						<AvatarGroup.Avatar src={avatars[3]} />
+					</AvatarGroup>
+				</div>
+			</div>
+		</div>
 
-			<br />
-			<br />
+		<CodeBlock language="svelte" code={sizesExample} slot="code" />
+	</ExampleContainer>
+</Col>
 
-			<CodeBlock language="svelte" code={exampleGroup} />
-		</Card.Content>
-	</Card>
+<Col class="col-24 example-container">
+	<ExampleContainer title="Shapes">
+		<div slot="preview" class="w-full">
+			<div class="w-full max-w-lg m-auto flex flex-col gap-2">
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2 mb-2">
+					<AvatarGroup shape="rounded" size="lg">
+						<AvatarGroup.Avatar src={avatars[0]} />
+						<AvatarGroup.Avatar src={avatars[1]} />
+						<AvatarGroup.Avatar src={avatars[2]} />
+						<AvatarGroup.Avatar src={avatars[3]} />
+					</AvatarGroup>
+				</div>
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2">
+					<AvatarGroup shape="square" size="lg">
+						<AvatarGroup.Avatar src={avatars[0]} />
+						<AvatarGroup.Avatar src={avatars[1]} />
+						<AvatarGroup.Avatar src={avatars[2]} />
+						<AvatarGroup.Avatar src={avatars[3]} />
+					</AvatarGroup>
+				</div>
+			</div>
+		</div>
+
+		<CodeBlock language="svelte" code={shapesExample} slot="code" />
+	</ExampleContainer>
+</Col>
+
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Indicator">
+		<div slot="preview" class="w-full">
+			<div class="w-full max-w-lg m-auto flex flex-col gap-2">
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2 mb-2">
+					<AvatarGroup size="lg">
+						<AvatarGroup.Avatar src={avatars[0]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-left" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[1]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-left" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[2]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-left" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[3]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-left" />
+						</AvatarGroup.Avatar>
+					</AvatarGroup>
+				</div>
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2 mb-2">
+					<AvatarGroup size="lg">
+						<AvatarGroup.Avatar src={avatars[0]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-right" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[1]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-right" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[2]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-right" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[3]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="top-right" />
+						</AvatarGroup.Avatar>
+					</AvatarGroup>
+				</div>
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2 mb-2">
+					<AvatarGroup size="lg">
+						<AvatarGroup.Avatar src={avatars[0]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-left" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[1]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-left" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[2]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-left" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[3]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-left" />
+						</AvatarGroup.Avatar>
+					</AvatarGroup>
+				</div>
+				<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2">
+					<AvatarGroup size="lg">
+						<AvatarGroup.Avatar src={avatars[0]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-right" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[1]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-right" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[2]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-right" />
+						</AvatarGroup.Avatar>
+						<AvatarGroup.Avatar src={avatars[3]}>
+							<AvatarGroup.Avatar.Indicator slot="indicator" placement="bottom-right" />
+						</AvatarGroup.Avatar>
+					</AvatarGroup>
+				</div>
+			</div>
+		</div>
+
+		<CodeBlock language="svelte" code={indicatorExample} slot="code" />
+	</ExampleContainer>
+</Col>
+
+<Col class="col-24 example-container">
+	<ExampleContainer title="Initials">
+		<div slot="preview" class="w-full">
+			<div class="w-full max-w-lg m-auto flex flex-row items-center justify-center gap-2">
+				<AvatarGroup size="lg">
+					<AvatarGroup.Avatar initials="ND" />
+					<AvatarGroup.Avatar initials="ND" />
+					<AvatarGroup.Avatar initials="ND" />
+					<AvatarGroup.Avatar initials="ND" />
+				</AvatarGroup>
+			</div>
+		</div>
+
+		<CodeBlock language="svelte" code={initialsExample} slot="code" />
+	</ExampleContainer>
 </Col>
 
 <Col class="col-24">

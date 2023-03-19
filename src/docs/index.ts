@@ -8,6 +8,8 @@ import CodeBlock from './components/code-block';
 import Navigation from './components/navigation/Navigation.svelte';
 import Search from './components/search/Search.svelte';
 import Kbd from './components/kbd/Kbd.svelte';
+import ExampleContainer from './components/example-container/ExampleContainer.svelte';
+import WrapContainer from './components/example-container/WrapContainer.svelte';
 
 // Types
 import type { Prop } from './types/props-table';
@@ -24,5 +26,7 @@ export {
 	Prop,
 	Slot,
 	Search,
-	Kbd
+	Kbd,
+	ExampleContainer,
+	WrapContainer
 };

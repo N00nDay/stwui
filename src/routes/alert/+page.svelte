@@ -1,7 +1,10 @@
 <script lang="ts">
-	import { Alert, Button, Card, Col } from '../../lib';
+	import { Alert, Button, Col } from '../../lib';
 	import {
-		example,
+		basicExample,
+		withDescriptionExample,
+		withExtraExample,
+		kitcheSinkExample,
 		props,
 		slots,
 		iconProps,
@@ -9,57 +12,169 @@
 		descriptionSlots,
 		extraSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
-	import { close, clear, thumb_up } from '../../lib/icons';
-
-	let type: 'info' | 'warn' | 'success' | 'error' = 'info';
-
-	function handleClick() {
-		if (type === 'info') {
-			type = 'success';
-		} else {
-			type = 'info';
-		}
-	}
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { alert_circle, alert, check_circle, info, arrow_right } from '../../docs/icons';
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
-			<Alert>
+<Col class="col-24 example-container">
+	<ExampleContainer title="Basic">
+		<div slot="preview" class="w-full flex flex-col gap-2">
+			<Alert type="info" class="w-full max-w-lg m-auto">
 				<Alert.Title slot="title">Title</Alert.Title>
 			</Alert>
-			<br />
-			<Alert type="warn">
+			<Alert type="warn" class="w-full max-w-lg m-auto">
 				<Alert.Title slot="title">Title</Alert.Title>
 			</Alert>
-			<br />
-			<Alert type="error">
-				<Alert.Leading slot="leading" data={clear} />
+			<Alert type="success" class="w-full max-w-lg m-auto">
+				<Alert.Title slot="title">Title</Alert.Title>
+			</Alert>
+			<Alert type="error" class="w-full max-w-lg m-auto">
+				<Alert.Title slot="title">Title</Alert.Title>
+			</Alert>
+		</div>
+
+		<CodeBlock slot="code" language="svelte" code={basicExample} />
+	</ExampleContainer>
+</Col>
+
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Description">
+		<div slot="preview" class="w-full flex flex-col gap-2">
+			<Alert type="info" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={info} />
 				<Alert.Title slot="title">Title</Alert.Title>
 				<Alert.Description slot="description">I am a description</Alert.Description>
+			</Alert>
+
+			<Alert type="warn" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+			</Alert>
+
+			<Alert type="success" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={check_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+			</Alert>
+
+			<Alert type="error" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+			</Alert>
+		</div>
+
+		<CodeBlock slot="code" language="svelte" code={withDescriptionExample} />
+	</ExampleContainer>
+</Col>
+
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Action">
+		<div slot="preview" class="w-full flex flex-col gap-2">
+			<Alert type="info" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={info} />
+				<Alert.Title slot="title">Title</Alert.Title>
 				<Alert.Extra slot="extra">
-					<Button ariaLabel="close" shape="circle" on:click={() => console.log('I clicked extra')}>
-						<Button.Icon slot="icon" data={close} />
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
 					</Button>
 				</Alert.Extra>
 			</Alert>
 
-			<br />
-			<Alert {type}>
-				<Alert.Leading slot="leading" data={type === 'info' ? clear : thumb_up} />
+			<Alert type="warn" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert} />
 				<Alert.Title slot="title">Title</Alert.Title>
-				<Alert.Description slot="description">I am a description</Alert.Description>
 				<Alert.Extra slot="extra">
-					<Button type="primary" on:click={handleClick}>Toggle</Button>
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
 				</Alert.Extra>
 			</Alert>
 
-			<br />
+			<Alert type="success" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={check_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
+			<Alert type="error" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+		</div>
+
+		<CodeBlock slot="code" language="svelte" code={withExtraExample} />
+	</ExampleContainer>
+</Col>
+
+<Col class="col-24 example-container">
+	<ExampleContainer title="The Kitchen Sink">
+		<div slot="preview" class="w-full flex flex-col gap-2">
+			<Alert type="info" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={info} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+
+			<Alert type="warn" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+
+			<Alert type="success" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={check_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+
+			<Alert type="error" class="w-full max-w-lg m-auto">
+				<Alert.Leading slot="leading" data={alert_circle} />
+				<Alert.Title slot="title">Title</Alert.Title>
+				<Alert.Description slot="description">I am a description</Alert.Description>
+				<Alert.Extra slot="extra">
+					<Button type="primary">
+						Action
+						<Button.Trailing slot="trailing" data={arrow_right} />
+					</Button>
+				</Alert.Extra>
+			</Alert>
+		</div>
+
+		<CodeBlock slot="code" language="svelte" code={kitcheSinkExample} />
+	</ExampleContainer>
 </Col>
 
 <Col class="col-24">

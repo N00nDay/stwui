@@ -13,7 +13,7 @@
 	$: currentType.set(type);
 
 	const defaultClass = 'rounded-md p-4';
-	const defaultLeadingClass = 'flex-shrink-0 h-5 w-5 flex items-center justify-center';
+	const defaultLeadingClass = 'flex-grow flex flex-col w-6 flex items-center';
 
 	$: finalClass = twMerge(
 		defaultClass,
@@ -32,10 +32,13 @@
 		type === 'info' ? 'text-info-icon' : false,
 		type === 'warn' ? 'text-warn-icon' : false,
 		type === 'success' ? 'text-success-icon' : false,
-		type === 'error' ? 'text-error-icon' : false
+		type === 'error' ? 'text-error-icon' : false,
+
+		$$slots.description ? 'justify-start h-6' : 'justify-center'
 	);
 
 	setContext('alert-type', currentType);
+	setContext('alert-description', $$slots.description ? true : false);
 </script>
 
 <div
@@ -44,7 +47,7 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<div class="flex">
+	<div class="flex relative">
 		{#if $$slots.leading}
 			<div class={finalLeadingClass}>
 				<slot name="leading" />
@@ -52,7 +55,12 @@
 		{/if}
 
 		{#if $$slots.title || $$slots.description}
-			<div class="flex items-start justify-start flex-col w-full" class:ml-3={$$slots.leading}>
+			<div
+				class="flex items-start flex-col w-full"
+				class:ml-3={$$slots.leading}
+				class:justify-start={$$slots.description}
+				class:justify-center={!$$slots.description}
+			>
 				<slot name="title" />
 				<slot name="description" />
 			</div>
