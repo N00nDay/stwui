@@ -12,7 +12,7 @@
 		buttonSlots,
 		iconProps
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { lock, send, home } from '../../docs/icons';
 
 	let activeItem1 = 1;
@@ -34,160 +34,116 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Basic</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<ButtonGroup>
-				<ButtonGroup.Button on:click={() => console.log('button clicked!')}>One</ButtonGroup.Button>
-				<ButtonGroup.Button on:click={() => console.log('button clicked!')}>Two</ButtonGroup.Button>
-				<ButtonGroup.Button on:click={() => console.log('button clicked!')}
-					>Three</ButtonGroup.Button
-				>
-			</ButtonGroup>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<ButtonGroup>
+			<ButtonGroup.Button on:click={() => console.log('button clicked!')}>One</ButtonGroup.Button>
+			<ButtonGroup.Button on:click={() => console.log('button clicked!')}>Two</ButtonGroup.Button>
+			<ButtonGroup.Button on:click={() => console.log('button clicked!')}>Three</ButtonGroup.Button>
+		</ButtonGroup>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<br />
-			<br />
+<ExampleContainer title="With Active">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<ButtonGroup>
+			<ButtonGroup.Button on:click={() => changeActive1(0)} active={activeItem1 === 0}>
+				One
+			</ButtonGroup.Button>
+			<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}>
+				Two
+			</ButtonGroup.Button>
+			<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}>
+				Three
+			</ButtonGroup.Button>
+		</ButtonGroup>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleActive} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="With Disabled">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<ButtonGroup>
+			<ButtonGroup.Button disabled on:click={() => changeActive1(0)} active={activeItem1 === 0}
+				>One</ButtonGroup.Button
+			>
+			<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}
+				>Two</ButtonGroup.Button
+			>
+			<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}
+				>Three</ButtonGroup.Button
+			>
+		</ButtonGroup>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleDisabled} />
+</ExampleContainer>
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Basic with Active</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<ButtonGroup>
-				<ButtonGroup.Button on:click={() => changeActive1(0)} active={activeItem1 === 0}>
-					One
-				</ButtonGroup.Button>
-				<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}>
-					Two
-				</ButtonGroup.Button>
-				<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}>
-					Three
-				</ButtonGroup.Button>
-			</ButtonGroup>
+<ExampleContainer title="With Icon">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<ButtonGroup>
+			<ButtonGroup.Button on:click={() => changeActive1(0)} active={activeItem1 === 0}>
+				<ButtonGroup.Button.Icon slot="icon" data={home} />
+			</ButtonGroup.Button>
+			<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}>
+				<ButtonGroup.Button.Icon slot="icon" data={send} />
+			</ButtonGroup.Button>
+			<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}>
+				<ButtonGroup.Button.Icon slot="icon" data={lock} />
+			</ButtonGroup.Button>
+		</ButtonGroup>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleIcon} />
+</ExampleContainer>
 
-			<br />
-			<br />
+<ExampleContainer title="With Leading">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<ButtonGroup>
+			<ButtonGroup.Button on:click={() => changeActive1(0)} active={activeItem1 === 0}>
+				<ButtonGroup.Button.Leading slot="leading" data={home} />
+				Paid
+			</ButtonGroup.Button>
+			<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}>
+				<ButtonGroup.Button.Leading slot="leading" data={send} />
+				Add
+			</ButtonGroup.Button>
+			<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}>
+				<ButtonGroup.Button.Leading slot="leading" data={lock} />
+				Workspaces
+			</ButtonGroup.Button>
+		</ButtonGroup>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleLeading} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={exampleActive} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Basic with Disabled</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<ButtonGroup>
-				<ButtonGroup.Button disabled on:click={() => changeActive1(0)} active={activeItem1 === 0}
-					>One</ButtonGroup.Button
-				>
-				<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}
-					>Two</ButtonGroup.Button
-				>
-				<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}
-					>Three</ButtonGroup.Button
-				>
-			</ButtonGroup>
-
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={exampleDisabled} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Basic with Icon</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<ButtonGroup>
-				<ButtonGroup.Button on:click={() => changeActive1(0)} active={activeItem1 === 0}>
-					<ButtonGroup.Button.Icon slot="icon" data={home} />
-				</ButtonGroup.Button>
-				<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}>
-					<ButtonGroup.Button.Icon slot="icon" data={send} />
-				</ButtonGroup.Button>
-				<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}>
-					<ButtonGroup.Button.Icon slot="icon" data={lock} />
-				</ButtonGroup.Button>
-			</ButtonGroup>
-
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={exampleIcon} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Basic with Leading</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<ButtonGroup>
-				<ButtonGroup.Button on:click={() => changeActive1(0)} active={activeItem1 === 0}>
-					<ButtonGroup.Button.Leading slot="leading" data={home} />
-					Paid
-				</ButtonGroup.Button>
-				<ButtonGroup.Button on:click={() => changeActive1(1)} active={activeItem1 === 1}>
-					<ButtonGroup.Button.Leading slot="leading" data={send} />
-					Add
-				</ButtonGroup.Button>
-				<ButtonGroup.Button on:click={() => changeActive1(2)} active={activeItem1 === 2}>
-					<ButtonGroup.Button.Leading slot="leading" data={lock} />
-					Workspaces
-				</ButtonGroup.Button>
-			</ButtonGroup>
-
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={exampleLeading} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Basic with Loading</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<ButtonGroup>
-				<ButtonGroup.Button
-					on:click={() => changeActive2(0)}
-					active={activeItem2 === 0}
-					loading={activeItem2 === 0 && loading}
-				>
-					<ButtonGroup.Button.Icon slot="icon" data={home} />
-				</ButtonGroup.Button>
-				<ButtonGroup.Button
-					on:click={() => changeActive2(1)}
-					active={activeItem2 === 1}
-					loading={activeItem2 === 1 && loading}
-				>
-					<ButtonGroup.Button.Icon slot="icon" data={send} />
-				</ButtonGroup.Button>
-				<ButtonGroup.Button
-					on:click={() => changeActive2(2)}
-					active={activeItem2 === 2}
-					loading={activeItem2 === 2 && loading}
-				>
-					<ButtonGroup.Button.Icon slot="icon" data={lock} />
-				</ButtonGroup.Button>
-			</ButtonGroup>
-
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={exampleLoading} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="With Loading">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<ButtonGroup>
+			<ButtonGroup.Button
+				on:click={() => changeActive2(0)}
+				active={activeItem2 === 0}
+				loading={activeItem2 === 0 && loading}
+			>
+				<ButtonGroup.Button.Icon slot="icon" data={home} />
+			</ButtonGroup.Button>
+			<ButtonGroup.Button
+				on:click={() => changeActive2(1)}
+				active={activeItem2 === 1}
+				loading={activeItem2 === 1 && loading}
+			>
+				<ButtonGroup.Button.Icon slot="icon" data={send} />
+			</ButtonGroup.Button>
+			<ButtonGroup.Button
+				on:click={() => changeActive2(2)}
+				active={activeItem2 === 2}
+				loading={activeItem2 === 2 && loading}
+			>
+				<ButtonGroup.Button.Icon slot="icon" data={lock} />
+			</ButtonGroup.Button>
+		</ButtonGroup>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleLoading} />
+</ExampleContainer>
 
 <Col class="col-24">
 	<SlotsTable component="ButtonGroup" {slots} />
