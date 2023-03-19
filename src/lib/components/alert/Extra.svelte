@@ -9,8 +9,9 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const type: Writable<'info' | 'warn' | 'success' | 'error'> = getContext('alert-type');
+	const alertDescription: boolean = getContext('alert-description');
 
-	const defaultClass = 'relative flex-shrink-0 flex items-center justify-center -top-2 -right-2';
+	const defaultClass = 'flex-shrink-0 flex items-center justify-center';
 	const infoClass = 'text-info-icon ';
 	const warnClass = 'text-warn-icon';
 	const successClass = 'text-success-icon';
@@ -22,6 +23,8 @@
 		$type === 'warn' ? warnClass : false,
 		$type === 'success' ? successClass : false,
 		$type === 'error' ? errorClass : false,
+
+		alertDescription ? 'absolute -top-2 -right-2' : false,
 
 		$$props.class
 	);

@@ -1,17 +1,18 @@
 <script lang="ts">
 	import { Button, Card, Col, Swap } from '../../lib';
 	import {
-		exampleDefault,
+		typeExample,
 		exampleLoading,
 		exampleDisabled,
 		exampleLeadingTrailing,
 		exampleShape,
 		exampleSwap,
+		exampleSize,
 		props,
 		slots,
 		iconProps
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home } from '../../docs/icons';
 	import { menu, close } from '../../lib/icons';
 
@@ -22,223 +23,373 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Basic</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button on:click={() => console.log("I've been clicked!")}>Base button</Button>
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Type">
+		<div slot="preview" class="w-full block m-auto gap-2 text-center">
+			<Button on:click={() => console.log("I've been clicked!")} class="mb-2">No Type</Button>
 
-			<Button type="primary">I am primary</Button>
+			<Button type="primary" class="mb-2">primary</Button>
 
-			<Button type="danger">I am scary</Button>
+			<Button type="danger" class="mb-2">danger</Button>
 
-			<Button type="ghost">Boo I am a ghost</Button>
+			<Button type="ghost" class="mb-2">ghost</Button>
 
-			<Button type="link" href="https://google.com">I am a link</Button>
-
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={exampleDefault} />
-		</Card.Content>
-	</Card>
+			<Button type="link" class="mb-2" href="https://google.com">link</Button>
+		</div>
+		<CodeBlock slot="code" language="svelte" code={typeExample} />
+	</ExampleContainer>
 </Col>
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Loading</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button loading>Base button</Button>
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Loading">
+		<div slot="preview" class="w-full block m-auto gap-2 text-center">
+			<Button {loading} class="mb-2" on:click={toggleLoading}>No Type</Button>
 
-			<Button type="primary" loading>I am primary</Button>
+			<Button type="primary" class="mb-2" {loading} on:click={toggleLoading}>primary</Button>
 
-			<Button type="danger" loading>I am scary</Button>
+			<Button type="danger" class="mb-2" {loading} on:click={toggleLoading}>danger</Button>
 
-			<Button type="ghost" loading>Boo I am a ghost</Button>
+			<Button type="ghost" class="mb-2" {loading} on:click={toggleLoading}>ghost</Button>
 
-			<Button type="link" loading>I am a link</Button>
-
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={exampleLoading} />
-		</Card.Content>
-	</Card>
+			<Button type="link" class="mb-2" {loading} on:click={toggleLoading}>link</Button>
+		</div>
+		<CodeBlock slot="code" language="svelte" code={exampleLoading} />
+	</ExampleContainer>
 </Col>
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Disabled</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button disabled>Base button</Button>
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Disabled">
+		<div slot="preview" class="w-full block m-auto gap-2 text-center">
+			<Button disabled class="mb-2">No Type</Button>
 
-			<Button type="primary" disabled>I am primary</Button>
+			<Button type="primary" class="mb-2" disabled>primary</Button>
 
-			<Button type="danger" disabled>I am scary</Button>
+			<Button type="danger" class="mb-2" disabled>danger</Button>
 
-			<Button type="ghost" disabled>Boo I am a ghost</Button>
+			<Button type="ghost" class="mb-2" disabled>ghost</Button>
 
-			<Button type="link" disabled>I am a link</Button>
-
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={exampleDisabled} />
-		</Card.Content>
-	</Card>
+			<Button type="link" class="mb-2" disabled>link</Button>
+		</div>
+		<CodeBlock slot="code" language="svelte" code={exampleDisabled} />
+	</ExampleContainer>
 </Col>
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Leading & Trailing</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button {loading} on:click={toggleLoading}>
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Leading & Trailing">
+		<div slot="preview" class="w-full block m-auto gap-2 text-center">
+			<Button class="mb-2">
 				<Button.Leading data={home} slot="leading" />
-				Base button
+				No Type
 			</Button>
 
-			<Button type="primary">
-				<Button.Leading data={home} slot="leading" />I am primary</Button
-			>
-
-			<Button type="danger" {loading}
-				>I am scary
-				<Button.Trailing data={home} slot="trailing" />
+			<Button type="primary" class="mb-2">
+				<Button.Leading data={home} slot="leading" />
+				primary
 			</Button>
 
-			<Button type="ghost"
-				>Boo I am a ghost
-				<Button.Trailing data={home} slot="trailing" />
+			<Button type="danger" class="mb-2">
+				<Button.Leading data={home} slot="leading" />
+				danger
 			</Button>
 
-			<Button type="link"
-				>I am a link
-				<Button.Trailing data={home} slot="trailing" />
+			<Button type="ghost" class="mb-2">
+				<Button.Leading data={home} slot="leading" />
+				ghost
+			</Button>
+
+			<Button type="link" class="mb-2">
+				<Button.Leading data={home} slot="leading" />
+				link
 			</Button>
 
 			<br />
-			<br />
 
-			<CodeBlock language="svelte" code={exampleLeadingTrailing} />
-		</Card.Content>
-	</Card>
+			<Button class="mb-2">
+				No Type
+				<Button.Trailing data={home} slot="trailing" />
+			</Button>
+
+			<Button type="primary" class="mb-2">
+				primary
+				<Button.Trailing data={home} slot="trailing" />
+			</Button>
+
+			<Button type="danger" class="mb-2">
+				danger
+				<Button.Trailing data={home} slot="trailing" />
+			</Button>
+
+			<Button type="ghost" class="mb-2">
+				ghost
+				<Button.Trailing data={home} slot="trailing" />
+			</Button>
+
+			<Button type="link" class="mb-2">
+				link
+				<Button.Trailing data={home} slot="trailing" />
+			</Button>
+		</div>
+		<CodeBlock slot="code" language="svelte" code={exampleLeadingTrailing} />
+	</ExampleContainer>
 </Col>
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Shape</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button shape="circle" on:click={toggleLoading} {loading}>
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Shape">
+		<div slot="preview" class="w-full block m-auto gap-2 text-center">
+			<Button shape="circle" class="mb-2">
 				<Button.Icon data={home} slot="icon" />
 			</Button>
 
-			<Button type="primary" shape="square">I am primary</Button>
+			<Button shape="circle" type="primary" class="mb-2">
+				<Button.Icon data={home} slot="icon" />
+			</Button>
 
-			<Button type="danger" shape="rounded">I am scary</Button>
+			<Button shape="circle" type="danger" class="mb-2">
+				<Button.Icon data={home} slot="icon" />
+			</Button>
 
-			<Button type="ghost">Boo I am a ghost</Button>
+			<Button shape="circle" type="ghost" class="mb-2">
+				<Button.Icon data={home} slot="icon" />
+			</Button>
 
-			<Button type="link">I am a link</Button>
+			<Button shape="circle" type="link" class="mb-2">
+				<Button.Icon data={home} slot="icon" />
+			</Button>
 
 			<br />
+
+			<Button shape="pill" class="mb-2">No Type</Button>
+
+			<Button shape="pill" type="primary" class="mb-2">primary</Button>
+
+			<Button shape="pill" type="danger" class="mb-2">danger</Button>
+
+			<Button shape="pill" type="ghost" class="mb-2">ghost</Button>
+
+			<Button shape="pill" type="link" class="mb-2">link</Button>
+
 			<br />
 
-			<CodeBlock language="svelte" code={exampleShape} />
-		</Card.Content>
-	</Card>
+			<Button shape="rounded" class="mb-2">No Type</Button>
+
+			<Button shape="rounded" type="primary" class="mb-2">primary</Button>
+
+			<Button shape="rounded" type="danger" class="mb-2">danger</Button>
+
+			<Button shape="rounded" type="ghost" class="mb-2">ghost</Button>
+
+			<Button shape="rounded" type="link" class="mb-2">link</Button>
+
+			<br />
+
+			<Button shape="square" class="mb-2">No Type</Button>
+
+			<Button shape="square" type="primary" class="mb-2">primary</Button>
+
+			<Button shape="square" type="danger" class="mb-2">danger</Button>
+
+			<Button shape="square" type="ghost" class="mb-2">ghost</Button>
+
+			<Button shape="square" type="link" class="mb-2">link</Button>
+		</div>
+		<CodeBlock slot="code" language="svelte" code={exampleShape} />
+	</ExampleContainer>
 </Col>
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Swap Icon</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button shape="circle" on:click={toggleLoading}>
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Swap">
+		<div slot="preview" class="w-full block m-auto gap-2 text-center">
+			<Button shape="circle" class="mb-2" on:click={toggleLoading}>
 				<Swap slot="icon" {loading}>
 					<Button.Icon data={menu} slot="on" stroke="currentColor" />
 					<Button.Icon data={close} slot="off" stroke="currentColor" />
 				</Swap>
 			</Button>
 
-			<Button type="primary">
-				<Swap {loading} slot="leading">
+			<Button shape="circle" class="mb-2" type="primary" on:click={toggleLoading}>
+				<Swap slot="icon" {loading}>
 					<Button.Icon data={menu} slot="on" stroke="currentColor" />
 					<Button.Icon data={close} slot="off" stroke="currentColor" />
 				</Swap>
-				I am primary
+			</Button>
+
+			<Button shape="circle" class="mb-2" type="danger" on:click={toggleLoading}>
+				<Swap slot="icon" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+			</Button>
+
+			<Button shape="circle" class="mb-2" type="ghost" on:click={toggleLoading}>
+				<Swap slot="icon" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+			</Button>
+
+			<Button shape="circle" class="mb-2" type="link" on:click={toggleLoading}>
+				<Swap slot="icon" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
 			</Button>
 
 			<br />
+
+			<Button class="mb-2" on:click={toggleLoading}>
+				<Swap slot="leading" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+				No Type
+			</Button>
+
+			<Button type="primary" class="mb-2" on:click={toggleLoading}>
+				<Swap slot="leading" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+				primary
+			</Button>
+
+			<Button type="danger" class="mb-2" on:click={toggleLoading}>
+				<Swap slot="leading" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+				danger
+			</Button>
+
+			<Button type="ghost" class="mb-2" on:click={toggleLoading}>
+				<Swap slot="leading" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+				ghost
+			</Button>
+
+			<Button type="link" class="mb-2" on:click={toggleLoading}>
+				<Swap slot="leading" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+				link
+			</Button>
+
 			<br />
 
-			<CodeBlock language="svelte" code={exampleSwap} />
-		</Card.Content>
-	</Card>
+			<Button class="mb-2" on:click={toggleLoading}>
+				No Type
+				<Swap slot="trailing" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+			</Button>
+
+			<Button type="primary" class="mb-2" on:click={toggleLoading}>
+				primary
+				<Swap slot="trailing" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+			</Button>
+
+			<Button type="danger" class="mb-2" on:click={toggleLoading}>
+				danger
+				<Swap slot="trailing" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+			</Button>
+
+			<Button type="ghost" class="mb-2" on:click={toggleLoading}>
+				ghost
+				<Swap slot="trailing" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+			</Button>
+
+			<Button type="link" class="mb-2" on:click={toggleLoading}>
+				link
+				<Swap slot="trailing" {loading}>
+					<Button.Icon data={menu} slot="on" stroke="currentColor" />
+					<Button.Icon data={close} slot="off" stroke="currentColor" />
+				</Swap>
+			</Button>
+		</div>
+		<CodeBlock slot="code" language="svelte" code={exampleSwap} />
+	</ExampleContainer>
 </Col>
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Sizes</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button type="primary" size="xs">xs</Button>
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Size">
+		<div slot="preview" class="w-full block m-auto gap-2 text-center">
+			<Button type="primary" class="mb-2" size="xs">xs</Button>
 
-			<Button type="primary" size="sm">sm</Button>
+			<Button type="primary" class="mb-2" size="sm">sm</Button>
 
-			<Button type="primary" size="md">md</Button>
+			<Button type="primary" class="mb-2" size="md">md</Button>
 
-			<Button type="primary" size="lg">lg</Button>
+			<Button type="primary" class="mb-2" size="lg">lg</Button>
 
-			<Button type="primary" size="xl">xl</Button>
+			<Button type="primary" class="mb-2" size="xl">xl</Button>
 
-			<Button type="primary" size="xs" shape="circle">
+			<br />
+
+			<Button type="primary" class="mb-2" size="xs" shape="circle">
 				<Button.Icon data={home} slot="icon" />
 			</Button>
 
-			<Button type="primary" size="sm" shape="circle">
+			<Button type="primary" class="mb-2" size="sm" shape="circle">
 				<Button.Icon data={home} slot="icon" />
 			</Button>
 
-			<Button type="primary" size="md" shape="circle">
+			<Button type="primary" class="mb-2" size="md" shape="circle">
 				<Button.Icon data={home} slot="icon" />
 			</Button>
 
-			<Button type="primary" size="lg" shape="circle">
+			<Button type="primary" class="mb-2" size="lg" shape="circle">
 				<Button.Icon data={home} slot="icon" />
 			</Button>
 
-			<Button type="primary" size="xl" shape="circle">
+			<Button type="primary" class="mb-2" size="xl" shape="circle">
 				<Button.Icon data={home} slot="icon" />
 			</Button>
 
-			<Button type="primary" size="fab" shape="circle">
+			<Button type="primary" class="mb-2" size="fab" shape="circle">
 				<Button.Icon data={home} slot="icon" />
 			</Button>
 
-			<Button type="default" size="xs">
+			<br />
+
+			<Button class="mb-2" size="xs">
 				<Button.Leading data={home} slot="leading" />
-				xs</Button
-			>
+				xs
+			</Button>
 
-			<Button type="default" size="sm">
+			<Button class="mb-2" size="sm">
 				<Button.Leading data={home} slot="leading" />
-				sm</Button
-			>
+				sm
+			</Button>
 
-			<Button type="default" size="md">
+			<Button class="mb-2" size="md">
 				<Button.Leading data={home} slot="leading" />
-				md</Button
-			>
+				md
+			</Button>
 
-			<Button type="default" size="lg">
+			<Button class="mb-2" size="lg">
 				<Button.Leading data={home} slot="leading" />
-				lg</Button
-			>
+				lg
+			</Button>
 
-			<Button type="default" size="xl">
+			<Button class="mb-2" size="xl">
 				<Button.Leading data={home} slot="leading" />
-				xl</Button
-			>
-		</Card.Content>
-	</Card>
+				xl
+			</Button>
+		</div>
+		<CodeBlock slot="code" language="svelte" code={exampleSize} />
+	</ExampleContainer>
 </Col>
 
 <Col class="col-24">

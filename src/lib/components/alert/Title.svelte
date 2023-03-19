@@ -10,8 +10,7 @@
 
 	const type: Writable<'info' | 'warn' | 'success' | 'error'> = getContext('alert-type');
 
-	const defaultClass =
-		'text-sm font-medium flex flex-row items-start justify-between w-full relative h-4';
+	const defaultClass = 'mb-0 flex flex-row items-start justify-between w-full relative';
 	const infoClass = 'text-info-content';
 	const warnClass = 'text-warn-content';
 	const successClass = 'text-success-content';
@@ -28,7 +27,7 @@
 	);
 </script>
 
-<h3
+<h4
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents
@@ -36,4 +35,4 @@
 >
 	<slot />
 	<slot name="extra" />
-</h3>
+</h4>

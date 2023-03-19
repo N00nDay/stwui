@@ -59,7 +59,7 @@ module.exports = {
 		// 'icon-background': '#404040',
 
 		// border: '#2F2F31',
-		border: '#4A4B4C',
+		border: '#373737',
 		hover: '#ffffff'
 
 		// 'info-content': '#eff6ff',
