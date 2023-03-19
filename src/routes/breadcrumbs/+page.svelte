@@ -11,7 +11,7 @@
 		iconProps,
 		labelSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home } from '../../docs/icons';
 
 	interface Crumb {
@@ -27,10 +27,9 @@
 	];
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Default</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<Col class="col-24 example-container">
+	<ExampleContainer title="Basic">
+		<div slot="preview" class="m-auto max-w-[266px]">
 			<Breadcrumbs>
 				{#each crumbs as crumb}
 					{#if crumb.icon && crumb.label}
@@ -49,18 +48,15 @@
 					{/if}
 				{/each}
 			</Breadcrumbs>
+		</div>
 
-			<br />
-
-			<CodeBlock language="svelte" code={exampleDefault} />
-		</Card.Content>
-	</Card>
+		<CodeBlock slot="code" language="svelte" code={exampleDefault} />
+	</ExampleContainer>
 </Col>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Solid</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<Col class="col-24 example-container">
+	<ExampleContainer title="Solid">
+		<div slot="preview" class="m-auto max-w-[330px]">
 			<Breadcrumbs type="solid">
 				{#each crumbs as crumb}
 					{#if crumb.icon && crumb.label}
@@ -79,18 +75,15 @@
 					{/if}
 				{/each}
 			</Breadcrumbs>
+		</div>
 
-			<br />
-
-			<CodeBlock language="svelte" code={exampleSolid} />
-		</Card.Content>
-	</Card>
+		<CodeBlock slot="code" language="svelte" code={exampleSolid} />
+	</ExampleContainer>
 </Col>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Custom Divider</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<Col class="col-24 example-container">
+	<ExampleContainer title="With Custom Dividers">
+		<div slot="preview" class="m-auto max-w-[290px]">
 			<Breadcrumbs type="solid" class="h-12">
 				{#each crumbs as crumb}
 					{#if crumb.icon && crumb.label}
@@ -112,12 +105,10 @@
 					{/if}
 				{/each}
 			</Breadcrumbs>
+		</div>
 
-			<br />
-
-			<CodeBlock language="svelte" code={exampleDivider} />
-		</Card.Content>
-	</Card>
+		<CodeBlock slot="code" language="svelte" code={exampleDivider} />
+	</ExampleContainer>
 </Col>
 
 <Col class="col-24">
