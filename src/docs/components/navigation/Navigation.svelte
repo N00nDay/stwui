@@ -208,8 +208,6 @@
 	$: active =
 		$page.url.pathname.substring(0, $page.url.pathname.indexOf('?')) || $page.url.pathname;
 
-	$: console.log('active', active);
-
 	function handleClick() {
 		if (handleClose) {
 			handleClose();
