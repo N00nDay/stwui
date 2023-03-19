@@ -137,38 +137,44 @@ export const iconProps: Prop[] = [
 	}
 ];
 
-export const exampleDefault = `
+export const typeExample = `
 <script lang="ts">
 	import { Button } from 'stwui';
 </script>
 
-<Button on:click={() => console.log("I've been clicked!")}>Default button</Button>
-<Button type="primary">I am primary</Button>
-<Button type="danger">I am scary</Button>
-<Button type="ghost">Boo I am a ghost</Button>
-<Button type="link" href="https://google.com">I am a link</Button>`;
+<Button on:click={() => console.log("I've been clicked!")}>No Type</Button>
+<Button type="primary">primary</Button>
+<Button type="danger">danger</Button>
+<Button type="ghost">ghost</Button>
+<Button type="link" href="https://google.com">link</Button>`;
 
 export const exampleLoading = `
 <script lang="ts">
 	import { Button } from 'stwui';
+
+	let loading = false;
+
+   function toggleLoading() {
+      loading = !loading;
+   }
 </script>
 
-<Button loading>Default button</Button>
-<Button type="primary" loading>I am primary</Button>
-<Button type="danger" loading>I am scary</Button>
-<Button type="ghost" loading>Boo I am a ghost</Button>
-<Button type="link" loading>I am a link</Button>`;
+<Button {loading} on:click={toggleLoading}>No Type</Button>
+<Button type="primary" {loading} on:click={toggleLoading}>primary</Button>
+<Button type="danger" {loading} on:click={toggleLoading}>danger</Button>
+<Button type="ghost" {loading} on:click={toggleLoading}>ghost</Button>
+<Button type="link" {loading} on:click={toggleLoading}>link</Button>`;
 
 export const exampleDisabled = `
 <script lang="ts">
 	import { Button } from 'stwui';
 </script>
 
-<Button disabled>Default button</Button>
-<Button type="primary" disabled>I am primary</Button>
-<Button type="danger" disabled>I am scary</Button>
-<Button type="ghost" disabled>Boo I am a ghost</Button>
-<Button type="link" disabled>I am a link</Button>`;
+<Button disabled>No Type</Button>
+<Button type="primary" disabled>primary</Button>
+<Button type="danger" disabled>danger</Button>
+<Button type="ghost" disabled>ghost</Button>
+<Button type="link" disabled>link</Button>`;
 
 export const exampleLeadingTrailing = `
 <script lang="ts">
@@ -179,26 +185,43 @@ export const exampleLeadingTrailing = `
 
 <Button>
 	<Button.Leading data={home} slot="leading" />
-	Default button
+	No Type
 </Button>
-
 <Button type="primary">
 	<Button.Leading data={home} slot="leading" />
-	I am primary
+	primary
 </Button>
-
 <Button type="danger">
-	I am scary
-	<Button.Trailing data={home} slot="trailing" />
+	<Button.Leading data={home} slot="leading" />
+	danger
 </Button>
-
 <Button type="ghost">
-	Boo I am a ghost
-	<Button.Trailing data={home} slot="trailing" />
+	<Button.Leading data={home} slot="leading" />
+	ghost
+</Button>
+<Button type="link">
+	<Button.Leading data={home} slot="leading" />
+	link
 </Button>
 
+<Button>
+	No Type
+	<Button.Trailing data={home} slot="trailing" />
+</Button>
+<Button type="primary">
+	primary
+	<Button.Trailing data={home} slot="trailing" />
+</Button>
+<Button type="danger">
+	danger
+	<Button.Trailing data={home} slot="trailing" />
+</Button>
+<Button type="ghost">
+	ghost
+	<Button.Trailing data={home} slot="trailing" />
+</Button>
 <Button type="link">
-	I am a link
+	link
 	<Button.Trailing data={home} slot="trailing" />
 </Button>`;
 
@@ -212,14 +235,36 @@ export const exampleShape = `
 <Button shape="circle">
 	<Button.Icon data={home} slot="icon" />
 </Button>
+<Button shape="circle" type="primary">
+	<Button.Icon data={home} slot="icon" />
+</Button>
+<Button shape="circle" type="danger">
+	<Button.Icon data={home} slot="icon" />
+</Button>
+<Button shape="circle" type="ghost">
+	<Button.Icon data={home} slot="icon" />
+</Button>
+<Button shape="circle" type="link">
+	<Button.Icon data={home} slot="icon" />
+</Button>
 
-<Button type="primary" shape="square">I am primary</Button>
+<Button shape="pill">No Type</Button>
+<Button shape="pill" type="primary">primary</Button>
+<Button shape="pill" type="danger">danger</Button>
+<Button shape="pill" type="ghost">ghost</Button>
+<Button shape="pill" type="link">link</Button>
 
-<Button type="danger" shape="rounded">I am scary</Button>
+<Button shape="rounded">No Type</Button>
+<Button shape="rounded" type="primary">primary</Button>
+<Button shape="rounded" type="danger">danger</Button>
+<Button shape="rounded" type="ghost">ghost</Button>
+<Button shape="rounded" type="link">link</Button>
 
-<Button type="ghost">Boo I am a ghost</Button>
-
-<Button type="link">I am a link</Button>`;
+<Button shape="square">No Type</Button>
+<Button shape="square" type="primary">primary</Button>
+<Button shape="square" type="danger">danger</Button>
+<Button shape="square" type="ghost">ghost</Button>
+<Button shape="square" type="link">link</Button>`;
 
 export const exampleSwap = `
 <script lang="ts">
@@ -234,15 +279,156 @@ export const exampleSwap = `
 
 <Button shape="circle" on:click={toggleLoading}>
 	<Swap slot="icon" {loading}>
-		<Button.Icon data={menu} slot="on" />
-		<Button.Icon data={close} slot="off" />
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+</Button>
+<Button shape="circle" type="primary" on:click={toggleLoading}>
+	<Swap slot="icon" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+</Button>
+<Button shape="circle" type="danger" on:click={toggleLoading}>
+	<Swap slot="icon" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+</Button>
+<Button shape="circle" type="ghost" on:click={toggleLoading}>
+	<Swap slot="icon" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+</Button>
+<Button shape="circle" type="link" on:click={toggleLoading}>
+	<Swap slot="icon" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
 	</Swap>
 </Button>
 
-<Button type="primary">
-	<Swap {loading} slot="leading">
-		<Button.Icon data={menu} slot="on" />
-		<Button.Icon data={close} slot="off" />
+<Button on:click={toggleLoading}>
+	<Swap slot="leading" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
 	</Swap>
-	I am primary
+	No Type
+</Button>
+<Button type="primary" on:click={toggleLoading}>
+	<Swap slot="leading" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+	primary
+</Button>
+<Button type="danger" on:click={toggleLoading}>
+	<Swap slot="leading" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+	danger
+</Button>
+<Button type="ghost" on:click={toggleLoading}>
+	<Swap slot="leading" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+	ghost
+</Button>
+<Button type="link" on:click={toggleLoading}>
+	<Swap slot="leading" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+	link
+</Button>
+
+<Button on:click={toggleLoading}>
+	No Type
+	<Swap slot="trailing" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+</Button>
+<Button type="primary" on:click={toggleLoading}>
+	primary
+	<Swap slot="trailing" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+</Button>
+<Button type="danger" on:click={toggleLoading}>
+	danger
+	<Swap slot="trailing" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+</Button>
+<Button type="ghost" on:click={toggleLoading}>
+	ghost
+	<Swap slot="trailing" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+</Button>
+<Button type="link" on:click={toggleLoading}>
+	link
+	<Swap slot="trailing" {loading}>
+		<Button.Icon data={menu} slot="on" stroke="currentColor" />
+		<Button.Icon data={close} slot="off" stroke="currentColor" />
+	</Swap>
+</Button>`;
+
+export const exampleSize = `
+<script lang="ts">
+	import { Button } from 'stwui';
+
+	const home = "svg-path";
+</script>
+
+<Button type="primary" size="xs">xs</Button>
+<Button type="primary" size="sm">sm</Button>
+<Button type="primary" size="md">md</Button>
+<Button type="primary" size="lg">lg</Button>
+<Button type="primary" size="xl">xl</Button>
+
+<Button type="primary" size="xs" shape="circle">
+	<Button.Icon data={home} slot="icon" />
+</Button>
+<Button type="primary" size="sm" shape="circle">
+	<Button.Icon data={home} slot="icon" />
+</Button>
+<Button type="primary" size="md" shape="circle">
+	<Button.Icon data={home} slot="icon" />
+</Button>
+<Button type="primary" size="lg" shape="circle">
+	<Button.Icon data={home} slot="icon" />
+</Button>
+<Button type="primary" size="xl" shape="circle">
+	<Button.Icon data={home} slot="icon" />
+</Button>
+<Button type="primary" size="fab" shape="circle">
+	<Button.Icon data={home} slot="icon" />
+</Button>
+
+<Button type="default" size="xs">
+	<Button.Leading data={home} slot="leading" />
+	xs
+</Button>
+<Button type="default" size="sm">
+	<Button.Leading data={home} slot="leading" />
+	sm
+</Button>
+<Button type="default" size="md">
+	<Button.Leading data={home} slot="leading" />
+	md
+</Button>
+<Button type="default" size="lg">
+	<Button.Leading data={home} slot="leading" />
+	lg
+</Button>
+<Button type="default" size="xl">
+	<Button.Leading data={home} slot="leading" />
+	xl
 </Button>`;
