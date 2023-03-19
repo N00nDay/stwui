@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Autocomplete, Card, Col } from '../../lib';
+	import { Autocomplete } from '../../lib';
 	import {
 		basicExample,
 		withLabelExample,
@@ -119,199 +119,173 @@
 	}
 </script>
 
-<Col class="col-24 example-container">
-	<ExampleContainer title="Basic">
-		<div slot="preview" class="w-full flex flex-col gap-2">
-			<Autocomplete
-				name="select-1"
-				placeholder="Basic"
-				bind:value={value1}
-				on:input={filter1}
-				{options}
-				class="w-full max-w-lg mx-auto"
-			>
-				<Autocomplete.Options slot="options">
-					{#if filtered1.length > 0}
-						{#each filtered1 as option}
-							<Autocomplete.Options.Option {option} />
-						{/each}
-					{:else}
-						<Autocomplete.Options.EmptyOption />
-					{/if}
-				</Autocomplete.Options>
-			</Autocomplete>
-		</div>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-col gap-2">
+		<Autocomplete
+			name="select-1"
+			placeholder="Basic"
+			bind:value={value1}
+			on:input={filter1}
+			{options}
+			class="w-full max-w-lg mx-auto"
+		>
+			<Autocomplete.Options slot="options">
+				{#if filtered1.length > 0}
+					{#each filtered1 as option}
+						<Autocomplete.Options.Option {option} />
+					{/each}
+				{:else}
+					<Autocomplete.Options.EmptyOption />
+				{/if}
+			</Autocomplete.Options>
+		</Autocomplete>
+	</div>
 
-		<CodeBlock slot="code" language="svelte" code={withLabelExample} />
-	</ExampleContainer>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={withLabelExample} />
+</ExampleContainer>
 
-<Col class="col-24 example-container">
-	<ExampleContainer title="With Label">
-		<div slot="preview" class="w-full flex flex-col gap-2">
-			<Autocomplete
-				name="select-2"
-				placeholder="Basic"
-				bind:value={value2}
-				on:input={filter2}
-				{options}
-				class="w-full max-w-lg mx-auto"
-			>
-				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
-				<Autocomplete.Options slot="options">
-					{#if filtered2.length > 0}
-						{#each filtered2 as option}
-							<Autocomplete.Options.Option {option} />
-						{/each}
-					{:else}
-						<Autocomplete.Options.EmptyOption />
-					{/if}
-				</Autocomplete.Options>
-			</Autocomplete>
-		</div>
+<ExampleContainer title="With Label">
+	<div slot="preview" class="w-full flex flex-col gap-2">
+		<Autocomplete
+			name="select-2"
+			placeholder="Basic"
+			bind:value={value2}
+			on:input={filter2}
+			{options}
+			class="w-full max-w-lg mx-auto"
+		>
+			<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+			<Autocomplete.Options slot="options">
+				{#if filtered2.length > 0}
+					{#each filtered2 as option}
+						<Autocomplete.Options.Option {option} />
+					{/each}
+				{:else}
+					<Autocomplete.Options.EmptyOption />
+				{/if}
+			</Autocomplete.Options>
+		</Autocomplete>
+	</div>
 
-		<CodeBlock slot="code" language="svelte" code={withLabelExample} />
-	</ExampleContainer>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={withLabelExample} />
+</ExampleContainer>
 
-<Col class="col-24 example-container">
-	<ExampleContainer title="With Leading">
-		<div slot="preview" class="w-full flex flex-col gap-2">
-			<Autocomplete
-				name="select-3"
-				bind:value={value3}
-				on:input={filter3}
-				{options}
-				class="w-full max-w-lg mx-auto"
-			>
-				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
-				<Autocomplete.Leading slot="leading" data={email} />
-				<Autocomplete.Options slot="options">
-					{#if filtered3.length > 0}
-						{#each filtered3 as option}
-							<Autocomplete.Options.Option {option} />
-						{/each}
-					{:else}
-						<Autocomplete.Options.EmptyOption />
-					{/if}
-				</Autocomplete.Options>
-			</Autocomplete>
-		</div>
+<ExampleContainer title="With Leading">
+	<div slot="preview" class="w-full flex flex-col gap-2">
+		<Autocomplete
+			name="select-3"
+			bind:value={value3}
+			on:input={filter3}
+			{options}
+			class="w-full max-w-lg mx-auto"
+		>
+			<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+			<Autocomplete.Leading slot="leading" data={email} />
+			<Autocomplete.Options slot="options">
+				{#if filtered3.length > 0}
+					{#each filtered3 as option}
+						<Autocomplete.Options.Option {option} />
+					{/each}
+				{:else}
+					<Autocomplete.Options.EmptyOption />
+				{/if}
+			</Autocomplete.Options>
+		</Autocomplete>
+	</div>
 
-		<CodeBlock slot="code" language="svelte" code={withLeadingExample} />
-	</ExampleContainer>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={withLeadingExample} />
+</ExampleContainer>
 
-<Col class="col-24 example-container">
-	<ExampleContainer title="With Error">
-		<div slot="preview" class="w-full flex flex-col gap-2">
-			<Autocomplete
-				name="select-4"
-				bind:value={value4}
-				on:input={filter4}
-				{options}
-				{error}
-				class="w-full max-w-lg mx-auto"
-			>
-				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
-				<Autocomplete.Leading slot="leading" data={email} />
-				<Autocomplete.Options slot="options">
-					{#if filtered4.length > 0}
-						{#each filtered4 as option}
-							<Autocomplete.Options.Option {option} />
-						{/each}
-					{:else}
-						<Autocomplete.Options.EmptyOption />
-					{/if}
-				</Autocomplete.Options>
-			</Autocomplete>
-		</div>
+<ExampleContainer title="With Error">
+	<div slot="preview" class="w-full flex flex-col gap-2">
+		<Autocomplete
+			name="select-4"
+			bind:value={value4}
+			on:input={filter4}
+			{options}
+			{error}
+			class="w-full max-w-lg mx-auto"
+		>
+			<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+			<Autocomplete.Leading slot="leading" data={email} />
+			<Autocomplete.Options slot="options">
+				{#if filtered4.length > 0}
+					{#each filtered4 as option}
+						<Autocomplete.Options.Option {option} />
+					{/each}
+				{:else}
+					<Autocomplete.Options.EmptyOption />
+				{/if}
+			</Autocomplete.Options>
+		</Autocomplete>
+	</div>
 
-		<CodeBlock slot="code" language="svelte" code={withErrorExample} />
-	</ExampleContainer>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={withErrorExample} />
+</ExampleContainer>
 
-<Col class="col-24 example-container">
-	<ExampleContainer title="Disabled">
-		<div slot="preview" class="w-full flex flex-col gap-2">
-			<Autocomplete
-				name="select-5"
-				bind:value={value5}
-				on:input={filter5}
-				{options}
-				disabled
-				class="w-full max-w-lg mx-auto"
-			>
-				<Autocomplete.Label slot="label">Label</Autocomplete.Label>
-				<Autocomplete.Leading slot="leading" data={email} />
-				<Autocomplete.Options slot="options">
-					{#if filtered5.length > 0}
-						{#each filtered5 as option}
-							<Autocomplete.Options.Option {option} />
-						{/each}
-					{:else}
-						<Autocomplete.Options.EmptyOption />
-					{/if}
-				</Autocomplete.Options>
-			</Autocomplete>
-		</div>
+<ExampleContainer title="Disabled">
+	<div slot="preview" class="w-full flex flex-col gap-2">
+		<Autocomplete
+			name="select-5"
+			bind:value={value5}
+			on:input={filter5}
+			{options}
+			disabled
+			class="w-full max-w-lg mx-auto"
+		>
+			<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+			<Autocomplete.Leading slot="leading" data={email} />
+			<Autocomplete.Options slot="options">
+				{#if filtered5.length > 0}
+					{#each filtered5 as option}
+						<Autocomplete.Options.Option {option} />
+					{/each}
+				{:else}
+					<Autocomplete.Options.EmptyOption />
+				{/if}
+			</Autocomplete.Options>
+		</Autocomplete>
+	</div>
 
-		<CodeBlock slot="code" language="svelte" code={disabledExample} />
-	</ExampleContainer>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={disabledExample} />
+</ExampleContainer>
 
-<Col class="col-24 example-container">
-	<ExampleContainer title="With Any Value">
-		<div slot="preview" class="w-full flex flex-col gap-2">
-			<Autocomplete
-				name="select-6"
-				placeholder="Basic"
-				bind:value={value6}
-				on:input={filter6}
-				{options}
-				allowNonListValue
-				class="w-full max-w-lg mx-auto"
-			>
-				<Autocomplete.Options slot="options">
-					{#if filtered6.length > 0}
-						{#each filtered6 as option}
-							<Autocomplete.Options.Option {option} />
-						{/each}
-					{:else}
-						<Autocomplete.Options.EmptyOption />
-					{/if}
-				</Autocomplete.Options>
-			</Autocomplete>
-		</div>
+<ExampleContainer title="With Any Value">
+	<div slot="preview" class="w-full flex flex-col gap-2">
+		<Autocomplete
+			name="select-6"
+			placeholder="Basic"
+			bind:value={value6}
+			on:input={filter6}
+			{options}
+			allowNonListValue
+			class="w-full max-w-lg mx-auto"
+		>
+			<Autocomplete.Options slot="options">
+				{#if filtered6.length > 0}
+					{#each filtered6 as option}
+						<Autocomplete.Options.Option {option} />
+					{/each}
+				{:else}
+					<Autocomplete.Options.EmptyOption />
+				{/if}
+			</Autocomplete.Options>
+		</Autocomplete>
+	</div>
 
-		<CodeBlock slot="code" language="svelte" code={allowNonOptionExample} />
-	</ExampleContainer>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={allowNonOptionExample} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<PropsTable component="Autocomplete" {props} />
-</Col>
+<PropsTable component="Autocomplete" {props} />
 
-<Col class="col-24">
-	<SlotsTable component="Autocomplete" {slots} />
-</Col>
+<SlotsTable component="Autocomplete" {slots} />
 
-<Col class="col-24">
-	<SlotsTable component="Autocomplete.Label" slots={labelSlots} />
-</Col>
+<SlotsTable component="Autocomplete.Label" slots={labelSlots} />
 
-<Col class="col-24">
-	<PropsTable component="Autocomplete.Leading" props={iconProps} />
-</Col>
+<PropsTable component="Autocomplete.Leading" props={iconProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Autocomplete.Options" slots={optionsSlots} />
-</Col>
+<SlotsTable component="Autocomplete.Options" slots={optionsSlots} />
 
-<Col class="col-24">
-	<PropsTable component="Autocomplete.Options.Option" props={optionProps} />
-</Col>
+<PropsTable component="Autocomplete.Options.Option" props={optionProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Autocomplete.Options.EmptyOption" slots={emptyOptionSlots} />
-</Col>
+<SlotsTable component="Autocomplete.Options.EmptyOption" slots={emptyOptionSlots} />

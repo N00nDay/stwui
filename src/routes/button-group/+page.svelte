@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ButtonGroup, Card, Col } from '../../lib';
+	import { ButtonGroup } from '../../lib';
 	import {
 		example,
 		exampleActive,
@@ -145,26 +145,14 @@
 	<CodeBlock slot="code" language="svelte" code={exampleLoading} />
 </ExampleContainer>
 
-<Col class="col-24">
-	<SlotsTable component="ButtonGroup" {slots} />
-</Col>
+<SlotsTable component="ButtonGroup" {slots} />
 
-<Col class="col-24">
-	<PropsTable component="ButtonGroup.Button" props={buttonProps} />
-</Col>
+<PropsTable component="ButtonGroup.Button" props={buttonProps} />
 
-<Col class="col-24">
-	<SlotsTable component="ButtonGroup.Button" slots={buttonSlots} />
-</Col>
+<SlotsTable component="ButtonGroup.Button" slots={buttonSlots} />
 
-<Col class="col-24">
-	<PropsTable component="ButtonGroup.Button.Leading" props={iconProps} />
-</Col>
+<PropsTable component="ButtonGroup.Button.Leading" props={iconProps} />
 
-<Col class="col-24">
-	<PropsTable component="ButtonGroup.Button.Icon" props={iconProps} />
-</Col>
+<PropsTable component="ButtonGroup.Button.Icon" props={iconProps} />
 
-<Col class="col-24">
-	<PropsTable component="ButtonGroup.Button.Trailing" props={iconProps} />
-</Col>
+<PropsTable component="ButtonGroup.Button.Trailing" props={iconProps} />

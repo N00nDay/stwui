@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Breadcrumbs, Card, Col } from '../../lib';
+	import { Breadcrumbs } from '../../lib';
 	import {
 		exampleDefault,
 		exampleSolid,
@@ -27,110 +27,92 @@
 	];
 </script>
 
-<Col class="col-24 example-container">
-	<ExampleContainer title="Basic">
-		<div slot="preview" class="m-auto max-w-[266px]">
-			<Breadcrumbs>
-				{#each crumbs as crumb}
-					{#if crumb.icon && crumb.label}
-						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
-							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
-						</Breadcrumbs.Crumb>
-					{:else if crumb.icon}
-						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
-						</Breadcrumbs.Crumb>
-					{:else}
-						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
-						</Breadcrumbs.Crumb>
-					{/if}
-				{/each}
-			</Breadcrumbs>
-		</div>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="m-auto max-w-[266px]">
+		<Breadcrumbs>
+			{#each crumbs as crumb}
+				{#if crumb.icon && crumb.label}
+					<Breadcrumbs.Crumb href={crumb.href}>
+						<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
+						<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
+					</Breadcrumbs.Crumb>
+				{:else if crumb.icon}
+					<Breadcrumbs.Crumb href={crumb.href}>
+						<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
+					</Breadcrumbs.Crumb>
+				{:else}
+					<Breadcrumbs.Crumb href={crumb.href}>
+						<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
+					</Breadcrumbs.Crumb>
+				{/if}
+			{/each}
+		</Breadcrumbs>
+	</div>
 
-		<CodeBlock slot="code" language="svelte" code={exampleDefault} />
-	</ExampleContainer>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={exampleDefault} />
+</ExampleContainer>
 
-<Col class="col-24 example-container">
-	<ExampleContainer title="Solid">
-		<div slot="preview" class="m-auto max-w-[330px]">
-			<Breadcrumbs type="solid">
-				{#each crumbs as crumb}
-					{#if crumb.icon && crumb.label}
-						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
-							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
-						</Breadcrumbs.Crumb>
-					{:else if crumb.icon}
-						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
-						</Breadcrumbs.Crumb>
-					{:else}
-						<Breadcrumbs.Crumb href={crumb.href}>
-							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
-						</Breadcrumbs.Crumb>
-					{/if}
-				{/each}
-			</Breadcrumbs>
-		</div>
+<ExampleContainer title="Solid">
+	<div slot="preview" class="m-auto max-w-[330px]">
+		<Breadcrumbs type="solid">
+			{#each crumbs as crumb}
+				{#if crumb.icon && crumb.label}
+					<Breadcrumbs.Crumb href={crumb.href}>
+						<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
+						<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
+					</Breadcrumbs.Crumb>
+				{:else if crumb.icon}
+					<Breadcrumbs.Crumb href={crumb.href}>
+						<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
+					</Breadcrumbs.Crumb>
+				{:else}
+					<Breadcrumbs.Crumb href={crumb.href}>
+						<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
+					</Breadcrumbs.Crumb>
+				{/if}
+			{/each}
+		</Breadcrumbs>
+	</div>
 
-		<CodeBlock slot="code" language="svelte" code={exampleSolid} />
-	</ExampleContainer>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={exampleSolid} />
+</ExampleContainer>
 
-<Col class="col-24 example-container">
-	<ExampleContainer title="With Custom Dividers">
-		<div slot="preview" class="m-auto max-w-[290px]">
-			<Breadcrumbs type="solid" class="h-12">
-				{#each crumbs as crumb}
-					{#if crumb.icon && crumb.label}
-						<Breadcrumbs.Crumb href={crumb.href}>
-							<div slot="divider" class="divider">|</div>
-							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
-							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
-						</Breadcrumbs.Crumb>
-					{:else if crumb.icon}
-						<Breadcrumbs.Crumb href={crumb.href}>
-							<div slot="divider" class="divider">|</div>
-							<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
-						</Breadcrumbs.Crumb>
-					{:else}
-						<Breadcrumbs.Crumb href={crumb.href}>
-							<div slot="divider" class="divider">|</div>
-							<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
-						</Breadcrumbs.Crumb>
-					{/if}
-				{/each}
-			</Breadcrumbs>
-		</div>
+<ExampleContainer title="With Custom Dividers">
+	<div slot="preview" class="m-auto max-w-[290px]">
+		<Breadcrumbs type="solid" class="h-12">
+			{#each crumbs as crumb}
+				{#if crumb.icon && crumb.label}
+					<Breadcrumbs.Crumb href={crumb.href}>
+						<div slot="divider" class="divider">|</div>
+						<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
+						<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
+					</Breadcrumbs.Crumb>
+				{:else if crumb.icon}
+					<Breadcrumbs.Crumb href={crumb.href}>
+						<div slot="divider" class="divider">|</div>
+						<Breadcrumbs.Crumb.Icon slot="icon" data={crumb.icon} />
+					</Breadcrumbs.Crumb>
+				{:else}
+					<Breadcrumbs.Crumb href={crumb.href}>
+						<div slot="divider" class="divider">|</div>
+						<Breadcrumbs.Crumb.Label slot="label">{crumb.label}</Breadcrumbs.Crumb.Label>
+					</Breadcrumbs.Crumb>
+				{/if}
+			{/each}
+		</Breadcrumbs>
+	</div>
 
-		<CodeBlock slot="code" language="svelte" code={exampleDivider} />
-	</ExampleContainer>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={exampleDivider} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<PropsTable component="Breadcrumbs" {props} />
-</Col>
+<PropsTable component="Breadcrumbs" {props} />
 
-<Col class="col-24">
-	<SlotsTable component="Breadcrumbs" {slots} />
-</Col>
+<SlotsTable component="Breadcrumbs" {slots} />
 
-<Col class="col-24">
-	<PropsTable component="Breadcrumbs.Crumb" props={crumbProps} />
-</Col>
+<PropsTable component="Breadcrumbs.Crumb" props={crumbProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Breadcrumbs.Crumb" slots={crumbSlots} />
-</Col>
+<SlotsTable component="Breadcrumbs.Crumb" slots={crumbSlots} />
 
-<Col class="col-24">
-	<PropsTable component="Breadcrumbs.Crumb.Icon" props={iconProps} />
-</Col>
+<PropsTable component="Breadcrumbs.Crumb.Icon" props={iconProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Breadcrumbs.Crumb.Label" slots={labelSlots} />
-</Col>
+<SlotsTable component="Breadcrumbs.Crumb.Label" slots={labelSlots} />
