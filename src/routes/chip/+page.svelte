@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { Card, Chip, Col } from '../../lib';
+	import { Chip } from '../../lib';
 	import {
-		example,
+		typeExample,
+		sizeExample,
 		closeExample,
 		props,
 		slots,
@@ -10,89 +11,90 @@
 		placeholderSlots,
 		avatarSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const avatar =
 		'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80';
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Default</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Chip size="xs">
-				<Chip.Avatar slot="avatar" src={avatar} />
-				<Chip.Label slot="label">Castor Troy</Chip.Label>
-			</Chip>
-			<Chip size="sm" type="success">
-				<Chip.Avatar slot="avatar" src={avatar} />
-				<Chip.Label slot="label">Castor Troy</Chip.Label>
-			</Chip>
+<ExampleContainer title="With Type">
+	<div slot="preview" class="flex flex-row flex-wrap gap-2 items-center justify-center w-full">
+		<Chip>
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">No Type</Chip.Label>
+		</Chip>
+		<Chip type="info">
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">No Type</Chip.Label>
+		</Chip>
+		<Chip type="success">
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">success</Chip.Label>
+		</Chip>
 
-			<Chip type="warn">
-				<Chip.Avatar slot="avatar" src={avatar} />
-				<Chip.Label slot="label">Castor Troy</Chip.Label>
-			</Chip>
-			<Chip size="lg">
-				<Chip.Avatar slot="avatar" src="no-image.png" />
-				<Chip.Label slot="label">Castor Troy</Chip.Label>
-			</Chip>
-			<Chip size="xl" type="error">
-				<Chip.Avatar slot="avatar" src={avatar} />
-				<Chip.Label slot="label">Castor Troy</Chip.Label>
-			</Chip>
+		<Chip type="warn">
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">warn</Chip.Label>
+		</Chip>
+		<Chip type="error">
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">error</Chip.Label>
+		</Chip>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={typeExample} />
+</ExampleContainer>
 
-			<br />
-			<br />
+<ExampleContainer title="With Size">
+	<div slot="preview" class="flex flex-row flex-wrap gap-2 items-center justify-center w-full">
+		<Chip size="xs">
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">Castor Troy</Chip.Label>
+		</Chip>
+		<Chip size="sm">
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">Castor Troy</Chip.Label>
+		</Chip>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+		<Chip>
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">Castor Troy</Chip.Label>
+		</Chip>
+		<Chip size="lg">
+			<Chip.Avatar slot="avatar" src="no-image.png" />
+			<Chip.Label slot="label">Castor Troy</Chip.Label>
+		</Chip>
+		<Chip size="xl">
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">Castor Troy</Chip.Label>
+		</Chip>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={sizeExample} />
+</ExampleContainer>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">With Close</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Chip type="info">
-				<Chip.Avatar slot="avatar" src={avatar} />
-				<Chip.Label slot="label">Castor Troy</Chip.Label>
-				<Chip.Close slot="close" />
-			</Chip>
-			<Chip>
-				<Chip.Avatar slot="avatar" src={avatar} />
-				<Chip.Label slot="label">Castor Troy</Chip.Label>
-				<Chip.Close slot="close" />
-			</Chip>
+<ExampleContainer title="With Close">
+	<div slot="preview" class="flex flex-row flex-wrap gap-2 items-center justify-center w-full">
+		<Chip type="info">
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">Castor Troy</Chip.Label>
+			<Chip.Close slot="close" />
+		</Chip>
+		<Chip>
+			<Chip.Avatar slot="avatar" src={avatar} />
+			<Chip.Label slot="label">Castor Troy</Chip.Label>
+			<Chip.Close slot="close" />
+		</Chip>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={closeExample} />
+</ExampleContainer>
 
-			<br />
-			<br />
+<PropsTable component="Chip" {props} />
 
-			<CodeBlock language="svelte" code={closeExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<SlotsTable component="Chip" {slots} />
 
-<Col class="col-24">
-	<PropsTable component="Chip" {props} />
-</Col>
+<PropsTable component="Chip.Avatar" props={avatarProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Chip" {slots} />
-</Col>
+<SlotsTable component="Chip.Avatar" slots={avatarSlots} />
 
-<Col class="col-24">
-	<PropsTable component="Chip.Avatar" props={avatarProps} />
-</Col>
+<SlotsTable component="Chip.Avatar.Placeholder" slots={placeholderSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Chip.Avatar" slots={avatarSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Chip.Avatar.Placeholder" slots={placeholderSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Chip.Label" slots={labelSlots} />
-</Col>
+<SlotsTable component="Chip.Label" slots={labelSlots} />

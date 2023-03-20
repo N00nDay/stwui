@@ -77,31 +77,58 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
-export const example = `
+export const typeExample = `
+<script lang="ts">
+	import { Chip } from 'stwui';
+</script>
+
+<Chip>
+	<Chip.Avatar slot="avatar" src={avatar} />
+	<Chip.Label slot="label">No Type</Chip.Label>
+</Chip>
+<Chip type="info">
+	<Chip.Avatar slot="avatar" src={avatar} />
+	<Chip.Label slot="label">No Type</Chip.Label>
+</Chip>
+<Chip type="success">
+	<Chip.Avatar slot="avatar" src={avatar} />
+	<Chip.Label slot="label">success</Chip.Label>
+</Chip>
+
+<Chip type="warn">
+	<Chip.Avatar slot="avatar" src={avatar} />
+	<Chip.Label slot="label">warn</Chip.Label>
+</Chip>
+<Chip type="error">
+	<Chip.Avatar slot="avatar" src={avatar} />
+	<Chip.Label slot="label">error</Chip.Label>
+</Chip>`;
+
+export const sizeExample = `
 <script lang="ts">
 	import { Chip } from 'stwui';
 </script>
 
 <Chip size="xs">
-   <Chip.Avatar slot="avatar" src="image.png" />
-   <Chip.Label slot="label">Castor Troy</Chip.Label>
+	<Chip.Avatar slot="avatar" src={avatar} />
+	<Chip.Label slot="label">Castor Troy</Chip.Label>
 </Chip>
-<Chip size="sm" type="success">
-   <Chip.Avatar slot="avatar" src="image.png" />
-   <Chip.Label slot="label">Castor Troy</Chip.Label>
+<Chip size="sm">
+	<Chip.Avatar slot="avatar" src={avatar} />
+	<Chip.Label slot="label">Castor Troy</Chip.Label>
 </Chip>
 
-<Chip type="warn">
-   <Chip.Avatar slot="avatar" src="image.png" />
-   <Chip.Label slot="label">Castor Troy</Chip.Label>
+<Chip>
+	<Chip.Avatar slot="avatar" src={avatar} />
+	<Chip.Label slot="label">Castor Troy</Chip.Label>
 </Chip>
 <Chip size="lg">
-   <Chip.Avatar slot="avatar" src="no-image.png" />
-   <Chip.Label slot="label">Castor Troy</Chip.Label>
+	<Chip.Avatar slot="avatar" src="no-image.png" />
+	<Chip.Label slot="label">Castor Troy</Chip.Label>
 </Chip>
-<Chip size="xl" type="error">
-   <Chip.Avatar slot="avatar" src="image.png" />
-   <Chip.Label slot="label">Castor Troy</Chip.Label>
+<Chip size="xl">
+	<Chip.Avatar slot="avatar" src={avatar} />
+	<Chip.Label slot="label">Castor Troy</Chip.Label>
 </Chip>`;
 
 export const closeExample = `
