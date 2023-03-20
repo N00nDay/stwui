@@ -152,25 +152,75 @@ export const iconProps: Prop[] = [
 	}
 ];
 
-export const example = `
+export const basicExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker name="date" placeholder="Basic" />`;
+
+export const withLabelExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker name="date" allowClear>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+</DatePicker>`;
+
+export const withLeadingExample = `
 <script lang="ts">
 	import { DatePicker } from 'stwui';
 
-	const date2Max = new Date(2022, 7, 30);
-	const date2Min = new Date(2022, 7, 3);
-
 	const calendar = "svg-path";
-	const phone = "svg-path";
 </script>
 
-<DatePicker name="date-1" placeholder="Basic" />
+<DatePicker
+	name="date-3"
+	allowClear
+>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Leading slot="leading" data={calendar} />
+</DatePicker>`;
 
-<DatePicker name="date-2" label="Date" max={date2Max} min={date2Min}>
+export const withtrailingExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+
+	const calendar = "svg-path";
+</script>
+
+<DatePicker
+	name="date-4"
+	label="Date"
+>
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
 	<DatePicker.Trailing slot="trailing" data={calendar} />
-</DatePicker>
+</DatePicker>`;
 
-<DatePicker name="date-3" min={date2Min} error="Your doing it wrong">
+export const withErrorExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker
+	name="date"
+	label="Date"
+>
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
-	<DatePicker.Leading slot="leading" data={phone} />
+	<DatePicker.Trailing slot="trailing" data={calendar} />
+</DatePicker>`;
+
+export const disabledExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker
+	name="date"
+	label="Date"
+	disabled
+>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Trailing slot="trailing" data={calendar} />
 </DatePicker>`;
