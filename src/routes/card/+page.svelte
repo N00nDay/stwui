@@ -137,7 +137,7 @@
 </ExampleContainer>
 
 <ExampleContainer title="Elevation">
-	<div slot="preview" class="flex flex-col gap-2 items-center justify-center  w-full">
+	<div slot="preview" class="flex flex-col gap-2 items-center justify-center w-full">
 		<Card elevation="none" class="w-full max-w-[400px] min-w-[320px]">
 			<Card.Content slot="content">elevation="none"</Card.Content>
 		</Card>
