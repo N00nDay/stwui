@@ -128,24 +128,57 @@ export const iconProps: Prop[] = [
 	}
 ];
 
-export const example = `
+export const basicExample = `
 <script lang="ts">
 	import { Currency } from 'stwui';
-
-	const currency_usd = "svg-path";
-	const phone = "svg-path";
-	const email = "svg-path";
 </script>
 
-<Currency name="currency-1" placeholder="Basic" />
+<Currency name="currency" placeholder="Basic" />`;
 
-<Currency name="currency-2">
+export const withLabelExample = `
+<script lang="ts">
+	import { Currency } from 'stwui';
+</script>
+
+<Currency name="currency">
+	<Currency.Label slot="label">Label</Currency.Label>
+</Currency>`;
+
+export const withLeadingExample = `
+<script lang="ts">
+	import { Currency } from 'stwui';
+</script>
+
+<Currency name="currency">
 	<Currency.Label slot="label">Label</Currency.Label>
 	<Currency.Leading slot="leading" data={currency_usd} />
-	<Currency.Trailing slot="trailing" data={phone} />
-</Currency>
+</Currency>`;
 
-<Currency name="currency-3" error="There has been an error">
+export const withtrailingExample = `
+<script lang="ts">
+	import { Currency } from 'stwui';
+</script>
+
+<Currency name="currency-3" class="w-full max-w-[400px]">
+	<Currency.Label slot="label">Label</Currency.Label>
+	<Currency.Trailing slot="trailing" data={currency_usd} />
+</Currency>`;
+
+export const withErrorExample = `
+<script lang="ts">
+	import { Currency } from 'stwui';
+</script>
+
+<Currency name="currency" {error} bind:value allowClear>
 	<Currency.Label slot="label">Label</Currency.Label>
 	<Currency.Leading slot="leading" data={email} />
+</Currency>`;
+
+export const disabledExample = `
+<script lang="ts">
+	import { Currency } from 'stwui';
+</script>
+
+<Currency name="currency" disabled>
+	<Currency.Label slot="label">Label</Currency.Label>
 </Currency>`;

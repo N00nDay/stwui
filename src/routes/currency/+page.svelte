@@ -1,8 +1,19 @@
 <script lang="ts">
-	import { Card, Col, Currency } from '../../lib';
-	import { example, props, slots, labelSlots, iconProps } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
-	import { email, phone } from '../../docs/icons';
+	import { Currency } from '../../lib';
+	import {
+		basicExample,
+		withLabelExample,
+		withLeadingExample,
+		withtrailingExample,
+		withErrorExample,
+		disabledExample,
+		props,
+		slots,
+		labelSlots,
+		iconProps
+	} from './examples';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { email } from '../../docs/icons';
 	import { currency_usd } from '../../lib/icons';
 
 	let value: string | undefined;
@@ -14,45 +25,73 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
-			<Currency name="currency-1" placeholder="Basic" />
-			<br />
-			<Currency name="currency-2">
-				<Currency.Label slot="label">Label</Currency.Label>
-				<Currency.Leading slot="leading" data={currency_usd} />
-				<Currency.Trailing slot="trailing" data={phone} />
-			</Currency>
-			<br />
-			<Currency name="currency-3" {error} bind:value allowClear>
-				<Currency.Label slot="label">Label</Currency.Label>
-				<Currency.Leading slot="leading" data={email} />
-			</Currency>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Currency name="currency-1" placeholder="Basic" class="w-full max-w-[400px]" />
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={basicExample} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="With Label">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Currency name="currency-2" class="w-full max-w-[400px]">
+			<Currency.Label slot="label">Label</Currency.Label>
+		</Currency>
+	</div>
 
-<Col class="col-24">
-	<PropsTable component="Currency" {props} />
-</Col>
+	<CodeBlock slot="code" language="svelte" code={withLabelExample} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<SlotsTable component="Currency" {slots} />
-</Col>
+<ExampleContainer title="With Leading">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Currency name="currency-3" class="w-full max-w-[400px]">
+			<Currency.Label slot="label">Label</Currency.Label>
+			<Currency.Leading slot="leading" data={currency_usd} />
+		</Currency>
+	</div>
 
-<Col class="col-24">
-	<SlotsTable component="Currency.Label" slots={labelSlots} />
-</Col>
+	<CodeBlock slot="code" language="svelte" code={withLeadingExample} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<PropsTable component="Currency.Leading" props={iconProps} />
-</Col>
+<ExampleContainer title="With Trailing">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Currency name="currency-3" class="w-full max-w-[400px]">
+			<Currency.Label slot="label">Label</Currency.Label>
+			<Currency.Trailing slot="trailing" data={currency_usd} />
+		</Currency>
+	</div>
 
-<Col class="col-24">
-	<PropsTable component="Currency.Trailing" props={iconProps} />
-</Col>
+	<CodeBlock slot="code" language="svelte" code={withtrailingExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Error">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Currency name="currency-4" {error} bind:value allowClear class="w-full max-w-[400px]">
+			<Currency.Label slot="label">Label</Currency.Label>
+			<Currency.Leading slot="leading" data={email} />
+		</Currency>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withErrorExample} />
+</ExampleContainer>
+
+<ExampleContainer title="Disabled">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Currency name="currency-2" disabled class="w-full max-w-[400px]">
+			<Currency.Label slot="label">Label</Currency.Label>
+		</Currency>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={disabledExample} />
+</ExampleContainer>
+
+<PropsTable component="Currency" {props} />
+
+<SlotsTable component="Currency" {slots} />
+
+<SlotsTable component="Currency.Label" slots={labelSlots} />
+
+<PropsTable component="Currency.Leading" props={iconProps} />
+
+<PropsTable component="Currency.Trailing" props={iconProps} />
