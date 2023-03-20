@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, CheckboxGroup, Col } from '../../lib';
+	import { CheckboxGroup } from '../../lib';
 	import {
 		example,
 		inlineExample,
