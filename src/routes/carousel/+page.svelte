@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Card, Carousel, Col } from '../../lib';
+	import { Card, Carousel } from '../../lib';
 	import type { CarouselSlide } from '../../lib/types';
 	import { example, props } from './examples';
-	import { PropsTable, CodeBlock } from '../../docs';
+	import { PropsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const slides: CarouselSlide[] = [
 		{
@@ -23,19 +23,15 @@
 	];
 </script>
 
-<Col class="col-24">
-	<Card bordered={false} class="bg-transparent" elevation="none">
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full block">
 		<Card bordered={false}>
-			<Card.Content slot="content" class="p-0 h-[36rem] bg-black">
+			<Card.Content slot="content" class="h-[36rem] bg-black !p-0">
 				<Carousel {slides} />
 			</Card.Content>
 		</Card>
-		<br />
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-		<CodeBlock language="svelte" code={example} />
-	</Card>
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Carousel" {props} />
-</Col>
+<PropsTable component="Carousel" {props} />
