@@ -1,49 +1,54 @@
 <script lang="ts">
 	import { Button, Card, Col, Divider } from '../../lib';
-	import { example, props, slots, iconProps, labelSlots } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import {
+		positionExample,
+		passAnythingExample,
+		props,
+		slots,
+		iconProps,
+		labelSlots
+	} from './examples';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	import { plus_circle } from '../../docs/icons';
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
-			<Divider>
-				<Divider.Label slot="label"><h3>Divider</h3></Divider.Label>
-			</Divider>
-			<Divider>
-				<Divider.Icon slot="icon" data={plus_circle} />
-			</Divider>
-			<Divider position="left">
-				<Divider.Label slot="label">Divider</Divider.Label>
-			</Divider>
-			<Divider position="right">
-				<Divider.Label slot="label">Divider</Divider.Label>
-			</Divider>
-			<Divider>
-				<Button type="primary">I am a Button</Button>
-			</Divider>
+<ExampleContainer title="With Position">
+	<div slot="preview" class="w-full flex flex-col gap-2 items-center justify-center">
+		<Divider class="w-full">
+			<Divider.Label slot="label">Divider</Divider.Label>
+		</Divider>
+		<Divider position="left" class="w-full">
+			<Divider.Label slot="label">Divider</Divider.Label>
+		</Divider>
+		<Divider position="right" class="w-full">
+			<Divider.Label slot="label">Divider</Divider.Label>
+		</Divider>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={positionExample} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="Pass What You Want">
+	<div slot="preview" class="w-full flex flex-col gap-2 items-center justify-center">
+		<Divider class="w-full">
+			<Divider.Label slot="label"><h3>Divider</h3></Divider.Label>
+		</Divider>
+		<Divider class="w-full">
+			<Divider.Icon slot="icon" data={plus_circle} />
+		</Divider>
+		<Divider class="w-full">
+			<Button type="primary">I am a Button</Button>
+		</Divider>
+	</div>
 
-<Col class="col-24">
-	<PropsTable component="Divider" {props} />
-</Col>
+	<CodeBlock slot="code" language="svelte" code={passAnythingExample} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<SlotsTable component="Divider" {slots} />
-</Col>
+<PropsTable component="Divider" {props} />
 
-<Col class="col-24">
-	<SlotsTable component="Divider.Label" slots={labelSlots} />
-</Col>
+<SlotsTable component="Divider" {slots} />
 
-<Col class="col-24">
-	<PropsTable component="Divider.Icon" props={iconProps} />
-</Col>
+<SlotsTable component="Divider.Label" slots={labelSlots} />
+
+<PropsTable component="Divider.Icon" props={iconProps} />

@@ -86,7 +86,22 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
-export const example = `
+export const positionExample = `
+<script lang="ts">
+	import { Divider } from 'stwui';
+</script>
+
+<Divider>
+	<Divider.Label slot="label">Divider</Divider.Label>
+</Divider>
+<Divider position="left">
+	<Divider.Label slot="label">Divider</Divider.Label>
+</Divider>
+<Divider position="right">
+	<Divider.Label slot="label">Divider</Divider.Label>
+</Divider>`;
+
+export const passAnythingExample = `
 <script lang="ts">
 	import { Divider, Button } from 'stwui';
 
@@ -94,19 +109,11 @@ export const example = `
 </script>
 
 <Divider>
-   <Divider.Label slot="label">
-      <h3>Divider</h3>
-   </Divider.Label>
+	<Divider.Label slot="label"><h3>Divider</h3></Divider.Label>
 </Divider>
 <Divider>
-   <Divider.Icon slot="icon" data={plus_circle} />
-</Divider>
-<Divider position="left">
-   <Divider.Label slot="label">Divider</Divider.Label>
-</Divider>
-<Divider position="right">
-   <Divider.Label slot="label">Divider</Divider.Label>
+	<Divider.Icon slot="icon" data={plus_circle} />
 </Divider>
 <Divider>
-   <Button type="primary">I am a Button</Button>
+	<Button type="primary">I am a Button</Button>
 </Divider>`;

@@ -13,11 +13,7 @@
 		iconProps
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
-	import { phone } from '../../docs/icons';
 	import { calendar } from '../../lib/icons';
-
-	const date2Max = new Date(2022, 7, 30);
-	const date2Min = new Date(2022, 7, 3);
 
 	let value: Date | null;
 	let error: string | undefined = "You're doing it wrong!";
