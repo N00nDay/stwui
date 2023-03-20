@@ -1,10 +1,13 @@
 <script lang="ts">
-	import { Card, Col, Media } from '../../lib';
+	import { Card, Media } from '../../lib';
 	import {
-		example,
-		exampleOverlay,
-		exampleContent,
-		exampleAnatomy,
+		allPartsExample,
+		elevationExample,
+		coverExample,
+		coverOverlayExample,
+		coverContentExample,
+		borderedExample,
+		hoverableExample,
 		props,
 		slots,
 		headerSlots,
@@ -16,13 +19,14 @@
 		labelSlots,
 		iconProps
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
-	import { cog, plus_circle, numeric_1_box, numeric_2_box } from '../../docs/icons';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { cog, plus_circle } from '../../docs/icons';
 </script>
 
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Card bordered={false}>
+<ExampleContainer title="All Parts">
+	<div slot="preview" class="w-full block">
+		<Card class="max-w-[400px] m-auto">
+			<Card.Header slot="header">Card Header</Card.Header>
 			<Card.Cover slot="cover">
 				<img
 					src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
@@ -30,6 +34,8 @@
 					class="object-cover object-center w-full aspect-1 h-[300px]"
 				/>
 			</Card.Cover>
+			<Card.Content slot="content">Card Content</Card.Content>
+			<Card.Footer slot="footer">Card Footer</Card.Footer>
 			<Card.Actions slot="actions">
 				<Card.Actions.Action>
 					<Card.Actions.Action.Icon data={cog} slot="icon" />
@@ -39,20 +45,33 @@
 				</Card.Actions.Action>
 			</Card.Actions>
 		</Card>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={allPartsExample} />
+</ExampleContainer>
 
-		<br />
-
-		<CodeBlock language="svelte" code={example} />
-	</Card>
-</Col>
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Card bordered={false} hoverable>
-			<Card.Cover slot="cover" class="relative rounded-b-md">
+<ExampleContainer title="With Cover">
+	<div slot="preview" class="w-full block">
+		<Card class="max-w-[400px] m-auto">
+			<Card.Cover slot="cover">
 				<img
 					src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
 					alt="cover"
-					class="object-cover object-center w-full h-[300px] aspect-1"
+					class="object-cover object-center w-full aspect-1 h-[300px]"
+				/>
+			</Card.Cover>
+		</Card>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={coverExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Cover and Overlay">
+	<div slot="preview" class="w-full block">
+		<Card class="max-w-[400px] m-auto">
+			<Card.Cover slot="cover">
+				<img
+					src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
+					alt="cover"
+					class="object-cover object-center w-full aspect-1 h-[300px]"
 				/>
 				<Card.Cover.Overlay class="top-[unset] h-24">
 					<Media class="absolute bottom-0 left-0 right-0 px-4 py-5">
@@ -64,15 +83,13 @@
 				</Card.Cover.Overlay>
 			</Card.Cover>
 		</Card>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={coverOverlayExample} />
+</ExampleContainer>
 
-		<br />
-
-		<CodeBlock language="svelte" code={exampleOverlay} />
-	</Card>
-</Col>
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Card bordered={false}>
+<ExampleContainer title="With Cover and Content">
+	<div slot="preview" class="w-full block">
+		<Card class="max-w-[400px] m-auto">
 			<Card.Cover slot="cover">
 				<img
 					src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
@@ -89,70 +106,77 @@
 				</Media>
 			</Card.Content>
 		</Card>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={coverContentExample} />
+</ExampleContainer>
 
-		<br />
-
-		<CodeBlock language="svelte" code={exampleContent} />
-	</Card>
-</Col>
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Card bordered={false}>
-			<Card.Header slot="header">Card Header</Card.Header>
-			<Card.Content slot="content">Card Content</Card.Content>
-			<Card.Footer slot="footer">Card Footer</Card.Footer>
-			<Card.Actions slot="actions">
-				<Card.Actions.Action>
-					<Card.Actions.Action.Icon data={numeric_1_box} slot="icon" />
-				</Card.Actions.Action>
-				<Card.Actions.Action>
-					<Card.Actions.Action.Icon data={numeric_2_box} slot="icon" />
-				</Card.Actions.Action>
-			</Card.Actions>
+<ExampleContainer title="Bordered Prop">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center flex-wrap">
+		<Card bordered class="max-w-[400px] min-w-[320px] w-full">
+			<Card.Content slot="content">I borddered!</Card.Content>
 		</Card>
 
-		<br />
+		<Card bordered={false} class="max-w-[400px] min-w-[320px] w-full">
+			<Card.Content slot="content">I don't have a border!</Card.Content>
+		</Card>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={borderedExample} />
+</ExampleContainer>
 
-		<CodeBlock language="svelte" code={exampleAnatomy} />
-	</Card>
-</Col>
+<ExampleContainer title="Hoverable Prop">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center flex-wrap">
+		<Card hoverable class="max-w-[400px] min-w-[320px] w-full">
+			<Card.Content slot="content">I am hoverable!</Card.Content>
+		</Card>
 
-<Col class="col-24">
-	<PropsTable component="Card" {props} />
-</Col>
+		<Card class="max-w-[400px] min-w-[320px] w-full">
+			<Card.Content slot="content">I am not hoverable!</Card.Content>
+		</Card>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={hoverableExample} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<SlotsTable component="Card" {slots} />
-</Col>
+<ExampleContainer title="Elevation">
+	<div slot="preview" class="flex flex-col gap-2 items-center justify-center  w-full">
+		<Card elevation="none" class="w-full max-w-[400px] min-w-[320px]">
+			<Card.Content slot="content">elevation="none"</Card.Content>
+		</Card>
 
-<Col class="col-24">
-	<SlotsTable component="Card.Header" slots={headerSlots} />
-</Col>
+		<Card elevation="sm" class="w-full max-w-[400px] min-w-[320px]">
+			<Card.Content slot="content">elevation="sm"</Card.Content>
+		</Card>
 
-<Col class="col-24">
-	<SlotsTable component="Card.Cover" slots={coverSlots} />
-</Col>
+		<Card elevation="md" class="w-full max-w-[400px] min-w-[320px]">
+			<Card.Content slot="content">elevation="md"</Card.Content>
+		</Card>
 
-<Col class="col-24">
-	<SlotsTable component="Card.Content" slots={contentSlots} />
-</Col>
+		<Card elevation="lg" class="w-full max-w-[400px] min-w-[320px]">
+			<Card.Content slot="content">elevation="lg"</Card.Content>
+		</Card>
 
-<Col class="col-24">
-	<SlotsTable component="Card.Footer" slots={footerSlots} />
-</Col>
+		<Card elevation="xl" class="w-full max-w-[400px] min-w-[320px]">
+			<Card.Content slot="content">elevation="xl"</Card.Content>
+		</Card>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={elevationExample} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<SlotsTable component="Card.Actions" slots={actionsSlots} />
-</Col>
+<PropsTable component="Card" {props} />
 
-<Col class="col-24">
-	<SlotsTable component="Card.Actions.Action" slots={actionSlots} />
-</Col>
+<SlotsTable component="Card" {slots} />
 
-<Col class="col-24">
-	<PropsTable component="Card.Actions.Action.Icon" props={iconProps} />
-</Col>
+<SlotsTable component="Card.Header" slots={headerSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Card.Actions.Action.Label" slots={labelSlots} />
-</Col>
+<SlotsTable component="Card.Cover" slots={coverSlots} />
+
+<SlotsTable component="Card.Content" slots={contentSlots} />
+
+<SlotsTable component="Card.Footer" slots={footerSlots} />
+
+<SlotsTable component="Card.Actions" slots={actionsSlots} />
+
+<SlotsTable component="Card.Actions.Action" slots={actionSlots} />
+
+<PropsTable component="Card.Actions.Action.Icon" props={iconProps} />
+
+<SlotsTable component="Card.Actions.Action.Label" slots={labelSlots} />

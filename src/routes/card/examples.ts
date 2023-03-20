@@ -182,7 +182,7 @@ export const iconProps: Prop[] = [
 	}
 ];
 
-export const example = `
+export const allPartsExample = `
 <script lang="ts">
 	import { Card } from 'stwui';
 
@@ -190,15 +190,18 @@ export const example = `
 	const plus_circle = "svg-path";
 </script>
 
-<Card bordered={false}>
-   <Card.Cover slot="cover">
-      <img
-         src="image.png"
-         alt="cover"
-         class="object-cover object-center w-full h-full aspect-1"
-      />
-   </Card.Cover>
-   <Card.Actions slot="actions">
+<Card">
+	<Card.Header slot="header">Card Header</Card.Header>
+	<Card.Cover slot="cover">
+		<img
+			src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
+			alt="cover"
+			class="object-cover object-center w-full aspect-1 h-[300px]"
+		/>
+	</Card.Cover>
+	<Card.Content slot="content">Card Content</Card.Content>
+	<Card.Footer slot="footer">Card Footer</Card.Footer>
+	<Card.Actions slot="actions">
 		<Card.Actions.Action>
 			<Card.Actions.Action.Icon data={cog} slot="icon" />
 		</Card.Actions.Action>
@@ -208,70 +211,123 @@ export const example = `
 	</Card.Actions>
 </Card>`;
 
-export const exampleOverlay = `
-<script lang="ts">
-	import { Card, Media } from 'stwui';
-</script>
-
-<Card bordered={false} hoverable>
-   <Card.Cover slot="cover" class="relative rounded-b-md">
-      <img
-         src="image.png"
-         alt="cover"
-         class="object-cover object-center w-full h-full aspect-1"
-      />
-      <Card.Cover.Overlay class="top-[unset] h-24">
-         <Media class="absolute bottom-0 left-0 right-0 px-4 py-5">
-            <Media.Content>
-               <Media.Content.Title class="text-white">Europe Street beat</Media.Content.Title>
-               <Media.Content.Description class="text-gray-200">www.instagram.com</Media.Content.Description>
-            </Media.Content>
-         </Media>
-      </Card.Cover.Overlay>
-   </Card.Cover>
-</Card>`;
-
-export const exampleContent = `
-<script lang="ts">
-	import { Card, Media } from 'stwui';
-</script>
-
-<Card bordered={false}>
-   <Card.Cover slot="cover">
-      <img
-         src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
-         alt="cover"
-         class="object-cover object-center w-full h-full aspect-1"
-      />
-   </Card.Cover>
-   <Card.Content slot="content">
-      <Media>
-         <Media.Content>
-            <Media.Content.Title>Europe Street beat</Media.Content.Title>
-            <Media.Content.Description>www.instagram.com</Media.Content.Description>
-         </Media.Content>
-      </Media>
-   </Card.Content>
-</Card>`;
-
-export const exampleAnatomy = `
+export const basicExample = `
 <script lang="ts">
 	import { Card } from 'stwui';
-
-	const numeric_1_box = "svg-path";
-	const numeric_2_box = "svg-path";
 </script>
 
+<Card>
+	<Card.Content slot="content">I am a card!</Card.Content>
+</Card>`;
+
+export const coverExample = `
+<script lang="ts">
+	import { Card } from 'stwui';
+</script>
+
+<Card>
+	<Card.Cover slot="cover">
+		<img
+			src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
+			alt="cover"
+			class="object-cover object-center w-full aspect-1 h-[300px]"
+		/>
+	</Card.Cover>
+</Card>`;
+
+export const coverOverlayExample = `
+<script lang="ts">
+	import { Card } from 'stwui';
+</script>
+
+<Card>
+	<Card.Cover slot="cover">
+		<img
+			src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
+			alt="cover"
+			class="object-cover object-center w-full aspect-1 h-[300px]"
+		/>
+		<Card.Cover.Overlay class="top-[unset] h-24">
+			<Media class="absolute bottom-0 left-0 right-0 px-4 py-5">
+				<Media.Content>
+					<Media.Content.Title>Europe Street beat</Media.Content.Title>
+					<Media.Content.Description>www.instagram.com</Media.Content.Description>
+				</Media.Content>
+			</Media>
+		</Card.Cover.Overlay>
+	</Card.Cover>
+</Card>`;
+
+export const coverContentExample = `
+<script lang="ts">
+	import { Card } from 'stwui';
+</script>
+
+<Card class="max-w-[400px] m-auto">
+	<Card.Cover slot="cover">
+		<img
+			src="https://tailwindui.com/img/ecommerce-images/category-page-01-image-card-12.jpg"
+			alt="cover"
+			class="object-cover object-center w-full h-[300px] aspect-1"
+		/>
+	</Card.Cover>
+	<Card.Content slot="content">
+		<Media>
+			<Media.Content>
+				<Media.Content.Title>Europe Street beat</Media.Content.Title>
+				<Media.Content.Description>www.instagram.com</Media.Content.Description>
+			</Media.Content>
+		</Media>
+	</Card.Content>
+</Card>`;
+
+export const borderedExample = `
+<script lang="ts">
+	import { Card } from 'stwui';
+</script>
+
+<Card bordered>
+	<Card.Content slot="content">I borddered!</Card.Content>
+</Card>
+
 <Card bordered={false}>
-   <Card.Header slot="header">Card Header</Card.Header>
-   <Card.Content slot="content">Card Content</Card.Content>
-   <Card.Footer slot="footer">Card Footer</Card.Footer>
-   <Card.Actions slot="actions">
-		<Card.Actions.Action>
-			<Card.Actions.Action.Icon data={numeric_1_box} slot="icon" />
-		</Card.Actions.Action>
-		<Card.Actions.Action>
-			<Card.Actions.Action.Icon data={numeric_2_box} slot="icon" />
-		</Card.Actions.Action>
-	</Card.Actions>
+	<Card.Content slot="content">I don't have a border!</Card.Content>
+</Card>`;
+
+export const hoverableExample = `
+<script lang="ts">
+	import { Card } from 'stwui';
+</script>
+
+<Card hoverable>
+	<Card.Content slot="content">I am hoverable!</Card.Content>
+</Card>
+
+<Card>
+	<Card.Content slot="content">I am not hoverable!</Card.Content>
+</Card>`;
+
+export const elevationExample = `
+<script lang="ts">
+	import { Card } from 'stwui';
+</script>
+
+<Card elevation="none">
+	<Card.Content slot="content">elevation="none"</Card.Content>
+</Card>
+
+<Card elevation="sm">
+	<Card.Content slot="content">elevation="sm"</Card.Content>
+</Card>
+
+<Card elevation="md">
+	<Card.Content slot="content">elevation="md"</Card.Content>
+</Card>
+
+<Card elevation="lg">
+	<Card.Content slot="content">elevation="lg"</Card.Content>
+</Card>
+
+<Card elevation="xl">
+	<Card.Content slot="content">elevation="xl"</Card.Content>
 </Card>`;
