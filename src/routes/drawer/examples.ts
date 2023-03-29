@@ -99,6 +99,31 @@ export const example = `
 <Portal>
 	{#if open}
 		<Drawer handleClose={closeDrawer}>
+			<Drawer.Content slot="content">I am a Drawer</Drawer.Content>
+		</Drawer>
+	{/if}
+</Portal>`;
+
+export const headerAndFooterExample = `
+<script lang="ts">
+	import { Button, Portal } from 'stwui';
+
+   let open = false;
+
+   function openDrawer() {
+		open = true;
+	}
+
+   function closeDrawer() {
+		open = false;
+	}
+</script>
+
+<Button type="primary" on:click={openDrawer}>Open</Button>
+
+<Portal>
+	{#if open}
+		<Drawer handleClose={closeDrawer}>
 			<Drawer.Header slot="header">Drawer Header</Drawer.Header>
 			<Drawer.Content slot="content">Drawer Content</Drawer.Content>
 			<Drawer.Footer slot="footer">Drawer Footer</Drawer.Footer>
@@ -110,9 +135,18 @@ export const placementExample = `
 <script lang="ts">
 	import { Button, Portal } from 'stwui';
 
-   let drawerLeftOpen = false;
+	let drawerRightOpen = false;
+	let drawerLeftOpen = false;
 	let drawerTopOpen = false;
 	let drawerBottomOpen = false;
+
+   function openDrawerRight() {
+		drawerRightOpen = true;
+	}
+
+	function closeDrawerRight() {
+		drawerRightOpen = false;
+	}
 
    function openDrawerLeft() {
 		drawerLeftOpen = true;
@@ -139,11 +173,19 @@ export const placementExample = `
 	}
 </script>
 
+<Button type="primary" on:click={openDrawerRight}>Open Right</Button>
+
 <Button type="primary" on:click={openDrawerLeft}>Open Left</Button>
 
 <Button type="primary" on:click={openDrawerTop}>Open Top</Button>
 
 <Button type="primary" on:click={openDrawerBottom}>Open Bottom</Button>
+
+<Portal>
+	{#if drawerRightOpen}
+		<Drawer handleClose={closeDrawerRight} placement="right" />
+	{/if}
+</Portal>
 
 <Portal>
 	{#if drawerLeftOpen}

@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { Button, Card, Col, Drawer, Portal } from '../../lib';
+	import { Button, Drawer, Portal } from '../../lib';
 	import {
 		example,
 		placementExample,
+		headerAndFooterExample,
 		multiOneExample,
 		props,
 		slots,
@@ -10,14 +11,16 @@
 		contentSlots,
 		footerSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
+	let drawerDefaultOpen = false;
 	let drawerRightOpen = false;
 	let drawerLeftOpen = false;
 	let drawerTopOpen = false;
 	let drawerBottomOpen = false;
 	let drawerMultiOne = false;
 	let drawerInsideOpen = false;
+	let drawerHeaderAndFooterOpen = false;
 
 	function openMultiOneDrawer() {
 		drawerMultiOne = true;
@@ -33,6 +36,14 @@
 
 	function closeInsideDrawer() {
 		drawerInsideOpen = false;
+	}
+
+	function openDrawerDefault() {
+		drawerDefaultOpen = true;
+	}
+
+	function closeDrawerDefault() {
+		drawerDefaultOpen = false;
 	}
 
 	function openDrawerRight() {
@@ -66,63 +77,62 @@
 	function closeDrawerBottom() {
 		drawerBottomOpen = false;
 	}
+
+	function openDrawerHeaderAndFooter() {
+		drawerHeaderAndFooterOpen = true;
+	}
+
+	function closeDrawerHeaderAndFooter() {
+		drawerHeaderAndFooterOpen = false;
+	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Default</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button type="primary" on:click={openDrawerRight}>Open Right</Button>
+<ExampleContainer title="With placement">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<Button type="primary" on:click={openDrawerDefault}>Open Default</Button>
+	</div>
 
-			<br />
-			<br />
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="With placement">
+	<div slot="preview" class="w-full block m-auto gap-4 text-center">
+		<Button type="primary" on:click={openDrawerRight}>Open Right</Button>
+		<Button type="primary" on:click={openDrawerLeft}>Open Left</Button>
+		<Button type="primary" on:click={openDrawerTop}>Open Top</Button>
+		<Button type="primary" on:click={openDrawerBottom}>Open Bottom</Button>
+	</div>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">With Placement</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button type="primary" on:click={openDrawerLeft}>Open Left</Button>
-			<br />
-			<br />
-			<Button type="primary" on:click={openDrawerTop}>Open Top</Button>
-			<br />
-			<br />
-			<Button type="primary" on:click={openDrawerBottom}>Open Bottom</Button>
+	<CodeBlock slot="code" language="svelte" code={placementExample} />
+</ExampleContainer>
 
-			<br />
-			<br />
+<ExampleContainer title="With Header and Footer">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<Button type="primary" on:click={openDrawerHeaderAndFooter}>Open Header and Footer</Button>
+	</div>
 
-			<CodeBlock language="svelte" code={placementExample} />
-		</Card.Content>
-	</Card>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={headerAndFooterExample} />
+</ExampleContainer>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Multiple Drawer Levels</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button type="primary" on:click={openMultiOneDrawer}>Open Right</Button>
+<ExampleContainer title="With Header and Footer">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<Button type="primary" on:click={openMultiOneDrawer}>Open Multi-Drawer</Button>
+	</div>
 
-			<br />
-			<br />
+	<CodeBlock slot="code" language="svelte" code={multiOneExample} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={multiOneExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<Portal>
+	{#if drawerDefaultOpen}
+		<Drawer handleClose={closeDrawerDefault}
+			><Drawer.Content slot="content">I am a Drawer</Drawer.Content></Drawer
+		>
+	{/if}
+</Portal>
 
 <Portal>
 	{#if drawerRightOpen}
-		<Drawer handleClose={closeDrawerRight}>
-			<Drawer.Header slot="header">Drawer Header</Drawer.Header>
-			<Drawer.Content slot="content">Drawer Content</Drawer.Content>
-			<Drawer.Footer slot="footer">Drawer Footer</Drawer.Footer>
-		</Drawer>
+		<Drawer handleClose={closeDrawerRight} />
 	{/if}
 </Portal>
 
@@ -145,40 +155,41 @@
 </Portal>
 
 <Portal>
+	{#if drawerHeaderAndFooterOpen}
+		<Drawer handleClose={closeDrawerHeaderAndFooter} placement="right">
+			<Drawer.Header slot="header">Drawer Header</Drawer.Header>
+			<Drawer.Content slot="content">Drawer Content</Drawer.Content>
+			<Drawer.Footer slot="footer">Drawer Footer</Drawer.Footer>
+		</Drawer>
+	{/if}
+</Portal>
+
+<Portal>
 	{#if drawerMultiOne}
 		<Drawer handleClose={closeMultiOneDrawer}>
 			<Drawer.Header slot="header">Drawer Header</Drawer.Header>
-			<Drawer.Content slot="content"
-				>Drawer Content
+			<Drawer.Content slot="content" class="flex flex-col items-center justify-center">
 				<Button type="primary" on:click={openInsideDrawer}>Open Drawer</Button>
 			</Drawer.Content>
 			<Drawer.Footer slot="footer">Drawer Footer</Drawer.Footer>
 
 			<Portal>
 				{#if drawerInsideOpen}
-					<Drawer handleClose={closeInsideDrawer}>Content</Drawer>
+					<Drawer handleClose={closeInsideDrawer}>
+						<Drawer.Content slot="content">I am an Inner Drawer</Drawer.Content>
+					</Drawer>
 				{/if}
 			</Portal>
 		</Drawer>
 	{/if}
 </Portal>
 
-<Col class="col-24">
-	<PropsTable component="Drawer" {props} />
-</Col>
+<PropsTable component="Drawer" {props} />
 
-<Col class="col-24">
-	<SlotsTable component="Drawer" {slots} />
-</Col>
+<SlotsTable component="Drawer" {slots} />
 
-<Col class="col-24">
-	<SlotsTable component="Drawer.Header" slots={headerSlots} />
-</Col>
+<SlotsTable component="Drawer.Header" slots={headerSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Drawer.Content" slots={contentSlots} />
-</Col>
+<SlotsTable component="Drawer.Content" slots={contentSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Drawer.Footer" slots={footerSlots} />
-</Col>
+<SlotsTable component="Drawer.Footer" slots={footerSlots} />
