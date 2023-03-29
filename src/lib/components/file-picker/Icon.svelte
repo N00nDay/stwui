@@ -42,6 +42,7 @@
 		{viewBox}
 		{stroke}
 		{fill}
+		{color}
 		use:useActions={use}
 		use:forwardEvents
 		{...exclude($$props, [
