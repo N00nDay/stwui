@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.9.0-next](https://github.com/N00nDay/stwui/compare/v0.8.0-next...v0.9.0-next) (2023-03-30)
+
+
+### Features
+
+* **Avatar:** all Avatar components Placeholders can be disabled setting placeholder prop to false ([39301cb](https://github.com/N00nDay/stwui/commit/39301cb02a0c8d2a1347beb76fe3f4cd1c472643))
+
+
+### Bug Fixes
+
+* **Icons:** color prop has been has been added ([1e2383a](https://github.com/N00nDay/stwui/commit/1e2383a828ca0f389afbe60abd77b21196754aa6))
+
 ## [0.8.0-next](https://github.com/N00nDay/stwui/compare/v0.7.0-next...v0.8.0-next) (2023-03-14)
 
 
