@@ -14,6 +14,7 @@
 	export let alt = 'avatar';
 	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
 	export let initials: string | undefined = undefined;
+	export let placeholder = true;
 
 	let loaded = false;
 	let failed = false;
@@ -63,6 +64,7 @@
 
 	setContext('media-avatar-shape', shape);
 	setContext('media-avatar-size', size);
+	setContext('media-avatar-placeholder', placeholder);
 
 	onMount(() => {
 		if (src) {

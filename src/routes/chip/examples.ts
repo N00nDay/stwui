@@ -50,6 +50,12 @@ export const avatarProps: Prop[] = [
 		prop: 'alt',
 		type: 'string',
 		default: 'user-avatar'
+	},
+	{
+		id: '3',
+		prop: 'placeholder',
+		type: 'boolean',
+		default: 'true'
 	}
 ];
 

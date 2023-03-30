@@ -13,6 +13,7 @@
 	export let loading = false;
 
 	const shape: 'circle' | 'rounded' | 'square' = getContext('post-avatar-shape');
+	const placeholder: boolean = getContext('post-avatar-placeholder');
 
 	const iconContainerClass = 'absolute text-content h-full w-full bottom-[-0.5rem]';
 
@@ -42,7 +43,7 @@
 	{#if $$slots.icon || $$slots.default}
 		<slot name="icon" />
 		<slot />
-	{:else}
+	{:else if placeholder}
 		<span class={iconContainerClass}>
 			<Icon data={account} size="40px" />
 		</span>

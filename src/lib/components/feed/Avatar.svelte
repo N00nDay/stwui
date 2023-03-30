@@ -16,6 +16,7 @@
 	export let alt = 'avatar';
 	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
 	export let initials: string | undefined = undefined;
+	export let placeholder = true;
 
 	let loaded = false;
 	let failed = false;
@@ -48,6 +49,7 @@
 	);
 
 	setContext('feed-avatar-shape', shape);
+	setContext('feed-avatar-placeholder', placeholder);
 
 	onMount(() => {
 		if (src) {

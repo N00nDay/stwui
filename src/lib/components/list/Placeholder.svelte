@@ -14,6 +14,7 @@
 
 	const shape: 'circle' | 'rounded' | 'square' = getContext('list-avatar-shape');
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('list-avatar-size');
+	const placeholder: boolean = getContext('list-avatar-placeholder');
 
 	const defaultClass =
 		'absolute text-content inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default';
@@ -70,7 +71,7 @@
 	{#if $$slots.icon || $$slots.default}
 		<slot name="icon" />
 		<slot />
-	{:else}
+	{:else if placeholder}
 		<span class={iconContainerClass}>
 			<Icon data={account} size={iconSize} />
 		</span>

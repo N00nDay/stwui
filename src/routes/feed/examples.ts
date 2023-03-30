@@ -67,6 +67,12 @@ export const avatarProps: Prop[] = [
 		prop: 'size',
 		type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
 		default: 'sm'
+	},
+	{
+		id: '3',
+		prop: 'placeholder',
+		type: 'boolean',
+		default: 'true'
 	}
 ];
 

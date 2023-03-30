@@ -30,6 +30,12 @@ export const props: Prop[] = [
 		prop: 'initials',
 		type: 'string',
 		default: ''
+	},
+	{
+		id: '6',
+		prop: 'placeholder',
+		type: 'boolean',
+		default: 'true'
 	}
 ];
 

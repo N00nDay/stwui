@@ -14,6 +14,7 @@
 
 	const shape: 'circle' | 'rounded' | 'square' = getContext('notification-avatar-shape');
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('notification-avatar-size');
+	const placeholder: boolean = getContext('notification-avatar-placeholder');
 
 	const defaultClass =
 		'absolute text-content inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default';
@@ -70,7 +71,7 @@
 	{#if $$slots.icon || $$slots.default}
 		<slot name="icon" />
 		<slot />
-	{:else}
+	{:else if placeholder}
 		<span class={iconContainerClass}>
 			<Icon data={account} size={iconSize} />
 		</span>

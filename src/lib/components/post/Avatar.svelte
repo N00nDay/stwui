@@ -11,6 +11,7 @@
 	export let src: string | undefined = undefined;
 	export let alt = 'avatar';
 	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
+	export let placeholder = true;
 
 	let loaded = false;
 	let failed = false;
@@ -37,6 +38,7 @@
 	);
 
 	setContext('post-avatar-shape', shape);
+	setContext('post-avatar-placeholder', placeholder);
 
 	onMount(() => {
 		if (src) {

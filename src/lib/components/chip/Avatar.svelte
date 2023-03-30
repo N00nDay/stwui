@@ -12,6 +12,7 @@
 	export let alt = 'user-avatar';
 	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
 	export let initials: string | undefined = undefined;
+	export let placeholder = true;
 
 	let loaded = false;
 	let failed = false;
@@ -65,6 +66,7 @@
 	setContext('chip-avatar-alt', alt);
 	setContext('chip-avatar-shape', shape);
 	setContext('chip-avatar-size', size);
+	setContext('chip-avatar-placeholder', placeholder);
 
 	onMount(() => {
 		if (src) {

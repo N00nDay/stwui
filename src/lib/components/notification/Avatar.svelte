@@ -13,6 +13,7 @@
 	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 	export let initials: string | undefined = undefined;
+	export let placeholder = true;
 
 	let loaded = false;
 	let failed = false;
@@ -62,6 +63,7 @@
 
 	setContext('notification-avatar-shape', shape);
 	setContext('notification-avatar-size', size);
+	setContext('notification-avatar-placeholder', placeholder);
 
 	onMount(() => {
 		if (src) {

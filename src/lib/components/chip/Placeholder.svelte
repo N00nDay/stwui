@@ -14,6 +14,7 @@
 
 	const shape: 'circle' | 'rounded' | 'square' = getContext('chip-avatar-shape');
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('chip-avatar-size');
+	const placeholder: boolean = getContext('chip-avatar-placeholder');
 
 	const defaultClass =
 		'absolute text-default-content flex items-center justify-center overflow-hidden bg-default inset-[0.2rem] bg-background';
@@ -70,7 +71,7 @@
 	{#if $$slots.icon || $$slots.default}
 		<slot name="icon" />
 		<slot />
-	{:else}
+	{:else if placeholder}
 		<span class={iconContainerClass}>
 			<Icon data={account} size={iconSize} />
 		</span>

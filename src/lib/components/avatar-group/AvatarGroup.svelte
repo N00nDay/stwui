@@ -9,6 +9,7 @@
 
 	export let shape: 'circle' | 'rounded' | 'square' = 'circle';
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+	export let placeholder = true;
 
 	const xsClass = 'flex overflow-hidden p-0.5 -space-x-1';
 	const smClass = 'flex overflow-hidden p-0.5 -space-x-2';
@@ -28,6 +29,7 @@
 
 	setContext('avatar-group-shape', shape);
 	setContext('avatar-group-size', size);
+	setContext('avatar-group-placeholder', placeholder);
 </script>
 
 <div

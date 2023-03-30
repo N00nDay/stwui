@@ -13,6 +13,7 @@
 	export let loading = false;
 
 	const shape: 'circle' | 'rounded' | 'square' = getContext('feed-avatar-shape');
+	const placeholder: boolean = getContext('feed-avatar-placeholder');
 
 	const iconContainerClass = 'absolute text-content h-full w-full';
 	const defaultClass =
@@ -42,7 +43,7 @@
 	{#if $$slots.icon || $$slots.default}
 		<slot name="icon" />
 		<slot />
-	{:else}
+	{:else if placeholder}
 		<span class={iconContainerClass}>
 			<Icon data={account} />
 		</span>
