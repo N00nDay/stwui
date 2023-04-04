@@ -87,7 +87,7 @@
 	}
 </script>
 
-<ExampleContainer title="With placement">
+<ExampleContainer title="Default Drawer">
 	<div slot="preview" class="w-full block m-auto gap-2 text-center">
 		<Button type="primary" on:click={openDrawerDefault}>Open Default</Button>
 	</div>
