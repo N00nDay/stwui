@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.1-next](https://github.com/N00nDay/stwui/compare/v0.9.0-next...v0.9.1-next) (2023-04-08)
+
+
+### Bug Fixes
+
+* **Drawer:** fixed default example title ([5a01225](https://github.com/N00nDay/stwui/commit/5a0122537f3a4bf5843a9d4037474a31a46b39eb))
+
 ## [0.9.0-next](https://github.com/N00nDay/stwui/compare/v0.8.0-next...v0.9.0-next) (2023-03-30)
 
 
