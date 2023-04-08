@@ -124,25 +124,33 @@ export const iconProps: Prop[] = [
 	}
 ];
 
-export const example = `
+export const examplePlacement = `
 <script lang="ts">
 	import { Dropdown, Button, Badge } from 'stwui';
 
-   let visible = false;
+   let visible1 = false;
+	let visible2 = false;
 
-	function closeDropdown() {
-		console.log('do something');
-		visible = false;
+	function closeDropdown1() {
+		visible1 = false;
 	}
 
-	function toggleDropdown() {
-		visible = !visible;
+	function toggleDropdown1() {
+		visible1 = !visible1;
+	}
+
+	function closeDropdown2() {
+		visible2 = false;
+	}
+
+	function toggleDropdown2() {
+		visible2 = !visible2;
 	}
 </script>
 
 <Dropdown bind:visible={visible1}>
-	<Button slot="trigger" type="primary" on:click={toggleDropdown1}>Toggle Dropdown</Button>
-	<Dropdown.Items slot="items" placement="bottom" alignment="start">
+	<Button slot="trigger" type="primary" on:click={toggleDropdown1}>Default Placement</Button>
+	<Dropdown.Items slot="items">
 		<Dropdown.Items.Item on:click={closeDropdown1} label="Item 1">
 			<Dropdown.Items.Item.Icon slot="icon" data={trash} />
 		</Dropdown.Items.Item>
@@ -158,5 +166,130 @@ export const example = `
 			Home
 			<Button.Trailing slot="trailing" data={home} />
 		</Button>
+	</Dropdown.Items>
+</Dropdown>
+
+<Dropdown bind:visible={visible2}>
+	<Button slot="trigger" type="primary" on:click={toggleDropdown2}>Placement Top</Button>
+	<Dropdown.Items slot="items" placement="top">
+		<Dropdown.Items.Item on:click={closeDropdown2} label="Item 1">
+			<Dropdown.Items.Item.Icon slot="icon" data={trash} />
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Item on:click={closeDropdown2} label="Item 2">
+			<Dropdown.Items.Item.Icon slot="extra" data={trash} />
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Item on:click={closeDropdown2} label="Notifications">
+			<Badge type="info" slot="extra">+99</Badge>
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Divider />
+		<Button type="danger" class="w-full justify-between">
+			<Button.Leading slot="leading" data={home} />
+			Home
+			<Button.Trailing slot="trailing" data={home} />
+		</Button>
+	</Dropdown.Items>
+</Dropdown>`;
+
+export const exampleAlignment = `
+<script lang="ts">
+	import { Dropdown, Button, Badge } from 'stwui';
+
+   let visible1 = false;
+	let visible2 = false;
+
+	function closeDropdown1() {
+		visible1 = false;
+	}
+
+	function toggleDropdown1() {
+		visible1 = !visible1;
+	}
+
+	function closeDropdown2() {
+		visible2 = false;
+	}
+
+	function toggleDropdown2() {
+		visible2 = !visible2;
+	}
+</script>
+
+<Dropdown bind:visible={visible1}>
+	<Button slot="trigger" type="primary" on:click={toggleDropdown1}>Default Alignment</Button>
+	<Dropdown.Items slot="items">
+		<Dropdown.Items.Item on:click={closeDropdown1} label="Item 1">
+			<Dropdown.Items.Item.Icon slot="icon" data={trash} />
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Item on:click={closeDropdown1} label="Item 2">
+			<Dropdown.Items.Item.Icon slot="extra" data={trash} />
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Item on:click={closeDropdown1} label="Notifications">
+			<Badge type="info" slot="extra">+99</Badge>
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Divider />
+		<Button type="danger" class="w-full justify-between">
+			<Button.Leading slot="leading" data={home} />
+			Home
+			<Button.Trailing slot="trailing" data={home} />
+		</Button>
+	</Dropdown.Items>
+</Dropdown>
+
+<Dropdown bind:visible={visible2}>
+	<Button slot="trigger" type="primary" on:click={toggleDropdown2}>Alignment End</Button>
+	<Dropdown.Items slot="items" alignment="end">
+		<Dropdown.Items.Item on:click={closeDropdown2} label="Item 1">
+			<Dropdown.Items.Item.Icon slot="icon" data={trash} />
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Item on:click={closeDropdown2} label="Item 2">
+			<Dropdown.Items.Item.Icon slot="extra" data={trash} />
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Item on:click={closeDropdown2} label="Notifications">
+			<Badge type="info" slot="extra">+99</Badge>
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Divider />
+		<Button type="danger" class="w-full justify-between">
+			<Button.Leading slot="leading" data={home} />
+			Home
+			<Button.Trailing slot="trailing" data={home} />
+		</Button>
+	</Dropdown.Items>
+</Dropdown>`;
+
+export const exampleAvatar = `
+<script lang="ts">
+	import { Dropdown, Button, Badge } from 'stwui';
+
+   let visible = false;
+
+	function closeDropdown() {
+		visible = false;
+	}
+
+	function toggleDropdown() {
+		visible = !visible;
+	}
+</script>
+
+<Dropdown bind:visible={visible}>
+	<button
+		aria-label="dropdown toggle"
+		slot="trigger"
+		on:click={toggleDropdown}
+		type="button"
+		class="bg-white flex text-sm rounded-full h-10 w-10 active:hover:animate-none active:hover:scale-95"
+		id="user-menu-button"
+	>
+		<span class="sr-only">Open user menu</span>
+		<img
+			class="h-full w-full rounded-full"
+			src="image-src"
+			alt=""
+		/>
+	</button>
+	<Dropdown.Items slot="items">
+		<Dropdown.Items.Item on:click={closeDropdown} label="Item 1" />
+		<Dropdown.Items.Item on:click={closeDropdown} label="Item 2" />
+		<Dropdown.Items.Item on:click={closeDropdown} label="Item 3" />
 	</Dropdown.Items>
 </Dropdown>`;

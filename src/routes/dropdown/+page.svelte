@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { Dropdown, Button, Card, Col, Badge } from '../../lib';
+	import { Dropdown, Button, Col, Badge } from '../../lib';
 	import {
-		example,
+		examplePlacement,
+		exampleAlignment,
+		exampleAvatar,
 		props,
 		slots,
 		itemsProps,
@@ -10,110 +12,191 @@
 		itemProps,
 		iconProps
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home, trash } from '../../docs/icons';
 
 	let visible1 = false;
 	let visible2 = false;
-
-	function closeDropdown1() {
-		console.log('do something');
-		visible1 = false;
-	}
+	let visible3 = false;
+	let visible4 = false;
+	let visible5 = false;
 
 	function toggleDropdown1() {
 		visible1 = !visible1;
 	}
 
-	function closeDropdown2() {
-		console.log('do something');
-		visible2 = false;
+	function closeDropdown1() {
+		visible1 = false;
 	}
 
 	function toggleDropdown2() {
 		visible2 = !visible2;
 	}
+
+	function closeDropdown2() {
+		visible2 = false;
+	}
+
+	function toggleDropdown3() {
+		visible3 = !visible3;
+	}
+
+	function closeDropdown3() {
+		visible3 = false;
+	}
+
+	function toggleDropdown4() {
+		visible4 = !visible4;
+	}
+
+	function closeDropdown4() {
+		visible4 = false;
+	}
+
+	function toggleDropdown5() {
+		visible5 = !visible5;
+	}
+
+	function closeDropdown5() {
+		visible5 = false;
+	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
-			<div class="flex justify-between items-center flex-row">
-				<Dropdown bind:visible={visible1}>
-					<Button slot="trigger" type="primary" on:click={toggleDropdown1}>Toggle Dropdown</Button>
-					<Dropdown.Items slot="items" placement="bottom" alignment="start">
-						<Dropdown.Items.Item on:click={closeDropdown1} label="Item 1">
-							<Dropdown.Items.Item.Icon slot="icon" data={trash} />
-						</Dropdown.Items.Item>
-						<Dropdown.Items.Item on:click={closeDropdown1} label="Item 2">
-							<Dropdown.Items.Item.Icon slot="extra" data={trash} />
-						</Dropdown.Items.Item>
-						<Dropdown.Items.Item on:click={closeDropdown1} label="Notifications">
-							<Badge type="info" slot="extra">+99</Badge>
-						</Dropdown.Items.Item>
-						<Dropdown.Items.Divider />
-						<Button type="danger" class="w-full justify-between">
-							<Button.Leading slot="leading" data={home} />
-							Home
-							<Button.Trailing slot="trailing" data={home} />
-						</Button>
-					</Dropdown.Items>
-				</Dropdown>
+<ExampleContainer title="With Placement">
+	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
+		<Dropdown bind:visible={visible1}>
+			<Button slot="trigger" type="primary" on:click={toggleDropdown1}>Default Placement</Button>
+			<Dropdown.Items slot="items" alignment="start">
+				<Dropdown.Items.Item on:click={closeDropdown1} label="Item 1">
+					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown1} label="Item 2">
+					<Dropdown.Items.Item.Icon slot="extra" data={trash} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown1} label="Notifications">
+					<Badge type="info" slot="extra">+99</Badge>
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Divider />
+				<Button type="danger" class="w-full justify-between">
+					<Button.Leading slot="leading" data={home} />
+					Home
+					<Button.Trailing slot="trailing" data={home} />
+				</Button>
+			</Dropdown.Items>
+		</Dropdown>
 
-				<Dropdown bind:visible={visible2}>
-					<button
-						aria-label="dropdown toggle"
-						slot="trigger"
-						on:click={toggleDropdown2}
-						type="button"
-						class="bg-white flex text-sm rounded-full h-10 w-10 active:hover:animate-none active:hover:scale-95"
-						id="user-menu-button"
-					>
-						<span class="sr-only">Open user menu</span>
-						<img
-							class="h-full w-full rounded-full"
-							src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&h=256&q=80"
-							alt=""
-						/>
-					</button>
-					<Dropdown.Items slot="items" placement="bottom" alignment="end">
-						<Dropdown.Items.Item on:click={closeDropdown2} label="Item 1" />
-						<Dropdown.Items.Item on:click={closeDropdown2} label="Item 2" />
-						<Dropdown.Items.Item on:click={closeDropdown2} label="Item 3" />
-					</Dropdown.Items>
-				</Dropdown>
-			</div>
-			<br />
+		<Dropdown bind:visible={visible2}>
+			<Button slot="trigger" type="primary" on:click={toggleDropdown2}>Placement Top</Button>
+			<Dropdown.Items slot="items" placement="top" alignment="start">
+				<Dropdown.Items.Item on:click={closeDropdown2} label="Item 1">
+					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown2} label="Item 2">
+					<Dropdown.Items.Item.Icon slot="extra" data={trash} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown2} label="Notifications">
+					<Badge type="info" slot="extra">+99</Badge>
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Divider />
+				<Button type="danger" class="w-full justify-between">
+					<Button.Leading slot="leading" data={home} />
+					Home
+					<Button.Trailing slot="trailing" data={home} />
+				</Button>
+			</Dropdown.Items>
+		</Dropdown>
+	</div>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={examplePlacement} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<PropsTable component="Dropdown" {props} />
-</Col>
+<ExampleContainer title="With Alignment">
+	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
+		<Dropdown bind:visible={visible3}>
+			<Button slot="trigger" type="primary" on:click={toggleDropdown3}>Default Alignment</Button>
+			<Dropdown.Items slot="items">
+				<Dropdown.Items.Item on:click={closeDropdown3} label="Item 1">
+					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown3} label="Item 2">
+					<Dropdown.Items.Item.Icon slot="extra" data={trash} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown3} label="Notifications">
+					<Badge type="info" slot="extra">+99</Badge>
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Divider />
+				<Button type="danger" class="w-full justify-between">
+					<Button.Leading slot="leading" data={home} />
+					Home
+					<Button.Trailing slot="trailing" data={home} />
+				</Button>
+			</Dropdown.Items>
+		</Dropdown>
 
-<Col class="col-24">
-	<SlotsTable component="Dropdown" {slots} />
-</Col>
+		<Dropdown bind:visible={visible4}>
+			<Button slot="trigger" type="primary" on:click={toggleDropdown4}>Alignment End</Button>
+			<Dropdown.Items slot="items" alignment="end">
+				<Dropdown.Items.Item on:click={closeDropdown4} label="Item 1">
+					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown4} label="Item 2">
+					<Dropdown.Items.Item.Icon slot="extra" data={trash} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown4} label="Notifications">
+					<Badge type="info" slot="extra">+99</Badge>
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Divider />
+				<Button type="danger" class="w-full justify-between">
+					<Button.Leading slot="leading" data={home} />
+					Home
+					<Button.Trailing slot="trailing" data={home} />
+				</Button>
+			</Dropdown.Items>
+		</Dropdown>
+	</div>
 
-<Col class="col-24">
-	<PropsTable component="Dropdown.Items" props={itemsProps} />
-</Col>
+	<CodeBlock slot="code" language="svelte" code={exampleAlignment} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<SlotsTable component="Dropdown.Items" slots={itemsSlots} />
-</Col>
+<ExampleContainer title="Avatar Dropdown">
+	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
+		<Dropdown bind:visible={visible5}>
+			<button
+				aria-label="dropdown toggle"
+				slot="trigger"
+				on:click={toggleDropdown5}
+				type="button"
+				class="bg-white flex text-sm rounded-full h-10 w-10 active:hover:animate-none active:hover:scale-95"
+				id="user-menu-button"
+			>
+				<span class="sr-only">Open user menu</span>
+				<img
+					class="h-full w-full rounded-full"
+					src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&h=256&q=80"
+					alt=""
+				/>
+			</button>
+			<Dropdown.Items slot="items">
+				<Dropdown.Items.Item on:click={closeDropdown5} label="Item 1" />
+				<Dropdown.Items.Item on:click={closeDropdown5} label="Item 2" />
+				<Dropdown.Items.Item on:click={closeDropdown5} label="Item 3" />
+			</Dropdown.Items>
+		</Dropdown>
+	</div>
 
-<Col class="col-24">
-	<PropsTable component="Dropdown.Items.Item" props={itemProps} />
-</Col>
+	<CodeBlock slot="code" language="svelte" code={exampleAvatar} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<SlotsTable component="Dropdown.Items.Item" slots={itemSlots} />
-</Col>
+<PropsTable component="Dropdown" {props} />
 
-<Col class="col-24">
-	<PropsTable component="Dropdown.Items.Item.Icon" props={iconProps} />
-</Col>
+<SlotsTable component="Dropdown" {slots} />
+
+<PropsTable component="Dropdown.Items" props={itemsProps} />
+
+<SlotsTable component="Dropdown.Items" slots={itemsSlots} />
+
+<PropsTable component="Dropdown.Items.Item" props={itemProps} />
+
+<SlotsTable component="Dropdown.Items.Item" slots={itemSlots} />
+
+<PropsTable component="Dropdown.Items.Item.Icon" props={iconProps} />
