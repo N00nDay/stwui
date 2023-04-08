@@ -298,6 +298,8 @@ export const exampleImplementation = `
 </script>
 
 <FilePicker
+	name="file-picker-5"
+	files={$myFiles}
 	{onDrop}
 	multiple
 	accept="image/*"
@@ -305,109 +307,98 @@ export const exampleImplementation = `
 >
 	<FilePicker.Icon slot="icon" data={cloud_upload} />
 	<FilePicker.Title slot="title">Upload multiple images</FilePicker.Title>
-	<FilePicker.Description slot="description">Drag & Drop an image to preview it</FilePicker.Description>
+	<FilePicker.Description slot="description">
+		Drag & Drop an image to preview it
+	</FilePicker.Description>
 </FilePicker>
 
-{#if errors.length > 0}
-	<span class="text-md text-danger">
-		Error uploading the following files: {errors.join(', ')}
-	</span>
-{/if}
+<br />
 
-<List>
-	{#each myFiles as myFile, index}
-		{@const { file, src, progress } = myFile}
-		<div transition:slide>
-			<List.Item>
-				<List.Item.Leading slot="leading">
-					{#if file.type.startsWith('image/')}
-						<List.Item.Leading.Avatar slot="avatar" {src} alt={file.name} />
-					{/if}
-				</List.Item.Leading>
-				<List.Item.Content slot="content">
-					<List.Item.Content.Title slot="title">{file.name}</List.Item.Content.Title>
-					<List.Item.Content.Description slot="description" class="w-full">
-						{#if progress != null}
-							<Progress value={parseFloat(progress.toFixed(0))} displayValue />
-						{:else}
-							{formatFileSize(file.size)}
-						{/if}
-					</List.Item.Content.Description>
-				</List.Item.Content>
-				<List.Item.Extra slot="extra" placement="start">
-					{#if progress === 100}
-						<Button>
-							<Button.Icon slot="icon" class="text-primary" data={check} />
-						</Button>
-					{:else}
-						{#if progress == null}
-							<Button on:click={() => uploadFile(myFile)}>
-								<Button.Icon slot="icon" data={play} />
-							</Button>
-						{/if}
-						<Button on:click={() => removeFile(myFile)}>
-							<Button.Icon slot="icon" data={close} />
-						</Button>
-					{/if}
-				</List.Item.Extra>
-			</List.Item>
-		</div>
-	{/each}
-</List>
+{#if $myFiles.length > 0}
+	<div transition:fade class="w-full max-w-xl">
+		<FilePreview bordered class="rounded-md">
+			{#each $myFiles as currentFile (currentFile.src)}
+				{@const { file, src, progress, status } = currentFile}
+				<div transition:slide|local>
+					<FilePreview.Item
+						class="flex flex-row cursor-pointer"
+						on:click={() => handleFileClick(currentFile)}
+					>
+						<FilePreview.Item.Leading slot="leading" class="h-8 w-8 min-w-[2rem] min-h-[2rem]">
+							{#if file.type.startsWith('image/')}
+								<FilePreview.Item.Leading.Avatar
+									slot="avatar"
+									size="sm"
+									{src}
+									alt={file.name}
+								/>
+							{:else}
+								<FilePreview.Item.Leading.Icon
+									slot="icon"
+									data={file_document}
+									class="h-5 w-5"
+								/>
+							{/if}
+						</FilePreview.Item.Leading>
 
-{#if myFiles.length > 0}
-	<div class="flex justify-end">
-		<Button
-			type="primary"
-			loading={uploading}
-			disabled={uploading}
-			on:click={uploadAllFiles}
-		>
-			{uploading ? 'uploading ...' : 'Begin upload'}
-		</Button>
+						<FilePreview.Item.FileContent slot="file-content">
+							<FilePreview.Item.FileContent.Title slot="title">
+								{file.name}
+							</FilePreview.Item.FileContent.Title>
+							<FilePreview.Item.FileContent.Description slot="description">
+								{formatFileSize(file.size)}
+							</FilePreview.Item.FileContent.Description>
+						</FilePreview.Item.FileContent>
+
+						<FilePreview.Item.UploadContent slot="upload-content">
+							<FilePreview.Item.UploadContent.Status slot="status">
+								{#if status === UploadStatus.FAILED}
+									Upload Failed
+								{:else if status === UploadStatus.COMPLETE}
+									Upload Complete
+								{:else if status === UploadStatus.UPLOADING}
+									Uploading {#if progress}{progress.toFixed(0)}%{:else}0%{/if}
+								{:else if status === UploadStatus.REJECTED}
+									Upload Rejected
+								{:else if status === UploadStatus.PENDING}
+									Pending Upload
+								{/if}
+							</FilePreview.Item.UploadContent.Status>
+							<FilePreview.Item.UploadContent.Action slot="action">
+								{#if status === UploadStatus.FAILED}
+									Tap to retry
+								{:else if status === UploadStatus.COMPLETE}
+									Tap to undo
+								{:else if status === UploadStatus.UPLOADING}
+									Tap to cancel
+								{:else if status === UploadStatus.REJECTED}
+									Tap to remove
+								{:else if status === UploadStatus.PENDING}
+									Tap to cancel
+								{/if}
+							</FilePreview.Item.UploadContent.Action>
+						</FilePreview.Item.UploadContent>
+
+						<FilePreview.Item.Extra
+							slot="extra"
+							placement="center"
+							class="justify-center items-center flex"
+						>
+							{#if status === UploadStatus.FAILED}
+								<FilePreview.Item.Extra.Failed />
+							{:else if status === UploadStatus.COMPLETE}
+								<FilePreview.Item.Extra.Complete />
+							{:else if status === UploadStatus.UPLOADING && progress !== undefined}
+								<FilePreview.Item.Extra.Uploading {progress} />
+							{:else if status === UploadStatus.REJECTED}
+								<FilePreview.Item.Extra.Rejected />
+							{:else if status === UploadStatus.PENDING}
+								<FilePreview.Item.Extra.Pending />
+							{/if}
+						</FilePreview.Item.Extra>
+					</FilePreview.Item>
+				</div>
+			{/each}
+		</FilePreview>
 	</div>
 {/if}`;
-
-export const exampleMinimalistic = `
-<script lang="ts">
-   import { FilePicker, Progress, Button } from 'stwui';
-
-	let minFile: File | undefined;
-	let minUploading: boolean = false;
-	let minProgress: number | undefined = undefined;
-
-	async function minimalisticDrop(files: DropResult) {
-		if (!files.accepted.length) return;
-
-		minUploading = true;
-		minFile = files.accepted[0];
-
-		/* TODO: Upload the file to your server*/
-
-		minUploading = false;
-	}
-
-</script>
-
-
-<div class="flex flex-col w-full justify-center items-center">
-	{#if minUploading && minProgress != null}
-		<span in:fade class="w-full flex justify-center items-center">
-			<Progress value={parseFloat(minProgress.toPrecision(2))} radial />
-		</span>
-	{:else if !minUploading && minFile}
-		<div class="flex items-center space-x-2">
-			<h4 transition:slide><b>{minFile.name}</b> was uploaded successfully!</h4>
-			<Button on:click={resetMinimalistic}>
-				<Button.Icon slot="icon" data={close} />
-			</Button>
-		</div>
-	{:else}
-		<FilePicker
-			class="w-1/4 aspect-square flex flex-col justify-center"
-			onDrop={(files) => minimalisticDrop(files)}
-		>
-			<FilePicker.Icon slot="icon" data={cloud_upload} class="filter-gray-500" />
-		</FilePicker>
-	{/if}
-</div>`;
