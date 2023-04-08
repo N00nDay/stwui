@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Dropdown, Button, Col, Badge } from '../../lib';
+	import { Dropdown, Button, Badge } from '../../lib';
 	import {
 		examplePlacement,
 		exampleAlignment,
@@ -20,6 +20,7 @@
 	let visible3 = false;
 	let visible4 = false;
 	let visible5 = false;
+	let visible6 = false;
 
 	function toggleDropdown1() {
 		visible1 = !visible1;
@@ -60,13 +61,21 @@
 	function closeDropdown5() {
 		visible5 = false;
 	}
+
+	function toggleDropdown6() {
+		visible6 = !visible6;
+	}
+
+	function closeDropdown6() {
+		visible6 = false;
+	}
 </script>
 
 <ExampleContainer title="With Placement">
 	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
 		<Dropdown bind:visible={visible1}>
 			<Button slot="trigger" type="primary" on:click={toggleDropdown1}>Default Placement</Button>
-			<Dropdown.Items slot="items" alignment="start">
+			<Dropdown.Items slot="items">
 				<Dropdown.Items.Item on:click={closeDropdown1} label="Item 1">
 					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
 				</Dropdown.Items.Item>
@@ -87,7 +96,7 @@
 
 		<Dropdown bind:visible={visible2}>
 			<Button slot="trigger" type="primary" on:click={toggleDropdown2}>Placement Top</Button>
-			<Dropdown.Items slot="items" placement="top" alignment="start">
+			<Dropdown.Items slot="items" placement="top">
 				<Dropdown.Items.Item on:click={closeDropdown2} label="Item 1">
 					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
 				</Dropdown.Items.Item>
@@ -134,8 +143,8 @@
 		</Dropdown>
 
 		<Dropdown bind:visible={visible4}>
-			<Button slot="trigger" type="primary" on:click={toggleDropdown4}>Alignment End</Button>
-			<Dropdown.Items slot="items" alignment="end">
+			<Button slot="trigger" type="primary" on:click={toggleDropdown4}>Alignment Center</Button>
+			<Dropdown.Items slot="items" alignment="center">
 				<Dropdown.Items.Item on:click={closeDropdown4} label="Item 1">
 					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
 				</Dropdown.Items.Item>
@@ -153,6 +162,27 @@
 				</Button>
 			</Dropdown.Items>
 		</Dropdown>
+
+		<Dropdown bind:visible={visible5}>
+			<Button slot="trigger" type="primary" on:click={toggleDropdown5}>Alignment End</Button>
+			<Dropdown.Items slot="items" alignment="end">
+				<Dropdown.Items.Item on:click={closeDropdown5} label="Item 1">
+					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown5} label="Item 2">
+					<Dropdown.Items.Item.Icon slot="extra" data={trash} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown5} label="Notifications">
+					<Badge type="info" slot="extra">+99</Badge>
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Divider />
+				<Button type="danger" class="w-full justify-between">
+					<Button.Leading slot="leading" data={home} />
+					Home
+					<Button.Trailing slot="trailing" data={home} />
+				</Button>
+			</Dropdown.Items>
+		</Dropdown>
 	</div>
 
 	<CodeBlock slot="code" language="svelte" code={exampleAlignment} />
@@ -160,11 +190,11 @@
 
 <ExampleContainer title="Avatar Dropdown">
 	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
-		<Dropdown bind:visible={visible5}>
+		<Dropdown bind:visible={visible6}>
 			<button
 				aria-label="dropdown toggle"
 				slot="trigger"
-				on:click={toggleDropdown5}
+				on:click={toggleDropdown6}
 				type="button"
 				class="bg-white flex text-sm rounded-full h-10 w-10 active:hover:animate-none active:hover:scale-95"
 				id="user-menu-button"
@@ -177,9 +207,9 @@
 				/>
 			</button>
 			<Dropdown.Items slot="items">
-				<Dropdown.Items.Item on:click={closeDropdown5} label="Item 1" />
-				<Dropdown.Items.Item on:click={closeDropdown5} label="Item 2" />
-				<Dropdown.Items.Item on:click={closeDropdown5} label="Item 3" />
+				<Dropdown.Items.Item on:click={closeDropdown6} label="Item 1" />
+				<Dropdown.Items.Item on:click={closeDropdown6} label="Item 2" />
+				<Dropdown.Items.Item on:click={closeDropdown6} label="Item 3" />
 			</Dropdown.Items>
 		</Dropdown>
 	</div>

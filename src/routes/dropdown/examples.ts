@@ -26,7 +26,7 @@ export const itemsProps: Prop[] = [
 	{
 		id: '1',
 		prop: 'placement',
-		type: "'top' | 'bottom' | 'left' | 'right'",
+		type: "'top' | 'bottom'",
 		default: 'bottom'
 	},
 	{
@@ -196,6 +196,7 @@ export const exampleAlignment = `
 
    let visible1 = false;
 	let visible2 = false;
+	let visible3 = false;
 
 	function closeDropdown1() {
 		visible1 = false;
@@ -211,6 +212,14 @@ export const exampleAlignment = `
 
 	function toggleDropdown2() {
 		visible2 = !visible2;
+	}
+
+	function closeDropdown3() {
+		visible3 = false;
+	}
+
+	function toggleDropdown3() {
+		visible3 = !visible3;
 	}
 </script>
 
@@ -236,8 +245,8 @@ export const exampleAlignment = `
 </Dropdown>
 
 <Dropdown bind:visible={visible2}>
-	<Button slot="trigger" type="primary" on:click={toggleDropdown2}>Alignment End</Button>
-	<Dropdown.Items slot="items" alignment="end">
+	<Button slot="trigger" type="primary" on:click={toggleDropdown2}>Alignment Center</Button>
+	<Dropdown.Items slot="items" alignment="center">
 		<Dropdown.Items.Item on:click={closeDropdown2} label="Item 1">
 			<Dropdown.Items.Item.Icon slot="icon" data={trash} />
 		</Dropdown.Items.Item>
@@ -245,6 +254,27 @@ export const exampleAlignment = `
 			<Dropdown.Items.Item.Icon slot="extra" data={trash} />
 		</Dropdown.Items.Item>
 		<Dropdown.Items.Item on:click={closeDropdown2} label="Notifications">
+			<Badge type="info" slot="extra">+99</Badge>
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Divider />
+		<Button type="danger" class="w-full justify-between">
+			<Button.Leading slot="leading" data={home} />
+			Home
+			<Button.Trailing slot="trailing" data={home} />
+		</Button>
+	</Dropdown.Items>
+</Dropdown>
+
+<Dropdown bind:visible={visible3}>
+	<Button slot="trigger" type="primary" on:click={toggleDropdown3}>Alignment End</Button>
+	<Dropdown.Items slot="items" alignment="end">
+		<Dropdown.Items.Item on:click={closeDropdown3} label="Item 1">
+			<Dropdown.Items.Item.Icon slot="icon" data={trash} />
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Item on:click={closeDropdown3} label="Item 2">
+			<Dropdown.Items.Item.Icon slot="extra" data={trash} />
+		</Dropdown.Items.Item>
+		<Dropdown.Items.Item on:click={closeDropdown3} label="Notifications">
 			<Badge type="info" slot="extra">+99</Badge>
 		</Dropdown.Items.Item>
 		<Dropdown.Items.Divider />
