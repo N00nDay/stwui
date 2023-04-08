@@ -18,8 +18,8 @@
 		withStatusExample,
 		kitchenSinkExample
 	} from './examples';
-	import { Card, Col, FilePreview } from '../../lib';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { FilePreview } from '../../lib';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { slide } from 'svelte/transition';
 	import { formatFileSize } from '../../lib/utils';
 	import { file_document } from '../../lib/icons';
@@ -55,11 +55,10 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Basic</Card.Header>
-		<Card.Content slot="content">
-			<FilePreview>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
+		<div class="max-w-lg w-full">
+			<FilePreview class="w-full">
 				{#each files as currentFile (currentFile.src)}
 					{@const { file, src } = currentFile}
 					<div transition:slide|local>
@@ -84,19 +83,16 @@
 					</div>
 				{/each}
 			</FilePreview>
+		</div>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">With Status</Card.Header>
-		<Card.Content slot="content" class="!p-0">
-			<FilePreview edgeToEdge>
+<ExampleContainer title="With Status">
+	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
+		<div class="max-w-lg w-full">
+			<FilePreview edgeToEdge class="w-full">
 				{#each files as currentFile (currentFile.src)}
 					{@const { file, src, progress, status } = currentFile}
 					<div transition:slide|local>
@@ -137,19 +133,16 @@
 					</div>
 				{/each}
 			</FilePreview>
+		</div>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={withStatusExample} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={withStatusExample} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Kitchen Sink</Card.Header>
-		<Card.Content slot="content">
-			<FilePreview bordered class="rounded-md">
+<ExampleContainer title="Kitchen Sink">
+	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
+		<div class="max-w-lg w-full">
+			<FilePreview bordered class="rounded-md w-full">
 				{#each files as currentFile (currentFile.src)}
 					{@const { file, src, progress, status } = currentFile}
 					<div transition:slide|local>
@@ -224,66 +217,36 @@
 					</div>
 				{/each}
 			</FilePreview>
+		</div>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={kitchenSinkExample} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={kitchenSinkExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<PropsTable component="FilePreview" {props} />
 
-<Col class="col-24">
-	<PropsTable component="FilePreview" {props} />
-</Col>
+<SlotsTable component="FilePreview" {slots} />
 
-<Col class="col-24">
-	<SlotsTable component="FilePreview" {slots} />
-</Col>
+<SlotsTable component="FilePreview.Item" slots={itemSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="FilePreview.Item" slots={itemSlots} />
-</Col>
+<SlotsTable component="FilePreview.Item.Leading" slots={leadingSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="FilePreview.Item.Leading" slots={leadingSlots} />
-</Col>
+<PropsTable component="FilePreview.Item.Leading.Icon" props={iconProps} />
 
-<Col class="col-24">
-	<PropsTable component="FilePreview.Item.Leading.Icon" props={iconProps} />
-</Col>
+<PropsTable component="FilePreview.Item.Leading.Avatar" props={avatarProps} />
 
-<Col class="col-24">
-	<PropsTable component="FilePreview.Item.Leading.Avatar" props={avatarProps} />
-</Col>
+<SlotsTable component="FilePreview.Item.FileContent" slots={fileContentSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="FilePreview.Item.FileContent" slots={fileContentSlots} />
-</Col>
+<SlotsTable component="FilePreview.Item.FileContent.Title" slots={titleSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="FilePreview.Item.FileContent.Title" slots={titleSlots} />
-</Col>
+<SlotsTable component="FilePreview.Item.FileContent.Description" slots={descriptionSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="FilePreview.Item.FileContent.Description" slots={descriptionSlots} />
-</Col>
+<SlotsTable component="FilePreview.Item.UploadContent" slots={uploadContentSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="FilePreview.Item.UploadContent" slots={uploadContentSlots} />
-</Col>
+<SlotsTable component="FilePreview.Item.UploadContent.Status" slots={statusSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="FilePreview.Item.UploadContent.Status" slots={statusSlots} />
-</Col>
+<SlotsTable component="FilePreview.Item.UploadContent.Action" slots={actionSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="FilePreview.Item.UploadContent.Action" slots={actionSlots} />
-</Col>
+<PropsTable component="FilePreview.Item.Extra" props={extraProps} />
 
-<Col class="col-24">
-	<PropsTable component="FilePreview.Item.Extra" props={extraProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="FilePreview.Item.Extra" slots={extraSlots} />
-</Col>
+<SlotsTable component="FilePreview.Item.Extra" slots={extraSlots} />
