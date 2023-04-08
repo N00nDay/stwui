@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Feed } from '../../lib';
+	import { Feed } from '../../lib';
 	import { formatDate } from '../../lib/utils';
 	import {
 		example,
@@ -10,7 +10,7 @@
 		iconProps,
 		contentSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	import { check, currency_usd } from '../../lib/icons';
 
@@ -55,75 +55,59 @@
 	];
 </script>
 
-<Col class="col-24">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
-			<Feed>
-				{#each items as item}
-					{#if item.avatar}
-						<Feed.Item>
-							<Feed.Item.Leading slot="leading">
-								<Feed.Item.Leading.Avatar slot="avatar" src={item.avatar} />
-							</Feed.Item.Leading>
-							<Feed.Item.Content slot="content">
-								{@html item.content}
-							</Feed.Item.Content>
-							<Feed.Item.DateTime slot="datetime">
-								<time datetime={item.date.toISOString()}>{formatDate(item.date)}</time>
-							</Feed.Item.DateTime>
-						</Feed.Item>
-					{:else if item.icon}
-						<Feed.Item>
-							<Feed.Item.Leading slot="leading" class="bg-info">
-								<Feed.Item.Leading.Icon slot="icon" data={item.icon} />
-							</Feed.Item.Leading>
-							<Feed.Item.Content slot="content">
-								{@html item.content}
-							</Feed.Item.Content>
-							<Feed.Item.DateTime slot="datetime">
-								<time datetime={item.date.toISOString()}>{formatDate(item.date)}</time>
-							</Feed.Item.DateTime>
-						</Feed.Item>
-					{:else}
-						<Feed.Item>
-							<Feed.Item.Content slot="content">
-								{@html item.content}
-							</Feed.Item.Content>
-							<Feed.Item.DateTime slot="datetime">
-								<time datetime={item.date.toISOString()}>{formatDate(item.date)}</time>
-							</Feed.Item.DateTime>
-						</Feed.Item>
-					{/if}
-				{/each}
-			</Feed>
+<ExampleContainer title="Avatar Dropdown">
+	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
+		<Feed>
+			{#each items as item}
+				{#if item.avatar}
+					<Feed.Item>
+						<Feed.Item.Leading slot="leading">
+							<Feed.Item.Leading.Avatar slot="avatar" src={item.avatar} />
+						</Feed.Item.Leading>
+						<Feed.Item.Content slot="content">
+							{@html item.content}
+						</Feed.Item.Content>
+						<Feed.Item.DateTime slot="datetime">
+							<time datetime={item.date.toISOString()}>{formatDate(item.date)}</time>
+						</Feed.Item.DateTime>
+					</Feed.Item>
+				{:else if item.icon}
+					<Feed.Item>
+						<Feed.Item.Leading slot="leading" class="bg-info">
+							<Feed.Item.Leading.Icon slot="icon" data={item.icon} />
+						</Feed.Item.Leading>
+						<Feed.Item.Content slot="content">
+							{@html item.content}
+						</Feed.Item.Content>
+						<Feed.Item.DateTime slot="datetime">
+							<time datetime={item.date.toISOString()}>{formatDate(item.date)}</time>
+						</Feed.Item.DateTime>
+					</Feed.Item>
+				{:else}
+					<Feed.Item>
+						<Feed.Item.Content slot="content">
+							{@html item.content}
+						</Feed.Item.Content>
+						<Feed.Item.DateTime slot="datetime">
+							<time datetime={item.date.toISOString()}>{formatDate(item.date)}</time>
+						</Feed.Item.DateTime>
+					</Feed.Item>
+				{/if}
+			{/each}
+		</Feed>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<SlotsTable component="Feed" {slots} />
 
-<Col class="col-24">
-	<SlotsTable component="Feed" {slots} />
-</Col>
+<SlotsTable component="Feed.Item" slots={itemSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Feed.Item" slots={itemSlots} />
-</Col>
+<SlotsTable component="Feed.Item.Leading" slots={leadingSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Feed.Item.Leading" slots={leadingSlots} />
-</Col>
+<PropsTable component="Feed.Item.Leading.Avatar" props={avatarProps} />
 
-<Col class="col-24">
-	<PropsTable component="Feed.Item.Leading.Avatar" props={avatarProps} />
-</Col>
+<PropsTable component="Feed.Item.Leading.Icon" props={iconProps} />
 
-<Col class="col-24">
-	<PropsTable component="Feed.Item.Leading.Icon" props={iconProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Feed.Item.Content" slots={contentSlots} />
-</Col>
+<SlotsTable component="Feed.Item.Content" slots={contentSlots} />
