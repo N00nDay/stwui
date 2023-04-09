@@ -31,7 +31,7 @@
 		groupSlots,
 		groupItemsProps
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const items: MenuItem[] = [
 		{
@@ -98,114 +98,98 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header" class="flex flex-row items-center justify-between"
-			>Collapsable Sider
-			<Button slot="extra" type="primary" on:click={toggleCollapse}>Collapse</Button>
-		</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Menu {collapsed} {active}>
-				{#each items as item}
-					{#if item.children && item.children.length > 0}
-						{#if item.data}
-							<Menu.Group key={item.key} label={item.label} href={item.href}>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<Card class="w-full max-w-lg">
+			<Card.Header slot="header" class="flex flex-row items-center justify-between"
+				>Collapsable Sider
+				<Button slot="extra" type="primary" on:click={toggleCollapse}>Collapse</Button>
+			</Card.Header>
+			<Card.Content slot="content" class="p-4">
+				<Menu {collapsed} {active}>
+					{#each items as item}
+						{#if item.children && item.children.length > 0}
+							{#if item.data}
+								<Menu.Group key={item.key} label={item.label} href={item.href}>
+									<Menu.Item.Icon slot="icon" data={item.data} />
+									{#each item.children as child}
+										<Menu.Group.Item
+											key={child.key}
+											label={child.label}
+											href={child.href}
+											on:click={() => (active = `${item.key}-${child.key}`)}
+										/>
+									{/each}
+								</Menu.Group>
+							{:else}
+								<Menu.Group key={item.key} label={item.label} href={item.href}>
+									{#each item.children as child}
+										<Menu.Group.Item
+											key={child.key}
+											label={child.label}
+											href={child.href}
+											on:click={() => (active = `${item.key}-${child.key}`)}
+										/>
+									{/each}
+								</Menu.Group>
+							{/if}
+						{:else if item.data && item.badge}
+							<Menu.Item
+								key={item.key}
+								label={item.label}
+								href={item.href}
+								on:click={() => (active = item.key)}
+							>
 								<Menu.Item.Icon slot="icon" data={item.data} />
-								{#each item.children as child}
-									<Menu.Group.Item
-										key={child.key}
-										label={child.label}
-										href={child.href}
-										on:click={() => (active = `${item.key}-${child.key}`)}
-									/>
-								{/each}
-							</Menu.Group>
+								<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
+							</Menu.Item>
+						{:else if item.data}
+							<Menu.Item
+								key={item.key}
+								label={item.label}
+								href={item.href}
+								on:click={() => (active = item.key)}
+							>
+								<Menu.Item.Icon slot="icon" data={item.data} />
+							</Menu.Item>
+						{:else if item.badge}
+							<Menu.Item
+								key={item.key}
+								label={item.label}
+								href={item.href}
+								on:click={() => (active = item.key)}
+							>
+								<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
+							</Menu.Item>
 						{:else}
-							<Menu.Group key={item.key} label={item.label} href={item.href}>
-								{#each item.children as child}
-									<Menu.Group.Item
-										key={child.key}
-										label={child.label}
-										href={child.href}
-										on:click={() => (active = `${item.key}-${child.key}`)}
-									/>
-								{/each}
-							</Menu.Group>
+							<Menu.Item
+								key={item.key}
+								label={item.label}
+								href={item.href}
+								on:click={() => (active = item.key)}
+							/>
 						{/if}
-					{:else if item.data && item.badge}
-						<Menu.Item
-							key={item.key}
-							label={item.label}
-							href={item.href}
-							on:click={() => (active = item.key)}
-						>
-							<Menu.Item.Icon slot="icon" data={item.data} />
-							<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
-						</Menu.Item>
-					{:else if item.data}
-						<Menu.Item
-							key={item.key}
-							label={item.label}
-							href={item.href}
-							on:click={() => (active = item.key)}
-						>
-							<Menu.Item.Icon slot="icon" data={item.data} />
-						</Menu.Item>
-					{:else if item.badge}
-						<Menu.Item
-							key={item.key}
-							label={item.label}
-							href={item.href}
-							on:click={() => (active = item.key)}
-						>
-							<Badge slot="extra" type={item.badgeType}>{item.badge}</Badge>
-						</Menu.Item>
-					{:else}
-						<Menu.Item
-							key={item.key}
-							label={item.label}
-							href={item.href}
-							on:click={() => (active = item.key)}
-						/>
-					{/if}
-				{/each}
-			</Menu>
+					{/each}
+				</Menu>
+			</Card.Content>
+		</Card>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<PropsTable component="Menu" {props} />
 
-<Col class="col-24">
-	<PropsTable component="Menu" {props} />
-</Col>
+<SlotsTable component="Menu" {slots} />
 
-<Col class="col-24">
-	<SlotsTable component="Menu" {slots} />
-</Col>
+<PropsTable component="Menu.Item" props={itemProps} />
 
-<Col class="col-24">
-	<PropsTable component="Menu.Item" props={itemProps} />
-</Col>
+<SlotsTable component="Menu.Item" slots={itemSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Menu.Item" slots={itemSlots} />
-</Col>
+<PropsTable component="Menu.Item.Icon" props={iconProps} />
 
-<Col class="col-24">
-	<PropsTable component="Menu.Item.Icon" props={iconProps} />
-</Col>
+<PropsTable component="Menu.Group" props={groupProps} />
 
-<Col class="col-24">
-	<PropsTable component="Menu.Group" props={groupProps} />
-</Col>
+<SlotsTable component="Menu.Group" slots={groupSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Menu.Group" slots={groupSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Menu.Group.Item" props={groupItemsProps} />
-</Col>
+<PropsTable component="Menu.Group.Item" props={groupItemsProps} />
