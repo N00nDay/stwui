@@ -134,16 +134,71 @@ export const iconProps: Prop[] = [
 	}
 ];
 
-export const example = `
+export const basicExample = `
+<script lang="ts">
+	import { InputNumber } from 'stwui';
+</script>
+
+<InputNumber name="input" placeholder="Basic" />`;
+
+export const withLabelExample = `
+<script lang="ts">
+	import { InputNumber } from 'stwui';
+</script>
+
+<InputNumber name="input">
+	<InputNumber.Label slot="label">Label</InputNumber.Label>
+</InputNumber>`;
+
+export const withLeadingExample = `
+<script lang="ts">
+	import { InputNumber } from 'stwui';
+
+	const email = "svg-path";
+</script>
+
+<InputNumber name="input" allowClear>
+	<InputNumber.Label slot="label">Label</InputNumber.Label>
+	<InputNumber.Leading slot="leading" data={email} />
+</InputNumber>`;
+
+export const withtrailingExample = `
 <script lang="ts">
 	import { InputNumber } from 'stwui';
 
 	const phone = "svg-path";
 </script>
 
-<InputNumber name="input-number-1" placeholder="Basic" />
-
-<InputNumber name="input-number-2">
-	<InputNumber.Label slot="label">Number</InputNumber.Label>
+<InputNumber name="input" allowClear>
+	<InputNumber.Label slot="label">Label</InputNumber.Label>
 	<InputNumber.Trailing slot="trailing" data={phone} />
+</InputNumber>`;
+
+export const withErrorExample = `
+<script lang="ts">
+	import { InputNumber } from 'stwui';
+
+	const email = "svg-path";
+	const phone = "svg-path";
+</script>
+
+<InputNumber
+	name="input"
+	bind:value
+	{error}
+	handleLeadingClick={() => console.log('clicking leading')}
+>
+	<InputNumber.Label slot="label">Label</InputNumber.Label>
+	<InputNumber.Leading slot="leading" data={email} />
+	<InputNumber.Trailing slot="trailing" data={phone} />
+</InputNumber>`;
+
+export const disabledExample = `
+<script lang="ts">
+	import { InputNumber } from 'stwui';
+</script>
+
+<InputNumber name="input" disabled>
+	<InputNumber.Label slot="label">Label</InputNumber.Label>
+	<InputNumber.Leading slot="leading" data={email} />
 </InputNumber>`;
