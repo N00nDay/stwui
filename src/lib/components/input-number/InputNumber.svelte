@@ -49,6 +49,7 @@
 			{autocomplete}
 			{name}
 			{readonly}
+			{disabled}
 			id={name}
 			class="block w-full h-[2.5rem] px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface  placeholder-secondary-content placeholder-opacity-80"
 			class:border-red-400={error}
@@ -70,6 +71,7 @@
 		{#if $$slots.leading}
 			<span
 				class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary-content"
+				class:text-danger={error}
 			>
 				<slot name="leading" />
 			</span>
