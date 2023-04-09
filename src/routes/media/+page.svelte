@@ -1,23 +1,22 @@
 <script lang="ts">
-	import { Card, Col, Media } from '../../lib';
+	import { Card, Media } from '../../lib';
 	import {
 		example,
-		noAvatarExample,
 		slots,
 		avatarProps,
 		contentSlots,
 		titleSlots,
 		descriptionSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const avatar =
 		'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
 </script>
 
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Card bordered={false}>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<Card class="w-full max-w-lg">
 			<Card.Content slot="content">
 				<Media>
 					<Media.Avatar src={avatar} />
@@ -28,48 +27,17 @@
 				</Media>
 			</Card.Content>
 		</Card>
+	</div>
 
-		<br />
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-		<CodeBlock language="svelte" code={example} />
-	</Card>
-</Col>
+<SlotsTable component="Media" {slots} />
 
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Card bordered={false}>
-			<Card.Content slot="content">
-				<Media>
-					<Media.Content>
-						<Media.Content.Title>Europe Street beat</Media.Content.Title>
-						<Media.Content.Description>www.instagram.com</Media.Content.Description>
-					</Media.Content>
-				</Media>
-			</Card.Content>
-		</Card>
+<PropsTable component="Media.Avatar" props={avatarProps} />
 
-		<br />
+<SlotsTable component="Media.Content" slots={contentSlots} />
 
-		<CodeBlock language="svelte" code={noAvatarExample} />
-	</Card>
-</Col>
+<SlotsTable component="Medai.Content.Title" slots={titleSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Media" {slots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Media.Avatar" props={avatarProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Media.Content" slots={contentSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Medai.Content.Title" slots={titleSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Medai.Content.Description" slots={descriptionSlots} />
-</Col>
+<SlotsTable component="Medai.Content.Description" slots={descriptionSlots} />

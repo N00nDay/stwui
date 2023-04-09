@@ -101,19 +101,3 @@ export const example = `
       </Media>
    </Card.Content>
 </Card>`;
-
-export const noAvatarExample = `
-<script lang="ts">
-	import { Card, Media } from 'stwui';
-</script>
-
-<Card bordered={false}>
-   <Card.Content slot="content">
-      <Media>
-         <Media.Content>
-            <Media.Content.Title>Europe Street beat</Media.Content.Title>
-            <Media.Content.Description>www.instagram.com</Media.Content.Description>
-         </Media.Content>
-      </Media>
-   </Card.Content>
-</Card>`;
