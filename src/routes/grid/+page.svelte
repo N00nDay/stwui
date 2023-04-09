@@ -54,6 +54,24 @@
 				<div class={darkBlockWithSpacing}>col-6</div>
 			</Col>
 		</Row>
+
+		<Row>
+			<Col class="w-[20%]">
+				<div class={lightBlockWithSpacing}>w-[20%]</div>
+			</Col>
+			<Col class="w-[20%]">
+				<div class={darkBlockWithSpacing}>w-[20%]</div>
+			</Col>
+			<Col class="w-[20%]">
+				<div class={lightBlockWithSpacing}>w-[20%]</div>
+			</Col>
+			<Col class="w-[20%]">
+				<div class={darkBlockWithSpacing}>w-[20%]</div>
+			</Col>
+			<Col class="w-[20%]">
+				<div class={lightBlockWithSpacing}>w-[20%]</div>
+			</Col>
+		</Row>
 	</div>
 
 	<CodeBlock slot="code" language="svelte" code={example1} />

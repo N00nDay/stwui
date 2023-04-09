@@ -81,6 +81,24 @@ export const example1 = `
 	<Col class="col-6">
 		col-6
 	</Col>
+</Row>
+
+<Row>
+	<Col class="w-[20%]">
+		<div class={lightBlockWithSpacing}>w-[20%]</div>
+	</Col>
+	<Col class="w-[20%]">
+		<div class={darkBlockWithSpacing}>w-[20%]</div>
+	</Col>
+	<Col class="w-[20%]">
+		<div class={lightBlockWithSpacing}>w-[20%]</div>
+	</Col>
+	<Col class="w-[20%]">
+		<div class={darkBlockWithSpacing}>w-[20%]</div>
+	</Col>
+	<Col class="w-[20%]">
+		<div class={lightBlockWithSpacing}>w-[20%]</div>
+	</Col>
 </Row>`;
 
 export const example2 = `
