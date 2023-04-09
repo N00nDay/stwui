@@ -20,7 +20,7 @@
 		extraProps,
 		extraSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { contentSlots } from '../accordion/examples';
 	import { account, print, info } from '../../lib/icons';
 
@@ -49,254 +49,195 @@
 	];
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Basic</Card.Header>
-		<Card.Content slot="content">
-			<List>
-				{#each items as item}
-					<List.Item>
-						<List.Item.Leading slot="leading">
-							<List.Item.Leading.Avatar slot="avatar" src={item.avatar} />
-						</List.Item.Leading>
-						<List.Item.Content slot="content">
-							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description">
-								{item.description}
-							</List.Item.Content.Description>
-						</List.Item.Content>
-					</List.Item>
-				{/each}
-			</List>
+<ExampleContainer title="Default">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<List class="w-full max-w-lg">
+			{#each items as item}
+				<List.Item>
+					<List.Item.Leading slot="leading">
+						<List.Item.Leading.Avatar slot="avatar" src={item.avatar} />
+					</List.Item.Leading>
+					<List.Item.Content slot="content">
+						<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
+						<List.Item.Content.Description slot="description">
+							{item.description}
+						</List.Item.Content.Description>
+					</List.Item.Content>
+				</List.Item>
+			{/each}
+		</List>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="No Dividers & Icon">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<List divided={false} class="w-full max-w-lg">
+			{#each items as item}
+				<List.Item>
+					<List.Item.Leading slot="leading">
+						<List.Item.Leading.Icon slot="icon" data={item.data} />
+					</List.Item.Leading>
+					<List.Item.Content slot="content">
+						<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
+						<List.Item.Content.Description slot="description">
+							{item.description}
+						</List.Item.Content.Description>
+					</List.Item.Content>
+				</List.Item>
+			{/each}
+		</List>
+	</div>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">No Dividers & Icon</Card.Header>
-		<Card.Content slot="content">
-			<List divided={false}>
-				{#each items as item}
-					<List.Item>
-						<List.Item.Leading slot="leading">
-							<List.Item.Leading.Icon slot="icon" data={item.data} />
-						</List.Item.Leading>
-						<List.Item.Content slot="content">
-							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description">
-								{item.description}
-							</List.Item.Content.Description>
-						</List.Item.Content>
-					</List.Item>
-				{/each}
-			</List>
+	<CodeBlock slot="code" language="svelte" code={noDividersExample} />
+</ExampleContainer>
 
-			<br />
+<ExampleContainer title="With Extra">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<List class="w-full max-w-lg">
+			{#each items as item}
+				<List.Item>
+					<List.Item.Leading slot="leading">
+						<List.Item.Leading.Avatar slot="avatar" src={item.avatar} />
+					</List.Item.Leading>
+					<List.Item.Content slot="content">
+						<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
+						<List.Item.Content.Description slot="description">
+							{item.description}
+						</List.Item.Content.Description>
+					</List.Item.Content>
+					<List.Item.Extra slot="extra" placement="start">
+						<Button type="primary" shape="pill" on:click={() => console.log('clicking extra!')}>
+							Extra
+						</Button>
+					</List.Item.Extra>
+				</List.Item>
+			{/each}
+		</List>
+	</div>
 
-			<CodeBlock language="svelte" code={noDividersExample} />
-		</Card.Content>
-	</Card>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={extraExample} />
+</ExampleContainer>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">With Extra</Card.Header>
-		<Card.Content slot="content">
-			<List>
-				{#each items as item}
-					<List.Item>
-						<List.Item.Leading slot="leading">
-							<List.Item.Leading.Avatar slot="avatar" src={item.avatar} />
-						</List.Item.Leading>
-						<List.Item.Content slot="content">
-							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description">
-								{item.description}
-							</List.Item.Content.Description>
-						</List.Item.Content>
-						<List.Item.Extra slot="extra" placement="start">
-							<Button type="primary" shape="pill" on:click={() => console.log('clicking extra!')}>
-								Extra
-							</Button>
-						</List.Item.Extra>
-					</List.Item>
-				{/each}
-			</List>
+<ExampleContainer title="with Edge to Edge">
+	<div
+		slot="preview"
+		class="-ml-6 -mr-6 w-[calc(100%+3rem)] flex flex-row items-center justify-center"
+	>
+		<List edgeToEdge class="w-full max-w-lg ">
+			{#each items as item}
+				<List.Item>
+					<List.Item.Leading slot="leading">
+						<List.Item.Leading.Avatar slot="avatar" src={item.avatar} />
+					</List.Item.Leading>
+					<List.Item.Content slot="content">
+						<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
+						<List.Item.Content.Description slot="description">
+							{item.description}
+						</List.Item.Content.Description>
+					</List.Item.Content>
+				</List.Item>
+			{/each}
+		</List>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={edgeToEdgeExample} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={extraExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="Bordered">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<List bordered class="w-full max-w-lg">
+			{#each items as item}
+				<List.Item>
+					<List.Item.Leading slot="leading">
+						<List.Item.Leading.Avatar slot="avatar" src={item.avatar} />
+					</List.Item.Leading>
+					<List.Item.Content slot="content">
+						<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
+						<List.Item.Content.Description slot="description">
+							{item.description}
+						</List.Item.Content.Description>
+					</List.Item.Content>
+				</List.Item>
+			{/each}
+		</List>
+	</div>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">List Edge to Edge</Card.Header>
-		<Card.Content slot="content" class="p-0 sm:p-0">
-			<List edgeToEdge>
-				{#each items as item}
-					<List.Item>
-						<List.Item.Leading slot="leading">
-							<List.Item.Leading.Avatar slot="avatar" src={item.avatar} />
-						</List.Item.Leading>
-						<List.Item.Content slot="content">
-							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description">
-								{item.description}
-							</List.Item.Content.Description>
-						</List.Item.Content>
-					</List.Item>
-				{/each}
-			</List>
+	<CodeBlock slot="code" language="svelte" code={borderedExample} />
+</ExampleContainer>
 
-			<br />
+<ExampleContainer title="List No Avatar">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<List class="w-full max-w-lg">
+			{#each items as item}
+				<List.Item>
+					<List.Item.Content slot="content">
+						<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
+						<List.Item.Content.Description slot="description">
+							{item.description}
+						</List.Item.Content.Description>
+					</List.Item.Content>
+				</List.Item>
+			{/each}
+		</List>
+	</div>
 
-			<CodeBlock language="svelte" code={edgeToEdgeExample} />
-		</Card.Content>
-	</Card>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={noAvatarExample} />
+</ExampleContainer>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">List Bordered</Card.Header>
-		<Card.Content slot="content">
-			<List bordered>
-				{#each items as item}
-					<List.Item>
-						<List.Item.Leading slot="leading">
-							<List.Item.Leading.Avatar slot="avatar" src={item.avatar} />
-						</List.Item.Leading>
-						<List.Item.Content slot="content">
-							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description">
-								{item.description}
-							</List.Item.Content.Description>
-						</List.Item.Content>
-					</List.Item>
-				{/each}
-			</List>
+<ExampleContainer title="List Just Title">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<List class="w-full max-w-lg">
+			{#each items as item}
+				<List.Item>
+					<List.Item.Content slot="content">
+						<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
+					</List.Item.Content>
+				</List.Item>
+			{/each}
+		</List>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={titleExample} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={borderedExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="List Just Description">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<List class="w-full max-w-lg">
+			{#each items as item}
+				<List.Item>
+					<List.Item.Content slot="content">
+						<List.Item.Content.Description slot="description">
+							{item.description}
+						</List.Item.Content.Description>
+					</List.Item.Content>
+				</List.Item>
+			{/each}
+		</List>
+	</div>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">List No Avatar</Card.Header>
-		<Card.Content slot="content" class="p-0 sm:p-0">
-			<List>
-				{#each items as item}
-					<List.Item>
-						<List.Item.Content slot="content">
-							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-							<List.Item.Content.Description slot="description">
-								{item.description}
-							</List.Item.Content.Description>
-						</List.Item.Content>
-					</List.Item>
-				{/each}
-			</List>
+	<CodeBlock slot="code" language="svelte" code={descriptionExample} />
+</ExampleContainer>
 
-			<br />
+<PropsTable component="List" {props} />
 
-			<CodeBlock language="svelte" code={noAvatarExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<SlotsTable component="List" {slots} />
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">List Just Title</Card.Header>
-		<Card.Content slot="content" class="p-0 sm:p-0">
-			<List>
-				{#each items as item}
-					<List.Item>
-						<List.Item.Content slot="content">
-							<List.Item.Content.Title slot="title">{item.title}</List.Item.Content.Title>
-						</List.Item.Content>
-					</List.Item>
-				{/each}
-			</List>
+<SlotsTable component="List.Item" slots={itemSlots} />
 
-			<br />
+<SlotsTable component="List.Item.Leading" slots={leadingSlots} />
 
-			<CodeBlock language="svelte" code={titleExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<PropsTable component="List.Item.Leading.Icon" props={iconProps} />
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">List Just Description</Card.Header>
-		<Card.Content slot="content" class="p-0 sm:p-0">
-			<List>
-				{#each items as item}
-					<List.Item>
-						<List.Item.Content slot="content">
-							<List.Item.Content.Description slot="description">
-								{item.description}
-							</List.Item.Content.Description>
-						</List.Item.Content>
-					</List.Item>
-				{/each}
-			</List>
+<PropsTable component="List.Item.Leading.Avatar" props={avatarProps} />
 
-			<br />
+<SlotsTable component="List.Item.Content" slots={contentSlots} />
 
-			<CodeBlock language="svelte" code={descriptionExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<SlotsTable component="List.Item.Content.Title" slots={titleSlots} />
 
-<Col class="col-24">
-	<PropsTable component="List" {props} />
-</Col>
+<SlotsTable component="List.Item.Content.Description" slots={descriptionSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="List" {slots} />
-</Col>
+<PropsTable component="List.Item.Extra" props={extraProps} />
 
-<Col class="col-24">
-	<SlotsTable component="List.Item" slots={itemSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="List.Item.Leading" slots={leadingSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="List.Item.Leading.Icon" props={iconProps} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="List.Item.Leading.Avatar" props={avatarProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="List.Item.Content" slots={contentSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="List.Item.Content.Title" slots={titleSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="List.Item.Content.Description" slots={descriptionSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="List.Item.Extra" props={extraProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="List.Item.Extra" slots={extraSlots} />
-</Col>
+<SlotsTable component="List.Item.Extra" slots={extraSlots} />
