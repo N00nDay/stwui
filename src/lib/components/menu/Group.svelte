@@ -81,10 +81,11 @@
 	>
 		<h2
 			class="group relative m-0 w-full outline-none rounded-md focus:outline-none overflow-hidden"
-			class:text-content={active}
-			class:text-secondary-content={!active}
-			class:hover:text-content={!active}
-			class:bg-hover={($menuCollapse && menuActive) || (!$menuCollapse && !active && menuActive)}
+			class:text-primary-content={menuActive && !active}
+			class:text-secondary-content={!menuActive || active}
+			class:bg-opacity-10={active}
+			class:bg-content={active}
+			class:bg-primary={($menuCollapse && menuActive) || (!$menuCollapse && !active && menuActive)}
 		>
 			<button
 				aria-label="toggle collapse menu"

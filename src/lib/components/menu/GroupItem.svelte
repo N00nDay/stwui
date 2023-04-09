@@ -27,10 +27,10 @@
 <a
 	{href}
 	class={finalClass}
-	class:text-content={active}
+	class:text-primary-content={active}
 	class:text-secondary-content={!active}
 	class:hover:text-content={!active}
-	class:bg-hover={active}
+	class:bg-primary={active}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class', 'href'])}
