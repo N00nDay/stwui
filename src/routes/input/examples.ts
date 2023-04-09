@@ -152,34 +152,83 @@ export const iconProps: Prop[] = [
 	}
 ];
 
-export const example = `
+export const basicExample = `
+<script lang="ts">
+	import { Input } from 'stwui';
+</script>
+
+<Input name="input" placeholder="Basic" />`;
+
+export const withLabelExample = `
+<script lang="ts">
+	import { Input } from 'stwui';
+</script>
+
+<Input name="input">
+	<Input.Label slot="label">Label</Input.Label>
+</Input>`;
+
+export const withLeadingExample = `
+<script lang="ts">
+	import { Input } from 'stwui';
+
+	const email = "svg-path";
+</script>
+
+<Input name="input" allowClear>
+	<Input.Label slot="label">Label</Input.Label>
+	<Input.Leading slot="leading" data={email} />
+</Input>`;
+
+export const withtrailingExample = `
+<script lang="ts">
+	import { Input } from 'stwui';
+
+	const phone = "svg-path";
+</script>
+
+<Input name="input" allowClear>
+	<Input.Label slot="label">Label</Input.Label>
+	<Input.Trailing slot="trailing" data={phone} />
+</Input>`;
+
+export const withErrorExample = `
 <script lang="ts">
 	import { Input } from 'stwui';
 
 	const email = "svg-path";
 	const phone = "svg-path";
-	const lock = "svg-path";
 </script>
 
-<Input name="input-1" placeholder="Basic" allowClear />
-
-<Input name="input-2" allowClear>
-	<Input.Label slot="label">Label</Input.Label>
-	<Input.Leading slot="leading" data={email} />
-	<Input.Trailing slot="trailing" data={phone} />
-</Input>
-
 <Input
-	name="input-3"
-	error="There has been an error"
+	name="input"
+	bind:value
+	{error}
 	handleLeadingClick={() => console.log('clicking leading')}
 >
 	<Input.Label slot="label">Label</Input.Label>
 	<Input.Leading slot="leading" data={email} />
 	<Input.Trailing slot="trailing" data={phone} />
-</Input>
+</Input>`;
 
-<Input type="password" name="input-4" showPasswordToggle>
+export const disabledExample = `
+<script lang="ts">
+	import { Input } from 'stwui';
+</script>
+
+<Input name="input" disabled>
+	<Input.Label slot="label">Label</Input.Label>
+	<Input.Leading slot="leading" data={email} />
+</Input>`;
+
+export const passwordExample = `
+<script lang="ts">
+	import { Input } from 'stwui';
+
+	const lock = "svg-path";
+</script>
+
+<Input type="password" name="input" showPasswordToggle>
 	<Input.Label slot="label">Password</Input.Label>
 	<Input.Leading slot="leading" data={lock} />
 </Input>`;

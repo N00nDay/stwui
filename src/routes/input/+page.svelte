@@ -1,7 +1,19 @@
 <script lang="ts">
-	import { Card, Col, Input } from '../../lib';
-	import { example, props, slots, labelSlots, iconProps } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { Input } from '../../lib';
+	import {
+		basicExample,
+		withLabelExample,
+		withLeadingExample,
+		withtrailingExample,
+		withErrorExample,
+		disabledExample,
+		passwordExample,
+		props,
+		slots,
+		labelSlots,
+		iconProps
+	} from './examples';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email, phone, lock } from '../../docs/icons';
 
 	let value: string | undefined;
@@ -13,19 +25,59 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
-			<Input name="input-1" placeholder="Basic" allowClear />
-			<br />
-			<Input name="input-2" allowClear>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Input name="input-1" placeholder="Basic" />
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={basicExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Label">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Input name="input-2">
+				<Input.Label slot="label">Label</Input.Label>
+			</Input>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withLabelExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Leading">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Input name="input-3" allowClear>
 				<Input.Label slot="label">Label</Input.Label>
 				<Input.Leading slot="leading" data={email} />
+			</Input>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withLeadingExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Trailing">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Input name="input-4" allowClear>
+				<Input.Label slot="label">Label</Input.Label>
 				<Input.Trailing slot="trailing" data={phone} />
 			</Input>
-			<br />
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withtrailingExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Error">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
 			<Input
-				name="input-3"
+				name="input-5"
 				bind:value
 				{error}
 				handleLeadingClick={() => console.log('clicking leading')}
@@ -34,35 +86,44 @@
 				<Input.Leading slot="leading" data={email} />
 				<Input.Trailing slot="trailing" data={phone} />
 			</Input>
-			<br />
-			<Input type="password" name="input-4" showPasswordToggle>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withErrorExample} />
+</ExampleContainer>
+
+<ExampleContainer title="Disabled">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Input name="input-6" disabled>
+				<Input.Label slot="label">Label</Input.Label>
+				<Input.Leading slot="leading" data={email} />
+			</Input>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={disabledExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Password">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Input type="password" name="input-7" showPasswordToggle>
 				<Input.Label slot="label">Password</Input.Label>
 				<Input.Leading slot="leading" data={lock} />
 			</Input>
+		</div>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={passwordExample} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<PropsTable component="Input" {props} />
 
-<Col class="col-24">
-	<PropsTable component="Input" {props} />
-</Col>
+<SlotsTable component="Input" {slots} />
 
-<Col class="col-24">
-	<SlotsTable component="Input" {slots} />
-</Col>
+<SlotsTable component="Input.Label" slots={labelSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Input.Label" slots={labelSlots} />
-</Col>
+<PropsTable component="Input.Leading" props={iconProps} />
 
-<Col class="col-24">
-	<PropsTable component="Input.Leading" props={iconProps} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Input.Trailing" props={iconProps} />
-</Col>
+<PropsTable component="Input.Trailing" props={iconProps} />

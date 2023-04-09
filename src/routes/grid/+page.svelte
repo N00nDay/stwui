@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Row, Col, Divider } from '../../lib';
+	import { Row, Col, Divider } from '../../lib';
 	import { example1, example2, example3, example4, rowProps, rowSlots, colSlots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
