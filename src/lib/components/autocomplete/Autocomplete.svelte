@@ -123,6 +123,7 @@
 
 			{#if value && value.length > 0}
 				<button
+					type="button"
 					aria-label="clear input"
 					on:click={handleClear}
 					class="absolute inset-y-0 right-8 items-center hidden group-focus-within:flex active:flex text-secondary-content"

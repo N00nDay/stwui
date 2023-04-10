@@ -30,6 +30,7 @@
 	aria-selected={$value === option}
 >
 	<button
+		type="button"
 		aria-label="autocomplete option"
 		on:click={() => handleSelect(option)}
 		class="w-full text-left"
