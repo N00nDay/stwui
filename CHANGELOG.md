@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.9.2-next](https://github.com/N00nDay/stwui/compare/v0.9.1-next...v0.9.2-next) (2023-04-10)
+
+
+### Bug Fixes
+
+* **Autocomplete:** stop option select from submitting form ([3f5fa65](https://github.com/N00nDay/stwui/commit/3f5fa659c2b286ac413097ed23c6cfe9b5149d45))
+* **DatePicker:** error color now shows for leading ([0c6ac9d](https://github.com/N00nDay/stwui/commit/0c6ac9d277319df49e1604a52f1ad647523b2736))
+* **Input:** error color now shows for leading ([0c6ac9d](https://github.com/N00nDay/stwui/commit/0c6ac9d277319df49e1604a52f1ad647523b2736))
+* **InputNumber:** error color now shows for leading ([0c6ac9d](https://github.com/N00nDay/stwui/commit/0c6ac9d277319df49e1604a52f1ad647523b2736))
+* **MenuGroup:** active coloring updated ([3a95daf](https://github.com/N00nDay/stwui/commit/3a95daf8a8bd28c5372002684a2953a386eb3a46))
+
 ## [0.9.1-next](https://github.com/N00nDay/stwui/compare/v0.9.0-next...v0.9.1-next) (2023-04-08)
 
 
