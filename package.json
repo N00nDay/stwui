@@ -11,7 +11,7 @@
 		"stwui"
 	],
 	"license": "MIT",
-	"version": "0.9.4-next",
+	"version": "0.9.3-next",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/N00nDay/stwui"
@@ -38,7 +38,7 @@
 		"@sveltejs/adapter-auto": "2.0.0",
 		"@sveltejs/adapter-vercel": "2.4.1",
 		"@sveltejs/kit": "1.15.2",
-		"@sveltejs/package": "^2.0.0",
+		"@sveltejs/package": "^1.0.2",
 		"@tailwindcss/forms": "^0.5.3",
 		"@testing-library/dom": "^9.2.0",
 		"@testing-library/svelte": "^3.2.2",
@@ -51,7 +51,6 @@
 		"eslint": "^8.38.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-svelte3": "^4.0.0",
-		"esm-env": "^1.0.0",
 		"highlight.js": "^11.7.0",
 		"husky": "^8.0.3",
 		"jsdom": "^21.1.1",
@@ -81,99 +80,16 @@
 		"tippy.js": "^6.3.7"
 	},
 	"peerDependencies": {
-		"@sveltejs/kit": "1.15.2",
-		"svelte": "^3.55.1"
+		"svelte": "^3.55.1",
+		"@sveltejs/kit": "1.15.2"
 	},
 	"exports": {
-		"./package.json": "./package.json",
 		".": "./index.js",
 		"./actions": "./actions/index.js",
-		"./plugin": "./package/plugin/index.js",
+		"./plugin": "./plugin/index.js",
 		"./types": "./types/index.js",
 		"./utils": "./utils/index.js",
 		"./icons": "./icons.js",
-		"./enums": "./enums.js",
-		"./plugin/base": {
-			"types": "./package/plugin/base/index.d.ts",
-			"svelte": "./package/plugin/base/index.js",
-			"default": "./package/plugin/base/index.js"
-		},
-		"./plugin/colors": {
-			"types": "./package/plugin/colors/index.d.ts",
-			"svelte": "./package/plugin/colors/index.js",
-			"default": "./package/plugin/colors/index.js"
-		},
-		"./plugin/components": {
-			"types": "./package/plugin/components/index.d.ts",
-			"svelte": "./package/plugin/components/index.js",
-			"default": "./package/plugin/components/index.js"
-		},
-		"./plugin/node_modules/color": {
-			"types": "./package/plugin/node_modules/color/index.d.ts",
-			"svelte": "./package/plugin/node_modules/color/index.js",
-			"default": "./package/plugin/node_modules/color/index.js"
-		},
-		"./plugin/node_modules/color-convert": {
-			"types": "./package/plugin/node_modules/color-convert/index.d.ts",
-			"svelte": "./package/plugin/node_modules/color-convert/index.js",
-			"default": "./package/plugin/node_modules/color-convert/index.js"
-		},
-		"./plugin/node_modules/color-name": {
-			"types": "./package/plugin/node_modules/color-name/index.d.ts",
-			"svelte": "./package/plugin/node_modules/color-name/index.js",
-			"default": "./package/plugin/node_modules/color-name/index.js"
-		},
-		"./plugin/node_modules/color-string": {
-			"types": "./package/plugin/node_modules/color-string/index.d.ts",
-			"svelte": "./package/plugin/node_modules/color-string/index.js",
-			"default": "./package/plugin/node_modules/color-string/index.js"
-		},
-		"./plugin/node_modules/is-arrayish": {
-			"types": "./package/plugin/node_modules/is-arrayish/index.d.ts",
-			"svelte": "./package/plugin/node_modules/is-arrayish/index.js",
-			"default": "./package/plugin/node_modules/is-arrayish/index.js"
-		},
-		"./plugin/node_modules/simple-swizzle": {
-			"types": "./package/plugin/node_modules/simple-swizzle/index.d.ts",
-			"svelte": "./package/plugin/node_modules/simple-swizzle/index.js",
-			"default": "./package/plugin/node_modules/simple-swizzle/index.js"
-		}
-	},
-	"files": [
-		"package"
-	],
-	"typesVersions": {
-		">4.0": {
-			"plugin/base": [
-				"./package/plugin/base/index.d.ts"
-			],
-			"plugin/colors": [
-				"./package/plugin/colors/index.d.ts"
-			],
-			"plugin/components": [
-				"./package/plugin/components/index.d.ts"
-			],
-			"plugin": [
-				"./package/plugin/index.d.ts"
-			],
-			"plugin/node_modules/color": [
-				"./package/plugin/node_modules/color/index.d.ts"
-			],
-			"plugin/node_modules/color-convert": [
-				"./package/plugin/node_modules/color-convert/index.d.ts"
-			],
-			"plugin/node_modules/color-name": [
-				"./package/plugin/node_modules/color-name/index.d.ts"
-			],
-			"plugin/node_modules/color-string": [
-				"./package/plugin/node_modules/color-string/index.d.ts"
-			],
-			"plugin/node_modules/is-arrayish": [
-				"./package/plugin/node_modules/is-arrayish/index.d.ts"
-			],
-			"plugin/node_modules/simple-swizzle": [
-				"./package/plugin/node_modules/simple-swizzle/index.d.ts"
-			]
-		}
+		"./enums": "./enums.js"
 	}
 }
