@@ -52,7 +52,12 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<button aria-label="select option" on:click={() => handleSelect(option)} class="w-full text-left">
+	<button
+		type="button"
+		aria-label="select option"
+		on:click={() => handleSelect(option)}
+		class="w-full text-left"
+	>
 		<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
 			<span class="font-normal block truncate" class:font-semibold={optionIsSelected}>
 				{option[optionLabel]}
