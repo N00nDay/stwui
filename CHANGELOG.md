@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.4-next](https://github.com/N00nDay/stwui/compare/v0.9.3-next...v0.9.4-next) (2023-04-11)
+
+
+### Bug Fixes
+
+* updating and migrating package to svelte-package 2.0 ([539f6a2](https://github.com/N00nDay/stwui/commit/539f6a2a5c52eb83c2cd10064ee82c1264483107))
+
 ## [0.9.3-next](https://github.com/N00nDay/stwui/compare/v0.9.2-next...v0.9.3-next) (2023-04-11)
 
 
