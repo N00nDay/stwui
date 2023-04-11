@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.3-next](https://github.com/N00nDay/stwui/compare/v0.9.2-next...v0.9.3-next) (2023-04-11)
+
+
+### Bug Fixes
+
+* **Select:** clicking option no longer submits forms ([17c3e39](https://github.com/N00nDay/stwui/commit/17c3e390f8c0efd00a5218c3153467c3c5c8c75e))
+
 ## [0.9.2-next](https://github.com/N00nDay/stwui/compare/v0.9.1-next...v0.9.2-next) (2023-04-10)
 
 
