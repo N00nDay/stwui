@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.5-next](https://github.com/N00nDay/stwui/compare/v0.9.4-next...v0.9.5-next) (2023-04-11)
+
+
+### Bug Fixes
+
+* reverting svelte-package to fix breaking change ([d72bf79](https://github.com/N00nDay/stwui/commit/d72bf795e294f74221accf9f5ca2406848b26e90))
+
 ## [0.9.4-next](https://github.com/N00nDay/stwui/compare/v0.9.3-next...v0.9.4-next) (2023-04-11)
 
 
