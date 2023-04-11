@@ -3,7 +3,7 @@
 	import { theme } from '$lib/stores';
 	import { page } from '$app/stores';
 	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle, Col, Divider } from '../lib';
-	import { browser } from '$app/environment';
+	import { DEV, BROWSER } from 'esm-env';
 	import { Navigation, Search } from '../docs';
 	import { brightness_4, brightness_5 } from '../docs/icons';
 	import { menu, close } from '../lib/icons';
@@ -19,12 +19,12 @@
 	}
 
 	$: darkTheme = $theme === 'dark';
-	$: if (browser && darkTheme) {
+	$: if (BROWSER && darkTheme) {
 		const htmlElement = document.documentElement;
 		// htmlElement.classList.add('dark');
 		htmlElement.dataset.theme = 'dark';
 		theme.set('dark');
-	} else if (browser) {
+	} else if (BROWSER) {
 		const htmlElement = document.documentElement;
 		// htmlElement.classList.remove('dark');
 		htmlElement.dataset.theme = 'light';
@@ -36,7 +36,7 @@
 	async function scrollToTop(pathname: string) {
 		const newPath = pathname;
 		if (path !== newPath) {
-			if (browser) {
+			if (BROWSER) {
 				const scrollEl = document.getElementById('content-body') as HTMLDivElement;
 				if (scrollEl) {
 					scrollEl.scrollTop = 0;

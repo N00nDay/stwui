@@ -12,7 +12,7 @@
 		toggle_switch
 	} from '../../icons';
 	import { close, info } from '../../../lib/icons';
-	import { browser } from '$app/environment';
+	import { BROWSER } from 'esm-env';
 	import HoverBackground from '$lib/components/HoverBackground.svelte';
 
 	let input: HTMLInputElement;
@@ -103,7 +103,7 @@
 		}
 	}
 
-	$: if (open && browser && input) {
+	$: if (open && BROWSER && input) {
 		input.focus();
 	}
 </script>

@@ -1,12 +1,12 @@
-import { browser } from '$app/environment';
+import { BROWSER } from 'esm-env';
 import { writable } from 'svelte/store';
 
 const defaultValue = 'light';
-const initialValue = browser ? window.localStorage.getItem('theme') ?? defaultValue : defaultValue;
+const initialValue = BROWSER ? window.localStorage.getItem('theme') ?? defaultValue : defaultValue;
 
 const theme = writable<string>(initialValue);
 theme.subscribe((value) => {
-	if (browser) {
+	if (BROWSER) {
 		window.localStorage.setItem('theme', value === 'dark' ? 'dark' : 'light');
 	}
 });

@@ -13,14 +13,6 @@ const config = {
 	kit: {
 		adapter: vercel()
 	},
-	package: {
-		exports: (filepath) => {
-			return filepath.endsWith('index.js');
-		},
-		files: (filepath) => {
-			return filepath.indexOf('test') == -1 ? true : false;
-		}
-	}
-};
+	};
 
 export default config;
