@@ -9,18 +9,20 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let column: number;
-
-	const columns: TableColumn[] = getContext('table-columns');
 	$: columnWidth = 100 / columns.length;
 
+	const columns: TableColumn[] = getContext('table-columns');
+
 	const defaultClass =
-		'table-col first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 border-t truncate border-border max-w-0 py-2.5 pr-3 text-sm sm:w-auto sm:max-w-none sm:pl-6 font-semibold md:font-normal text-secondary-content';
+		'table-col first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 border-t truncate border-border py-2.5 pr-3 text-sm sm:pl-6 font-semibold md:font-normal text-secondary-content box-border';
 	const rightClass = 'text-right pl-3 pr-4 sm:pr-6 last:text-right';
 	const leftClass = 'text-left';
 	const noPlacementClass = 'last:text-right';
 
 	$: finalClass = twMerge(
 		defaultClass,
+
+		columns[column].class ? columns[column].class : false,
 
 		columns[column].placement === 'right'
 			? rightClass
@@ -34,7 +36,9 @@
 
 <td
 	class={finalClass}
-	style="width: {columnWidth}%;{$$props.style}"
+	style="{$$props.style ? $$props.style : ''}{columns[column].class
+		? ''
+		: ` width:${columnWidth}%`}"
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class', 'style'])}

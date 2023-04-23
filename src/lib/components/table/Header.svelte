@@ -16,6 +16,7 @@
 
 	const header: Writable<boolean> = getContext('table-header');
 	const columns: TableColumn[] = getContext('table-columns');
+	const scrollbarWidth: Writable<number> = getContext('table-scrollbar-width');
 	header.set(true);
 
 	const defaultClass =
@@ -25,6 +26,7 @@
 
 <table
 	class={finalClass}
+	style="padding-right:{$scrollbarWidth}px"
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}

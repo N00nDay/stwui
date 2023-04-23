@@ -36,27 +36,32 @@
 		{
 			column: 'project_name',
 			label: 'Project Name',
-			placement: 'left'
+			placement: 'left',
+			class: 'w-[40%] md:w-[30%] lg:w-[20%]'
 		},
 		{
 			column: 'status',
 			label: 'Status',
-			placement: 'left'
+			placement: 'left',
+			class: 'w-[40%] md:w-[30%] lg:w-[20%]'
 		},
 		{
 			column: 'city',
 			label: 'City',
-			placement: 'left'
+			placement: 'left',
+			class: 'hidden md:table-cell w-0 md:w-[30%] lg:w-[20%]'
 		},
 		{
 			column: 'state',
 			label: 'State',
-			placement: 'left'
+			placement: 'left',
+			class: 'hidden lg:table-cell lg:w-[20%]'
 		},
 		{
 			column: 'created_at',
 			label: 'Created',
-			placement: 'right'
+			placement: 'right',
+			class: 'w-[20%] md:w-[10%] lg:w-[20%]'
 		}
 	];
 

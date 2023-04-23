@@ -13,6 +13,7 @@
 
 	let header = writable(false);
 	let footer = writable(false);
+	let scrollbarWidth = writable(0);
 
 	const defaultClass = 'bg-surface';
 	$: finalClass = twMerge(defaultClass, $$props.class);
@@ -20,6 +21,7 @@
 	setContext('table-columns', columns);
 	setContext('table-header', header);
 	setContext('table-footer', footer);
+	setContext('table-scrollbar-width', scrollbarWidth);
 </script>
 
 <div
