@@ -2,6 +2,7 @@
 	import { Row, Col, Divider } from '../../lib';
 	import { example1, example2, example3, example4, rowProps, rowSlots, colSlots } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { breakpoints } from '$lib/stores';
 
 	const defaultClass = 'flex items-center justify-center h-12 text-primary-content';
 
@@ -72,6 +73,170 @@
 				<div class={lightBlockWithSpacing}>w-[20%]</div>
 			</Col>
 		</Row>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={example1} />
+</ExampleContainer>
+
+<ExampleContainer title="With Breakpoints" resizable={false}>
+	<div slot="preview" class="w-full">
+		<Row>
+			<Col class="col-24 sm:col-12 md:col-12 lg:col-8 xl:col-4 2xl:col-4">
+				<div class={lightBlockWithSpacing}>
+					{#if $breakpoints['2xl']}
+						2xl:col-4
+					{:else if $breakpoints.xl}
+						xl:col-4
+					{:else if $breakpoints.lg}
+						lg:col-8
+					{:else if $breakpoints.md}
+						md:col-12
+					{:else if $breakpoints.sm}
+						sm:col-12
+					{:else}
+						col-24
+					{/if}
+				</div>
+			</Col>
+			<Col class="col-24 sm:col-12 md:col-12 lg:col-8 xl:col-4 2xl:col-4">
+				<div class={darkBlockWithSpacing}>
+					{#if $breakpoints['2xl']}
+						2xl:col-4
+					{:else if $breakpoints.xl}
+						xl:col-4
+					{:else if $breakpoints.lg}
+						lg:col-8
+					{:else if $breakpoints.md}
+						md:col-12
+					{:else if $breakpoints.sm}
+						sm:col-12
+					{:else}
+						col-24
+					{/if}
+				</div>
+			</Col>
+			<Col class="col-24 sm:col-12 md:col-12 lg:col-8 xl:col-4 2xl:col-4">
+				<div class={lightBlockWithSpacing}>
+					{#if $breakpoints['2xl']}
+						2xl:col-4
+					{:else if $breakpoints.xl}
+						xl:col-4
+					{:else if $breakpoints.lg}
+						lg:col-8
+					{:else if $breakpoints.md}
+						md:col-12
+					{:else if $breakpoints.sm}
+						sm:col-12
+					{:else}
+						col-24
+					{/if}
+				</div>
+			</Col>
+			<Col class="col-24 sm:col-12 md:col-12 lg:col-8 xl:col-4 2xl:col-4">
+				<div class={darkBlockWithSpacing}>
+					{#if $breakpoints['2xl']}
+						2xl:col-4
+					{:else if $breakpoints.xl}
+						xl:col-4
+					{:else if $breakpoints.lg}
+						lg:col-8
+					{:else if $breakpoints.md}
+						md:col-12
+					{:else if $breakpoints.sm}
+						sm:col-12
+					{:else}
+						col-24
+					{/if}
+				</div>
+			</Col>
+			<Col class="col-24 sm:col-12 md:col-12 lg:col-8 xl:col-4 2xl:col-4">
+				<div class={lightBlockWithSpacing}>
+					{#if $breakpoints['2xl']}
+						2xl:col-4
+					{:else if $breakpoints.xl}
+						xl:col-4
+					{:else if $breakpoints.lg}
+						lg:col-8
+					{:else if $breakpoints.md}
+						md:col-12
+					{:else if $breakpoints.sm}
+						sm:col-12
+					{:else}
+						col-24
+					{/if}
+				</div>
+			</Col>
+			<Col class="col-24 sm:col-12 md:col-12 lg:col-8 xl:col-4 2xl:col-4">
+				<div class={darkBlockWithSpacing}>
+					{#if $breakpoints['2xl']}
+						2xl:col-4
+					{:else if $breakpoints.xl}
+						xl:col-4
+					{:else if $breakpoints.lg}
+						lg:col-8
+					{:else if $breakpoints.md}
+						md:col-12
+					{:else if $breakpoints.sm}
+						sm:col-12
+					{:else}
+						col-24
+					{/if}
+				</div>
+			</Col>
+		</Row>
+		<!-- <Row>
+			<Col class="col-12">
+				<div class={lightBlockWithSpacing}>col-12</div>
+			</Col>
+			<Col class="col-12">
+				<div class={darkBlockWithSpacing}>col-12</div>
+			</Col>
+		</Row>
+
+		<Row>
+			<Col class="col-8">
+				<div class={lightBlockWithSpacing}>col-8</div>
+			</Col>
+			<Col class="col-8">
+				<div class={darkBlockWithSpacing}>col-8</div>
+			</Col>
+			<Col class="col-8">
+				<div class={lightBlockWithSpacing}>col-8</div>
+			</Col>
+		</Row> -->
+
+		<!-- <Row>
+			<Col class="col-6">
+				<div class={lightBlockWithSpacing}>col-6</div>
+			</Col>
+			<Col class="col-6">
+				<div class={darkBlockWithSpacing}>col-6</div>
+			</Col>
+			<Col class="col-6">
+				<div class={lightBlockWithSpacing}>col-6</div>
+			</Col>
+			<Col class="col-6">
+				<div class={darkBlockWithSpacing}>col-6</div>
+			</Col>
+		</Row>
+
+		<Row>
+			<Col class="w-[20%]">
+				<div class={lightBlockWithSpacing}>w-[20%]</div>
+			</Col>
+			<Col class="w-[20%]">
+				<div class={darkBlockWithSpacing}>w-[20%]</div>
+			</Col>
+			<Col class="w-[20%]">
+				<div class={lightBlockWithSpacing}>w-[20%]</div>
+			</Col>
+			<Col class="w-[20%]">
+				<div class={darkBlockWithSpacing}>w-[20%]</div>
+			</Col>
+			<Col class="w-[20%]">
+				<div class={lightBlockWithSpacing}>w-[20%]</div>
+			</Col>
+		</Row> -->
 	</div>
 
 	<CodeBlock slot="code" language="svelte" code={example1} />

@@ -98,10 +98,10 @@
 			title: 'FilePreview',
 			href: '/file-preview'
 		},
-		{
-			title: 'Grid',
-			href: '/grid'
-		},
+		// {
+		// 	title: 'Grid',
+		// 	href: '/grid'
+		// },
 		{
 			title: 'Icon',
 			href: '/icon'

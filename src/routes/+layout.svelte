@@ -1,14 +1,15 @@
 <script lang="ts">
 	import '../app.css';
-	import { theme } from '$lib/stores';
+	import { theme, breakpoints } from '$lib/stores';
 	import { page } from '$app/stores';
 	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle, Col, Divider } from '../lib';
-	import { DEV, BROWSER } from 'esm-env';
+	import { BROWSER } from 'esm-env';
 	import { Navigation, Search } from '../docs';
 	import { brightness_4, brightness_5 } from '../docs/icons';
 	import { menu, close } from '../lib/icons';
 
 	let openMenu = false;
+	let clientWidth: number;
 
 	function handleOpenMenu() {
 		openMenu = !openMenu;
@@ -47,6 +48,64 @@
 	}
 
 	$: scrollToTop($page.url.pathname);
+
+	$: {
+		if (clientWidth > 1535) {
+			$breakpoints = {
+				xs: true,
+				sm: true,
+				md: true,
+				lg: true,
+				xl: true,
+				'2xl': true
+			};
+		} else if (clientWidth > 1279) {
+			$breakpoints = {
+				xs: true,
+				sm: true,
+				md: true,
+				lg: true,
+				xl: true,
+				'2xl': false
+			};
+		} else if (clientWidth > 1023) {
+			$breakpoints = {
+				xs: true,
+				sm: true,
+				md: true,
+				lg: true,
+				xl: false,
+				'2xl': false
+			};
+		} else if (clientWidth > 767) {
+			$breakpoints = {
+				xs: true,
+				sm: true,
+				md: true,
+				lg: false,
+				xl: false,
+				'2xl': false
+			};
+		} else if (clientWidth > 639) {
+			$breakpoints = {
+				xs: true,
+				sm: true,
+				md: false,
+				lg: false,
+				xl: false,
+				'2xl': false
+			};
+		} else {
+			$breakpoints = {
+				xs: true,
+				sm: false,
+				md: false,
+				lg: false,
+				xl: false,
+				'2xl': false
+			};
+		}
+	}
 </script>
 
 <svelte:head>
@@ -67,7 +126,7 @@
 	<meta name="twitter:description" content={$page.data.description} />
 </svelte:head>
 
-<div class="h-full w-full print:hidden">
+<div class="h-full w-full print:hidden" bind:clientWidth>
 	<Layout>
 		<div class="fixed top-0 left-0 right-0 h-[var(--sat)] z-10 bg-surface shadow-md" />
 		<Layout.Header>
