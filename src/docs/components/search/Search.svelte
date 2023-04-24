@@ -79,14 +79,20 @@
 			} else {
 				selectedIndex = 0;
 			}
+			e.preventDefault();
+			e.stopPropagation();
 		} else if (e.key === 'ArrowUp') {
 			if (selectedIndex) {
 				selectedIndex -= 1;
 			} else {
 				selectedIndex = filteredData.length - 1;
 			}
+			e.preventDefault();
+			e.stopPropagation();
 		} else if (e.key === 'Enter' && selectedIndex != null && filteredData.length > 0) {
 			handleSelect(filteredData[selectedIndex].href);
+			e.preventDefault();
+			e.stopPropagation();
 		}
 
 		const option = document.getElementById(`option-${selectedIndex}`);
