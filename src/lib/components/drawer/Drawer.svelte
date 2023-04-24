@@ -19,6 +19,8 @@
 			handleClose
 		) {
 			onClose();
+			e.preventDefault();
+			e.stopPropagation();
 		}
 	}
 
