@@ -22,10 +22,16 @@
 	function captureEscapeEvent(e: KeyboardEvent) {
 		if (e.key === 'Escape' && e.code === 'Escape' && !e.shiftKey) {
 			handleClose();
+			e.preventDefault();
+			e.stopPropagation();
 		} else if (e.key === 'ArrowRight' && e.code === 'ArrowRight' && !e.shiftKey) {
 			handleNext();
+			e.preventDefault();
+			e.stopPropagation();
 		} else if (e.key === 'ArrowLeft' && e.code === 'ArrowLeft' && !e.shiftKey) {
 			handlePrevious();
+			e.preventDefault();
+			e.stopPropagation();
 		}
 	}
 
