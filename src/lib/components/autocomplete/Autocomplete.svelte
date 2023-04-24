@@ -69,6 +69,7 @@
 	setContext('autocomplete-name', name);
 	setContext('autocomplete-error', currentError);
 	setContext('autocomplete-value', selectedOption);
+	setContext('autocomplete-handleClose', handleClose);
 </script>
 
 <div
