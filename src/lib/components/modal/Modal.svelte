@@ -14,6 +14,8 @@
 	function captureEscapeEvent(e: KeyboardEvent) {
 		if (e.key === 'Escape' && e.code === 'Escape' && !e.shiftKey) {
 			handleClose();
+			e.preventDefault();
+			e.stopPropagation();
 		}
 	}
 
