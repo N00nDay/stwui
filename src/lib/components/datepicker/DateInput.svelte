@@ -63,12 +63,13 @@
 		const e = event as KeyboardEvent;
 		if (e.key === 'Escape' && visible) {
 			visible = false;
-			e.preventDefault();
-			e.stopPropagation();
-		} else if (e.key === 'Enter') {
-			visible = !visible;
-			e.preventDefault();
-		} else if (e.key === 'Tab') {
+			// e.preventDefault();
+			// e.stopPropagation();
+		}
+		//  else if (e.key === 'Enter') {
+		// 	visible = !visible;
+		// }
+		else if (e.key === 'Tab') {
 			visible = !visible;
 		}
 	}

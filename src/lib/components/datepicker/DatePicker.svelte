@@ -122,34 +122,43 @@
 				setYear(browseDate, 'subtract');
 				transitionDirection = 'reverse';
 			}
+			// e.preventDefault();
+			// e.stopPropagation();
 		} else if (e.shiftKey && e.key === 'ArrowDown') {
 			const newBrowseDate = browseDate.add(1, 'year');
 			if (dayIsInRange(newBrowseDate)) {
 				setYear(browseDate, 'add');
 				transitionDirection = 'forward';
 			}
+			// e.preventDefault();
+			// e.stopPropagation();
 		} else if (e.shiftKey && e.key === 'ArrowLeft') {
 			const newBrowseDate = browseDate.subtract(1, 'month');
 			if (dayIsInRange(newBrowseDate)) {
 				setMonth(browseDate, 'subtract');
 				transitionDirection = 'reverse';
 			}
+			// e.preventDefault();
+			// e.stopPropagation();
 		} else if (e.shiftKey && e.key === 'ArrowRight') {
 			const newBrowseDate = browseDate.add(1, 'month');
 			if (dayIsInRange(newBrowseDate)) {
 				setMonth(browseDate, 'add');
 				transitionDirection = 'forward';
 			}
+			// e.preventDefault();
+			// e.stopPropagation();
 		} else {
 			return false;
 		}
-		e.preventDefault();
+		// e.preventDefault();
 		updateCalendarDays();
 		return true;
 	}
 
-	function keydown(event: unknown) {
-		const e: KeyboardEvent = event as KeyboardEvent;
+	function keydown(e: KeyboardEvent) {
+		e.preventDefault();
+		e.stopPropagation();
 		let shift = e.shiftKey || e.altKey;
 		if ((e.target as HTMLElement)?.tagName === 'SELECT') {
 			return;
@@ -165,6 +174,8 @@
 				setValue(browseDate);
 				transitionDirection = 'reverse';
 			}
+			// e.preventDefault();
+			// e.stopPropagation();
 		} else if (e.key === 'ArrowDown') {
 			const newBrowseDate = browseDate.add(7, 'days');
 			if (dayIsInRange(newBrowseDate)) {
@@ -172,6 +183,8 @@
 				transitionDirection = 'forward';
 				setValue(browseDate);
 			}
+			// e.preventDefault();
+			// e.stopPropagation();
 		} else if (e.key === 'ArrowLeft') {
 			const newBrowseDate = browseDate.subtract(1, 'days');
 			if (dayIsInRange(newBrowseDate)) {
@@ -179,24 +192,32 @@
 				transitionDirection = 'reverse';
 				setValue(browseDate);
 			}
+			// e.preventDefault();
+			// e.stopPropagation();
 		} else if (e.key === 'ArrowRight') {
+			console.log('DatePicker ArrowRight');
 			const newBrowseDate = browseDate.add(1, 'days');
 			if (dayIsInRange(newBrowseDate)) {
 				browseDate = browseDate.add(1, 'day');
 				transitionDirection = 'forward';
 				setValue(browseDate);
 			}
+			// e.preventDefault();
+			// e.stopPropagation();
 		} else if (e.key === 'Enter') {
+			console.log('DatePicker Enter');
 			browseDate = browseDate;
 			setValue(browseDate);
 			handleSelect(browseDate);
+			// e.preventDefault();
+			// e.stopPropagation();
 		} else {
 			return;
 		}
 		if (currentMonth !== browseDate.month()) {
 			updateCalendarDays();
 		}
-		e.preventDefault();
+		// e.preventDefault();
 	}
 
 	function handleArrow(unit: 'year' | 'month', operation: 'add' | 'subtract') {
@@ -221,7 +242,9 @@
 	// TODO: time picker
 </script>
 
-<Card class="max-w-[300px] mt-1 w-[300px]" on:focusout tabindex="-1" on:keydown={keydown}>
+<svelte:window on:keydown={keydown} />
+
+<Card class="max-w-[300px] mt-1 w-[300px]" on:focusout tabindex="-1">
 	<div class="h-14 px-3 py-2 flex items-center">
 		<Button
 			ariaLabel="previous year"
@@ -313,6 +336,10 @@
 									class:hover:bg-hover={dayIsInRange(calendarDay) &&
 										!calendarDay.isSame(value, 'date')}
 									class:hover:bg-opacity-[0.07]={dayIsInRange(calendarDay) &&
+										!calendarDay.isSame(value, 'date')}
+									class:bg-hover={calendarDay.isSame(browseDate, 'date') &&
+										!calendarDay.isSame(value, 'date')}
+									class:bg-opacity-[0.07]={calendarDay.isSame(browseDate, 'date') &&
 										!calendarDay.isSame(value, 'date')}
 									class:border={calendarDay.isSame(defaultDate, 'day') &&
 										!calendarDay.isSame(value, 'date')}
