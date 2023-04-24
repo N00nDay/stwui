@@ -40,7 +40,16 @@
 		}
 	}
 
-	const defaultClass = 'group text-content cursor-pointer select-none p-0.5 w-full';
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			e.stopPropagation();
+			handleSelect(option);
+		}
+	}
+
+	const defaultClass =
+		'group text-content cursor-pointer select-none p-0.5 w-full !outline-none !border-none !ring-0';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -48,6 +57,8 @@
 	class={finalClass}
 	role="option"
 	aria-selected={optionIsSelected}
+	tabindex="-1"
+	on:keydown={handleKeydown}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}

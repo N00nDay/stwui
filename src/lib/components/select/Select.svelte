@@ -66,7 +66,6 @@
 			}
 		}
 		if (closeOnSelect) {
-			console.log('closed FIRED');
 			toggleVisible();
 		}
 	}
@@ -88,6 +87,7 @@
 	setContext('select-option-label', optionLabel);
 	setContext('select-option-value', optionValue);
 	setContext('select-multiple', multiple);
+	setContext('select-handleClose', handleClose);
 </script>
 
 <div class={$$props.class} style={$$props.style} use:clickOutside={handleClose}>
