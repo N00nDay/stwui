@@ -19,7 +19,7 @@
 	}
 
 	const defaultClass =
-		'radio bg-surface text-surface border-border checked:bg-none border checked:border-primary group-hover:border-primary group-focus:border-primary active:border-primary focus:active:border-primary rounded-full h-6 w-6';
+		'radio bg-surface text-surface border-border checked:bg-none border checked:border-primary group-hover:border-primary group-focus:border-primary active:border-primary focus:active:border-primary focus:border-primary rounded-full h-6 w-6';
 	const pillClass =
 		'group relative border border-border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium sm:flex-1 cursor-pointer focus:outline-none';
 
@@ -34,8 +34,8 @@
 </script>
 
 {#if type === 'default'}
-	<div class="group relative flex items-start" class:opacity-75={disabled}>
-		<div class="flex items-center justify-center h-6 w-6 relative group">
+	<li tabindex="-1" class="group relative flex items-start" class:opacity-75={disabled}>
+		<div tabindex="-1" class="flex items-center justify-center h-6 w-6 relative group">
 			<input
 				on:click={handleClick}
 				{id}
@@ -51,6 +51,7 @@
 				class={finalClass}
 			/>
 			<div
+				tabindex="-1"
 				class="absolute rounded-full transition-size duration-200 z-10"
 				class:h-0={$selected !== value}
 				class:w-0={$selected !== value}
@@ -61,16 +62,19 @@
 			/>
 		</div>
 		{#if $$slots.label || $$slots.description}
-			<div class="ml-3 text-sm cursor-pointer" on:click={handleClick} on:keypress>
+			<div tabindex="-1" class="ml-3 text-sm cursor-pointer" on:click={handleClick} on:keypress>
 				<slot name="label" />
 				{#if $$slots.label && $$slots.description}|{/if}
 				<slot name="description" />
 			</div>
 		{/if}
-	</div>
+	</li>
 {:else if type === 'pill'}
-	<label
-		for={id ? id : undefined}
+	<li
+		tabindex="-1"
+		on:click={handleClick}
+		on:keydown={handleClick}
+		on:keypress={handleClick}
 		class={finalClass}
 		class:bg-default={$selected !== value}
 		class:text-default-content={$selected !== value}
@@ -78,7 +82,7 @@
 		class:text-primary-content={$selected === value}
 	>
 		<input on:click bind:group={$selected} type="radio" {id} {name} {value} class="sr-only" />
-		<span id={id ? `${id}-label` : undefined}><slot /></span>
+		<span tabindex="-1" id={id ? `${id}-label` : undefined}><slot /></span>
 		<HoverBackground />
-	</label>
+	</li>
 {/if}
