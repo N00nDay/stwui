@@ -15,7 +15,6 @@
 			e.stopPropagation();
 
 			const { target } = e;
-			// const enterEvent = new KeyboardEvent('keydown', { key: 'Enter' });
 			if (target && target instanceof HTMLLIElement) target.click();
 		}
 	}
