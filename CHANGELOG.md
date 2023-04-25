@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.10.0-next](https://github.com/N00nDay/stwui/compare/v0.9.5-next...v0.10.0-next) (2023-04-25)
+
+
+### Features
+
+* **Table:** columns can now be passed a class allowing for custom widths and styles ([90b4567](https://github.com/N00nDay/stwui/commit/90b4567b44b5ed0cd58c9fb88d7e7af3e296cec0))
+
+
+### Bug Fixes
+
+* **Autocomplete:** allow navigating options via keyboard ([5108f3e](https://github.com/N00nDay/stwui/commit/5108f3ebfb63233acc7080108c81ce160e64b395))
+* **Checkbox:** allow select/unselect with Spacebar ([8f2ebf5](https://github.com/N00nDay/stwui/commit/8f2ebf5e1daa4d1c1ba28224944bd43342fd8999))
+* **DatePicker:** allow keyboard navigation for calendar picker ([370dbfa](https://github.com/N00nDay/stwui/commit/370dbfa0e9d3f61d99646f0c64a4e52503671225))
+* **Drawer:** preventDefault and stopPropagation on Escape ([274d2f7](https://github.com/N00nDay/stwui/commit/274d2f78a5bbea158cfa333329695c4db0252372))
+* **Dropdown:** allow keyboard navigation ([a8c936b](https://github.com/N00nDay/stwui/commit/a8c936be1743a61048569f78aaf43514befe6ee1))
+* **HoverBackground:** added group-focus instead of ([6bce06e](https://github.com/N00nDay/stwui/commit/6bce06ef76fe27c3e1db78ed9a6a584565d3ff0d))
+* **LightBox:** preventDefault and stopPropagation on Escape, ArrowRight, and ArrowLeft ([a4f15d1](https://github.com/N00nDay/stwui/commit/a4f15d14f3b2ff57f120fb186f3f2a99df15d44e))
+* **Modal:** preventDefault and stopPropagation on E ([c3129ea](https://github.com/N00nDay/stwui/commit/c3129ea4fc6e016dbb472c4ea7242eb5434dd329))
+* **Radio:** allow keyboard navigation ([627d774](https://github.com/N00nDay/stwui/commit/627d77454b463c8a3d43cdfa20119251bfc1acbd))
+* **Select:** allow keyboard navigation for options ([6dee888](https://github.com/N00nDay/stwui/commit/6dee888e0991f9093ebcec3ba8d3adc782f4c886))
+
 ## [0.9.5-next](https://github.com/N00nDay/stwui/compare/v0.9.4-next...v0.9.5-next) (2023-04-11)
 
 
