@@ -9,23 +9,37 @@
 
 	export let label: string;
 
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			e.stopPropagation();
+
+			const { target } = e;
+			// const enterEvent = new KeyboardEvent('keydown', { key: 'Enter' });
+			if (target && target instanceof HTMLLIElement) target.click();
+		}
+	}
+
 	const defaultClass =
-		'w-full group relative flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-secondary-content';
+		'w-full group relative flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-secondary-content !outline-none !border-none !ring-0';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<button
-	aria-label="dropdown item"
+<li
 	class={finalClass}
+	tabindex="-1"
+	on:keydown={handleKeydown}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<span class="flex items-center justify-start flex-grow">
-		<slot name="icon" />
-		<span class="truncate" class:ml-3={$$slots.icon}>{label}</span>
-	</span>
+	<button type="button" aria-label="select option" class="w-full flex items-center">
+		<span class="flex items-center justify-start flex-grow">
+			<slot name="icon" />
+			<span class="truncate" class:ml-3={$$slots.icon}>{label}</span>
+		</span>
 
-	<slot name="extra" />
-	<HoverBackground class="rounded-md" />
-</button>
+		<slot name="extra" />
+		<HoverBackground class="rounded-md" />
+	</button>
+</li>
