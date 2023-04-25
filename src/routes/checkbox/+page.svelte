@@ -12,9 +12,18 @@
 		labelSlots,
 		descriptionSlots,
 		disabledExample,
-		defaultCheckedExample
+		defaultCheckedExample,
+		errorExample
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+
+	let checked = false;
+	let error: string | undefined = 'Here is an error!';
+	$: if (checked) {
+		error = undefined;
+	} else {
+		error = 'Here is an error!';
+	}
 </script>
 
 <ExampleContainer title="Basic">
@@ -126,6 +135,20 @@
 		</CheckboxGroup>
 	</div>
 	<CodeBlock slot="code" language="svelte" code={disabledExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Error">
+	<div slot="preview" class="flex flex-col gap-2 items-center justify-center w-full">
+		<CheckboxGroup>
+			<CheckboxGroup.Checkbox name="cb-20" value="cb-20" {error} bind:checked>
+				<CheckboxGroup.Checkbox.Label slot="label">Checkbox-20</CheckboxGroup.Checkbox.Label>
+			</CheckboxGroup.Checkbox>
+			<CheckboxGroup.Checkbox name="cb-21" value="cb-21">
+				<CheckboxGroup.Checkbox.Label slot="label">Checkbox-21</CheckboxGroup.Checkbox.Label>
+			</CheckboxGroup.Checkbox>
+		</CheckboxGroup>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={errorExample} />
 </ExampleContainer>
 
 <PropsTable component="CheckboxGroup" {props} />

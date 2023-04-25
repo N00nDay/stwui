@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
+	import { slide, scale } from 'svelte/transition';
 
 	export let name: string;
 	export let value: string;
 	export let indeterminate = false;
 	export let disabled = false;
 	export let checked = false;
+	export let error: string | undefined = undefined;
 
 	// TODO: allow checked status color prop
 
@@ -37,7 +39,7 @@
 			{name}
 			{indeterminate}
 			{disabled}
-			{checked}
+			bind:checked
 			type="checkbox"
 			{value}
 			class={finalClass}
@@ -50,6 +52,9 @@
 		<slot />
 	</div>
 </div>
+{#if error}
+	<p transition:slide|local class="!mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+{/if}
 
 <style>
 	.checkbox:checked {

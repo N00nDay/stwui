@@ -60,6 +60,12 @@ export const checkboxProps: Prop[] = [
 		prop: 'checked',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '6',
+		prop: 'error',
+		type: 'string | undefined',
+		default: ''
 	}
 ];
 
@@ -205,5 +211,27 @@ export const defaultCheckedExample = `
 <CheckboxGroup>
 	<CheckboxGroup.Checkbox name="cb-19" value="cb-19" checked={true}>
 			<CheckboxGroup.Checkbox.Label slot="label">Checkbox-19</CheckboxGroup.Checkbox.Label>
+	</CheckboxGroup.Checkbox>
+</CheckboxGroup>`;
+
+export const errorExample = `
+<script lang="ts">
+	import { CheckboxGroup } from 'stwui';
+
+	let checked = false;
+	let error: string | undefined = 'Here is an error!';
+	$: if (checked) {
+		error = undefined;
+	} else {
+		error = 'Here is an error!';
+	}
+</script>
+
+<CheckboxGroup>
+	<CheckboxGroup.Checkbox name="cb-20" value="cb-20" {error} bind:checked>
+		<CheckboxGroup.Checkbox.Label slot="label">Checkbox-20</CheckboxGroup.Checkbox.Label>
+	</CheckboxGroup.Checkbox>
+	<CheckboxGroup.Checkbox name="cb-21" value="cb-21">
+		<CheckboxGroup.Checkbox.Label slot="label">Checkbox-21</CheckboxGroup.Checkbox.Label>
 	</CheckboxGroup.Checkbox>
 </CheckboxGroup>`;
