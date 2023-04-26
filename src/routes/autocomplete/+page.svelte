@@ -36,7 +36,9 @@
 
 	function filter1(e: Event) {
 		const target = e.target as HTMLInputElement;
+		console.log('value', target.value);
 		filtered1 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		console.log('filtered1', filtered1);
 	}
 
 	function filter2(e: Event) {

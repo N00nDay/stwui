@@ -82,6 +82,7 @@
 	<slot name="label" />
 	<div class="mt-1 relative rounded-md h-[2.5rem]" class:opacity-75={disabled}>
 		<button
+			tabindex="0"
 			aria-label="Autocomplete Toggle"
 			type="button"
 			on:click|stopPropagation|preventDefault={handleOpen}
@@ -98,10 +99,11 @@
 				{disabled}
 				on:input
 				on:change
+				on:focus={handleOpen}
 				autocomplete="off"
 				role="presentation"
 				aria-controls="options"
-				class="bg-surface w-full h-[2.5rem] pl-3 pr-10 py-2 border rounded-md outline-none placeholder-secondary-content placeholder-opacity-80"
+				class="bg-surface w-full h-[2.5rem] pr-10 py-2 border rounded-md outline-none placeholder-secondary-content placeholder-opacity-80"
 				class:border-danger={error}
 				class:text-danger={error}
 				class:placeholder-red-300={error}
@@ -110,6 +112,7 @@
 				class:border-border={!error}
 				class:bg-default={disabled}
 				class:pl-10={$$slots.leading}
+				class:pl-3={!$$slots.leading}
 			/>
 
 			{#if $$slots.leading}

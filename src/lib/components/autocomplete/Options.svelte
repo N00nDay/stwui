@@ -16,27 +16,32 @@
 	const handleClose: () => void = getContext('autocomplete-handleClose');
 
 	function handleKeydown(e: KeyboardEvent) {
-		e.preventDefault();
-		e.stopPropagation();
 		if (e.key === 'ArrowUp') {
 			if (!arrowPressedOnce) {
 				items[focusIndex].focus();
 			} else {
 				focusIndex = focusIndex > 0 ? focusIndex - 1 : items.length - 1;
-				items[focusIndex].focus();
+				if (items[focusIndex]) items[focusIndex].focus();
 			}
 			arrowPressedOnce = true;
+			e.preventDefault();
+			e.stopPropagation();
 		} else if (e.key === 'ArrowDown') {
 			if (!arrowPressedOnce) {
 				items[focusIndex].focus();
 			} else {
 				focusIndex = focusIndex < items.length - 1 ? focusIndex + 1 : 0;
-				items[focusIndex].focus();
+				if (items[focusIndex]) items[focusIndex].focus();
 			}
 			arrowPressedOnce = true;
+			e.preventDefault();
+			e.stopPropagation();
 		} else if (e.key === 'Enter') {
-			console.log('Enter FIRED');
+			e.preventDefault();
+			e.stopPropagation();
 		} else if (e.key === 'Escape') {
+			e.preventDefault();
+			e.stopPropagation();
 			handleClose();
 		}
 	}
@@ -47,11 +52,10 @@
 
 	onMount(() => {
 		items = list.querySelectorAll('li');
-		// items[focusIndex].focus();
 	});
 </script>
 
-<svelte:window on:keydown|preventDefault={handleKeydown} />
+<svelte:window on:keydown={handleKeydown} />
 
 <ul
 	bind:this={list}
