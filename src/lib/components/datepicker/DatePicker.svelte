@@ -310,8 +310,8 @@
 		{#key calendarDays}
 			<div
 				class="absolute inset-0 p-3"
-				in:fly|local={{ x: transitionDirection === 'forward' ? -250 : 250, duration: 250 }}
-				out:fly|local={{ x: transitionDirection === 'forward' ? 250 : -250, duration: 250 }}
+				in:fly|local={{ x: transitionDirection === 'forward' ? 250 : -250, duration: 250 }}
+				out:fly|local={{ x: transitionDirection === 'forward' ? -250 : 250, duration: 250 }}
 			>
 				{#each Array(5) as _, weekIndex}
 					<div class="date-container flex items-center justify-evenly">
