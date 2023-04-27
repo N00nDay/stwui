@@ -18,6 +18,12 @@ export const props: Prop[] = [
 		prop: 'selected',
 		type: 'string | undefined',
 		default: ''
+	},
+	{
+		id: '4',
+		prop: 'error',
+		type: 'string | undefined',
+		default: ''
 	}
 ];
 
@@ -135,6 +141,34 @@ export const inlineExample = `
          Radio-4 Description
       </RadioGroup.Radio.Description>
    </RadioGroup.Radio>
+</RadioGroup>`;
+
+export const errorExample = `
+<script lang="ts">
+	import { RadioGroup } from 'stwui';
+
+	let selected: string | undefined = undefined;
+	let error: string | undefined = 'Here is an error!';
+	$: if (selected) {
+		error = undefined;
+	} else {
+		error = 'Here is an error!';
+	}
+</script>
+
+<RadioGroup name="group-1" bind:selected {error}>
+	<RadioGroup.Radio value="radio-1">
+		<RadioGroup.Radio.Label slot="label">Radio-1</RadioGroup.Radio.Label>
+	</RadioGroup.Radio>
+	<RadioGroup.Radio value="radio-2">
+		<RadioGroup.Radio.Label slot="label">Radio-2</RadioGroup.Radio.Label>
+	</RadioGroup.Radio>
+	<RadioGroup.Radio value="radio-3">
+		<RadioGroup.Radio.Label slot="label">Radio-3</RadioGroup.Radio.Label>
+	</RadioGroup.Radio>
+	<RadioGroup.Radio value="radio-4">
+		<RadioGroup.Radio.Label slot="label">Radio-4</RadioGroup.Radio.Label>
+	</RadioGroup.Radio>
 </RadioGroup>`;
 
 export const pillExample = `

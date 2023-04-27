@@ -2,14 +2,17 @@
 	import { twMerge } from 'tailwind-merge';
 	import { setContext, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
+	import { slide } from 'svelte/transition';
 
 	export let name: string;
 	export let type: 'default' | 'pill' = 'default';
 	export let selected: string | undefined = undefined;
+	export let error: string | undefined = undefined;
 
 	// TODO: allow changing radio color via prop
 
 	let selectedRadio = writable(selected);
+	$: selected = $selectedRadio;
 
 	let list: HTMLUListElement;
 	// eslint-disable-next-line no-undef
@@ -24,16 +27,24 @@
 			e.preventDefault();
 			e.stopPropagation();
 			focusIndex = focusIndex > 0 ? focusIndex - 1 : items.length - 1;
-			const target = items[focusIndex];
-			const input = target.querySelector('input');
-			input?.focus();
+			if (items.length > 0) {
+				const target = items[focusIndex];
+				if (target) {
+					const input = target.querySelector('input');
+					if (input) input?.focus();
+				}
+			}
 		} else if (e.key === 'ArrowDown') {
 			e.preventDefault();
 			e.stopPropagation();
 			focusIndex = focusIndex < items.length - 1 ? focusIndex + 1 : 0;
-			const target = items[focusIndex];
-			const input = target.querySelector('input');
-			input?.focus();
+			if (items.length > 0) {
+				const target = items[focusIndex];
+				if (target) {
+					const input = target.querySelector('input');
+					if (input) input?.focus();
+				}
+			}
 		}
 	}
 
@@ -71,4 +82,7 @@
 	>
 		<slot />
 	</ul>
+	{#if error}
+		<p transition:slide|local class="!mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+	{/if}
 </div>
