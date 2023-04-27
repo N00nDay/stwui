@@ -23,12 +23,10 @@
 		e.stopPropagation();
 		if (e.key === 'ArrowUp') {
 			focusIndex = focusIndex > 0 ? focusIndex - 1 : items.length - 1;
-			items[focusIndex].focus();
+			if (items && items[focusIndex]) items[focusIndex].focus();
 		} else if (e.key === 'ArrowDown') {
 			focusIndex = focusIndex < items.length - 1 ? focusIndex + 1 : 0;
-			items[focusIndex].focus();
-		} else if (e.key === 'Enter') {
-			console.log('Enter FIRED');
+			if (items && items[focusIndex]) items[focusIndex].focus();
 		} else if (e.key === 'Escape') {
 			handleClose();
 		}
@@ -80,7 +78,7 @@
 
 	onMount(() => {
 		items = list.querySelectorAll('li');
-		items[focusIndex].focus();
+		if (items && items[focusIndex]) items[focusIndex].focus();
 	});
 </script>
 
