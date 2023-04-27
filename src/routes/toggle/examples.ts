@@ -12,6 +12,12 @@ export const props: Prop[] = [
 		prop: 'on',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '3',
+		prop: 'error',
+		type: 'string | undefined',
+		default: ''
 	}
 ];
 
@@ -180,3 +186,19 @@ export const iconsExample = `
 	<Toggle.LeftIcon slot="left-icon" data={brightness_5} class="text-white" />
 	<Toggle.RightIcon slot="right-icon" data={brightness_4} />
 </Toggle>`;
+
+export const errorExample = `
+<script lang="ts">
+	import { Toggle } from 'stwui';
+
+	let on = false;
+	let error: string | undefined = 'Here is an error!';
+	$: if (on) {
+		error = undefined;
+	} else {
+		error = 'Here is an error!';
+	}
+</script>
+
+<Toggle name="toggle" {error} bind:on />
+`;

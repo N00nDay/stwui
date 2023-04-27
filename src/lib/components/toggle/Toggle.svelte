@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
+	import { slide } from 'svelte/transition';
 
 	export let name: string;
 	export let on = false;
+	export let error: string | undefined = undefined;
 
 	$: width = $$slots['left-icon'] || $$slots['right-icon'] ? 'w-[48px]' : 'w-[2.8rem]';
 	$: translate =
@@ -61,3 +63,6 @@
 	</div>
 	<slot name="content-right" />
 </div>
+{#if error}
+	<p transition:slide|local class="!mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+{/if}

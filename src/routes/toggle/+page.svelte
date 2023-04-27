@@ -9,10 +9,19 @@
 		descriptionSlots,
 		contentLeftSlots,
 		contentRightSlots,
-		iconsExample
+		iconsExample,
+		errorExample
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
 	import { brightness_4, brightness_5 } from '../../docs/icons';
+
+	let on = false;
+	let error: string | undefined = 'Here is an error!';
+	$: if (on) {
+		error = undefined;
+	} else {
+		error = 'Here is an error!';
+	}
 </script>
 
 <Col class="col-24 md:col-12">
@@ -70,6 +79,19 @@
 			<br />
 
 			<CodeBlock language="svelte" code={iconsExample} />
+		</Card.Content>
+	</Card>
+</Col>
+
+<Col class="col-24 md:col-12">
+	<Card bordered={false}>
+		<Card.Header slot="header">with error</Card.Header>
+		<Card.Content slot="content" class="p-4">
+			<Toggle name="toggle" {error} bind:on />
+
+			<br />
+
+			<CodeBlock language="svelte" code={errorExample} />
 		</Card.Content>
 	</Card>
 </Col>

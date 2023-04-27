@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-	import { slide, scale } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 
 	export let name: string;
 	export let value: string;
