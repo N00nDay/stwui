@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.11.0-next](https://github.com/N00nDay/stwui/compare/v0.10.0-next...v0.11.0-next) (2023-04-27)
+
+
+### Features
+
+* **Checkbox:** added error handling ([9e99aac](https://github.com/N00nDay/stwui/commit/9e99aac8bb2d059b66ec1407451ecd9fe699bc79))
+* **RadioGroup:** added error handling ([5baec04](https://github.com/N00nDay/stwui/commit/5baec0427cf604daeb4594822719e6b3863b99d5))
+* **Toggle:** added error handling ([297f6aa](https://github.com/N00nDay/stwui/commit/297f6aa9b5fcc76cedb52b96f74eb7b114d1c48a))
+
+
+### Bug Fixes
+
+* **Autocomplete:** typing has been restored ([f6bba59](https://github.com/N00nDay/stwui/commit/f6bba592c05d4923993d38164b9c99d8413818be))
+* **DatePicker:** transition animation has been reversed ([d91a2e9](https://github.com/N00nDay/stwui/commit/d91a2e9ca5cbbee859df5a04e8b0486baf1c5b01))
+* **Dropdown:** no more focus errors if Dropdown.Items.Item is not used ([cbdc419](https://github.com/N00nDay/stwui/commit/cbdc419c79a7258125dd10c7131fb9369242814a))
+* **HoverBackground:** more distinguisable styling between focus and hover ([b7ccb1d](https://github.com/N00nDay/stwui/commit/b7ccb1df99069160e62388a40d38d078c3c5b484))
+
 ## [0.10.0-next](https://github.com/N00nDay/stwui/compare/v0.9.5-next...v0.10.0-next) (2023-04-25)
 
 
