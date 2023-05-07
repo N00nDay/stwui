@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0-next](https://github.com/N00nDay/stwui/compare/v0.11.0-next...v0.12.0-next) (2023-05-07)
+
+
+### Features
+
+* **Layout:** added footer ([ce243d3](https://github.com/N00nDay/stwui/commit/ce243d3c8fb0e39b6e22870c91f8e5238c77c2fc))
+
 ## [0.11.0-next](https://github.com/N00nDay/stwui/compare/v0.10.0-next...v0.11.0-next) (2023-04-27)
 
 
