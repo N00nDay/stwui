@@ -89,3 +89,77 @@ export const example = `
 <TextArea name="text-area-3" {error} bind:value>
 	<TextArea.Label slot="label">Label</TextArea.Label>
 </TextArea>`;
+
+export const kitchenExample = `
+<script lang="ts">
+	import { TextArea, Dropdown, Button } from 'stwui';
+
+	let value: string | undefined;
+	let dropdown1 = false;
+	let dropdown2 = false;
+
+	function toggleDropdown1() {
+		dropdown1 = !dropdown1;
+	}
+
+	function toggleDropdown2() {
+		dropdown2 = !dropdown2;
+	}
+</script>
+
+<TextArea name="input" placeholder="Description">
+	<TextArea.Label slot="label">Label</TextArea.Label>
+	<TextArea.Title slot="title" name="title" placeholder="Title" />
+	<TextArea.Pills slot="pills">
+		<Dropdown bind:visible={dropdown1}>
+			<Button
+				slot="trigger"
+				type="default"
+				shape="pill"
+				size="sm"
+				class="shadow-none"
+				on:click={toggleDropdown1}
+			>
+				<Button.Leading slot="leading" data={account} />
+				Assign</Button
+			>
+			<Dropdown.Items slot="items">
+				<Dropdown.Items.Item on:click={toggleDropdown1} label="Person One">
+					<Dropdown.Items.Item.Icon slot="icon" data={account} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={toggleDropdown1} label="Person Two">
+					<Dropdown.Items.Item.Icon slot="icon" data={account} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={toggleDropdown1} label="Person Three">
+					<Dropdown.Items.Item.Icon slot="icon" data={account} />
+				</Dropdown.Items.Item>
+			</Dropdown.Items>
+		</Dropdown>
+
+		<Dropdown bind:visible={dropdown2}>
+			<Button
+				slot="trigger"
+				type="default"
+				shape="pill"
+				size="sm"
+				class="shadow-none"
+				on:click={toggleDropdown2}
+			>
+				<Button.Leading slot="leading" data={calendar} />
+				Due Date</Button
+			>
+			<Dropdown.Items slot="items">
+				<Dropdown.Items.Item on:click={toggleDropdown1} label="Today">
+					<Dropdown.Items.Item.Icon slot="icon" data={calendar} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={toggleDropdown1} label="Tomorrow">
+					<Dropdown.Items.Item.Icon slot="icon" data={calendar} />
+				</Dropdown.Items.Item>
+			</Dropdown.Items>
+		</Dropdown>
+	</TextArea.Pills>
+	<TextArea.Actions slot="actions">
+		<div />
+		<Button type="primary">Submit</Button>
+	</TextArea.Actions>
+</TextArea>`;
