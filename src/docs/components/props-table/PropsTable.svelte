@@ -15,7 +15,8 @@
 		{
 			column: 'type',
 			label: 'Type',
-			placement: 'left'
+			placement: 'left',
+			class: '!whitespace-normal	!overflow-auto	!text-clip'
 		},
 		{
 			column: 'default',
@@ -36,7 +37,9 @@
 				{#each props as prop}
 					<Table.Body.Row id={prop.id} class="cursor-default hover:bg-surface">
 						<Table.Body.Row.Cell column={0}>{prop.prop}</Table.Body.Row.Cell>
-						<Table.Body.Row.Cell column={1}>{@html prop.type}</Table.Body.Row.Cell>
+						<Table.Body.Row.Cell class="prop-type-col" column={1}
+							>{@html prop.type}</Table.Body.Row.Cell
+						>
 						<Table.Body.Row.Cell column={2}>{prop.default}</Table.Body.Row.Cell>
 					</Table.Body.Row>
 				{/each}

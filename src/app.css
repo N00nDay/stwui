@@ -57,3 +57,10 @@ body {
 .example-container .divider.horizontal::after {
 	@apply !h-12;
 }
+
+.slot-component-col > span,
+.prop-type-col > span {
+	overflow: auto !important;
+	text-overflow: clip !important;
+	white-space: normal !important;
+}

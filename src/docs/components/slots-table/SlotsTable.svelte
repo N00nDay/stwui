@@ -32,7 +32,7 @@
 				{#each slots as slot}
 					<Table.Body.Row id={slot.id} class="cursor-default hover:bg-surface">
 						<Table.Body.Row.Cell column={0}>{slot.slot}</Table.Body.Row.Cell>
-						<Table.Body.Row.Cell column={1}
+						<Table.Body.Row.Cell class="slot-component-col" column={1}
 							>{slot.component}{#if slot.component.length > 0}
 								<CopyButton stringToCopy={slot.component} />
 							{/if}</Table.Body.Row.Cell
