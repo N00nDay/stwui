@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.13.0-next](https://github.com/N00nDay/stwui/compare/v0.12.0-next...v0.13.0-next) (2023-05-11)
+
+
+### Features
+
+* **Autocomplete:** fixed collision issues ([28a38e7](https://github.com/N00nDay/stwui/commit/28a38e75617696ef1ee8bb95df1fbb982e8ce08f))
+* **DatePicker:** fixed collission issues ([6646201](https://github.com/N00nDay/stwui/commit/66462010ce22f007cc1b32a75eb51795d0a92000))
+* **Dropdown:** fixed collision issues ([f98f9f9](https://github.com/N00nDay/stwui/commit/f98f9f9f61beb66df58592e6b8a86d0386391207))
+* **floating-ui:** added floating-ui action ([21af0cb](https://github.com/N00nDay/stwui/commit/21af0cb7b10ec6f71982922f6b6016b406a8e7cc))
+* **Select:** fixed collision issues ([45f183e](https://github.com/N00nDay/stwui/commit/45f183e44172d1118a70c41b2cb108a1abeaf013))
+* **TextArea:** added floating action buttons, inset action items, title, and description ([9c8d240](https://github.com/N00nDay/stwui/commit/9c8d24002e76bea4ff6959a29d3952aa8036c24c))
+
 ## [0.12.0-next](https://github.com/N00nDay/stwui/compare/v0.11.0-next...v0.12.0-next) (2023-05-07)
 
 
