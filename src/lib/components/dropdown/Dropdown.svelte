@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { clickOutside } from '../../actions';
+	import { clickOutside, floatingUI } from '../../actions';
 	import { get_current_component, setContext } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -26,7 +26,7 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<div>
+	<div class="floating-ui-ref">
 		<slot name="trigger" />
 	</div>
 	{#if visible}

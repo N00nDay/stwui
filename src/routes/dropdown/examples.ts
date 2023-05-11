@@ -26,20 +26,14 @@ export const itemsProps: Prop[] = [
 	{
 		id: '1',
 		prop: 'placement',
-		type: "'top' | 'bottom'",
-		default: 'bottom'
-	},
-	{
-		id: '2',
-		prop: 'alignment',
-		type: "'start' | 'center' | 'end'",
-		default: 'start'
+		type: "'top' | 'top-start' | 'top-end' | 'right' | 'right-start' | 'right-end' | 'left' | 'left-start' | 'left-end' | 'bottom' | 'bottom-start' | 'bottom-end'",
+		default: 'bottom-start'
 	},
 	{
 		id: '3',
 		prop: 'offset',
 		type: 'number',
-		default: '2'
+		default: '8'
 	}
 ];
 

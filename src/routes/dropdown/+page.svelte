@@ -96,7 +96,7 @@
 
 		<Dropdown bind:visible={visible2}>
 			<Button slot="trigger" type="primary" on:click={toggleDropdown2}>Placement Top</Button>
-			<Dropdown.Items slot="items" placement="top">
+			<Dropdown.Items slot="items" placement="top-start">
 				<Dropdown.Items.Item on:click={closeDropdown2} label="Item 1">
 					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
 				</Dropdown.Items.Item>
@@ -144,7 +144,7 @@
 
 		<Dropdown bind:visible={visible4}>
 			<Button slot="trigger" type="primary" on:click={toggleDropdown4}>Alignment Center</Button>
-			<Dropdown.Items slot="items" alignment="center">
+			<Dropdown.Items slot="items" placement="bottom">
 				<Dropdown.Items.Item on:click={closeDropdown4} label="Item 1">
 					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
 				</Dropdown.Items.Item>
@@ -165,7 +165,7 @@
 
 		<Dropdown bind:visible={visible5}>
 			<Button slot="trigger" type="primary" on:click={toggleDropdown5}>Alignment End</Button>
-			<Dropdown.Items slot="items" alignment="end">
+			<Dropdown.Items slot="items" placement="bottom-end">
 				<Dropdown.Items.Item on:click={closeDropdown5} label="Item 1">
 					<Dropdown.Items.Item.Icon slot="icon" data={trash} />
 				</Dropdown.Items.Item>

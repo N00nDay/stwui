@@ -1,15 +1,17 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import { get_current_component, getContext, onMount } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	import { floatingUI, forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	import { twMerge } from 'tailwind-merge';
+
+	import type { Placement } from '@floating-ui/dom';
+
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	export let placement: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
-	export let alignment: 'start' | 'center' | 'end' = 'start';
-	export let offset = 2;
+	export let placement: Placement = 'bottom-start';
+	export let offset = 8;
 
 	let list: HTMLUListElement;
 	// eslint-disable-next-line no-undef
@@ -33,48 +35,9 @@
 	}
 
 	const defaultClass =
-		'origin-top-right absolute z-10 border border-border w-56 p-1 rounded-md shadow-xl py-1 bg-surface';
-	let positioning: string;
+		'floating-ui-el origin-top-right absolute z-10 border border-border w-56 p-1 rounded-md shadow-xl py-1 bg-surface';
 
-	if (placement === 'top') {
-		positioning = twMerge(
-			`mb-${offset} `,
-			alignment === 'start'
-				? 'left-0 bottom-full'
-				: alignment === 'center'
-				? 'left-1/2 -translate-x-1/2 bottom-full'
-				: 'right-0 bottom-full'
-		);
-	} else if (placement === 'bottom') {
-		positioning = twMerge(
-			`mt-${offset} `,
-			alignment === 'start'
-				? 'left-0 top-full'
-				: alignment === 'center'
-				? 'left-1/2 -translate-x-1/2 top-full'
-				: 'right-0 top-full'
-		);
-	} else if (placement === 'left') {
-		positioning = twMerge(
-			`mr-${offset}`,
-			alignment === 'start'
-				? 'right-full top-0'
-				: alignment === 'center'
-				? 'right-full -translate-y-1/2 top-1/2'
-				: 'right-full bottom-0'
-		);
-	} else {
-		positioning = twMerge(
-			`ml-${offset}`,
-			alignment === 'start'
-				? 'left-full top-0'
-				: alignment === 'center'
-				? 'left-full -translate-y-1/2 top-1/2'
-				: 'left-full bottom-0'
-		);
-	}
-
-	$: finalClass = twMerge(defaultClass, positioning, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	onMount(() => {
 		items = list.querySelectorAll('li');
@@ -87,6 +50,7 @@
 <ul
 	bind:this={list}
 	class={finalClass}
+	use:floatingUI={{ placement, offset }}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
