@@ -12,6 +12,7 @@ import useActions, {
 	type ActionArray
 } from './use-actions';
 import clipboard from './clipboard';
+import floatingUI from './floating-ui';
 
 export {
 	tooltip,
@@ -27,5 +28,6 @@ export {
 	SVGActionEntry,
 	SVGActionArray,
 	ActionArray,
-	clipboard
+	clipboard,
+	floatingUI
 };
