@@ -8,7 +8,7 @@
 	import Icon from '../icon';
 	import { error as errorIcon, close } from '../../icons';
 	import { get_current_component, setContext } from 'svelte/internal';
-	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	import { floatingUI, forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
@@ -102,10 +102,10 @@
 	setContext('datepicker-error', currentError);
 </script>
 
-<Dropdown {handleClose} on:focusout={onFocusOut} on:keydown={keydown} {visible} class="w-full">
-	<svelte:fragment slot="trigger">
-		<div class={$$props.class} style={$$props.style}>
-			<slot name="label" />
+<div class={$$props.class} style={$$props.style}>
+	<slot name="label" />
+	<Dropdown {handleClose} on:focusout={onFocusOut} on:keydown={keydown} {visible} class="w-full">
+		<svelte:fragment slot="trigger">
 			<div
 				class="mt-1 relative rounded-md h-[2.5rem]"
 				class:opacity-75={disabled}
@@ -191,23 +191,24 @@
 			{#if error}
 				<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
 			{/if}
+		</svelte:fragment>
+		<div
+			slot="items"
+			use:floatingUI={{ placement: 'bottom-start', offset: 8 }}
+			class="z-10 absolute inline-block"
+			class:-mt-7={error}
+			in:scale={{ start: 0.9, duration: 100, delay: 150 }}
+			out:scale={{ start: 0.95, duration: 75 }}
+		>
+			<DatePicker
+				on:focusout={onFocusOut}
+				handleSelect={onSelect}
+				bind:value={valueDayJS}
+				min={min ? dayjs(min) : undefined}
+				max={max ? dayjs(max) : undefined}
+				{locale}
+				{closeOnSelect}
+			/>
 		</div>
-	</svelte:fragment>
-	<div
-		slot="items"
-		class="z-10 absolute inline-block"
-		class:-mt-7={error}
-		in:scale={{ start: 0.9, duration: 100, delay: 150 }}
-		out:scale={{ start: 0.95, duration: 75 }}
-	>
-		<DatePicker
-			on:focusout={onFocusOut}
-			handleSelect={onSelect}
-			bind:value={valueDayJS}
-			min={min ? dayjs(min) : undefined}
-			max={max ? dayjs(max) : undefined}
-			{locale}
-			{closeOnSelect}
-		/>
-	</div>
-</Dropdown>
+	</Dropdown>
+</div>

@@ -244,7 +244,7 @@
 
 <svelte:window on:keydown={keydown} />
 
-<Card class="max-w-[300px] mt-1 w-[300px]" on:focusout tabindex="-1">
+<Card class="max-w-[300px] w-[300px]" on:focusout tabindex="-1">
 	<div class="h-14 px-3 py-2 flex items-center">
 		<Button
 			ariaLabel="previous year"
