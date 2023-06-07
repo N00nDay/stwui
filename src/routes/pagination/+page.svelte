@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Card, Col, Pagination } from '../../lib';
 	import { example, props } from './examples';
-	import { PropsTable, BetaComponent, CodeBlock } from '../../docs';
+	import { PropsTable, BetaComponent, CodeBlock, ExampleContainer } from '../../docs';
 
 	let rowsPerPage = 10;
 
@@ -36,27 +36,19 @@
 	<BetaComponent />
 </Col>
 
-<Col class="col-24">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
-			<Pagination
-				{start}
-				{end}
-				{total}
-				pageSize={rowsPerPage}
-				{currentPage}
-				{onNextClick}
-				{onPageClick}
-				{onPreviousClick}
-			/>
+<ExampleContainer title="With Description & Extra" resizable={false}>
+	<Pagination
+		slot="preview"
+		{start}
+		{end}
+		{total}
+		pageSize={rowsPerPage}
+		{currentPage}
+		{onNextClick}
+		{onPageClick}
+		{onPreviousClick}
+	/>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<br />
-
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Alert" {props} />
-</Col>
+<PropsTable component="Alert" {props} />
