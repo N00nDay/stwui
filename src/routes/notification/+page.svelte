@@ -16,7 +16,7 @@
 		descriptionSlots,
 		extraSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { folder } from '../../docs/icons';
 	import { close } from '../../lib/icons';
 
@@ -24,8 +24,8 @@
 		'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80';
 </script>
 
-<Col class="col-24 md:col-8 sm:col-12">
-	<Card bordered={false} elevation="none" class="bg-transparent">
+<ExampleContainer title="With Icon, Title, & Description">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
 		<Notification>
 			<Notification.Leading slot="leading">
 				<Notification.Leading.Icon data={folder} class="text-pink-500" />
@@ -42,15 +42,12 @@
 				</Button>
 			</Notification.Extra>
 		</Notification>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-		<br />
-
-		<CodeBlock language="svelte" code={example} />
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-8 sm:col-12">
-	<Card bordered={false} elevation="none" class="bg-transparent">
+<ExampleContainer title="With Avatar, Title, & Description">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
 		<Notification>
 			<Notification.Leading slot="leading">
 				<Notification.Leading.Avatar slot="avatar" src={avatar} />
@@ -62,59 +59,12 @@
 				</Notification.Content.Description>
 			</Notification.Content>
 		</Notification>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={avatarExample} />
+</ExampleContainer>
 
-		<br />
-
-		<CodeBlock language="svelte" code={avatarExample} />
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-8 sm:col-12">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Notification type="success">
-			<Notification.Content slot="content">
-				<Notification.Content.Title slot="title">Successfully Saved!</Notification.Content.Title>
-				<Notification.Content.Description slot="description">
-					Anyone with a link can now view this file.
-				</Notification.Content.Description>
-			</Notification.Content>
-			<Notification.Extra slot="extra" class="-top-2 -right-2">
-				<Button on:click={() => console.log('notification closed!')} shape="circle">
-					<Button.Icon slot="icon" data={close} />
-				</Button>
-			</Notification.Extra>
-		</Notification>
-
-		<br />
-
-		<CodeBlock language="svelte" code={typeExample} />
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-8 sm:col-12">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Notification type="info">
-			<Notification.Content slot="content">
-				<Notification.Content.Title slot="title">Successfully Saved!</Notification.Content.Title>
-				<Notification.Content.Description slot="description">
-					Anyone with a link can now view this file.
-				</Notification.Content.Description>
-			</Notification.Content>
-			<Notification.Extra slot="extra" class="-top-2 -right-2">
-				<Button on:click={() => console.log('notification closed!')} shape="circle">
-					<Button.Icon slot="icon" data={close} />
-				</Button>
-			</Notification.Extra>
-		</Notification>
-
-		<br />
-
-		<CodeBlock language="svelte" code={type2Example} />
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-8 sm:col-12">
-	<Card bordered={false} elevation="none" class="bg-transparent">
+<ExampleContainer title="With Description & Extra">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
 		<Notification>
 			<Notification.Content slot="content">
 				<Notification.Content.Description slot="description">
@@ -130,45 +80,24 @@
 				>
 			</Notification.Extra>
 		</Notification>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={basicExample} />
+</ExampleContainer>
 
-		<br />
+<PropsTable component="Notification" {props} />
 
-		<CodeBlock language="svelte" code={basicExample} />
-	</Card>
-</Col>
+<SlotsTable component="Notification" {slots} />
 
-<Col class="col-24">
-	<PropsTable component="Notification" {props} />
-</Col>
+<SlotsTable component="Notification.Leading" slots={leadingSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Notification" {slots} />
-</Col>
+<PropsTable component="Notification.Leading.Avatar" props={avatarProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Notification.Leading" slots={leadingSlots} />
-</Col>
+<PropsTable component="Notification.Leading.Icon" props={iconProps} />
 
-<Col class="col-24">
-	<PropsTable component="Notification.Leading.Avatar" props={avatarProps} />
-</Col>
+<SlotsTable component="Notification.Content" slots={contentSlots} />
 
-<Col class="col-24">
-	<PropsTable component="Notification.Leading.Icon" props={iconProps} />
-</Col>
+<SlotsTable component="Notification.Content.Title" slots={titleSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Notification.Content" slots={contentSlots} />
-</Col>
+<SlotsTable component="Notification.Content.Description" slots={descriptionSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Notification.Content.Title" slots={titleSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Notification.Content.Description" slots={descriptionSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Notification.Extra" slots={extraSlots} />
-</Col>
+<SlotsTable component="Notification.Extra" slots={extraSlots} />
