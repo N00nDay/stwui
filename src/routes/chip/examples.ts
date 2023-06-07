@@ -94,7 +94,7 @@ export const typeExample = `
 </Chip>
 <Chip type="info">
 	<Chip.Avatar slot="avatar" src={avatar} />
-	<Chip.Label slot="label">No Type</Chip.Label>
+	<Chip.Label slot="label">info</Chip.Label>
 </Chip>
 <Chip type="success">
 	<Chip.Avatar slot="avatar" src={avatar} />
