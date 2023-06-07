@@ -249,6 +249,29 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const example = `
+<script lang="ts">
+   import { Post } from 'stwui';
+
+   let avatar = 'image.png',
+   let creator = 'Joe Montana';
+   let date = new Date(2022, 8, 11);
+   let content = "Lorem ipsum...";
+</script>
+
+<Post>
+	<Post.Header slot="header">
+		<Post.Header.Avatar slot="avatar" src={creator.avatar} />
+		<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+		<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+	</Post.Header>
+
+	<Post.Content slot="content">
+		{@html content}
+	</Post.Content>
+</Post>
+`;
+
 export const example1 = `
 <script lang="ts">
    import { Post } from 'stwui';
