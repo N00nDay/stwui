@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { Button, Card, Col, Modal, Portal } from '../../lib';
+	import { Button, Modal, Portal } from '../../lib';
 	import {
 		example,
+		exampleLC,
 		props,
 		slots,
 		backdropProps,
@@ -15,7 +16,7 @@
 		labelSlots,
 		iconProps
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { contentProps } from '../layout/examples';
 
 	let open = false;
@@ -38,33 +39,19 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Basic Modal</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button type="primary" on:click={openModal}>Open Modal</Button>
+<ExampleContainer title="Basic Modal">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<Button type="primary" on:click={openModal}>Open Modal</Button>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Long Content Modal With Footer</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Button type="primary" on:click={openLCModal}>Open Modal</Button>
-
-			<br />
-			<br />
-
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="Long Content With Footer">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<Button type="primary" on:click={openLCModal}>Open Modal</Button>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleLC} />
+</ExampleContainer>
 
 <Portal>
 	{#if open}
@@ -126,54 +113,28 @@
 	{/if}
 </Portal>
 
-<Col class="col-24">
-	<PropsTable component="Modal" {props} />
-</Col>
+<PropsTable component="Modal" {props} />
 
-<Col class="col-24">
-	<SlotsTable component="Modal" {slots} />
-</Col>
+<SlotsTable component="Modal" {slots} />
 
-<Col class="col-24">
-	<PropsTable component="Modal.Backdrop" props={backdropProps} />
-</Col>
+<PropsTable component="Modal.Backdrop" props={backdropProps} />
 
-<Col class="col-24">
-	<PropsTable component="Modal.Content" props={contentProps} />
-</Col>
+<PropsTable component="Modal.Content" props={contentProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Modal.Content" slots={contentSlots} />
-</Col>
+<SlotsTable component="Modal.Content" slots={contentSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Modal.Content.Header" slots={headerSlots} />
-</Col>
+<SlotsTable component="Modal.Content.Header" slots={headerSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Modal.Content.Cover" slots={coverSlots} />
-</Col>
+<SlotsTable component="Modal.Content.Cover" slots={coverSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Modal.Content.Body" slots={bodySlots} />
-</Col>
+<SlotsTable component="Modal.Content.Body" slots={bodySlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Modal.Content.Footer" slots={footerSlots} />
-</Col>
+<SlotsTable component="Modal.Content.Footer" slots={footerSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Modal.Content.Actions" slots={actionsSlots} />
-</Col>
+<SlotsTable component="Modal.Content.Actions" slots={actionsSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Modal.Content.Actions.Action" slots={actionSlots} />
-</Col>
+<SlotsTable component="Modal.Content.Actions.Action" slots={actionSlots} />
 
-<Col class="col-24">
-	<PropsTable component="Modal.Content.Actions.Action.Icon" props={iconProps} />
-</Col>
+<PropsTable component="Modal.Content.Actions.Action.Icon" props={iconProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Modal.Content.Actions.Action.Label" slots={labelSlots} />
-</Col>
+<SlotsTable component="Modal.Content.Actions.Action.Label" slots={labelSlots} />
