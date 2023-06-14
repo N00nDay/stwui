@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.1-next](https://github.com/N00nDay/stwui/compare/v0.13.0-next...v0.13.1-next) (2023-06-14)
+
+
+### Bug Fixes
+
+* **Post:** added top border to Status and Actions ([f717914](https://github.com/N00nDay/stwui/commit/f7179144c024365b28ba6e690cc6674248e46d82))
+
 ## [0.13.0-next](https://github.com/N00nDay/stwui/compare/v0.12.0-next...v0.13.0-next) (2023-05-11)
 
 
