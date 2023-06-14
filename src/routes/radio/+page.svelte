@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, RadioGroup } from '../../lib';
+	import { RadioGroup } from '../../lib';
 	import {
 		example,
 		inlineExample,
@@ -10,9 +10,10 @@
 		radioSlots,
 		descriptionSlots,
 		pillExample,
-		gridExample
+		gridExample,
+		errorExample
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	let selected: string | undefined = undefined;
 	let error: string | undefined = 'Here is an error!';
@@ -23,10 +24,9 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Basic</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-xs mx-auto">
 			<RadioGroup name="group-1">
 				<RadioGroup.Radio value="radio-1">
 					<RadioGroup.Radio.Label slot="label">Radio-1</RadioGroup.Radio.Label>
@@ -41,18 +41,14 @@
 					<RadioGroup.Radio.Label slot="label">Radio-4</RadioGroup.Radio.Label>
 				</RadioGroup.Radio>
 			</RadioGroup>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<br />
-
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Group Label Inline with Description</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<ExampleContainer title="Group Label Inline with Description">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-xs mx-auto">
 			<RadioGroup name="group-2" selected="radio-2">
 				<RadioGroup.Label name="label">Radio Group 2</RadioGroup.Label>
 				<RadioGroup.Radio value="radio-1">
@@ -80,18 +76,14 @@
 					</RadioGroup.Radio.Description>
 				</RadioGroup.Radio>
 			</RadioGroup>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={inlineExample} />
+</ExampleContainer>
 
-			<br />
-
-			<CodeBlock language="svelte" code={inlineExample} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">with Error</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<ExampleContainer title="with Error">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-xs mx-auto">
 			<RadioGroup name="group-1" bind:selected {error}>
 				<RadioGroup.Radio value="radio-1">
 					<RadioGroup.Radio.Label slot="label">Radio-1</RadioGroup.Radio.Label>
@@ -106,36 +98,28 @@
 					<RadioGroup.Radio.Label slot="label">Radio-4</RadioGroup.Radio.Label>
 				</RadioGroup.Radio>
 			</RadioGroup>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={errorExample} />
+</ExampleContainer>
 
-			<br />
-
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Pill</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<ExampleContainer title="Pill">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-sm mx-auto">
 			<RadioGroup name="group-3" type="pill">
 				<RadioGroup.Radio value="radio-1">Radio-1</RadioGroup.Radio>
 				<RadioGroup.Radio value="radio-2">Radio-2</RadioGroup.Radio>
 				<RadioGroup.Radio value="radio-3">Radio-3</RadioGroup.Radio>
 				<RadioGroup.Radio value="radio-4">Radio-4</RadioGroup.Radio>
 			</RadioGroup>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={pillExample} />
+</ExampleContainer>
 
-			<br />
-
-			<CodeBlock language="svelte" code={pillExample} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Pill with label and grid</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<ExampleContainer title="Pill with label and grid">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-xs mx-auto">
 			<RadioGroup name="group-4" type="pill" class="grid-cols-2">
 				<RadioGroup.Label slot="label">Radio Group 4</RadioGroup.Label>
 				<RadioGroup.Radio value="radio-1">Radio-1</RadioGroup.Radio>
@@ -143,38 +127,21 @@
 				<RadioGroup.Radio value="radio-3">Radio-3</RadioGroup.Radio>
 				<RadioGroup.Radio value="radio-4">Radio-4</RadioGroup.Radio>
 			</RadioGroup>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={gridExample} />
+</ExampleContainer>
 
-			<br />
+<PropsTable component="RadioGroup" {props} />
 
-			<CodeBlock language="svelte" code={gridExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<SlotsTable component="RadioGroup" {slots} />
 
-<Col class="col-24">
-	<PropsTable component="RadioGroup" {props} />
-</Col>
+<SlotsTable component="RadioGroup.Label" slots={labelSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="RadioGroup" {slots} />
-</Col>
+<PropsTable component="RadioGroup.Radio" props={radioProps} />
 
-<Col class="col-24">
-	<SlotsTable component="RadioGroup.Label" slots={labelSlots} />
-</Col>
+<SlotsTable component="RadioGroup.Radio" slots={radioSlots} />
 
-<Col class="col-24">
-	<PropsTable component="RadioGroup.Radio" props={radioProps} />
-</Col>
+<SlotsTable component="RadioGroup.Radio.Label" slots={labelSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="RadioGroup.Radio" slots={radioSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="RadioGroup.Radio.Label" slots={labelSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="RadioGroup.Radio.Description" slots={descriptionSlots} />
-</Col>
+<SlotsTable component="RadioGroup.Radio.Description" slots={descriptionSlots} />
