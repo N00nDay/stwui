@@ -233,6 +233,72 @@
 	<CodeBlock slot="code" language="svelte" code={example} />
 </ExampleContainer>
 
+<ExampleContainer title="With Actions">
+	<div slot="preview" class="w-full block">
+		<Post bordered={true} class="m-auto max-w-[400px]">
+			<Post.Header slot="header">
+				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+				<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+			</Post.Header>
+
+			<Post.Content slot="content">
+				{@html content}
+			</Post.Content>
+
+			<Post.Actions slot="actions">
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={comment} />
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={share} />
+					<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
+				</Post.Actions.Action>
+			</Post.Actions>
+		</Post>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example1} />
+</ExampleContainer>
+
+<ExampleContainer title="With Status">
+	<div slot="preview" class="w-full block">
+		<Post bordered={true} class="m-auto max-w-[400px]">
+			<Post.Header slot="header">
+				<Post.Header.Avatar slot="avatar" src={creator.avatar} />
+				<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+				<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+			</Post.Header>
+
+			<Post.Content slot="content">
+				{@html content}
+			</Post.Content>
+
+			<Post.Status slot="status" {likes} comments={[]} />
+
+			<Post.Actions slot="actions">
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={comment} />
+					<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
+				</Post.Actions.Action>
+				<Post.Actions.Action>
+					<Post.Actions.Action.Icon slot="icon" data={share} />
+					<Post.Actions.Action.Label slot="label">Share</Post.Actions.Action.Label>
+				</Post.Actions.Action>
+			</Post.Actions>
+		</Post>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example2} />
+</ExampleContainer>
+
 <ExampleContainer title="Post With Images">
 	<div slot="preview" class="w-full block">
 		<Post bordered={true} class="m-auto max-w-[400px]">

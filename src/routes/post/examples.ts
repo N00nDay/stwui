@@ -284,32 +284,20 @@ export const example1 = `
    let creator = 'Joe Montana';
    let date = new Date(2022, 8, 11);
    let content = "Lorem ipsum...";
-   let images: CarouselSlide[] = [
-		{
-			id: '1',
-			src: 'image.png'
-		}
-	];
-   let likes = [];
-   let comments = [];
 </script>
 
 <Post>
-   <Post.Header slot="header">
-      <Post.Header.Avatar slot="avatar" src={avatar} />
-      <Post.Header.Creator slot="creator">{creator}</Post.Header.Creator>
-      <Post.Header.Created slot="created">{formatDate(date)}</Post.Header.Created>
-   </Post.Header>
+	<Post.Header slot="header">
+		<Post.Header.Avatar slot="avatar" src={creator.avatar} />
+		<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+		<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+	</Post.Header>
 
-   <Post.Content slot="content">
-      {@html content}
-   </Post.Content>
+	<Post.Content slot="content">
+		{@html content}
+	</Post.Content>
 
-   <Post.Images slot="images" {images} />
-
-   <Post.Status slot="status" {likes} {comments} />
-
-   <Post.Actions slot="actions">
+	<Post.Actions slot="actions">
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
 			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
@@ -337,36 +325,25 @@ export const example2 = `
    let creator = 'Joe Montana';
    let date = new Date(2022, 8, 11);
    let content = "Lorem ipsum...";
-   let images: CarouselSlide[] = [
-		{
-			id: '1',
-			src: 'image.png'
-		},
-      {
-			id: '2',
-			src: 'image.png'
-		},
-	];
+
    let likes = ['1', '2'];
    let comments = [];
 </script>
 
 <Post>
-   <Post.Header slot="header">
-      <Post.Header.Avatar slot="avatar" src={avatar} />
-      <Post.Header.Creator slot="creator">{creator}</Post.Header.Creator>
-      <Post.Header.Created slot="created">{formatDate(date)}</Post.Header.Created>
-   </Post.Header>
+	<Post.Header slot="header">
+		<Post.Header.Avatar slot="avatar" src={creator.avatar} />
+		<Post.Header.Creator slot="creator">{creator.name}</Post.Header.Creator>
+		<Post.Header.Created slot="created">{formatDate(created1)}</Post.Header.Created>
+	</Post.Header>
 
-   <Post.Content slot="content">
-      {@html content}
-   </Post.Content>
+	<Post.Content slot="content">
+		{@html content}
+	</Post.Content>
 
-   <Post.Images slot="images" {images} />
+	<Post.Status slot="status" {likes} comments={[]} />
 
-   <Post.Status slot="status" {likes} {comments} />
-
-   <Post.Actions slot="actions">
+	<Post.Actions slot="actions">
 		<Post.Actions.Action>
 			<Post.Actions.Action.Icon slot="icon" data={thumb_up} />
 			<Post.Actions.Action.Label slot="label">Like</Post.Actions.Action.Label>
