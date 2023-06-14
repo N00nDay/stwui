@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.13.1-next](https://github.com/N00nDay/stwui/compare/v0.13.0-next...v0.13.1-next) (2023-06-14)
+## [0.13.2-next](https://github.com/N00nDay/stwui/compare/v0.13.0-next...v0.13.1-next) (2023-06-14)
 
 
 ### Bug Fixes
