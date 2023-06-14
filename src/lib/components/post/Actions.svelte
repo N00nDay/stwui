@@ -7,7 +7,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass =
-		'flex flex-row h-14 justify-evenly divide-x divide-border first:rounded-t-md last:rounded-b-md';
+		'flex flex-row h-14 justify-evenly divide-x divide-border  border-t border-border first:rounded-t-md last:rounded-b-md';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
