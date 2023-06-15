@@ -162,6 +162,97 @@ export const example = `
 	import { Select } from 'stwui';
 	import { SelectOption } from 'stwui/types';
 
+	const options: SelectOption[] = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		}
+	];
+</script>
+
+<Select name="select-1" placeholder="Basic">
+	<Select.Options slot="options">
+		{#each options as option}
+			<Select.Options.Option {option} />
+		{/each}
+	</Select.Options>
+</Select>`;
+
+export const exampleLabel = `
+<script lang="ts">
+	import { Select } from 'stwui';
+	import { SelectOption } from 'stwui/types';
+
+	const options: SelectOption[] = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		}
+	];
+</script>
+
+<Select name="select-2">
+	<Select.Label slot="label">Label</Select.Label>
+	<Select.Options slot="options">
+		{#each options as option}
+			<Select.Options.Option {option} />
+		{/each}
+	</Select.Options>
+</Select>`;
+
+export const exampleLeading = `
+<script lang="ts">
+	import { Select } from 'stwui';
+	import { SelectOption } from 'stwui/types';
+
+	const email = "svg-path";
+	const options: SelectOption[] = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		}
+	];
+</script>
+
+<Select name="select-3">
+	<Select.Label slot="label">Label</Select.Label>
+	<Select.Leading slot="leading" data={email} />
+	<Select.Options slot="options">
+		{#each options as option}
+			<Select.Options.Option {option} />
+		{/each}
+	</Select.Options>
+</Select>`;
+
+export const exampleError = `
+<script lang="ts">
+	import { Select } from 'stwui';
+	import { SelectOption } from 'stwui/types';
+
 	const email = "svg-path";
 	const options: SelectOption[] = [
 		{
@@ -187,15 +278,7 @@ export const example = `
 	}
 </script>
 
-<Select name="select-1" placeholder="Basic">
-	<Select.Options slot="options">
-		{#each options as option}
-			<Select.Options.Option {option} />
-		{/each}
-	</Select.Options>
-</Select>
-
-<Select name="select-2">
+<Select name="select-4" {error} bind:value>
 	<Select.Label slot="label">Label</Select.Label>
 	<Select.Leading slot="leading" data={email} />
 	<Select.Options slot="options">
@@ -203,9 +286,31 @@ export const example = `
 			<Select.Options.Option {option} />
 		{/each}
 	</Select.Options>
-</Select>
+</Select>`;
 
-<Select name="select-3" {error} bind:value>
+export const exampleDisabled = `
+<script lang="ts">
+	import { Select } from 'stwui';
+	import { SelectOption } from 'stwui/types';
+
+	const email = "svg-path";
+	const options: SelectOption[] = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		}
+	];
+</script>
+
+<Select name="select-5" disabled>
 	<Select.Label slot="label">Label</Select.Label>
 	<Select.Leading slot="leading" data={email} />
 	<Select.Options slot="options">
@@ -250,6 +355,7 @@ export const exampleMultiple = `
 </script>
 
 <Select name="select-4" placeholder="Basic" multiple>
+	<Select.Label slot="label">Label</Select.Label>
 	<Select.Options slot="options">
 		{#each multipleOptions as option}
 			<Select.Options.Option {option} />

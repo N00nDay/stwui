@@ -1,7 +1,11 @@
 <script lang="ts">
-	import { Card, Col, Select } from '../../lib';
+	import { Select } from '../../lib';
 	import {
 		example,
+		exampleLabel,
+		exampleError,
+		exampleLeading,
+		exampleDisabled,
 		exampleMultiple,
 		props,
 		slots,
@@ -10,7 +14,7 @@
 		optionProps,
 		iconProps
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email } from '../../docs/icons';
 	import type { SelectOption } from '$lib/types';
 
@@ -64,10 +68,9 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Single</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
 			<Select name="select-1" placeholder="Basic">
 				<Select.Options slot="options">
 					{#each options as option}
@@ -75,18 +78,31 @@
 					{/each}
 				</Select.Options>
 			</Select>
-			<br />
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
+
+<ExampleContainer title="With Label">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
 			<Select name="select-2">
 				<Select.Label slot="label">Label</Select.Label>
-				<Select.Leading slot="leading" data={email} />
 				<Select.Options slot="options">
 					{#each options as option}
 						<Select.Options.Option {option} />
 					{/each}
 				</Select.Options>
 			</Select>
-			<br />
-			<Select name="select-3" {error} bind:value>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleLabel} />
+</ExampleContainer>
+
+<ExampleContainer title="With Leading">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Select name="select-3">
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Leading slot="leading" data={email} />
 				<Select.Options slot="options">
@@ -95,53 +111,69 @@
 					{/each}
 				</Select.Options>
 			</Select>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleLeading} />
+</ExampleContainer>
 
-			<br />
+<ExampleContainer title="With Error">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Select name="select-4" {error} bind:value>
+				<Select.Label slot="label">Label</Select.Label>
+				<Select.Leading slot="leading" data={email} />
+				<Select.Options slot="options">
+					{#each options as option}
+						<Select.Options.Option {option} />
+					{/each}
+				</Select.Options>
+			</Select>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleError} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="Disabled">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Select name="select-5" disabled>
+				<Select.Label slot="label">Label</Select.Label>
+				<Select.Leading slot="leading" data={email} />
+				<Select.Options slot="options">
+					{#each options as option}
+						<Select.Options.Option {option} />
+					{/each}
+				</Select.Options>
+			</Select>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleDisabled} />
+</ExampleContainer>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Multiple</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Select name="select-4" placeholder="Basic" multiple>
+<ExampleContainer title="Multi-Select">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Select name="select-6" placeholder="Multiple" multiple>
+				<Select.Label slot="label">Label</Select.Label>
 				<Select.Options slot="options">
 					{#each multipleOptions as option}
 						<Select.Options.Option {option} />
 					{/each}
 				</Select.Options>
 			</Select>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleMultiple} />
+</ExampleContainer>
 
-			<br />
+<PropsTable component="Select" {props} />
 
-			<CodeBlock language="svelte" code={exampleMultiple} />
-		</Card.Content>
-	</Card>
-</Col>
+<SlotsTable component="Select" {slots} />
 
-<Col class="col-24">
-	<PropsTable component="Select" {props} />
-</Col>
+<SlotsTable component="Select.Label" slots={labelSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Select" {slots} />
-</Col>
+<PropsTable component="Select.Leading" props={iconProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Select.Label" slots={labelSlots} />
-</Col>
+<SlotsTable component="Select.Options" slots={optionsSlots} />
 
-<Col class="col-24">
-	<PropsTable component="Select.Leading" props={iconProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Select.Options" slots={optionsSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Select.Options.Option" props={optionProps} />
-</Col>
+<PropsTable component="Select.Options.Option" props={optionProps} />
