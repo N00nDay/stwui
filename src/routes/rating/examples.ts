@@ -56,9 +56,9 @@ export const example = `
 	import { Rating } from 'stwui';
 </script>
 
-<Rating name="rating-1" showValue />
-<br />
-<Rating name="rating-2" value={3} class="text-orange-400" />`;
+<Rating name="rating-1" />
+
+<Rating name="rating-2" value={3} showValue />`;
 
 export const halfExample = `
 <script lang="ts">

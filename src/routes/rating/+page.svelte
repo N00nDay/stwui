@@ -1,60 +1,47 @@
 <script lang="ts">
-	import { Card, Col, Rating } from '../../lib';
+	import { Rating } from '../../lib';
 	import { example, halfExample, sizeExample, showValueExample, props } from './examples';
-	import { PropsTable, CodeBlock } from '../../docs';
+	import { PropsTable, CodeBlock, ExampleContainer } from '../../docs';
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Default</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Rating name="rating-1" showValue />
+<ExampleContainer title="Basic and Show Value">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-sm mx-auto">
+			<Rating name="rating-1" />
 			<br />
-			<Rating name="rating-2" value={3} type="info" />
+			<Rating name="rating-2" value={3} showValue />
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<br />
-
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Half</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<ExampleContainer title="Half">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-sm mx-auto">
 			<Rating name="rating-3" half />
 			<br />
 			<Rating name="rating-4" value={3} half class="text-orange-400" />
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={halfExample} />
+</ExampleContainer>
 
-			<br />
-
-			<CodeBlock language="svelte" code={halfExample} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Size</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<ExampleContainer title="Size">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-sm mx-auto">
 			<Rating name="rating-5" size="sm" />
 			<br />
 			<Rating name="rating-6" value={3} class="text-orange-400" />
 			<br />
 			<Rating name="rating-7" value={3} size="lg" class="text-purple-400" />
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={sizeExample} />
+</ExampleContainer>
 
-			<br />
-
-			<CodeBlock language="svelte" code={sizeExample} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Show Value</Card.Header>
-		<Card.Content slot="content" class="p-4">
+<ExampleContainer title="Show Value">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-sm mx-auto">
 			<Rating name="rating-5" size="sm" showValue />
 			<br />
 			<Rating name="rating-6" value={3} class="text-orange-400" showValue />
@@ -66,14 +53,9 @@
 			<Rating name="rating-9" value={3} half class="text-orange-400" showValue />
 			<br />
 			<Rating name="rating-10" value={3.5} half size="lg" class="text-purple-400" showValue />
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={showValueExample} />
+</ExampleContainer>
 
-			<br />
-
-			<CodeBlock language="svelte" code={showValueExample} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Rating" {props} />
-</Col>
+<PropsTable component="Rating" {props} />
