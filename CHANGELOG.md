@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.13.3-next](https://github.com/N00nDay/stwui/compare/v0.13.2-next...v0.13.3-next) (2023-06-16)
+
+
+### Features
+
+* **Statistic:** added bordered prop ([da414d2](https://github.com/N00nDay/stwui/commit/da414d250c22308f5e07bd2ad7dbe1f960685306))
+
+
+### Miscellaneous Chores
+
+* release 0.13.3-next ([86a508c](https://github.com/N00nDay/stwui/commit/86a508c1412087f523e1e370060d321d90d9da4b))
+
 ## [0.13.2-next](https://github.com/N00nDay/stwui/compare/v0.13.0-next...v0.13.1-next) (2023-06-14)
 
 
