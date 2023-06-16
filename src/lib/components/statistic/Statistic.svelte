@@ -6,12 +6,16 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
+	export let bordered = true;
+
 	const defaultClass = 'overflow-hidden rounded-md px-4 py-5 shadow-md sm:p-5 bg-surface';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
 	class={finalClass}
+	class:border={bordered}
+	class:border-border={bordered}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
