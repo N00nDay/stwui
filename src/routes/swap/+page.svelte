@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Card, Icon, Swap, Col } from '../../lib';
+	import { Icon, Swap } from '../../lib';
 	import { example1, example2, props, slots } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { menu, close } from '../../lib/icons';
 
 	let swapped = false;
@@ -11,42 +11,26 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Default</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Swap on:click={toggleSwap} {swapped}>
-				<Icon slot="on" class="h-8 w-8" data={menu} />
-				<Icon slot="off" class="h-8 w-8" data={close} />
-			</Swap>
+<ExampleContainer title="Default (Spin)">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<Swap on:click={toggleSwap} {swapped}>
+			<Icon slot="on" class="h-8 w-8" data={menu} />
+			<Icon slot="off" class="h-8 w-8" data={close} />
+		</Swap>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example1} />
+</ExampleContainer>
 
-			<br />
+<ExampleContainer title="Flip">
+	<div slot="preview" class="w-full block m-auto gap-2 text-center">
+		<Swap type="flip" on:click={toggleSwap} {swapped}>
+			<Icon slot="on" class="h-8 w-8" data={menu} />
+			<Icon slot="off" class="h-8 w-8" data={close} />
+		</Swap>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example2} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example1} />
-		</Card.Content>
-	</Card>
-</Col>
+<PropsTable component="Swap" {props} />
 
-<Col class="col-24 md:col-12">
-	<Card bordered>
-		<Card.Header slot="header">Flip</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Swap type="flip" on:click={toggleSwap} {swapped}>
-				<Icon slot="on" class="h-8 w-8" data={menu} />
-				<Icon slot="off" class="h-8 w-8" data={close} />
-			</Swap>
-
-			<br />
-
-			<CodeBlock language="svelte" code={example2} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Swap" {props} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Swap" {slots} />
-</Col>
+<SlotsTable component="Swap" {slots} />
