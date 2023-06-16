@@ -1,5 +1,14 @@
 import type { Slot, Prop } from '../../docs';
 
+export const props: Prop[] = [
+	{
+		id: '1',
+		prop: 'bordered',
+		type: 'boolean',
+		default: 'true'
+	}
+];
+
 export const slots: Slot[] = [
 	{
 		id: '1',
@@ -201,189 +210,178 @@ export const trendIconProps: Prop[] = [
 	}
 ];
 
-export const example1 = `
+export const example = `
 <script lang="ts">
    import { Statistic } from 'stwui';
    import { formatNumber } from 'stwui/utils';
-
-   const favorite = "svg-path";
 </script>
 
 <Statistic>
-   <Statistic.Icon slot="icon" data={favorite} />
-   <Statistic.Title slot="title">Total Likes</Statistic.Title>
-   <Statistic.Value slot="value">
-      {formatNumber(25660000, {
-         style: 'decimal',
-         notation: 'compact',
-         maximumFractionDigits: 1,
-         minimumFractionDigits: 1
-      })}
-   </Statistic.Value>
-   <Statistic.Comparison slot="comparison">
-      <Statistic.Comparison.Value slot="value">
-         Last Year: {formatNumber(27660000, {
-            style: 'decimal',
-            notation: 'compact',
-            maximumFractionDigits: 1,
-            minimumFractionDigits: 1
-         })}
-      </Statistic.Comparison.Value>
-      <Statistic.Comparison.Trend slot="trend" trend="down">
-         {formatNumber(-2000000, {
-            style: 'decimal',
-            notation: 'compact',
-            maximumFractionDigits: 1,
-            minimumFractionDigits: 1
-         })} ({formatNumber(-0.0723, {
-            style: 'percent'
-         })})
-      </Statistic.Comparison.Trend>
-   </Statistic.Comparison>
+	<Statistic.Title slot="title">Total Likes</Statistic.Title>
+	<Statistic.Value class="text-primary" slot="value">
+		{formatNumber(25660000, {
+			style: 'decimal',
+			notation: 'compact',
+			maximumFractionDigits: 1,
+			minimumFractionDigits: 1
+		})}
+	</Statistic.Value>
 </Statistic>`;
 
-export const example2 = `
+export const exampleIcon = `
 <script lang="ts">
    import { Statistic } from 'stwui';
    import { formatNumber } from 'stwui/utils';
 
-   const chart_box = "svg-path";
-   const home = "svg-path";
+	const favorite = "svg-path";
 </script>
 
 <Statistic>
-   <Statistic.Icon slot="icon" data={chart_box} />
-   <Statistic.Title slot="title">Page Views</Statistic.Title>
-   <Statistic.Value slot="value">
-      {formatNumber(2660000, {
-         style: 'currency',
-         notation: 'compact',
-         maximumFractionDigits: 1,
-         minimumFractionDigits: 1
-      })}
-   </Statistic.Value>
-   <Statistic.Comparison slot="comparison">
-      <Statistic.Comparison.Value slot="value">
-         Last Year: {formatNumber(2580000, {
-            style: 'currency',
-            notation: 'compact',
-            maximumFractionDigits: 1,
-            minimumFractionDigits: 1
-         })}
-      </Statistic.Comparison.Value>
-      <Statistic.Comparison.Trend trend="up" slot="trend">
-         <Statistic.Comparison.Trend.Icon slot="icon" data={home} />
-         {formatNumber(80000, {
-            style: 'currency',
-            notation: 'compact',
-            maximumFractionDigits: 1,
-            minimumFractionDigits: 1
-         })} ({formatNumber(0.031, {
-            style: 'percent'
-         })})
-      </Statistic.Comparison.Trend>
-   </Statistic.Comparison>
+	<Statistic.Icon class="text-primary" slot="icon" data={favorite} />
+	<Statistic.Title slot="title">Total Likes</Statistic.Title>
+	<Statistic.Value class="text-primary" slot="value">
+		{formatNumber(25660000, {
+			style: 'decimal',
+			notation: 'compact',
+			maximumFractionDigits: 1,
+			minimumFractionDigits: 1
+		})}
+	</Statistic.Value>
 </Statistic>`;
 
-export const example3 = `
+export const exampleProgress = `
 <script lang="ts">
    import { Statistic } from 'stwui';
    import { formatNumber } from 'stwui/utils';
-
-   const chart_box = "svg-path";
 </script>
 
 <Statistic>
-   <Statistic.Icon slot="icon" data={chart_box} />
-   <Statistic.Title slot="title">New Users</Statistic.Title>
-   <Statistic.Value slot="value">
-      {formatNumber(82001, {
-         style: 'decimal',
-         notation: 'compact',
-         maximumFractionDigits: 1,
-         minimumFractionDigits: 1
-      })}
-   </Statistic.Value>
-   <Statistic.Goal progress={82.001} />
+	<Statistic.Title slot="title">New Users</Statistic.Title>
+	<Statistic.Value slot="value">
+		{formatNumber(82001, {
+			style: 'decimal',
+			notation: 'compact',
+			maximumFractionDigits: 1,
+			minimumFractionDigits: 1
+		})}
+	</Statistic.Value>
+	<Statistic.Goal progress={82.001} />
 </Statistic>`;
 
-export const example4 = `
+export const exampleComparison = `
 <script lang="ts">
    import { Statistic } from 'stwui';
    import { formatNumber } from 'stwui/utils';
 
-   const favorite = "svg-path";
+	const favorite = "svg-path";
 </script>
 
 <Statistic>
-   <Statistic.Icon class="text-primary" slot="icon" data={favorite} />
-   <Statistic.Title slot="title">Total Likes</Statistic.Title>
-   <Statistic.Value class="text-primary" slot="value">
-      {formatNumber(25660000, {
-         style: 'decimal',
-         notation: 'compact',
-         maximumFractionDigits: 1,
-         minimumFractionDigits: 1
-      })}
-   </Statistic.Value>
+	<Statistic.Icon slot="icon" data={favorite} />
+	<Statistic.Title slot="title">Total Likes</Statistic.Title>
+	<Statistic.Value slot="value">
+		{formatNumber(25660000, {
+			style: 'decimal',
+			notation: 'compact',
+			maximumFractionDigits: 1,
+			minimumFractionDigits: 1
+		})}
+	</Statistic.Value>
+	<Statistic.Comparison slot="comparison">
+		<Statistic.Comparison.Value slot="value">
+			Last Year: {formatNumber(27660000, {
+				style: 'decimal',
+				notation: 'compact',
+				maximumFractionDigits: 1,
+				minimumFractionDigits: 1
+			})}
+		</Statistic.Comparison.Value>
+	</Statistic.Comparison>
 </Statistic>`;
 
-export const example5 = `
+export const exampleTrend = `
 <script lang="ts">
    import { Statistic } from 'stwui';
    import { formatNumber } from 'stwui/utils';
 
-   const chart_box = "svg-path";
+	const favorite = "svg-path";
+</script>
+
+<Statistic>
+	<Statistic.Icon slot="icon" data={chart_box} />
+	<Statistic.Title slot="title">Page Views</Statistic.Title>
+	<Statistic.Value slot="value">
+		{formatNumber(2660000, {
+			style: 'currency',
+			notation: 'compact',
+			maximumFractionDigits: 1,
+			minimumFractionDigits: 1
+		})}
+	</Statistic.Value>
+	<Statistic.Comparison slot="comparison">
+		<Statistic.Comparison.Value slot="value">
+			Last Year: {formatNumber(2580000, {
+				style: 'currency',
+				notation: 'compact',
+				maximumFractionDigits: 1,
+				minimumFractionDigits: 1
+			})}
+		</Statistic.Comparison.Value>
+		<Statistic.Comparison.Trend trend="up" slot="trend">
+			<Statistic.Comparison.Trend.Icon slot="icon" data={home} />
+			{formatNumber(80000, {
+				style: 'currency',
+				notation: 'compact',
+				maximumFractionDigits: 1,
+				minimumFractionDigits: 1
+			})} ({formatNumber(0.031, {
+				style: 'percent'
+			})})
+		</Statistic.Comparison.Trend>
+	</Statistic.Comparison>
+</Statistic>`;
+
+export const exampleCustom = `
+<script lang="ts">
+   import { Statistic } from 'stwui';
+   import { formatNumber } from 'stwui/utils';
+
+	const favorite = "svg-path";
 </script>
 
 <Statistic class="bg-gradient-to-r from-cyan-500 to-blue-500">
-   <Statistic.Icon class="text-white" slot="icon" data={chart_box} />
-   <Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
-   <Statistic.Value class="text-white" slot="value">
-      {formatNumber(2660000, {
-         style: 'currency',
-         notation: 'compact',
-         maximumFractionDigits: 1,
-         minimumFractionDigits: 1
-      })}
-   </Statistic.Value>
-   <Statistic.Comparison slot="comparison">
-      <Statistic.Comparison.Value class="text-white" slot="value">
-         Last Year: {formatNumber(2580000, {
-            style: 'currency',
-            notation: 'compact',
-            maximumFractionDigits: 1,
-            minimumFractionDigits: 1
-         })}
-      </Statistic.Comparison.Value>
-      <Statistic.Comparison.Trend class="bg-white text-white" showIcon={false} slot="trend">
-         {formatNumber(80000, {
-            style: 'currency',
-            notation: 'compact',
-            maximumFractionDigits: 1,
-            minimumFractionDigits: 1
-         })} ({formatNumber(0.031, {
-            style: 'percent'
-         })})
-      </Statistic.Comparison.Trend>
-   </Statistic.Comparison>
-</Statistic>`;
-
-export const example6 = `
-<script lang="ts">
-   import { Statistic } from 'stwui';
-   import { formatNumber } from 'stwui/utils';
-</script>
-
-<Statistic>
-   <Statistic.Title slot="title">New Users</Statistic.Title>
-   <Statistic.Value slot="value">
-      {formatNumber(82001, {
-         style: 'decimal',
-         notation: 'compact',
-         maximumFractionDigits: 1,
-         minimumFractionDigits: 1
-      })}
-   </Statistic.Value>
-   <Statistic.Goal progress={82.001} />
+	<Statistic.Icon class="text-white" slot="icon" data={chart_box} />
+	<Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
+	<Statistic.Value class="text-white" slot="value">
+		{formatNumber(2660000, {
+			style: 'currency',
+			notation: 'compact',
+			maximumFractionDigits: 1,
+			minimumFractionDigits: 1
+		})}
+	</Statistic.Value>
+	<Statistic.Comparison slot="comparison">
+		<Statistic.Comparison.Value class="text-white" slot="value">
+			Last Year: {formatNumber(2580000, {
+				style: 'currency',
+				notation: 'compact',
+				maximumFractionDigits: 1,
+				minimumFractionDigits: 1
+			})}
+		</Statistic.Comparison.Value>
+		<Statistic.Comparison.Trend
+			class="bg-white text-white bg-opacity-20"
+			showIcon={false}
+			slot="trend"
+		>
+			{formatNumber(80000, {
+				style: 'currency',
+				notation: 'compact',
+				maximumFractionDigits: 1,
+				minimumFractionDigits: 1
+			})} ({formatNumber(0.031, {
+				style: 'percent'
+			})})
+		</Statistic.Comparison.Trend>
+	</Statistic.Comparison>
 </Statistic>`;

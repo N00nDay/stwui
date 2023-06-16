@@ -1,13 +1,14 @@
 <script lang="ts">
-	import { Col, Statistic, Card } from '../../lib';
+	import { Statistic } from '../../lib';
 	import { formatNumber } from '../../lib/utils';
 	import {
-		example1,
-		example2,
-		example3,
-		example4,
-		example5,
-		example6,
+		example,
+		exampleCustom,
+		exampleTrend,
+		exampleComparison,
+		exampleProgress,
+		exampleIcon,
+		props,
 		slots,
 		iconProps,
 		titleSlots,
@@ -18,13 +19,66 @@
 		trendslots,
 		trendIconProps
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { chart_box, favorite, home } from '../../docs/icons';
 </script>
 
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Statistic>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<Statistic class="min-w-[420px]">
+			<Statistic.Title slot="title">Total Likes</Statistic.Title>
+			<Statistic.Value class="text-primary" slot="value">
+				{formatNumber(25660000, {
+					style: 'decimal',
+					notation: 'compact',
+					maximumFractionDigits: 1,
+					minimumFractionDigits: 1
+				})}
+			</Statistic.Value>
+		</Statistic>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
+
+<ExampleContainer title="With Icon">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<Statistic class="min-w-[420px]">
+			<Statistic.Icon class="text-primary" slot="icon" data={favorite} />
+			<Statistic.Title slot="title">Total Likes</Statistic.Title>
+			<Statistic.Value class="text-primary" slot="value">
+				{formatNumber(25660000, {
+					style: 'decimal',
+					notation: 'compact',
+					maximumFractionDigits: 1,
+					minimumFractionDigits: 1
+				})}
+			</Statistic.Value>
+		</Statistic>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleIcon} />
+</ExampleContainer>
+
+<ExampleContainer title="With Progress">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<Statistic class="min-w-[420px]">
+			<Statistic.Title slot="title">New Users</Statistic.Title>
+			<Statistic.Value slot="value">
+				{formatNumber(82001, {
+					style: 'decimal',
+					notation: 'compact',
+					maximumFractionDigits: 1,
+					minimumFractionDigits: 1
+				})}
+			</Statistic.Value>
+			<Statistic.Goal progress={82.001} />
+		</Statistic>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleProgress} />
+</ExampleContainer>
+
+<ExampleContainer title="With Comparison">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<Statistic class="min-w-[420px]">
 			<Statistic.Icon slot="icon" data={favorite} />
 			<Statistic.Title slot="title">Total Likes</Statistic.Title>
 			<Statistic.Value slot="value">
@@ -44,28 +98,15 @@
 						minimumFractionDigits: 1
 					})}
 				</Statistic.Comparison.Value>
-				<Statistic.Comparison.Trend slot="trend" trend="down">
-					{formatNumber(-2000000, {
-						style: 'decimal',
-						notation: 'compact',
-						maximumFractionDigits: 1,
-						minimumFractionDigits: 1
-					})} ({formatNumber(-0.0723, {
-						style: 'percent'
-					})})
-				</Statistic.Comparison.Trend>
 			</Statistic.Comparison>
 		</Statistic>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleComparison} />
+</ExampleContainer>
 
-		<br />
-
-		<CodeBlock language="svelte" code={example1} />
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Statistic>
+<ExampleContainer title="With Trend">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<Statistic class="min-w-[420px]">
 			<Statistic.Icon slot="icon" data={chart_box} />
 			<Statistic.Title slot="title">Page Views</Statistic.Title>
 			<Statistic.Value slot="value">
@@ -98,59 +139,13 @@
 				</Statistic.Comparison.Trend>
 			</Statistic.Comparison>
 		</Statistic>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleTrend} />
+</ExampleContainer>
 
-		<br />
-
-		<CodeBlock language="svelte" code={example2} />
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Statistic>
-			<Statistic.Icon slot="icon" data={chart_box} />
-			<Statistic.Title slot="title">New Users</Statistic.Title>
-			<Statistic.Value slot="value">
-				{formatNumber(82001, {
-					style: 'decimal',
-					notation: 'compact',
-					maximumFractionDigits: 1,
-					minimumFractionDigits: 1
-				})}
-			</Statistic.Value>
-			<Statistic.Goal progress={82.001} />
-		</Statistic>
-
-		<br />
-
-		<CodeBlock language="svelte" code={example3} />
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Statistic>
-			<Statistic.Icon class="text-primary" slot="icon" data={favorite} />
-			<Statistic.Title slot="title">Total Likes</Statistic.Title>
-			<Statistic.Value class="text-primary" slot="value">
-				{formatNumber(25660000, {
-					style: 'decimal',
-					notation: 'compact',
-					maximumFractionDigits: 1,
-					minimumFractionDigits: 1
-				})}
-			</Statistic.Value>
-		</Statistic>
-
-		<br />
-
-		<CodeBlock language="svelte" code={example4} />
-	</Card>
-</Col>
-
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Statistic class="bg-gradient-to-r from-cyan-500 to-blue-500">
+<ExampleContainer title="With Custom Colors">
+	<div slot="preview" class="w-full flex flex-row items-center justify-center">
+		<Statistic class="bg-gradient-to-r from-cyan-500 to-blue-500 min-w-[420px]">
 			<Statistic.Icon class="text-white" slot="icon" data={chart_box} />
 			<Statistic.Title class="text-white" slot="title">Page Views</Statistic.Title>
 			<Statistic.Value class="text-white" slot="value">
@@ -186,70 +181,28 @@
 				</Statistic.Comparison.Trend>
 			</Statistic.Comparison>
 		</Statistic>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleCustom} />
+</ExampleContainer>
 
-		<br />
+<PropsTable component="Statistic" {props} />
 
-		<CodeBlock language="svelte" code={example5} />
-	</Card>
-</Col>
+<SlotsTable component="Statistic" {slots} />
 
-<Col class="col-24 md:col-8">
-	<Card bordered={false} elevation="none" class="bg-transparent">
-		<Statistic>
-			<Statistic.Title slot="title">New Users</Statistic.Title>
-			<Statistic.Value slot="value">
-				{formatNumber(82001, {
-					style: 'decimal',
-					notation: 'compact',
-					maximumFractionDigits: 1,
-					minimumFractionDigits: 1
-				})}
-			</Statistic.Value>
-			<Statistic.Goal progress={82.001} />
-		</Statistic>
+<SlotsTable component="Statistic.Title" slots={titleSlots} />
 
-		<br />
+<PropsTable component="Statistic.Icon" props={iconProps} />
 
-		<CodeBlock language="svelte" code={example6} />
-	</Card>
-</Col>
+<SlotsTable component="Statistic.Value" slots={valueSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Statistic" {slots} />
-</Col>
+<SlotsTable component="Statistic.Comparison" slots={comparisonSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Statistic.Title" slots={titleSlots} />
-</Col>
+<SlotsTable component="Statistic.Comparison.Value" slots={valueSlots} />
 
-<Col class="col-24">
-	<PropsTable component="Statistic.Icon" props={iconProps} />
-</Col>
+<PropsTable component="Statistic.Comparison.Trend" props={trendProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Statistic.Value" slots={valueSlots} />
-</Col>
+<SlotsTable component="Statistic.Comparison.Trend.Slots" slots={trendslots} />
 
-<Col class="col-24">
-	<SlotsTable component="Statistic.Comparison" slots={comparisonSlots} />
-</Col>
+<PropsTable component="Statistic.Comparison.Trend.Icon" props={trendIconProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Statistic.Comparison.Value" slots={valueSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Statistic.Comparison.Trend" props={trendProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Statistic.Comparison.Trend.Slots" slots={trendslots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Statistic.Comparison.Trend.Icon" props={trendIconProps} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Statistic.Goal" props={goalProps} />
-</Col>
+<PropsTable component="Statistic.Goal" props={goalProps} />
