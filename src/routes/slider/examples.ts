@@ -44,7 +44,14 @@ export const example = `
 	import { Slider } from 'stwui';
 </script>
 
-<Slider value={20} />
+<Slider value={50} />`;
+
+export const exampleType = `
+<script lang="ts">
+	import { Slider } from 'stwui';
+</script>
+
+<Slider value={20} type="info" />
 
 <Slider value={40} type="warn" />
 
@@ -52,11 +59,20 @@ export const example = `
 
 <Slider value={80} type="success" />`;
 
-export const stepExample = `
+export const exampleStep = `
 <script lang="ts">
 	import { Slider } from 'stwui';
 </script>
 
-<Slider value={20} class="mb-4" step={25} showStep />
+<Slider value={20} type="info" step={25} />
+		
+<Slider value={40} type="warn" step={10} />`;
 
+export const exampleShowStep = `
+<script lang="ts">
+	import { Slider } from 'stwui';
+</script>
+
+<Slider value={20} type="info" step={25} showStep />
+		
 <Slider value={40} type="warn" step={10} showStep />`;

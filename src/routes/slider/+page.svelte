@@ -1,45 +1,45 @@
 <script lang="ts">
-	import { Card, Col, Slider } from '../../lib';
-	import { example, stepExample, props } from './examples';
-	import { PropsTable, CodeBlock } from '../../docs';
+	import { Slider } from '../../lib';
+	import { example, exampleType, exampleStep, exampleShowStep, props } from './examples';
+	import { PropsTable, CodeBlock, ExampleContainer } from '../../docs';
 </script>
 
-<Col class="col-24">
-	<Card bordered={false}>
-		<Card.Header slot="header">Basic</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Slider value={20} type="info" />
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-col gap-2 items-center justify-center">
+		<Slider value={50} />
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<Slider value={40} type="warn" />
+<ExampleContainer title="Type">
+	<div slot="preview" class="w-full flex flex-col gap-2 items-center justify-center">
+		<Slider value={20} type="info" />
 
-			<Slider value={60} type="error" />
+		<Slider value={40} type="warn" />
 
-			<Slider value={80} type="success" />
+		<Slider value={60} type="error" />
 
-			<br />
+		<Slider value={80} type="success" />
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleType} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="Step">
+	<div slot="preview" class="w-full flex flex-col gap-2 items-center justify-center">
+		<Slider value={20} type="info" step={25} />
+		<br />
+		<Slider value={40} type="warn" step={10} />
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleStep} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<Card bordered={false}>
-		<Card.Header slot="header">Step and Show Step</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Slider value={20} type="info" step={25} showStep />
+<ExampleContainer title="Show Step">
+	<div slot="preview" class="w-full flex flex-col gap-2 items-center justify-center">
+		<Slider value={20} type="info" step={25} showStep />
+		<br />
+		<Slider value={40} type="warn" step={10} showStep />
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleShowStep} />
+</ExampleContainer>
 
-			<br />
-
-			<Slider value={40} type="warn" step={10} showStep />
-
-			<br />
-
-			<CodeBlock language="svelte" code={stepExample} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Slider" {props} />
-</Col>
+<PropsTable component="Slider" {props} />
