@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Tabs } from '../../lib';
+	import { Tabs } from '../../lib';
 	import {
 		example1,
 		example2,
@@ -10,7 +10,7 @@
 		tabProps,
 		tabSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home } from '../../docs/icons';
 	import { check, info } from '../../lib/icons';
 
@@ -41,82 +41,54 @@
 	let currentTab = '#tab1';
 </script>
 
-<Col class="col-24">
-	<Card bordered={false}>
-		<Card.Header slot="header">Default</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Tabs {currentTab}>
-				{#each tabs as tab, i}
-					<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
-						<Tabs.Tab.Icon slot="icon" data={tab.data} />
-						{tab.title}
-					</Tabs.Tab>
-				{/each}
-			</Tabs>
+<ExampleContainer title="Default">
+	<div slot="preview" class="w-full">
+		<Tabs {currentTab}>
+			{#each tabs as tab, i}
+				<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
+					<Tabs.Tab.Icon slot="icon" data={tab.data} />
+					{tab.title}
+				</Tabs.Tab>
+			{/each}
+		</Tabs>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example1} />
+</ExampleContainer>
 
-			<br />
+<ExampleContainer title="Full Width">
+	<div slot="preview" class="w-full">
+		<Tabs {currentTab} variant="full-width">
+			{#each tabs as tab, i}
+				<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
+					<Tabs.Tab.Icon slot="icon" data={tab.data} />
+					{tab.title}
+				</Tabs.Tab>
+			{/each}
+		</Tabs>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example2} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example1} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="Bar">
+	<div slot="preview" class="w-full">
+		<Tabs {currentTab} variant="bar">
+			{#each tabs as tab, i}
+				<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
+					<Tabs.Tab.Icon slot="icon" data={tab.data} />
+					{tab.title}
+				</Tabs.Tab>
+			{/each}
+		</Tabs>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example3} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<Card bordered={false}>
-		<Card.Header slot="header">Full Width</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Tabs {currentTab} variant="full-width">
-				{#each tabs as tab, i}
-					<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
-						<Tabs.Tab.Icon slot="icon" data={tab.data} />
-						{tab.title}
-					</Tabs.Tab>
-				{/each}
-			</Tabs>
+<PropsTable component="Tabs" {props} />
 
-			<br />
+<SlotsTable component="Tabs" {slots} />
 
-			<CodeBlock language="svelte" code={example2} />
-		</Card.Content>
-	</Card>
-</Col>
+<PropsTable component="Tabs.Tab" props={tabProps} />
 
-<Col class="col-24">
-	<Card bordered={false}>
-		<Card.Header slot="header">Bar</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Tabs {currentTab} variant="bar">
-				{#each tabs as tab, i}
-					<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
-						<Tabs.Tab.Icon slot="icon" data={tab.data} />
-						{tab.title}
-					</Tabs.Tab>
-				{/each}
-			</Tabs>
+<SlotsTable component="Tabs.Tab" slots={tabSlots} />
 
-			<br />
-
-			<CodeBlock language="svelte" code={example3} />
-		</Card.Content>
-	</Card>
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Tabs" {props} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Tabs" {slots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Tabs.Tab" props={tabProps} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Tabs.Tab" slots={tabSlots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Tabs.Tab.Icon" props={iconProps} />
-</Col>
+<PropsTable component="Tabs.Tab.Icon" props={iconProps} />
