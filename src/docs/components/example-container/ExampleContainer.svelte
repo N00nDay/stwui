@@ -9,6 +9,7 @@
 
 	export let title: string;
 	export let resizable = true;
+	export let innerClass = 'p-4';
 
 	let active = writable('preview');
 
@@ -38,7 +39,7 @@
 			{:else}
 				<section class="py-1.5 px-0.5">
 					<Card bordered={false} class={$$props.class}>
-						<Card.Content class="p-4">
+						<Card.Content class={innerClass}>
 							<slot name="preview" breakpoints={$breakpoints} />
 						</Card.Content>
 					</Card>
