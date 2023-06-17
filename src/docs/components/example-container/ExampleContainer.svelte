@@ -30,7 +30,7 @@
 				<SplitPane type="horizontal" pos="99.9%" min="400px" max="100%">
 					<section slot="a" class="py-1.5 px-0.5">
 						<Card bordered={false} class={$$props.class}>
-							<Card.Content slot="content" class="p-4">
+							<Card.Content slot="content" class={innerClass}>
 								<slot name="preview" breakpoints={$breakpoints} />
 							</Card.Content>
 						</Card>

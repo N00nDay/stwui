@@ -130,7 +130,7 @@
 </script>
 
 <ExampleContainer title="Basic" resizable={false} innerClass="p-0 sm:p-0">
-	<div slot="preview" class="w-full block p-0 sm:p-0">
+	<div slot="preview" class="w-full block">
 		<Card bordered={false} class="h-[calc(100vh-14rem)]">
 			<Card.Header slot="header" class="font-bold text-lg flex justify-between items-center py-3">
 				Card Header

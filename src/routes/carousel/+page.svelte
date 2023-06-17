@@ -23,7 +23,7 @@
 	];
 </script>
 
-<ExampleContainer title="Basic">
+<ExampleContainer title="Basic" innerClass="p-0 sm:p-0">
 	<div slot="preview" class="w-full block">
 		<Card bordered={false}>
 			<Card.Content slot="content" class="h-[36rem] bg-black !p-0">
