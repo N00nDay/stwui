@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.4-next](https://github.com/N00nDay/stwui/compare/v0.13.3-next...v0.13.4-next) (2023-06-17)
+
+
+### Bug Fixes
+
+* **Toggle:** fixed error placement in flex container ([e2387e1](https://github.com/N00nDay/stwui/commit/e2387e193ba93a27f5e1253cb5081ec545e74062))
+
 ## [0.13.3-next](https://github.com/N00nDay/stwui/compare/v0.13.2-next...v0.13.3-next) (2023-06-16)
 
 
