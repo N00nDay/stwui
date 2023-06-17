@@ -1,7 +1,17 @@
 <script lang="ts">
-	import { Card, Col, TextArea, Dropdown, Button } from '../../lib';
-	import { example, kitchenExample, props, slots, labelSlots } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, BetaComponent } from '../../docs';
+	import { TextArea, Dropdown, Button } from '../../lib';
+	import {
+		props,
+		slots,
+		labelSlots,
+		example1,
+		example2,
+		example3,
+		example4,
+		example5,
+		example6
+	} from './examples';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { account, calendar } from '$lib/icons';
 
 	let value: string | undefined;
@@ -9,6 +19,7 @@
 	let dropdown1 = false;
 	let dropdown2 = false;
 	let dropdown3 = false;
+	let dropdown4 = false;
 
 	function toggleDropdown1() {
 		dropdown1 = !dropdown1;
@@ -22,6 +33,10 @@
 		dropdown3 = !dropdown3;
 	}
 
+	function toggleDropdown4() {
+		dropdown4 = !dropdown4;
+	}
+
 	$: if (value && value.length > 0) {
 		error = undefined;
 	} else {
@@ -29,33 +44,56 @@
 	}
 </script>
 
-<Col class="col-24">
-	<BetaComponent />
-</Col>
-
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
 			<TextArea name="input-1" placeholder="Basic" />
-			<br />
-			<TextArea name="input-2">
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={example1} />
+</ExampleContainer>
+
+<ExampleContainer title="With Label">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<TextArea name="input-1" placeholder="Basic">
 				<TextArea.Label slot="label">Label</TextArea.Label>
 			</TextArea>
-			<br />
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={example2} />
+</ExampleContainer>
+
+<ExampleContainer title="With Error">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
 			<TextArea name="input-3" {error} bind:value>
 				<TextArea.Label slot="label">Label</TextArea.Label>
 			</TextArea>
+		</div>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={example3} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="With Title">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<TextArea name="input-4" placeholder="Description">
+				<TextArea.Label slot="label">Label</TextArea.Label>
+				<TextArea.Title slot="title" name="title" placeholder="Title" />
+			</TextArea>
+		</div>
+	</div>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
+	<CodeBlock slot="code" language="svelte" code={example4} />
+</ExampleContainer>
+
+<ExampleContainer title="With Pills">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
 			<TextArea name="input-4" placeholder="Description">
 				<TextArea.Label slot="label">Label</TextArea.Label>
 				<TextArea.Title slot="title" name="title" placeholder="Title" />
@@ -98,10 +136,71 @@
 							Due Date</Button
 						>
 						<Dropdown.Items slot="items">
-							<Dropdown.Items.Item on:click={toggleDropdown1} label="Today">
+							<Dropdown.Items.Item on:click={toggleDropdown2} label="Today">
 								<Dropdown.Items.Item.Icon slot="icon" data={calendar} />
 							</Dropdown.Items.Item>
-							<Dropdown.Items.Item on:click={toggleDropdown1} label="Tomorrow">
+							<Dropdown.Items.Item on:click={toggleDropdown2} label="Tomorrow">
+								<Dropdown.Items.Item.Icon slot="icon" data={calendar} />
+							</Dropdown.Items.Item>
+						</Dropdown.Items>
+					</Dropdown>
+				</TextArea.Pills>
+			</TextArea>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={example5} />
+</ExampleContainer>
+
+<ExampleContainer title="With Actions">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<TextArea name="input-4" placeholder="Description">
+				<TextArea.Label slot="label">Label</TextArea.Label>
+				<TextArea.Title slot="title" name="title" placeholder="Title" />
+				<TextArea.Pills slot="pills">
+					<Dropdown bind:visible={dropdown3}>
+						<Button
+							slot="trigger"
+							type="default"
+							shape="pill"
+							size="xs"
+							class="shadow-none"
+							on:click={toggleDropdown3}
+						>
+							<Button.Leading slot="leading" data={account} />
+							Assign</Button
+						>
+						<Dropdown.Items slot="items">
+							<Dropdown.Items.Item on:click={toggleDropdown3} label="Person One">
+								<Dropdown.Items.Item.Icon slot="icon" data={account} />
+							</Dropdown.Items.Item>
+							<Dropdown.Items.Item on:click={toggleDropdown3} label="Person Two">
+								<Dropdown.Items.Item.Icon slot="icon" data={account} />
+							</Dropdown.Items.Item>
+							<Dropdown.Items.Item on:click={toggleDropdown3} label="Person Three">
+								<Dropdown.Items.Item.Icon slot="icon" data={account} />
+							</Dropdown.Items.Item>
+						</Dropdown.Items>
+					</Dropdown>
+
+					<Dropdown bind:visible={dropdown4}>
+						<Button
+							slot="trigger"
+							type="default"
+							shape="pill"
+							size="xs"
+							class="shadow-none"
+							on:click={toggleDropdown4}
+						>
+							<Button.Leading slot="leading" data={calendar} />
+							Due Date</Button
+						>
+						<Dropdown.Items slot="items">
+							<Dropdown.Items.Item on:click={toggleDropdown3} label="Today">
+								<Dropdown.Items.Item.Icon slot="icon" data={calendar} />
+							</Dropdown.Items.Item>
+							<Dropdown.Items.Item on:click={toggleDropdown4} label="Tomorrow">
 								<Dropdown.Items.Item.Icon slot="icon" data={calendar} />
 							</Dropdown.Items.Item>
 						</Dropdown.Items>
@@ -112,22 +211,14 @@
 					<Button type="primary">Submit</Button>
 				</TextArea.Actions>
 			</TextArea>
+		</div>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={example6} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={kitchenExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<PropsTable component="TextArea" {props} />
 
-<Col class="col-24">
-	<PropsTable component="TextArea" {props} />
-</Col>
+<SlotsTable component="TextArea" {slots} />
 
-<Col class="col-24">
-	<SlotsTable component="TextArea" {slots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="TextArea.Label" slots={labelSlots} />
-</Col>
+<SlotsTable component="TextArea.Label" slots={labelSlots} />

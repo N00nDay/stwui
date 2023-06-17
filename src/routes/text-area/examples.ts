@@ -67,7 +67,23 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
-export const example = `
+export const example1 = `
+<script lang="ts">
+	import { TextArea } from 'stwui';
+</script>
+
+<TextArea name="input" placeholder="Basic" />`;
+
+export const example2 = `
+<script lang="ts">
+	import { TextArea } from 'stwui';
+</script>
+
+<TextArea name="input" placeholder="Basic">
+	<TextArea.Label slot="label">Label</TextArea.Label>
+</TextArea>`;
+
+export const example3 = `
 <script lang="ts">
 	import { TextArea } from 'stwui';
 
@@ -80,31 +96,23 @@ export const example = `
 	}
 </script>
 
-<TextArea name="text-area-1" placeholder="Basic" />
-
-<TextArea name="text-area-2">
-	<TextArea.Label slot="label">Label</TextArea.Label>
-</TextArea>
-
-<TextArea name="text-area-3" {error} bind:value>
+<TextArea name="input" {error} bind:value>
 	<TextArea.Label slot="label">Label</TextArea.Label>
 </TextArea>`;
 
-export const kitchenExample = `
+export const example4 = `
 <script lang="ts">
-	import { TextArea, Dropdown, Button } from 'stwui';
+	import { TextArea } from 'stwui';
+</script>
 
-	let value: string | undefined;
-	let dropdown1 = false;
-	let dropdown2 = false;
+<TextArea name="input" placeholder="Description">
+	<TextArea.Label slot="label">Label</TextArea.Label>
+	<TextArea.Title slot="title" name="title" placeholder="Title" />
+</TextArea>`;
 
-	function toggleDropdown1() {
-		dropdown1 = !dropdown1;
-	}
-
-	function toggleDropdown2() {
-		dropdown2 = !dropdown2;
-	}
+export const example5 = `
+<script lang="ts">
+	import { TextArea } from 'stwui';
 </script>
 
 <TextArea name="input" placeholder="Description">
@@ -116,7 +124,7 @@ export const kitchenExample = `
 				slot="trigger"
 				type="default"
 				shape="pill"
-				size="sm"
+				size="xs"
 				class="shadow-none"
 				on:click={toggleDropdown1}
 			>
@@ -141,7 +149,7 @@ export const kitchenExample = `
 				slot="trigger"
 				type="default"
 				shape="pill"
-				size="sm"
+				size="xs"
 				class="shadow-none"
 				on:click={toggleDropdown2}
 			>
@@ -153,6 +161,64 @@ export const kitchenExample = `
 					<Dropdown.Items.Item.Icon slot="icon" data={calendar} />
 				</Dropdown.Items.Item>
 				<Dropdown.Items.Item on:click={toggleDropdown1} label="Tomorrow">
+					<Dropdown.Items.Item.Icon slot="icon" data={calendar} />
+				</Dropdown.Items.Item>
+			</Dropdown.Items>
+		</Dropdown>
+	</TextArea.Pills>
+</TextArea>`;
+
+export const example6 = `
+<script lang="ts">
+	import { TextArea } from 'stwui';
+</script>
+
+<TextArea name="input" placeholder="Description">
+	<TextArea.Label slot="label">Label</TextArea.Label>
+	<TextArea.Title slot="title" name="title" placeholder="Title" />
+	<TextArea.Pills slot="pills">
+		<Dropdown bind:visible={dropdown3}>
+			<Button
+				slot="trigger"
+				type="default"
+				shape="pill"
+				size="xs"
+				class="shadow-none"
+				on:click={toggleDropdown3}
+			>
+				<Button.Leading slot="leading" data={account} />
+				Assign</Button
+			>
+			<Dropdown.Items slot="items">
+				<Dropdown.Items.Item on:click={toggleDropdown3} label="Person One">
+					<Dropdown.Items.Item.Icon slot="icon" data={account} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={toggleDropdown3} label="Person Two">
+					<Dropdown.Items.Item.Icon slot="icon" data={account} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={toggleDropdown3} label="Person Three">
+					<Dropdown.Items.Item.Icon slot="icon" data={account} />
+				</Dropdown.Items.Item>
+			</Dropdown.Items>
+		</Dropdown>
+
+		<Dropdown bind:visible={dropdown4}>
+			<Button
+				slot="trigger"
+				type="default"
+				shape="pill"
+				size="xs"
+				class="shadow-none"
+				on:click={toggleDropdown4}
+			>
+				<Button.Leading slot="leading" data={calendar} />
+				Due Date</Button
+			>
+			<Dropdown.Items slot="items">
+				<Dropdown.Items.Item on:click={toggleDropdown3} label="Today">
+					<Dropdown.Items.Item.Icon slot="icon" data={calendar} />
+				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={toggleDropdown4} label="Tomorrow">
 					<Dropdown.Items.Item.Icon slot="icon" data={calendar} />
 				</Dropdown.Items.Item>
 			</Dropdown.Items>
