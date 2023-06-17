@@ -1,18 +1,21 @@
 <script lang="ts">
-	import { Card, Col, Toggle } from '../../lib';
+	import { Toggle } from '../../lib';
 	import {
-		example,
+		example1,
+		example2,
+		example3,
+		example4,
+		example5,
+		example6,
 		props,
 		slots,
 		iconProps,
 		titleSlots,
 		descriptionSlots,
 		contentLeftSlots,
-		contentRightSlots,
-		iconsExample,
-		errorExample
+		contentRightSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { brightness_4, brightness_5 } from '../../docs/icons';
 
 	let on = false;
@@ -24,114 +27,91 @@
 	}
 </script>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">Default</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Toggle name="toggle-1" />
-			<br />
-			<Toggle name="toggle-2">
-				<Toggle.ContentLeft slot="content-left">
-					<Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
-				</Toggle.ContentLeft>
-			</Toggle>
-			<br />
-			<Toggle name="toggle-3">
-				<Toggle.ContentRight slot="content-right">
-					<Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
-				</Toggle.ContentRight>
-			</Toggle>
-			<br />
-			<Toggle name="toggle-4">
-				<Toggle.ContentLeft slot="content-left">
-					<Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
-				</Toggle.ContentLeft>
-				<Toggle.ContentRight slot="content-right">
-					<Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
-				</Toggle.ContentRight>
-			</Toggle>
-			<br />
-			<Toggle name="toggle-5">
-				<Toggle.ContentRight slot="content-right">
-					<Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
-					<Toggle.ContentRight.Description slot="description"
-						>(10% off)</Toggle.ContentRight.Description
-					>
-				</Toggle.ContentRight>
-			</Toggle>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Toggle name="toggle-1" />
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={example1} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="With Left Label">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Toggle name="toggle-2">
+			<Toggle.ContentLeft slot="content-left">
+				<Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
+			</Toggle.ContentLeft>
+		</Toggle>
+	</div>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">with Left and Right icons</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Toggle name="toggle">
-				<Toggle.LeftIcon slot="left-icon" data={brightness_5} class="text-white" />
-				<Toggle.RightIcon slot="right-icon" data={brightness_4} />
-			</Toggle>
+	<CodeBlock slot="code" language="svelte" code={example2} />
+</ExampleContainer>
 
-			<br />
+<ExampleContainer title="With Both Labels">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Toggle name="toggle-4">
+			<Toggle.ContentLeft slot="content-left">
+				<Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
+			</Toggle.ContentLeft>
+			<Toggle.ContentRight slot="content-right">
+				<Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
+			</Toggle.ContentRight>
+		</Toggle>
+	</div>
 
-			<CodeBlock language="svelte" code={iconsExample} />
-		</Card.Content>
-	</Card>
-</Col>
+	<CodeBlock slot="code" language="svelte" code={example3} />
+</ExampleContainer>
 
-<Col class="col-24 md:col-12">
-	<Card bordered={false}>
-		<Card.Header slot="header">with error</Card.Header>
-		<Card.Content slot="content" class="p-4">
-			<Toggle name="toggle" {error} bind:on />
+<ExampleContainer title="With Description">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Toggle name="toggle-5">
+			<Toggle.ContentRight slot="content-right">
+				<Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
+				<Toggle.ContentRight.Description slot="description"
+					>(10% off)</Toggle.ContentRight.Description
+				>
+			</Toggle.ContentRight>
+		</Toggle>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={example4} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={errorExample} />
-		</Card.Content>
-	</Card>
-</Col>
+<ExampleContainer title="With Error">
+	<div slot="preview" class="w-full flex flex-col gap-2 items-center justify-center">
+		<Toggle name="toggle" {error} bind:on />
+	</div>
 
-<Col class="col-24">
-	<PropsTable component="Toggle" {props} />
-</Col>
+	<CodeBlock slot="code" language="svelte" code={example5} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<SlotsTable component="Toggle" {slots} />
-</Col>
+<ExampleContainer title="With Icons">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<Toggle name="toggle">
+			<Toggle.LeftIcon slot="left-icon" data={brightness_5} class="text-white" />
+			<Toggle.RightIcon slot="right-icon" data={brightness_4} />
+		</Toggle>
+	</div>
 
-<Col class="col-24">
-	<PropsTable component="Toggle.LeftIcon" props={iconProps} />
-</Col>
+	<CodeBlock slot="code" language="svelte" code={example6} />
+</ExampleContainer>
 
-<Col class="col-24">
-	<PropsTable component="Toggle.RightIcon" props={iconProps} />
-</Col>
+<PropsTable component="Toggle" {props} />
 
-<Col class="col-24">
-	<SlotsTable component="Toggle.ContentLeft" slots={contentLeftSlots} />
-</Col>
+<SlotsTable component="Toggle" {slots} />
 
-<Col class="col-24">
-	<SlotsTable component="Toggle.ContentLeft.Title" slots={titleSlots} />
-</Col>
+<PropsTable component="Toggle.LeftIcon" props={iconProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Toggle.ContentLeft.Description" slots={descriptionSlots} />
-</Col>
+<PropsTable component="Toggle.RightIcon" props={iconProps} />
 
-<Col class="col-24">
-	<SlotsTable component="Toggle.ContentRight" slots={contentRightSlots} />
-</Col>
+<SlotsTable component="Toggle.ContentLeft" slots={contentLeftSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Toggle.ContentRight.Title" slots={titleSlots} />
-</Col>
+<SlotsTable component="Toggle.ContentLeft.Title" slots={titleSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Toggle.ContentRight.Description" slots={descriptionSlots} />
-</Col>
+<SlotsTable component="Toggle.ContentLeft.Description" slots={descriptionSlots} />
+
+<SlotsTable component="Toggle.ContentRight" slots={contentRightSlots} />
+
+<SlotsTable component="Toggle.ContentRight.Title" slots={titleSlots} />
+
+<SlotsTable component="Toggle.ContentRight.Description" slots={descriptionSlots} />

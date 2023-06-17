@@ -137,57 +137,53 @@ export const descriptionSlots: Slot[] = [
 	}
 ];
 
-export const example = `
+export const example1 = `
 <script lang="ts">
 	import { Toggle } from 'stwui';
 </script>
 
-<Toggle name="toggle-1" />
+<Toggle name="toggle-1" />`;
+
+export const example2 = `
+<script lang="ts">
+	import { Toggle } from 'stwui';
+</script>
 
 <Toggle name="toggle-2">
-   <Toggle.ContentLeft slot="content-left">
-      <Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
-   </Toggle.ContentLeft>
-</Toggle>
-
-<Toggle name="toggle-3">
-   <Toggle.ContentRight slot="content-right">
-      <Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
-   </Toggle.ContentRight>
-</Toggle>
-
-<Toggle name="toggle-4">
-   <Toggle.ContentLeft slot="content-left">
-      <Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
-   </Toggle.ContentLeft>
-   <Toggle.ContentRight slot="content-right">
-      <Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
-   </Toggle.ContentRight>
-</Toggle>
-
-<Toggle name="toggle-5">
-   <Toggle.ContentRight slot="content-right">
-      <Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
-      <Toggle.ContentRight.Description slot="description">
-         (10% off)
-      </Toggle.ContentRight.Description>
-   </Toggle.ContentRight>
+	<Toggle.ContentLeft slot="content-left">
+		<Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
+	</Toggle.ContentLeft>
 </Toggle>`;
 
-export const iconsExample = `
+export const example3 = `
 <script lang="ts">
 	import { Toggle } from 'stwui';
-
-	const brightness_4 = "svg-path";
-	const brightness_5 = "svg-path";
 </script>
 
-<Toggle name="toggle">
-	<Toggle.LeftIcon slot="left-icon" data={brightness_5} class="text-white" />
-	<Toggle.RightIcon slot="right-icon" data={brightness_4} />
+<Toggle name="toggle-4">
+	<Toggle.ContentLeft slot="content-left">
+		<Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
+	</Toggle.ContentLeft>
+	<Toggle.ContentRight slot="content-right">
+		<Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
+	</Toggle.ContentRight>
 </Toggle>`;
 
-export const errorExample = `
+export const example4 = `
+<script lang="ts">
+	import { Toggle } from 'stwui';
+</script>
+
+<Toggle name="toggle-5">
+	<Toggle.ContentRight slot="content-right">
+		<Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
+		<Toggle.ContentRight.Description slot="description"
+			>(10% off)</Toggle.ContentRight.Description
+		>
+	</Toggle.ContentRight>
+</Toggle>`;
+
+export const example5 = `
 <script lang="ts">
 	import { Toggle } from 'stwui';
 
@@ -200,5 +196,14 @@ export const errorExample = `
 	}
 </script>
 
-<Toggle name="toggle" {error} bind:on />
-`;
+<Toggle name="toggle" {error} bind:on />`;
+
+export const example6 = `
+<script lang="ts">
+	import { Toggle } from 'stwui';
+</script>
+
+<Toggle name="toggle">
+	<Toggle.LeftIcon slot="left-icon" data={brightness_5} class="text-white" />
+	<Toggle.RightIcon slot="right-icon" data={brightness_4} />
+</Toggle>`;
