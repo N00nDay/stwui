@@ -2,7 +2,7 @@
 	import { Card, Col, Timeline } from '../../lib';
 	import type { TimelineItem } from '../../lib/types/timeline-item';
 	import { example, slots, itemProps } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, BetaComponent } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, BetaComponent, ExampleContainer } from '../../docs';
 
 	import { account, currency_usd } from '../../lib/icons';
 
@@ -46,37 +46,27 @@
 	];
 </script>
 
-<Col class="col-24">
-	<BetaComponent />
-</Col>
+<BetaComponent />
 
-<Col class="col-24">
-	<Card bordered={false}>
-		<Card.Content slot="content" class="p-4">
-			<Timeline>
-				{#each timeline as item}
-					<Timeline.Item
-						created={item.created}
-						avatar={item.avatar}
-						creator={item.creator}
-						type={item.type}
-						icon={item.icon}
-						description={item.description}
-					/>
-				{/each}
-			</Timeline>
+<ExampleContainer title="Basic">
+	<div slot="preview" class="w-full">
+		<Timeline>
+			{#each timeline as item}
+				<Timeline.Item
+					created={item.created}
+					avatar={item.avatar}
+					creator={item.creator}
+					type={item.type}
+					icon={item.icon}
+					description={item.description}
+				/>
+			{/each}
+		</Timeline>
+	</div>
 
-			<br />
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-			<CodeBlock language="svelte" code={example} />
-		</Card.Content>
-	</Card>
-</Col>
+<SlotsTable component="Timeline" {slots} />
 
-<Col class="col-24">
-	<SlotsTable component="Timeline" {slots} />
-</Col>
-
-<Col class="col-24">
-	<PropsTable component="Timeline.Item" props={itemProps} />
-</Col>
+<PropsTable component="Timeline.Item" props={itemProps} />
