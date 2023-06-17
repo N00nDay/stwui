@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { encodeSearchParams } from '../../lib/utils';
-	import { Button, Card, Col, Pagination, Table } from '../../lib';
+	import { Button, Card, Pagination, Table } from '../../lib';
 	import type { TableColumn } from '../../lib/types/table-column';
 	import {
 		example,
@@ -17,7 +17,7 @@
 		cellSlots,
 		footerSlots
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { plus } from '../../lib/icons';
 
 	let baseUrl: string;
@@ -129,8 +129,8 @@
 	}
 </script>
 
-<Col class="col-24 h-full">
-	<Card bordered={false} elevation="none" class="bg-transparent">
+<ExampleContainer title="Basic" resizable={false} innerClass="p-0 sm:p-0">
+	<div slot="preview" class="w-full block p-0 sm:p-0">
 		<Card bordered={false} class="h-[calc(100vh-14rem)]">
 			<Card.Header slot="header" class="font-bold text-lg flex justify-between items-center py-3">
 				Card Header
@@ -167,48 +167,26 @@
 				</Table>
 			</Card.Content>
 		</Card>
-		<br />
+	</div>
+	<CodeBlock slot="code" language="svelte" code={example} />
+</ExampleContainer>
 
-		<CodeBlock language="svelte" code={example} />
-	</Card>
-</Col>
+<PropsTable component="Table" {props} />
 
-<Col class="col-24">
-	<PropsTable component="Table" {props} />
-</Col>
+<SlotsTable component="Table" {slots} />
 
-<Col class="col-24">
-	<SlotsTable component="Table" {slots} />
-</Col>
+<PropsTable component="Table.Header" props={headerProps} />
 
-<Col class="col-24">
-	<PropsTable component="Table.Header" props={headerProps} />
-</Col>
+<PropsTable component="Table.Body" props={bodyProps} />
 
-<Col class="col-24">
-	<PropsTable component="Table.Body" props={bodyProps} />
-</Col>
+<SlotsTable component="Table.Body" slots={bodySlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Table.Body" slots={bodySlots} />
-</Col>
+<PropsTable component="Table.Body.Row" props={rowProps} />
 
-<Col class="col-24">
-	<PropsTable component="Table.Body.Row" props={rowProps} />
-</Col>
+<SlotsTable component="Table.Body.Row" slots={rowSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Table.Body.Row" slots={rowSlots} />
-</Col>
+<PropsTable component="Table.Body.Row.Cell" props={cellProps} />
 
-<Col class="col-24">
-	<PropsTable component="Table.Body.Row.Cell" props={cellProps} />
-</Col>
+<SlotsTable component="Table.Body.Row.Cell" slots={cellSlots} />
 
-<Col class="col-24">
-	<SlotsTable component="Table.Body.Row.Cell" slots={cellSlots} />
-</Col>
-
-<Col class="col-24">
-	<SlotsTable component="Table.Footer" slots={footerSlots} />
-</Col>
+<SlotsTable component="Table.Footer" slots={footerSlots} />
