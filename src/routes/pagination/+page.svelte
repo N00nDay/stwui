@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Pagination } from '../../lib';
+	import { Pagination } from '../../lib';
 	import { example, props } from './examples';
 	import { PropsTable, BetaComponent, CodeBlock, ExampleContainer } from '../../docs';
 
@@ -32,9 +32,7 @@
 	}
 </script>
 
-<Col class="col-24">
-	<BetaComponent />
-</Col>
+<BetaComponent />
 
 <ExampleContainer title="With Description & Extra" resizable={false}>
 	<Pagination
