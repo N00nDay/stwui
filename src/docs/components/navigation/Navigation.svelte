@@ -189,8 +189,7 @@
 		},
 		{
 			title: 'TextArea',
-			href: '/text-area',
-			beta: true
+			href: '/text-area'
 		},
 		{
 			title: 'Timeline',
