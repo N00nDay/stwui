@@ -30,7 +30,8 @@
 		"lint:fix": "eslint --fix .",
 		"format": "prettier --write .",
 		"publish": "npm publish ./package",
-		"prepare": "husky install && svelte-kit sync"
+		"prepare": "husky install && svelte-kit sync",
+		"pack": "node pack"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.6",
@@ -83,6 +84,7 @@
 		"svelte": "^4.0.0"
 	},
 	"exports": {
+		"./package.json": "./package.json",
 		".": "./package/index.js",
 		"./actions": {
 			"types": "./package/actions/index.d.ts",
