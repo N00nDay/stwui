@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.5-next](https://github.com/N00nDay/stwui/compare/v0.13.4-next...v0.13.5-next) (2023-06-27)
+
+
+### Bug Fixes
+
+* updated svelte-package ([9ffbcbb](https://github.com/N00nDay/stwui/commit/9ffbcbb17851f2b7704784a5f9087272d616c9ce))
+
 ## [0.13.4-next](https://github.com/N00nDay/stwui/compare/v0.13.3-next...v0.13.4-next) (2023-06-17)
 
 
