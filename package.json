@@ -20,7 +20,7 @@
 	"scripts": {
 		"dev": "vite dev --open --host",
 		"build": "vite build",
-		"package": "svelte-package",
+		"package": "svelte-package -o package",
 		"preview": "vite preview",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
@@ -38,19 +38,17 @@
 		"@sveltejs/adapter-auto": "^2.1.0",
 		"@sveltejs/adapter-vercel": "^3.0.1",
 		"@sveltejs/kit": "^1.20.5",
-		"@sveltejs/package": "1.0.2",
+		"@sveltejs/package": "^2.1.0",
 		"@tailwindcss/forms": "^0.5.3",
 		"@testing-library/dom": "^9.3.1",
 		"@testing-library/svelte": "^4.0.1",
 		"@types/cookie": "^0.5.1",
 		"@typescript-eslint/eslint-plugin": "^5.60.1",
 		"@typescript-eslint/parser": "^5.60.1",
-		"@vitest/coverage-c8": "^0.32.2",
 		"autoprefixer": "^10.4.14",
-		"c8": "^8.0.0",
 		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-svelte3": "^4.0.0",
+		"eslint-plugin-svelte": "^2.31.1",
 		"highlight.js": "^11.8.0",
 		"husky": "^8.0.3",
 		"jsdom": "^22.1.0",
@@ -68,7 +66,7 @@
 		"vite": "^4.3.9",
 		"vitest": "^0.32.2"
 	},
-	"svelte": "./index.js",
+	"svelte": "./package/index.js",
 	"type": "module",
 	"types": "index.d.ts",
 	"dependencies": {
@@ -85,12 +83,1035 @@
 		"svelte": "^4.0.0"
 	},
 	"exports": {
-		".": "./index.js",
-		"./actions": "./actions/index.js",
-		"./plugin": "./plugin/index.js",
-		"./types": "./types/index.js",
-		"./utils": "./utils/index.js",
-		"./icons": "./icons.js",
-		"./enums": "./enums.js"
+		".": "./package/index.js",
+		"./actions": {
+			"types": "./package/actions/index.d.ts",
+			"svelte": "./package/actions/index.js",
+			"default": "./package/actions/index.js"
+		},
+		"./plugin": {
+			"types": "./package/plugin/index.d.ts",
+			"svelte": "./package/plugin/index.js",
+			"default": "./package/plugin/index.js"
+		},
+		"./typestypes": {
+			"types": "./package/types/index.d.ts",
+			"svelte": "./package/types/index.js",
+			"default": "./package/types/index.js"
+		},
+		"./utils": {
+			"types": "./package/utils/index.d.ts",
+			"svelte": "./package/utils/index.js",
+			"default": "./package/utils/index.js"
+		},
+		"./icons": {
+			"types": "./package/icons/index.d.ts",
+			"svelte": "./package/icons/index.js",
+			"default": "./package/icons/index.js"
+		},
+		"./enums": {
+			"types": "./package/enums/index.d.ts",
+			"svelte": "./package/enums/index.js",
+			"default": "./package/enums/index.js"
+		},
+		"./stores": {
+			"types": "./package/stores/index.d.ts",
+			"svelte": "./package/stores/index.js",
+			"default": "./package/stores/index.js"
+		}
+	},
+	"files": [
+		"package"
+	],
+	"typesVersions": {
+		">4.0": {
+			"actions/click-outside": [
+				"./package/actions/click-outside/index.d.ts"
+			],
+			"actions/clipboard": [
+				"./package/actions/clipboard/index.d.ts"
+			],
+			"actions/floating-ui": [
+				"./package/actions/floating-ui/index.d.ts"
+			],
+			"actions/forward-events-builder": [
+				"./package/actions/forward-events-builder/index.d.ts"
+			],
+			"actions": [
+				"./package/actions/index.d.ts"
+			],
+			"actions/tooltip": [
+				"./package/actions/tooltip/index.d.ts"
+			],
+			"actions/use-actions": [
+				"./package/actions/use-actions/index.d.ts"
+			],
+			"components/HoverBackground.svelte": [
+				"./package/components/HoverBackground.svelte.d.ts"
+			],
+			"components/accordion/Accordion.svelte": [
+				"./package/components/accordion/Accordion.svelte.d.ts"
+			],
+			"components/accordion/Content.svelte": [
+				"./package/components/accordion/Content.svelte.d.ts"
+			],
+			"components/accordion/Item.svelte": [
+				"./package/components/accordion/Item.svelte.d.ts"
+			],
+			"components/accordion/Title.svelte": [
+				"./package/components/accordion/Title.svelte.d.ts"
+			],
+			"components/accordion": [
+				"./package/components/accordion/index.d.ts"
+			],
+			"components/alert/Alert.svelte": [
+				"./package/components/alert/Alert.svelte.d.ts"
+			],
+			"components/alert/Description.svelte": [
+				"./package/components/alert/Description.svelte.d.ts"
+			],
+			"components/alert/Extra.svelte": [
+				"./package/components/alert/Extra.svelte.d.ts"
+			],
+			"components/alert/Title.svelte": [
+				"./package/components/alert/Title.svelte.d.ts"
+			],
+			"components/alert": [
+				"./package/components/alert/index.d.ts"
+			],
+			"components/autocomplete/Autocomplete.svelte": [
+				"./package/components/autocomplete/Autocomplete.svelte.d.ts"
+			],
+			"components/autocomplete/EmptyOption.svelte": [
+				"./package/components/autocomplete/EmptyOption.svelte.d.ts"
+			],
+			"components/autocomplete/Label.svelte": [
+				"./package/components/autocomplete/Label.svelte.d.ts"
+			],
+			"components/autocomplete/Option.svelte": [
+				"./package/components/autocomplete/Option.svelte.d.ts"
+			],
+			"components/autocomplete/Options.svelte": [
+				"./package/components/autocomplete/Options.svelte.d.ts"
+			],
+			"components/autocomplete": [
+				"./package/components/autocomplete/index.d.ts"
+			],
+			"components/avatar/Avatar.svelte": [
+				"./package/components/avatar/Avatar.svelte.d.ts"
+			],
+			"components/avatar/Indicator.svelte": [
+				"./package/components/avatar/Indicator.svelte.d.ts"
+			],
+			"components/avatar/Placeholder.svelte": [
+				"./package/components/avatar/Placeholder.svelte.d.ts"
+			],
+			"components/avatar": [
+				"./package/components/avatar/index.d.ts"
+			],
+			"components/avatar-group/Avatar.svelte": [
+				"./package/components/avatar-group/Avatar.svelte.d.ts"
+			],
+			"components/avatar-group/AvatarGroup.svelte": [
+				"./package/components/avatar-group/AvatarGroup.svelte.d.ts"
+			],
+			"components/avatar-group/Indicator.svelte": [
+				"./package/components/avatar-group/Indicator.svelte.d.ts"
+			],
+			"components/avatar-group/Placeholder.svelte": [
+				"./package/components/avatar-group/Placeholder.svelte.d.ts"
+			],
+			"components/avatar-group": [
+				"./package/components/avatar-group/index.d.ts"
+			],
+			"components/badge/Badge.svelte": [
+				"./package/components/badge/Badge.svelte.d.ts"
+			],
+			"components/badge/Close.svelte": [
+				"./package/components/badge/Close.svelte.d.ts"
+			],
+			"components/badge/Indicator.svelte": [
+				"./package/components/badge/Indicator.svelte.d.ts"
+			],
+			"components/badge": [
+				"./package/components/badge/index.d.ts"
+			],
+			"components/breadcrumbs/Breadcrumbs.svelte": [
+				"./package/components/breadcrumbs/Breadcrumbs.svelte.d.ts"
+			],
+			"components/breadcrumbs/Crumb.svelte": [
+				"./package/components/breadcrumbs/Crumb.svelte.d.ts"
+			],
+			"components/breadcrumbs/Divider.svelte": [
+				"./package/components/breadcrumbs/Divider.svelte.d.ts"
+			],
+			"components/breadcrumbs/Label.svelte": [
+				"./package/components/breadcrumbs/Label.svelte.d.ts"
+			],
+			"components/breadcrumbs": [
+				"./package/components/breadcrumbs/index.d.ts"
+			],
+			"components/button/Button.svelte": [
+				"./package/components/button/Button.svelte.d.ts"
+			],
+			"components/button/Icon.svelte": [
+				"./package/components/button/Icon.svelte.d.ts"
+			],
+			"components/button/Loader.svelte": [
+				"./package/components/button/Loader.svelte.d.ts"
+			],
+			"components/button": [
+				"./package/components/button/index.d.ts"
+			],
+			"components/button/styles": [
+				"./package/components/button/styles.d.ts"
+			],
+			"components/button-group/Button.svelte": [
+				"./package/components/button-group/Button.svelte.d.ts"
+			],
+			"components/button-group/ButtonGroup.svelte": [
+				"./package/components/button-group/ButtonGroup.svelte.d.ts"
+			],
+			"components/button-group/Icon.svelte": [
+				"./package/components/button-group/Icon.svelte.d.ts"
+			],
+			"components/button-group/Loader.svelte": [
+				"./package/components/button-group/Loader.svelte.d.ts"
+			],
+			"components/button-group": [
+				"./package/components/button-group/index.d.ts"
+			],
+			"components/card/Action.svelte": [
+				"./package/components/card/Action.svelte.d.ts"
+			],
+			"components/card/ActionLabel.svelte": [
+				"./package/components/card/ActionLabel.svelte.d.ts"
+			],
+			"components/card/Actions.svelte": [
+				"./package/components/card/Actions.svelte.d.ts"
+			],
+			"components/card/Card.svelte": [
+				"./package/components/card/Card.svelte.d.ts"
+			],
+			"components/card/Content.svelte": [
+				"./package/components/card/Content.svelte.d.ts"
+			],
+			"components/card/Cover.svelte": [
+				"./package/components/card/Cover.svelte.d.ts"
+			],
+			"components/card/Footer.svelte": [
+				"./package/components/card/Footer.svelte.d.ts"
+			],
+			"components/card/Header.svelte": [
+				"./package/components/card/Header.svelte.d.ts"
+			],
+			"components/card/Overlay.svelte": [
+				"./package/components/card/Overlay.svelte.d.ts"
+			],
+			"components/card": [
+				"./package/components/card/index.d.ts"
+			],
+			"components/carousel/Carousel.svelte": [
+				"./package/components/carousel/Carousel.svelte.d.ts"
+			],
+			"components/carousel": [
+				"./package/components/carousel/index.d.ts"
+			],
+			"components/checkbox/Checkbox.svelte": [
+				"./package/components/checkbox/Checkbox.svelte.d.ts"
+			],
+			"components/checkbox/CheckboxGroup.svelte": [
+				"./package/components/checkbox/CheckboxGroup.svelte.d.ts"
+			],
+			"components/checkbox/Description.svelte": [
+				"./package/components/checkbox/Description.svelte.d.ts"
+			],
+			"components/checkbox/GroupLabel.svelte": [
+				"./package/components/checkbox/GroupLabel.svelte.d.ts"
+			],
+			"components/checkbox/Label.svelte": [
+				"./package/components/checkbox/Label.svelte.d.ts"
+			],
+			"components/checkbox": [
+				"./package/components/checkbox/index.d.ts"
+			],
+			"components/chip/Avatar.svelte": [
+				"./package/components/chip/Avatar.svelte.d.ts"
+			],
+			"components/chip/Chip.svelte": [
+				"./package/components/chip/Chip.svelte.d.ts"
+			],
+			"components/chip/Close.svelte": [
+				"./package/components/chip/Close.svelte.d.ts"
+			],
+			"components/chip/Label.svelte": [
+				"./package/components/chip/Label.svelte.d.ts"
+			],
+			"components/chip/Placeholder.svelte": [
+				"./package/components/chip/Placeholder.svelte.d.ts"
+			],
+			"components/chip": [
+				"./package/components/chip/index.d.ts"
+			],
+			"components/currency/Currency.svelte": [
+				"./package/components/currency/Currency.svelte.d.ts"
+			],
+			"components/currency/Label.svelte": [
+				"./package/components/currency/Label.svelte.d.ts"
+			],
+			"components/currency": [
+				"./package/components/currency/index.d.ts"
+			],
+			"components/datepicker/DateInput.svelte": [
+				"./package/components/datepicker/DateInput.svelte.d.ts"
+			],
+			"components/datepicker/DatePicker.svelte": [
+				"./package/components/datepicker/DatePicker.svelte.d.ts"
+			],
+			"components/datepicker/Label.svelte": [
+				"./package/components/datepicker/Label.svelte.d.ts"
+			],
+			"components/datepicker/date-utils": [
+				"./package/components/datepicker/date-utils.d.ts"
+			],
+			"components/datepicker": [
+				"./package/components/datepicker/index.d.ts"
+			],
+			"components/datepicker/locale": [
+				"./package/components/datepicker/locale.d.ts"
+			],
+			"components/divider/Divider.svelte": [
+				"./package/components/divider/Divider.svelte.d.ts"
+			],
+			"components/divider/Icon.svelte": [
+				"./package/components/divider/Icon.svelte.d.ts"
+			],
+			"components/divider/Label.svelte": [
+				"./package/components/divider/Label.svelte.d.ts"
+			],
+			"components/divider": [
+				"./package/components/divider/index.d.ts"
+			],
+			"components/drawer/Backdrop.svelte": [
+				"./package/components/drawer/Backdrop.svelte.d.ts"
+			],
+			"components/drawer/Content.svelte": [
+				"./package/components/drawer/Content.svelte.d.ts"
+			],
+			"components/drawer/Drawer.svelte": [
+				"./package/components/drawer/Drawer.svelte.d.ts"
+			],
+			"components/drawer/Footer.svelte": [
+				"./package/components/drawer/Footer.svelte.d.ts"
+			],
+			"components/drawer/Header.svelte": [
+				"./package/components/drawer/Header.svelte.d.ts"
+			],
+			"components/drawer": [
+				"./package/components/drawer/index.d.ts"
+			],
+			"components/dropdown/Divider.svelte": [
+				"./package/components/dropdown/Divider.svelte.d.ts"
+			],
+			"components/dropdown/Dropdown.svelte": [
+				"./package/components/dropdown/Dropdown.svelte.d.ts"
+			],
+			"components/dropdown/Item.svelte": [
+				"./package/components/dropdown/Item.svelte.d.ts"
+			],
+			"components/dropdown/Items.svelte": [
+				"./package/components/dropdown/Items.svelte.d.ts"
+			],
+			"components/dropdown": [
+				"./package/components/dropdown/index.d.ts"
+			],
+			"components/empty/Action.svelte": [
+				"./package/components/empty/Action.svelte.d.ts"
+			],
+			"components/empty/Description.svelte": [
+				"./package/components/empty/Description.svelte.d.ts"
+			],
+			"components/empty/Empty.svelte": [
+				"./package/components/empty/Empty.svelte.d.ts"
+			],
+			"components/empty/Icon.svelte": [
+				"./package/components/empty/Icon.svelte.d.ts"
+			],
+			"components/empty/Title.svelte": [
+				"./package/components/empty/Title.svelte.d.ts"
+			],
+			"components/empty": [
+				"./package/components/empty/index.d.ts"
+			],
+			"components/feed/Avatar.svelte": [
+				"./package/components/feed/Avatar.svelte.d.ts"
+			],
+			"components/feed/Connector.svelte": [
+				"./package/components/feed/Connector.svelte.d.ts"
+			],
+			"components/feed/Content.svelte": [
+				"./package/components/feed/Content.svelte.d.ts"
+			],
+			"components/feed/DateTime.svelte": [
+				"./package/components/feed/DateTime.svelte.d.ts"
+			],
+			"components/feed/Feed.svelte": [
+				"./package/components/feed/Feed.svelte.d.ts"
+			],
+			"components/feed/Icon.svelte": [
+				"./package/components/feed/Icon.svelte.d.ts"
+			],
+			"components/feed/Item.svelte": [
+				"./package/components/feed/Item.svelte.d.ts"
+			],
+			"components/feed/Leading.svelte": [
+				"./package/components/feed/Leading.svelte.d.ts"
+			],
+			"components/feed/Placeholder.svelte": [
+				"./package/components/feed/Placeholder.svelte.d.ts"
+			],
+			"components/feed": [
+				"./package/components/feed/index.d.ts"
+			],
+			"components/file-picker/Action.svelte": [
+				"./package/components/file-picker/Action.svelte.d.ts"
+			],
+			"components/file-picker/Description.svelte": [
+				"./package/components/file-picker/Description.svelte.d.ts"
+			],
+			"components/file-picker/Divider.svelte": [
+				"./package/components/file-picker/Divider.svelte.d.ts"
+			],
+			"components/file-picker/FilePicker.svelte": [
+				"./package/components/file-picker/FilePicker.svelte.d.ts"
+			],
+			"components/file-picker/Icon.svelte": [
+				"./package/components/file-picker/Icon.svelte.d.ts"
+			],
+			"components/file-picker/Label.svelte": [
+				"./package/components/file-picker/Label.svelte.d.ts"
+			],
+			"components/file-picker/Title.svelte": [
+				"./package/components/file-picker/Title.svelte.d.ts"
+			],
+			"components/file-picker": [
+				"./package/components/file-picker/index.d.ts"
+			],
+			"components/file-preview/Action.svelte": [
+				"./package/components/file-preview/Action.svelte.d.ts"
+			],
+			"components/file-preview/Avatar.svelte": [
+				"./package/components/file-preview/Avatar.svelte.d.ts"
+			],
+			"components/file-preview/Complete.svelte": [
+				"./package/components/file-preview/Complete.svelte.d.ts"
+			],
+			"components/file-preview/Description.svelte": [
+				"./package/components/file-preview/Description.svelte.d.ts"
+			],
+			"components/file-preview/Extra.svelte": [
+				"./package/components/file-preview/Extra.svelte.d.ts"
+			],
+			"components/file-preview/Failed.svelte": [
+				"./package/components/file-preview/Failed.svelte.d.ts"
+			],
+			"components/file-preview/FileContent.svelte": [
+				"./package/components/file-preview/FileContent.svelte.d.ts"
+			],
+			"components/file-preview/FilePreview.svelte": [
+				"./package/components/file-preview/FilePreview.svelte.d.ts"
+			],
+			"components/file-preview/Item.svelte": [
+				"./package/components/file-preview/Item.svelte.d.ts"
+			],
+			"components/file-preview/Leading.svelte": [
+				"./package/components/file-preview/Leading.svelte.d.ts"
+			],
+			"components/file-preview/Loader.svelte": [
+				"./package/components/file-preview/Loader.svelte.d.ts"
+			],
+			"components/file-preview/Pending.svelte": [
+				"./package/components/file-preview/Pending.svelte.d.ts"
+			],
+			"components/file-preview/Placeholder.svelte": [
+				"./package/components/file-preview/Placeholder.svelte.d.ts"
+			],
+			"components/file-preview/Progress.svelte": [
+				"./package/components/file-preview/Progress.svelte.d.ts"
+			],
+			"components/file-preview/Rejected.svelte": [
+				"./package/components/file-preview/Rejected.svelte.d.ts"
+			],
+			"components/file-preview/Status.svelte": [
+				"./package/components/file-preview/Status.svelte.d.ts"
+			],
+			"components/file-preview/Title.svelte": [
+				"./package/components/file-preview/Title.svelte.d.ts"
+			],
+			"components/file-preview/UploadContent.svelte": [
+				"./package/components/file-preview/UploadContent.svelte.d.ts"
+			],
+			"components/file-preview/Uploading.svelte": [
+				"./package/components/file-preview/Uploading.svelte.d.ts"
+			],
+			"components/file-preview": [
+				"./package/components/file-preview/index.d.ts"
+			],
+			"components/grid/Col.svelte": [
+				"./package/components/grid/Col.svelte.d.ts"
+			],
+			"components/grid/Row.svelte": [
+				"./package/components/grid/Row.svelte.d.ts"
+			],
+			"components/icon/Icon.svelte": [
+				"./package/components/icon/Icon.svelte.d.ts"
+			],
+			"components/icon": [
+				"./package/components/icon/index.d.ts"
+			],
+			"components/input/Input.svelte": [
+				"./package/components/input/Input.svelte.d.ts"
+			],
+			"components/input/Label.svelte": [
+				"./package/components/input/Label.svelte.d.ts"
+			],
+			"components/input": [
+				"./package/components/input/index.d.ts"
+			],
+			"components/input-number/InputNumber.svelte": [
+				"./package/components/input-number/InputNumber.svelte.d.ts"
+			],
+			"components/input-number/Label.svelte": [
+				"./package/components/input-number/Label.svelte.d.ts"
+			],
+			"components/input-number": [
+				"./package/components/input-number/index.d.ts"
+			],
+			"components/layout/Body.svelte": [
+				"./package/components/layout/Body.svelte.d.ts"
+			],
+			"components/layout/Content.svelte": [
+				"./package/components/layout/Content.svelte.d.ts"
+			],
+			"components/layout/Footer.svelte": [
+				"./package/components/layout/Footer.svelte.d.ts"
+			],
+			"components/layout/FooterExtra.svelte": [
+				"./package/components/layout/FooterExtra.svelte.d.ts"
+			],
+			"components/layout/Header.svelte": [
+				"./package/components/layout/Header.svelte.d.ts"
+			],
+			"components/layout/HeaderExtra.svelte": [
+				"./package/components/layout/HeaderExtra.svelte.d.ts"
+			],
+			"components/layout/Layout.svelte": [
+				"./package/components/layout/Layout.svelte.d.ts"
+			],
+			"components/layout/Sidebar.svelte": [
+				"./package/components/layout/Sidebar.svelte.d.ts"
+			],
+			"components/layout": [
+				"./package/components/layout/index.d.ts"
+			],
+			"components/lightbox/Control.svelte": [
+				"./package/components/lightbox/Control.svelte.d.ts"
+			],
+			"components/lightbox/LightBox.svelte": [
+				"./package/components/lightbox/LightBox.svelte.d.ts"
+			],
+			"components/lightbox": [
+				"./package/components/lightbox/index.d.ts"
+			],
+			"components/list/Avatar.svelte": [
+				"./package/components/list/Avatar.svelte.d.ts"
+			],
+			"components/list/Content.svelte": [
+				"./package/components/list/Content.svelte.d.ts"
+			],
+			"components/list/Description.svelte": [
+				"./package/components/list/Description.svelte.d.ts"
+			],
+			"components/list/Extra.svelte": [
+				"./package/components/list/Extra.svelte.d.ts"
+			],
+			"components/list/Item.svelte": [
+				"./package/components/list/Item.svelte.d.ts"
+			],
+			"components/list/Leading.svelte": [
+				"./package/components/list/Leading.svelte.d.ts"
+			],
+			"components/list/List.svelte": [
+				"./package/components/list/List.svelte.d.ts"
+			],
+			"components/list/Placeholder.svelte": [
+				"./package/components/list/Placeholder.svelte.d.ts"
+			],
+			"components/list/Title.svelte": [
+				"./package/components/list/Title.svelte.d.ts"
+			],
+			"components/list": [
+				"./package/components/list/index.d.ts"
+			],
+			"components/media/Avatar.svelte": [
+				"./package/components/media/Avatar.svelte.d.ts"
+			],
+			"components/media/Content.svelte": [
+				"./package/components/media/Content.svelte.d.ts"
+			],
+			"components/media/Description.svelte": [
+				"./package/components/media/Description.svelte.d.ts"
+			],
+			"components/media/Media.svelte": [
+				"./package/components/media/Media.svelte.d.ts"
+			],
+			"components/media/Placeholder.svelte": [
+				"./package/components/media/Placeholder.svelte.d.ts"
+			],
+			"components/media/Title.svelte": [
+				"./package/components/media/Title.svelte.d.ts"
+			],
+			"components/media": [
+				"./package/components/media/index.d.ts"
+			],
+			"components/menu/Group.svelte": [
+				"./package/components/menu/Group.svelte.d.ts"
+			],
+			"components/menu/GroupItem.svelte": [
+				"./package/components/menu/GroupItem.svelte.d.ts"
+			],
+			"components/menu/Icon.svelte": [
+				"./package/components/menu/Icon.svelte.d.ts"
+			],
+			"components/menu/Item.svelte": [
+				"./package/components/menu/Item.svelte.d.ts"
+			],
+			"components/menu/Menu.svelte": [
+				"./package/components/menu/Menu.svelte.d.ts"
+			],
+			"components/menu": [
+				"./package/components/menu/index.d.ts"
+			],
+			"components/modal/Backdrop.svelte": [
+				"./package/components/modal/Backdrop.svelte.d.ts"
+			],
+			"components/modal/Body.svelte": [
+				"./package/components/modal/Body.svelte.d.ts"
+			],
+			"components/modal/Content.svelte": [
+				"./package/components/modal/Content.svelte.d.ts"
+			],
+			"components/modal/Footer.svelte": [
+				"./package/components/modal/Footer.svelte.d.ts"
+			],
+			"components/modal/Header.svelte": [
+				"./package/components/modal/Header.svelte.d.ts"
+			],
+			"components/modal/Modal.svelte": [
+				"./package/components/modal/Modal.svelte.d.ts"
+			],
+			"components/modal": [
+				"./package/components/modal/index.d.ts"
+			],
+			"components/notification/Avatar.svelte": [
+				"./package/components/notification/Avatar.svelte.d.ts"
+			],
+			"components/notification/Content.svelte": [
+				"./package/components/notification/Content.svelte.d.ts"
+			],
+			"components/notification/Description.svelte": [
+				"./package/components/notification/Description.svelte.d.ts"
+			],
+			"components/notification/Extra.svelte": [
+				"./package/components/notification/Extra.svelte.d.ts"
+			],
+			"components/notification/Leading.svelte": [
+				"./package/components/notification/Leading.svelte.d.ts"
+			],
+			"components/notification/Notification.svelte": [
+				"./package/components/notification/Notification.svelte.d.ts"
+			],
+			"components/notification/Placeholder.svelte": [
+				"./package/components/notification/Placeholder.svelte.d.ts"
+			],
+			"components/notification/Title.svelte": [
+				"./package/components/notification/Title.svelte.d.ts"
+			],
+			"components/notification": [
+				"./package/components/notification/index.d.ts"
+			],
+			"components/pagination/Pagination.svelte": [
+				"./package/components/pagination/Pagination.svelte.d.ts"
+			],
+			"components/pagination": [
+				"./package/components/pagination/index.d.ts"
+			],
+			"components/portal/Portal.svelte": [
+				"./package/components/portal/Portal.svelte.d.ts"
+			],
+			"components/portal": [
+				"./package/components/portal/index.d.ts"
+			],
+			"components/post/Action.svelte": [
+				"./package/components/post/Action.svelte.d.ts"
+			],
+			"components/post/Actions.svelte": [
+				"./package/components/post/Actions.svelte.d.ts"
+			],
+			"components/post/Avatar.svelte": [
+				"./package/components/post/Avatar.svelte.d.ts"
+			],
+			"components/post/Content.svelte": [
+				"./package/components/post/Content.svelte.d.ts"
+			],
+			"components/post/Created.svelte": [
+				"./package/components/post/Created.svelte.d.ts"
+			],
+			"components/post/Creator.svelte": [
+				"./package/components/post/Creator.svelte.d.ts"
+			],
+			"components/post/Header.svelte": [
+				"./package/components/post/Header.svelte.d.ts"
+			],
+			"components/post/Icon.svelte": [
+				"./package/components/post/Icon.svelte.d.ts"
+			],
+			"components/post/Images.svelte": [
+				"./package/components/post/Images.svelte.d.ts"
+			],
+			"components/post/Label.svelte": [
+				"./package/components/post/Label.svelte.d.ts"
+			],
+			"components/post/Placeholder.svelte": [
+				"./package/components/post/Placeholder.svelte.d.ts"
+			],
+			"components/post/Post.svelte": [
+				"./package/components/post/Post.svelte.d.ts"
+			],
+			"components/post/Status.svelte": [
+				"./package/components/post/Status.svelte.d.ts"
+			],
+			"components/post": [
+				"./package/components/post/index.d.ts"
+			],
+			"components/progress/Progress.svelte": [
+				"./package/components/progress/Progress.svelte.d.ts"
+			],
+			"components/progress": [
+				"./package/components/progress/index.d.ts"
+			],
+			"components/radio/Description.svelte": [
+				"./package/components/radio/Description.svelte.d.ts"
+			],
+			"components/radio/GroupLabel.svelte": [
+				"./package/components/radio/GroupLabel.svelte.d.ts"
+			],
+			"components/radio/Label.svelte": [
+				"./package/components/radio/Label.svelte.d.ts"
+			],
+			"components/radio/Radio.svelte": [
+				"./package/components/radio/Radio.svelte.d.ts"
+			],
+			"components/radio/RadioGroup.svelte": [
+				"./package/components/radio/RadioGroup.svelte.d.ts"
+			],
+			"components/radio": [
+				"./package/components/radio/index.d.ts"
+			],
+			"components/rating/Rating.svelte": [
+				"./package/components/rating/Rating.svelte.d.ts"
+			],
+			"components/rating": [
+				"./package/components/rating/index.d.ts"
+			],
+			"components/select/Label.svelte": [
+				"./package/components/select/Label.svelte.d.ts"
+			],
+			"components/select/Option.svelte": [
+				"./package/components/select/Option.svelte.d.ts"
+			],
+			"components/select/Options.svelte": [
+				"./package/components/select/Options.svelte.d.ts"
+			],
+			"components/select/Select.svelte": [
+				"./package/components/select/Select.svelte.d.ts"
+			],
+			"components/select": [
+				"./package/components/select/index.d.ts"
+			],
+			"components/slider/Slider.svelte": [
+				"./package/components/slider/Slider.svelte.d.ts"
+			],
+			"components/slider": [
+				"./package/components/slider/index.d.ts"
+			],
+			"components/statistic/Comparison.svelte": [
+				"./package/components/statistic/Comparison.svelte.d.ts"
+			],
+			"components/statistic/ComparisonValue.svelte": [
+				"./package/components/statistic/ComparisonValue.svelte.d.ts"
+			],
+			"components/statistic/Goal.svelte": [
+				"./package/components/statistic/Goal.svelte.d.ts"
+			],
+			"components/statistic/Icon.svelte": [
+				"./package/components/statistic/Icon.svelte.d.ts"
+			],
+			"components/statistic/Statistic.svelte": [
+				"./package/components/statistic/Statistic.svelte.d.ts"
+			],
+			"components/statistic/Title.svelte": [
+				"./package/components/statistic/Title.svelte.d.ts"
+			],
+			"components/statistic/Trend.svelte": [
+				"./package/components/statistic/Trend.svelte.d.ts"
+			],
+			"components/statistic/TrendIcon.svelte": [
+				"./package/components/statistic/TrendIcon.svelte.d.ts"
+			],
+			"components/statistic/Value.svelte": [
+				"./package/components/statistic/Value.svelte.d.ts"
+			],
+			"components/statistic": [
+				"./package/components/statistic/index.d.ts"
+			],
+			"components/steps/Description.svelte": [
+				"./package/components/steps/Description.svelte.d.ts"
+			],
+			"components/steps/Step.svelte": [
+				"./package/components/steps/Step.svelte.d.ts"
+			],
+			"components/steps/Steps.svelte": [
+				"./package/components/steps/Steps.svelte.d.ts"
+			],
+			"components/steps/Summary.svelte": [
+				"./package/components/steps/Summary.svelte.d.ts"
+			],
+			"components/steps/Title.svelte": [
+				"./package/components/steps/Title.svelte.d.ts"
+			],
+			"components/steps": [
+				"./package/components/steps/index.d.ts"
+			],
+			"components/swap/Swap.svelte": [
+				"./package/components/swap/Swap.svelte.d.ts"
+			],
+			"components/swap": [
+				"./package/components/swap/index.d.ts"
+			],
+			"components/table/Body.svelte": [
+				"./package/components/table/Body.svelte.d.ts"
+			],
+			"components/table/Cell.svelte": [
+				"./package/components/table/Cell.svelte.d.ts"
+			],
+			"components/table/Footer.svelte": [
+				"./package/components/table/Footer.svelte.d.ts"
+			],
+			"components/table/Header.svelte": [
+				"./package/components/table/Header.svelte.d.ts"
+			],
+			"components/table/HeaderRow.svelte": [
+				"./package/components/table/HeaderRow.svelte.d.ts"
+			],
+			"components/table/Row.svelte": [
+				"./package/components/table/Row.svelte.d.ts"
+			],
+			"components/table/Table.svelte": [
+				"./package/components/table/Table.svelte.d.ts"
+			],
+			"components/table": [
+				"./package/components/table/index.d.ts"
+			],
+			"components/tabs/Tab.svelte": [
+				"./package/components/tabs/Tab.svelte.d.ts"
+			],
+			"components/tabs/Tabs.svelte": [
+				"./package/components/tabs/Tabs.svelte.d.ts"
+			],
+			"components/tabs": [
+				"./package/components/tabs/index.d.ts"
+			],
+			"components/textarea/Actions.svelte": [
+				"./package/components/textarea/Actions.svelte.d.ts"
+			],
+			"components/textarea/Label.svelte": [
+				"./package/components/textarea/Label.svelte.d.ts"
+			],
+			"components/textarea/Pills.svelte": [
+				"./package/components/textarea/Pills.svelte.d.ts"
+			],
+			"components/textarea/TextArea.svelte": [
+				"./package/components/textarea/TextArea.svelte.d.ts"
+			],
+			"components/textarea/Title.svelte": [
+				"./package/components/textarea/Title.svelte.d.ts"
+			],
+			"components/textarea": [
+				"./package/components/textarea/index.d.ts"
+			],
+			"components/timeline/Item.svelte": [
+				"./package/components/timeline/Item.svelte.d.ts"
+			],
+			"components/timeline/Timeline.svelte": [
+				"./package/components/timeline/Timeline.svelte.d.ts"
+			],
+			"components/timeline": [
+				"./package/components/timeline/index.d.ts"
+			],
+			"components/toggle/ContentLeft.svelte": [
+				"./package/components/toggle/ContentLeft.svelte.d.ts"
+			],
+			"components/toggle/ContentRight.svelte": [
+				"./package/components/toggle/ContentRight.svelte.d.ts"
+			],
+			"components/toggle/Description.svelte": [
+				"./package/components/toggle/Description.svelte.d.ts"
+			],
+			"components/toggle/Label.svelte": [
+				"./package/components/toggle/Label.svelte.d.ts"
+			],
+			"components/toggle/Toggle.svelte": [
+				"./package/components/toggle/Toggle.svelte.d.ts"
+			],
+			"components/toggle": [
+				"./package/components/toggle/index.d.ts"
+			],
+			"enums": [
+				"./package/enums.d.ts"
+			],
+			"enums/upload-status": [
+				"./package/enums/upload-status.d.ts"
+			],
+			"icons": [
+				"./package/icons.d.ts"
+			],
+			"index": [
+				"./package/index.d.ts"
+			],
+			"plugin/base": [
+				"./package/plugin/base/index.d.ts"
+			],
+			"plugin/colors/colorNames": [
+				"./package/plugin/colors/colorNames.d.ts"
+			],
+			"plugin/colors/functions": [
+				"./package/plugin/colors/functions.d.ts"
+			],
+			"plugin/colors": [
+				"./package/plugin/colors/index.d.ts"
+			],
+			"plugin/colors/themes": [
+				"./package/plugin/colors/themes.d.ts"
+			],
+			"plugin/components": [
+				"./package/plugin/components/index.d.ts"
+			],
+			"plugin": [
+				"./package/plugin/index.d.ts"
+			],
+			"plugin/node_modules/color": [
+				"./package/plugin/node_modules/color/index.d.ts"
+			],
+			"plugin/node_modules/color-convert/conversions": [
+				"./package/plugin/node_modules/color-convert/conversions.d.ts"
+			],
+			"plugin/node_modules/color-convert": [
+				"./package/plugin/node_modules/color-convert/index.d.ts"
+			],
+			"plugin/node_modules/color-convert/route": [
+				"./package/plugin/node_modules/color-convert/route.d.ts"
+			],
+			"plugin/node_modules/color-name": [
+				"./package/plugin/node_modules/color-name/index.d.ts"
+			],
+			"plugin/node_modules/color-string": [
+				"./package/plugin/node_modules/color-string/index.d.ts"
+			],
+			"plugin/node_modules/is-arrayish": [
+				"./package/plugin/node_modules/is-arrayish/index.d.ts"
+			],
+			"plugin/node_modules/simple-swizzle": [
+				"./package/plugin/node_modules/simple-swizzle/index.d.ts"
+			],
+			"stores/breakpoints": [
+				"./package/stores/breakpoints.d.ts"
+			],
+			"stores": [
+				"./package/stores/index.d.ts"
+			],
+			"stores/theme": [
+				"./package/stores/theme.d.ts"
+			],
+			"types/carousel-slide": [
+				"./package/types/carousel-slide.d.ts"
+			],
+			"types/file-picker-preview": [
+				"./package/types/file-picker-preview.d.ts"
+			],
+			"types": [
+				"./package/types/index.d.ts"
+			],
+			"types/lightbox-action": [
+				"./package/types/lightbox-action.d.ts"
+			],
+			"types/select-option": [
+				"./package/types/select-option.d.ts"
+			],
+			"types/table-column": [
+				"./package/types/table-column.d.ts"
+			],
+			"types/timeline-item": [
+				"./package/types/timeline-item.d.ts"
+			],
+			"types/twSizes": [
+				"./package/types/twSizes.d.ts"
+			],
+			"utils/composeIconSize": [
+				"./package/utils/composeIconSize.d.ts"
+			],
+			"utils/computeProgress": [
+				"./package/utils/computeProgress.d.ts"
+			],
+			"utils/computeTrendPercent": [
+				"./package/utils/computeTrendPercent.d.ts"
+			],
+			"utils/computeTrendValue": [
+				"./package/utils/computeTrendValue.d.ts"
+			],
+			"utils/copyToClipboard": [
+				"./package/utils/copyToClipboard.d.ts"
+			],
+			"utils/crossfade": [
+				"./package/utils/crossfade.d.ts"
+			],
+			"utils/encodeSearchParams": [
+				"./package/utils/encodeSearchParams.d.ts"
+			],
+			"utils/exclude": [
+				"./package/utils/exclude.d.ts"
+			],
+			"utils/formatDate": [
+				"./package/utils/formatDate.d.ts"
+			],
+			"utils/formatFileSize": [
+				"./package/utils/formatFileSize.d.ts"
+			],
+			"utils/formatNumber": [
+				"./package/utils/formatNumber.d.ts"
+			],
+			"utils": [
+				"./package/utils/index.d.ts"
+			],
+			"utils/trapFocus": [
+				"./package/utils/trapFocus.d.ts"
+			],
+			"utils/twSizes": [
+				"./package/utils/twSizes.d.ts"
+			],
+			"utils/useContext": [
+				"./package/utils/useContext.d.ts"
+			]
+		}
 	}
 }
