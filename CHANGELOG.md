@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.6-next](https://github.com/N00nDay/stwui/compare/v0.13.5-next...v0.13.6-next) (2023-06-27)
+
+
+### Bug Fixes
+
+* updating packaging scripts and dependancies ([3f51aee](https://github.com/N00nDay/stwui/commit/3f51aee1ecc499a73e2b960363c3b2c1d7dbc35a))
+
 ## [0.13.5-next](https://github.com/N00nDay/stwui/compare/v0.13.4-next...v0.13.5-next) (2023-06-27)
 
 
