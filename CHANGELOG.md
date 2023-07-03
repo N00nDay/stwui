@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.13.7-next](https://github.com/N00nDay/stwui/compare/v0.13.6-next...v0.13.7-next) (2023-07-03)
+
+
+### Bug Fixes
+
+* **Checkbox:** fixed A11y warnings ([803ba13](https://github.com/N00nDay/stwui/commit/803ba1348d73cc36180e8f5e59d2ad11d3b311f7))
+* **Drawer:** fixed A11y warnings ([803ba13](https://github.com/N00nDay/stwui/commit/803ba1348d73cc36180e8f5e59d2ad11d3b311f7))
+* **Dropdown:** fixed A11y warnings ([803ba13](https://github.com/N00nDay/stwui/commit/803ba1348d73cc36180e8f5e59d2ad11d3b311f7))
+* **FilePicker:** fixed A11y warnings ([803ba13](https://github.com/N00nDay/stwui/commit/803ba1348d73cc36180e8f5e59d2ad11d3b311f7))
+* **Menu:** fixed A11y warnings ([803ba13](https://github.com/N00nDay/stwui/commit/803ba1348d73cc36180e8f5e59d2ad11d3b311f7))
+* **Modal:** fixed A11y warnings ([803ba13](https://github.com/N00nDay/stwui/commit/803ba1348d73cc36180e8f5e59d2ad11d3b311f7))
+* **Post:** fixed A11y warnings ([803ba13](https://github.com/N00nDay/stwui/commit/803ba1348d73cc36180e8f5e59d2ad11d3b311f7))
+* **Radio:** fixed A11y warnings ([803ba13](https://github.com/N00nDay/stwui/commit/803ba1348d73cc36180e8f5e59d2ad11d3b311f7))
+* **Toggle:** fixed A11y warnings ([803ba13](https://github.com/N00nDay/stwui/commit/803ba1348d73cc36180e8f5e59d2ad11d3b311f7))
+
 ## [0.13.6-next](https://github.com/N00nDay/stwui/compare/v0.13.5-next...v0.13.6-next) (2023-06-27)
 
 
