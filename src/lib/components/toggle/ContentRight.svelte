@@ -14,7 +14,9 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<span
+<button
+	type="button"
+	tabindex="-1"
 	id="{name}-label-right"
 	class={finalClass}
 	on:click={toggleOn}
@@ -24,4 +26,4 @@
 >
 	<slot name="label" />
 	<slot name="description" />
-</span>
+</button>

@@ -11,10 +11,11 @@
 	const disableOverlayClose: boolean = getContext('drawer-disableOverlayClose');
 </script>
 
-<div
+<button
 	class={finalClass}
 	style={$$props.style}
 	transition:fade
 	on:click={disableOverlayClose ? undefined : handleClose}
-	on:keypress
+	type="button"
+	tabindex="-1"
 />

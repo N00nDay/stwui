@@ -62,27 +62,32 @@
 			/>
 		</div>
 		{#if $$slots.label || $$slots.description}
-			<div tabindex="-1" class="ml-3 text-sm cursor-pointer" on:click={handleClick} on:keypress>
+			<button tabindex="-1" class="ml-3 text-sm cursor-pointer" on:click={handleClick}>
 				<slot name="label" />
 				{#if $$slots.label && $$slots.description}|{/if}
 				<slot name="description" />
-			</div>
+			</button>
 		{/if}
 	</li>
 {:else if type === 'pill'}
 	<li
 		tabindex="-1"
-		on:click={handleClick}
-		on:keydown={handleClick}
-		on:keypress={handleClick}
 		class={finalClass}
 		class:bg-default={$selected !== value}
 		class:text-default-content={$selected !== value}
 		class:bg-primary={$selected === value}
 		class:text-primary-content={$selected === value}
 	>
-		<input on:click bind:group={$selected} type="radio" {id} {name} {value} class="sr-only" />
-		<span tabindex="-1" id={id ? `${id}-label` : undefined}><slot /></span>
-		<HoverBackground />
+		<button
+			type="button"
+			tabindex="-1"
+			on:click={handleClick}
+			on:keydown={handleClick}
+			on:keypress={handleClick}
+		>
+			<input on:click bind:group={$selected} type="radio" {id} {name} {value} class="sr-only" />
+			<span tabindex="-1" id={id ? `${id}-label` : undefined}><slot /></span>
+			<HoverBackground />
+		</button>
 	</li>
 {/if}

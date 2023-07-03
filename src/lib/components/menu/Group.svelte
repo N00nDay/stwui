@@ -16,7 +16,7 @@
 	export let key: string;
 
 	let active = false;
-	let collapsable: HTMLDivElement;
+	let collapsable: HTMLButtonElement;
 
 	const menuCollapse: Writable<boolean> = getContext('menu-collapse');
 	const activeItem: Writable<string> = getContext('menu-active-item');
@@ -66,7 +66,8 @@
 	setContext('menu-group-key', key);
 </script>
 
-<div
+<button
+	type="button"
 	bind:this={collapsable}
 	class="relative w-full"
 	on:mouseover={$menuCollapse ? toggleOpen : undefined}
@@ -130,4 +131,4 @@
 			</div>
 		</div>
 	{/if}
-</div>
+</button>

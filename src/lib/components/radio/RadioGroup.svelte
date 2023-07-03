@@ -73,15 +73,11 @@
 
 <div>
 	<slot name="label" />
-	<ul
-		bind:this={list}
-		class={finalClass}
-		style={$$props.style}
-		on:keydown={handleKeydown}
-		tabindex="-1"
-	>
-		<slot />
-	</ul>
+	<button on:keydown={handleKeydown} tabindex="-1" class="text-left" type="button">
+		<ul bind:this={list} class={finalClass} style={$$props.style} tabindex="-1">
+			<slot />
+		</ul>
+	</button>
 	{#if error}
 		<p transition:slide|local class="!mt-2 text-sm text-danger" id="{name}-error">{error}</p>
 	{/if}

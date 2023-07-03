@@ -27,7 +27,9 @@
 	setContext('checkbox-name', name);
 </script>
 
-<div
+<button
+	tabindex="-1"
+	type="button"
 	on:keydown={handleKeydown}
 	class="relative flex items-start"
 	class:pointer-events-none={disabled}
@@ -51,7 +53,7 @@
 		<slot name="description" />
 		<slot />
 	</div>
-</div>
+</button>
 {#if error}
 	<p transition:slide|local class="!mt-2 text-sm text-danger" id="{name}-error">{error}</p>
 {/if}

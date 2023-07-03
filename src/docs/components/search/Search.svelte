@@ -151,7 +151,7 @@
 						on:input={filterData}
 					/>
 					{#if value && value.length > 0}
-						<span
+						<button
 							transition:scale|local
 							class="absolute inset-y-0 right-16 items-center cursor-pointer flex active:flex"
 							on:click={handleClear}
@@ -160,7 +160,7 @@
 							<span class="text-content">
 								<Icon data={close} />
 							</span>
-						</span>
+						</button>
 					{/if}
 
 					<Kbd class="absolute inset-y-0 right-4 top-2.5 flex items-center justify-center h-[26px]">
@@ -176,39 +176,43 @@
 								class:bg-hover={index === selectedIndex}
 								id={`option-${index}`}
 								tabindex="-1"
-								on:click={() => handleSelect(item.href)}
-								on:keypress
 							>
-								<div
-									class="flex h-10 w-10 flex-none items-center justify-center rounded-lg"
-									class:bg-info={item.type === 'Component'}
-									class:bg-success={item.type === 'Guide'}
-									class:bg-warn={item.type === 'Action'}
-									class:bg-error={item.type === 'Utility'}
-									class:text-info-content={item.type === 'Component'}
-									class:text-success-content={item.type === 'Guide'}
-									class:text-warn-content={item.type === 'Action'}
-									class:text-error-content={item.type === 'Utility'}
+								<button
+									type="button"
+									class="h-full flex justify-start text-left"
+									on:click={() => handleSelect(item.href)}
 								>
-									{#if item.type === 'Component'}
-										<Icon data={toggle_switch} />
-									{:else if item.type === 'Guide'}
-										<Icon data={format_list_numbered} />
-									{:else if item.type === 'Action'}
-										<Icon data={lightning_bolt_circle} />
-									{:else if item.type === 'Utility'}
-										<Icon data={function_variant} />
-									{/if}
-								</div>
-								<div class="ml-4 flex-auto">
-									<p class="text-sm font-medium text-content">
-										{item.name}
-									</p>
-									<p class="text-sm text-secondary-content">
-										{item.type}
-									</p>
-								</div>
-								<HoverBackground class="rounded-xl" />
+									<div
+										class="flex h-10 w-10 flex-none items-center justify-center rounded-lg"
+										class:bg-info={item.type === 'Component'}
+										class:bg-success={item.type === 'Guide'}
+										class:bg-warn={item.type === 'Action'}
+										class:bg-error={item.type === 'Utility'}
+										class:text-info-content={item.type === 'Component'}
+										class:text-success-content={item.type === 'Guide'}
+										class:text-warn-content={item.type === 'Action'}
+										class:text-error-content={item.type === 'Utility'}
+									>
+										{#if item.type === 'Component'}
+											<Icon data={toggle_switch} />
+										{:else if item.type === 'Guide'}
+											<Icon data={format_list_numbered} />
+										{:else if item.type === 'Action'}
+											<Icon data={lightning_bolt_circle} />
+										{:else if item.type === 'Utility'}
+											<Icon data={function_variant} />
+										{/if}
+									</div>
+									<div class="ml-4 flex-auto">
+										<h4 class="font-medium text-content">
+											{item.name}
+										</h4>
+										<p class="text-xs text-secondary-content">
+											{item.type}
+										</p>
+									</div>
+									<HoverBackground class="rounded-xl" />
+								</button>
 							</li>
 						{/each}
 					</ul>

@@ -27,12 +27,16 @@
 <li
 	class={finalClass}
 	tabindex="-1"
-	on:keydown={handleKeydown}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<button type="button" aria-label="select option" class="w-full flex items-center">
+	<button
+		type="button"
+		aria-label="select option"
+		class="w-full flex items-center"
+		on:keydown={handleKeydown}
+	>
 		<span class="flex items-center justify-start flex-grow">
 			<slot name="icon" />
 			<span class="truncate" class:ml-3={$$slots.icon}>{label}</span>

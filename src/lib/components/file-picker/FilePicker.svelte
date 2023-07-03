@@ -162,7 +162,8 @@
 	setContext('filepicker-disabled', disabled);
 </script>
 
-<div
+<button
+	type="button"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents
@@ -193,4 +194,4 @@
 		on:focus={handleFocus}
 		on:blur={handleBlur}
 	/>
-</div>
+</button>
