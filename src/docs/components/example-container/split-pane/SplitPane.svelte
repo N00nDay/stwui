@@ -35,7 +35,9 @@
 		const { top, left } = container.getBoundingClientRect();
 		const pos_px = type === 'horizontal' ? x - left : y - top;
 		const size = type === 'horizontal' ? w : h;
-		position = pos.endsWith('%') ? `${(100 * pos_px) / size}%` : `${pos_px}px`;
+		position = pos.endsWith('%')
+			? `${(100 * pos_px) / size > 100 ? 100 : (100 * pos_px) / size}%`
+			: `${pos_px}px`;
 		dispatch('change');
 	}
 	/**
@@ -99,7 +101,7 @@
 
 <div
 	data-pane={id}
-	class="container {type}"
+	class="split-container {type}"
 	bind:this={container}
 	bind:clientWidth={w}
 	bind:clientHeight={h}
@@ -128,7 +130,7 @@
 {/if}
 
 <style>
-	.container {
+	.split-container {
 		--sp-thickness: var(--thickness, 8px);
 		--sp-color: var(--color, transparent);
 		display: grid;
@@ -136,10 +138,10 @@
 		width: 100%;
 		height: 100%;
 	}
-	.container.vertical {
+	.split-container.vertical {
 		grid-template-rows: var(--pos) 1fr;
 	}
-	.container.horizontal {
+	.split-container.horizontal {
 		grid-template-columns: var(--pos) 1fr;
 	}
 	.pane {

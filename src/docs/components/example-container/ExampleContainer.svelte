@@ -27,7 +27,7 @@
 
 		<div class="w-full" class:hidden={$active !== 'preview'}>
 			{#if resizable}
-				<SplitPane type="horizontal" pos="99.9%" min="400px" max="100%">
+				<SplitPane type="horizontal" pos="99.9%" min="335px" max="100%">
 					<section slot="a" class="py-1.5 px-0.5">
 						<Card bordered={false} class={$$props.class}>
 							<Card.Content slot="content" class={innerClass}>

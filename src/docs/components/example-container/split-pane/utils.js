@@ -24,7 +24,11 @@ export function constrain(size, min, max, pos, priority) {
 			: Math.min(max_px, Math.max(min_px, pos_px));
 
 	/** @type {import('./types').Length} */
-	const position = pos.endsWith('%') ? (size ? `${(100 * pos_px) / size}%` : '0%') : `${pos_px}px`;
+	const position = pos.endsWith('%')
+		? size
+			? `${(100 * pos_px) / size > 100 ? 100 : (100 * pos_px) / size}%`
+			: '0%'
+		: `${pos_px}px`;
 
 	return position;
 }
