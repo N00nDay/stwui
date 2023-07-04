@@ -212,21 +212,21 @@
 				id="content-body"
 				class="relative h-full w-full overflow-x-hidden overflow-y-auto pt-[calc(1rem+var(--sat))] pb-[calc(1rem+var(--sab))] pr-[calc(1rem+var(--sar))] pl-[calc(1rem+var(--sal))] md:pt-[calc(2rem+var(--sat))] md:pb-[calc(2rem+var(--sab))] md:pr-[calc(2rem+var(--sar))] md:pl-[calc(2rem+var(--sal))]"
 			>
-				<div>
-					<Row gutter="3" class="h-full w-full">
-						{#if $page.data.header}
-							<Col class="col-24 mb-4">
-								<h1 class="text-content mb-0">{$page.data.header}</h1>
-								{#if $page.data.subHeader}
-									<p class="text-secondary-content">
-										{$page.data.subHeader}
-									</p>
-								{/if}
-								<Divider />
-							</Col>
-						{/if}
+				<div class="h-full w-full">
+					{#if $page.data.header}
+						<Col class="col-24 mb-4">
+							<h1 class="text-content mb-0">{$page.data.header}</h1>
+							{#if $page.data.subHeader}
+								<p class="text-secondary-content">
+									{$page.data.subHeader}
+								</p>
+							{/if}
+							<Divider />
+						</Col>
+					{/if}
+					<Col class="col-24">
 						<slot />
-					</Row>
+					</Col>
 				</div>
 			</Layout.Content.Body>
 		</Layout.Content>
