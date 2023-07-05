@@ -52,8 +52,14 @@ export const props: Prop[] = [
 	{
 		id: '9',
 		prop: 'step',
-		type: 'numbers',
+		type: 'number',
 		default: '1'
+	},
+	{
+		id: '10',
+		prop: 'showSpin',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 
