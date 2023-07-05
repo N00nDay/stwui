@@ -208,3 +208,33 @@ export const disabledExample = `
 	<InputNumber.Label slot="label">Label</InputNumber.Label>
 	<InputNumber.Leading slot="leading" data={email} />
 </InputNumber>`;
+
+export const showSpinExample = `
+<script lang="ts">
+	import { InputNumber } from 'stwui';
+</script>
+
+<InputNumber name="input" allowClear showSpin>
+	<InputNumber.Label slot="label">Label</InputNumber.Label>
+	<InputNumber.Leading slot="leading" data={email} />
+</InputNumber>`;
+
+export const minExample = `
+<script lang="ts">
+	import { InputNumber } from 'stwui';
+</script>
+
+<InputNumber name="input" min="1" showSpin>
+	<InputNumber.Label slot="label">Label</InputNumber.Label>
+	<InputNumber.Leading slot="leading" data={email} />
+</InputNumber>`;
+
+export const maxExample = `
+<script lang="ts">
+	import { InputNumber } from 'stwui';
+</script>
+
+<InputNumber name="input" max="10" showSpin>
+	<InputNumber.Label slot="label">Label</InputNumber.Label>
+	<InputNumber.Leading slot="leading" data={email} />
+</InputNumber>`;
