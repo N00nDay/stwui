@@ -15,7 +15,7 @@
 	export let step = '1';
 	export let readonly = false;
 	export let allowClear = false;
-	export let showSpin = false;
+	export let showSpin = true;
 
 	let input: HTMLInputElement;
 	let currentError: Writable<string | undefined> = writable(error);
@@ -28,6 +28,22 @@
 	function handleClear() {
 		input.value = '';
 		value = undefined;
+	}
+
+	function handleStepUp() {
+		if (value) {
+			value = value + 1;
+		} else {
+			value = 0 + 1;
+		}
+	}
+
+	function handleStepDown() {
+		if (value) {
+			value = value - 1;
+		} else {
+			value = 0 - 1;
+		}
 	}
 
 	setContext('input-number-name', name);
@@ -62,7 +78,6 @@
 			class:pl-10={$$slots.leading}
 			class:pr-10={$$slots.trailing || error}
 			class:bg-default={disabled}
-			class:no-spin={!showSpin}
 			{placeholder}
 			bind:value
 			{step}
@@ -79,13 +94,15 @@
 			</span>
 		{/if}
 
-		{#if allowClear && value && value > 0}
+		{#if allowClear && (value || value === 0)}
 			<button
 				aria-label="clear"
 				on:click={handleClear}
 				class="disable-focus-active absolute inset-y-0 group-focus-within:flex active:flex items-center"
-				class:right-10={$$slots.trailing || error}
-				class:right-3={!$$slots.trailing && !error}
+				class:right-3={!$$slots.trailing && !error && !showSpin}
+				class:right-12={(showSpin && ($$slots.trailing || error)) ||
+					(!showSpin && ($$slots.trailing || error))}
+				class:right-20={showSpin && ($$slots.trailing || error)}
 			>
 				<span transition:scale|local class="items-center flex text-secondary-content">
 					<Icon data={close} />
@@ -93,11 +110,53 @@
 			</button>
 		{/if}
 
-		{#if $$slots.trailing && !error}
+		{#if $$slots.trailing && !error && !showSpin}
 			<span
 				class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-secondary-content"
 			>
 				<slot name="trailing" />
+			</span>
+		{:else if $$slots.trailing && !error}
+			<span
+				class="absolute inset-y-0 right-0 pr-12 flex items-center pointer-events-none text-secondary-content"
+			>
+				<slot name="trailing" />
+			</span>
+			<span
+				class="absolute h-[2.5rem] text-sm inset-y-0 right-0 w-10 flex text-secondary-content flex-col items-stretch justify-evenly border border-transparent py-px"
+			>
+				<button
+					type="button"
+					on:click={handleStepUp}
+					class="h-[19px] hover:bg-opacity-50 cursor-pointer flex items-center justify-center border-b border-border bg-background rounded-tr-md"
+					>+</button
+				>
+				<button
+					type="button"
+					on:click={handleStepDown}
+					class="h-[19px] hover:bg-opacity-50 flex items-center justify-center bg-background rounded-br-md"
+					>-</button
+				>
+			</span>
+		{:else if error && showSpin}
+			<span class="absolute inset-y-0 right-0 flex items-center pr-12 pointer-events-none">
+				<Icon data={errorIcon} />
+			</span>
+			<span
+				class="absolute h-[2.5rem] text-sm inset-y-0 right-0 w-10 flex text-secondary-content flex-col items-stretch justify-evenly border border-transparent py-px"
+			>
+				<button
+					type="button"
+					on:click={handleStepUp}
+					class="h-[19px] hover:bg-opacity-50 cursor-pointer flex items-center justify-center border-b border-border bg-background rounded-tr-md"
+					>+</button
+				>
+				<button
+					type="button"
+					on:click={handleStepDown}
+					class="h-[19px] hover:bg-opacity-50 flex items-center justify-center bg-background rounded-br-md"
+					>-</button
+				>
 			</span>
 		{:else if error}
 			<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -111,15 +170,28 @@
 </div>
 
 <style>
-	/* Chrome, Safari, Edge, Opera */
-	input.no-spin::-webkit-outer-spin-button,
-	input.no-spin::-webkit-inner-spin-button {
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 		margin: 0;
 	}
 
-	/* Firefox */
-	input[type='number'].no-spin {
+	input[type='number'] {
 		-moz-appearance: textfield;
 	}
+
+	/* input[type=number]:not(.no-spin)::-webkit-inner-spin-button,
+	input[type=number]:not(.no-spin)::-webkit-outer-spin-button {
+		opacity: 1;
+	}
+
+	input[type=number]:not(.no-spin)::-webkit-outer-spin-button, 
+	input[type=number]:not(.no-spin)::-webkit-inner-spin-button {
+		-webkit-appearance: inner-spin-button;
+		width: 25px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+	} */
 </style>
