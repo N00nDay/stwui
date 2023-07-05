@@ -100,8 +100,7 @@
 				on:click={handleClear}
 				class="disable-focus-active absolute inset-y-0 group-focus-within:flex active:flex items-center"
 				class:right-3={!$$slots.trailing && !error && !showSpin}
-				class:right-12={(showSpin && ($$slots.trailing || error)) ||
-					(!showSpin && ($$slots.trailing || error))}
+				class:right-12={showSpin || $$slots.trailing || error}
 				class:right-20={showSpin && ($$slots.trailing || error)}
 			>
 				<span transition:scale|local class="items-center flex text-secondary-content">
@@ -110,13 +109,30 @@
 			</button>
 		{/if}
 
-		{#if $$slots.trailing && !error && !showSpin}
+		{#if showSpin && !error && !$$slots.trailing}
+			<span
+				class="absolute h-[2.5rem] text-sm inset-y-0 right-0 w-10 flex text-secondary-content flex-col items-stretch justify-evenly border border-transparent py-px"
+			>
+				<button
+					type="button"
+					on:click={handleStepUp}
+					class="h-[19px] hover:bg-opacity-50 cursor-pointer flex items-center justify-center border-b border-border bg-background rounded-tr-md"
+					>+</button
+				>
+				<button
+					type="button"
+					on:click={handleStepDown}
+					class="h-[19px] hover:bg-opacity-50 flex items-center justify-center bg-background rounded-br-md"
+					>-</button
+				>
+			</span>
+		{:else if $$slots.trailing && !error && !showSpin}
 			<span
 				class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-secondary-content"
 			>
 				<slot name="trailing" />
 			</span>
-		{:else if $$slots.trailing && !error}
+		{:else if $$slots.trailing && !error && showSpin}
 			<span
 				class="absolute inset-y-0 right-0 pr-12 flex items-center pointer-events-none text-secondary-content"
 			>
