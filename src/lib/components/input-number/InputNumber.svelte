@@ -15,6 +15,7 @@
 	export let step = '1';
 	export let readonly = false;
 	export let allowClear = false;
+	export let showSpin = false;
 
 	let input: HTMLInputElement;
 	let currentError: Writable<string | undefined> = writable(error);
@@ -51,7 +52,7 @@
 			{readonly}
 			{disabled}
 			id={name}
-			class="block w-full h-[2.5rem] px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface  placeholder-secondary-content placeholder-opacity-80"
+			class="block w-full h-[2.5rem] px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80"
 			class:border-red-400={error}
 			class:text-danger={error}
 			class:placeholder-danger={error}
@@ -61,6 +62,7 @@
 			class:pl-10={$$slots.leading}
 			class:pr-10={$$slots.trailing || error}
 			class:bg-default={disabled}
+			class:no-spin={!showSpin}
 			{placeholder}
 			bind:value
 			{step}
@@ -110,14 +112,14 @@
 
 <style>
 	/* Chrome, Safari, Edge, Opera */
-	input::-webkit-outer-spin-button,
-	input::-webkit-inner-spin-button {
+	input.no-spin::-webkit-outer-spin-button,
+	input.no-spin::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 		margin: 0;
 	}
 
 	/* Firefox */
-	input[type='number'] {
+	input[type='number'].no-spin {
 		-moz-appearance: textfield;
 	}
 </style>
