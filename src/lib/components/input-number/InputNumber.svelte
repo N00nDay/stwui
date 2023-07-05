@@ -16,8 +16,8 @@
 	export let readonly = false;
 	export let allowClear = false;
 	export let showSpin = false;
-	export let min: undefined | string;
-	export let max: undefined | string;
+	export let min: undefined | string = undefined;
+	export let max: undefined | string = undefined;
 
 	$: minValue = min ? parseInt(min) : undefined;
 	$: maxValue = max ? parseInt(max) : undefined;
