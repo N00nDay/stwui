@@ -15,7 +15,7 @@
 	export let step = '1';
 	export let readonly = false;
 	export let allowClear = false;
-	export let showSpin = true;
+	export let showSpin = false;
 
 	let input: HTMLInputElement;
 	let currentError: Writable<string | undefined> = writable(error);
