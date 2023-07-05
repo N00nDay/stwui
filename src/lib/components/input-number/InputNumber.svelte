@@ -12,11 +12,15 @@
 	export let autocomplete: string | undefined = undefined;
 	export let autocapitalize: 'off' | 'none' | 'sentences' | 'words' | 'characters' = 'off';
 	export let disabled = false;
-	export let step = '1';
+	export let step = 1;
 	export let readonly = false;
 	export let allowClear = false;
 	export let showSpin = false;
+	export let min: undefined | string;
+	export let max: undefined | string;
 
+	$: minValue = min ? parseInt(min) : undefined;
+	$: maxValue = max ? parseInt(max) : undefined;
 	let input: HTMLInputElement;
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
@@ -31,18 +35,24 @@
 	}
 
 	function handleStepUp() {
-		if (value) {
-			value = value + 1;
+		const newValue = value || value === 0 ? value + step : step;
+		if (maxValue || maxValue === 0) {
+			if (newValue <= maxValue) {
+				value = newValue;
+			}
 		} else {
-			value = 0 + 1;
+			value = newValue;
 		}
 	}
 
 	function handleStepDown() {
-		if (value) {
-			value = value - 1;
+		const newValue = value || value === 0 ? value - step : step * -1;
+		if (minValue || minValue === 0) {
+			if (newValue >= minValue) {
+				value = newValue;
+			}
 		} else {
-			value = 0 - 1;
+			value = newValue;
 		}
 	}
 
@@ -83,6 +93,8 @@
 			{step}
 			on:input
 			on:keypress={onlyNumeric}
+			{min}
+			{max}
 		/>
 
 		{#if $$slots.leading}
