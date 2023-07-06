@@ -18,6 +18,7 @@
 	export let showSpin = false;
 	export let min: undefined | string = undefined;
 	export let max: undefined | string = undefined;
+	export let loop: boolean = min && max ? true : false;
 
 	$: minValue = min ? parseInt(min) : undefined;
 	$: maxValue = max ? parseInt(max) : undefined;
@@ -39,6 +40,8 @@
 		if (maxValue || maxValue === 0) {
 			if (newValue <= maxValue) {
 				value = newValue;
+			} else if (loop && newValue > maxValue) {
+				value = minValue;
 			}
 		} else {
 			value = newValue;
@@ -50,6 +53,8 @@
 		if (minValue || minValue === 0) {
 			if (newValue >= minValue) {
 				value = newValue;
+			} else if (loop && newValue < minValue) {
+				value = maxValue;
 			}
 		} else {
 			value = newValue;
@@ -86,7 +91,10 @@
 			class:focus:border-primary={!error}
 			class:border-border={!error}
 			class:pl-10={$$slots.leading}
-			class:pr-10={$$slots.trailing || error}
+			class:pr-10={showSpin || $$slots.trailing || error || allowClear}
+			class:pr-20={(showSpin && ($$slots.trailing || error)) ||
+				(showSpin && allowClear) ||
+				(allowClear && ($$slots.trailing || error))}
 			class:bg-default={disabled}
 			{placeholder}
 			bind:value
