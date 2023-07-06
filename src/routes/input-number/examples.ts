@@ -238,3 +238,13 @@ export const maxExample = `
 	<InputNumber.Label slot="label">Label</InputNumber.Label>
 	<InputNumber.Leading slot="leading" data={email} />
 </InputNumber>`;
+
+export const minMaxExample = `
+<script lang="ts">
+	import { InputNumber } from 'stwui';
+</script>
+
+<InputNumber name="input-3" min="0" max="10" showSpin>
+	<InputNumber.Label slot="label">Label</InputNumber.Label>
+	<InputNumber.Leading slot="leading" data={email} />
+</InputNumber>`;

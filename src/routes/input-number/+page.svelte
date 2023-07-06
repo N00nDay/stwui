@@ -13,7 +13,8 @@
 		iconProps,
 		maxExample,
 		minExample,
-		showSpinExample
+		showSpinExample,
+		minMaxExample
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email, phone } from '../../docs/icons';
@@ -144,6 +145,19 @@
 	</div>
 
 	<CodeBlock slot="code" language="svelte" code={maxExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With min (0) & max (10)">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<InputNumber name="input-3" min="0" max="10" loop={true} showSpin>
+				<InputNumber.Label slot="label">Label</InputNumber.Label>
+				<InputNumber.Leading slot="leading" data={email} />
+			</InputNumber>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={minMaxExample} />
 </ExampleContainer>
 
 <PropsTable component="InputNumber" {props} />
