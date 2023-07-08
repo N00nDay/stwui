@@ -148,6 +148,10 @@ module.exports = {
 	'::-webkit-scrollbar': {
 		width: '0.5rem'
 	},
+	'::-webkit-scrollbar:horizontal': {
+		height: '0.5rem',
+		'max-height': '0.5rem'
+	},
 	'::-webkit-scrollbar-track': {
 		'background-color': 'rgba(25,25,25,0.05)'
 	},
