@@ -5,6 +5,7 @@ import type { TimelineItem } from './timeline-item';
 import type TwSizes from './twSizes';
 import type { SelectOption } from './select-option';
 import type { DropResult, PickerPreviewFile } from './file-picker-preview';
+import type { Action as DatePickerAction } from './datepicker-action';
 
 export {
 	CarouselSlide,
@@ -14,5 +15,6 @@ export {
 	TableColumn,
 	TimelineItem,
 	TwSizes,
-	PickerPreviewFile
+	PickerPreviewFile,
+	DatePickerAction
 };

@@ -12,6 +12,10 @@
 		chevron_left,
 		chevron_right
 	} from '../../icons';
+	import TimePicker from './TimePicker.svelte';
+	// import { onMount } from 'svelte';
+	import { breakpoints } from '$lib/stores';
+	import type { DatePickerAction } from '../../types';
 
 	export let value: Dayjs | null = null;
 	export let handleSelect: (d: Dayjs) => void;
@@ -19,12 +23,27 @@
 	export let max: Dayjs | undefined = undefined;
 	export let locale: Locale = {};
 	export let closeOnSelect = true;
+	export let showTime = false;
+	export let step: number;
+	export let handleClose: () => void;
+	export let handleClear: () => void;
+	export let actions: DatePickerAction[] = [];
 
 	const defaultDate = dayjs();
 	let browseDate = value ? value : defaultDate;
 	let transitionDirection: 'forward' | 'reverse' = 'forward';
 	let iLocale = getInnerLocale(locale);
 	let calendarDays: Dayjs[] = [];
+	let hourSelected: string;
+	let minuteSelected: string;
+	let meridianSelected: string;
+	// let hoursArray = [...Array(12).keys()];
+	// let minutesArray = [...Array(60).keys()];
+	// minutesArray = minutesArray.filter(x => x % step === 0);
+
+	// let hourScroll: HTMLDivElement;
+	// let minuteScroll: HTMLDivElement;
+	// let meridianScroll: HTMLDivElement;
 
 	function setValue(d: Dayjs) {
 		if (!dayjs(d).isSame(value, 'day')) {
@@ -35,7 +54,7 @@
 
 	function browse(d: Dayjs) {
 		browseDate = clamp(d);
-		if (!closeOnSelect && value) {
+		if (value) {
 			setValue(browseDate);
 		}
 	}
@@ -93,8 +112,19 @@
 				}
 				updateCalendarDays();
 			}
+
+			if (showTime) {
+				if (meridianSelected === 'AM') {
+					browseDate = browseDate
+						.set('hour', parseInt(hourSelected))
+						.set('minute', parseInt(minuteSelected));
+				} else {
+					const hour = parseInt(hourSelected) + 12;
+					browseDate = browseDate.set('hour', hour).set('minute', parseInt(minuteSelected));
+				}
+			}
+
 			setValue(browseDate);
-			// dispatch('select');
 			handleSelect(browseDate);
 		}
 	}
@@ -205,10 +235,12 @@
 			// e.preventDefault();
 			// e.stopPropagation();
 		} else if (e.key === 'Enter') {
-			console.log('DatePicker Enter');
 			browseDate = browseDate;
+			// if (!showTime) {
 			setValue(browseDate);
+
 			handleSelect(browseDate);
+			// }
 			// e.preventDefault();
 			// e.stopPropagation();
 		} else {
@@ -236,140 +268,198 @@
 
 	updateCalendarDays();
 
+	function handleApply() {
+		handleSelect(browseDate);
+		handleClose();
+	}
+
+	function handleCancel() {
+		value = null;
+		handleClear();
+		handleClose();
+	}
+
 	// TODO: add month/year picker
 	// TODO: add month/year quick pick by clicking title
 	// TODO: mobile date picker
-	// TODO: time picker
 </script>
 
 <svelte:window on:keydown={keydown} />
 
-<Card class="max-w-[300px] w-[300px]" on:focusout tabindex="-1">
-	<div class="h-14 px-3 py-2 flex items-center">
-		<Button
-			ariaLabel="previous year"
-			size="xs"
-			shape="circle"
-			tabindex="-1"
-			class="mr-1 bg-default text-default-content border-none outline-none"
-			on:click={() => handleArrow('year', 'subtract')}
-		>
-			<Button.Icon slot="icon" data={chevron_double_left} />
-		</Button>
-		<Button
-			ariaLabel="previous month"
-			size="xs"
-			shape="circle"
-			tabindex="-1"
-			class="bg-default text-default-content border-none outline-none"
-			on:click={() => handleArrow('month', 'subtract')}
-		>
-			<Button.Icon slot="icon" data={chevron_left} />
-		</Button>
-		<div class="flex-grow px-2 text-center font-medium relative overflow-hidden h-full">
-			<!-- {#key calendarDays} -->
-			<div class="absolute inset-0 flex items-center justify-center text-content">
-				{iLocale.months[browseDate.month()]}
-				{browseDate.year()}
-			</div>
-			<!-- {/key} -->
-		</div>
-		<Button
-			ariaLabel="next month"
-			size="xs"
-			shape="circle"
-			tabindex="-1"
-			class="bg-default text-default-content border-none outline-none"
-			on:click={() => handleArrow('month', 'add')}
-		>
-			<Button.Icon slot="icon" data={chevron_right} />
-		</Button>
-		<Button
-			ariaLabel="next month"
-			size="xs"
-			shape="circle"
-			tabindex="-1"
-			class="ml-1 bg-default text-default-content border-none outline-none"
-			on:click={() => handleArrow('year', 'add')}
-		>
-			<Button.Icon slot="icon" data={chevron_double_right} />
-		</Button>
-	</div>
-	<div class="h-8 grid grid-cols-7 px-3 pt-2">
-		{#each Array(7) as _, i}
-			{#if i + iLocale.weekStartsOn < 7}
-				<div class="w-full text-center text-sm">{iLocale.weekdays[iLocale.weekStartsOn + i]}</div>
-			{:else}
-				<div class="w-full text-center text-sm">
-					{iLocale.weekdays[iLocale.weekStartsOn + i - 7]}
-				</div>
-			{/if}
-		{/each}
-	</div>
-	<div class="overflow-hidden h-[224px] relative">
-		{#key calendarDays}
-			<div
-				class="absolute inset-0 p-3"
-				in:fly|local={{ x: transitionDirection === 'forward' ? 250 : -250, duration: 250 }}
-				out:fly|local={{ x: transitionDirection === 'forward' ? -250 : 250, duration: 250 }}
+<Card on:focusout tabindex="-1">
+	<div
+		class:w-[300px]={!showTime || (showTime && !$breakpoints.sm)}
+		class:max-w-[300px]={!showTime || (showTime && !$breakpoints.sm)}
+		class:w-[468px]={showTime && $breakpoints.sm}
+		class:max-w-[468px]={showTime && $breakpoints.sm}
+	>
+		<div class="h-14 px-3 py-2 flex items-center w-full">
+			<Button
+				ariaLabel="previous year"
+				size="xs"
+				shape="circle"
+				tabindex="-1"
+				class="mr-1 bg-default text-default-content border-none outline-none"
+				on:click={() => handleArrow('year', 'subtract')}
 			>
-				{#each Array(5) as _, weekIndex}
-					<div class="date-container flex items-center justify-evenly">
-						{#each calendarDays.slice(weekIndex * 7, weekIndex * 7 + 7) as calendarDay}
-							{#if !dayIsInRange(calendarDay)}
-								<span
-									class="inactive w-full flex items-center justify-center h-10 rounded-none bg-default first-of-type:rounded-l-3xl last-of-type:rounded-r-3xl"
-								>
-									<span>{calendarDay.date()}</span>
-								</span>
-							{:else}
-								<button
-									aria-label="{iLocale.months[
-										browseDate.month()
-									]} {calendarDay.date()} {browseDate.year()} "
-									class="active w-full flex items-center justify-center cursor-pointer h-10 rounded-full"
-									on:click={() => selectDay(calendarDay)}
-									class:text-primary-content={calendarDay.isSame(value, 'date')}
-									class:hover:text-primary-content={calendarDay.isSame(value, 'date')}
-									class:text-secondary-content={calendarDay.month() !== browseDate.month()}
-									class:text-content={calendarDay.month() === browseDate.month()}
-									class:hover:bg-hover={dayIsInRange(calendarDay) &&
-										!calendarDay.isSame(value, 'date')}
-									class:hover:bg-opacity-[0.07]={dayIsInRange(calendarDay) &&
-										!calendarDay.isSame(value, 'date')}
-									class:bg-hover={calendarDay.isSame(browseDate, 'date') &&
-										!calendarDay.isSame(value, 'date')}
-									class:bg-opacity-[0.07]={calendarDay.isSame(browseDate, 'date') &&
-										!calendarDay.isSame(value, 'date')}
-									class:border={calendarDay.isSame(defaultDate, 'day') &&
-										!calendarDay.isSame(value, 'date')}
-									class:border-primary={calendarDay.isSame(defaultDate, 'day') &&
-										!calendarDay.isSame(value, 'date')}
-									class:bg-primary={calendarDay.isSame(value, 'date')}
-								>
-									<span>{calendarDay.date()}</span>
-								</button>
-							{/if}
-						{/each}
-					</div>
+				<Button.Icon slot="icon" data={chevron_double_left} />
+			</Button>
+			<Button
+				ariaLabel="previous month"
+				size="xs"
+				shape="circle"
+				tabindex="-1"
+				class="bg-default text-default-content border-none outline-none"
+				on:click={() => handleArrow('month', 'subtract')}
+			>
+				<Button.Icon slot="icon" data={chevron_left} />
+			</Button>
+			<div class="flex-grow px-2 text-center font-medium relative overflow-hidden h-full">
+				<!-- {#key calendarDays} -->
+				<div class="absolute inset-0 flex items-center justify-center text-content">
+					{iLocale.months[browseDate.month()]}
+					{browseDate.year()}
+				</div>
+				<!-- {/key} -->
+			</div>
+			<Button
+				ariaLabel="next month"
+				size="xs"
+				shape="circle"
+				tabindex="-1"
+				class="bg-default text-default-content border-none outline-none"
+				on:click={() => handleArrow('month', 'add')}
+			>
+				<Button.Icon slot="icon" data={chevron_right} />
+			</Button>
+			<Button
+				ariaLabel="next month"
+				size="xs"
+				shape="circle"
+				tabindex="-1"
+				class="ml-1 bg-default text-default-content border-none outline-none"
+				on:click={() => handleArrow('year', 'add')}
+			>
+				<Button.Icon slot="icon" data={chevron_double_right} />
+			</Button>
+		</div>
+		<div
+			class="w-full max-h-[254px] h-[254px] overflow-hidden flex flex-row border-t border-border"
+			class:max-w-[300px]={!showTime && $breakpoints.sm}
+			class:max-w-[468px]={showTime && $breakpoints.sm}
+		>
+			<div class="flex-grow border-r border-border">
+				<div class="h-8 grid grid-cols-7 px-3 pt-3 w-full">
+					{#each Array(7) as _, i}
+						{#if i + iLocale.weekStartsOn < 7}
+							<div class="w-full text-center text-sm">
+								{iLocale.weekdays[iLocale.weekStartsOn + i]}
+							</div>
+						{:else}
+							<div class="w-full text-center text-sm">
+								{iLocale.weekdays[iLocale.weekStartsOn + i - 7]}
+							</div>
+						{/if}
+					{/each}
+				</div>
+
+				<div class="overflow-hidden h-[224px] relative w-full">
+					{#key calendarDays}
+						<div
+							class="absolute inset-0 p-3"
+							in:fly|local={{ x: transitionDirection === 'forward' ? 250 : -250, duration: 250 }}
+							out:fly|local={{ x: transitionDirection === 'forward' ? -250 : 250, duration: 250 }}
+						>
+							{#each Array(5) as _, weekIndex}
+								<div class="date-container flex items-center justify-evenly">
+									{#each calendarDays.slice(weekIndex * 7, weekIndex * 7 + 7) as calendarDay}
+										{#if !dayIsInRange(calendarDay)}
+											<span
+												class="inactive w-full flex items-center justify-center h-10 rounded-none bg-default first-of-type:rounded-l-3xl last-of-type:rounded-r-3xl"
+											>
+												<span>{calendarDay.date()}</span>
+											</span>
+										{:else}
+											<button
+												aria-label="{iLocale.months[
+													browseDate.month()
+												]} {calendarDay.date()} {browseDate.year()} "
+												class="active w-full flex items-center justify-center cursor-pointer h-10 rounded-full"
+												on:click={() => selectDay(calendarDay)}
+												class:text-primary-content={calendarDay.isSame(value, 'date')}
+												class:hover:text-primary-content={calendarDay.isSame(value, 'date')}
+												class:text-secondary-content={calendarDay.month() !== browseDate.month()}
+												class:text-content={calendarDay.month() === browseDate.month()}
+												class:hover:bg-hover={dayIsInRange(calendarDay) &&
+													!calendarDay.isSame(value, 'date')}
+												class:hover:bg-opacity-[0.07]={dayIsInRange(calendarDay) &&
+													!calendarDay.isSame(value, 'date')}
+												class:bg-hover={calendarDay.isSame(browseDate, 'date') &&
+													!calendarDay.isSame(value, 'date')}
+												class:bg-opacity-[0.07]={calendarDay.isSame(browseDate, 'date') &&
+													!calendarDay.isSame(value, 'date')}
+												class:border={calendarDay.isSame(defaultDate, 'day') &&
+													!calendarDay.isSame(value, 'date')}
+												class:border-primary={calendarDay.isSame(defaultDate, 'day') &&
+													!calendarDay.isSame(value, 'date')}
+												class:bg-primary={calendarDay.isSame(value, 'date')}
+											>
+												<span>{calendarDay.date()}</span>
+											</button>
+										{/if}
+									{/each}
+								</div>
+							{/each}
+						</div>
+					{/key}
+				</div>
+			</div>
+			{#if showTime && $breakpoints.sm}
+				<TimePicker
+					bind:hourSelected
+					bind:minuteSelected
+					bind:meridianSelected
+					bind:browseDate
+					bind:closeOnSelect
+					{step}
+					{showTime}
+					{setValue}
+					{handleSelect}
+				/>
+			{/if}
+		</div>
+		{#if showTime && !$breakpoints.sm}
+			<div class="gap-3 flex items-center justify-evenly w-full border-t border-border">
+				<TimePicker
+					bind:hourSelected
+					bind:minuteSelected
+					bind:meridianSelected
+					bind:browseDate
+					bind:closeOnSelect
+					{step}
+					{showTime}
+					{setValue}
+					{handleSelect}
+					mobile
+				/>
+			</div>
+		{/if}
+		{#if actions.length > 0}
+			<div
+				class="px-3 pt-3 pb-3 gap-3 flex items-center justify-start w-full border-t border-border overflow-x-auto overflow-y-hidden"
+			>
+				{#each actions as action}
+					<Button size="sm" type="primary" on:click={action.action}>{action.label}</Button>
 				{/each}
 			</div>
-		{/key}
+		{/if}
+		{#if showTime || !closeOnSelect}
+			<div class="p-3 gap-3 flex items-center justify-between w-full border-t border-border">
+				<Button on:click={handleCancel}>Clear</Button>
+				<Button type="primary" on:click={handleApply}>Apply</Button>
+			</div>
+		{/if}
 	</div>
-	<!-- TODO: add timepicker -->
-	<!-- <div class="px-3 pb-3 w-full">
-		<Button class="w-full">4:00 PM</Button>
-	</div> -->
-	<!-- TODO: add actions row -->
-	<!-- <div class="px-3 pb-3 gap-3 flex items-center justify-evenly w-full">
-		<Button class="w-full">Clear</Button>
-		<Button type="primary" class="w-full">Apply</Button>
-	</div> -->
-	<!-- TODO: add clear & apply buttons -->
-	<!-- <div class="px-3 pb-3 gap-3 flex items-center justify-evenly w-full">
-		<Button class="w-full">Clear</Button>
-		<Button type="primary" class="w-full">Apply</Button>
-	</div> -->
 </Card>
 
 <style lang="postcss">

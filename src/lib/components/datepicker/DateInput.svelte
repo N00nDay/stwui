@@ -11,18 +11,20 @@
 	import { floatingUI, forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import type { DatePickerAction } from '../../types';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let input: HTMLInputElement;
 	let valueInput: HTMLInputElement;
 
+	export let showTime = false;
 	export let name: string;
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: Date | null = null;
 	export let min: Date | undefined = undefined;
 	export let max: Date | undefined = undefined;
-	export let format = 'MMMM D, YYYY';
+	export let format = showTime ? 'MMMM D, YYYY @ h:mm A' : 'MMMM D, YYYY';
 	export let locale: Locale = {};
 	export let visible = false;
 	export let closeOnSelect = true;
@@ -30,6 +32,8 @@
 	export let tabindex: string | undefined = undefined;
 	export let allowClear = false;
 	export let disabled = false;
+	export let minuteStep = 1;
+	export let actions: DatePickerAction[] = [];
 
 	let valueDayJS: Dayjs | null;
 	let text: string | undefined;
@@ -63,13 +67,7 @@
 		const e = event as KeyboardEvent;
 		if (e.key === 'Escape' && visible) {
 			visible = false;
-			// e.preventDefault();
-			// e.stopPropagation();
-		}
-		//  else if (e.key === 'Enter') {
-		// 	visible = !visible;
-		// }
-		else if (e.key === 'Tab') {
+		} else if (e.key === 'Tab') {
 			visible = !visible;
 		}
 	}
@@ -78,7 +76,7 @@
 		value = new Date(d.toISOString());
 		valueInput.value = value.toISOString();
 		if (handleSelect) handleSelect(value);
-		if (closeOnSelect) {
+		if (closeOnSelect && !showTime) {
 			visible = false;
 		}
 	}
@@ -208,6 +206,11 @@
 				max={max ? dayjs(max) : undefined}
 				{locale}
 				{closeOnSelect}
+				{handleClose}
+				{handleClear}
+				{showTime}
+				step={minuteStep}
+				{actions}
 			/>
 		</div>
 	</Dropdown>
