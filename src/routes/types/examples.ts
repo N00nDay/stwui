@@ -20,6 +20,11 @@ export const lightboxAction = `interface LightboxAction {
 	action: () => void;
 }`;
 
+export const datePickerAction = `interface DatePickerAction {
+	label: string;
+	action: () => void;
+}`;
+
 export const tableColumn = `interface TableColumn {
 	label: string;
 	column: string;

@@ -11,7 +11,8 @@
 		iconData,
 		twSizes,
 		selectOption,
-		dropResult
+		dropResult,
+		datePickerAction
 	} from './examples';
 	import { CodeBlock } from '../../docs';
 </script>
@@ -25,6 +26,14 @@
 	</p>
 
 	<CodeBlock language="typescript" code={carouselSlide} />
+
+	<h2 id="DatePickerActions" class="text-content mb-0">DatePickerAction</h2>
+
+	<p class="mb-5 mt-1 text-secondary-content">
+		Used in conjunction with the <a class="link" href="/datepicker">DatePicker</a> components.
+	</p>
+
+	<CodeBlock language="typescript" code={datePickerAction} />
 
 	<h2 id="DropResult" class="text-content mb-0 mt-12">DropResult</h2>
 
