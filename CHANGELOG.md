@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.14.0-next](https://github.com/N00nDay/stwui/compare/v0.13.7-next...v0.14.0-next) (2023-07-09)
+
+
+### Features
+
+* **DatePicker:** added time picker and actions ([d39deb1](https://github.com/N00nDay/stwui/commit/d39deb197628f814758602f79ff3c18d907a519c))
+* **InputNumber:** added loop when min and max are set together ([26ac04d](https://github.com/N00nDay/stwui/commit/26ac04de0fd41b626df0433230625883b7956ae0))
+
+
+### Bug Fixes
+
+* **InputNumber:** added min max and updated step logic ([b2b0f8d](https://github.com/N00nDay/stwui/commit/b2b0f8dcd7b31803165bb32c756dd089ab2bec64))
+* **InputNumber:** added prop showStep ([79e68f0](https://github.com/N00nDay/stwui/commit/79e68f02b63c8eb1b552e2a4547da5da12d61823))
+* **InputNumber:** cleaned up logic for showStep ([7c7d7db](https://github.com/N00nDay/stwui/commit/7c7d7db8fe6278b321fdd2bf2e2a4254943ab1d7))
+* **InputNumber:** set default showSpin to false ([04d907b](https://github.com/N00nDay/stwui/commit/04d907b9ac2d2ba5ba8fbc3eecd57db7a76d2b6e))
+* **InputNumber:** set min max default to undefined ([e3197ec](https://github.com/N00nDay/stwui/commit/e3197ecde6d93557f913cc1c0d9379e9bc31f20a))
+* **plugin:** horizontal scrollbar height ([e73645e](https://github.com/N00nDay/stwui/commit/e73645ec29c170051eba01d27d14dad4e9739d38))
+
 ## [0.13.7-next](https://github.com/N00nDay/stwui/compare/v0.13.6-next...v0.13.7-next) (2023-07-03)
 
 
