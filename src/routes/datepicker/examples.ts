@@ -41,7 +41,7 @@ export const props: Prop[] = [
 		id: '9',
 		prop: 'format',
 		type: 'string (<a class="link" target="_blank" rel="noreferrer" href="https://day.js.org/docs/en/display/format">dayjs format</a>)',
-		default: 'MMMM D, YYYY'
+		default: 'MMMM D, YYYY | MMMM D, YYYY @ h:mm A'
 	},
 	{
 		id: '10',
@@ -70,6 +70,12 @@ export const props: Prop[] = [
 	{
 		id: '14',
 		prop: 'disabled',
+		type: 'boolean',
+		default: 'false'
+	},
+	{
+		id: '15',
+		prop: 'showTime',
 		type: 'boolean',
 		default: 'false'
 	}
@@ -176,7 +182,7 @@ export const withLeadingExample = `
 </script>
 
 <DatePicker
-	name="date-3"
+	name="date"
 	allowClear
 >
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
@@ -191,7 +197,7 @@ export const withtrailingExample = `
 </script>
 
 <DatePicker
-	name="date-4"
+	name="date"
 	label="Date"
 >
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
@@ -201,11 +207,21 @@ export const withtrailingExample = `
 export const withErrorExample = `
 <script lang="ts">
 	import { DatePicker } from 'stwui';
+
+	let value: Date | null;
+	let error: string | undefined = "You're doing it wrong!";
+	$: if (value) {
+		error = undefined;
+	} else {
+		error = "You're doing it wrong!";
+	}
 </script>
 
 <DatePicker
 	name="date"
 	label="Date"
+	bind:value
+	{error}
 >
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
 	<DatePicker.Trailing slot="trailing" data={calendar} />
@@ -220,6 +236,64 @@ export const disabledExample = `
 	name="date"
 	label="Date"
 	disabled
+>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Trailing slot="trailing" data={calendar} />
+</DatePicker>`;
+
+export const withTimeExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker
+	name="date"
+	label="Date"
+	showTime
+>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Trailing slot="trailing" data={calendar} />
+</DatePicker>`;
+
+export const withTimeAndStepExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker
+	name="date"
+	label="Date"
+	showTime
+	minuteStep={15}
+>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Trailing slot="trailing" data={calendar} />
+</DatePicker>`;
+
+export const withActionExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+	import type { DatePickerAction } from 'stwui/types';
+
+	let value: Date | null;
+
+	function handleToday() {
+		const today = dayjs().toISOString();
+		value = new Date(today);
+	}
+
+	let actions: DatePickerAction[] = [
+		{
+			label: 'Today',
+			action: handleToday
+		}
+	]
+</script>
+
+<DatePicker
+	name="date"
+	label="Date"
+	{actions}
 >
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
 	<DatePicker.Trailing slot="trailing" data={calendar} />

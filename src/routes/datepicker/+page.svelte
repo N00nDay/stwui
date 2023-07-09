@@ -10,10 +10,14 @@
 		props,
 		slots,
 		labelSlots,
-		iconProps
+		iconProps,
+		withTimeAndStepExample,
+		withTimeExample,
+		withActionExample
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { calendar } from '../../lib/icons';
+	import dayjs from 'dayjs';
 
 	let value: Date | null;
 	let error: string | undefined = "You're doing it wrong!";
@@ -21,6 +25,11 @@
 		error = undefined;
 	} else {
 		error = "You're doing it wrong!";
+	}
+
+	function handleToday() {
+		const today = dayjs().toISOString();
+		value = new Date(today);
 	}
 </script>
 
@@ -96,6 +105,51 @@
 	</div>
 
 	<CodeBlock slot="code" language="svelte" code={disabledExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Time">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<DatePicker name="date-7" label="Date" class="w-full" showTime>
+				<DatePicker.Label slot="label">Date</DatePicker.Label>
+				<DatePicker.Trailing slot="trailing" data={calendar} />
+			</DatePicker>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withTimeExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Time And Step">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<DatePicker name="date-7" label="Date" class="w-full" showTime minuteStep={15}>
+				<DatePicker.Label slot="label">Date</DatePicker.Label>
+				<DatePicker.Trailing slot="trailing" data={calendar} />
+			</DatePicker>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withTimeAndStepExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Action">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<DatePicker
+				bind:value
+				name="date-8"
+				label="Date"
+				class="w-full"
+				actions={[{ label: 'Today', action: handleToday }]}
+			>
+				<DatePicker.Label slot="label">Date</DatePicker.Label>
+				<DatePicker.Trailing slot="trailing" data={calendar} />
+			</DatePicker>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withActionExample} />
 </ExampleContainer>
 
 <PropsTable component="DatePicker" {props} />
