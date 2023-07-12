@@ -28,6 +28,7 @@
 	export let handleClose: () => void;
 	export let handleClear: () => void;
 	export let actions: DatePickerAction[] = [];
+	export let format: string;
 
 	const defaultDate = dayjs();
 	let browseDate = value ? value : defaultDate;
@@ -114,7 +115,11 @@
 			}
 
 			if (showTime) {
-				if (meridianSelected === 'AM') {
+				if (format.includes('H')) {
+					browseDate = browseDate
+						.set('hour', parseInt(hourSelected))
+						.set('minute', parseInt(minuteSelected));
+				} else if (meridianSelected === 'AM') {
 					browseDate = browseDate
 						.set('hour', parseInt(hourSelected))
 						.set('minute', parseInt(minuteSelected));
@@ -425,6 +430,7 @@
 					{showTime}
 					{setValue}
 					{handleSelect}
+					{format}
 				/>
 			{/if}
 		</div>
@@ -440,6 +446,7 @@
 					{showTime}
 					{setValue}
 					{handleSelect}
+					{format}
 					mobile
 				/>
 			</div>

@@ -13,8 +13,10 @@
 	export let closeOnSelect: boolean;
 	export let setValue: (d: Dayjs) => void;
 	export let handleSelect: (d: Dayjs) => void;
+	export let format: string;
 
 	let hoursArray = [...Array(12).keys()];
+	let hoursArray24 = [...Array(25).keys()];
 	let minutesArray = [...Array(60).keys()];
 	minutesArray = minutesArray.filter((x) => x % step === 0);
 
@@ -23,8 +25,15 @@
 	let meridianScroll: HTMLDivElement;
 
 	function handleSelectHour(hour: string) {
+		console.log('hour', hour);
 		hourSelected = hour;
-		if (meridianSelected === 'AM') {
+		if (format.includes('H')) {
+			console.log('H');
+			browseDate = browseDate
+				.set('hour', parseInt(hourSelected))
+				.set('minute', parseInt(minuteSelected));
+			console.log('browseDate', browseDate);
+		} else if (meridianSelected === 'AM') {
 			browseDate = browseDate
 				.set('hour', parseInt(hourSelected))
 				.set('minute', parseInt(minuteSelected));
@@ -39,7 +48,11 @@
 
 	function handleSelectMinute(minute: string) {
 		minuteSelected = minute;
-		if (meridianSelected === 'AM') {
+		if (!format.includes('H')) {
+			browseDate = browseDate
+				.set('hour', parseInt(hourSelected))
+				.set('minute', parseInt(minuteSelected));
+		} else if (meridianSelected === 'AM') {
 			browseDate = browseDate
 				.set('hour', parseInt(hourSelected))
 				.set('minute', parseInt(minuteSelected));
@@ -93,11 +106,22 @@
 	onMount(() => {
 		if (showTime) {
 			closeOnSelect = false;
-			hourSelected = browseDate.format('h');
+
+			if (format.includes('h')) {
+				hourSelected = browseDate.format('h');
+			} else if (format.includes('H')) {
+				hourSelected = browseDate.format('H');
+			}
+
 			minuteSelected = convertNumberToMinuteString(
 				findClosestNumber(parseInt(browseDate.format('mm')), minutesArray)
 			);
-			meridianSelected = browseDate.format('A');
+
+			if (format.includes('A')) {
+				meridianSelected = browseDate.format('A');
+			} else if (format.includes('a')) {
+				meridianSelected = browseDate.format('a');
+			}
 
 			const hourEl = document.getElementById(`hour-${hourSelected}`);
 			const minuteEl = document.getElementById(`minute-${minuteSelected}`);
@@ -124,19 +148,36 @@
 	class:w-full={mobile}
 	class:h-12={mobile}
 >
-	<div
-		bind:this={hourScroll}
-		class="overflow-auto w-full h-full snap-y snap-mandatory snap-always p-1 space-y-1"
-	>
-		{#each hoursArray as hour}
-			<Button
-				id={`hour-${hour + 1}`}
-				on:click={() => handleSelectHour(`${hour + 1}`)}
-				class="w-full flex justify-center items-center snap-center"
-				type={`${hour + 1}` === hourSelected ? 'primary' : undefined}>{hour + 1}</Button
-			>
-		{/each}
-	</div>
+	{#if format.includes('H')}
+		<div
+			bind:this={hourScroll}
+			class="overflow-auto w-full h-full snap-y snap-mandatory snap-always p-1 space-y-1"
+		>
+			{#each hoursArray24 as hour}
+				<Button
+					id={`hour-${hour}`}
+					on:click={() => handleSelectHour(`${hour}`)}
+					class="w-full flex justify-center items-center snap-center"
+					type={`${hour}` === hourSelected ? 'primary' : undefined}>{hour}</Button
+				>
+			{/each}
+		</div>
+	{:else}
+		<div
+			bind:this={hourScroll}
+			class="overflow-auto w-full h-full snap-y snap-mandatory snap-always p-1 space-y-1"
+		>
+			{#each hoursArray as hour}
+				<Button
+					id={`hour-${hour + 1}`}
+					on:click={() => handleSelectHour(`${hour + 1}`)}
+					class="w-full flex justify-center items-center snap-center"
+					type={`${hour + 1}` === hourSelected ? 'primary' : undefined}>{hour + 1}</Button
+				>
+			{/each}
+		</div>
+	{/if}
+
 	<div
 		bind:this={minuteScroll}
 		class="overflow-auto w-full h-full snap-y snap-mandatory snap-always p-1 space-y-1"
@@ -152,21 +193,23 @@
 			</Button>
 		{/each}
 	</div>
-	<div
-		bind:this={meridianScroll}
-		class="overflow-auto w-full h-full snap-y snap-mandatory snap-always p-1 space-y-1"
-	>
-		<Button
-			id="meridian-AM"
-			on:click={() => handleSelectMeridian('AM')}
-			class="w-full flex justify-center items-center snap-center"
-			type={'AM' === meridianSelected ? 'primary' : undefined}>AM</Button
+	{#if format.includes('h')}
+		<div
+			bind:this={meridianScroll}
+			class="overflow-auto w-full h-full snap-y snap-mandatory snap-always p-1 space-y-1"
 		>
-		<Button
-			id="meridian-PM"
-			on:click={() => handleSelectMeridian('PM')}
-			class="w-full flex justify-center items-center snap-center"
-			type={'PM' === meridianSelected ? 'primary' : undefined}>PM</Button
-		>
-	</div>
+			<Button
+				id="meridian-AM"
+				on:click={() => handleSelectMeridian('AM')}
+				class="w-full flex justify-center items-center snap-center"
+				type={'AM' === meridianSelected ? 'primary' : undefined}>AM</Button
+			>
+			<Button
+				id="meridian-PM"
+				on:click={() => handleSelectMeridian('PM')}
+				class="w-full flex justify-center items-center snap-center"
+				type={'PM' === meridianSelected ? 'primary' : undefined}>PM</Button
+			>
+		</div>
+	{/if}
 </div>

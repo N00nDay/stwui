@@ -211,6 +211,7 @@
 				{showTime}
 				step={minuteStep}
 				{actions}
+				{format}
 			/>
 		</div>
 	</Dropdown>
