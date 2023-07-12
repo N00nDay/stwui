@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.0-next](https://github.com/N00nDay/stwui/compare/v0.14.0-next...v0.15.0-next) (2023-07-12)
+
+
+### Features
+
+* **TimePicker:** switch between 12 and 24 hours and hide AM/PM based on format property ([d9a48a1](https://github.com/N00nDay/stwui/commit/d9a48a15ffd35fb51afdb44c235be42d3c16c423))
+
 ## [0.14.0-next](https://github.com/N00nDay/stwui/compare/v0.13.7-next...v0.14.0-next) (2023-07-09)
 
 
