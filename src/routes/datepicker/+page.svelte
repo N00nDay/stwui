@@ -13,7 +13,8 @@
 		iconProps,
 		withTimeAndStepExample,
 		withTimeExample,
-		withActionExample
+		withActionExample,
+		withTime24Example
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { calendar } from '../../lib/icons';
@@ -118,6 +119,19 @@
 	</div>
 
 	<CodeBlock slot="code" language="svelte" code={withTimeExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Time (24 hour)">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<DatePicker name="date-7" label="Date" class="w-full" showTime format="MMMM D, YYYY @ H:mm">
+				<DatePicker.Label slot="label">Date</DatePicker.Label>
+				<DatePicker.Trailing slot="trailing" data={calendar} />
+			</DatePicker>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withTime24Example} />
 </ExampleContainer>
 
 <ExampleContainer title="With Time And Step">

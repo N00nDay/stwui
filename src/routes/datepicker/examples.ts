@@ -255,6 +255,21 @@ export const withTimeExample = `
 	<DatePicker.Trailing slot="trailing" data={calendar} />
 </DatePicker>`;
 
+export const withTime24Example = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker
+	name="date"
+	label="Date"
+	showTime
+	format="MMMM D, YYYY @ H:mm"
+>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Trailing slot="trailing" data={calendar} />
+</DatePicker>`;
+
 export const withTimeAndStepExample = `
 <script lang="ts">
 	import { DatePicker } from 'stwui';
