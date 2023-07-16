@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.0-next](https://github.com/N00nDay/stwui/compare/v0.15.0-next...v0.16.0-next) (2023-07-16)
+
+
+### Features
+
+* **DatePicker:** added mobile DatePicker ([b431456](https://github.com/N00nDay/stwui/commit/b43145685005262732eb6d8da8f5bbf211183790))
+
 ## [0.15.0-next](https://github.com/N00nDay/stwui/compare/v0.14.0-next...v0.15.0-next) (2023-07-12)
 
 
