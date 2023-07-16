@@ -7,6 +7,7 @@
 		placeholderSlots,
 		indicatorProps,
 		brokenImageExample,
+		indicatorExample,
 		sizeExample,
 		shapeExample
 	} from './examples';
@@ -90,7 +91,7 @@
 		</div>
 	</div>
 
-	<CodeBlock language="svelte" code={sizeExample} slot="code" />
+	<CodeBlock language="svelte" code={indicatorExample} slot="code" />
 </ExampleContainer>
 
 <ExampleContainer title="Shapes">
