@@ -91,25 +91,25 @@ export const brokenImageExample = `
 <Avatar src="broken_image.png" size="lg" />
 <Avatar src="broken_image.png" size="xl" />`;
 
-export const exampleIndicator = `
+export const indicatorExample = `
 <script lang="ts">
    import { Avatar } from 'stwui';
 </script>
 
 <Avatar size="xs" src="image.png">
-	<Avatar.Indicator slot="indicator" placement="bottom-right" />
+	<Avatar.Indicator slot="indicator" placement="top-left" />
 </Avatar>
 <Avatar size="sm" src="image.png">
-	<Avatar.Indicator slot="indicator" placement="bottom-right" />
+	<Avatar.Indicator slot="indicator" placement="top-right" />
 </Avatar>
 <Avatar src="image.png">
 	<Avatar.Indicator slot="indicator" placement="bottom-right" />
 </Avatar>
 <Avatar size="lg" src="image.png">
-	<Avatar.Indicator slot="indicator" placement="bottom-right" />
+	<Avatar.Indicator slot="indicator" placement="bottom-left" />
 </Avatar>
 <Avatar size="xl" src="image.png">
-	<Avatar.Indicator slot="indicator" placement="bottom-right" />
+	<Avatar.Indicator slot="indicator" placement="top-left" />
 </Avatar>`;
 
 export const shapeExample = `
