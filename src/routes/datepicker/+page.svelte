@@ -14,7 +14,8 @@
 		withTimeAndStepExample,
 		withTimeExample,
 		withActionExample,
-		withTime24Example
+		withTime24Example,
+		withMobileExample
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { calendar } from '../../lib/icons';
@@ -176,7 +177,7 @@
 		</div>
 	</div>
 
-	<CodeBlock slot="code" language="svelte" code={withTimeExample} />
+	<CodeBlock slot="code" language="svelte" code={withMobileExample} />
 </ExampleContainer>
 
 <PropsTable component="DatePicker" {props} />

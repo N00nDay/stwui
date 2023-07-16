@@ -78,6 +78,12 @@ export const props: Prop[] = [
 		prop: 'showTime',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '16',
+		prop: 'mobile',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 
@@ -309,6 +315,21 @@ export const withActionExample = `
 	name="date"
 	label="Date"
 	{actions}
+>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Trailing slot="trailing" data={calendar} />
+</DatePicker>`;
+
+export const withMobileExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker
+	name="date"
+	label="Date"
+	showTime
+	mobile
 >
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
 	<DatePicker.Trailing slot="trailing" data={calendar} />
