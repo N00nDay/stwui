@@ -166,6 +166,19 @@
 	<CodeBlock slot="code" language="svelte" code={withActionExample} />
 </ExampleContainer>
 
+<ExampleContainer title="Mobile">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<DatePicker name="date-9" label="Date" class="w-full" showTime mobile>
+				<DatePicker.Label slot="label">Date</DatePicker.Label>
+				<DatePicker.Trailing slot="trailing" data={calendar} />
+			</DatePicker>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withTimeExample} />
+</ExampleContainer>
+
 <PropsTable component="DatePicker" {props} />
 
 <SlotsTable component="DatePicker" {slots} />

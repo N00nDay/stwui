@@ -6,15 +6,8 @@
 	import { fly } from 'svelte/transition';
 	import Card from '../card';
 	import Button from '../button';
-	import {
-		chevron_double_left,
-		chevron_double_right,
-		chevron_left,
-		chevron_right
-	} from '../../icons';
 	import TimePicker from './TimePicker.svelte';
-	// import { onMount } from 'svelte';
-	import { breakpoints } from '$lib/stores';
+	// import { breakpoints } from '$lib/stores';
 	import type { DatePickerAction } from '../../types';
 
 	export let value: Dayjs | null = null;
@@ -29,6 +22,7 @@
 	export let handleClear: () => void;
 	export let actions: DatePickerAction[] = [];
 	export let format: string;
+	export let mobile = false;
 
 	const defaultDate = dayjs();
 	let browseDate = value ? value : defaultDate;
@@ -291,12 +285,14 @@
 
 <svelte:window on:keydown={keydown} />
 
-<Card on:focusout tabindex="-1">
+<Card on:focusout tabindex="-1" class="h-full">
 	<div
-		class:w-[300px]={!showTime || (showTime && !$breakpoints.sm)}
-		class:max-w-[300px]={!showTime || (showTime && !$breakpoints.sm)}
-		class:w-[468px]={showTime && $breakpoints.sm}
-		class:max-w-[468px]={showTime && $breakpoints.sm}
+		class="h-full flex flex-col"
+		class:w-full={mobile}
+		class:w-[300px]={!mobile && (!showTime || showTime)}
+		class:max-w-[300px]={!mobile && (!showTime || showTime)}
+		class:w-[468px]={!mobile && showTime}
+		class:max-w-[468px]={!mobile && showTime}
 	>
 		<div class="h-14 px-3 py-2 flex items-center w-full">
 			<Button
@@ -307,7 +303,17 @@
 				class="mr-1 bg-default text-default-content border-none outline-none"
 				on:click={() => handleArrow('year', 'subtract')}
 			>
-				<Button.Icon slot="icon" data={chevron_double_left} />
+				<!-- <Button.Icon slot="icon" data={chevron_double_left} /> -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					class="svg-icon inline-block outline-none h-5 w-5 fill-current"
+				>
+					<title>chevron-double-left</title>
+					<path
+						d="M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z"
+					/>
+				</svg>
 			</Button>
 			<Button
 				ariaLabel="previous month"
@@ -317,7 +323,15 @@
 				class="bg-default text-default-content border-none outline-none"
 				on:click={() => handleArrow('month', 'subtract')}
 			>
-				<Button.Icon slot="icon" data={chevron_left} />
+				<!-- <Button.Icon slot="icon" data={chevron_left} /> -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					class="svg-icon inline-block outline-none h-5 w-5 fill-current"
+				>
+					<title>chevron-left</title>
+					<path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+				</svg>
 			</Button>
 			<div class="flex-grow px-2 text-center font-medium relative overflow-hidden h-full">
 				<!-- {#key calendarDays} -->
@@ -335,7 +349,15 @@
 				class="bg-default text-default-content border-none outline-none"
 				on:click={() => handleArrow('month', 'add')}
 			>
-				<Button.Icon slot="icon" data={chevron_right} />
+				<!-- <Button.Icon slot="icon" data={chevron_right} /> -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					class="svg-icon inline-block outline-none h-5 w-5 fill-current"
+				>
+					<title>chevron-right</title>
+					<path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+				</svg>
 			</Button>
 			<Button
 				ariaLabel="next month"
@@ -345,42 +367,55 @@
 				class="ml-1 bg-default text-default-content border-none outline-none"
 				on:click={() => handleArrow('year', 'add')}
 			>
-				<Button.Icon slot="icon" data={chevron_double_right} />
+				<!-- <Button.Icon slot="icon" data={chevron_double_right} /> -->
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 24 24"
+					class="svg-icon inline-block outline-none h-5 w-5 fill-current"
+				>
+					<title>chevron-double-right</title>
+					<path
+						d="M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z"
+					/>
+				</svg>
 			</Button>
 		</div>
 		<div
-			class="w-full max-h-[254px] h-[254px] overflow-hidden flex flex-row border-t border-border"
-			class:max-w-[300px]={!showTime && $breakpoints.sm}
-			class:max-w-[468px]={showTime && $breakpoints.sm}
+			class="w-full overflow-hidden flex flex-row border-t border-border flex-grow"
+			class:h-[calc(100%-3.5rem)]={mobile}
+			class:h-[254px]={!mobile}
+			class:max-h-[254px]={!mobile}
+			class:max-w-[300px]={!mobile && !showTime}
+			class:max-w-[468px]={!mobile && showTime}
 		>
-			<div class="flex-grow border-r border-border">
-				<div class="h-8 grid grid-cols-7 px-3 pt-3 w-full">
+			<div class="flex-grow border-r border-border h-full">
+				<div class="h-8 flex items-center justify-evenly px-3 pt-3 w-full">
 					{#each Array(7) as _, i}
 						{#if i + iLocale.weekStartsOn < 7}
-							<div class="w-full text-center text-sm">
+							<div class="w-10 text-center text-sm">
 								{iLocale.weekdays[iLocale.weekStartsOn + i]}
 							</div>
 						{:else}
-							<div class="w-full text-center text-sm">
+							<div class="w-10 text-center text-sm">
 								{iLocale.weekdays[iLocale.weekStartsOn + i - 7]}
 							</div>
 						{/if}
 					{/each}
 				</div>
 
-				<div class="overflow-hidden h-[224px] relative w-full">
+				<div class="overflow-hidden h-[calc(100%-2rem)] relative w-full">
 					{#key calendarDays}
 						<div
-							class="absolute inset-0 p-3"
+							class="absolute inset-0 p-3 h-full"
 							in:fly|local={{ x: transitionDirection === 'forward' ? 250 : -250, duration: 250 }}
 							out:fly|local={{ x: transitionDirection === 'forward' ? -250 : 250, duration: 250 }}
 						>
 							{#each Array(5) as _, weekIndex}
-								<div class="date-container flex items-center justify-evenly">
+								<div class="date-container flex items-center justify-evenly h-[20%]">
 									{#each calendarDays.slice(weekIndex * 7, weekIndex * 7 + 7) as calendarDay}
 										{#if !dayIsInRange(calendarDay)}
 											<span
-												class="inactive w-full flex items-center justify-center h-10 rounded-none bg-default first-of-type:rounded-l-3xl last-of-type:rounded-r-3xl"
+												class="inactive w-10 flex items-center justify-center h-10 rounded-none bg-default first-of-type:rounded-l-3xl last-of-type:rounded-r-3xl"
 											>
 												<span>{calendarDay.date()}</span>
 											</span>
@@ -389,11 +424,12 @@
 												aria-label="{iLocale.months[
 													browseDate.month()
 												]} {calendarDay.date()} {browseDate.year()} "
-												class="active w-full flex items-center justify-center cursor-pointer h-10 rounded-full"
+												class="active w-10 flex items-center justify-center cursor-pointer h-10 rounded-full"
 												on:click={() => selectDay(calendarDay)}
 												class:text-primary-content={calendarDay.isSame(value, 'date')}
 												class:hover:text-primary-content={calendarDay.isSame(value, 'date')}
 												class:text-secondary-content={calendarDay.month() !== browseDate.month()}
+												class:text-opacity-[0.5]={calendarDay.month() !== browseDate.month()}
 												class:text-content={calendarDay.month() === browseDate.month()}
 												class:hover:bg-hover={dayIsInRange(calendarDay) &&
 													!calendarDay.isSame(value, 'date')}
@@ -419,7 +455,7 @@
 					{/key}
 				</div>
 			</div>
-			{#if showTime && $breakpoints.sm}
+			{#if showTime && !mobile}
 				<TimePicker
 					bind:hourSelected
 					bind:minuteSelected
@@ -434,7 +470,7 @@
 				/>
 			{/if}
 		</div>
-		{#if showTime && !$breakpoints.sm}
+		{#if showTime && mobile}
 			<div class="gap-3 flex items-center justify-evenly w-full border-t border-border">
 				<TimePicker
 					bind:hourSelected
@@ -456,14 +492,21 @@
 				class="px-3 pt-3 pb-3 gap-3 flex items-center justify-start w-full border-t border-border overflow-x-auto overflow-y-hidden"
 			>
 				{#each actions as action}
-					<Button size="sm" type="primary" on:click={action.action}>{action.label}</Button>
+					<Button
+						size="sm"
+						type="primary"
+						shape="pill"
+						class="bg-default text-default-content"
+						on:click={action.action}>{action.label}</Button
+					>
 				{/each}
 			</div>
 		{/if}
 		{#if showTime || !closeOnSelect}
-			<div class="p-3 gap-3 flex items-center justify-between w-full border-t border-border">
-				<Button on:click={handleCancel}>Clear</Button>
-				<Button type="primary" on:click={handleApply}>Apply</Button>
+			<div class="p-3 gap-3 flex items-center justify-evenly w-full border-t border-border">
+				<Button class="w-full bg-default text-default-content" on:click={handleCancel}>Clear</Button
+				>
+				<Button type="primary" class="w-full" on:click={handleApply}>Apply</Button>
 			</div>
 		{/if}
 	</div>
