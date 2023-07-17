@@ -96,7 +96,15 @@
 	setContext('select-mobile', isMobile);
 </script>
 
-<div class={$$props.class} style={$$props.style} use:clickOutside={handleClose}>
+<div
+	class={$$props.class}
+	style={$$props.style}
+	use:clickOutside={$isMobile
+		? () => {
+				return;
+		  }
+		: handleClose}
+>
 	<slot name="label" />
 	<div class="mt-1 relative rounded-md" class:text-danger={error} class:opacity-50={disabled}>
 		<button
