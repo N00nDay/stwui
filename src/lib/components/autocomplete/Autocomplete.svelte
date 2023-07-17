@@ -9,6 +9,8 @@
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import Portal from '../portal';
+	import Drawer from '../drawer';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let name: string;
@@ -18,12 +20,15 @@
 	export let allowNonListValue = false;
 	export let options: string[] = [];
 	export let disabled = false;
+	export let mobile = false;
 
 	let visible = false;
 	let input: HTMLInputElement;
 	let selectedOption: Writable<string | undefined> = writable(value);
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
+	let isMobile: Writable<boolean> = writable(mobile);
+	$: isMobile.set(mobile);
 
 	function handleOpen() {
 		if (!disabled) {
@@ -37,13 +42,17 @@
 
 	function checkValue() {
 		if (visible) {
-			if (!value) {
+			if (value === undefined) {
 				visible = false;
 			} else if (options.includes(value)) {
 				visible = false;
 			} else if (allowNonListValue) {
 				visible = false;
 			} else {
+				const inputMobile = document.getElementById(`${name}-mobile`) as HTMLInputElement;
+				if (inputMobile) {
+					inputMobile.value = '';
+				}
 				input.value = '';
 				value = undefined;
 				$selectedOption = undefined;
@@ -65,16 +74,31 @@
 		$selectedOption = undefined;
 	}
 
+	$: if ($isMobile && visible) {
+		setTimeout(() => {
+			const inputMobile = document.getElementById(`${name}-mobile`) as HTMLInputElement;
+			if (inputMobile) {
+				inputMobile.focus();
+			}
+		}, 1);
+	}
+
 	setContext('autocomplete-handleSelect', handleSelect);
 	setContext('autocomplete-name', name);
 	setContext('autocomplete-error', currentError);
 	setContext('autocomplete-value', selectedOption);
 	setContext('autocomplete-handleClose', handleClose);
+	setContext('autocomplete-mobile', isMobile);
+	setContext('autocomplete-actual-value', value);
 </script>
 
 <div
 	class={$$props.class}
-	use:clickOutside={handleClose}
+	use:clickOutside={mobile
+		? () => {
+				return;
+		  }
+		: handleClose}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
@@ -151,7 +175,41 @@
 			{/if}
 		</button>
 
-		{#if visible}
+		{#if mobile && visible}
+			<Portal>
+				<Drawer {handleClose} placement="bottom" class="select-mobile" panelClass="!max-h-[14rem]">
+					<div class="p-3 border-b border-border shadow-md">
+						<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
+						<input
+							name={`${name}-mobile`}
+							id={`${name}-mobile`}
+							bind:value
+							{placeholder}
+							{disabled}
+							on:input
+							on:change
+							on:focus={handleOpen}
+							autocomplete="off"
+							role="presentation"
+							aria-controls="options"
+							class="bg-surface text-content w-full h-[2.5rem] pr-10 py-2 border rounded-md outline-none placeholder-secondary-content placeholder-opacity-80"
+							class:border-danger={error}
+							class:text-danger={error}
+							class:placeholder-red-300={error}
+							class:focus:border-danger={error}
+							class:focus:border-primary={!error}
+							class:border-border={!error}
+							class:bg-default={disabled}
+							class:pl-10={$$slots.leading}
+							class:pl-3={!$$slots.leading}
+						/>
+					</div>
+					<div class="h-[calc(100%-52px)] overflow-y-auto overflow-x-hidden">
+						<slot name="options" />
+					</div>
+				</Drawer>
+			</Portal>
+		{:else if visible}
 			<slot name="options" />
 		{/if}
 	</div>

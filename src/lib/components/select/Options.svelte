@@ -16,8 +16,6 @@
 	const handleClose: () => void = getContext('select-handleClose');
 	const mobile: Writable<boolean> = getContext('select-mobile');
 
-	$: console.log('mobile', $mobile);
-
 	function handleKeydown(e: KeyboardEvent) {
 		e.preventDefault();
 		e.stopPropagation();

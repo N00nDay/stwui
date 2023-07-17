@@ -5,6 +5,7 @@
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	import { twMerge } from 'tailwind-merge';
+	import type { Writable } from 'svelte/store';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let list: HTMLUListElement;
@@ -14,6 +15,7 @@
 	let arrowPressedOnce = false;
 
 	const handleClose: () => void = getContext('autocomplete-handleClose');
+	const mobile: Writable<boolean> = getContext('autocomplete-mobile');
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'ArrowUp') {
@@ -46,9 +48,14 @@
 		}
 	}
 
-	const defaultclass =
-		'origin-top-right absolute z-10 border border-border left-0 right-0 w-full p-1 rounded-md shadow-xl py-1 bg-surface transition transform duration-150';
-	$: finalClass = twMerge(defaultclass, $$props.class);
+	let defaultClass = 'w-full bg-surface';
+	$: if ($mobile) {
+		defaultClass += ' h-full px-3 space-y-1';
+	} else {
+		defaultClass +=
+			' p-1 shadow-xl border border-border rounded-md origin-top-right absolute z-10 left-0 right-0 transition transform duration-150';
+	}
+	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	onMount(() => {
 		items = list.querySelectorAll('li');
@@ -57,16 +64,30 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<ul
-	bind:this={list}
-	class={finalClass}
-	use:useActions={use}
-	use:forwardEvents
-	use:floatingUI={{ placement: 'bottom-start', offset: 8 }}
-	{...exclude($$props, ['use', 'class'])}
-	in:scale={{ start: 0.9, duration: 150 }}
-	out:scale={{ start: 0.95, duration: 150 }}
-	role="listbox"
->
-	<slot />
-</ul>
+{#if $mobile}
+	<ul
+		bind:this={list}
+		class={finalClass}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class'])}
+		role="listbox"
+	>
+		<slot />
+		<div class="w-full h-2" />
+	</ul>
+{:else}
+	<ul
+		bind:this={list}
+		class={finalClass}
+		use:useActions={use}
+		use:forwardEvents
+		use:floatingUI={{ placement: 'bottom-start', offset: 8 }}
+		{...exclude($$props, ['use', 'class'])}
+		in:scale={{ start: 0.9, duration: 150 }}
+		out:scale={{ start: 0.95, duration: 150 }}
+		role="listbox"
+	>
+		<slot />
+	</ul>
+{/if}
