@@ -9,6 +9,7 @@
 	export let placement: 'left' | 'right' | 'top' | 'bottom' = 'right';
 	export let disableEscClose = false;
 	export let disableOverlayClose = false;
+	export let panelClass = '';
 
 	function captureEscapeEvent(e: KeyboardEvent) {
 		if (
@@ -92,6 +93,9 @@
 	const defaultClass = 'flex inner-panel flex-col bg-surface overflow-hidden';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
+	const defaultPanelClass = 'pointer-events-auto panel transition-transform duration-200';
+	$: finalPanelClass = twMerge(defaultPanelClass, panelClass);
+
 	setContext('drawer-handleClose', onClose);
 	setContext('drawer-disableOverlayClose', disableOverlayClose);
 
@@ -120,7 +124,7 @@
 			>
 				<div
 					use:trapFocus
-					class="pointer-events-auto panel transition-transform duration-200"
+					class={finalPanelClass}
 					class:left={placement === 'left'}
 					class:right={placement === 'right'}
 					class:top={placement === 'top'}
