@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Autocomplete } from '../../lib';
 	import {
-		basicExample,
 		withLabelExample,
 		withLeadingExample,
 		withErrorExample,
@@ -13,7 +12,8 @@
 		optionsSlots,
 		optionProps,
 		emptyOptionSlots,
-		iconProps
+		iconProps,
+		withMobileExample
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email } from '../../docs/icons';
@@ -24,8 +24,10 @@
 	let value4: string;
 	let value5: string;
 	let value6 = 'I am not in the options!';
+	let value7: string;
 
 	let options = ['Option 1', 'Option 2', 'Option 3'];
+	let filtered7Options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6'];
 
 	let filtered1 = ['Option 1', 'Option 2', 'Option 3'];
 	let filtered2 = ['Option 1', 'Option 2', 'Option 3'];
@@ -33,12 +35,11 @@
 	let filtered4 = ['Option 1', 'Option 2', 'Option 3'];
 	let filtered5 = ['Option 1', 'Option 2', 'Option 3'];
 	let filtered6 = ['Option 1', 'Option 2', 'Option 3'];
+	let filtered7 = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6'];
 
 	function filter1(e: Event) {
 		const target = e.target as HTMLInputElement;
-		console.log('value', target.value);
 		filtered1 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
-		console.log('filtered1', filtered1);
 	}
 
 	function filter2(e: Event) {
@@ -66,7 +67,12 @@
 		filtered6 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
 	}
 
-	function filterOptions(option: string, key: 1 | 2 | 3 | 4 | 5 | 6) {
+	function filter7(e: Event) {
+		const target = e.target as HTMLInputElement;
+		filtered7 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+	}
+
+	function filterOptions(option: string, key: 1 | 2 | 3 | 4 | 5 | 6 | 7) {
 		if (key === 1) {
 			if (option) {
 				filtered1 = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
@@ -103,6 +109,14 @@
 			} else {
 				filtered6 = options;
 			}
+		} else if (key === 7) {
+			if (option) {
+				filtered7 = filtered7Options.filter((opt) =>
+					opt.toLowerCase().includes(option.toLowerCase())
+				);
+			} else {
+				filtered7 = filtered7Options;
+			}
 		}
 	}
 
@@ -112,6 +126,7 @@
 	$: filterOptions(value4, 4);
 	$: filterOptions(value5, 5);
 	$: filterOptions(value6, 6);
+	$: filterOptions(value7, 7);
 
 	let error: string | undefined = "You're doing it wrong!";
 	$: if (value4 && value4.length > 0) {
@@ -276,6 +291,33 @@
 	</div>
 
 	<CodeBlock slot="code" language="svelte" code={allowNonOptionExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With Mobile">
+	<div slot="preview" class="w-full flex flex-col gap-2">
+		<Autocomplete
+			name="select-7"
+			placeholder="Basic"
+			bind:value={value7}
+			on:input={filter7}
+			{options}
+			class="w-full max-w-lg mx-auto"
+			mobile
+		>
+			<Autocomplete.Label slot="label">Label</Autocomplete.Label>
+			<Autocomplete.Options slot="options">
+				{#if filtered7.length > 0}
+					{#each filtered7 as option}
+						<Autocomplete.Options.Option {option} />
+					{/each}
+				{:else}
+					<Autocomplete.Options.EmptyOption />
+				{/if}
+			</Autocomplete.Options>
+		</Autocomplete>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withMobileExample} />
 </ExampleContainer>
 
 <PropsTable component="Autocomplete" {props} />

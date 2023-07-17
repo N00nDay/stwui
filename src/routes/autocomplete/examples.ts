@@ -42,6 +42,12 @@ export const props: Prop[] = [
 		prop: 'options',
 		type: 'string[]',
 		default: '[]'
+	},
+	{
+		id: '8',
+		prop: 'mobile',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 
@@ -404,6 +410,49 @@ export const allowNonOptionExample = `
 	on:input={filter}
 	allowNonListValue
 >
+	<Autocomplete.Options slot="options">
+		{#if filtered.length > 0}
+			{#each filtered as option}
+				<Autocomplete.Options.Option {option} />
+			{/each}
+		{:else}
+			<Autocomplete.Options.EmptyOption />
+		{/if}
+	</Autocomplete.Options>
+</Autocomplete>`;
+
+export const withMobileExample = `
+<script lang="ts">
+   import { Autocomplete } from 'stwui';
+
+   let value: string;
+   let options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6'];
+
+   function filter(e: Event) {
+		const target = e.target as HTMLInputElement;
+		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+	}
+
+   function filterOptions(option: string) {
+      if (option) {
+         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+      } else {
+         filtered = options;
+      }
+	}
+
+	$: filterOptions(value);
+</script>
+
+<Autocomplete
+	name="autocomplete"
+	placeholder="Basic"
+	bind:value={value}
+	on:input={filter}
+	{options}
+	mobile
+>
+	<Autocomplete.Label slot="label">Label</Autocomplete.Label>
 	<Autocomplete.Options slot="options">
 		{#if filtered.length > 0}
 			{#each filtered as option}
