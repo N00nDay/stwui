@@ -8,6 +8,8 @@
 	import type { SelectOption } from '../../types/select-option';
 	import { flip } from 'svelte/animate';
 	import Badge from '../badge';
+	import Portal from '../portal/Portal.svelte';
+	import Drawer from '../drawer';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -19,6 +21,7 @@
 	export let multiple = false;
 	export let closeOnSelect = true;
 	export let disabled = false;
+	export let mobile = false;
 
 	$: stringifyValues = multiple
 		? JSON.stringify(value)
@@ -28,6 +31,8 @@
 	let selectedValue: Writable<SelectOption | SelectOption[] | undefined> = writable(value);
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
+	let isMobile: Writable<boolean> = writable(mobile);
+	$: isMobile.set(mobile);
 
 	let input: HTMLInputElement;
 
@@ -66,7 +71,7 @@
 			}
 		}
 		if (closeOnSelect) {
-			toggleVisible();
+			handleClose();
 		}
 	}
 
@@ -88,6 +93,7 @@
 	setContext('select-option-value', optionValue);
 	setContext('select-multiple', multiple);
 	setContext('select-handleClose', handleClose);
+	setContext('select-mobile', isMobile);
 </script>
 
 <div class={$$props.class} style={$$props.style} use:clickOutside={handleClose}>
@@ -97,10 +103,9 @@
 			aria-label="toggle select"
 			type="button"
 			on:click|stopPropagation|preventDefault={toggleVisible}
-			class="relative border pl-3 pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md"
+			class="relative border pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md"
 			class:border-danger={error}
 			class:text-danger={error}
-			class:placeholder-red-300={error}
 			class:focus:border-red-500={error}
 			class:focus:border-primary={!error}
 			class:border-border={!error}
@@ -109,13 +114,13 @@
 			class:cursor-pointer={!disabled}
 			class:cursor-default={disabled}
 			class:pl-10={$$slots.leading}
+			class:pl-3={!$$slots.leading}
 			{disabled}
 		>
 			<span
 				class="flex flex-row flex-wrap gap-2 truncate text-content"
-				class:pl-1.5={$$slots.leading}
 				class:text-secondary-content={placeholder && (!value || value.length === 0)}
-				class:placeholder-opacity-80={placeholder && (!value || value.length === 0)}
+				class:text-opacity-80={placeholder && (!value || value.length === 0)}
 			>
 				{#if multiple}
 					{#if value && value.length > 0 && Array.isArray(value)}
@@ -172,7 +177,13 @@
 			{/if}
 		</button>
 
-		{#if visible}
+		{#if visible && mobile}
+			<Portal>
+				<Drawer {handleClose} placement="bottom" class="select-mobile" panelClass="!max-h-[14rem]">
+					<slot name="options" />
+				</Drawer>
+			</Portal>
+		{:else if visible}
 			<slot name="options" />
 		{/if}
 	</div>
