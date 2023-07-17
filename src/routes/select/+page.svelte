@@ -12,7 +12,9 @@
 		labelSlots,
 		optionsSlots,
 		optionProps,
-		iconProps
+		iconProps,
+		exampleMultipleMobile,
+		exampleMobile
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email } from '../../docs/icons';
@@ -164,6 +166,38 @@
 		</div>
 	</div>
 	<CodeBlock slot="code" language="svelte" code={exampleMultiple} />
+</ExampleContainer>
+
+<ExampleContainer title="With Mobile">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Select name="select-2" mobile>
+				<Select.Label slot="label">Label</Select.Label>
+				<Select.Options slot="options">
+					{#each options as option}
+						<Select.Options.Option {option} />
+					{/each}
+				</Select.Options>
+			</Select>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleMobile} />
+</ExampleContainer>
+
+<ExampleContainer title="Multi-Select With Mobile">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<Select name="select-2" mobile multiple>
+				<Select.Label slot="label">Label</Select.Label>
+				<Select.Options slot="options">
+					{#each options as option}
+						<Select.Options.Option {option} />
+					{/each}
+				</Select.Options>
+			</Select>
+		</div>
+	</div>
+	<CodeBlock slot="code" language="svelte" code={exampleMultipleMobile} />
 </ExampleContainer>
 
 <PropsTable component="Select" {props} />

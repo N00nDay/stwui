@@ -60,6 +60,12 @@ export const props: Prop[] = [
 		prop: 'disabled',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '11',
+		prop: 'mobile',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 
@@ -363,3 +369,63 @@ export const exampleMultiple = `
 	</Select.Options>
 </Select>
 `;
+
+export const exampleMobile = `
+<script lang="ts">
+	import { Select } from 'stwui';
+	import { SelectOption } from 'stwui/types';
+
+	const options: SelectOption[] = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		}
+	];
+</script>
+
+<Select name="select" mobile>
+	<Select.Label slot="label">Label</Select.Label>
+	<Select.Options slot="options">
+		{#each options as option}
+			<Select.Options.Option {option} />
+		{/each}
+	</Select.Options>
+</Select>`;
+
+export const exampleMultipleMobile = `
+<script lang="ts">
+	import { Select } from 'stwui';
+	import { SelectOption } from 'stwui/types';
+
+	const options: SelectOption[] = [
+		{
+			value: 'option_1',
+			label: 'Option 1'
+		},
+		{
+			value: 'option_2',
+			label: 'Option 2'
+		},
+		{
+			value: 'option_3',
+			label: 'Option 3'
+		}
+	];
+</script>
+
+<Select name="select" mobile multiple>
+	<Select.Label slot="label">Label</Select.Label>
+	<Select.Options slot="options">
+		{#each options as option}
+			<Select.Options.Option {option} />
+		{/each}
+	</Select.Options>
+</Select>`;
