@@ -24,6 +24,12 @@ export const props: Prop[] = [
 		prop: 'disableOverlayClose',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '5',
+		prop: 'panelClass',
+		type: 'string',
+		default: 'pointer-events-auto panel transition-transform duration-200'
 	}
 ];
 
