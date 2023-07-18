@@ -333,3 +333,49 @@ export const withMobileExample = `
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
 	<DatePicker.Trailing slot="trailing" data={calendar} />
 </DatePicker>`;
+
+export const withMobileAndActionsExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+	import type { DatePickerAction } from 'stwui/types';
+
+	let value: Date | null;
+
+	function handleToday() {
+		const today = dayjs().toISOString();
+		value = new Date(today);
+	}
+
+	let actions: DatePickerAction[] = [
+		{
+			label: 'Today',
+			action: handleToday
+		}
+	]
+</script>
+
+<DatePicker
+	bind:value
+	name="date"
+	label="Date"
+	mobile
+	{actions}
+>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Trailing slot="trailing" data={calendar} />
+</DatePicker>`;
+
+export const withMobileAndTimeExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker
+	name="date"
+	label="Date"
+	mobile
+	showTime
+>
+	<DatePicker.Label slot="label">Date</DatePicker.Label>
+	<DatePicker.Trailing slot="trailing" data={calendar} />
+</DatePicker>`;
