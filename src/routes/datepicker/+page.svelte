@@ -170,7 +170,40 @@
 <ExampleContainer title="Mobile">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<DatePicker name="date-9" label="Date" class="w-full" showTime mobile>
+			<DatePicker name="date-9" label="Date" class="w-full" mobile>
+				<DatePicker.Label slot="label">Date</DatePicker.Label>
+				<DatePicker.Trailing slot="trailing" data={calendar} />
+			</DatePicker>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withMobileExample} />
+</ExampleContainer>
+
+<ExampleContainer title="Mobile With Actions">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<DatePicker
+				bind:value
+				name="date-9"
+				label="Date"
+				class="w-full"
+				mobile
+				actions={[{ label: 'Today', action: handleToday }]}
+			>
+				<DatePicker.Label slot="label">Date</DatePicker.Label>
+				<DatePicker.Trailing slot="trailing" data={calendar} />
+			</DatePicker>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withMobileExample} />
+</ExampleContainer>
+
+<ExampleContainer title="Mobile With Time">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<DatePicker name="date-9" label="Date" class="w-full" mobile showTime>
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Trailing slot="trailing" data={calendar} />
 			</DatePicker>

@@ -328,7 +328,6 @@ export const withMobileExample = `
 <DatePicker
 	name="date"
 	label="Date"
-	showTime
 	mobile
 >
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
