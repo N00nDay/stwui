@@ -3,12 +3,12 @@ export const example = `
    import { InputNumber } from 'stwui';
    import { computeProgress } from 'stwui/utils';
 
-   let value = '20';
-   let goal = '100';
+   let value = 20;
+   let goal = 100;
    let progress = '20';
 
    function handleChange() {
-      progress = parseFloat(computeProgress(parseInt(value), parseInt(goal)).toString()).toFixed(0);
+      progress = parseFloat(computeProgress(value, goal).toString()).toFixed(0);
    }
 </script>
 

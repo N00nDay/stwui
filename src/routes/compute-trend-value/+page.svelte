@@ -4,12 +4,12 @@
 	import { example } from './examples';
 	import { CodeBlock } from '../../docs';
 
-	let this_year = '20';
-	let last_year = '100';
+	let this_year = 20;
+	let last_year = 100;
 	let trend = -80;
 
 	function handleChange() {
-		trend = computeTrendValue(parseInt(this_year), parseInt(last_year));
+		trend = computeTrendValue(this_year, last_year);
 	}
 </script>
 

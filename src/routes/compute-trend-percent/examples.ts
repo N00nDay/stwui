@@ -3,12 +3,12 @@ export const example = `
    import { InputNumber } from 'stwui';
    import { computeTrendPercent, formatNumber } from 'stwui/utils';
 
-   let this_year = '20';
-	let last_year = '100';
+   let this_year = 20;
+	let last_year = 100;
 	let trend = -0.8;
 
 	function handleChange() {
-		trend = computeTrendPercent(parseInt(this_year), parseInt(last_year));
+		trend = computeTrendPercent(this_year, last_year);
 	}
 </script>
 

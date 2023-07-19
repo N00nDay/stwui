@@ -5,12 +5,12 @@ export const example = `
 	import { example } from './examples';
 	import { CodeBlock } from '../../docs';
 
-	let value = '20';
-	let precision = '2';
+	let value = 20;
+	let precision = 2;
 	let size = '20';
 
 	function handleChange() {
-		size = formatFileSize(parseFloat(value), parseInt(precision));
+		size = formatFileSize(value, precision);
 	}
 </script>
 
