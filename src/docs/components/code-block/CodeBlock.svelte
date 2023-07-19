@@ -1,4 +1,5 @@
 <script lang="ts">
+	import './index.css';
 	import hljs from 'highlight.js';
 	import { twMerge } from 'tailwind-merge';
 	import { copyToClipboard } from '../../../lib/utils';
@@ -40,66 +41,7 @@
 				{!copyState ? 'Copy' : 'Copied ✓'}
 			</Button>
 		</header>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		<pre class="overflow-x-auto p-4 pt-1"><code>{@html displayCode}</code></pre>
 	</div>
 {/if}
-
-<style global>
-	.hljs-doctag,
-	.hljs-keyword,
-	.hljs-meta .hljs-keyword,
-	.hljs-template-tag,
-	.hljs-template-variable,
-	.hljs-type,
-	.hljs-variable.language_ {
-		@apply text-purple-400;
-	}
-
-	.hljs-title,
-	.hljs-title.class_,
-	.hljs-title.class_.inherited__ {
-		@apply text-white;
-	}
-
-	.hljs-title.function_ {
-		@apply text-blue-500;
-	}
-
-	.hljs-attr,
-	.hljs-attribute,
-	.hljs-literal,
-	.hljs-meta,
-	.hljs-number,
-	.hljs-operator,
-	.hljs-selector-attr,
-	.hljs-selector-class,
-	.hljs-selector-id,
-	.hljs-variable {
-		@apply text-sky-300;
-		@apply italic;
-	}
-
-	.hljs-meta .hljs-string,
-	.hljs-regexp,
-	.hljs-string {
-		@apply text-green-300;
-	}
-
-	.hljs-built_in,
-	.hljs-symbol {
-		@apply text-amber-400;
-	}
-
-	.hljs-code,
-	.hljs-comment,
-	.hljs-formula {
-		@apply text-neutral-500;
-	}
-
-	.hljs-name,
-	.hljs-quote,
-	.hljs-selector-pseudo,
-	.hljs-selector-tag {
-		@apply text-red-500;
-	}
-</style>

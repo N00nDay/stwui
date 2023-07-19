@@ -42,9 +42,7 @@
 		{/if}
 	</div>
 {:else}
-	<div
-		class="inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5 "
-	>
+	<div class="inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5">
 		<svg
 			class="rotate-[-90deg] origin-center"
 			class:h-16={size === 'xs'}
@@ -97,7 +95,7 @@
 
 <style>
 	.indeterminate {
-		@apply absolute;
+		position: absolute;
 		animation: progress-loading 2s infinite;
 	}
 
