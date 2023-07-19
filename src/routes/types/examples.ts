@@ -13,6 +13,33 @@ export const locale = `type Locale = {
 	weekdays?: string[];
 	months?: string[];
 	weekStartsOn?: number;
+}
+
+const localDefault = {
+	weekdays: [
+		dayjs().day(0).format('dd'), // Sunday
+		dayjs().day(1).format('dd'), // Monday
+		dayjs().day(2).format('dd'), // Tuesday
+		dayjs().day(3).format('dd'), // Wednesday
+		dayjs().day(4).format('dd'), // Thursday
+		dayjs().day(5).format('dd'), // Friday
+		dayjs().day(6).format('dd')  // Saturday
+	],
+	months: [
+		dayjs().month(0).format('MMMM'),  // January
+		dayjs().month(1).format('MMMM'),  // February
+		dayjs().month(2).format('MMMM'),  // March
+		dayjs().month(3).format('MMMM'),  // April
+		dayjs().month(4).format('MMMM'),  // May
+		dayjs().month(5).format('MMMM'),  // June
+		dayjs().month(6).format('MMMM'),  // July
+		dayjs().month(7).format('MMMM'),  // August
+		dayjs().month(8).format('MMMM'),  // September
+		dayjs().month(9).format('MMMM'),  // October
+		dayjs().month(10).format('MMMM'), // November
+		dayjs().month(11).format('MMMM')  // December
+	],
+	weekStartsOn: 0
 };`;
 
 export const lightboxAction = `interface LightboxAction {
