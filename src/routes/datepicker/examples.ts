@@ -379,3 +379,10 @@ export const withMobileAndTimeExample = `
 	<DatePicker.Label slot="label">Date</DatePicker.Label>
 	<DatePicker.Trailing slot="trailing" data={calendar} />
 </DatePicker>`;
+
+export const localeExample = `
+import dayjs from 'dayjs';
+import 'dayjs/locale/de';
+
+dayjs.locale('de');
+`;

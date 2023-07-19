@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DatePicker } from '../../lib';
+	import { Card, Col, DatePicker } from '../../lib';
 	import {
 		basicExample,
 		withLabelExample,
@@ -17,11 +17,14 @@
 		withTime24Example,
 		withMobileExample,
 		withMobileAndActionsExample,
-		withMobileAndTimeExample
+		withMobileAndTimeExample,
+		localeExample
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer, InlineCode } from '../../docs';
 	import { calendar } from '../../lib/icons';
 	import dayjs from 'dayjs';
+	// import 'dayjs/locale/de';
+	// import { onMount } from 'svelte';
 
 	let value: Date | null;
 	let error: string | undefined = "You're doing it wrong!";
@@ -35,7 +38,15 @@
 		const today = dayjs().toISOString();
 		value = new Date(today);
 	}
+
+	// onMount(() => {
+	// 	dayjs.locale('de');
+	// });
 </script>
+
+<!-- <svelte:head>
+	<script src="path/to/dayjs/locale/de"></script>
+</svelte:head> -->
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
@@ -214,6 +225,34 @@
 
 	<CodeBlock slot="code" language="svelte" code={withMobileAndTimeExample} />
 </ExampleContainer>
+
+<Col class="col-24 example-container">
+	<div class="w-full">
+		<div class="w-full flex items-center justify-between px-0.5 pb-2">
+			<h4 class="text-content">Localization</h4>
+		</div>
+
+		<Card bordered={false}>
+			<Card.Content slot="content">
+				<p class="text-content">
+					By default, the locale is en-US. However, there are several other locales available
+					through Dayjs. To use other languages, you can simply import the locale and assign it
+					globally. Once you import the locale, you can call <InlineCode>dayjs.locale()</InlineCode>
+					with the key of the imported locale to change the global locale. The list of supported locales
+					can be found
+					<a
+						class="link"
+						target="_blank"
+						rel="noreferrer noopener"
+						href="https://github.com/iamkun/dayjs/tree/dev/src/locale">here</a
+					>.
+				</p>
+				<br />
+				<CodeBlock language="typescript" code={localeExample} />
+			</Card.Content>
+		</Card>
+	</div>
+</Col>
 
 <PropsTable component="DatePicker" {props} />
 
