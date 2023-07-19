@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 export type Locale = {
 	weekdays?: string[];
 	months?: string[];
@@ -8,24 +10,33 @@ type InnerLocale = {
 	months: string[];
 	weekStartsOn: number;
 };
+
 export function getLocaleDefaults(): InnerLocale {
 	return {
-		weekdays: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-		months: [
-			'January',
-			'February',
-			'March',
-			'April',
-			'May',
-			'June',
-			'July',
-			'August',
-			'September',
-			'October',
-			'November',
-			'December'
+		weekdays: [
+			dayjs().day(0).format('dd'),
+			dayjs().day(1).format('dd'),
+			dayjs().day(2).format('dd'),
+			dayjs().day(3).format('dd'),
+			dayjs().day(4).format('dd'),
+			dayjs().day(5).format('dd'),
+			dayjs().day(6).format('dd')
 		],
-		weekStartsOn: 1
+		months: [
+			dayjs().month(0).format('MMMM'),
+			dayjs().month(1).format('MMMM'),
+			dayjs().month(2).format('MMMM'),
+			dayjs().month(3).format('MMMM'),
+			dayjs().month(4).format('MMMM'),
+			dayjs().month(5).format('MMMM'),
+			dayjs().month(6).format('MMMM'),
+			dayjs().month(7).format('MMMM'),
+			dayjs().month(8).format('MMMM'),
+			dayjs().month(9).format('MMMM'),
+			dayjs().month(10).format('MMMM'),
+			dayjs().month(11).format('MMMM')
+		],
+		weekStartsOn: 0
 	};
 }
 export function getInnerLocale(locale: Locale = {}): InnerLocale {
