@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
-	import type TwSizes from '../../types/twSizes';
-	import { twSizes } from '../../utils/twSizes';
+	import type TwSizes from '../../types/tw-sizes';
+	import { twSizes } from '../../utils';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
