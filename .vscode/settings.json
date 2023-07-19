@@ -3,5 +3,7 @@
 	"editor.formatOnSave": true,
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode"
-	}
+	},
+	"css.customData": [".vscode/tailwind.json"],
+	"scss.lint.unknownAtRules": "ignore"
 }
