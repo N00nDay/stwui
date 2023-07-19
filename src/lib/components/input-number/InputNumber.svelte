@@ -214,20 +214,6 @@
 
 	input[type='number'] {
 		-moz-appearance: textfield;
+		appearance: textfield;
 	}
-
-	/* input[type=number]:not(.no-spin)::-webkit-inner-spin-button,
-	input[type=number]:not(.no-spin)::-webkit-outer-spin-button {
-		opacity: 1;
-	}
-
-	input[type=number]:not(.no-spin)::-webkit-outer-spin-button, 
-	input[type=number]:not(.no-spin)::-webkit-inner-spin-button {
-		-webkit-appearance: inner-spin-button;
-		width: 25px;
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 100%;
-	} */
 </style>
