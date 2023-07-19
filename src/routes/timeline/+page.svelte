@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, Col, Timeline } from '../../lib';
+	import { Timeline } from '../../lib';
 	import type { TimelineItem } from '../../lib/types/timeline-item';
 	import { example, slots, itemProps } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, BetaComponent, ExampleContainer } from '../../docs';
