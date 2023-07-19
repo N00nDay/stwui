@@ -38,6 +38,6 @@
 	{#if !$menuCollapse}
 		<span class="w-6 mr-2" />
 	{/if}
-	<span class="truncate ">{label}</span>
+	<span class="truncate">{label}</span>
 	<HoverBackground class="rounded-md" />
 </a>
