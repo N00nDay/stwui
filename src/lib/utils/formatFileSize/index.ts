@@ -5,11 +5,7 @@
  * @param base Generally `1024` but sometimes `1000`. See [binary prefix](https://en.wikipedia.org/wiki/Binary_prefix)
  * @returns The number and the suffix separated by a space.
  */
-export default function formatFileSize(
-	size: number,
-	precision: number = 2,
-	base: number = 1024
-): string {
+export default function formatFileSize(size: number, precision = 2, base = 1024): string {
 	const units = ['bytes', 'KB', 'MB', 'GB', 'TB'];
 
 	if (size === 0) {

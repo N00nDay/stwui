@@ -8,6 +8,7 @@ import computeProgress from './computeProgress';
 import { copyToClipboard } from './copyToClipboard';
 import { trapFocus } from './trapFocus';
 import { composeIconSize } from './composeIconSize';
+import { twSizes } from './twSizes';
 
 export {
 	formatDate,
@@ -19,5 +20,6 @@ export {
 	computeTrendValue,
 	copyToClipboard,
 	trapFocus,
-	composeIconSize
+	composeIconSize,
+	twSizes
 };

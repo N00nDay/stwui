@@ -1,4 +1,4 @@
-import type { UploadStatus } from '../enums/upload-status';
+import type { UploadStatus } from '../../enums/upload-status';
 
 export interface DropResult {
 	accepted: File[];
