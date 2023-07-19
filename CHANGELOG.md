@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.17.0-next](https://github.com/N00nDay/stwui/compare/v0.16.0-next...v0.17.0-next) (2023-07-19)
+
+
+### Features
+
+* **Autocomplete:** added mobile version ([2a85fda](https://github.com/N00nDay/stwui/commit/2a85fda8c26121f6e35425f17195a4fb0966e15d))
+* **DatePicker:** replaced default locale for easy language switching ([5e91023](https://github.com/N00nDay/stwui/commit/5e91023528d726b2226908c567fbb4b88bc00f7b))
+* **Drawer:** added property panelClass ([7e7d633](https://github.com/N00nDay/stwui/commit/7e7d633b1711927c9bb83d3a51938e563182eb7c))
+* **Select:** added mobile version ([1abb66c](https://github.com/N00nDay/stwui/commit/1abb66c635b042a9a0a19bc2a26510fc9949b2d2))
+
+
+### Bug Fixes
+
+* **Select:** mobile select conflicts with select click outside ([19547d8](https://github.com/N00nDay/stwui/commit/19547d8a8e098dc407c7de82c39b5eda80ee7c36))
+
 ## [0.16.0-next](https://github.com/N00nDay/stwui/compare/v0.15.0-next...v0.16.0-next) (2023-07-16)
 
 
