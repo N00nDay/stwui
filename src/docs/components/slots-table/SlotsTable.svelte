@@ -27,7 +27,7 @@
 	</h1>
 	<Card bordered={false}>
 		<Table class="rounded-md overflow-hidden h-full" {columns}>
-			<Table.Header slot="header" sortable={false} />
+			<Table.Header slot="header" sortable={false} orderBy="id" />
 			<Table.Body slot="body">
 				{#each slots as slot}
 					<Table.Body.Row id={slot.id} class="cursor-default hover:bg-surface">

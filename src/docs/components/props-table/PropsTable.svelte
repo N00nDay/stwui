@@ -32,14 +32,15 @@
 	</h1>
 	<Card bordered={false}>
 		<Table class="rounded-md overflow-hidden h-full" {columns}>
-			<Table.Header slot="header" sortable={false} />
+			<Table.Header slot="header" sortable={false} orderBy="id" />
 			<Table.Body slot="body">
 				{#each props as prop}
 					<Table.Body.Row id={prop.id} class="cursor-default hover:bg-surface">
 						<Table.Body.Row.Cell column={0}>{prop.prop}</Table.Body.Row.Cell>
-						<Table.Body.Row.Cell class="prop-type-col" column={1}
-							>{@html prop.type}</Table.Body.Row.Cell
-						>
+						<Table.Body.Row.Cell class="prop-type-col" column={1}>
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+							{@html prop.type}
+						</Table.Body.Row.Cell>
 						<Table.Body.Row.Cell column={2}>{prop.default}</Table.Body.Row.Cell>
 					</Table.Body.Row>
 				{/each}
