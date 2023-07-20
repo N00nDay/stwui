@@ -1,3 +1,9 @@
+export const usage = `
+import { copyToClipboard } from 'stwui/utils';
+// OR
+import copyToClipboard from 'stwui/utils/copyToClipboard'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { copyToClipboard } from 'stwui/utils';
