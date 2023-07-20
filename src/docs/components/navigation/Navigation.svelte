@@ -221,6 +221,7 @@
 	<Menu.Item key="/installation" label="Installation" href="/installation" on:click={handleClick} />
 	<Menu.Item key="/typography" label="Typography" href="/typography" on:click={handleClick} />
 	<Menu.Item key="/themes" label="Themes" href="/themes" on:click={handleClick} />
+	<Menu.Item key="/usage" label="Usage" href="/usage" on:click={handleClick} />
 </Menu>
 <Divider />
 <h3 class={menuTitleClass}>COMPONENTS</h3>
