@@ -1,9 +1,13 @@
 <script lang="ts">
 	import { Col } from '../../lib';
 	import { clipboard } from '../../lib/actions';
-	import { example } from './examples';
+	import { example, usage } from './examples';
 	import { CodeBlock } from '../../docs';
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <Col class="col-24">
 	<div class="flex items-center justify-center p-12">
