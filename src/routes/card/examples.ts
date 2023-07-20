@@ -182,6 +182,12 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Card } from 'stwui';
+// OR
+import Card from 'stwui/card'; // for tree shaking
+`;
+
 export const allPartsExample = `
 <script lang="ts">
 	import { Card } from 'stwui';
