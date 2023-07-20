@@ -139,6 +139,12 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { ButtonGroup } from 'stwui';
+// OR
+import ButtonGroup from 'stwui/button-group'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { ButtonGroup } from 'stwui';
