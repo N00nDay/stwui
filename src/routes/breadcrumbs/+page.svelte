@@ -9,7 +9,8 @@
 		crumbProps,
 		crumbSlots,
 		iconProps,
-		labelSlots
+		labelSlots,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home } from '../../docs/icons';
@@ -26,6 +27,10 @@
 		{ label: 'Project Hero', href: '#project-hero' }
 	];
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="m-auto max-w-[266px]">

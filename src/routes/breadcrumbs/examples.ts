@@ -108,6 +108,12 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Breadcrumbs } from 'stwui';
+// OR
+import Breadcrumbs from 'stwui/breadcrumbs'; // for tree shaking
+`;
+
 export const exampleDefault = `
 <script lang="ts">
 	import { Breadcrumbs, Icon } from 'stwui';
