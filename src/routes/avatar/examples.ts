@@ -69,6 +69,12 @@ export const indicatorProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Avatar } from 'stwui';
+// OR
+import Avatar from 'stwui/avatar'; // for tree shaking
+`;
+
 export const sizeExample = `
 <script lang="ts">
    import { Avatar } from 'stwui';
