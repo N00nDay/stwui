@@ -103,6 +103,12 @@ export const descriptionSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { CheckboxGroup } from 'stwui';
+// OR
+import CheckboxGroup from 'stwui/checkbox'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { CheckboxGroup } from 'stwui';
