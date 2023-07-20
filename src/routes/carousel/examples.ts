@@ -21,6 +21,14 @@ export const props: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Carousel } from 'stwui';
+import type { CarouselSlide } from 'stwui/types';
+// OR
+import Carousel from 'stwui/carousel'; // for tree shaking
+import type CarouselSlide from 'stwui/types/carousel-slide'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { Carousel } from 'stwui';

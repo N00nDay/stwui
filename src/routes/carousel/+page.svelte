@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Card, Carousel } from '../../lib';
 	import type { CarouselSlide } from '../../lib/types';
-	import { example, props } from './examples';
+	import { example, props, usage } from './examples';
 	import { PropsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const slides: CarouselSlide[] = [
@@ -22,6 +22,10 @@
 		}
 	];
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic" innerClass="p-0 sm:p-0">
 	<div slot="preview" class="w-full block">
