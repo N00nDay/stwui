@@ -10,7 +10,8 @@
 		exampleSize,
 		props,
 		slots,
-		iconProps
+		iconProps,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home } from '../../docs/icons';
@@ -22,6 +23,10 @@
 		loading = !loading;
 	}
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="With Type">
 	<div slot="preview" class="w-full block m-auto gap-2 text-center">
