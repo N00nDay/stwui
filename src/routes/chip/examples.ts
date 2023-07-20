@@ -83,6 +83,12 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Chip } from 'stwui';
+// OR
+import Chip from 'stwui/chip'; // for tree shaking
+`;
+
 export const typeExample = `
 <script lang="ts">
 	import { Chip } from 'stwui';
