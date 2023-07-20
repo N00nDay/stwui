@@ -46,6 +46,12 @@ export const contentSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Accordion } from 'stwui';
+// OR
+import Accordion from 'stwui/accordion'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { Accordion } from 'stwui';

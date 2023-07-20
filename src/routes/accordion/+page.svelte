@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { Accordion } from '../../lib';
-	import { example, slots, itemSlots, itemProps, titleSlots, contentSlots } from './examples';
+	import {
+		example,
+		slots,
+		itemSlots,
+		itemProps,
+		titleSlots,
+		contentSlots,
+		usage
+	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	let open = '';
@@ -13,6 +21,10 @@
 		}
 	}
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic Accordion">
 	<Accordion slot="preview" class="m-auto max-w-[400px]">
