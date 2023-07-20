@@ -107,6 +107,12 @@ export const descriptionSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Alert } from 'stwui';
+// OR
+import Alert from 'stwui/alert'; // for tree shaking
+`;
+
 export const basicExample = `
 <script lang="ts">
 	import { Alert } from 'stwui';

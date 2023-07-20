@@ -10,11 +10,16 @@
 		iconProps,
 		titleSlots,
 		descriptionSlots,
-		extraSlots
+		extraSlots,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { alert_circle, alert, check_circle, info, arrow_right } from '../../docs/icons';
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full flex flex-col gap-2">
