@@ -113,6 +113,12 @@ export const groupAvatarProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { AvatarGroup } from 'stwui';
+// OR
+import AvatarGroup from 'stwui/avatar-group'; // for tree shaking
+`;
+
 export const sizesExample = `
 <script lang="ts">
    import { AvatarGroup } from 'stwui';
