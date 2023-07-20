@@ -39,6 +39,12 @@ export const slots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Badge } from 'stwui';
+// OR
+import Badge from 'stwui/badge'; // for tree shaking
+`;
+
 export const typeExample = `
 <script lang="ts">
 	import { Badge } from 'stwui';
