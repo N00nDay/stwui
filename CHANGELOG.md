@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.17.2-next](https://github.com/N00nDay/stwui/compare/v0.17.1-next...v0.17.2-next) (2023-07-20)
+
+
+### Bug Fixes
+
+* **package.json:** update exports to allow for tree shaking ([c5d3c38](https://github.com/N00nDay/stwui/commit/c5d3c3888593a9dd309e6bf4253d749f4dcef911))
+* **Row:** updated imports due to file restructure ([c25a594](https://github.com/N00nDay/stwui/commit/c25a5940b6713ed387f51c1d8877bfe3a92de8e4))
+
 ## [0.17.1-next](https://github.com/N00nDay/stwui/compare/v0.17.0-next...v0.17.1-next) (2023-07-19)
 
 
