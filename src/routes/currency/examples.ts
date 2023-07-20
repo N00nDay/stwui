@@ -128,6 +128,12 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Currency } from 'stwui';
+// OR
+import Currency from 'stwui/currency'; // for tree shaking
+`;
+
 export const basicExample = `
 <script lang="ts">
 	import { Currency } from 'stwui';
