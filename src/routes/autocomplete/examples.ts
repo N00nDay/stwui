@@ -158,6 +158,12 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Autocomplete } from 'stwui';
+// OR
+import Autocomplete from 'stwui/autocomplete'; // for tree shaking
+`;
+
 export const basicExample = `
 <script lang="ts">
    import { Autocomplete } from 'stwui';
