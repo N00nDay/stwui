@@ -1,3 +1,9 @@
+export const usage = `
+import { clickOutside } from 'stwui/actions';
+// OR
+import clickOutside from 'stwui/actions/clickOutside'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { clickOutside } from 'stwui/actions';
