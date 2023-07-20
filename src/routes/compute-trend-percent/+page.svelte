@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Row, Col, InputNumber, Card } from '../../lib';
 	import { computeTrendPercent, formatNumber } from '../../lib/utils';
-	import { example } from './examples';
+	import { example, usage } from './examples';
 	import { CodeBlock } from '../../docs';
 
 	let this_year = 20;
@@ -12,6 +12,10 @@
 		trend = computeTrendPercent(this_year, last_year);
 	}
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <Col class="col-24">
 	<Card>

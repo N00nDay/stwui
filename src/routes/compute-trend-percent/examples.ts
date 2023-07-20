@@ -1,3 +1,9 @@
+export const usage = `
+import { computeTrendPercent } from 'stwui/utils';
+// OR
+import computeTrendPercent from 'stwui/utils/computeTrendPercent'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { InputNumber } from 'stwui';
