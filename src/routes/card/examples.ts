@@ -190,7 +190,7 @@ export const allPartsExample = `
 	const plus_circle = "svg-path";
 </script>
 
-<Card">
+<Card>
 	<Card.Header slot="header">Card Header</Card.Header>
 	<Card.Cover slot="cover">
 		<img
