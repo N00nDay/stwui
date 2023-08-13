@@ -103,6 +103,12 @@ export const actionSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Empty } from 'stwui';
+// OR
+import Empty from 'stwui/empty'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { Empty, Button } from 'stwui';

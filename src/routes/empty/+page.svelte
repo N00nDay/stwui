@@ -1,10 +1,22 @@
 <script lang="ts">
 	import { Button, Empty } from '../../lib';
-	import { example, slots, iconProps, titleSlots, descriptionSlots, actionSlots } from './examples';
+	import {
+		example,
+		slots,
+		iconProps,
+		titleSlots,
+		descriptionSlots,
+		actionSlots,
+		usage
+	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	import { plus_circle, lock } from '../../docs/icons';
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Avatar Dropdown">
 	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
