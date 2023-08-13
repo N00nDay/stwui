@@ -1,3 +1,9 @@
+export const usage = `
+import { formatNumber } from 'stwui/utils';
+// OR
+import formatNumber from 'stwui/utils/formatNumber'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { Row, Col } from 'stwui';

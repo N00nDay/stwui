@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { Row, Col, Card } from '../../lib';
 	import { formatNumber } from '../../lib/utils';
-	import { example } from './examples';
+	import { example, usage } from './examples';
 	import { CodeBlock } from '../../docs';
 
 	const number = 123456789.12;
 	const percent = 0.83;
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <Col class="col-24">
 	<Card>
