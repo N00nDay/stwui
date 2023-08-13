@@ -16,7 +16,8 @@
 		actionSlots,
 		example,
 		withStatusExample,
-		kitchenSinkExample
+		kitchenSinkExample,
+		usage
 	} from './examples';
 	import { FilePreview } from '../../lib';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
@@ -54,6 +55,10 @@
 		console.log('onFileClick FIRED');
 	}
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full flex gap-2 justify-center items-center">

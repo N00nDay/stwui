@@ -253,6 +253,12 @@ export const actionSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { FilePreview } from 'stwui';
+// OR
+import FilePreview from 'stwui/file-preview'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { FilePreview } from 'stwui';
