@@ -1,3 +1,9 @@
+export const usage = `
+import { formatFileSize } from 'stwui/utils';
+// OR
+import formatFileSize from 'stwui/utils/formatFileSize'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { Row, Col, InputNumber, Card } from '../../lib';
