@@ -18,7 +18,8 @@
 		withMobileExample,
 		withMobileAndActionsExample,
 		withMobileAndTimeExample,
-		localeExample
+		localeExample,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer, InlineCode } from '../../docs';
 	import { calendar } from '../../lib/icons';
@@ -47,6 +48,10 @@
 <!-- <svelte:head>
 	<script src="path/to/dayjs/locale/de"></script>
 </svelte:head> -->
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">

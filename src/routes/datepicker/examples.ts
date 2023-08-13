@@ -164,6 +164,12 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { DatePicker } from 'stwui';
+// OR
+import DatePicker from 'stwui/date-picker'; // for tree shaking
+`;
+
 export const basicExample = `
 <script lang="ts">
 	import { DatePicker } from 'stwui';
