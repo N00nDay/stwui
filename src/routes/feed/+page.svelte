@@ -8,7 +8,8 @@
 		leadingSlots,
 		avatarProps,
 		iconProps,
-		contentSlots
+		contentSlots,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
@@ -55,6 +56,10 @@
 	];
 </script>
 
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
+
 <ExampleContainer title="Avatar Dropdown">
 	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
 		<Feed>
@@ -65,6 +70,7 @@
 							<Feed.Item.Leading.Avatar slot="avatar" src={item.avatar} />
 						</Feed.Item.Leading>
 						<Feed.Item.Content slot="content">
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 							{@html item.content}
 						</Feed.Item.Content>
 						<Feed.Item.DateTime slot="datetime">
@@ -77,6 +83,7 @@
 							<Feed.Item.Leading.Icon slot="icon" data={item.icon} />
 						</Feed.Item.Leading>
 						<Feed.Item.Content slot="content">
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 							{@html item.content}
 						</Feed.Item.Content>
 						<Feed.Item.DateTime slot="datetime">
@@ -86,6 +93,7 @@
 				{:else}
 					<Feed.Item>
 						<Feed.Item.Content slot="content">
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 							{@html item.content}
 						</Feed.Item.Content>
 						<Feed.Item.DateTime slot="datetime">

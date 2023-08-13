@@ -135,6 +135,12 @@ export const contentSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Feed } from 'stwui';
+// OR
+import Feed from 'stwui/feed'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { Feed } from 'stwui';
