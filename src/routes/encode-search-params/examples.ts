@@ -1,3 +1,9 @@
+export const usage = `
+import { encodeSearchParams } from 'stwui/utils';
+// OR
+import encodeSearchParams from 'stwui/utils/encodeSearchParams'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { Row, Col, Input, Badge, Button } from 'stwui';
