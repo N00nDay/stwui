@@ -51,6 +51,12 @@ export const props: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Icon } from 'stwui';
+// OR
+import Icon from 'stwui/icon'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { Icon } from 'stwui';

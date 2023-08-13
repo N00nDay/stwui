@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Col, Card, Icon } from '../../lib';
 	import { copyToClipboard } from '../../lib/utils';
-	import { example, props } from './examples';
+	import { example, props, usage } from './examples';
 	import { PropsTable, CodeBlock } from '../../docs';
 
 	const icons = [
@@ -28,9 +28,13 @@
 	}
 </script>
 
-{#each icons as icon, i}
-	<Col class="col-4">
-		<Card hoverable on:click={() => copy(i, icon)} class="relative">
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
+
+<div class="flex flex-row gap-2">
+	{#each icons as icon, i}
+		<Card hoverable on:click={() => copy(i, icon)} class="relative w-full">
 			<Card.Content class="flex items-center justify-center h-24">
 				<Icon data={icon} />
 			</Card.Content>
@@ -42,10 +46,10 @@
 				Copied!
 			</div>
 		</Card>
-	</Col>
-{/each}
+	{/each}
+</div>
 
-<Col class="col-24">
+<Col class="col-24 mt-12">
 	<Card>
 		<Card.Content>
 			<CodeBlock language="svelte" code={example} />
