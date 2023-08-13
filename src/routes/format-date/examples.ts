@@ -1,3 +1,9 @@
+export const usage = `
+import { formatDate } from 'stwui/utils';
+// OR
+import formatDate from 'stwui/utils/formatDate'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { Row, Col } from 'stwui';

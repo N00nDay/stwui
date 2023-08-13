@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Row, Col, Card } from '../../lib';
 	import { formatDate } from '../../lib/utils';
-	import { example } from './examples';
+	import { example, usage } from './examples';
 	import { CodeBlock } from '../../docs';
 
 	let date = new Date(Date.now());
@@ -19,6 +19,10 @@
 	let dateAdd1Day = new Date(new Date().getTime() + 1000 * 60 * 60 * 24);
 	let dateAdd1Year = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 365);
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <Col class="col-24 md:col-12">
 	<Card>
