@@ -6,12 +6,17 @@
 		props,
 		slots,
 		iconProps,
-		labelSlots
+		labelSlots,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	import { plus_circle } from '../../docs/icons';
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="With Position">
 	<div slot="preview" class="w-full flex flex-col gap-2 items-center justify-center">

@@ -86,6 +86,12 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Divider } from 'stwui';
+// OR
+import Divider from 'stwui/divider'; // for tree shaking
+`;
+
 export const positionExample = `
 <script lang="ts">
 	import { Divider } from 'stwui';
