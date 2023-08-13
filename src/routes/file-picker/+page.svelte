@@ -15,7 +15,8 @@
 		titleSlots,
 		descriptionSlots,
 		actionSlots,
-		dividerLabelSlots
+		dividerLabelSlots,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { cloud_upload, file_document } from '../../docs/icons';
@@ -101,6 +102,10 @@
 		}
 	}
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full flex gap-2 justify-center items-center">

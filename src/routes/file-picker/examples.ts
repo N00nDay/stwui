@@ -196,6 +196,12 @@ export const dividerLabelSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { FilePicker } from 'stwui';
+// OR
+import FilePicker from 'stwui/file-picker'; // for tree shaking
+`;
+
 export const exampleBasic = `
 <script lang="ts">
    import { FilePicker } from 'stwui';
