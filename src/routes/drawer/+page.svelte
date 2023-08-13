@@ -9,7 +9,8 @@
 		slots,
 		headerSlots,
 		contentSlots,
-		footerSlots
+		footerSlots,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
@@ -86,6 +87,10 @@
 		drawerHeaderAndFooterOpen = false;
 	}
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Default Drawer">
 	<div slot="preview" class="w-full block m-auto gap-2 text-center">

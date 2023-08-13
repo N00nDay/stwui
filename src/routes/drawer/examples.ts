@@ -85,9 +85,15 @@ export const footerSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Drawer } from 'stwui';
+// OR
+import Drawer from 'stwui/drawer'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
-	import { Button, Portal } from 'stwui';
+	import { Button, Portal, Drawer } from 'stwui';
 
    let open = false;
 
@@ -112,7 +118,7 @@ export const example = `
 
 export const headerAndFooterExample = `
 <script lang="ts">
-	import { Button, Portal } from 'stwui';
+	import { Button, Portal, Drawer } from 'stwui';
 
    let open = false;
 
@@ -139,7 +145,7 @@ export const headerAndFooterExample = `
 
 export const placementExample = `
 <script lang="ts">
-	import { Button, Portal } from 'stwui';
+	import { Button, Portal, Drawer } from 'stwui';
 
 	let drawerRightOpen = false;
 	let drawerLeftOpen = false;
@@ -213,7 +219,7 @@ export const placementExample = `
 
 export const multiOneExample = `
 <script lang="ts">
-	import { Button, Portal } from 'stwui';
+	import { Button, Portal, Drawer } from 'stwui';
 
    let open = false;
 	let drawerInsideOpen = false;
