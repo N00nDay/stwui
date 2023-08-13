@@ -118,6 +118,12 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Dropdown } from 'stwui';
+// OR
+import Dropdown from 'stwui/dropdown'; // for tree shaking
+`;
+
 export const examplePlacement = `
 <script lang="ts">
 	import { Dropdown, Button, Badge } from 'stwui';

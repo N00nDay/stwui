@@ -10,7 +10,8 @@
 		itemsSlots,
 		itemSlots,
 		itemProps,
-		iconProps
+		iconProps,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home, trash } from '../../docs/icons';
@@ -70,6 +71,10 @@
 		visible6 = false;
 	}
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="With Placement">
 	<div slot="preview" class="w-full flex gap-2 justify-center items-center">
