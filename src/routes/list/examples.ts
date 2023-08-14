@@ -194,6 +194,12 @@ export const extraSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { List } from 'stwui';
+// OR
+import List from 'stwui/list'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { List } from 'stwui';
