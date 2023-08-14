@@ -49,10 +49,10 @@ export const itemProps: Prop[] = [
 
 export const usage = `
 import { Timeline } from 'stwui';
-import type { TimelineItem } from 'stwui/types';
+import type { TimelineItem } from 'stwui/types/timeline-item';
 // OR
 import Timeline from 'stwui/timeline'; // for tree shaking
-import type TimelineItem from 'stwui/types/timeline'; // for tree shaking
+import type TimelineItem from 'stwui/types/timeline-item'; // for tree shaking
 `;
 
 export const example = `
