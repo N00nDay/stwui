@@ -85,6 +85,12 @@ export const descriptionSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Media } from 'stwui';
+// OR
+import Media from 'stwui/media'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { Card, Media } from 'stwui';
