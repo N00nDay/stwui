@@ -51,6 +51,12 @@ export const props: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Rating } from 'stwui';
+// OR
+import Rating from 'stwui/rating'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { Rating } from 'stwui';

@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { Rating } from '../../lib';
-	import { example, halfExample, sizeExample, showValueExample, props } from './examples';
+	import { example, halfExample, sizeExample, showValueExample, props, usage } from './examples';
 	import { PropsTable, CodeBlock, ExampleContainer } from '../../docs';
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic and Show Value">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
