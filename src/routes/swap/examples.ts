@@ -34,6 +34,12 @@ export const slots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Swap } from 'stwui';
+// OR
+import Swap from 'stwui/swap'; // for tree shaking
+`;
+
 export const example1 = `
 <script lang="ts">
 import { Icon, Swap } from 'stwui';

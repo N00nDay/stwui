@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon, Swap } from '../../lib';
-	import { example1, example2, props, slots } from './examples';
+	import { example1, example2, props, slots, usage } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { menu, close } from '../../lib/icons';
 
@@ -10,6 +10,10 @@
 		swapped = !swapped;
 	}
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Default (Spin)">
 	<div slot="preview" class="w-full block m-auto gap-2 text-center">
