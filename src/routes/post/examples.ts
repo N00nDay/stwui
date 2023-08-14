@@ -249,6 +249,12 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Post } from 'stwui';
+// OR
+import Post from 'stwui/post'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { Post } from 'stwui';
