@@ -19,7 +19,7 @@
 </script>
 
 <script lang="ts">
-	import { Badge, Button, Card, Col, Menu } from '../../lib';
+	import { Badge, Button, Card, Menu } from '../../lib';
 	import {
 		example,
 		props,
@@ -29,7 +29,8 @@
 		itemSlots,
 		groupProps,
 		groupSlots,
-		groupItemsProps
+		groupItemsProps,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
@@ -97,6 +98,10 @@
 		collapsed = !collapsed;
 	}
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full flex flex-row items-center justify-center">

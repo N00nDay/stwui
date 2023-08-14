@@ -158,6 +158,12 @@ export const groupItemsProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Menu } from 'stwui';
+// OR
+import Menu from 'stwui/menu'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { Menu, Badge } from 'stwui';
