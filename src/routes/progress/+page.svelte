@@ -1,8 +1,12 @@
 <script lang="ts">
 	import { Progress } from '../../lib';
-	import { example, props, radialExample, typeExample } from './examples';
+	import { example, props, radialExample, typeExample, usage } from './examples';
 	import { PropsTable, CodeBlock, ExampleContainer } from '../../docs';
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full max-w-xl block m-auto">

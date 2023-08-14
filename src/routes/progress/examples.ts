@@ -39,6 +39,12 @@ export const props: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Progress } from 'stwui';
+// OR
+import Progress from 'stwui/progress'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { Progress } from 'stwui';
