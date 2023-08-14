@@ -8,7 +8,8 @@
 		slots,
 		iconProps,
 		tabProps,
-		tabSlots
+		tabSlots,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home } from '../../docs/icons';
@@ -40,6 +41,10 @@
 
 	let currentTab = '#tab1';
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Default">
 	<div slot="preview" class="w-full">
