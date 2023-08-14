@@ -1,3 +1,9 @@
+export const usage = `
+import { tooltip } from 'stwui/actions';
+// OR
+import tooltip from 'stwui/actions/tooltip'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { tooltip } from 'stwui/actions';

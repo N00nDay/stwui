@@ -1,9 +1,13 @@
 <script lang="ts">
 	import { Card, Col } from '../../lib';
 	import { tooltip } from '../../lib/actions';
-	import { example } from './examples';
+	import { example, usage } from './examples';
 	import { CodeBlock } from '../../docs';
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <Col class="col-24 md:col-12">
 	<Card bordered={false}>
