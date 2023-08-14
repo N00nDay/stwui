@@ -14,7 +14,8 @@
 		actionSlots,
 		actionsSlots,
 		labelSlots,
-		iconProps
+		iconProps,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { contentProps } from '../layout/examples';
@@ -38,6 +39,10 @@
 		openLC = false;
 	}
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic Modal">
 	<div slot="preview" class="w-full block m-auto gap-2 text-center">

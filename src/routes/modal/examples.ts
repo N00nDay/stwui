@@ -212,6 +212,12 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Modal } from 'stwui';
+// OR
+import Modal from 'stwui/modal'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { Modal, Portal, Card } from 'stwui';
