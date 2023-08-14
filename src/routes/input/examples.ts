@@ -152,6 +152,12 @@ export const iconProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Input } from 'stwui';
+// OR
+import Input from 'stwui/input'; // for tree shaking
+`;
+
 export const basicExample = `
 <script lang="ts">
 	import { Input } from 'stwui';
