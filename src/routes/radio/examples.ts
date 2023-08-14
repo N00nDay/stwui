@@ -90,6 +90,12 @@ export const descriptionSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { RadioGroup } from 'stwui';
+// OR
+import RadioGroup from 'stwui/radio'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { RadioGroup } from 'stwui';
