@@ -57,6 +57,12 @@ export const props: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Pagination } from 'stwui';
+// OR
+import Pagination from 'stwui/pagination'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { Pagination } from 'stwui';
