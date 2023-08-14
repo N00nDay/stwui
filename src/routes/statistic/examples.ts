@@ -210,6 +210,12 @@ export const trendIconProps: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Statistic } from 'stwui';
+// OR
+import Statistic from 'stwui/statistic'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
    import { Statistic } from 'stwui';

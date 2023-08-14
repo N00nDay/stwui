@@ -17,11 +17,16 @@
 		goalProps,
 		trendProps,
 		trendslots,
-		trendIconProps
+		trendIconProps,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { chart_box, favorite, home } from '../../docs/icons';
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full flex flex-row items-center justify-center">
