@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Timeline } from '../../lib';
 	import type { TimelineItem } from '../../lib/types/timeline-item';
-	import { example, slots, itemProps } from './examples';
+	import { example, slots, itemProps, usage } from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, BetaComponent, ExampleContainer } from '../../docs';
 
 	import { account, currency_usd } from '../../lib/icons';
@@ -47,6 +47,10 @@
 </script>
 
 <BetaComponent />
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full">
