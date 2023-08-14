@@ -67,6 +67,12 @@ export const labelSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { TextArea } from 'stwui';
+// OR
+import TextArea from 'stwui/text-area'; // for tree shaking
+`;
+
 export const example1 = `
 <script lang="ts">
 	import { TextArea } from 'stwui';
