@@ -10,7 +10,8 @@
 		stepProps,
 		stepSlots,
 		titleSlots,
-		descriptionSlots
+		descriptionSlots,
+		usage
 	} from './examples';
 	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
 
@@ -34,6 +35,10 @@
 		}
 	];
 </script>
+
+<h4 class="text-content pb-2">Usage</h4>
+
+<CodeBlock class="mb-12" language="svelte" code={usage} />
 
 <ExampleContainer title="Simple">
 	<div slot="preview" class="w-full">

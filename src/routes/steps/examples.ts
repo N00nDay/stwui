@@ -80,6 +80,12 @@ export const descriptionSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Steps } from 'stwui';
+// OR
+import Steps from 'stwui/steps'; // for tree shaking
+`;
+
 export const example1 = `
 <script lang="ts">
 	import { Steps } from 'stwui';
