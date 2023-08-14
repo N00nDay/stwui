@@ -107,6 +107,14 @@ export const footerSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Table } from 'stwui';
+import type { TableColumn } from 'stwui/types';
+// OR
+import Table from 'stwui/table'; // for tree shaking
+import type TableColumn from 'stwui/types/table-column; // for tree shaking';
+`;
+
 export const example = `
 <script lang="ts">
    import { page } from '$app/stores';
