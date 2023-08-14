@@ -137,6 +137,12 @@ export const descriptionSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Toggle } from 'stwui';
+// OR
+import Toggle from 'stwui/toggle'; // for tree shaking
+`;
+
 export const example1 = `
 <script lang="ts">
 	import { Toggle } from 'stwui';
