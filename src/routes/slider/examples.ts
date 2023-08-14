@@ -39,6 +39,12 @@ export const props: Prop[] = [
 	}
 ];
 
+export const usage = `
+import { Slider } from 'stwui';
+// OR
+import Slider from 'stwui/slider'; // for tree shaking
+`;
+
 export const example = `
 <script lang="ts">
 	import { Slider } from 'stwui';
