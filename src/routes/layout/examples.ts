@@ -29,6 +29,12 @@ export const headerSlots: Slot[] = [
 	}
 ];
 
+export const usage = `
+import { Layout } from 'stwui';
+// OR
+import Layout from 'stwui/layout'; // for tree shaking
+`;
+
 export const defaultExample = `
 <script lang="ts">
 	import { Layout } from 'stwui';
