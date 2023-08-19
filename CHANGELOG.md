@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.3-next](https://github.com/N00nDay/stwui/compare/v0.17.2-next...v0.17.3-next) (2023-08-19)
+
+
+### Bug Fixes
+
+* **Input:** do not show text under password eye icon ([#153](https://github.com/N00nDay/stwui/issues/153)) ([76490da](https://github.com/N00nDay/stwui/commit/76490daf8b4da44325dee3d9fccc534b35b3e578))
+
 ## [0.17.2-next](https://github.com/N00nDay/stwui/compare/v0.17.1-next...v0.17.2-next) (2023-07-20)
 
 
