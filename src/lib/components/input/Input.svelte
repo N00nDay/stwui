@@ -85,7 +85,7 @@
 			class:group-active:not(.disable-focus-active):border-primary={!error}
 			class:bg-default={disabled}
 			class:pl-10={$$slots.leading}
-			class:pr-10={$$slots.trailing || error || allowClear}
+			class:pr-10={$$slots.trailing || error || allowClear || type === 'password'}
 			{placeholder}
 			bind:value
 			use:useActions={use}
