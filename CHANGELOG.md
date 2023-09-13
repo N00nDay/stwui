@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.4-next](https://github.com/N00nDay/stwui/compare/v0.17.3-next...v0.17.4-next) (2023-09-13)
+
+
+### Bug Fixes
+
+* **package.json:** updated dependencies ([930daed](https://github.com/N00nDay/stwui/commit/930daedd0e768700dc9a6b0f61ced82301aeb329))
+
 ## [0.17.3-next](https://github.com/N00nDay/stwui/compare/v0.17.2-next...v0.17.3-next) (2023-08-19)
 
 
