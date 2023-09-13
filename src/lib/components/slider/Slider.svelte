@@ -170,7 +170,7 @@
 		{min}
 		{max}
 		{step}
-		{value}
+		bind:value
 		{disabled}
 		class={finalClass}
 		class:default={disabled}
