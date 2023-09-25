@@ -54,6 +54,7 @@
 					inputMobile.value = '';
 				}
 				input.value = '';
+				input.dispatchEvent(new Event('change', { bubbles: true }));
 				value = undefined;
 				$selectedOption = undefined;
 				visible = false;
@@ -64,12 +65,14 @@
 	function handleSelect(option: string) {
 		value = option;
 		input.value = option;
+		input.dispatchEvent(new Event('change', { bubbles: true }));
 		$selectedOption = option;
 		visible = false;
 	}
 
 	function handleClear() {
 		input.value = '';
+		input.dispatchEvent(new Event('change', { bubbles: true }));
 		value = undefined;
 		$selectedOption = undefined;
 	}
