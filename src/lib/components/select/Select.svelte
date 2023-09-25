@@ -58,14 +58,17 @@
 				$selectedValue = tempSelectedValues;
 			}
 			input.value = JSON.stringify($selectedValue);
+			input.dispatchEvent(new Event('change', { bubbles: true }));
 			value = $selectedValue;
 		} else {
 			if (value && !Array.isArray(value) && value[optionValue] === option[optionValue]) {
 				input.value = '';
+				input.dispatchEvent(new Event('change', { bubbles: true }));
 				value = undefined;
 				$selectedValue = undefined;
 			} else {
 				input.value = option[optionValue];
+				input.dispatchEvent(new Event('change', { bubbles: true }));
 				value = option;
 				$selectedValue = option;
 			}
@@ -157,6 +160,7 @@
 				{disabled}
 				bind:this={input}
 				bind:value={stringifyValues}
+				on:change
 				class="h-0 w-0 hidden invisible"
 				readonly
 				autocomplete="off"
