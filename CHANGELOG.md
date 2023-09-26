@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.3-next](https://github.com/N00nDay/stwui/compare/v0.18.2-next...v0.18.3-next) (2023-09-26)
+
+
+### Bug Fixes
+
+* types export bug ([4e8c3dc](https://github.com/N00nDay/stwui/commit/4e8c3dc5b2da229a012ba9d51585ebb4af07e064))
+
 ## [0.18.2-next](https://github.com/N00nDay/stwui/compare/v0.18.1-next...v0.18.2-next) (2023-09-26)
 
 
