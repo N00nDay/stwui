@@ -14,6 +14,7 @@
 	import type { DatePickerAction } from '../../types';
 	import Portal from '../portal/Portal.svelte';
 	import Drawer from '../drawer/Drawer.svelte';
+	import { onMount } from 'svelte';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let input: HTMLInputElement;
@@ -30,8 +31,8 @@
 	export let locale: Locale = {};
 	export let visible = false;
 	export let closeOnSelect = true;
-	export let handleSelect: ((d: Date) => void) | undefined = undefined;
-	export let tabindex: string | undefined = undefined;
+	// export let handleSelect: ((d: Date) => void) | undefined = undefined;
+	export let tabindex: number | null | undefined = undefined;
 	export let allowClear = false;
 	export let disabled = false;
 	export let minuteStep = 1;
@@ -41,13 +42,13 @@
 	let valueDayJS: Dayjs | null;
 	let text: string | undefined;
 
-	$: {
-		valueDayJS = value === null ? null : dayjs(value);
-		text = valueDayJS?.format(format);
-		if (input && input.value) {
-			input.value = text || '';
-		}
-	}
+	// $: {
+	// 	valueDayJS = value === null ? null : dayjs(value);
+	// 	text = valueDayJS?.format(format);
+	// 	if (input && input.value) {
+	// 		input.value = text || '';
+	// 	}
+	// }
 
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
@@ -85,7 +86,13 @@
 	function onSelect(d: Dayjs) {
 		value = new Date(d.toISOString());
 		valueInput.value = value.toISOString();
-		if (handleSelect) handleSelect(value);
+
+		valueDayJS = dayjs(value);
+		text = valueDayJS?.format(format);
+
+		// input.dispatchEvent(new Event('change', { bubbles: true }));
+		valueInput.dispatchEvent(new Event('change', { bubbles: true }));
+		// if (handleSelect) handleSelect(value);
 		if (closeOnSelect && !showTime) {
 			visible = false;
 		}
@@ -102,12 +109,27 @@
 	}
 
 	function handleClear() {
-		input.value = '';
 		value = null;
+		input.value = '';
+		valueInput.value = '';
+
+		valueDayJS = null;
+		text = undefined;
+
+		// input.dispatchEvent(new Event('change', { bubbles: true }));
+		valueInput.dispatchEvent(new Event('change', { bubbles: true }));
 	}
 
 	setContext('datepicker-name', name);
 	setContext('datepicker-error', currentError);
+
+	onMount(() => {
+		valueDayJS = value === null ? null : dayjs(value);
+		text = valueDayJS?.format(format);
+		if (input && input.value) {
+			input.value = text || '';
+		}
+	});
 </script>
 
 {#if !mobile}
@@ -130,6 +152,10 @@
 						{disabled}
 						bind:value
 						bind:this={valueInput}
+						on:change
+						use:useActions={use}
+						use:forwardEvents
+						{...exclude($$props, ['use', 'class'])}
 					/>
 					<input
 						bind:this={input}
@@ -159,9 +185,6 @@
 						class:bg-default={disabled}
 						class:pl-10={$$slots.leading}
 						class:pr-10={$$slots.trailing || error || allowClear}
-						use:useActions={use}
-						use:forwardEvents
-						{...exclude($$props, ['use', 'class', 'value'])}
 					/>
 
 					{#if allowClear && value}
@@ -247,6 +270,10 @@
 				{disabled}
 				bind:value
 				bind:this={valueInput}
+				on:change
+				use:useActions={use}
+				use:forwardEvents
+				{...exclude($$props, ['use', 'class'])}
 			/>
 			<input
 				bind:this={input}
@@ -276,9 +303,6 @@
 				class:bg-default={disabled}
 				class:pl-10={$$slots.leading}
 				class:pr-10={$$slots.trailing || error || allowClear}
-				use:useActions={use}
-				use:forwardEvents
-				{...exclude($$props, ['use', 'class', 'value'])}
 			/>
 
 			{#if allowClear && value}
