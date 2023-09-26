@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.2-next](https://github.com/N00nDay/stwui/compare/v0.18.1-next...v0.18.2-next) (2023-09-26)
+
+
+### Bug Fixes
+
+* **package.json:** reverting dependency updates to fix TooltipConfig bug ([9c1569b](https://github.com/N00nDay/stwui/commit/9c1569b9f17300be024c93dc29f9f4355ad90050))
+
 ## [0.18.1-next](https://github.com/N00nDay/stwui/compare/v0.18.0-next...v0.18.1-next) (2023-09-26)
 
 
