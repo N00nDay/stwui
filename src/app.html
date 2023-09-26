@@ -85,6 +85,6 @@
 		%sveltekit.head%
 	</head>
 	<body>
-		%sveltekit.body%
+		<div class="h-full w-full print:hidden" bind:clientWidth>%sveltekit.body%</div>
 	</body>
 </html>
