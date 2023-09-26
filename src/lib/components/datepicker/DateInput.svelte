@@ -3,7 +3,7 @@
 	import type { Locale } from './locale';
 	import DatePicker from './DatePicker.svelte';
 	import { writable, type Writable } from 'svelte/store';
-	import dayjs, { Dayjs } from 'dayjs';
+	import dayjs, { type Dayjs } from 'dayjs';
 	import Dropdown from '../dropdown';
 	import Icon from '../icon';
 	import { error as errorIcon, close } from '../../icons';

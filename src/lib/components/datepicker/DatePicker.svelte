@@ -2,7 +2,7 @@
 	import { getCalendarDays } from './date-utils';
 	import { getInnerLocale } from './locale';
 	import type { Locale } from './locale';
-	import dayjs, { Dayjs } from 'dayjs';
+	import dayjs, { type Dayjs } from 'dayjs';
 	import { fly } from 'svelte/transition';
 	import Card from '../card';
 	import Button from '../button';
