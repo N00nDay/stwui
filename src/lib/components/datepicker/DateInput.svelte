@@ -189,6 +189,7 @@
 
 					{#if allowClear && value}
 						<button
+							type="button"
 							aria-label="clear"
 							on:click={handleClear}
 							class="absolute inset-y-0 group-focus-within:flex active:flex items-center"
@@ -307,6 +308,7 @@
 
 			{#if allowClear && value}
 				<button
+					type="button"
 					aria-label="clear"
 					on:click={handleClear}
 					class="absolute inset-y-0 group-focus-within:flex active:flex items-center"

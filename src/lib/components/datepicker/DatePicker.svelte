@@ -296,6 +296,7 @@
 	>
 		<div class="h-14 px-3 py-2 flex items-center w-full">
 			<Button
+				htmlType="button"
 				ariaLabel="previous year"
 				size="xs"
 				shape="circle"
@@ -316,6 +317,7 @@
 				</svg>
 			</Button>
 			<Button
+				htmlType="button"
 				ariaLabel="previous month"
 				size="xs"
 				shape="circle"
@@ -342,6 +344,7 @@
 				<!-- {/key} -->
 			</div>
 			<Button
+				htmlType="button"
 				ariaLabel="next month"
 				size="xs"
 				shape="circle"
@@ -360,6 +363,7 @@
 				</svg>
 			</Button>
 			<Button
+				htmlType="button"
 				ariaLabel="next month"
 				size="xs"
 				shape="circle"
@@ -421,6 +425,7 @@
 											</span>
 										{:else}
 											<button
+												type="button"
 												aria-label="{iLocale.months[
 													browseDate.month()
 												]} {calendarDay.date()} {browseDate.year()} "
@@ -493,6 +498,7 @@
 			>
 				{#each actions as action}
 					<Button
+						htmlType="button"
 						size="sm"
 						type="primary"
 						shape="pill"
@@ -504,9 +510,13 @@
 		{/if}
 		{#if showTime || !closeOnSelect}
 			<div class="p-3 gap-3 flex items-center justify-evenly w-full border-t border-border">
-				<Button class="w-full bg-default text-default-content" on:click={handleCancel}>Clear</Button
+				<Button
+					htmlType="button"
+					class="w-full bg-default text-default-content"
+					on:click={handleCancel}>Clear</Button
 				>
-				<Button type="primary" class="w-full" on:click={handleApply}>Apply</Button>
+				<Button htmlType="button" type="primary" class="w-full" on:click={handleApply}>Apply</Button
+				>
 			</div>
 		{/if}
 	</div>
