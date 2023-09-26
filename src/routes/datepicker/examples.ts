@@ -61,26 +61,26 @@ export const props: Prop[] = [
 		type: 'boolean',
 		default: 'true'
 	},
+	// {
+	// 	id: '13',
+	// 	prop: 'handleSelect',
+	// 	type: '(d: <a class="link" target="_blank" rel="noreferrer" href="https://day.js.org/docs/en/display/format">Dayjs</a>) => void) | undefined',
+	// 	default: ''
+	// },
 	{
 		id: '13',
-		prop: 'handleSelect',
-		type: '(d: <a class="link" target="_blank" rel="noreferrer" href="https://day.js.org/docs/en/display/format">Dayjs</a>) => void) | undefined',
-		default: ''
-	},
-	{
-		id: '14',
 		prop: 'disabled',
 		type: 'boolean',
 		default: 'false'
 	},
 	{
-		id: '15',
+		id: '14',
 		prop: 'showTime',
 		type: 'boolean',
 		default: 'false'
 	},
 	{
-		id: '16',
+		id: '15',
 		prop: 'mobile',
 		type: 'boolean',
 		default: 'false'
