@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.1-next](https://github.com/N00nDay/stwui/compare/v0.18.0-next...v0.18.1-next) (2023-09-26)
+
+
+### Bug Fixes
+
+* **vite.config:** removing tippy.js from optimizedeps ([fc8a09d](https://github.com/N00nDay/stwui/commit/fc8a09d93c0618056636d4ff330bc382e46fb1c5))
+
 ## [0.18.0-next](https://github.com/N00nDay/stwui/compare/v0.17.4-next...v0.18.0-next) (2023-09-26)
 
 
