@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.18.0-next](https://github.com/N00nDay/stwui/compare/v0.17.4-next...v0.18.0-next) (2023-09-26)
+
+
+### Features
+
+* **DatePicker:** replaced handleSelect with on:change for consitancy ([bfdb8a3](https://github.com/N00nDay/stwui/commit/bfdb8a3884ad2a1e918f5a40cafeb58ca40ea948))
+
+
+### Bug Fixes
+
+* **Autocomplete:** allow on:change to be used ([53e2e1f](https://github.com/N00nDay/stwui/commit/53e2e1f568f99d59ec10c05692df744c226daff4))
+* **Select:** allow on:change to be used ([3f481a1](https://github.com/N00nDay/stwui/commit/3f481a1b991837dcd4d635c4e7e3264bfc2a4f78))
+
 ## [0.17.4-next](https://github.com/N00nDay/stwui/compare/v0.17.3-next...v0.17.4-next) (2023-09-13)
 
 
