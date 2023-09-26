@@ -11,9 +11,6 @@ const config: UserConfig = {
 		globals: true,
 		environment: 'jsdom',
 		exclude: [...configDefaults.exclude, '**/package/**', '**/build/**']
-	},
-	optimizeDeps: {
-		include: ['dayjs', 'tailwind-merge', 'highlight.js', 'tippy.js', '@floating-ui/dom']
 	}
 };
 
