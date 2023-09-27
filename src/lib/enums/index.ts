@@ -1,3 +1,1 @@
-import { UploadStatus } from './upload-status';
-
-export { UploadStatus };
+export { UploadStatus as UploadStatus } from './upload-status';

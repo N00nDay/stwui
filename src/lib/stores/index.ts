@@ -1,4 +1,2 @@
-import theme from './theme';
-import breakpoints from './breakpoints';
-
-export { theme, breakpoints };
+export { default as theme } from './theme';
+export { default as breakpoints } from './breakpoints';
