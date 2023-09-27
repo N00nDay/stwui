@@ -1,33 +1,16 @@
-import tooltip, { type TooltipConfig } from './tooltip';
-import clickOutside from './click-outside';
-import forwardEventsBuilder from './forward-events-builder';
-import useActions, {
-	type SvelteActionReturnType,
-	type SvelteHTMLActionType,
-	type HTMLActionEntry,
-	type HTMLActionArray,
-	type SvelteSVGActionType,
-	type SVGActionEntry,
-	type SVGActionArray,
-	type ActionArray
-} from './use-actions';
-import clipboard from './clipboard';
-import floatingUI from './floating-ui';
-
+export { default as tooltip, type TooltipConfig as TooltipConfig } from './tooltip';
+export { default as clickOutside } from './click-outside';
+export { default as forwardEventsBuilder } from './forward-events-builder';
 export {
-	tooltip,
-	TooltipConfig,
-	clickOutside,
-	forwardEventsBuilder,
-	useActions,
-	SvelteActionReturnType,
-	SvelteHTMLActionType,
-	HTMLActionEntry,
-	HTMLActionArray,
-	SvelteSVGActionType,
-	SVGActionEntry,
-	SVGActionArray,
-	ActionArray,
-	clipboard,
-	floatingUI
-};
+	default as useActions,
+	type SVGActionEntry as SVGActionEntry,
+	type SVGActionArray as SVGActionArray,
+	type SvelteSVGActionType as SvelteSVGActionType,
+	type HTMLActionArray as HTMLActionArray,
+	type HTMLActionEntry as HTMLActionEntry,
+	type SvelteHTMLActionType as SvelteHTMLActionType,
+	type SvelteActionReturnType as SvelteActionReturnType,
+	type ActionArray as ActionArray
+} from './use-actions';
+export { default as clipboard } from './clipboard';
+export { default as floatingUI } from './floating-ui';

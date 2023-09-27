@@ -1,4 +1,4 @@
-type TwSizes =
+export type TwSizes =
 	| '0'
 	| '0.5'
 	| '1'
@@ -33,5 +33,3 @@ type TwSizes =
 	| '72'
 	| '80'
 	| '96';
-
-export default TwSizes;
