@@ -152,7 +152,10 @@
 			/>
 		</a>
 
-		<div class="font-bold text-xl text-content">STWUI</div>
+		<div class="text-[0px] text-content">
+			<span class="text-3xl font-extrabold">STW</span>
+			<span class="text-3xl font-thing">UI</span>
+		</div>
 
 		<Layout.Header.Extra slot="extra">
 			<Toggle name="toggle" bind:on={darkTheme}>
