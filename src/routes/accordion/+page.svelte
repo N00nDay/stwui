@@ -7,9 +7,10 @@
 		itemProps,
 		titleSlots,
 		contentSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	let open = '';
 
@@ -87,3 +88,5 @@
 <SlotsTable component="Accordion.Item.Title" slots={titleSlots} />
 
 <SlotsTable component="Accordion.Item.Content" slots={contentSlots} />
+
+<ClassTable component="Accordion" {classList} />

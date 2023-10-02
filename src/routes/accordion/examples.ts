@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const slots: Slot[] = [
 	{
@@ -43,6 +43,29 @@ export const contentSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-accordion'
+	},
+	{
+		id: '2',
+		class: 'stwui-accordion-item'
+	},
+	{
+		id: '3',
+		class: 'stwui-accordion-item-title'
+	},
+	{
+		id: '4',
+		class: 'stwui-accordion-item-content'
+	},
+	{
+		id: '5',
+		class: 'stwui-accordion-chevron-container'
 	}
 ];
 
