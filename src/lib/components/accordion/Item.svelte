@@ -14,7 +14,7 @@
 	$: itemOpen.set(open);
 
 	const defaultClass =
-		'bg-surface first-of-type:rounded-t-md last-of-type:rounded-b-md overflow-hidden outline-none focus:outline-none';
+		'bg-surface first-of-type:rounded-t-md last-of-type:rounded-b-md overflow-hidden outline-none focus:outline-none stwui-accordion-item';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('accordion-open', itemOpen);

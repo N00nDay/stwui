@@ -13,7 +13,7 @@
 	const open: Writable<boolean> = getContext('accordion-open');
 
 	const defaultClass =
-		'relative flex items-center w-full py-4 px-5 text-base text-content hover:text-primary text-left bg-surface border-0 rounded-none justify-between outline-none focus:outline-none';
+		'relative flex items-center w-full py-4 px-5 text-base text-content hover:text-primary text-left bg-surface border-0 rounded-none justify-between outline-none focus:outline-none stwui-accordion-title';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -26,7 +26,10 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<slot />
-	<span class="transition-transform duration-300" class:-rotate-180={$open}>
+	<span
+		class="transition-transform duration-300 stwui-accordion-chevron-container"
+		class:-rotate-180={$open}
+	>
 		<Icon data={chevron_down} />
 	</span>
 </button>
