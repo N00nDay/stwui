@@ -14,9 +14,10 @@
 		emptyOptionSlots,
 		iconProps,
 		withMobileExample,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email } from '../../docs/icons';
 
 	let value1: string;
@@ -338,3 +339,5 @@
 <PropsTable component="Autocomplete.Options.Option" props={optionProps} />
 
 <SlotsTable component="Autocomplete.Options.EmptyOption" slots={emptyOptionSlots} />
+
+<ClassTable component="Autocomplete" {classList} />

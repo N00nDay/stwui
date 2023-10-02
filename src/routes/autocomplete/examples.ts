@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -155,6 +155,69 @@ export const iconProps: Prop[] = [
 		prop: 'fill',
 		type: 'string',
 		default: 'currentColor'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwi-autocomplete'
+	},
+	{
+		id: '2',
+		class: 'stwui-autocomplete-wrapper'
+	},
+	{
+		id: '3',
+		class: 'stwui-autocomplete-trigger'
+	},
+	{
+		id: '4',
+		class: 'stwui-autocomplete-input'
+	},
+	{
+		id: '5',
+		class: 'stwui-autocomplete-leading'
+	},
+	{
+		id: '6',
+		class: 'stwui-autocomplete-clear-wrapper'
+	},
+	{
+		id: '7',
+		class: 'stwui-autocomplete-error-wrapper'
+	},
+	{
+		id: '8',
+		class: 'stwui-autocomplete-mobile-drawer'
+	},
+	{
+		id: '9',
+		class: 'stwui-autocomplete-mobile-input'
+	},
+	{
+		id: '10',
+		class: 'stwui-autocomplete-mobile-options'
+	},
+	{
+		id: '11',
+		class: 'stwui-autocomplete-error'
+	},
+	{
+		id: '12',
+		class: 'stwui-autocomplete-empty-option'
+	},
+	{
+		id: '13',
+		class: 'stwui-autocomplete-label'
+	},
+	{
+		id: '14',
+		class: 'stwui-autocomplete-option'
+	},
+	{
+		id: '15',
+		class: 'stwui-autocomplete-options'
 	}
 ];
 
