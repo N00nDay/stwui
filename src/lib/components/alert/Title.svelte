@@ -10,7 +10,8 @@
 
 	const type: Writable<'info' | 'warn' | 'success' | 'error'> = getContext('alert-type');
 
-	const defaultClass = 'mb-0 flex flex-row items-start justify-between w-full relative';
+	const defaultClass =
+		'mb-0 flex flex-row items-start justify-between w-full relative stwui-alert-title';
 	const infoClass = 'text-info-content';
 	const warnClass = 'text-warn-content';
 	const successClass = 'text-success-content';

@@ -12,8 +12,8 @@
 	const currentType = writable(type);
 	$: currentType.set(type);
 
-	const defaultClass = 'rounded-md p-4';
-	const defaultLeadingClass = 'flex-grow flex flex-col w-6 flex items-center';
+	const defaultClass = 'rounded-md p-4 flex relative stwui-alert';
+	const defaultLeadingClass = 'flex-grow flex flex-col w-6 flex items-center stwui-alert-leading';
 
 	$: finalClass = twMerge(
 		defaultClass,
@@ -47,24 +47,22 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<div class="flex relative">
-		{#if $$slots.leading}
-			<div class={finalLeadingClass}>
-				<slot name="leading" />
-			</div>
-		{/if}
+	{#if $$slots.leading}
+		<div class={finalLeadingClass}>
+			<slot name="leading" />
+		</div>
+	{/if}
 
-		{#if $$slots.title || $$slots.description}
-			<div
-				class="flex items-start flex-col w-full"
-				class:ml-3={$$slots.leading}
-				class:justify-start={$$slots.description}
-				class:justify-center={!$$slots.description}
-			>
-				<slot name="title" />
-				<slot name="description" />
-			</div>
-		{/if}
-		<slot name="extra" />
-	</div>
+	{#if $$slots.title || $$slots.description}
+		<div
+			class="flex items-start flex-col w-full stwui-alert-title-description-wrapper"
+			class:ml-3={$$slots.leading}
+			class:justify-start={$$slots.description}
+			class:justify-center={!$$slots.description}
+		>
+			<slot name="title" />
+			<slot name="description" />
+		</div>
+	{/if}
+	<slot name="extra" />
 </div>
