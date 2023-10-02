@@ -11,9 +11,10 @@
 		titleSlots,
 		descriptionSlots,
 		extraSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { alert_circle, alert, check_circle, info, arrow_right } from '../../docs/icons';
 </script>
 
@@ -185,3 +186,5 @@
 <SlotsTable component="Alert.Description" slots={descriptionSlots} />
 
 <SlotsTable component="Alert.Extra" slots={extraSlots} />
+
+<ClassTable component="Alert" {classList} />
