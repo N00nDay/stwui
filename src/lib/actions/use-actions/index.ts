@@ -5,12 +5,14 @@ export type SvelteActionReturnType<P> = {
 
 export type SvelteHTMLActionType<P> = (node: HTMLElement, params?: P) => SvelteActionReturnType<P>;
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export type HTMLActionEntry<P = any> = SvelteHTMLActionType<P> | [SvelteHTMLActionType<P>, P];
 
 export type HTMLActionArray = HTMLActionEntry[];
 
 export type SvelteSVGActionType<P> = (node: SVGElement, params?: P) => SvelteActionReturnType<P>;
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export type SVGActionEntry<P = any> = SvelteSVGActionType<P> | [SvelteSVGActionType<P>, P];
 
 export type SVGActionArray = SVGActionEntry[];
@@ -18,6 +20,7 @@ export type SVGActionArray = SVGActionEntry[];
 export type ActionArray = HTMLActionArray | SVGActionArray;
 
 export default function useActions(node: HTMLElement | SVGElement, actions: ActionArray) {
+	// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 	const actionReturns: SvelteActionReturnType<any>[] = [];
 
 	if (actions) {

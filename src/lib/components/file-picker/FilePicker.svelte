@@ -134,6 +134,7 @@
 		if (!$hovering) $hovering = true;
 	}
 
+	// eslint-disable-next-line  @typescript-eslint/no-unused-vars
 	function handleFocus(e: Event) {
 		$hasFocus = true;
 	}

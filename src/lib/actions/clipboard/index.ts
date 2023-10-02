@@ -1,5 +1,6 @@
 import { copyToClipboard } from '../../utils';
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export default function clipboard(node: HTMLElement, args: any) {
 	const onClick = () => {
 		if (typeof args === 'object') {
@@ -22,6 +23,7 @@ export default function clipboard(node: HTMLElement, args: any) {
 	};
 	node.addEventListener('click', onClick);
 	return {
+		// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 		update(newArgs: any) {
 			args = newArgs;
 		},

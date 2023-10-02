@@ -30,6 +30,7 @@
 
 <div class="relative h-full">
 	<div class="absolute z-10 right-0 bottom-0 left-0 flex gap-2 justify-center p-0 mb-4">
+		<!-- eslint-disable-next-line  @typescript-eslint/no-unused-vars -->
 		{#each slides as _, i}
 			<button
 				aria-label="quick view slide {i + 1}"

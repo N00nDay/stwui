@@ -394,6 +394,7 @@
 		>
 			<div class="flex-grow border-r border-border h-full">
 				<div class="h-8 flex items-center justify-evenly px-3 pt-3 w-full">
+					<!-- eslint-disable-next-line  @typescript-eslint/no-unused-vars -->
 					{#each Array(7) as _, i}
 						{#if i + iLocale.weekStartsOn < 7}
 							<div class="w-10 text-center text-sm">
@@ -414,6 +415,7 @@
 							in:fly|local={{ x: transitionDirection === 'forward' ? 250 : -250, duration: 250 }}
 							out:fly|local={{ x: transitionDirection === 'forward' ? -250 : 250, duration: 250 }}
 						>
+							<!-- eslint-disable-next-line  @typescript-eslint/no-unused-vars -->
 							{#each Array(5) as _, weekIndex}
 								<div class="date-container flex items-center justify-evenly h-[20%]">
 									{#each calendarDays.slice(weekIndex * 7, weekIndex * 7 + 7) as calendarDay}

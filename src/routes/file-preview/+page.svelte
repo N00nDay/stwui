@@ -51,7 +51,7 @@
 		}
 	];
 
-	async function handleFileClick(file: any) {
+	async function handleFileClick() {
 		console.log('onFileClick FIRED');
 	}
 </script>

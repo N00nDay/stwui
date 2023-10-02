@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { theme, breakpoints } from '$lib/stores';
 	import { page } from '$app/stores';
-	import { Button, Drawer, Swap, Icon, Layout, Portal, Row, Toggle, Col, Divider } from '../lib';
+	import { Button, Drawer, Swap, Icon, Layout, Portal, Toggle, Col, Divider } from '../lib';
 	import { BROWSER } from 'esm-env';
 	import { Navigation, Search } from '../docs';
 	import { brightness_4, brightness_5 } from '../docs/icons';

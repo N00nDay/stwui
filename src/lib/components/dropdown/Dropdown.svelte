@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { clickOutside, floatingUI } from '../../actions';
+	import { clickOutside } from '../../actions';
 	import { get_current_component, setContext } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];

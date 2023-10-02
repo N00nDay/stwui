@@ -49,7 +49,7 @@
 <ExampleContainer title="Default">
 	<div slot="preview" class="w-full">
 		<Tabs {currentTab}>
-			{#each tabs as tab, i}
+			{#each tabs as tab}
 				<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
 					<Tabs.Tab.Icon slot="icon" data={tab.data} />
 					{tab.title}
@@ -63,7 +63,7 @@
 <ExampleContainer title="Full Width">
 	<div slot="preview" class="w-full">
 		<Tabs {currentTab} variant="full-width">
-			{#each tabs as tab, i}
+			{#each tabs as tab}
 				<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
 					<Tabs.Tab.Icon slot="icon" data={tab.data} />
 					{tab.title}
@@ -77,7 +77,7 @@
 <ExampleContainer title="Bar">
 	<div slot="preview" class="w-full">
 		<Tabs {currentTab} variant="bar">
-			{#each tabs as tab, i}
+			{#each tabs as tab}
 				<Tabs.Tab key={tab.href} href={tab.href} on:click={() => (currentTab = tab.href)}>
 					<Tabs.Tab.Icon slot="icon" data={tab.data} />
 					{tab.title}

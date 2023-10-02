@@ -45,6 +45,7 @@
 		}
 	}
 
+	// eslint-disable-next-line  @typescript-eslint/no-unused-vars
 	function transition(node: HTMLElement, config: TransitionConfig) {
 		if ($menuCollapse && !forceCollapse) {
 			return scale(node, {

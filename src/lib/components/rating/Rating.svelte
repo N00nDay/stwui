@@ -33,6 +33,7 @@
 	>
 		<input type="radio" {name} {disabled} class="hidden" checked={value === 0} />
 		{#if half}
+			<!-- eslint-disable-next-line  @typescript-eslint/no-unused-vars -->
 			{#each Array(outOf) as _, i}
 				<input
 					type="radio"
@@ -56,6 +57,7 @@
 				/>
 			{/each}
 		{:else}
+			<!-- eslint-disable-next-line  @typescript-eslint/no-unused-vars -->
 			{#each Array(outOf) as _, i}
 				<input
 					type="radio"

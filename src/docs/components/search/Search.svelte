@@ -34,6 +34,7 @@
 
 	let value = '';
 
+	// eslint-disable-next-line  @typescript-eslint/no-unused-vars
 	function filterData(e: Event) {
 		if (value) {
 			filteredData = data.filter((opt) => opt.name.toLowerCase().includes(value.toLowerCase()));

@@ -142,6 +142,7 @@
 					in:scale={{ delay: 300 }}
 					out:fade
 				>
+					<!-- eslint-disable-next-line  @typescript-eslint/no-unused-vars -->
 					{#each slides as _, i}
 						<button
 							aria-label="quick view slide {i + 1}"

@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { Button, Card, Col, Notification } from '../../lib';
+	import { Button, Notification } from '../../lib';
 	import {
 		example,
-		typeExample,
-		type2Example,
 		basicExample,
 		avatarExample,
 		props,

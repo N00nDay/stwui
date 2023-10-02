@@ -122,17 +122,17 @@
 		'[&::-webkit-slider-thumb]:shadow-[calc(100rem_*_-1_-_0.5rem)_0_0_100rem] ';
 	successProgressClass += '[&::-moz-range-thumb]:shadow-[calc(100rem_*_-1_-_0.5rem)_0_0_100rem] ';
 
-	let defaultProgressClass = '[&::-webkit-slider-thumb]:text-default ';
-	defaultProgressClass += '[&::-moz-range-thumb]:text-default ';
-	defaultProgressClass += '[&::-webkit-slider-thumb]:shadow-inset-default ';
-	defaultProgressClass += '[&::-moz-range-thumb]:shadow-inset-default ';
-	defaultProgressClass += '[&::-webkit-slider-thumb]:ring-default ';
-	defaultProgressClass += '[&::-moz-range-thumb]:ring-default ';
-	defaultProgressClass += '[&::-webkit-slider-thumb]:shadow-[var(--focus-shadow),0_0)] ';
-	defaultProgressClass += '[&::-moz-range-thumb]:shadow-[var(--focus-shadow),0_0)] ';
-	defaultProgressClass +=
-		'[&::-webkit-slider-thumb]:shadow-[calc(100rem_*_-1_-_0.5rem)_0_0_100rem] ';
-	defaultProgressClass += '[&::-moz-range-thumb]:shadow-[calc(100rem_*_-1_-_0.5rem)_0_0_100rem] ';
+	// let defaultProgressClass = '[&::-webkit-slider-thumb]:text-default ';
+	// defaultProgressClass += '[&::-moz-range-thumb]:text-default ';
+	// defaultProgressClass += '[&::-webkit-slider-thumb]:shadow-inset-default ';
+	// defaultProgressClass += '[&::-moz-range-thumb]:shadow-inset-default ';
+	// defaultProgressClass += '[&::-webkit-slider-thumb]:ring-default ';
+	// defaultProgressClass += '[&::-moz-range-thumb]:ring-default ';
+	// defaultProgressClass += '[&::-webkit-slider-thumb]:shadow-[var(--focus-shadow),0_0)] ';
+	// defaultProgressClass += '[&::-moz-range-thumb]:shadow-[var(--focus-shadow),0_0)] ';
+	// defaultProgressClass +=
+	// 	'[&::-webkit-slider-thumb]:shadow-[calc(100rem_*_-1_-_0.5rem)_0_0_100rem] ';
+	// defaultProgressClass += '[&::-moz-range-thumb]:shadow-[calc(100rem_*_-1_-_0.5rem)_0_0_100rem] ';
 
 	// let customProgressClass = `[&::-webkit-slider-thumb]:text-[${color}] `;
 	// customProgressClass += `[&::-moz-range-thumb]:text-[${color}] `;
@@ -177,6 +177,7 @@
 	/>
 	{#if showStep}
 		<div class="w-full flex justify-between text-xs">
+			<!-- eslint-disable-next-line  @typescript-eslint/no-unused-vars -->
 			{#each Array(steps) as _, i}
 				<span
 					>{formatNumber((i * step) / 100, {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Col, Divider } from '../../lib';
+	import { Button, Divider } from '../../lib';
 	import {
 		positionExample,
 		passAnythingExample,
