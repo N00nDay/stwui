@@ -11,7 +11,10 @@
 	import { exclude } from '../../utils/exclude';
 	import Portal from '../portal';
 	import Drawer from '../drawer';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
+
+	const defaultClass = 'stwui-autocomplete';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -93,10 +96,12 @@
 	setContext('autocomplete-handleClose', handleClose);
 	setContext('autocomplete-mobile', isMobile);
 	setContext('autocomplete-actual-value', value);
+
+	const finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class={$$props.class}
+	class={finalClass}
 	use:clickOutside={mobile
 		? () => {
 				return;
@@ -107,13 +112,16 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	<slot name="label" />
-	<div class="mt-1 relative rounded-md h-[2.5rem]" class:opacity-75={disabled}>
+	<div
+		class="mt-1 relative rounded-md h-[2.5rem] stwui-autocomplete-wrapper"
+		class:opacity-75={disabled}
+	>
 		<button
 			tabindex="0"
 			aria-label="Autocomplete Toggle"
 			type="button"
 			on:click|stopPropagation|preventDefault={handleOpen}
-			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-surface"
+			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-surface stwui-autocomplete-trigger"
 			class:text-danger={error}
 		>
 			<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
@@ -130,7 +138,7 @@
 				autocomplete="off"
 				role="presentation"
 				aria-controls="options"
-				class="bg-surface w-full h-[2.5rem] pr-10 py-2 border rounded-md outline-none placeholder-secondary-content placeholder-opacity-80"
+				class="bg-surface w-full h-[2.5rem] pr-10 py-2 border rounded-md outline-none placeholder-secondary-content placeholder-opacity-80 stwui-autocomplete-input"
 				class:border-danger={error}
 				class:text-danger={error}
 				class:placeholder-red-300={error}
@@ -144,7 +152,7 @@
 
 			{#if $$slots.leading}
 				<span
-					class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+					class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none stwui-autocomplete-leading"
 					class:text-danger={error}
 					class:text-secondary-content={!error}
 				>
@@ -157,7 +165,7 @@
 					type="button"
 					aria-label="clear input"
 					on:click={handleClear}
-					class="absolute inset-y-0 right-8 items-center hidden group-focus-within:flex active:flex text-secondary-content"
+					class="absolute inset-y-0 right-8 items-center hidden group-focus-within:flex active:flex text-secondary-content stwui-autocomplete-clear-wrapper"
 				>
 					<span transition:scale|local class="flex items-center text-content">
 						<Icon data={close} />
@@ -166,7 +174,9 @@
 			{/if}
 
 			{#if error}
-				<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+				<span
+					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none stwui-autocomplete-error-wrapper"
+				>
 					<Icon data={errorIcon} />
 				</span>
 			{:else}
@@ -180,7 +190,12 @@
 
 		{#if mobile && visible}
 			<Portal>
-				<Drawer {handleClose} placement="bottom" class="select-mobile" panelClass="!max-h-[14rem]">
+				<Drawer
+					{handleClose}
+					placement="bottom"
+					class="select-mobile stwui-autocomplete-mobile-drawer"
+					panelClass="!max-h-[14rem]"
+				>
 					<div class="p-3 border-b border-border shadow-md">
 						<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
 						<input
@@ -195,7 +210,7 @@
 							autocomplete="off"
 							role="presentation"
 							aria-controls="options"
-							class="bg-surface text-content w-full h-[2.5rem] pr-10 py-2 border rounded-md outline-none placeholder-secondary-content placeholder-opacity-80"
+							class="bg-surface text-content w-full h-[2.5rem] pr-10 py-2 border rounded-md outline-none placeholder-secondary-content placeholder-opacity-80 stwui-autocomplete-mobile-input"
 							class:border-danger={error}
 							class:text-danger={error}
 							class:placeholder-red-300={error}
@@ -207,7 +222,9 @@
 							class:pl-3={!$$slots.leading}
 						/>
 					</div>
-					<div class="h-[calc(100%-52px)] overflow-y-auto overflow-x-hidden">
+					<div
+						class="h-[calc(100%-52px)] overflow-y-auto overflow-x-hidden stwui-autocomplete-mobile-options"
+					>
 						<slot name="options" />
 					</div>
 				</Drawer>
@@ -217,6 +234,12 @@
 		{/if}
 	</div>
 	{#if error}
-		<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+		<p
+			transition:slide|local
+			class="mt-2 text-sm text-danger stwui-autocomplete-error"
+			id="{name}-error"
+		>
+			{error}
+		</p>
 	{/if}
 </div>

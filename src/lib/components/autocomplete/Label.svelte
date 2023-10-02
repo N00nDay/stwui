@@ -11,7 +11,7 @@
 	const name: string = getContext('autocomplete-name');
 	const error: Writable<string | undefined> = getContext('autocomplete-error');
 
-	const defaultClass = 'block text-sm font-medium text-secondary-content';
+	const defaultClass = 'block text-sm font-medium text-secondary-content stwui-autocomplete-label';
 	const errorClass = 'text-danger';
 	$: finalClass = twMerge(
 		defaultClass,

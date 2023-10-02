@@ -7,7 +7,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass =
-		'group text-content select-none p-0.5 w-full relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden';
+		'group text-content select-none p-0.5 w-full relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden stwui-autocomplete-empty-option';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

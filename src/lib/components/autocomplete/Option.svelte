@@ -26,7 +26,7 @@
 	}
 
 	const defaultClass =
-		'group text-content cursor-pointer select-none p-0.5 w-full !outline-none !border-none !ring-0';
+		'group text-content cursor-pointer select-none p-0.5 w-full !outline-none !border-none !ring-0 stwui-autocomplete-option';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
