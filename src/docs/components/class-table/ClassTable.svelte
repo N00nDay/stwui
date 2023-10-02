@@ -21,7 +21,6 @@
 	</h1>
 	<Card bordered={false}>
 		<Table class="rounded-md overflow-hidden h-full" {columns}>
-			<Table.Header slot="header" sortable={false} orderBy="id" />
 			<Table.Body slot="body">
 				{#each classList as cl}
 					<Table.Body.Row id={cl.id} class="cursor-default hover:bg-surface">
