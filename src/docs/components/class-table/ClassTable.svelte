@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { TableColumn } from '../../../lib/types/table-column';
 	import { Card, Table, Col } from '../../../lib';
-	import type { Prop } from '../../types/props-table';
+	import type { IClass } from '../../types/class-table';
 
 	export let component: string;
-	export let props: Prop[];
+	export let classList: IClass[];
 
 	const columns: TableColumn[] = [
 		{
@@ -23,9 +23,9 @@
 		<Table class="rounded-md overflow-hidden h-full" {columns}>
 			<Table.Header slot="header" sortable={false} orderBy="id" />
 			<Table.Body slot="body">
-				{#each props as prop}
-					<Table.Body.Row id={prop.id} class="cursor-default hover:bg-surface">
-						<Table.Body.Row.Cell column={0}>{prop.prop}</Table.Body.Row.Cell>
+				{#each classList as cl}
+					<Table.Body.Row id={cl.id} class="cursor-default hover:bg-surface">
+						<Table.Body.Row.Cell column={0}>{cl.class}</Table.Body.Row.Cell>
 					</Table.Body.Row>
 				{/each}
 			</Table.Body>

@@ -1,6 +1,7 @@
 // Components
 import PropsTable from './components/props-table/PropsTable.svelte';
 import SlotsTable from './components/slots-table/SlotsTable.svelte';
+import ClassTable from './components/class-table/ClassTable.svelte';
 import BetaComponent from './components/beta-component/BetaComponent.svelte';
 import UpdatedComponent from './components/updated-component/UpdatedComponent.svelte';
 import InlineCode from './components/inline-code/InlineCode.svelte';
@@ -14,10 +15,12 @@ import WrapContainer from './components/example-container/WrapContainer.svelte';
 // Types
 import type { Prop } from './types/props-table';
 import type { Slot } from './types/slots-table';
+import type { IClass } from './types/class-table';
 
 export {
 	PropsTable,
 	SlotsTable,
+	ClassTable,
 	BetaComponent,
 	UpdatedComponent,
 	InlineCode,
@@ -25,6 +28,7 @@ export {
 	Navigation,
 	Prop,
 	Slot,
+	IClass,
 	Search,
 	Kbd,
 	ExampleContainer,
