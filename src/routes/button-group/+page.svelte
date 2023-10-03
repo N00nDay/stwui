@@ -11,9 +11,10 @@
 		buttonProps,
 		buttonSlots,
 		iconProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { lock, send, home } from '../../docs/icons';
 
 	let activeItem1 = 1;
@@ -161,3 +162,5 @@
 <PropsTable component="ButtonGroup.Button.Icon" props={iconProps} />
 
 <PropsTable component="ButtonGroup.Button.Trailing" props={iconProps} />
+
+<ClassTable component="ButtonGroup" {classList} />

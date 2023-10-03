@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const slots: Slot[] = [
 	{
@@ -136,6 +136,41 @@ export const iconProps: Prop[] = [
 		prop: 'fill',
 		type: 'string',
 		default: 'currentColor'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-button-group'
+	},
+	{
+		id: '2',
+		class: 'stwui-button-group-button'
+	},
+	{
+		id: '3',
+		class: 'stwui-button-group-leading-wrapper'
+	},
+	{
+		id: '4',
+		class: 'stwui-button-group-icon-wrapper'
+	},
+	{
+		id: '5',
+		class: 'stwui-button-group-trailing-wrapper'
+	},
+	{
+		id: '6',
+		class: 'stwui-button-group-loader-wrapper'
+	},
+	{
+		id: '7',
+		class: 'stwui-button-group-hover'
+	},
+	{
+		id: '8',
+		class: 'stwui-button-group-loader'
 	}
 ];
 
