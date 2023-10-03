@@ -12,7 +12,7 @@
 	export let hoverable = false;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
-	const defaultClass = 'bg-surface text-content rounded-md';
+	const defaultClass = 'bg-surface text-content rounded-md stwui-card';
 	$: finalClass = twMerge(
 		defaultClass,
 

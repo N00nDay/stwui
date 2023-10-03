@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getContext } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -10,7 +10,7 @@
 	const divided: boolean = getContext('card-divided');
 
 	const defaultClass =
-		'flex flex-row h-14 justify-evenly divide-x divide-border first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0 bg-surface';
+		'flex flex-row h-14 justify-evenly divide-x divide-border first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0 bg-surface stwui-card-actions';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

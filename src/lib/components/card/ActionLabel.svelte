@@ -6,7 +6,8 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'text-xs text-content group-hover:text-primary';
+	const defaultClass =
+		'text-xs text-content group-hover:text-primary stwui-card-actions-action-label';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

@@ -6,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6';
+	const defaultClass = 'first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 stwui-card-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
