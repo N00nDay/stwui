@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -36,6 +36,21 @@ export const slots: Slot[] = [
 		id: '3',
 		slot: 'close',
 		component: '<Badge.Close slot="close" />'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-badge'
+	},
+	{
+		id: '2',
+		class: 'stwui-badge-close'
+	},
+	{
+		id: '3',
+		class: 'stwui-badge-indicator'
 	}
 ];
 
