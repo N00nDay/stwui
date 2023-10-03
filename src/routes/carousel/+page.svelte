@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Card, Carousel } from '../../lib';
 	import type { CarouselSlide } from '../../lib/types';
-	import { example, props, usage } from './examples';
-	import { PropsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { example, props, usage, classList } from './examples';
+	import { PropsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const slides: CarouselSlide[] = [
 		{
@@ -39,3 +39,5 @@
 </ExampleContainer>
 
 <PropsTable component="Carousel" {props} />
+
+<ClassTable component="Carousel" {classList} />

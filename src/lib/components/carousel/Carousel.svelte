@@ -28,8 +28,10 @@
 	}
 </script>
 
-<div class="relative h-full">
-	<div class="absolute z-10 right-0 bottom-0 left-0 flex gap-2 justify-center p-0 mb-4">
+<div class="relative h-full stwui-carousel-wrapper">
+	<div
+		class="absolute z-10 right-0 bottom-0 left-0 flex gap-2 justify-center p-0 mb-4 stwui-carousel-slide-indicators-wrapper"
+	>
 		<!-- eslint-disable-next-line  @typescript-eslint/no-unused-vars -->
 		{#each slides as _, i}
 			<button
@@ -42,7 +44,7 @@
 			/>
 		{/each}
 	</div>
-	<div class="relative w-full h-full overflow-hidden">
+	<div class="relative w-full h-full overflow-hidden stwui-carousel-slides-wrapper">
 		{#each slides as slide, i}
 			<div
 				class="absolute inset-0 w-full h-full transition-opacity duration-200 flex items-center justify-center"
@@ -61,7 +63,7 @@
 	<button
 		aria-label="previous slide"
 		on:click={handlePrevious}
-		class="group absolute bg-black bg-opacity-5 top-0 bottom-0 flex items-center justify-center px-4 text-center border-0 outline-none hover:outline-none hover:no-underline focus:outline-none focus:no-underline shadow-md left-0"
+		class="stwui-carousel-pervious group absolute bg-black bg-opacity-5 top-0 bottom-0 flex items-center justify-center px-4 text-center border-0 outline-none hover:outline-none hover:no-underline focus:outline-none focus:no-underline shadow-md left-0"
 		type="button"
 	>
 		<div
@@ -74,7 +76,7 @@
 	<button
 		aria-label="next slide"
 		on:click={handleNext}
-		class="group absolute bg-black bg-opacity-5 top-0 bottom-0 flex items-center justify-center px-4 text-center border-0 outline-none hover:outline-none hover:no-underline focus:outline-none focus:no-underline shadow-md right-0"
+		class="stwui-carousel-next group absolute bg-black bg-opacity-5 top-0 bottom-0 flex items-center justify-center px-4 text-center border-0 outline-none hover:outline-none hover:no-underline focus:outline-none focus:no-underline shadow-md right-0"
 		type="button"
 	>
 		<div
