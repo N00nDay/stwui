@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getContext } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -14,7 +14,8 @@
 
 	// TODO: add status prop to change color
 
-	const defaultClass = 'absolute block rounded-full ring-2 ring-surface bg-primary';
+	const defaultClass =
+		'absolute block rounded-full ring-2 ring-surface bg-primary stwui-avatar-indicator';
 	const topRightClass = 'top-0 right-0';
 	const topLeftClass = 'top-0 left-0';
 	const bottomLeftClass = 'bottom-0 left-0';

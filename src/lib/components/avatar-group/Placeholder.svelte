@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { getContext } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon/Icon.svelte';
 	import { account } from '../../icons';
@@ -17,11 +17,12 @@
 	const placeholder: boolean = getContext('avatar-group-placeholder');
 
 	const defaultClass =
-		'absolute text-content inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default';
+		'absolute text-content inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default stwui-avatar-group-avatar-placeholder';
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';
 
-	const defaultIconContainerClass = 'absolute text-content h-full w-full';
+	const defaultIconContainerClass =
+		'absolute text-content h-full w-full stwui-avatar-group-avatar-placeholder-icon';
 	const xsContainerClass = 'bottom-[-0.25rem]';
 	const smContainerClass = 'bottom-[-0.35rem]';
 	const mdContainerClass = 'bottom-[-0.5rem]';

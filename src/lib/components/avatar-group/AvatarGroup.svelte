@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext } from 'svelte/internal';
+	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -11,6 +11,7 @@
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 	export let placeholder = true;
 
+	const defaultClass = 'stwui-avatar-group';
 	const xsClass = 'flex overflow-hidden p-0.5 -space-x-1';
 	const smClass = 'flex overflow-hidden p-0.5 -space-x-2';
 	const mdClass = 'flex overflow-hidden p-0.5 -space-x-2';
@@ -18,6 +19,8 @@
 	const xlClass = 'flex overflow-hidden p-0.5 -space-x-3';
 
 	$: finalClass = twMerge(
+		defaultClass,
+
 		size === 'xs' ? xsClass : false,
 		size === 'sm' ? smClass : false,
 		size === 'md' ? mdClass : false,

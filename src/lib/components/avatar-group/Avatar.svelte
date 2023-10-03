@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getContext, onMount } from 'svelte/internal';
+	import { getContext, onMount } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import Placeholder from './Placeholder.svelte';
 	import { get_current_component } from 'svelte/internal';
@@ -19,10 +19,11 @@
 	const shape: 'circle' | 'rounded' | 'square' = getContext('avatar-group-shape');
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('avatar-group-size');
 
-	const srcClass = 'inline-block absolute ring-2 ring-surface';
-	const srcContainerClass = 'inline-block relative align-middle';
+	const srcClass = 'inline-block absolute ring-2 ring-surface stwui-avatar-group-avatar';
+	const srcContainerClass =
+		'inline-block relative align-middle stwui-avatar-group-avatar-container';
 	const initialClass =
-		'inline-flex items-center justify-center align-middle bg-default text-content ring-2 ring-surface';
+		'inline-flex items-center justify-center align-middle bg-default text-content ring-2 ring-surface stwui-avatar-group-avatar';
 	const xsClass = 'h-6 w-6';
 	const smClass = 'h-8 w-8';
 	const mdClass = 'h-10 w-10';
