@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -110,6 +110,33 @@ export const groupAvatarProps: Prop[] = [
 		prop: 'initials',
 		type: 'string',
 		default: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-avatar-group'
+	},
+	{
+		id: '2',
+		class: 'stwui-avatar-group-avatar'
+	},
+	{
+		id: '3',
+		class: 'stwui-avatar-group-avatar-container'
+	},
+	{
+		id: '4',
+		class: 'stwui-avatar-group-avatar-indicator'
+	},
+	{
+		id: '5',
+		class: 'stwui-avatar-group-avatar-placeholder'
+	},
+	{
+		id: '6',
+		class: 'stwui-avatar-group-avatar-placeholder-icon'
 	}
 ];
 

@@ -11,9 +11,10 @@
 		groupProps,
 		groupSlots,
 		groupAvatarProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const avatars = [
 		'https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
@@ -200,3 +201,5 @@
 <SlotsTable component="AvatarGroup.Avatar.Placeholder" slots={placeholderSlots} />
 
 <PropsTable component="AvatarGroup.Avatar.Indicator" props={indicatorProps} />
+
+<ClassTable component="AvatarGroup" {classList} />
