@@ -4,7 +4,7 @@
 
 	const name: string = getContext('checkbox-name');
 
-	const defaultClass = 'font-medium text-content cursor-pointer';
+	const defaultClass = 'font-medium text-content cursor-pointer stwui-checkbox-label';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

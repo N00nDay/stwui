@@ -10,7 +10,7 @@
 	const inline: boolean = getContext('checkbox-inline');
 	const name: string = getContext('checkbox-name');
 
-	const defaultClass = 'text-secondary-content';
+	const defaultClass = 'text-secondary-content text-left stwui-checkbox-description';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

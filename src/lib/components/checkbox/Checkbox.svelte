@@ -21,7 +21,7 @@
 	}
 
 	const defaultClass =
-		'checkbox checked:bg-primary indeterminate:bg-primary hover:border-primary bg-surface h-6 w-6 text-primary border-border disabled:hover:border-border rounded-md cursor-pointer disabled:checked:bg-default';
+		'stwui-checkbox checkbox checked:bg-primary indeterminate:bg-primary hover:border-primary bg-surface h-6 w-6 text-primary border-border disabled:hover:border-border rounded-md cursor-pointer disabled:checked:bg-default';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('checkbox-name', name);
@@ -31,7 +31,7 @@
 	tabindex="-1"
 	type="button"
 	on:keydown={handleKeydown}
-	class="relative flex items-start"
+	class="relative flex items-start stwui-checkbox-wrapper"
 	class:pointer-events-none={disabled}
 	class:opacity-75={disabled}
 >
@@ -55,7 +55,13 @@
 	</div>
 </button>
 {#if error}
-	<p transition:slide|local class="!mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+	<p
+		transition:slide|local
+		class="!mt-2 text-sm text-danger stwui-checkbox-error"
+		id="{name}-error"
+	>
+		{error}
+	</p>
 {/if}
 
 <style>
