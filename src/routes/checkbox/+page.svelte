@@ -14,9 +14,10 @@
 		disabledExample,
 		defaultCheckedExample,
 		errorExample,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	let checked = false;
 	let error: string | undefined = 'Here is an error!';
@@ -169,3 +170,5 @@
 <SlotsTable component="CheckboxGroup.Checkbox.Label" slots={labelSlots} />
 
 <SlotsTable component="CheckboxGroup.Checkbox.Description" slots={descriptionSlots} />
+
+<ClassTable component="CheckboxGroup" {classList} />
