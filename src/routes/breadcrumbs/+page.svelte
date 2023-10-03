@@ -10,9 +10,10 @@
 		crumbSlots,
 		iconProps,
 		labelSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home } from '../../docs/icons';
 
 	interface Crumb {
@@ -121,3 +122,5 @@
 <PropsTable component="Breadcrumbs.Crumb.Icon" props={iconProps} />
 
 <SlotsTable component="Breadcrumbs.Crumb.Label" slots={labelSlots} />
+
+<ClassTable component="Breadcrumbs" {classList} />
