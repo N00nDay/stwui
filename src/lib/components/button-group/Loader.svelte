@@ -6,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'button-loader';
+	const defaultClass = 'button-loader stwui-button-group-loader';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

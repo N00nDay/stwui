@@ -22,7 +22,7 @@
 	const iconSize = '20px';
 
 	const defaultClass =
-		'btn-group group overflow-hidden relative inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md';
+		'btn-group group overflow-hidden relative inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-content focus:z-10 outline-none focus:outline-none first-of-type:rounded-l-md last-of-type:rounded-r-md stwui-button-group-button';
 	const disabledClass = 'opacity-70 bg-default hover:bg-default';
 
 	$: finalClass = twMerge(
@@ -54,51 +54,72 @@
 >
 	{#if defaultLoading}
 		{#if $$slots.leading && $$slots.icon}
-			<div class="flex justify-center items-center relative mr-1" style="width: {iconSize};">
+			<div
+				class="flex justify-center items-center relative mr-1 stwui-button-group-leading-wrapper"
+				style="width: {iconSize};"
+			>
 				<Swap {loading} style="width: {iconSize};">
 					<slot name="leading" slot="on" size={iconSize} />
 					<ButtonLoader slot="off" />
 				</Swap>
 			</div>
-			<div class="flex justify-center items-center relative">
+			<div class="flex justify-center items-center relative stwui-button-group-icon-wrapper">
 				<Swap {loading}>
 					<slot name="icon" slot="on" />
 					<ButtonLoader slot="off" />
 				</Swap>
 			</div>
 		{:else if $$slots.leading}
-			<div class="flex justify-center items-center relative mr-1" style="width: {iconSize};">
+			<div
+				class="flex justify-center items-center relative mr-1 stwui-button-group-leading-wrapper"
+				style="width: {iconSize};"
+			>
 				<Swap {loading} style="width: {iconSize};">
 					<slot name="leading" slot="on" size={iconSize} />
 					<ButtonLoader slot="off" />
 				</Swap>
 			</div>
 		{:else if $$slots.icon}
-			<div class="flex justify-center items-center relative" style="width: {iconSize};">
+			<div
+				class="flex justify-center items-center relative stwui-button-group-icon-wrapper"
+				style="width: {iconSize};"
+			>
 				<Swap {loading} style="width: {iconSize};">
 					<slot name="icon" slot="on" size={iconSize} />
 					<ButtonLoader slot="off" />
 				</Swap>
 			</div>
 		{:else if loading}
-			<div transition:scale|local class="flex justify-center items-center relative mr-1">
+			<div
+				transition:scale|local
+				class="flex justify-center items-center relative mr-1 stwui-button-group-loader-wrapper"
+			>
 				<ButtonLoader />
 			</div>
 		{/if}
 		<slot />
 		{#if $$slots.trailing}
-			<div class="flex justify-center items-center relative ml-1" style="width: {iconSize};">
+			<div
+				class="flex justify-center items-center relative ml-1 stwui-button-group-trailing-wrapper"
+				style="width: {iconSize};"
+			>
 				<slot name="trailing" size={iconSize} />
 			</div>
 		{/if}
 	{:else}
 		{#if $$slots.leading}
-			<div class="flex justify-center items-center relative mr-1" style="width: {iconSize};">
+			<div
+				class="flex justify-center items-center relative mr-1 stwui-button-group-leading-wrapper"
+				style="width: {iconSize};"
+			>
 				<slot name="leading" size={iconSize} />
 			</div>
 		{/if}
 		{#if $$slots.icon}
-			<div class="flex justify-center items-center relative" style="width: {iconSize};">
+			<div
+				class="flex justify-center items-center relative stwui-button-group-icon-wrapper"
+				style="width: {iconSize};"
+			>
 				<Swap {loading} style="width: {iconSize};">
 					<slot name="icon" slot="on" size={iconSize} />
 					<ButtonLoader slot="off" />
@@ -107,7 +128,10 @@
 		{/if}
 		<slot />
 		{#if $$slots.trailing}
-			<div class="flex justify-center items-center relative ml-1" style="width: {iconSize};">
+			<div
+				class="flex justify-center items-center relative ml-1 stwui-button-group-trailing-wrapper"
+				style="width: {iconSize};"
+			>
 				<slot name="trailing" size={iconSize} />
 			</div>
 		{/if}
@@ -115,7 +139,7 @@
 
 	{#if !disabled}
 		<HoverBackground
-			class="group-active:h-full group-active:w-full group-focus:h-full group-focus:w-full"
+			class="group-active:h-full group-active:w-full group-focus:h-full group-focus:w-full stwui-button-group-hover"
 		/>
 	{/if}
 </button>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getContext } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -49,5 +49,6 @@
 		'color'
 	])}
 >
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html elements}
 </svg>
