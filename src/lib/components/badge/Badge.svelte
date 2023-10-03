@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { setContext } from 'svelte/internal';
+	import { setContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -12,7 +12,7 @@
 	export let shape: 'default' | 'rounded' | 'square' = 'default';
 
 	const defaultClass =
-		'inline-flex items-center py-0.5 font-medium text-default-content bg-default';
+		'inline-flex items-center py-0.5 font-medium text-default-content bg-default stwui-badge';
 	const infoClass = 'bg-info text-info-content';
 	const successClass = 'bg-success text-success-content';
 	const warnClass = 'bg-warn text-warn-content';

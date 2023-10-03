@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { getContext } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -10,7 +10,7 @@
 	const type: 'info' | 'success' | 'warn' | 'error' | undefined = getContext('badge-type');
 
 	const defaultClass =
-		'ml-1.5 flex-shrink-0 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:bg-default text-default-content hover:bg-background hover:bg-opacity-50 hover:text-content';
+		'ml-1.5 flex-shrink-0 h-4 w-4 rounded-full inline-flex items-center justify-center focus:outline-none hover:bg-default text-default-content hover:bg-background hover:bg-opacity-50 hover:text-content stwui-badge-close';
 	const infoClass = ' text-info-content';
 	const successClass = ' text-success-content';
 	const warnClass = ' text-warn-content';
