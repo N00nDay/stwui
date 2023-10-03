@@ -18,9 +18,10 @@
 		actionSlots,
 		labelSlots,
 		iconProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { cog, plus_circle } from '../../docs/icons';
 </script>
 
@@ -185,3 +186,5 @@
 <PropsTable component="Card.Actions.Action.Icon" props={iconProps} />
 
 <SlotsTable component="Card.Actions.Action.Label" slots={labelSlots} />
+
+<ClassTable component="Card" {classList} />

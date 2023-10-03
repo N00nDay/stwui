@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -179,6 +179,45 @@ export const iconProps: Prop[] = [
 		prop: 'fill',
 		type: 'string',
 		default: 'currentColor'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-card'
+	},
+	{
+		id: '2',
+		class: 'stwui-card-content'
+	},
+	{
+		id: '3',
+		class: 'stwui-card-cover'
+	},
+	{
+		id: '4',
+		class: 'stwui-card-actions'
+	},
+	{
+		id: '5',
+		class: 'stwui-card-actions-action'
+	},
+	{
+		id: '6',
+		class: 'stwui-card-actions-action-label'
+	},
+	{
+		id: '7',
+		class: 'stwui-card-footer'
+	},
+	{
+		id: '8',
+		class: 'stwui-card-header'
+	},
+	{
+		id: '9',
+		class: 'stwui-card-cover-overlay'
 	}
 ];
 
