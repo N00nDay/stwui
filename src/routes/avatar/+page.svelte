@@ -10,9 +10,10 @@
 		indicatorExample,
 		sizeExample,
 		shapeExample,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 </script>
 
 <h4 class="text-content pb-2">Usage</h4>
@@ -179,3 +180,5 @@
 <SlotsTable component="Avatar.Placeholder" slots={placeholderSlots} />
 
 <PropsTable component="Avatar.Indicator" props={indicatorProps} />
+
+<ClassTable component="Avatar" {classList} />

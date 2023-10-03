@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -66,6 +66,29 @@ export const indicatorProps: Prop[] = [
 		prop: 'placement',
 		type: "'top-right' | 'bottom-right' | 'top-left' | 'bottom-left'",
 		default: 'top-right'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-avatar'
+	},
+	{
+		id: '2',
+		class: 'stwui-avatar-container'
+	},
+	{
+		id: '3',
+		class: 'stwui-avatar-indicator'
+	},
+	{
+		id: '4',
+		class: 'stwui-avatar-placeholder'
+	},
+	{
+		id: '5',
+		class: 'stwui-avatar-placeholder-icon'
 	}
 ];
 
