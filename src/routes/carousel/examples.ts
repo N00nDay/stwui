@@ -1,4 +1,4 @@
-import type { Prop } from '../../docs';
+import type { IClass, Prop } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -18,6 +18,29 @@ export const props: Prop[] = [
 		prop: 'rotation',
 		type: 'number',
 		default: '0'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-carousel-wrapper'
+	},
+	{
+		id: '2',
+		class: 'stwui-carousel-slide-indicators-wrapper'
+	},
+	{
+		id: '3',
+		class: 'stwui-carousel-slides-wrapper'
+	},
+	{
+		id: '4',
+		class: 'stwui-carousel-previous'
+	},
+	{
+		id: '5',
+		class: 'stwui-carousel-next'
 	}
 ];
 
