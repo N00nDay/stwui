@@ -1,5 +1,5 @@
 export const defaultClass =
-	'btn group relative inline-flex justify-center items-center font-medium active:hover:animate-none active:hover:scale-95 outline-none';
+	'btn group relative inline-flex justify-center items-center font-medium active:hover:animate-none active:hover:scale-95 outline-none stwui-button';
 
 export const xs = 'px-2.5 py-1.5 text-xs';
 export const sm = 'px-3 py-[0.45rem] text-sm';

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { getContext } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -9,10 +9,13 @@
 
 	const type: 'solid' | 'ghost' = getContext('breadcrumbs-type');
 
+	const defaultClass = 'stwui-breadcrumbs-crumb-divider';
 	const ghostClass = 'divider flex-shrink-0 h-5 w-5 fill-border';
 	const solidClass = 'divider flex-shrink-0 w-6 h-full fill-border';
 
 	$: finalClass = twMerge(
+		defaultClass,
+
 		type === 'ghost' ? ghostClass : false,
 		type === 'solid' ? solidClass : false,
 

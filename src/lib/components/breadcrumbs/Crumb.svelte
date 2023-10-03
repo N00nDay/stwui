@@ -13,7 +13,7 @@
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
-<li class="crumb">
+<li class="stwui-breadcrumbs-crumb">
 	<div
 		class={finalClass}
 		use:useActions={use}

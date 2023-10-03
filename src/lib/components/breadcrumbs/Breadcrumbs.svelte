@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext } from 'svelte/internal';
+	import { setContext } from 'svelte';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
@@ -9,7 +9,7 @@
 
 	export let type: 'solid' | 'ghost' = 'ghost';
 
-	const defaultClass = 'breadcrumbs flex items-center space-x-4';
+	const defaultClass = 'flex items-center space-x-4 stwui-breadcrumbs';
 	const solidClass = 'border border-border bg-surface rounded-md px-6';
 	$: finalClass = twMerge(
 		defaultClass,
@@ -34,7 +34,7 @@
 </nav>
 
 <style global>
-	.breadcrumbs .crumb:first-of-type .divider {
+	:global(.stwui-breadcrumbs .stwui-breadcrumbs-crumb:first-of-type .divider) {
 		display: none;
 	}
 </style>

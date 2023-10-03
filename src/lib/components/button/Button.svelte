@@ -97,6 +97,8 @@
 	);
 
 	$: hoverClass = twMerge(
+		'stwui-button-hover',
+
 		shape === 'circle' ? 'rounded-full' : false,
 		shape === 'rounded' ? 'rounded-md' : false,
 		shape === 'pill' ? 'rounded-3xl' : false,
@@ -120,7 +122,7 @@
 	{#if defaultLoading}
 		{#if $$slots.leading && $$slots.icon}
 			<div
-				class="flex justify-center items-center relative"
+				class="flex justify-center items-center relative stwui-button-leading-wrapper"
 				class:mr-1={size === 'xs' || size === 'sm'}
 				class:mr-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 				style="width: {iconSize};"
@@ -130,7 +132,7 @@
 					<ButtonLoader slot="off" />
 				</Swap>
 			</div>
-			<div class="flex justify-center items-center relative">
+			<div class="flex justify-center items-center relative stwui-button-icon-wrapper">
 				<Swap {loading}>
 					<slot name="icon" slot="on" />
 					<ButtonLoader slot="off" />
@@ -138,7 +140,7 @@
 			</div>
 		{:else if $$slots.leading}
 			<div
-				class="flex justify-center items-center relative"
+				class="flex justify-center items-center relative stwui-button-leading-wrapper"
 				class:mr-1={size === 'xs' || size === 'sm'}
 				class:mr-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 				style="width: {iconSize};"
@@ -149,7 +151,10 @@
 				</Swap>
 			</div>
 		{:else if $$slots.icon}
-			<div class="flex justify-center items-center relative" style="width: {iconSize};">
+			<div
+				class="flex justify-center items-center relative stwui-button-icon-wrapper"
+				style="width: {iconSize};"
+			>
 				<Swap {loading} style="width: {iconSize};">
 					<slot name="icon" slot="on" size={iconSize} />
 					<ButtonLoader slot="off" />
@@ -158,7 +163,7 @@
 		{:else if loading}
 			<div
 				transition:scale|local
-				class="flex justify-center items-center relative"
+				class="flex justify-center items-center relative stwui-button-loading-wrapper"
 				class:mr-1={size === 'xs' || size === 'sm'}
 				class:mr-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 			>
@@ -168,7 +173,7 @@
 		<slot />
 		{#if $$slots.trailing}
 			<div
-				class="flex justify-center items-center relative"
+				class="flex justify-center items-center relative stwui-button-trailing-wrapper"
 				class:ml-1={size === 'xs' || size === 'sm'}
 				class:ml-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 				style="width: {iconSize};"
@@ -179,7 +184,7 @@
 	{:else}
 		{#if $$slots.leading}
 			<div
-				class="flex justify-center items-center relative"
+				class="flex justify-center items-center relative stwui-button-leading-wrapper"
 				class:mr-1={size === 'xs' || size === 'sm'}
 				class:mr-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 				style="width: {iconSize};"
@@ -188,7 +193,10 @@
 			</div>
 		{/if}
 		{#if $$slots.icon}
-			<div class="flex justify-center items-center relative" style="width: {iconSize};">
+			<div
+				class="flex justify-center items-center relative stwui-button-icon-wrapper"
+				style="width: {iconSize};"
+			>
 				<Swap {loading} style="width: {iconSize};">
 					<slot name="icon" slot="on" size={iconSize} />
 					<ButtonLoader slot="off" />
@@ -198,7 +206,7 @@
 		<slot />
 		{#if $$slots.trailing}
 			<div
-				class="flex justify-center items-center relative"
+				class="flex justify-center items-center relative stwui-button-trailing-wrapper"
 				class:ml-1={size === 'xs' || size === 'sm'}
 				class:ml-2={size === 'md' || size === 'lg' || size === 'xl' || size === 'fab'}
 				style="width: {iconSize};"

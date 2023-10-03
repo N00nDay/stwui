@@ -11,9 +11,10 @@
 		props,
 		slots,
 		iconProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home } from '../../docs/icons';
 	import { menu, close } from '../../lib/icons';
 
@@ -392,3 +393,5 @@
 <PropsTable component="Button.Icon" props={iconProps} />
 
 <PropsTable component="Button.Trailing" props={iconProps} />
+
+<ClassTable component="Button" {classList} />
