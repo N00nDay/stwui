@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { getContext } from 'svelte/internal';
 	import Icon from '../icon/Icon.svelte';
 	import { account } from '../../icons';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	import { getContext } from 'svelte';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	import { twMerge } from 'tailwind-merge';
@@ -17,11 +17,12 @@
 	const placeholder: boolean = getContext('avatar-placeholder');
 
 	const defaultClass =
-		'absolute text-contentt inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default';
+		'absolute text-contentt inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default stwui-avatar-placeholder';
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';
 
-	const defaultIconContainerClass = 'absolute text-contentt h-full w-full';
+	const defaultIconContainerClass =
+		'absolute text-contentt h-full w-full stwui-avatar-placeholder-icon';
 	const xsContainerClass = 'bottom-[-0.25rem]';
 	const smContainerClass = 'bottom-[-0.35rem]';
 	const mdContainerClass = 'bottom-[-0.5rem]';
