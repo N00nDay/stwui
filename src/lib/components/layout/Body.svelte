@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { twMerge } from 'tailwind-merge';
-	import { getContext } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { get_current_component } from 'svelte/internal';
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
@@ -10,7 +10,7 @@
 
 	const collapsed: Writable<boolean> = getContext('layout-collapsed');
 
-	const defaultClass = 'w-full h-full';
+	const defaultClass = 'w-full h-full stwui-layout-body';
 	const collapsedClass = 'lg:pl-0';
 
 	$: finalClass = twMerge(

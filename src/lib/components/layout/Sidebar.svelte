@@ -12,7 +12,7 @@
 	const collapsedWidth: Writable<string> = getContext('collapsedWidth');
 	const expandedWidth: Writable<string> = getContext('expandedWidth');
 
-	const defaultClass = 'hidden h-full lg:flex lg:flex-shrink-0 relative';
+	const defaultClass = 'hidden h-full lg:flex lg:flex-shrink-0 relative stwui-layout-sidebar';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

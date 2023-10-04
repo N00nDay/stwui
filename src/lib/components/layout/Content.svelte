@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext } from 'svelte/internal';
+	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import { writable } from 'svelte/store';
 	import { get_current_component } from 'svelte/internal';
@@ -20,7 +20,7 @@
 	$: cWidth.set(collapsedWidth);
 	$: eWidth.set(expandedWidth);
 
-	const defaultClass = 'flex flex-row w-full h-full items-start justify-start';
+	const defaultClass = 'flex flex-row w-full h-full items-start justify-start stwui-layout-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('layout-collapsed', sidebarCollapsed);

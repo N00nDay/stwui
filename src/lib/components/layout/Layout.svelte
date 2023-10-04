@@ -18,7 +18,7 @@
 		}
 	}
 
-	const defaultClass = 'w-full h-full flex flex-col';
+	const defaultClass = 'w-full h-full flex flex-col stwui-layout';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('sideBarWidth', sideBarWidth);
