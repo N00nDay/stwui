@@ -12,9 +12,10 @@
 		slots,
 		labelSlots,
 		iconProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email, phone, lock } from '../../docs/icons';
 
 	let value: string | undefined;
@@ -132,3 +133,5 @@
 <PropsTable component="Input.Leading" props={iconProps} />
 
 <PropsTable component="Input.Trailing" props={iconProps} />
+
+<ClassTable component="Input" {classList} />
