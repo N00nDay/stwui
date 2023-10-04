@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import { setContext, onMount } from 'svelte/internal';
+	import { setContext, onMount } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import Placeholder from './Placeholder.svelte';
 	import { get_current_component } from 'svelte/internal';
@@ -22,10 +22,11 @@
 	let failed = false;
 	let loading = true;
 
-	const srcClass = 'inline-block absolute';
-	const srcContainerClass = 'inline-block h-8 w-8 relative align-middle';
+	const srcClass = 'inline-block absolute stwui-feed-item-leading-avatar';
+	const srcContainerClass =
+		'inline-block h-8 w-8 relative align-middle stwui-feed-item-leading-avatar-wrapper';
 	const initialsClass =
-		'inline-flex h-8 w-8 items-center justify-center align-middle bg-default text-default-content';
+		'inline-flex h-8 w-8 items-center justify-center align-middle bg-default text-default-content stwui-feed-item-leading-avatar';
 
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';

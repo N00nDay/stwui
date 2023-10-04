@@ -6,7 +6,8 @@
 	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'connector absolute top-4 left-4 -ml-px h-full w-0.5 bg-border';
+	const defaultClass =
+		'connector absolute top-4 left-4 -ml-px h-full w-0.5 bg-border stwui-feed-item-connector';
 	$: finalClass = twMerge(defaultClass, $$props.cass);
 </script>
 

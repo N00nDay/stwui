@@ -2,7 +2,7 @@
 	import { twMerge } from 'tailwind-merge';
 	import Connector from './Connector.svelte';
 
-	const defaultClass = 'relative pb-8';
+	const defaultClass = 'relative pb-8 stwui-feed-item';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

@@ -6,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'feed -mb-8';
+	const defaultClass = 'feed -mb-8 stwui-feed';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -22,7 +22,7 @@
 </div>
 
 <style global>
-	.feed .item:last-child .connector {
+	:global(.feed .item:last-child .connector) {
 		display: none;
 	}
 </style>
