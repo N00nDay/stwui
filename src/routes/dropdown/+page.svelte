@@ -11,9 +11,10 @@
 		itemSlots,
 		itemProps,
 		iconProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home, trash } from '../../docs/icons';
 
 	let visible1 = false;
@@ -235,3 +236,5 @@
 <SlotsTable component="Dropdown.Items.Item" slots={itemSlots} />
 
 <PropsTable component="Dropdown.Items.Item.Icon" props={iconProps} />
+
+<ClassTable component="Dropdown" {classList} />
