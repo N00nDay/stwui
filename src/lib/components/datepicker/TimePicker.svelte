@@ -206,7 +206,7 @@
 </script>
 
 <div
-	class="flex flex-row justify-evenly divide-x divide-border"
+	class="flex flex-row justify-evenly divide-x divide-border stwui-datepicker-timepicker-wrapper"
 	class:divide-x={!mobile}
 	class:divide-border={!mobile}
 	class:items-stretch={!mobile}

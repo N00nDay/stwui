@@ -301,7 +301,7 @@
 				size="xs"
 				shape="circle"
 				tabindex="-1"
-				class="mr-1 bg-default text-default-content border-none outline-none"
+				class="mr-1 bg-default text-default-content border-none outline-none stwui-datepicker-previous-year"
 				on:click={() => handleArrow('year', 'subtract')}
 			>
 				<!-- <Button.Icon slot="icon" data={chevron_double_left} /> -->
@@ -322,7 +322,7 @@
 				size="xs"
 				shape="circle"
 				tabindex="-1"
-				class="bg-default text-default-content border-none outline-none"
+				class="bg-default text-default-content border-none outline-none stwui-datepicker-previous-month"
 				on:click={() => handleArrow('month', 'subtract')}
 			>
 				<!-- <Button.Icon slot="icon" data={chevron_left} /> -->
@@ -335,7 +335,9 @@
 					<path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
 				</svg>
 			</Button>
-			<div class="flex-grow px-2 text-center font-medium relative overflow-hidden h-full">
+			<div
+				class="flex-grow px-2 text-center font-medium relative overflow-hidden h-full stwui-datepicker-current-month-wrapper"
+			>
 				<!-- {#key calendarDays} -->
 				<div class="absolute inset-0 flex items-center justify-center text-content">
 					{iLocale.months[browseDate.month()]}
@@ -349,7 +351,7 @@
 				size="xs"
 				shape="circle"
 				tabindex="-1"
-				class="bg-default text-default-content border-none outline-none"
+				class="bg-default text-default-content border-none outline-none stwui-datepicker-next-month"
 				on:click={() => handleArrow('month', 'add')}
 			>
 				<!-- <Button.Icon slot="icon" data={chevron_right} /> -->
@@ -368,7 +370,7 @@
 				size="xs"
 				shape="circle"
 				tabindex="-1"
-				class="ml-1 bg-default text-default-content border-none outline-none"
+				class="ml-1 bg-default text-default-content border-none outline-none stwui-datepicker-next-year"
 				on:click={() => handleArrow('year', 'add')}
 			>
 				<!-- <Button.Icon slot="icon" data={chevron_double_right} /> -->
@@ -496,7 +498,7 @@
 		{/if}
 		{#if actions.length > 0}
 			<div
-				class="px-3 pt-3 pb-3 gap-3 flex items-center justify-start w-full border-t border-border overflow-x-auto overflow-y-hidden"
+				class="px-3 pt-3 pb-3 gap-3 flex items-center justify-start w-full border-t border-border overflow-x-auto overflow-y-hidden stwui-datepicker-actions-wrapper"
 			>
 				{#each actions as action}
 					<Button
@@ -511,7 +513,9 @@
 			</div>
 		{/if}
 		{#if showTime || !closeOnSelect}
-			<div class="p-3 gap-3 flex items-center justify-evenly w-full border-t border-border">
+			<div
+				class="p-3 gap-3 flex items-center justify-evenly w-full border-t border-border stwui-datepicker-apply-clear-wrapper"
+			>
 				<Button
 					htmlType="button"
 					class="w-full bg-default text-default-content"

@@ -11,7 +11,7 @@
 	const name: string = getContext('datepicker-name');
 	const error: Writable<string | undefined> = getContext('datepicker-error');
 
-	const defaultClass = 'block text-sm font-medium text-secondary-content';
+	const defaultClass = 'block text-sm font-medium text-secondary-content stwui-datepicker-label';
 	const errorClass = 'text-danger';
 
 	$: finalClass = twMerge(

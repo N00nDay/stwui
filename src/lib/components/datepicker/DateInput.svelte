@@ -15,6 +15,7 @@
 	import Portal from '../portal/Portal.svelte';
 	import Drawer from '../drawer/Drawer.svelte';
 	import { onMount } from 'svelte';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let input: HTMLInputElement;
@@ -123,6 +124,12 @@
 	setContext('datepicker-name', name);
 	setContext('datepicker-error', currentError);
 
+	const finalClass = twMerge(
+		'stwui-datepicker-wrapper',
+
+		$$props.class
+	);
+
 	onMount(() => {
 		valueDayJS = value === null ? null : dayjs(value);
 		text = valueDayJS?.format(format);
@@ -133,12 +140,12 @@
 </script>
 
 {#if !mobile}
-	<div class={$$props.class} style={$$props.style}>
+	<div class={finalClass} style={$$props.style}>
 		<slot name="label" />
 		<Dropdown {handleClose} on:focusout={onFocusOut} on:keydown={keydown} {visible} class="w-full">
 			<svelte:fragment slot="trigger">
 				<div
-					class="mt-1 relative rounded-md h-[2.5rem]"
+					class="mt-1 relative rounded-md h-[2.5rem] stwui-datepicker-trigger"
 					class:opacity-75={disabled}
 					class:text-danger={error}
 				>
@@ -171,7 +178,7 @@
 						on:focus={handleOpen}
 						on:mousedown={handleOpen}
 						on:keydown={keydown}
-						class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80"
+						class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80 stwui-datepicker-input"
 						class:border-border={!error}
 						class:border-danger={error}
 						class:text-danger={error}
@@ -192,7 +199,7 @@
 							type="button"
 							aria-label="clear"
 							on:click={handleClear}
-							class="absolute inset-y-0 group-focus-within:flex active:flex items-center"
+							class="absolute inset-y-0 group-focus-within:flex active:flex items-center stwui-datepicker-clear-wrapper"
 							class:right-10={$$slots.trailing || error}
 							class:right-3={!$$slots.trailing && !error}
 						>
@@ -204,7 +211,7 @@
 
 					{#if $$slots.leading}
 						<span
-							class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+							class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none stwui-datepicker-leading-wrapper"
 							class:text-danger={error}
 						>
 							<slot name="leading" />
@@ -212,23 +219,33 @@
 					{/if}
 
 					{#if $$slots.trailing && !error}
-						<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+						<span
+							class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none stwui-datepicker-trailing-wrapper"
+						>
 							<slot name="trailing" />
 						</span>
 					{:else if error}
-						<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+						<span
+							class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none stwui-datepicker-error-icon"
+						>
 							<Icon data={errorIcon} />
 						</span>
 					{/if}
 				</div>
 				{#if error}
-					<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+					<p
+						transition:slide|local
+						class="mt-2 text-sm text-danger stwui-datepicker-error"
+						id="{name}-error"
+					>
+						{error}
+					</p>
 				{/if}
 			</svelte:fragment>
 			<div
 				slot="items"
 				use:floatingUI={{ placement: 'bottom-start', offset: 8 }}
-				class="z-10 absolute inline-block"
+				class="z-10 absolute inline-block stwui-datepicker-calendar-wrapper"
 				class:-mt-7={error}
 				in:scale={{ start: 0.9, duration: 100, delay: 150 }}
 				out:scale={{ start: 0.95, duration: 75 }}
@@ -290,7 +307,7 @@
 				on:focus={handleOpen}
 				on:mousedown={handleOpen}
 				on:keydown={keydown}
-				class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80"
+				class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80 stwui-datepicker-input"
 				class:border-border={!error}
 				class:border-danger={error}
 				class:text-danger={error}
@@ -311,7 +328,7 @@
 					type="button"
 					aria-label="clear"
 					on:click={handleClear}
-					class="absolute inset-y-0 group-focus-within:flex active:flex items-center"
+					class="absolute inset-y-0 group-focus-within:flex active:flex items-center stwui-datepicker-clear-wrapper"
 					class:right-10={$$slots.trailing || error}
 					class:right-3={!$$slots.trailing && !error}
 				>
@@ -323,7 +340,7 @@
 
 			{#if $$slots.leading}
 				<span
-					class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+					class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none stwui-datepicker-leading-wrapper"
 					class:text-danger={error}
 				>
 					<slot name="leading" />
@@ -331,17 +348,27 @@
 			{/if}
 
 			{#if $$slots.trailing && !error}
-				<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+				<span
+					class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none stwui-datepicker-trailing-wrapper"
+				>
 					<slot name="trailing" />
 				</span>
 			{:else if error}
-				<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+				<span
+					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none stwui-datepicker-error-icon"
+				>
 					<Icon data={errorIcon} />
 				</span>
 			{/if}
 		</div>
 		{#if error}
-			<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+			<p
+				transition:slide|local
+				class="mt-2 text-sm text-danger stwui-datepicker-error"
+				id="{name}-error"
+			>
+				{error}
+			</p>
 		{/if}
 		<!-- </svelte:fragment> -->
 		<!-- <div
