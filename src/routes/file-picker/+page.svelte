@@ -16,9 +16,10 @@
 		descriptionSlots,
 		actionSlots,
 		dividerLabelSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { cloud_upload, file_document } from '../../docs/icons';
 	import { fade, slide } from 'svelte/transition';
 	import type { DropResult, PickerPreviewFile } from '../../lib/types';
@@ -299,3 +300,5 @@
 <SlotsTable component="FilePicker.Divider.Label" slots={dividerLabelSlots} />
 
 <SlotsTable component="FilePicker.Action" slots={actionSlots} />
+
+<ClassTable component="FilePicker" {classList} />

@@ -196,6 +196,41 @@ export const dividerLabelSlots: Slot[] = [
 	}
 ];
 
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-file-picker'
+	},
+	{
+		id: '2',
+		class: 'stwui-file-picker-input'
+	},
+	{
+		id: '3',
+		class: 'stwui-file-picker-label'
+	},
+	{
+		id: '4',
+		class: 'stwui-file-picker-title'
+	},
+	{
+		id: '5',
+		class: 'stwui-file-picker-description'
+	},
+	{
+		id: '6',
+		class: 'stwui-file-picker-icon'
+	},
+	{
+		id: '7',
+		class: 'stwui-file-picker-divider'
+	},
+	{
+		id: '8',
+		class: 'stwui-file-picker-action'
+	}
+];
+
 export const usage = `
 import { FilePicker } from 'stwui';
 // OR
