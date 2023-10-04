@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Col, Card, Icon } from '../../lib';
 	import { copyToClipboard } from '../../lib/utils';
-	import { example, props, usage } from './examples';
-	import { PropsTable, CodeBlock } from '../../docs';
+	import { example, props, usage, classList } from './examples';
+	import { PropsTable, ClassTable, CodeBlock } from '../../docs';
 
 	const icons = [
 		'<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" /></svg>',
@@ -57,6 +57,6 @@
 	</Card>
 </Col>
 
-<Col class="col-24">
-	<PropsTable component="Icon" {props} />
-</Col>
+<PropsTable component="Icon" {props} />
+
+<ClassTable component="Icon" {classList} />
