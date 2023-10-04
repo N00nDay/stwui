@@ -1,4 +1,4 @@
-import type { Prop, Slot } from '../../docs';
+import type { IClass, Prop, Slot } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -161,6 +161,81 @@ export const iconProps: Prop[] = [
 		prop: 'fill',
 		type: 'string',
 		default: 'currentColor'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-datepicker-wrapper'
+	},
+	{
+		id: '2',
+		class: 'stwui-datepicker-trigger'
+	},
+	{
+		id: '3',
+		class: 'stwui-datepicker-input'
+	},
+	{
+		id: '4',
+		class: 'stwui-datepicker-clear-wrapper'
+	},
+	{
+		id: '5',
+		class: 'stwui-datepicker-leading-wrapper'
+	},
+	{
+		id: '6',
+		class: 'stwui-datepicker-trailing-wrapper'
+	},
+	{
+		id: '7',
+		class: 'stwui-datepicker-error-icon'
+	},
+	{
+		id: '8',
+		class: 'stwui-datepicker-error'
+	},
+	{
+		id: '9',
+		class: 'stwui-datepicker-calendar-wrapper'
+	},
+	{
+		id: '10',
+		class: 'stwui-datepicker-previous-year'
+	},
+	{
+		id: '11',
+		class: 'stwui-datepicker-previous-month'
+	},
+	{
+		id: '12',
+		class: 'stwui-datepicker-current-month-wrapper'
+	},
+	{
+		id: '13',
+		class: 'stwui-datepicker-next-month'
+	},
+	{
+		id: '14',
+		class: 'stwui-datepicker-next-year'
+	},
+	{
+		id: '15',
+		class: 'stwui-datepicker-actions-wrapper'
+	},
+	{
+		id: '16',
+		class: 'stwui-datepicker-apply-clear-wrapper'
+	},
+	{
+		id: '17',
+		class: 'stwui-datepicker-timepicker-wrapper'
+	},
+	{
+		id: '18',
+		class: 'stwui-datepicker-label'
 	}
 ];
 

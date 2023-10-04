@@ -19,9 +19,17 @@
 		withMobileAndActionsExample,
 		withMobileAndTimeExample,
 		localeExample,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer, InlineCode } from '../../docs';
+	import {
+		PropsTable,
+		SlotsTable,
+		ClassTable,
+		CodeBlock,
+		ExampleContainer,
+		InlineCode
+	} from '../../docs';
 	import { calendar } from '../../lib/icons';
 	import dayjs from 'dayjs';
 	// import 'dayjs/locale/de';
@@ -268,3 +276,5 @@
 <PropsTable component="DatePicker.Leading" props={iconProps} />
 
 <PropsTable component="DatePicker.Trailing" props={iconProps} />
+
+<ClassTable component="DatePicker" {classList} />
