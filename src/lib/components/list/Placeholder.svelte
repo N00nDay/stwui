@@ -17,11 +17,12 @@
 	const placeholder: boolean = getContext('list-avatar-placeholder');
 
 	const defaultClass =
-		'absolute text-content inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default';
+		'absolute text-content inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default stwui-list-item-leading-avatar-placeholder';
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';
 
-	const defaultIconContainerClass = 'absolute text-content h-full w-full';
+	const defaultIconContainerClass =
+		'absolute text-content h-full w-full stwui-list-item-leading-avatar-placeholder-wrapper';
 	const xsContainerClass = 'bottom-[-0.25rem]';
 	const smContainerClass = 'bottom-[-0.35rem]';
 	const mdContainerClass = 'bottom-[-0.5rem]';

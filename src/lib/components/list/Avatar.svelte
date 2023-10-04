@@ -19,10 +19,11 @@
 	let failed = false;
 	let loading = true;
 
-	const srcClass = 'inline-block absolute';
-	const srcContainerClass = 'inline-block relative align-middle';
+	const srcClass = 'inline-block absolute stwui-list-item-leading-avatar';
+	const srcContainerClass =
+		'inline-block relative align-middle stwui-list-item-leading-avatar-wrapper';
 	const initialClass =
-		'inline-flex items-center justify-center align-middle bg-default text-default-content';
+		'inline-flex items-center justify-center align-middle bg-default text-default-content stwui-list-item-leading-avatar';
 	const xsClass = 'h-6 w-6';
 	const smClass = 'h-8 w-8';
 	const mdClass = 'h-10 w-10';

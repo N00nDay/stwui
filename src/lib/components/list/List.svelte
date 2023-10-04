@@ -15,6 +15,8 @@
 	const borderedClass = 'border border-border';
 
 	$: finalClass = twMerge(
+		'stwui-list',
+
 		divided ? dividedClass : false,
 		bordered ? borderedClass : false,
 

@@ -6,7 +6,8 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'ml-3 flex flex-grow flex-col justify-center items-start';
+	const defaultClass =
+		'ml-3 flex flex-grow flex-col justify-center items-start stwui-list-item-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
