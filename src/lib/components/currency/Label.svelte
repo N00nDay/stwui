@@ -11,7 +11,7 @@
 	const name: string = getContext('currency-name');
 	const error: Writable<string | undefined> = getContext('currency-error');
 
-	const defaultClass = 'block text-sm font-medium text-secondary-content';
+	const defaultClass = 'block text-sm font-medium text-secondary-content stwui-currency-label';
 	const errorClass = 'text-danger';
 
 	$: finalClass = twMerge(

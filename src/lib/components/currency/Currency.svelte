@@ -4,6 +4,7 @@
 	import Icon from '../icon';
 	import { error as errorIcon, close } from '../../icons';
 	import { writable, type Writable } from 'svelte/store';
+	import { twMerge } from 'tailwind-merge';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -42,11 +43,17 @@
 		value = undefined;
 	}
 
+	const finalClass = twMerge(
+		'stwui-currency-wrapper',
+
+		$$props.class
+	);
+
 	setContext('currency-name', name);
 	setContext('currency-error', currentError);
 </script>
 
-<div class={$$props.class} style={$$props.style}>
+<div class={finalClass} style={$$props.style}>
 	<slot name="label" />
 	<div
 		class="mt-1 relative rounded-md h-[2.5rem]"
@@ -64,7 +71,7 @@
 			{readonly}
 			{disabled}
 			id={name}
-			class="block w-full px-3 h-[2.5rem] border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80"
+			class="block w-full px-3 h-[2.5rem] border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80 stwui-currency-input"
 			class:border-danger={error}
 			class:text-danger={error}
 			class:placeholder-danger={error}
@@ -82,7 +89,9 @@
 		/>
 
 		{#if $$slots.leading}
-			<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+			<span
+				class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none stwui-currency-leading-wrapper"
+			>
 				<slot name="leading" />
 			</span>
 		{/if}
@@ -91,7 +100,7 @@
 			<button
 				aria-label="clear"
 				on:click={handleClear}
-				class="absolute inset-y-0 group-focus-within:flex active:flex items-center"
+				class="absolute inset-y-0 group-focus-within:flex active:flex items-center stwui-currency-clear-wrapper"
 				class:right-10={$$slots.trailing || error}
 				class:right-3={!$$slots.trailing && !error}
 			>
@@ -102,17 +111,27 @@
 		{/if}
 
 		{#if $$slots.trailing && !error}
-			<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+			<span
+				class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none stwui-currency-trailing-wrapper"
+			>
 				<slot name="trailing" />
 			</span>
 		{:else if error}
-			<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+			<span
+				class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none stwui-currency-error-icon"
+			>
 				<Icon data={errorIcon} />
 			</span>
 		{/if}
 	</div>
 	{#if error}
-		<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+		<p
+			transition:slide|local
+			class="mt-2 text-sm text-danger stwui-currency-error"
+			id="{name}-error"
+		>
+			{error}
+		</p>
 	{/if}
 </div>
 
