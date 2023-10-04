@@ -9,7 +9,7 @@
 
 	const padding: string = getContext('grid-padding');
 
-	const defaultClass = 'col';
+	const defaultClass = 'col stwui-col';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

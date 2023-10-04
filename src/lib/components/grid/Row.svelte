@@ -27,7 +27,7 @@
 		padding = 'padding: 0;';
 	}
 
-	const defaultClass = 'relative mr-0 ml-0 block box-border';
+	const defaultClass = 'relative mr-0 ml-0 block box-border stwui-row';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('grid-padding', padding);
