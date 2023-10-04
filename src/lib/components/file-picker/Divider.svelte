@@ -8,7 +8,7 @@
 
 	export let position: 'left' | 'center' | 'right' = 'center';
 
-	const defaultClass = 'relative my-4';
+	const defaultClass = 'relative my-4 stwui-file-picker-divider';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

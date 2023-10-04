@@ -8,7 +8,7 @@
 
 	let disabled: boolean = getContext('filepicker-disabled');
 
-	const defaultClass = 'mt-1 font-medium text-content';
+	const defaultClass = 'mt-1 font-medium text-content stwui-file-picker-title';
 	$: finalClass = twMerge(defaultClass, disabled ? 'opacity-30' : false, $$props.class);
 </script>
 

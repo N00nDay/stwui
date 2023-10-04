@@ -26,7 +26,7 @@
 		return res[1];
 	}
 
-	const defaultClass = ' flex items-center justify-center';
+	const defaultClass = ' flex items-center justify-center stwui-file-picker-icon';
 	$: finalClass = twMerge(
 		defaultClass,
 		disabled ? 'text-secondary-content opacity-30' : 'text-content',
@@ -57,6 +57,7 @@
 			'stroke'
 		])}
 	>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html elements}
 	</svg>
 </span>

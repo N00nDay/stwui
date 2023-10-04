@@ -144,7 +144,7 @@
 	}
 
 	const defaultClass =
-		'relative text-center rounded-lg border border-dashed border-2 px-6 pt-5 pb-7 border-border rounded-md bg-surface outline-offset-0';
+		'relative text-center rounded-lg border border-dashed border-2 px-6 pt-5 pb-7 border-border rounded-md bg-surface outline-offset-0 stwui-file-picker';
 
 	const disabledClass = 'border-default cursor-not-allowed bg-default bg-opacity-75';
 	const notDisabledClass =
@@ -185,7 +185,7 @@
 	<input
 		id={name}
 		{name}
-		class="opacity-0 absolute top-0 left-0 pointer-events-none"
+		class="opacity-0 absolute top-0 left-0 pointer-events-none stwui-file-picker-input"
 		bind:this={input}
 		type="file"
 		{multiple}
