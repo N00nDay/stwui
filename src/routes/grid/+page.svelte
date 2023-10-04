@@ -1,7 +1,16 @@
 <script lang="ts">
 	import { Row, Col, Divider } from '../../lib';
-	import { example1, example2, example3, example4, rowProps, rowSlots, colSlots } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import {
+		example1,
+		example2,
+		example3,
+		example4,
+		rowProps,
+		rowSlots,
+		colSlots,
+		classList
+	} from './examples';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { breakpoints } from '$lib/stores';
 
 	const defaultClass = 'flex items-center justify-center h-12 text-primary-content';
@@ -513,3 +522,5 @@
 <PropsTable component="Row" props={rowProps} />
 
 <SlotsTable component="Col" slots={colSlots} />
+
+<ClassTable component="Row/Col" {classList} />

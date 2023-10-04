@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const rowSlots: Slot[] = [
 	{
@@ -34,6 +34,17 @@ export const colSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-row'
+	},
+	{
+		id: '2',
+		class: 'stwui-col'
 	}
 ];
 
