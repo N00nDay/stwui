@@ -24,7 +24,7 @@
 		return res[1];
 	}
 
-	const defaultClass = 'px-2 bg-surface text-content';
+	const defaultClass = 'px-2 bg-surface text-content stwui-divider-icon';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -51,6 +51,7 @@
 			'style'
 		])}
 	>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html elements}
 	</svg>
 </span>
