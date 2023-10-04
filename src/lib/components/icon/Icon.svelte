@@ -25,6 +25,7 @@
 </script>
 
 <svg
+	class="stwui-icon"
 	xmlns="http://www.w3.org/2000/svg"
 	{width}
 	{height}
@@ -36,5 +37,6 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'data', 'fill', 'viewBox', 'width', 'height', 'stroke'])}
 >
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html elements}
 </svg>
