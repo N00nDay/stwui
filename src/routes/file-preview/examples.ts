@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -250,6 +250,81 @@ export const actionSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-file-preview'
+	},
+	{
+		id: '2',
+		class: 'stwui-file-preview-item'
+	},
+	{
+		id: '3',
+		class: 'stwui-file-preview-item-leading'
+	},
+	{
+		id: '4',
+		class: 'stwui-file-preview-item-upload-content'
+	},
+	{
+		id: '5',
+		class: 'stwui-file-preview-item-file-content'
+	},
+	{
+		id: '6',
+		class: 'stwui-file-preview-item-extra'
+	},
+	{
+		id: '7',
+		class: 'stwui-file-preview-item-leading-avatar-wrapper'
+	},
+	{
+		id: '8',
+		class: 'stwui-file-preview-item-leading-avatar'
+	},
+	{
+		id: '9',
+		class: 'stwui-file-preview-item-leading-avatar-placeholder'
+	},
+	{
+		id: '10',
+		class: 'stwui-file-preview-item-file-content-title'
+	},
+	{
+		id: '11',
+		class: 'stwui-file-preview-item-file-content-description'
+	},
+	{
+		id: '12',
+		class: 'stwui-file-preview-item-upload-content-status'
+	},
+	{
+		id: '13',
+		class: 'stwui-file-preview-item-upload-content-action'
+	},
+	{
+		id: '15',
+		class: 'stwui-file-preview-item-extra-uploading'
+	},
+	{
+		id: '16',
+		class: 'stwui-file-preview-item-extra-rejected'
+	},
+	{
+		id: '17',
+		class: 'stwui-file-preview-item-extra-pending'
+	},
+	{
+		id: '18',
+		class: 'stwui-file-preview-item-extra-failed'
+	},
+	{
+		id: '19',
+		class: 'stwui-file-preview-item-extra-complete'
 	}
 ];
 

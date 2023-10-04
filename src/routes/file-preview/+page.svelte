@@ -17,10 +17,11 @@
 		example,
 		withStatusExample,
 		kitchenSinkExample,
-		usage
+		usage,
+		classList
 	} from './examples';
 	import { FilePreview } from '../../lib';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { slide } from 'svelte/transition';
 	import { formatFileSize } from '../../lib/utils';
 	import { file_document } from '../../lib/icons';
@@ -255,3 +256,5 @@
 <PropsTable component="FilePreview.Item.Extra" props={extraProps} />
 
 <SlotsTable component="FilePreview.Item.Extra" slots={extraSlots} />
+
+<ClassTable component="FilePreview" {classList} />
