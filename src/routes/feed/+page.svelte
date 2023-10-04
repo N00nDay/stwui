@@ -9,9 +9,10 @@
 		avatarProps,
 		iconProps,
 		contentSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	import { check, currency_usd } from '../../lib/icons';
 
@@ -119,3 +120,5 @@
 <PropsTable component="Feed.Item.Leading.Icon" props={iconProps} />
 
 <SlotsTable component="Feed.Item.Content" slots={contentSlots} />
+
+<ClassTable component="Feed" {classList} />
