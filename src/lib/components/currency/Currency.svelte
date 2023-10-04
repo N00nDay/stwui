@@ -43,11 +43,9 @@
 		value = undefined;
 	}
 
-	const finalClass = twMerge(
-		'stwui-currency-wrapper',
+	const defaultClass = 'stwui-currency-wrapper';
 
-		$$props.class
-	);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('currency-name', name);
 	setContext('currency-error', currentError);

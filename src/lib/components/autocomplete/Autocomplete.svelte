@@ -97,7 +97,7 @@
 	setContext('autocomplete-mobile', isMobile);
 	setContext('autocomplete-actual-value', value);
 
-	const finalClass = twMerge(defaultClass, $$props.class);
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div

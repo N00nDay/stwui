@@ -124,11 +124,8 @@
 	setContext('datepicker-name', name);
 	setContext('datepicker-error', currentError);
 
-	const finalClass = twMerge(
-		'stwui-datepicker-wrapper',
-
-		$$props.class
-	);
+	const defaultClass = 'stwui-datepicker-wrapper';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	onMount(() => {
 		valueDayJS = value === null ? null : dayjs(value);

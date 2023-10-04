@@ -62,11 +62,8 @@
 		}
 	}
 
-	const finalClass = twMerge(
-		'stwui-input-number',
-
-		$$props.class
-	);
+	const defaultClass = 'stwui-input-number';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('input-number-name', name);
 	setContext('input-number-error', currentError);
