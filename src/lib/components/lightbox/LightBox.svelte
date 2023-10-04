@@ -89,7 +89,7 @@
 <svelte:window on:keydown={captureEscapeEvent} />
 
 <div
-	class="fixed inset-0 w-full z-50 pointer-events-none h-full bg-[#18191A]"
+	class="fixed inset-0 w-full z-50 pointer-events-none h-full bg-[#18191A] stwui-lightbox"
 	role="dialog"
 	aria-modal="true"
 	in:receive={{ key }}
@@ -102,7 +102,7 @@
 					<div
 						in:fly={{ delay: 250, y: -200 }}
 						out:scale={{ delay: 300 }}
-						class="absolute z-10 right-0 left-0 top-0 flex items-center justify-center mt-3"
+						class="absolute z-10 right-0 left-0 top-0 flex items-center justify-center mt-3 stwui-lightbox-actions"
 					>
 						<div
 							class="rounded-[1.85rem] bg-[#242526] p-2 text-sm text-white bg-opacity-70 flex flex-row gap-1 justify-center items-center"
@@ -130,7 +130,7 @@
 				<div
 					in:scale={{ delay: 300 }}
 					out:fade
-					class="absolute z-10 right-0 left-0 bottom-7 flex items-center justify-center"
+					class="absolute z-10 right-0 left-0 bottom-7 flex items-center justify-center stwui-lightbox-counter"
 				>
 					<div class="rounded-xl bg-[#242526] px-2 py-1 text-sm text-white bg-opacity-70">
 						{activeSlide + 1} / {slides.length}
@@ -138,7 +138,7 @@
 				</div>
 
 				<div
-					class="absolute z-10 right-0 bottom-0 left-0 flex gap-2 justify-center p-0 mb-3"
+					class="absolute z-10 right-0 bottom-0 left-0 flex gap-2 justify-center p-0 mb-3 stwui-lightbox-quick-slide-navigation"
 					in:scale={{ delay: 300 }}
 					out:fade
 				>
