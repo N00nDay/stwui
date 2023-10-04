@@ -7,9 +7,10 @@
 		slots,
 		iconProps,
 		labelSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	import { plus_circle } from '../../docs/icons';
 </script>
@@ -57,3 +58,5 @@
 <SlotsTable component="Divider.Label" slots={labelSlots} />
 
 <PropsTable component="Divider.Icon" props={iconProps} />
+
+<ClassTable component="Divider" {classList} />
