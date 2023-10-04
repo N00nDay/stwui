@@ -7,9 +7,10 @@
 		titleSlots,
 		descriptionSlots,
 		actionSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	import { plus_circle, lock } from '../../docs/icons';
 </script>
@@ -47,3 +48,5 @@
 <SlotsTable component="Empty.Description" slots={descriptionSlots} />
 
 <SlotsTable component="Empty.Action" slots={actionSlots} />
+
+<ClassTable component="Empty" {classList} />
