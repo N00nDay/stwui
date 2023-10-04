@@ -12,7 +12,7 @@
 	const type: 'info' | 'success' | 'warn' | 'error' | 'default' = getContext('chip-type');
 
 	const defaultClass =
-		'flex-shrink-0 ml-2 h-8 w-8 rounded-full inline-flex items-center justify-center outline-none focus:outline-none hover:bg-default text-default-content hover:bg-background hover:bg-opacity-50 hover:text-content';
+		'flex-shrink-0 ml-2 h-8 w-8 rounded-full inline-flex items-center justify-center outline-none focus:outline-none text-default-content hover:bg-background hover:bg-opacity-50 hover:text-content stwui-chip-close';
 	const defaultType = 'text-default-content';
 	const infoType = 'text-info-content';
 	const successType = 'text-success-content';

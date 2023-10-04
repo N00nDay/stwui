@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { getContext } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon/Icon.svelte';
 	import { account } from '../../icons';
@@ -17,11 +17,12 @@
 	const placeholder: boolean = getContext('chip-avatar-placeholder');
 
 	const defaultClass =
-		'absolute text-default-content flex items-center justify-center overflow-hidden bg-default inset-[0.2rem] bg-background';
+		'absolute text-default-content flex items-center justify-center overflow-hidden bg-default inset-[0.2rem] bg-background stwui-chip-placeholder';
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';
 
-	const defaultIconContainerClass = 'absolute text-default-content h-full w-full';
+	const defaultIconContainerClass =
+		'absolute text-default-content h-full w-full stwui-chip-icon-wrapper';
 	const xsContainerClass = 'bottom-[-0.1rem] left-[-0.2rem]';
 	const smContainerClass = 'bottom-[-0.2rem] left-[-0.2rem]';
 	const mdContainerClass = 'bottom-[-0.3rem] left-[-0.2rem]';

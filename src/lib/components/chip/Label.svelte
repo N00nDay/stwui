@@ -6,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'pl-2';
+	const defaultClass = 'pl-2 stwui-chip-label';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

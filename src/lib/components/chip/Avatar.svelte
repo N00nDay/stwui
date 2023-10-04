@@ -20,10 +20,11 @@
 
 	const size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = getContext('chip-size');
 
-	const srcClass = 'inline-block absolute';
-	const srcContainerClass = 'inline-block relative align-middle flex items-center justify-center';
+	const srcClass = 'inline-block absolute stwui-chip-avatar';
+	const srcContainerClass =
+		'inline-block relative align-middle flex items-center justify-center stwui-chip-avatar-wrapper';
 	const initialClass =
-		'inline-flex items-center justify-center align-middle bg-default text-default-content flex items-center justify-center';
+		'inline-flex items-center justify-center align-middle bg-default text-default-content flex items-center justify-center stwui-chip-avatar';
 	const xsClass = 'h-6 w-6 p-0.5';
 	const smClass = 'h-8 w-8 p-0.5';
 	const mdClass = 'h-10 w-10 p-0.5';

@@ -13,7 +13,7 @@
 	const defaultClass =
 		'inline-flex items-center pr-3 text-sm font-medium border border-border rounded-full';
 
-	const defaultTypeClass = ' bg-default text-default-content';
+	const defaultTypeClass = ' bg-default text-default-content stwi-chip';
 	const infoTypeClass = ' bg-info text-info-content';
 	const successTypeClass = ' bg-success text-success-content';
 	const warnTypeClass = ' bg-warn text-warn-content';
