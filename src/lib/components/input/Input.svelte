@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext } from 'svelte/internal';
+	import { setContext } from 'svelte';
 	import { slide, scale } from 'svelte/transition';
 	import Swap from '../swap';
 	import Icon from '../icon';
@@ -48,7 +48,7 @@
 		value = undefined;
 	}
 
-	const defaultClass = 'group';
+	const defaultClass = 'group stwui-input-wrapper';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('input-name', name);
@@ -72,7 +72,7 @@
 			{readonly}
 			{tabindex}
 			{disabled}
-			class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface outline-offset-0 placeholder-secondary-content placeholder-opacity-80"
+			class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface outline-offset-0 placeholder-secondary-content placeholder-opacity-80 stwui-input"
 			class:border-border={!error}
 			class:border-danger={error}
 			class:text-danger={error}
@@ -95,7 +95,7 @@
 
 		{#if $$slots.leading}
 			<span
-				class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary-content"
+				class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary-content stwui-input-leading-wrapper"
 				class:text-danger={error}
 			>
 				<slot name="leading" />
@@ -106,7 +106,7 @@
 			<button
 				aria-label="clear"
 				on:click={handleClear}
-				class="disable-focus-active absolute inset-y-0 hidden group-focus-within:flex active:flex items-center"
+				class="disable-focus-active absolute inset-y-0 hidden group-focus-within:flex active:flex items-center stwui-input-clear-wrapper"
 				class:right-10={showPasswordToggle || $$slots.trailing || error}
 				class:right-3={!showPasswordToggle && !$$slots.trailing && !error}
 			>
@@ -121,24 +121,28 @@
 				on:click={togglePasswordVisibility}
 				swapped={passwordVisible}
 				type="flip"
-				class="disable-focus-active absolute left-[unset] inset-y-0 right-1 flex items-center w-9 text-secondary-content"
+				class="disable-focus-active absolute left-[unset] inset-y-0 right-1 flex items-center w-9 text-secondary-content stwui-input-password-toggle-wrapper"
 			>
 				<Icon slot="on" data={eye} />
 				<Icon slot="off" data={eye_off} />
 			</Swap>
 		{:else if $$slots.trailing && !error}
 			<span
-				class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-secondary-content"
+				class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-secondary-content stwui-input-trailing-wrapper"
 			>
 				<slot name="trailing" />
 			</span>
 		{:else if error}
-			<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+			<span
+				class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none stwui-input-error-icon"
+			>
 				<Icon data={errorIcon} />
 			</span>
 		{/if}
 	</div>
 	{#if error}
-		<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+		<p transition:slide|local class="mt-2 text-sm text-danger stwui-input-error" id="{name}-error">
+			{error}
+		</p>
 	{/if}
 </div>

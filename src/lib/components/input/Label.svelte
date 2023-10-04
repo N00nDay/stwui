@@ -11,7 +11,7 @@
 	const name: string = getContext('input-name');
 	const error: Writable<string | undefined> = getContext('input-error');
 
-	const defaultClass = 'block text-sm font-medium text-secondary-content';
+	const defaultClass = 'block text-sm font-medium text-secondary-content stwui-input-label';
 	const errorClass = 'text-danger';
 	$: finalClass = twMerge(
 		defaultClass,
