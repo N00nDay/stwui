@@ -6,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'text-center py-12';
+	const defaultClass = 'text-center py-12 stwui-empty';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

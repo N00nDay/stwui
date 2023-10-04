@@ -24,7 +24,7 @@
 		return res[1];
 	}
 
-	const defaultClass = 'text-content flex items-center justify-center';
+	const defaultClass = 'text-content flex items-center justify-center stwui-empty-icon';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -51,6 +51,7 @@
 			'stroke'
 		])}
 	>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html elements}
 	</svg>
 </span>

@@ -6,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'mt-6 text-sm';
+	const defaultClass = 'mt-6 text-sm stwui-empty-action';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
