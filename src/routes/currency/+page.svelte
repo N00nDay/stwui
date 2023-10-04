@@ -11,9 +11,10 @@
 		slots,
 		labelSlots,
 		iconProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email } from '../../docs/icons';
 	import { currency_usd } from '../../lib/icons';
 
@@ -100,3 +101,5 @@
 <PropsTable component="Currency.Leading" props={iconProps} />
 
 <PropsTable component="Currency.Trailing" props={iconProps} />
+
+<ClassTable component="Currency" {classList} />
