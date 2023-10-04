@@ -25,7 +25,7 @@
 	}
 
 	const defaultClass =
-		'relative cursor-pointer flex items-center justify-center h-12 w-12 bg-white bg-opacity-10 rounded-full transition-reveal scale-90 hover:scale-100 hover:bg-opacity-20 hover:active:scale-95 pointer-events-auto text-white';
+		'relative cursor-pointer flex items-center justify-center h-12 w-12 bg-white bg-opacity-10 rounded-full transition-reveal scale-90 hover:scale-100 hover:bg-opacity-20 hover:active:scale-95 pointer-events-auto text-white stwui-lightbox-control';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -47,6 +47,7 @@
 	])}
 >
 	<svg xmlns="http://www.w3.org/2000/svg" {width} {height} {viewBox} {stroke} {fill} {color}>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html elements}
 	</svg>
 </span>
