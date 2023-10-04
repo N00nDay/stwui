@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -191,6 +191,53 @@ export const extraSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-list'
+	},
+	{
+		id: '2',
+		class: 'stwui-list-item'
+	},
+	{
+		id: '3',
+		class: 'stwui-list-item-leading'
+	},
+	{
+		id: '4',
+		class: 'stwui-list-item-leading-avatar-wrapper'
+	},
+	{
+		id: '5',
+		class: 'stwui-list-item-leading-avatar'
+	},
+	{
+		id: '6',
+		class: 'stwui-list-item-leading-avatar-placeholder-wrapper'
+	},
+	{
+		id: '7',
+		class: 'stwui-list-item-leading-avatar-placeholder'
+	},
+	{
+		id: '8',
+		class: 'stwui-list-item-content'
+	},
+	{
+		id: '9',
+		class: 'stwui-list-item-content-title'
+	},
+	{
+		id: '10',
+		class: 'stwui-list-item-content-description'
+	},
+	{
+		id: '11',
+		class: 'stwui-list-item-extra'
 	}
 ];
 

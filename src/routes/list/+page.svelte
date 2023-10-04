@@ -19,9 +19,10 @@
 		avatarProps,
 		extraProps,
 		extraSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { contentSlots } from '../accordion/examples';
 	import { account, print, info } from '../../lib/icons';
 
@@ -246,3 +247,5 @@
 <PropsTable component="List.Item.Extra" props={extraProps} />
 
 <SlotsTable component="List.Item.Extra" slots={extraSlots} />
+
+<ClassTable component="List" {classList} />
