@@ -6,7 +6,8 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'text-xs font-semibold text-content';
+	const defaultClass =
+		'text-xs font-semibold text-content stwui-file-preview-item-upload-content-status';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

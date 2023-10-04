@@ -8,7 +8,7 @@
 
 	export let placement: 'start' | 'center' | 'end' = 'start';
 
-	const defaultClass = 'ml-3 flex justify-end flex-shink';
+	const defaultClass = 'ml-3 flex justify-end flex-shink stwui-file-preview-item-extra';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

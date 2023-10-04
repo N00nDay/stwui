@@ -6,7 +6,8 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'ml-3 flex-col flex flex-grow w-full overflow-hidden';
+	const defaultClass =
+		'ml-3 flex-col flex flex-grow w-full overflow-hidden stwui-file-preview-item-file-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

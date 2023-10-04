@@ -8,7 +8,8 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 	import Loader from './Loader.svelte';
 
-	const defaultClass = 'absolute inset-0 flex items-center justify-center';
+	const defaultClass =
+		'absolute inset-0 flex items-center justify-center stwui-file-preview-item-extra-pending';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

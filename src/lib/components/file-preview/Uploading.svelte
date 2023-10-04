@@ -10,7 +10,8 @@
 
 	export let progress: number | undefined = undefined;
 
-	const defaultClass = 'absolute inset-0 flex items-center justify-center';
+	const defaultClass =
+		'absolute inset-0 flex items-center justify-center stwui-file-preview-item-extra-uploading';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

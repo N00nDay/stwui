@@ -9,7 +9,8 @@
 	import { alert_circle } from '../../icons';
 	import Icon from '../icon';
 
-	const defaultClass = 'absolute inset-0 flex items-center justify-center';
+	const defaultClass =
+		'absolute inset-0 flex items-center justify-center stwui-file-preview-item-extra-rejected';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

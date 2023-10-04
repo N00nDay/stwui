@@ -7,7 +7,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass =
-		'ml-3 flex flex-grow justify-start items-end flex-col w-full overflow-hidden';
+		'ml-3 flex flex-grow justify-start items-end flex-col w-full overflow-hidden stwui-file-preview-item-upload-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

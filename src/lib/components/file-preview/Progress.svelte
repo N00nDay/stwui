@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="h-5 w-5 inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5"
+	class="h-5 w-5 inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5 stwui-file-preview-progress"
 >
 	<svg class="rotate-[-90deg] origin-center h-5 w-5">
 		<circle

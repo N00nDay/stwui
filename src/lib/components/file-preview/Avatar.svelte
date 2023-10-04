@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setContext, onMount } from 'svelte/internal';
+	import { setContext, onMount } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import Placeholder from './Placeholder.svelte';
 	import { get_current_component } from 'svelte/internal';
@@ -19,10 +19,11 @@
 	let failed = false;
 	let loading = true;
 
-	const srcClass = 'inline-block absolute';
-	const srcContainerClass = 'inline-block relative align-middle';
+	const srcClass = 'inline-block absolute stwui-file-preview-item-leading-avatar';
+	const srcContainerClass =
+		'inline-block relative align-middle stwui-file-preview-item-leading-avatar-wrapper';
 	const initialClass =
-		'inline-flex items-center justify-center align-middle bg-default text-default-content';
+		'inline-flex items-center justify-center align-middle bg-default text-default-content stwui-file-preview-item-leading-avatar';
 	const xsClass = 'h-6 w-6';
 	const smClass = 'h-8 w-8';
 	const mdClass = 'h-10 w-10';

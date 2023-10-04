@@ -9,7 +9,7 @@
 
 	const bordered: boolean = getContext('list-bordered');
 
-	const defaultClass = 'flex py-4';
+	const defaultClass = 'flex py-4 stwui-file-preview-item';
 	const borderedClass = 'px-3';
 
 	$: finalClass = twMerge(
