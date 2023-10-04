@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const contentProps: Prop[] = [
 	{
@@ -26,6 +26,41 @@ export const headerSlots: Slot[] = [
 		id: '1',
 		slot: 'extra',
 		component: '<Layout.Header.Extra slot="extra" />'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-layout'
+	},
+	{
+		id: '2',
+		class: 'stwui-layout-header'
+	},
+	{
+		id: '3',
+		class: 'stwui-layout-header-extra'
+	},
+	{
+		id: '4',
+		class: 'stwui-layout-footer'
+	},
+	{
+		id: '5',
+		class: 'stwui-layout-footer-extra'
+	},
+	{
+		id: '6',
+		class: 'stwui-layout-sidebar'
+	},
+	{
+		id: '7',
+		class: 'stwui-layout-body'
+	},
+	{
+		id: '8',
+		class: 'stwui-layout-content'
 	}
 ];
 

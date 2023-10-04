@@ -7,9 +7,10 @@
 		sidebarRightExample,
 		sidebarExample,
 		defaultExample,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const defaultClass = 'shadow-none border-none text-white';
 
@@ -128,3 +129,5 @@
 <PropsTable component="Layout.Content" props={contentProps} />
 
 <SlotsTable component="Layout.Header" slots={headerSlots} />
+
+<ClassTable component="Layout" {classList} />
