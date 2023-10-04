@@ -15,9 +15,10 @@
 		minExample,
 		showSpinExample,
 		minMaxExample,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email, phone } from '../../docs/icons';
 
 	let value: number;
@@ -174,3 +175,5 @@
 <PropsTable component="InputNumber.Leading" props={iconProps} />
 
 <PropsTable component="InputNumber.Trailing" props={iconProps} />
+
+<ClassTable component="InputNumber" {classList} />
