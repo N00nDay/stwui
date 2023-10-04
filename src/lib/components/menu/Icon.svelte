@@ -24,7 +24,7 @@
 		return res[1];
 	}
 
-	const defaultClass = 'h-6 w-6 min-h-6 min-w-6 mr-3';
+	const defaultClass = 'h-6 w-6 min-h-6 min-w-6 mr-3 stwui-item-icon';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -47,6 +47,7 @@
 	])}
 >
 	<svg xmlns="http://www.w3.org/2000/svg" {width} {height} {viewBox} {stroke} {fill} {color}>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html elements}
 	</svg>
 </span>

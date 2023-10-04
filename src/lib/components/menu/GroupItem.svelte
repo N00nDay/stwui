@@ -20,7 +20,7 @@
 	$: active = $activeItem === `${groupKey}-${key}`;
 
 	const defaultClass =
-		'group relative flex items-center min-w-full h-10 px-3 py-2 text-sm font-medium rounded-md';
+		'group relative flex items-center min-w-full h-10 px-3 py-2 text-sm font-medium rounded-md stwui-menu-group-item';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

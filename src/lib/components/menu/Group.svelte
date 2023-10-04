@@ -61,7 +61,7 @@
 		}
 	}
 
-	const defaultClass = 'transition-all duration-300';
+	const defaultClass = 'transition-all duration-300 stwui-menu-group';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('menu-group-key', key);

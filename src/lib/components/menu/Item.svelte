@@ -21,7 +21,7 @@
 
 	// TODO: allow for customizing active color
 
-	const defaultClass = 'transition-all duration-300';
+	const defaultClass = 'transition-all duration-300 stwui-menu-item';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

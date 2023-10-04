@@ -18,7 +18,7 @@
 	let activeItem = writable(active);
 	$: activeItem.set(active);
 
-	const defaultClass = 'space-y-1 transition-all duration-300';
+	const defaultClass = 'space-y-1 transition-all duration-300 stwui-menu';
 
 	$: finalClass = twMerge(
 		defaultClass,
