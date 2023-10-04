@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -155,6 +155,29 @@ export const groupItemsProps: Prop[] = [
 		prop: 'label',
 		type: 'string',
 		default: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-menu'
+	},
+	{
+		id: '2',
+		class: 'stwui-menu-item'
+	},
+	{
+		id: '3',
+		class: 'stwui-menu-item-icon'
+	},
+	{
+		id: '4',
+		class: 'stwui-menu-group'
+	},
+	{
+		id: '5',
+		class: 'stwui-menu-group-item'
 	}
 ];
 

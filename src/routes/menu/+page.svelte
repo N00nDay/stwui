@@ -30,9 +30,10 @@
 		groupProps,
 		groupSlots,
 		groupItemsProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const items: MenuItem[] = [
 		{
@@ -198,3 +199,5 @@
 <SlotsTable component="Menu.Group" slots={groupSlots} />
 
 <PropsTable component="Menu.Group.Item" props={groupItemsProps} />
+
+<ClassTable component="Menu" {classList} />
