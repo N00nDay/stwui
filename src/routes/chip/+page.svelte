@@ -10,9 +10,10 @@
 		labelSlots,
 		placeholderSlots,
 		avatarSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	const avatar =
 		'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80';
@@ -103,3 +104,5 @@
 <SlotsTable component="Chip.Avatar.Placeholder" slots={placeholderSlots} />
 
 <SlotsTable component="Chip.Label" slots={labelSlots} />
+
+<ClassTable component="Chip" {classList} />

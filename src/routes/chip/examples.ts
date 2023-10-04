@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -80,6 +80,37 @@ export const labelSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-chip-avatar'
+	},
+	{
+		id: '2',
+		class: 'stwui-chip-avatar-wrapper'
+	},
+	{
+		id: '3',
+		class: 'stwui-chip'
+	},
+	{
+		id: '4',
+		class: 'stwui-chip-close'
+	},
+	{
+		id: '5',
+		class: 'stwui-chip-label'
+	},
+	{
+		id: '6',
+		class: 'stwui-chip-icon-wrapper'
+	},
+	{
+		id: '7',
+		class: 'stwui-chip-placeholder'
 	}
 ];
 
