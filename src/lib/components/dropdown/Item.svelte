@@ -20,7 +20,7 @@
 	}
 
 	const defaultClass =
-		'w-full group relative flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-secondary-content !outline-none !border-none !ring-0';
+		'w-full group relative flex items-center px-3 py-2 text-sm font-medium rounded-md overflow-hidden text-secondary-content !outline-none !border-none !ring-0 stwui-dropdown-item';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

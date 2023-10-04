@@ -35,7 +35,7 @@
 	}
 
 	const defaultClass =
-		'floating-ui-el origin-top-right absolute z-10 border border-border w-56 p-1 rounded-md shadow-xl py-1 bg-surface';
+		'floating-ui-el origin-top-right absolute z-10 border border-border w-56 p-1 rounded-md shadow-xl py-1 bg-surface stwui-dropdown-items';
 
 	$: finalClass = twMerge(defaultClass, $$props.class);
 

@@ -6,7 +6,7 @@
 	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'relative my-2 h-px';
+	const defaultClass = 'relative my-2 h-px stwui-dropdown-divider';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

@@ -15,7 +15,7 @@
 
 	setContext('dropdown-handleClose', handleClose);
 
-	const defaultClass = 'relative inline-block';
+	const defaultClass = 'relative inline-block stwui-dropdown';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
