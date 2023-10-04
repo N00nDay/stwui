@@ -6,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'relative flex-grow text-content p-4';
+	const defaultClass = 'relative flex-grow text-content p-4 stwui-drawer-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

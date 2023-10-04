@@ -90,10 +90,12 @@
 		}
 	}
 
-	const defaultClass = 'flex inner-panel flex-col bg-surface overflow-hidden';
+	const defaultClass =
+		'flex inner-panel flex-col bg-surface overflow-hidden stwui-drawer-inner-panel';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
-	const defaultPanelClass = 'pointer-events-auto panel transition-transform duration-200';
+	const defaultPanelClass =
+		'pointer-events-auto panel transition-transform duration-200 stwui-drawer-panel';
 	$: finalPanelClass = twMerge(defaultPanelClass, panelClass);
 
 	setContext('drawer-handleClose', onClose);
@@ -106,7 +108,7 @@
 
 <svelte:window on:keydown={captureEscapeEvent} />
 
-<div class="relative z-10" role="dialog">
+<div class="relative z-10 stwui-drawer-wrapper" role="dialog">
 	{#if $$slots.backdrop}
 		<slot name="backdrop" />
 	{:else}
