@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const slots: Slot[] = [
 	{
@@ -82,6 +82,41 @@ export const descriptionSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-media'
+	},
+	{
+		id: '2',
+		class: 'stwui-media-avatar-wrapper'
+	},
+	{
+		id: '3',
+		class: 'stwui-media-avatar'
+	},
+	{
+		id: '4',
+		class: 'stwui-media-avatar-placeholder-wrapper'
+	},
+	{
+		id: '5',
+		class: 'stwui-media-avatar-placeholder'
+	},
+	{
+		id: '6',
+		class: 'stwui-media-content'
+	},
+	{
+		id: '7',
+		class: 'stwui-media-content-title'
+	},
+	{
+		id: '8',
+		class: 'stwui-media-content-description'
 	}
 ];
 
