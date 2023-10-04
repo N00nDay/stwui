@@ -4,6 +4,7 @@
 	import Icon from '../icon';
 	import { error as errorIcon, close } from '../../icons';
 	import { writable, type Writable } from 'svelte/store';
+	import { twMerge } from 'tailwind-merge';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -61,11 +62,17 @@
 		}
 	}
 
+	const finalClass = twMerge(
+		'stwui-input-number',
+
+		$$props.class
+	);
+
 	setContext('input-number-name', name);
 	setContext('input-number-error', currentError);
 </script>
 
-<div class={$$props.class}>
+<div class={finalClass}>
 	<slot name="label" />
 	<div
 		class="mt-1 relative rounded-md h-[2.5rem]"
@@ -83,7 +90,7 @@
 			{readonly}
 			{disabled}
 			id={name}
-			class="block w-full h-[2.5rem] px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80"
+			class="block w-full h-[2.5rem] px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80 stwui-input-number-input"
 			class:border-red-400={error}
 			class:text-danger={error}
 			class:placeholder-danger={error}
@@ -107,7 +114,7 @@
 
 		{#if $$slots.leading}
 			<span
-				class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary-content"
+				class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-secondary-content stwui-input-number-leading-wrapper"
 				class:text-danger={error}
 			>
 				<slot name="leading" />
@@ -118,7 +125,7 @@
 			<button
 				aria-label="clear"
 				on:click={handleClear}
-				class="disable-focus-active absolute inset-y-0 group-focus-within:flex active:flex items-center"
+				class="disable-focus-active absolute inset-y-0 group-focus-within:flex active:flex items-center stwui-input-number-clear-wrapper"
 				class:right-3={!$$slots.trailing && !error && !showSpin}
 				class:right-12={showSpin || $$slots.trailing || error}
 				class:right-20={showSpin && ($$slots.trailing || error)}
@@ -131,7 +138,7 @@
 
 		{#if showSpin && !error && !$$slots.trailing}
 			<span
-				class="absolute h-[2.5rem] text-sm inset-y-0 right-0 w-10 flex text-secondary-content flex-col items-stretch justify-evenly border border-transparent py-px"
+				class="absolute h-[2.5rem] text-sm inset-y-0 right-0 w-10 flex text-secondary-content flex-col items-stretch justify-evenly border border-transparent py-px stwui-input-number-spin-wrapper"
 			>
 				<button
 					type="button"
@@ -148,18 +155,18 @@
 			</span>
 		{:else if $$slots.trailing && !error && !showSpin}
 			<span
-				class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-secondary-content"
+				class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-secondary-content stwui-input-number-trailing-wrapper"
 			>
 				<slot name="trailing" />
 			</span>
 		{:else if $$slots.trailing && !error && showSpin}
 			<span
-				class="absolute inset-y-0 right-0 pr-12 flex items-center pointer-events-none text-secondary-content"
+				class="absolute inset-y-0 right-0 pr-12 flex items-center pointer-events-none text-secondary-content stwui-input-number-trailing-wrapper"
 			>
 				<slot name="trailing" />
 			</span>
 			<span
-				class="absolute h-[2.5rem] text-sm inset-y-0 right-0 w-10 flex text-secondary-content flex-col items-stretch justify-evenly border border-transparent py-px"
+				class="absolute h-[2.5rem] text-sm inset-y-0 right-0 w-10 flex text-secondary-content flex-col items-stretch justify-evenly border border-transparent py-px stwui-input-number-spin-wrapper"
 			>
 				<button
 					type="button"
@@ -175,11 +182,13 @@
 				>
 			</span>
 		{:else if error && showSpin}
-			<span class="absolute inset-y-0 right-0 flex items-center pr-12 pointer-events-none">
+			<span
+				class="absolute inset-y-0 right-0 flex items-center pr-12 pointer-events-none stwui-input-number-error-icon"
+			>
 				<Icon data={errorIcon} />
 			</span>
 			<span
-				class="absolute h-[2.5rem] text-sm inset-y-0 right-0 w-10 flex text-secondary-content flex-col items-stretch justify-evenly border border-transparent py-px"
+				class="absolute h-[2.5rem] text-sm inset-y-0 right-0 w-10 flex text-secondary-content flex-col items-stretch justify-evenly border border-transparent py-px stwui-input-number-spin-wrapper"
 			>
 				<button
 					type="button"
@@ -195,13 +204,21 @@
 				>
 			</span>
 		{:else if error}
-			<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+			<span
+				class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none stwui-input-number-error-icon"
+			>
 				<Icon data={errorIcon} />
 			</span>
 		{/if}
 	</div>
 	{#if error}
-		<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+		<p
+			transition:slide|local
+			class="mt-2 text-sm text-danger stwui-input-number-error"
+			id="{name}-error"
+		>
+			{error}
+		</p>
 	{/if}
 </div>
 
