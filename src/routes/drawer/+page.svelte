@@ -10,9 +10,10 @@
 		headerSlots,
 		contentSlots,
 		footerSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	let drawerDefaultOpen = false;
 	let drawerRightOpen = false;
@@ -198,3 +199,5 @@
 <SlotsTable component="Drawer.Content" slots={contentSlots} />
 
 <SlotsTable component="Drawer.Footer" slots={footerSlots} />
+
+<ClassTable component="Drawer" {classList} />
