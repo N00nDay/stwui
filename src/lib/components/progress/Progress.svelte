@@ -16,7 +16,7 @@
 </script>
 
 {#if !radial}
-	<div class="flex flex-row items-center justify-start">
+	<div class="flex flex-row items-center justify-start stwui-progress">
 		<div
 			class="rounded-xl overflow-hidden bg-default flex-grow"
 			class:mr-2={displayValue}
@@ -42,7 +42,9 @@
 		{/if}
 	</div>
 {:else}
-	<div class="inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5">
+	<div
+		class="inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5 stwui-progress-radial"
+	>
 		<svg
 			class="rotate-[-90deg] origin-center"
 			class:h-16={size === 'xs'}
