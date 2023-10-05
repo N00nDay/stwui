@@ -9,9 +9,10 @@
 		iconProps,
 		tabProps,
 		tabSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { home } from '../../docs/icons';
 	import { check, info } from '../../lib/icons';
 
@@ -97,3 +98,5 @@
 <SlotsTable component="Tabs.Tab" slots={tabSlots} />
 
 <PropsTable component="Tabs.Tab.Icon" props={iconProps} />
+
+<ClassTable component="Tabs" {classList} />
