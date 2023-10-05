@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -207,6 +207,45 @@ export const trendIconProps: Prop[] = [
 		prop: 'fill',
 		type: 'string',
 		default: 'currentColor'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-statistic'
+	},
+	{
+		id: '2',
+		class: 'stwui-statistic-title-wrapper'
+	},
+	{
+		id: '3',
+		class: 'stwui-statistic-title'
+	},
+	{
+		id: '4',
+		class: 'stwui-statistic-icon'
+	},
+	{
+		id: '5',
+		class: 'stwui-statistic-value'
+	},
+	{
+		id: '6',
+		class: 'stwui-statistic-goal'
+	},
+	{
+		id: '7',
+		class: 'stwui-statistic-comparison'
+	},
+	{
+		id: '8',
+		class: 'stwui-statistic-comaprison-value'
+	},
+	{
+		id: '9',
+		class: 'stwui-statistic-comparison-trend'
 	}
 ];
 

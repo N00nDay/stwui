@@ -18,9 +18,10 @@
 		trendProps,
 		trendslots,
 		trendIconProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { chart_box, favorite, home } from '../../docs/icons';
 </script>
 
@@ -211,3 +212,5 @@
 <PropsTable component="Statistic.Comparison.Trend.Icon" props={trendIconProps} />
 
 <PropsTable component="Statistic.Goal" props={goalProps} />
+
+<ClassTable component="Statistic" {classList} />
