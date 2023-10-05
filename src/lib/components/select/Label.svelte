@@ -11,7 +11,7 @@
 	const name: string = getContext('select-name');
 	const error: Writable<string | undefined> = getContext('select-error');
 
-	const defaultClass = 'block text-sm font-medium text-secondary-content';
+	const defaultClass = 'block text-sm font-medium text-secondary-content stwui-select-label';
 	const errorClass = 'text-danger';
 
 	$: finalClass = twMerge(

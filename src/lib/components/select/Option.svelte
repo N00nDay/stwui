@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 	import type { Writable } from 'svelte/store';
-	import { getContext } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import HoverBackground from '../HoverBackground.svelte';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon';
@@ -49,7 +49,7 @@
 	}
 
 	const defaultClass =
-		'group text-content cursor-pointer select-none p-0.5 w-full !outline-none !border-none !ring-0';
+		'group text-content cursor-pointer select-none p-0.5 w-full !outline-none !border-none !ring-0 stwui-select-option';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

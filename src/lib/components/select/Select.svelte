@@ -10,6 +10,7 @@
 	import Badge from '../badge';
 	import Portal from '../portal/Portal.svelte';
 	import Drawer from '../drawer';
+	import { twMerge } from 'tailwind-merge';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -88,6 +89,9 @@
 		value = $selectedValue;
 	}
 
+	const defaultClass = 'stwui-select';
+	$: finalClass = twMerge(defaultClass, $$props.class);
+
 	setContext('select-error', currentError);
 	setContext('select-name', name);
 	setContext('select-value', selectedValue);
@@ -100,7 +104,7 @@
 </script>
 
 <div
-	class={$$props.class}
+	class={finalClass}
 	style={$$props.style}
 	use:clickOutside={$isMobile
 		? () => {
@@ -114,7 +118,7 @@
 			aria-label="toggle select"
 			type="button"
 			on:click|stopPropagation|preventDefault={toggleVisible}
-			class="relative border pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md"
+			class="relative border pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md stwui-select-display"
 			class:border-danger={error}
 			class:text-danger={error}
 			class:focus:border-red-500={error}
@@ -168,7 +172,7 @@
 
 			{#if $$slots.leading}
 				<span
-					class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+					class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none stwui-select-leading-wrapper"
 					class:text-secondary-content={!error}
 					class:text-error={error}
 				>
@@ -177,12 +181,14 @@
 			{/if}
 
 			{#if error}
-				<span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+				<span
+					class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none stwui-select-error-icon"
+				>
 					<Icon data={errorIcon} />
 				</span>
 			{:else}
 				<span
-					class="absolute inset-y-0 right-0 flex items-start pt-[0.4rem] pr-2 pointer-events-none"
+					class="absolute inset-y-0 right-0 flex items-start pt-[0.4rem] pr-2 pointer-events-none stwui-select-drop-icon"
 				>
 					<Icon data={unfold_more_horizontal} />
 				</span>
@@ -200,6 +206,8 @@
 		{/if}
 	</div>
 	{#if error}
-		<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+		<p transition:slide|local class="mt-2 text-sm text-danger stwui-select-error" id="{name}-error">
+			{error}
+		</p>
 	{/if}
 </div>

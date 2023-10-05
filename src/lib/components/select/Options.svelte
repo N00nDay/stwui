@@ -32,7 +32,7 @@
 		}
 	}
 
-	let defaultClass = 'w-full bg-surface';
+	let defaultClass = 'w-full bg-surface stwui-select-options';
 	$: if ($mobile) {
 		defaultClass += ' h-full p-3 space-y-1';
 	} else {
