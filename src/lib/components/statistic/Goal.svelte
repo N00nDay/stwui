@@ -9,7 +9,7 @@
 
 	export let progress: number;
 
-	const defaultClass = 'mt-2';
+	const defaultClass = 'mt-2 stwui-statistic-goal';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

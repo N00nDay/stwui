@@ -8,7 +8,8 @@
 
 	export let bordered = true;
 
-	const defaultClass = 'overflow-hidden rounded-md px-4 py-5 shadow-md sm:p-5 bg-surface';
+	const defaultClass =
+		'overflow-hidden rounded-md px-4 py-5 shadow-md sm:p-5 bg-surface stwui-statistic';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -21,7 +22,7 @@
 	{...exclude($$props, ['use', 'class'])}
 >
 	{#if $$slots.title || $$slots.icon}
-		<div class="relative flex flex-row items-center justify-between">
+		<div class="relative flex flex-row items-center justify-between stwui-statistic-title-wrapper">
 			<slot name="title" />
 			<slot name="icon" />
 		</div>

@@ -12,6 +12,8 @@
 	const trendEvenClass = 'bg-info text-info-content';
 
 	$: finalClass = twMerge(
+		'stwui-statistic-comparison-trend',
+
 		trend === 'up' ? trendUpClass : false,
 		trend === 'down' ? trendDownClass : false,
 		trend === 'neutral' ? trendEvenClass : false,

@@ -6,7 +6,8 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'mt-1 text-sm flex flex-row justify-between items-center tracking-tight';
+	const defaultClass =
+		'mt-1 text-sm flex flex-row justify-between items-center tracking-tight stwui-statistic-comparison';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

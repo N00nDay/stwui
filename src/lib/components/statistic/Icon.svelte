@@ -24,7 +24,7 @@
 		return res[1];
 	}
 
-	const defaultClass = 'text-content absolute -top-3 -right-2';
+	const defaultClass = 'text-content absolute -top-3 -right-2 stwui-statistic-icon';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -46,6 +46,7 @@
 	])}
 >
 	<svg xmlns="http://www.w3.org/2000/svg" {width} {height} {viewBox} {stroke} {fill} {color}>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html elements}
 	</svg>
 </dd>
