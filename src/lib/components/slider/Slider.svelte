@@ -16,9 +16,9 @@
 		steps = max / step + 1;
 	}
 
-	const containerClass = 'w-full ';
+	const containerClass = 'w-full stwui-slider-wrapper ';
 
-	let defaultClass = '[&::-moz-range-thumb]:cursor-pointer ';
+	let defaultClass = '[&::-moz-range-thumb]:cursor-pointer stwui-slider ';
 	defaultClass += '[&::-moz-range-thumb]:rounded-full ';
 	defaultClass += '[&::-moz-range-thumb]:top-2/4 ';
 	defaultClass += '[&::-moz-range-thumb]:translate-y-[-50%] ';
