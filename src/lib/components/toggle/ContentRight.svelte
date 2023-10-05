@@ -10,7 +10,7 @@
 	const name: string = getContext('toggle-name');
 	const toggleOn: () => void = getContext('toggle-on');
 
-	const defaultClass = 'ml-3 cursor-pointer';
+	const defaultClass = 'ml-3 cursor-pointer stwui-toggle-content-right';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
