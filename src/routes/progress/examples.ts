@@ -1,4 +1,4 @@
-import type { Prop } from '../../docs';
+import type { IClass, Prop } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -36,6 +36,17 @@ export const props: Prop[] = [
 		prop: 'indeterminate',
 		type: 'boolean',
 		default: 'false'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-progress'
+	},
+	{
+		id: '1',
+		class: 'stwui-progress-radial'
 	}
 ];
 

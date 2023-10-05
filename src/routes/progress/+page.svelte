@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Progress } from '../../lib';
-	import { example, props, radialExample, typeExample, usage } from './examples';
-	import { PropsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { example, props, radialExample, typeExample, usage, classList } from './examples';
+	import { PropsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 </script>
 
 <h4 class="text-content pb-2">Usage</h4>
@@ -63,3 +63,5 @@
 </ExampleContainer>
 
 <PropsTable component="Progress" {props} />
+
+<ClassTable component="Progress" {classList} />
