@@ -13,9 +13,10 @@
 		titleSlots,
 		descriptionSlots,
 		extraSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { folder } from '../../docs/icons';
 	import { close } from '../../lib/icons';
 
@@ -104,3 +105,5 @@
 <SlotsTable component="Notification.Content.Description" slots={descriptionSlots} />
 
 <SlotsTable component="Notification.Extra" slots={extraSlots} />
+
+<ClassTable component="Notification" {classList} />
