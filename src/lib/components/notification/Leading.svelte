@@ -12,7 +12,7 @@
 
 	$: $leading = true;
 
-	const defaultClass = 'flex-shrink-0 text-content';
+	const defaultClass = 'flex-shrink-0 text-content stwui-notification-leading';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

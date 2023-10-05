@@ -12,7 +12,7 @@
 
 	$: $title = true;
 
-	const defaultClass = 'text-sm font-medium text-content';
+	const defaultClass = 'text-sm font-medium text-content stwui-notification-content-title';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

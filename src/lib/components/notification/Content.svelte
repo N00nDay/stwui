@@ -13,7 +13,7 @@
 	const leading: Writable<boolean> = getContext('notification-leading');
 	const type: 'info' | 'warn' | 'error' | 'success' | undefined = getContext('notification-type');
 
-	const defaultClass = 'w-0 flex-1 pt-0.5';
+	const defaultClass = 'w-0 flex-1 pt-0.5 stwui-notification-content';
 	const leadingTypeClass = 'ml-3 w-0 flex-1 pt-0.5';
 
 	$: finalClass = twMerge(

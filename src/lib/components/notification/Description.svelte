@@ -10,7 +10,7 @@
 
 	const title: Writable<boolean> = getContext('notification-title');
 
-	const defaultClass = 'text-sm text-secondary-content';
+	const defaultClass = 'text-sm text-secondary-content stwui-notification-content-description';
 	const titleClass = 'mt-1';
 
 	$: finalClass = twMerge(

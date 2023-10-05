@@ -26,7 +26,7 @@
 	let extra = writable(false);
 
 	const defaultClass =
-		'relative cursor-pointer flex items-start pointer-events-auto p-4 w-full max-w-sm overflow-hidden rounded-lg bg-surface shadow-lg border border-border';
+		'relative cursor-pointer flex items-start pointer-events-auto p-4 w-full max-w-sm overflow-hidden rounded-lg bg-surface shadow-lg border border-border stwui-notification';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('notification-leading', leading);
@@ -44,7 +44,7 @@
 		<slot name="leading" />
 	{:else if type}
 		<div
-			class="flex-shrink-0 text-content"
+			class="flex-shrink-0 text-content stwui-notification-icon"
 			class:text-info-icon={type === 'info'}
 			class:text-warn-icon={type === 'warn'}
 			class:text-success-icon={type === 'success'}

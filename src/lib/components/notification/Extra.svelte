@@ -12,7 +12,7 @@
 
 	$: $extra = true;
 
-	const defaultClass = 'ml-4 flex flex-shrink-0 relative top-0 right-0';
+	const defaultClass = 'ml-4 flex flex-shrink-0 relative top-0 right-0 stwui-notification-extra';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
