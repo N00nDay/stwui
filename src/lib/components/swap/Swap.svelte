@@ -10,7 +10,7 @@
 	export let loading: false | true | undefined = undefined;
 	export let swapped: false | true | undefined = undefined;
 
-	const defaultClass = 'swap relative inset-0';
+	const defaultClass = 'swap relative inset-0 stwui-swap';
 	const rotateClass = 'swap-rotate';
 	const flipClass = 'swap-flip';
 
