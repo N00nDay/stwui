@@ -19,9 +19,9 @@
 	}
 
 	const defaultClass =
-		'radio bg-surface text-surface border-border checked:bg-none border checked:border-primary group-hover:border-primary group-focus:border-primary active:border-primary focus:active:border-primary focus:border-primary rounded-full h-6 w-6';
+		'radio bg-surface text-surface border-border checked:bg-none border checked:border-primary group-hover:border-primary group-focus:border-primary active:border-primary focus:active:border-primary focus:border-primary rounded-full h-6 w-6 stwui-radio';
 	const pillClass =
-		'group relative border border-border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium sm:flex-1 cursor-pointer focus:outline-none';
+		'group relative border border-border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium sm:flex-1 cursor-pointer focus:outline-none stwui-radio-pill';
 
 	$: finalClass = twMerge(
 		type === 'default' ? defaultClass : false,

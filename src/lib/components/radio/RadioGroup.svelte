@@ -71,7 +71,7 @@
 	});
 </script>
 
-<div>
+<div class="stwui-radio-group">
 	<slot name="label" />
 	<button on:keydown={handleKeydown} tabindex="-1" class="text-left" type="button">
 		<ul bind:this={list} class={finalClass} style={$$props.style} tabindex="-1">
@@ -79,6 +79,8 @@
 		</ul>
 	</button>
 	{#if error}
-		<p transition:slide|local class="!mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+		<p transition:slide|local class="!mt-2 text-sm text-danger stwui-radio-error" id="{name}-error">
+			{error}
+		</p>
 	{/if}
 </div>
