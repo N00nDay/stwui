@@ -15,9 +15,10 @@
 		iconProps,
 		exampleMultipleMobile,
 		exampleMobile,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email } from '../../docs/icons';
 	import type { SelectOption } from '$lib/types';
 
@@ -216,3 +217,5 @@
 <SlotsTable component="Select.Options" slots={optionsSlots} />
 
 <PropsTable component="Select.Options.Option" props={optionProps} />
+
+<ClassTable component="Select" {classList} />
