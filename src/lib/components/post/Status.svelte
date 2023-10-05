@@ -12,7 +12,8 @@
 	export let likes: string[] = [];
 	export let comments: string[] = [];
 
-	const defaultClass = 'flex flex-row justify-evenly items-center py-1 px-2 border-t border-border';
+	const defaultClass =
+		'flex flex-row justify-evenly items-center py-1 px-2 border-t border-border stwui-post-status';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

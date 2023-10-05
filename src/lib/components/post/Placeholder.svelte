@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import { getContext } from 'svelte/internal';
+	import { getContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import Icon from '../icon/Icon.svelte';
 	import { account } from '../../icons';
@@ -15,10 +15,11 @@
 	const shape: 'circle' | 'rounded' | 'square' = getContext('post-avatar-shape');
 	const placeholder: boolean = getContext('post-avatar-placeholder');
 
-	const iconContainerClass = 'absolute text-content h-full w-full bottom-[-0.5rem]';
+	const iconContainerClass =
+		'absolute text-content h-full w-full bottom-[-0.5rem] stwui-post-header-avatar-icon';
 
 	const defaultClass =
-		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default';
+		'absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden bg-default stwui-post-header-avatar-placeholder';
 	const circleClass = 'rounded-full';
 	const roundedClass = 'rounded-md';
 

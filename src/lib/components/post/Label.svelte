@@ -6,7 +6,7 @@
 	import { exclude } from '../../utils/exclude';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	const defaultClass = 'text-xs';
+	const defaultClass = 'text-xs stwui-post-action-label';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

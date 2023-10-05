@@ -7,7 +7,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass =
-		'first:rounded-t-md last:rounded-b-md py-1.5 px-1.5 sm:px-3 h-14 flex flex-row border-b border-border';
+		'first:rounded-t-md last:rounded-b-md py-1.5 px-1.5 sm:px-3 h-14 flex flex-row border-b border-border stwui-post-header';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -17,10 +17,10 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
 >
-	<div class="flex-shrink">
+	<div class="flex-shrink stwui-post-header-avatar-wrapper">
 		<slot name="avatar" />
 	</div>
-	<div class="flex flex-col flex-grow h-full ml-3">
+	<div class="flex flex-col flex-grow h-full ml-3 stwi-post-header-creator-wrapper">
 		<slot name="creator" />
 		<slot name="created" />
 	</div>

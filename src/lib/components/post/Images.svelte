@@ -79,7 +79,7 @@
 	}
 
 	const defaultClass =
-		'mt-[-1px] mr-[-1px] ml-[-1px] last:h-[calc(100%+2px)] first:rounded-t-md last:rounded-b-md overflow-hidden';
+		'mt-[-1px] mr-[-1px] ml-[-1px] last:h-[calc(100%+2px)] first:rounded-t-md last:rounded-b-md overflow-hidden stwui-post-images';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

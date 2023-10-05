@@ -8,7 +8,7 @@
 
 	export let bordered = false;
 
-	const defaultClass = 'bg-surface text-content rounded-md shadow-md';
+	const defaultClass = 'bg-surface text-content rounded-md shadow-md stwui-post';
 	const borderClass = 'border border-border';
 
 	$: finalClass = twMerge(

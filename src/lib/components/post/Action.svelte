@@ -8,7 +8,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass =
-		'group relative w-full h-full cursor-pointer first:rounded-bl-md last:rounded-br-md overflow-hidden';
+		'group relative w-full h-full cursor-pointer first:rounded-bl-md last:rounded-br-md overflow-hidden stwui-post-action';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
