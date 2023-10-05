@@ -10,9 +10,10 @@
 		example4,
 		example5,
 		example6,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { account, calendar } from '$lib/icons';
 
 	let value: string | undefined;
@@ -227,3 +228,5 @@
 <SlotsTable component="TextArea" {slots} />
 
 <SlotsTable component="TextArea.Label" slots={labelSlots} />
+
+<ClassTable component="TextArea" {classList} />

@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -64,6 +64,37 @@ export const labelSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-textarea-wrapper'
+	},
+	{
+		id: '2',
+		class: 'stwui-textarea'
+	},
+	{
+		id: '3',
+		class: 'stwui-textarea-error'
+	},
+	{
+		id: '4',
+		class: 'stwui-textarea-label'
+	},
+	{
+		id: '5',
+		class: 'stwui-textarea-title'
+	},
+	{
+		id: '6',
+		class: 'stwui-textarea-pills'
+	},
+	{
+		id: '7',
+		class: 'stwui-textarea-actions'
 	}
 ];
 
