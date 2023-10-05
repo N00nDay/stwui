@@ -7,6 +7,7 @@
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let type: 'comment' | undefined = undefined;
@@ -15,10 +16,18 @@
 	export let created: Date;
 	export let description: string;
 	export let icon: string | undefined = undefined;
+
+	const defaultClass = 'stwui-timeline-item';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 {#if type === 'comment'}
-	<li use:useActions={use} use:forwardEvents {...exclude($$props, ['use'])}>
+	<li
+		class={finalClass}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class'])}
+	>
 		<div class="relative pb-8">
 			<span class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-default" />
 			<div class="relative flex items-start space-x-3">
@@ -42,6 +51,7 @@
 					</div>
 					<div class="mt-2 text-sm text-secondary-content">
 						<p>
+							<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 							{@html description}
 						</p>
 					</div>
@@ -50,7 +60,12 @@
 		</div>
 	</li>
 {:else}
-	<li use:useActions={use} use:forwardEvents {...exclude($$props, ['use'])}>
+	<li
+		class={finalClass}
+		use:useActions={use}
+		use:forwardEvents
+		{...exclude($$props, ['use', 'class'])}
+	>
 		<div class="relative pb-8">
 			<span class="divider absolute top-5 left-5 -ml-px h-full w-0.5 bg-default" />
 			<div class="relative flex items-start space-x-3">
@@ -67,6 +82,7 @@
 				</div>
 				<div class="min-w-0 flex-1 py-1.5">
 					<div class="text-sm text-secondary-content">
+						<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 						{@html description}
 						<span class="whitespace-nowrap ml-1">{formatDate(created)}</span>
 					</div>

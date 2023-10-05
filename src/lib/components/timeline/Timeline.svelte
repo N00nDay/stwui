@@ -3,11 +3,15 @@
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import { twMerge } from 'tailwind-merge';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
+
+	const defaultClass = 'stwui-timeline flow-root';
+	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
-	class="flow-root{$$props.class ? ` ${$$props.class}` : ''}"
+	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
