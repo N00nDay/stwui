@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -209,6 +209,37 @@ export const iconProps: Prop[] = [
 		prop: 'fill',
 		type: 'string',
 		default: 'currentColor'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-modal-wrapper'
+	},
+	{
+		id: '2',
+		class: 'stwui-modal-backdrop'
+	},
+	{
+		id: '3',
+		class: 'stwui-modal'
+	},
+	{
+		id: '4',
+		class: 'stwui-modal-content'
+	},
+	{
+		id: '5',
+		class: 'stwui-modal-content-header'
+	},
+	{
+		id: '6',
+		class: 'stwui-modal-content-body'
+	},
+	{
+		id: '7',
+		class: 'stwui-modal-content-footer'
 	}
 ];
 

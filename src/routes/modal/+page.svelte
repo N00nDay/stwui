@@ -15,9 +15,10 @@
 		actionsSlots,
 		labelSlots,
 		iconProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { contentProps } from '../layout/examples';
 
 	let open = false;
@@ -143,3 +144,5 @@
 <PropsTable component="Modal.Content.Actions.Action.Icon" props={iconProps} />
 
 <SlotsTable component="Modal.Content.Actions.Action.Label" slots={labelSlots} />
+
+<ClassTable component="Modal" {classList} />
