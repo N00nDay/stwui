@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.6-next](https://github.com/N00nDay/stwui/compare/v0.18.5-next...v0.18.6-next) (2023-10-05)
+
+
+### Bug Fixes
+
+* **Select:** programatic setting of value bug ([9c4ae58](https://github.com/N00nDay/stwui/commit/9c4ae58b7ecc7c67c6d604ba99c85eec51fddd97))
+
 ## [0.18.5-next](https://github.com/N00nDay/stwui/compare/v0.18.4-next...v0.18.5-next) (2023-10-05)
 
 
