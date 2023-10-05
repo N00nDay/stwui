@@ -14,7 +14,7 @@
 		value = rating;
 	}
 
-	const defaultClass = 'rating text-primary';
+	const defaultClass = 'rating text-primary stwui-rating';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
