@@ -25,6 +25,8 @@
 	const defaultClass = 'border-b-2';
 
 	$: finalClass = twMerge(
+		'stwui-tab',
+
 		key === $currentTab ? baseActiveClass : baseClass,
 		variant === 'full-width' || variant === 'bar' ? fullWidthClass : false,
 		variant === 'bar' ? barClass : false,
