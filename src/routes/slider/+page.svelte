@@ -1,7 +1,15 @@
 <script lang="ts">
 	import { Slider } from '../../lib';
-	import { example, exampleType, exampleStep, exampleShowStep, props, usage } from './examples';
-	import { PropsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import {
+		example,
+		exampleType,
+		exampleStep,
+		exampleShowStep,
+		props,
+		usage,
+		classList
+	} from './examples';
+	import { PropsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 </script>
 
 <h4 class="text-content pb-2">Usage</h4>
@@ -47,3 +55,5 @@
 </ExampleContainer>
 
 <PropsTable component="Slider" {props} />
+
+<ClassTable component="Slider" {classList} />
