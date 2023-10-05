@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Icon, Swap } from '../../lib';
-	import { example1, example2, props, slots, usage } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { example1, example2, props, slots, usage, classList } from './examples';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { menu, close } from '../../lib/icons';
 
 	let swapped = false;
@@ -38,3 +38,5 @@
 <PropsTable component="Swap" {props} />
 
 <SlotsTable component="Swap" {slots} />
+
+<ClassTable component="Swap" {classList} />
