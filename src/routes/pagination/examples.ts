@@ -1,4 +1,4 @@
-import type { Prop } from '../../docs';
+import type { IClass, Prop } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -54,6 +54,41 @@ export const props: Prop[] = [
 		prop: 'pageSize',
 		type: 'number',
 		default: '25'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-pagination'
+	},
+	{
+		id: '2',
+		class: 'stwui-pagination-previous'
+	},
+	{
+		id: '3',
+		class: 'stwui-pagination-next'
+	},
+	{
+		id: '4',
+		class: 'stwui-pagination-current'
+	},
+	{
+		id: '5',
+		class: 'stwui-pagination-first'
+	},
+	{
+		id: '6',
+		class: 'stwui-pagination-blank-page'
+	},
+	{
+		id: '7',
+		class: 'stwui-pagination-page'
+	},
+	{
+		id: '8',
+		class: 'stwui-pagination-last'
 	}
 ];
 

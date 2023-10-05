@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Pagination } from '../../lib';
-	import { example, props, usage } from './examples';
-	import { PropsTable, BetaComponent, CodeBlock, ExampleContainer } from '../../docs';
+	import { example, props, usage, classList } from './examples';
+	import { PropsTable, ClassTable, BetaComponent, CodeBlock, ExampleContainer } from '../../docs';
 
 	let rowsPerPage = 10;
 
@@ -54,3 +54,5 @@
 </ExampleContainer>
 
 <PropsTable component="Alert" {props} />
+
+<ClassTable component="Alert" {classList} />
