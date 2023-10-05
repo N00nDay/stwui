@@ -1,7 +1,15 @@
 <script lang="ts">
 	import { Rating } from '../../lib';
-	import { example, halfExample, sizeExample, showValueExample, props, usage } from './examples';
-	import { PropsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import {
+		example,
+		halfExample,
+		sizeExample,
+		showValueExample,
+		props,
+		usage,
+		classList
+	} from './examples';
+	import { PropsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 </script>
 
 <h4 class="text-content pb-2">Usage</h4>
@@ -63,3 +71,5 @@
 </ExampleContainer>
 
 <PropsTable component="Rating" {props} />
+
+<ClassTable component="Rating" {classList} />

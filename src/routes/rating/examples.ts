@@ -1,4 +1,4 @@
-import type { Prop } from '../../docs';
+import type { IClass, Prop } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -48,6 +48,13 @@ export const props: Prop[] = [
 		prop: 'type',
 		type: "'info' | 'success' | 'warn' | 'error' | undefined",
 		default: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-rating'
 	}
 ];
 
