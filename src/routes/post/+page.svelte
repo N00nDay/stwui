@@ -21,9 +21,10 @@
 		actionSlots,
 		labelSlots,
 		iconProps,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { comment, share, thumb_up } from '../../lib/icons';
 
 	let creator = {
@@ -270,3 +271,5 @@
 <PropsTable component="Post.Actions.Action.Icon" props={iconProps} />
 
 <SlotsTable component="Post.Actions.Action.Label" slots={labelSlots} />
+
+<ClassTable component="Post" {classList} />

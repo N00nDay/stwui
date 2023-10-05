@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -246,6 +246,73 @@ export const iconProps: Prop[] = [
 		prop: 'fill',
 		type: 'string',
 		default: 'currentColor'
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-post'
+	},
+	{
+		id: '2',
+		class: 'stwui-post-header'
+	},
+	{
+		id: '3',
+		class: 'stwui-post-header-avatar-wrapper'
+	},
+	{
+		id: '4',
+		class: 'stwui-post-header-avatar'
+	},
+	{
+		id: '5',
+		class: 'stwui-post-avatar-placeholder'
+	},
+	{
+		id: '6',
+		class: 'stwui-post-header-creator-wrapper'
+	},
+	{
+		id: '7',
+		class: 'stwui-post-header-creator-wrapper-created'
+	},
+	{
+		id: '8',
+		class: 'stwui-post-header-created-wrapper-created'
+	},
+	{
+		id: '9',
+		class: 'stwui-post-header-extras'
+	},
+	{
+		id: '10',
+		class: 'stwui-post-content'
+	},
+	{
+		id: '11',
+		class: 'stwui-post-images'
+	},
+	{
+		id: '12',
+		class: 'stwui-post-status'
+	},
+	{
+		id: '13',
+		class: 'stwui-post-actions'
+	},
+	{
+		id: '14',
+		class: 'stwui-post-action'
+	},
+	{
+		id: '15',
+		class: 'stwui-post-action-icon'
+	},
+	{
+		id: '16',
+		class: 'stwui-post-action-label'
 	}
 ];
 
