@@ -12,9 +12,10 @@
 		pillExample,
 		gridExample,
 		errorExample,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	let selected: string | undefined = undefined;
 	let error: string | undefined = 'Here is an error!';
@@ -150,3 +151,5 @@
 <SlotsTable component="RadioGroup.Radio.Label" slots={labelSlots} />
 
 <SlotsTable component="RadioGroup.Radio.Description" slots={descriptionSlots} />
+
+<ClassTable component="RadioGroup" {classList} />

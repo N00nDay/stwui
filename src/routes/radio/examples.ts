@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -87,6 +87,37 @@ export const descriptionSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-radio-group'
+	},
+	{
+		id: '2',
+		class: 'stwui-radio-error'
+	},
+	{
+		id: '3',
+		class: 'stwui-radio-group-label'
+	},
+	{
+		id: '4',
+		class: 'stwui-radio'
+	},
+	{
+		id: '5',
+		class: 'stwui-radio-pill'
+	},
+	{
+		id: '6',
+		class: 'stwui-radio-label'
+	},
+	{
+		id: '7',
+		class: 'stwui-radio-description'
 	}
 ];
 
