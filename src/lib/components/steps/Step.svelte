@@ -15,16 +15,19 @@
 	const variant: 'simple' | 'bullets' | 'bullets-text' | 'circles-text' =
 		getContext('steps-variant');
 
-	const bulletsPreviousStep = 'block h-2.5 w-2.5 rounded-full bg-default hover:bg-default';
-	const bulletsCurrentStep = 'relative flex items-center justify-center';
-	const bulletsNextStep = 'block h-2.5 w-2.5 rounded-full bg-primary hover:bg-primary-hover';
+	const bulletsPreviousStep =
+		'block h-2.5 w-2.5 rounded-full bg-default hover:bg-default stwui-steps-step-bullet-previous';
+	const bulletsCurrentStep =
+		'relative flex items-center justify-center stwui-steps-step-bullet-current';
+	const bulletsNextStep =
+		'block h-2.5 w-2.5 rounded-full bg-primary hover:bg-primary-hover stwui-steps-step-bullet-next';
 
 	const simplePreviousStep =
-		'group flex flex-col border-l-4 border-border hover:border-border py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
+		'group flex flex-col border-l-4 border-border hover:border-border py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0 stwui-steps-step-simple-previous';
 	const simpleCurrentStep =
-		'flex flex-col border-l-4 border-primary py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
+		'flex flex-col border-l-4 border-primary py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0 stwui-steps-step-simple-current';
 	const simpleNextStep =
-		'group flex flex-col border-l-4 border-primary hover:border-primary-hover py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0';
+		'group flex flex-col border-l-4 border-primary hover:border-primary-hover py-2 pl-4 md:border-l-0 md:border-t-4 md:pl-0 md:pt-4 md:pb-0 stwui-steps-step-simple-next';
 
 	$: finalClass = twMerge(
 		variant === 'bullets' && $currentStep < step ? bulletsPreviousStep : false,

@@ -9,10 +9,10 @@
 	let acitveStep = writable(currentStep);
 	$: $acitveStep = currentStep;
 
-	const bulletsClass = 'flex items-center justify-center';
+	const bulletsClass = 'flex items-center justify-center stwui-steps-bullets-wrapper';
 
-	const bulletsTextClass = 'py-12 px-4 sm:px-6 lg:px-8';
-	const circlesTextClass = 'overflow-hidden';
+	const bulletsTextClass = 'py-12 px-4 sm:px-6 lg:px-8 stwui-steps-bullets-text-wrapper';
+	const circlesTextClass = 'overflow-hidden stwui-steps-circles-text-wrapper';
 	const simpleClass = 'space-y-4 md:flex md:space-y-0 md:space-x-8';
 
 	$: finalClass = twMerge(
@@ -29,7 +29,7 @@
 </script>
 
 {#if variant === 'simple'}
-	<nav>
+	<nav class="stwui-steps-simple-wrapper">
 		<ol class={finalClass} style={$$props.style}>
 			<slot />
 		</ol>

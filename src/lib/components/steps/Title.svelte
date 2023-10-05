@@ -13,18 +13,26 @@
 		getContext('steps-variant');
 	const step: number = getContext('steps-step');
 
-	const bulletsTextNextStep = 'ml-3 text-sm font-medium text-content';
-	const bulletsTextCurrentStep = 'ml-3 text-sm font-medium text-primary';
+	const bulletsTextNextStep =
+		'ml-3 text-sm font-medium text-content stwui-steps-step-bullets-title-next';
+	const bulletsTextCurrentStep =
+		'ml-3 text-sm font-medium text-primary stwui-steps-step-bullets-title-current';
 	const bulletsTextPreviousStep =
-		'ml-3 text-sm font-medium text-secondary-content group-hover:text-content';
+		'ml-3 text-sm font-medium text-secondary-content group-hover:text-content stwui-steps-step-bullets-title-previous';
 
-	const circlesTextNextStep = 'text-sm font-medium text-content';
-	const circlesTextCurrentStep = 'text-sm font-medium text-primary';
-	const circlesTextPreviousStep = 'text-sm font-medium text-secondary-content';
+	const circlesTextNextStep =
+		'text-sm font-medium text-content stwui-steps-step-circles-title-next';
+	const circlesTextCurrentStep =
+		'text-sm font-medium text-primary stwui-steps-step-circles-title-current';
+	const circlesTextPreviousStep =
+		'text-sm font-medium text-secondary-content stwui-steps-step-circles-title-previous';
 
-	const simpleNextStep = 'text-sm font-medium text-primary group-hover:text-primary-hover';
-	const simpleCurrentStep = 'text-sm font-medium text-primary';
-	const simplePreviousStep = 'text-sm font-medium text-content';
+	const simpleNextStep =
+		'text-sm font-medium text-primary group-hover:text-primary-hover stwui-steps-step-simple-title-next';
+	const simpleCurrentStep =
+		'text-sm font-medium text-primary stwui-steps-step-simple-title-current';
+	const simplePreviousStep =
+		'text-sm font-medium text-content stwuisteps-step-simple-title-previous';
 
 	$: finalClass = twMerge(
 		variant === 'bullets' ? 'sr-only' : false,
