@@ -30,6 +30,7 @@
 		? value[optionValue]
 		: '';
 	let selectedValue: Writable<SelectOption | SelectOption[] | undefined> = writable(value);
+	$: selectedValue.set(value);
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
 	let isMobile: Writable<boolean> = writable(mobile);
