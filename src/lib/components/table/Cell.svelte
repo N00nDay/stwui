@@ -14,7 +14,7 @@
 	const columns: TableColumn[] = getContext('table-columns');
 
 	const defaultClass =
-		'table-col first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 border-t truncate border-border py-2.5 pr-3 text-sm sm:pl-6 font-semibold md:font-normal text-secondary-content box-border';
+		'table-col first:pl-4 last:pl-3 last:pr-4 last:sm:pr-6 border-t truncate border-border py-2.5 pr-3 text-sm sm:pl-6 font-semibold md:font-normal text-secondary-content box-border stwui-table-body-row-cell';
 	const rightClass = 'text-right pl-3 pr-4 sm:pr-6 last:text-right';
 	const leftClass = 'text-left';
 	const noPlacementClass = 'last:text-right';

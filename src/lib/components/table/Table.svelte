@@ -15,7 +15,7 @@
 	let footer = writable(false);
 	let scrollbarWidth = writable(0);
 
-	const defaultClass = 'bg-surface';
+	const defaultClass = 'bg-surface stwui-table';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('table-columns', columns);

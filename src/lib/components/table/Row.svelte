@@ -9,7 +9,7 @@
 	export let id: string;
 
 	const defaultClass =
-		'table-row h-12 max-h-[3rem] cursor-pointer hover:bg-hover hover:bg-opacity-5 bg-surface';
+		'table-row h-12 max-h-[3rem] cursor-pointer hover:bg-hover hover:bg-opacity-5 bg-surface stwui-table-body-row';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

@@ -19,7 +19,7 @@
 	}
 
 	const defaultClass =
-		'sticky top-0 py-4 last:hover:active last:focus:active last:active:active first:pl-4 last:pl-3 last:pr-4 pr-3 last:sm:pr-6 text-sm sm:pl-6 box-border';
+		'sticky top-0 py-4 last:hover:active last:focus:active last:active:active first:pl-4 last:pl-3 last:pr-4 pr-3 last:sm:pr-6 text-sm sm:pl-6 box-border stwui-table-header';
 	const rightClass = 'pl-3 pr-4 sm:pr-6 text-right last:text-right';
 	const leftClass = 'text-left';
 	const noPlacementClass = 'last:text-right';

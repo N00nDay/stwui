@@ -29,7 +29,7 @@
 	});
 
 	const defaultClass =
-		'table min-w-full border-separate bg-surface border-spacing-0 table-fixed border-b border-border';
+		'table min-w-full border-separate bg-surface border-spacing-0 table-fixed border-b border-border stwui-table-body';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
