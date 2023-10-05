@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const slots: Slot[] = [
 	{
@@ -44,6 +44,17 @@ export const itemProps: Prop[] = [
 		prop: 'icon',
 		type: '<a href="/types#IconData" class="link">string (IconData)</a> | undefined',
 		default: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-timeline'
+	},
+	{
+		id: '2',
+		class: 'stwui-timeline-item'
 	}
 ];
 

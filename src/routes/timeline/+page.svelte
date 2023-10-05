@@ -1,8 +1,15 @@
 <script lang="ts">
 	import { Timeline } from '../../lib';
 	import type { TimelineItem } from '../../lib/types/timeline-item';
-	import { example, slots, itemProps, usage } from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, BetaComponent, ExampleContainer } from '../../docs';
+	import { example, slots, itemProps, usage, classList } from './examples';
+	import {
+		PropsTable,
+		SlotsTable,
+		ClassTable,
+		CodeBlock,
+		BetaComponent,
+		ExampleContainer
+	} from '../../docs';
 
 	import { account, currency_usd } from '../../lib/icons';
 
@@ -74,3 +81,5 @@
 <SlotsTable component="Timeline" {slots} />
 
 <PropsTable component="Timeline.Item" props={itemProps} />
+
+<ClassTable component="Timeline" {classList} />
