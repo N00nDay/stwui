@@ -14,9 +14,10 @@
 		descriptionSlots,
 		contentLeftSlots,
 		contentRightSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { brightness_4, brightness_5 } from '../../docs/icons';
 
 	let on = false;
@@ -120,3 +121,5 @@
 <SlotsTable component="Toggle.ContentRight.Title" slots={titleSlots} />
 
 <SlotsTable component="Toggle.ContentRight.Description" slots={descriptionSlots} />
+
+<ClassTable component="Toggle" {classList} />

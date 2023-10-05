@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -134,6 +134,49 @@ export const descriptionSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-toggle-wrapper'
+	},
+	{
+		id: '2',
+		class: 'stwui-toggle'
+	},
+	{
+		id: '3',
+		class: 'stwui-toggle-dongle'
+	},
+	{
+		id: '4',
+		class: 'stwui-toggle-left-icon-wrapper'
+	},
+	{
+		id: '5',
+		class: 'stwui-toggle-right-icon-wrapper'
+	},
+	{
+		id: '6',
+		class: 'stwui-toggle-error'
+	},
+	{
+		id: '7',
+		class: 'stwui-toggle-label'
+	},
+	{
+		id: '8',
+		class: 'stwui-toggle-content-left'
+	},
+	{
+		id: '9',
+		class: 'stwui-toggle-content-right'
+	},
+	{
+		id: '10',
+		class: 'stwui-toggle-description'
 	}
 ];
 
