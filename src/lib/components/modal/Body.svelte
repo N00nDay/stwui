@@ -7,7 +7,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass =
-		'first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 flex-grow overflow-y-auto';
+		'first:rounded-t-md last:rounded-b-md px-4 py-5 sm:px-6 flex-grow overflow-y-auto stwui-modal-content-body';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 

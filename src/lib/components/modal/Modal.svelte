@@ -19,13 +19,18 @@
 		}
 	}
 
-	const defaultClass = 'fixed inset-0 p-4 sm:p-6 md:p-20';
+	const defaultClass = 'fixed inset-0 p-4 sm:p-6 md:p-20 stwui-modal';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <svelte:window on:keydown={captureEscapeEvent} />
 
-<div class="relative z-10 pointer-events-none" role="dialog" aria-modal="true" transition:fade>
+<div
+	class="relative z-10 pointer-events-none stwui-modal-wrapper"
+	role="dialog"
+	aria-modal="true"
+	transition:fade
+>
 	{#if $$slots.backdrop}
 		<slot name="backdrop" />
 	{:else}
