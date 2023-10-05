@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -77,6 +77,101 @@ export const descriptionSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-steps-simple-wrapper'
+	},
+	{
+		id: '2',
+		class: 'stwui-steps-bullets-wrapper'
+	},
+	{
+		id: '3',
+		class: 'stwui-steps-bullets-text-wrapper'
+	},
+	{
+		id: '4',
+		class: 'stwui-steps-circles-text-wrapper'
+	},
+	{
+		id: '5',
+		class: 'stwui-steps-step-bullet-previous'
+	},
+	{
+		id: '6',
+		class: 'stwui-steps-step-bullet-current'
+	},
+	{
+		id: '7',
+		class: 'stwui-steps-step-bullet-next'
+	},
+	{
+		id: '8',
+		class: 'stwui-steps-step-simple-previous'
+	},
+	{
+		id: '9',
+		class: 'stwui-steps-step-simple-current'
+	},
+	{
+		id: '10',
+		class: 'stwui-steps-step-simple-next'
+	},
+	{
+		id: '11',
+		class: 'stwui-steps-summary'
+	},
+	{
+		id: '12',
+		class: 'stwui-steps-step-bullets-title-previous'
+	},
+	{
+		id: '13',
+		class: 'stwui-steps-step-bullets-title-current'
+	},
+	{
+		id: '14',
+		class: 'stwui-steps-step-bullets-title-next'
+	},
+	{
+		id: '15',
+		class: 'stwui-steps-step-simple-title-previous'
+	},
+	{
+		id: '16',
+		class: 'stwui-steps-step-simple-title-current'
+	},
+	{
+		id: '17',
+		class: 'stwui-steps-step-simple-title-next'
+	},
+	{
+		id: '18',
+		class: 'stwui-steps-step-circles-title-previous'
+	},
+	{
+		id: '19',
+		class: 'stwui-steps-step-circles-title-current'
+	},
+	{
+		id: '20',
+		class: 'stwui-steps-step-circles-title-next'
+	},
+	{
+		id: '21',
+		class: 'stwui-steps-step-circle-description'
+	},
+	{
+		id: '22',
+		class: 'stwui-steps-step-simple-description'
+	},
+	{
+		id: '23',
+		class: 'stwui-steps-step-simple-previous-description'
 	}
 ];
 

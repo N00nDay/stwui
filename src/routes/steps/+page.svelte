@@ -11,9 +11,10 @@
 		stepSlots,
 		titleSlots,
 		descriptionSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
 	let currentStep = 2;
 
@@ -106,3 +107,5 @@
 <SlotsTable component="Steps.Step.Title" slots={titleSlots} />
 
 <SlotsTable component="Steps.Step.Description" slots={descriptionSlots} />
+
+<ClassTable component="Steps" {classList} />
