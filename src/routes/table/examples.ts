@@ -1,4 +1,4 @@
-import type { Slot, Prop } from '../../docs';
+import type { Slot, Prop, IClass } from '../../docs';
 
 export const props: Prop[] = [
 	{
@@ -104,6 +104,37 @@ export const footerSlots: Slot[] = [
 		id: '1',
 		slot: 'default',
 		component: ''
+	}
+];
+
+export const classList: IClass[] = [
+	{
+		id: '1',
+		class: 'stwui-table'
+	},
+	{
+		id: '2',
+		class: 'stwui-table-header-wrapper'
+	},
+	{
+		id: '3',
+		class: 'stwui-table-header'
+	},
+	{
+		id: '4',
+		class: 'stwui-table-body'
+	},
+	{
+		id: '5',
+		class: 'stwui-table-body-row'
+	},
+	{
+		id: '6',
+		class: 'stwui-table-body-row-cell'
+	},
+	{
+		id: '7',
+		class: 'stwui-table-footer'
 	}
 ];
 

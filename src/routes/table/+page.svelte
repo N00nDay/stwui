@@ -16,9 +16,10 @@
 		cellProps,
 		cellSlots,
 		footerSlots,
-		usage
+		usage,
+		classList
 	} from './examples';
-	import { PropsTable, SlotsTable, CodeBlock, ExampleContainer } from '../../docs';
+	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { plus } from '../../lib/icons';
 
 	let baseUrl: string;
@@ -195,3 +196,5 @@
 <SlotsTable component="Table.Body.Row.Cell" slots={cellSlots} />
 
 <SlotsTable component="Table.Footer" slots={footerSlots} />
+
+<ClassTable component="Table" {classList} />
