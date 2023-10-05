@@ -16,7 +16,7 @@
 	export let disabled = false;
 
 	const defaultClass =
-		'block w-full bg-surface border-0 pt-2.5 text-lg font-medium placeholder-secondary-content placeholder-opacity-80 focus:ring-0';
+		'stwui-textarea-title block w-full bg-surface border-0 pt-2.5 text-lg font-medium placeholder-secondary-content placeholder-opacity-80 focus:ring-0';
 
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>

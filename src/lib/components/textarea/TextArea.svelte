@@ -2,6 +2,7 @@
 	import { slide } from 'svelte/transition';
 	import { setContext } from 'svelte';
 	import { writable, type Writable } from 'svelte/store';
+	import { twMerge } from 'tailwind-merge';
 
 	export let name: string;
 	export let error: string | undefined = undefined;
@@ -16,6 +17,9 @@
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
 
+	const defaultClass = 'stwui-textarea-wrapper relative';
+	$: finalClass = twMerge(defaultClass, $$props.class);
+
 	setContext('textarea-error', currentError);
 	setContext('textarea-name', name);
 
@@ -23,7 +27,7 @@
 </script>
 
 {#if $$slots.title || $$slots.pills || $$slots.actions}
-	<div class="relative">
+	<div class={finalClass}>
 		<slot name="label" />
 		<div
 			class="mt-1 overflow-hidden rounded-md border w-full outline-none focus:outline-none sm:text-sm opacity-75={disabled}"
@@ -48,7 +52,7 @@
 				{disabled}
 				id={name}
 				bind:value
-				class="block bg-surface w-full resize-none border-0 py-0 focus:ring-0 sm:text-sm sm:leading-6 placeholder-secondary-content placeholder-opacity-80"
+				class="block bg-surface w-full resize-none border-0 py-0 focus:ring-0 sm:text-sm sm:leading-6 placeholder-secondary-content placeholder-opacity-80 stwui-textarea"
 				class:mb-2.5={!$$slots.actions && !$$slots.pills}
 				class:mt-2.5={!$$slots.title}
 				class:placeholder-red-300={error}
@@ -84,11 +88,17 @@
 			</div>
 		{/if}
 		{#if error}
-			<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+			<p
+				transition:slide|local
+				class="mt-2 text-sm text-danger stwui-textarea-error"
+				id="{name}-error"
+			>
+				{error}
+			</p>
 		{/if}
 	</div>
 {:else}
-	<div class={$$props.class} style={$$props.style}>
+	<div class={finalClass} style={$$props.style}>
 		<slot name="label" />
 		<div class="mt-1 opacity-75={disabled}">
 			<textarea
@@ -100,7 +110,7 @@
 				{readonly}
 				{disabled}
 				id={name}
-				class="block w-full outline-none focus:outline-none sm:text-sm rounded-md placeholder-secondary-content placeholder-opacity-80"
+				class="block w-full outline-none focus:outline-none sm:text-sm rounded-md placeholder-secondary-content placeholder-opacity-80 stwui-textarea"
 				class:border-danger={error}
 				class:text-danger={error}
 				class:placeholder-red-300={error}
@@ -114,7 +124,13 @@
 			/>
 		</div>
 		{#if error}
-			<p transition:slide|local class="mt-2 text-sm text-danger" id="{name}-error">{error}</p>
+			<p
+				transition:slide|local
+				class="mt-2 text-sm text-danger stwui-textarea-error"
+				id="{name}-error"
+			>
+				{error}
+			</p>
 		{/if}
 	</div>
 {/if}

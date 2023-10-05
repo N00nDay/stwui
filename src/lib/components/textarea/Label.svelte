@@ -11,7 +11,7 @@
 	const name: string = getContext('textarea-name');
 	const error: Writable<string | undefined> = getContext('textarea-error');
 
-	const defaultClass = 'block text-sm font-medium text-secondary-content';
+	const defaultClass = 'block text-sm font-medium text-secondary-content stwui-textarea-label';
 	const errorClass = 'text-danger';
 
 	$: finalClass = twMerge(

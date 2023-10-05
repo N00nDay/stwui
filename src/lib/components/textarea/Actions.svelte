@@ -7,7 +7,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass =
-		'flex items-center justify-between space-x-3 border-t border-border px-2 py-2 sm:px-3';
+		'flex items-center justify-between space-x-3 border-t border-border px-2 py-2 sm:px-3 stwui-textarea-actions';
 
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
