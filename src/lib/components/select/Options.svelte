@@ -11,7 +11,7 @@
 	let list: HTMLUListElement;
 	// eslint-disable-next-line no-undef
 	let items: NodeListOf<HTMLLIElement> | never[] = [];
-	let focusIndex = 0;
+	let focusIndex = -1;
 
 	const handleClose: () => void = getContext('select-handleClose');
 	const mobile: Writable<boolean> = getContext('select-mobile');
@@ -43,7 +43,7 @@
 
 	onMount(() => {
 		items = list.querySelectorAll('li');
-		items[focusIndex].focus();
+		// items[focusIndex].focus();
 	});
 </script>
 
