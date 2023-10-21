@@ -146,13 +146,13 @@
 				<img
 					src="/120x120-transparent.png"
 					alt="logo-icon"
-					class="h-10 mr-1"
+					class="h-10 mr-1 min-w-[40px]"
 					width="40px"
 					height="40px"
 				/>
 			</a>
 
-			<div class="text-[0px] text-content">
+			<div class="text-[0px] text-content min-w-[97px]">
 				<span class="text-3xl font-extrabold">STW</span>
 				<span class="text-3xl font-thing">UI</span>
 			</div>
@@ -169,7 +169,7 @@
 					ariaLabel="open discord"
 					href="https://discord.gg/YVgwp48Tcm"
 					shape="circle"
-					class="ml-2 bg-default text-default-content"
+					class="ml-2 bg-default text-default-content hidden sm:flex"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -189,7 +189,7 @@
 					ariaLabel="open github"
 					href="https://github.com/N00nDay/stwui"
 					shape="circle"
-					class="ml-2 bg-default text-default-content"
+					class="ml-2 bg-default text-default-content hidden sm:flex"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
