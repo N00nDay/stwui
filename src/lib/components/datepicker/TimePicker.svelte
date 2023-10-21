@@ -216,7 +216,7 @@
 	class:h-14={mobile}
 	class:px-3={mobile}
 	class:gap-3={mobile}
-	class:gap-2={!mobile}
+	class:gap-0={!mobile}
 >
 	{#if mobile}
 		{#if format.includes('H')}
