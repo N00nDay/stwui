@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.18.7-next](https://github.com/N00nDay/stwui/compare/v0.18.6-next...v0.18.7-next) (2023-10-21)
+
+
+### Bug Fixes
+
+* **Dropdown:** no longer auto highlight the first option ([70c511d](https://github.com/N00nDay/stwui/commit/70c511d94cacead428167811de79aa3436ecdd83))
+* **Select:** no longer auto highlight the first option ([d6dc990](https://github.com/N00nDay/stwui/commit/d6dc99024e7dc848e839c2cc0f8eff4f3aa2ff48))
+* **TimePicker:** spacing between hours, minutes, and meridian ([d553bcd](https://github.com/N00nDay/stwui/commit/d553bcdc8f523c938daccbde82495fd0104a5096))
+
 ## [0.18.6-next](https://github.com/N00nDay/stwui/compare/v0.18.5-next...v0.18.6-next) (2023-10-05)
 
 
