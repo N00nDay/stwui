@@ -16,7 +16,7 @@
 	let list: HTMLUListElement;
 	// eslint-disable-next-line no-undef
 	let items: NodeListOf<HTMLLIElement> | never[] = [];
-	let focusIndex = 0;
+	let focusIndex = -1;
 
 	const handleClose: () => void = getContext('dropdown-handleClose');
 
@@ -41,7 +41,7 @@
 
 	onMount(() => {
 		items = list.querySelectorAll('li');
-		if (items && items[focusIndex]) items[focusIndex].focus();
+		// if (items && items[focusIndex]) items[focusIndex].focus();
 	});
 </script>
 
