@@ -13,6 +13,8 @@
 
 <div
 	transition:slide|local
+	role="region"
+	aria-label="accordion item content"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents

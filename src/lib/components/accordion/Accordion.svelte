@@ -11,6 +11,7 @@
 </script>
 
 <div
+	aria-label="accordion"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents

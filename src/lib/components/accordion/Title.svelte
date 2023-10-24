@@ -19,6 +19,7 @@
 
 <button
 	aria-label="Accordion Item Toggle"
+	aria-expanded={$open}
 	class={finalClass}
 	type="button"
 	use:useActions={use}
