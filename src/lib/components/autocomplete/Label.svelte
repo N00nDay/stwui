@@ -23,6 +23,7 @@
 </script>
 
 <label
+	aria-label="autocomplete label"
 	for={name}
 	class={finalClass}
 	use:useActions={use}

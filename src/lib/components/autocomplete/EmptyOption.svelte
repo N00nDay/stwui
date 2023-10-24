@@ -12,6 +12,7 @@
 </script>
 
 <li
+	aria-label="autocomplete empty option"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents

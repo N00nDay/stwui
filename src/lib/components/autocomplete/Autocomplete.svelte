@@ -101,6 +101,7 @@
 </script>
 
 <div
+	aria-label="autocomplete"
 	class={finalClass}
 	use:clickOutside={mobile
 		? () => {
@@ -119,6 +120,8 @@
 		<button
 			tabindex="0"
 			aria-label="Autocomplete Toggle"
+			aria-haspopup="listbox"
+			aria-expanded={visible}
 			type="button"
 			on:click|stopPropagation|preventDefault={handleOpen}
 			class="group relative cursor-pointer h-[2.5rem] text-left border-none focus:outline-none sm:text-sm block w-full outline-none rounded-md bg-surface stwui-autocomplete-trigger"
