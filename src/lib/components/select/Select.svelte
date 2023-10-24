@@ -117,6 +117,9 @@
 	<div class="mt-1 relative rounded-md" class:text-danger={error} class:opacity-50={disabled}>
 		<button
 			aria-label="toggle select"
+			aria-haspopup="listbox"
+			aria-expanded={visible}
+			aria-labelledby={name}
 			type="button"
 			on:click|stopPropagation|preventDefault={toggleVisible}
 			class="relative border pr-10 py-2 min-h-[2.5rem] text-left focus:outline-none sm:text-sm block w-full outline-none ring-0 focus:ring-0 rounded-md stwui-select-display"
