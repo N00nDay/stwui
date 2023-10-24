@@ -29,6 +29,7 @@
 </script>
 
 <h4
+	aria-label="alert title"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents

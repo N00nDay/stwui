@@ -42,6 +42,8 @@
 </script>
 
 <div
+	role="alert"
+	aria-label="alert"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents

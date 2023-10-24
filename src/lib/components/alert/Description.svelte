@@ -28,6 +28,7 @@
 </script>
 
 <div
+	aria-label="alert description"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents

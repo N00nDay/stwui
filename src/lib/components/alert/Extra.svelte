@@ -31,6 +31,7 @@
 </script>
 
 <div
+	aria-label="alert extra"
 	class={finalClass}
 	use:useActions={use}
 	use:forwardEvents
