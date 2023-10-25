@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.18.8-next](https://github.com/N00nDay/stwui/compare/v0.18.7-next...v0.18.8-next) (2023-10-25)
+
+
+### Bug Fixes
+
+* **Accordion:** added aria properties ([b089caf](https://github.com/N00nDay/stwui/commit/b089caf0188e25a3351df4725198a91c7a293d39))
+* **Alert:** added aria properties ([7c54117](https://github.com/N00nDay/stwui/commit/7c54117eeea20ee4e5ee69b4e69caffaab3a5831))
+* **Autocomplete:** added aria properties ([5d33779](https://github.com/N00nDay/stwui/commit/5d33779e05e75e35197f369c9d12de9a325f3904))
+* **Button:** stop applying type and htmlType to underlying tag form submission bug fix ([6891701](https://github.com/N00nDay/stwui/commit/689170113ffad9ee5bc401036115c3a01f4ef841))
+* **Select:** added aria properties ([d2ceb3c](https://github.com/N00nDay/stwui/commit/d2ceb3c7f0b6cd84a9f8691e532ffde372b959f7))
+
 ## [0.18.7-next](https://github.com/N00nDay/stwui/compare/v0.18.6-next...v0.18.7-next) (2023-10-21)
 
 
