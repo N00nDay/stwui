@@ -117,7 +117,7 @@
 	href={href ?? null}
 	use:useActions={use}
 	use:forwardEvents
-	{...exclude($$props, ['use', 'class'])}
+	{...exclude($$props, ['use', 'class', 'type', 'htmlType'])}
 >
 	{#if defaultLoading}
 		{#if $$slots.leading && $$slots.icon}
