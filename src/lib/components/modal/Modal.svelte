@@ -19,7 +19,7 @@
 		}
 	}
 
-	const defaultClass = 'fixed inset-0 p-4 sm:p-6 md:p-20 stwui-modal';
+	const defaultClass = 'fixed inset-0 p-4 sm:p-6 md:p-20 overflow-y-auto stwui-modal';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -46,10 +46,10 @@
 		in:scale={{ start: 0.9, duration: 250, delay: 150 }}
 		out:scale={{ start: 0.95, duration: 150 }}
 	>
+		<button
+			class="h-0 w-0 border-none outline-none ring-0 focus:border-none focus:outline-none focus:ring-0 p-0 m-0 absolute"
+		/>
 		<slot name="content" />
 		<slot />
-		<button
-			class="h-0 w-0 border-none outline-none ring-0 focus:border-none focus:outline-none focus:ring-0"
-		/>
 	</div>
 </div>

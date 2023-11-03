@@ -11,8 +11,10 @@
 	export let bordered = true;
 	export let elevation: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
 
+	// const defaultClass =
+	// 	'bg-surface text-content rounded-md mx-auto max-w-xl transform overflow-hidden rounded-md pointer-events-auto max-h-full flex flex-col stwui-modal-content';
 	const defaultClass =
-		'bg-surface text-content rounded-md mx-auto max-w-xl transform overflow-hidden rounded-md pointer-events-auto max-h-full flex flex-col stwui-modal-content';
+		'bg-surface text-content rounded-md mx-auto max-w-xl transform overflow-hidden rounded-md pointer-events-auto flex flex-col stwui-modal-content';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('card-divided', divided);

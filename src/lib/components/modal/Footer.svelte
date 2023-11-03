@@ -9,8 +9,10 @@
 
 	const divided: boolean = getContext('card-divided');
 
+	// const defaultClass =
+	// 'px-4 py-5 sm:px-6 h-16 first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0 stwui-modal-footer';
 	const defaultClass =
-		'px-4 py-5 sm:px-6 h-16 first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0 stwui-modal-footer';
+		'px-4 py-5 sm:px-6 first:rounded-t-md last:rounded-b-md border border-l-0 border-b-0 border-r-0 stwui-modal-footer';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
