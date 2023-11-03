@@ -43,13 +43,13 @@
 	let valueDayJS: Dayjs | null;
 	let text: string | undefined;
 
-	// $: {
-	// 	valueDayJS = value === null ? null : dayjs(value);
-	// 	text = valueDayJS?.format(format);
-	// 	if (input && input.value) {
-	// 		input.value = text || '';
-	// 	}
-	// }
+	$: {
+		valueDayJS = value === null ? null : dayjs(value);
+		text = valueDayJS?.format(format);
+		if (input && input.value) {
+			input.value = text || '';
+		}
+	}
 
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
