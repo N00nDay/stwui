@@ -144,7 +144,7 @@ module.exports = {
 	},
 	'.isOff *': {
 		animation: 'none !important'
-	},
+	}
 	// '::-webkit-scrollbar': {
 	// 	'max-width': '0.5rem'
 	// },
@@ -152,17 +152,17 @@ module.exports = {
 	// 	// height: '0.5rem',
 	// 	'max-height': '0.5rem'
 	// },
-	'::-webkit-scrollbar-track': {
-		'background-color': 'rgba(25,25,25,0.05)'
-	},
-	'[data-theme="dark"] ::-webkit-scrollbar-track': {
-		'background-color': 'rgba(89,90,92,0.15)'
-	},
-	'::-webkit-scrollbar-thumb': {
-		'border-radius': '9999px',
-		'background-color': 'rgba(5, 5, 5, 0.15)'
-	},
-	'[data-theme="dark"] ::-webkit-scrollbar-thumb': {
-		'background-color': 'rgba(250, 250, 250,0.15)'
-	}
+	// '::-webkit-scrollbar-track': {
+	// 	'background-color': 'rgba(25,25,25,0.05)'
+	// },
+	// '[data-theme="dark"] ::-webkit-scrollbar-track': {
+	// 	'background-color': 'rgba(89,90,92,0.15)'
+	// },
+	// '::-webkit-scrollbar-thumb': {
+	// 	'border-radius': '9999px',
+	// 	'background-color': 'rgba(5, 5, 5, 0.15)'
+	// },
+	// '[data-theme="dark"] ::-webkit-scrollbar-thumb': {
+	// 	'background-color': 'rgba(250, 250, 250,0.15)'
+	// }
 };
