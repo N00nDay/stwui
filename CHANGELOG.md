@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.18.9-next](https://github.com/N00nDay/stwui/compare/v0.18.8-next...v0.18.9-next) (2023-11-04)
+
+
+### Bug Fixes
+
+* **DatePicker:** allow programmatic clearing values ([40a826a](https://github.com/N00nDay/stwui/commit/40a826a79aec39f16c2b520be2f5de32ace66785))
+* **Modal:** default content overflows off screen and provided a screen contained Modal example ([6184deb](https://github.com/N00nDay/stwui/commit/6184deb1515961badafe168b1208ca92ad0982c4))
+* **plugin:** scrollbar no longer is always visible by default ([bf38253](https://github.com/N00nDay/stwui/commit/bf38253c8786340691d4646541e6d6e0f6f5eff7))
+* removed scrollbar styling to allow more flexibility for developers ([e92aea6](https://github.com/N00nDay/stwui/commit/e92aea6b4f9924e71ad0adac361dfdcc014cd370))
+
 ## [0.18.8-next](https://github.com/N00nDay/stwui/compare/v0.18.7-next...v0.18.8-next) (2023-10-25)
 
 
