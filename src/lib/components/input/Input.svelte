@@ -10,9 +10,10 @@
 	import { exclude } from '../../utils/exclude';
 	import { writable, type Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
+	import { nanoid } from 'nanoid';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	export let name: string;
+	export let name: string = nanoid();
 	export let type: 'text' | 'email' | 'password' = 'text';
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
