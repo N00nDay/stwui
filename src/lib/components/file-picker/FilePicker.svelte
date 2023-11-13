@@ -6,6 +6,7 @@
 	import { twMerge } from 'tailwind-merge';
 	import type { DropResult } from '../../types';
 	import { writable, type Writable } from 'svelte/store';
+	import { nanoid } from 'nanoid';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	type OnDrop = (files: DropResult) => void;
@@ -22,7 +23,7 @@
 	type OnLeave = () => void;
 	export let onLeave: OnLeave | null = null;
 
-	export let name: string;
+	export let name: string = nanoid();
 
 	/**
 	 * Whether or not to allow more than a single file to be returned per upload
