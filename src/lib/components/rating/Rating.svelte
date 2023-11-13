@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { nanoid } from 'nanoid';
 	import { twMerge } from 'tailwind-merge';
 
 	export let half = false;
 	export let outOf = 5;
-	export let name: string;
+	export let name: string = nanoid();
 	export let value = 0;
 	export let size: 'sm' | 'md' | 'lg' = 'md';
 	export let showValue = false;

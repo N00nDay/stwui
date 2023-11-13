@@ -17,7 +17,7 @@ export const props: Prop[] = [
 		id: '3',
 		prop: 'name',
 		type: 'string',
-		default: ''
+		default: 'nanoid()'
 	},
 	{
 		id: '4',
