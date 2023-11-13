@@ -6,9 +6,10 @@
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
 	import { twMerge } from 'tailwind-merge';
+	import { nanoid } from 'nanoid';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	export let name: string;
+	export let name: string = nanoid();
 	export let on = false;
 	export let error: string | undefined = undefined;
 
