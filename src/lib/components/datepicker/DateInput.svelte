@@ -16,13 +16,14 @@
 	import Drawer from '../drawer/Drawer.svelte';
 	import { onMount } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
+	import { nanoid } from 'nanoid';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let input: HTMLInputElement;
 	let valueInput: HTMLInputElement;
 
 	export let showTime = false;
-	export let name: string;
+	export let name: string = nanoid();
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: Date | null = null;
