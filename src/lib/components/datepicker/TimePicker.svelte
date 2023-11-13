@@ -210,7 +210,7 @@
 	class:divide-x={!mobile}
 	class:divide-border={!mobile}
 	class:items-stretch={!mobile}
-	class:w-[168px]={!mobile}
+	class:w-[160px]={!mobile}
 	class:items-center={mobile}
 	class:w-full={mobile}
 	class:h-14={mobile}
