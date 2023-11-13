@@ -3,8 +3,9 @@
 	import { setContext, onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	import { slide } from 'svelte/transition';
+	import { nanoid } from 'nanoid';
 
-	export let name: string;
+	export let name: string = nanoid();
 	export let type: 'default' | 'pill' = 'default';
 	export let selected: string | undefined = undefined;
 	export let error: string | undefined = undefined;
