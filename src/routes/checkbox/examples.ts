@@ -35,7 +35,7 @@ export const checkboxProps: Prop[] = [
 		id: '1',
 		prop: 'name',
 		type: 'string',
-		default: ''
+		default: 'nanoid()'
 	},
 	{
 		id: '2',

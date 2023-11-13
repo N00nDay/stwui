@@ -2,8 +2,9 @@
 	import { setContext } from 'svelte';
 	import { twMerge } from 'tailwind-merge';
 	import { slide } from 'svelte/transition';
+	import { nanoid } from 'nanoid';
 
-	export let name: string;
+	export let name: string = nanoid();
 	export let value: string;
 	export let indeterminate = false;
 	export let disabled = false;
