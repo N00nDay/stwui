@@ -5,8 +5,9 @@
 	import { error as errorIcon, close } from '../../icons';
 	import { writable, type Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
+	import { nanoid } from 'nanoid';
 
-	export let name: string;
+	export let name: string = nanoid();
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
