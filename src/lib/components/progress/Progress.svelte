@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let value: number;
+	export let value: number = 0;
 	export let type: 'info' | 'warn' | 'error' | 'success' = 'info';
 	export let radial = false;
 	export let size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';

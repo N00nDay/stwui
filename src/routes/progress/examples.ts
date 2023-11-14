@@ -5,7 +5,7 @@ export const props: Prop[] = [
 		id: '1',
 		prop: 'value',
 		type: 'number',
-		default: ''
+		default: '0'
 	},
 	{
 		id: '2',
