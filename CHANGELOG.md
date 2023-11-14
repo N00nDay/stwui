@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.18.10-next](https://github.com/N00nDay/stwui/compare/v0.18.9-next...v0.18.10-next) (2023-11-14)
+
+
+### Bug Fixes
+
+* **Autocomplete:** name now defaults to nanoid() ([9243a98](https://github.com/N00nDay/stwui/commit/9243a987a54293881f7c51a1317d1d5bffd1d732))
+* **Checkbox:** name now defaults to nanoid() ([8bc079f](https://github.com/N00nDay/stwui/commit/8bc079f2e57c704efe1ccdb5c99081daf6dfffc6))
+* **Currency:** name now defaults to nanoid() ([241493b](https://github.com/N00nDay/stwui/commit/241493b820a3d7783480e31b7489d7a925ce9fe7))
+* **DatePicker:** name now defaults to nanoid() ([4643568](https://github.com/N00nDay/stwui/commit/46435684414386a0a915c930f7331e70e22b949d))
+* **DatePicker:** timepicker padding ([f07ab63](https://github.com/N00nDay/stwui/commit/f07ab63a1dc1b3727dadfd6bfa9bfc3c098661df))
+* **FilePicker:** name now defaults to nanoid() ([58ff555](https://github.com/N00nDay/stwui/commit/58ff555c119d4152d02edb8b454220a60557806a))
+* **Input:** name now defaults to nanoid() ([2d79f76](https://github.com/N00nDay/stwui/commit/2d79f7611e8b30856ed29034f67e40ba31433973))
+* **InputNumber:** name now defaults to nanoid() ([2f79ee7](https://github.com/N00nDay/stwui/commit/2f79ee7059c47f838f301b596056e5007a13dd83))
+* **Progress:** set value default to 0 ([c58b12c](https://github.com/N00nDay/stwui/commit/c58b12c7a6c7f44dc403d47eb7d5321e328be60b))
+* **RadioGroup:** name now defaults to nanoid() ([2a598b5](https://github.com/N00nDay/stwui/commit/2a598b5792c05b664b1f012ec490d7e816bb70ee))
+* **Rating:** name now defaults to nanoid() ([202b1be](https://github.com/N00nDay/stwui/commit/202b1bedf4e2adf509c7dcf62601bd3e93f468c8))
+* **Select:** name now defaults to nanoid() ([5af8851](https://github.com/N00nDay/stwui/commit/5af8851fc45f6c0390e36d299eead9ba3bd207ab))
+* **Toggle:** name now defaults to nanoid() ([24429e5](https://github.com/N00nDay/stwui/commit/24429e5a36fdd973d99c355a0e0f0640c6798107))
+
 ## [0.18.9-next](https://github.com/N00nDay/stwui/compare/v0.18.8-next...v0.18.9-next) (2023-11-04)
 
 
