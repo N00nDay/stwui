@@ -33,7 +33,7 @@ export const props: Prop[] = [
 	},
 	{
 		id: '6',
-		prop: 'indeterminate',
+		prop: 'indeterminate (only for linear progress)',
 		type: 'boolean',
 		default: 'false'
 	}
