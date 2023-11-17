@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import { twMerge } from 'tailwind-merge';
+	import { get_current_component } from 'svelte/internal';
 	import { slide } from 'svelte/transition';
+	import { twMerge } from 'tailwind-merge';
 	import { nanoid } from 'nanoid';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '$lib/actions';
+	import { exclude } from '$lib/utils/exclude';
 
 	export let name: string = nanoid();
 	export let value: string;
@@ -10,6 +13,9 @@
 	export let disabled = false;
 	export let checked = false;
 	export let error: string | undefined = undefined;
+	export let use: ActionArray = [];
+
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	// TODO: allow checked status color prop
 
@@ -47,6 +53,9 @@
 			{value}
 			class={finalClass}
 			style={$$props.style}
+			use:useActions={use}
+			use:forwardEvents
+			{...exclude($$props, ['use', 'class', 'style', 'type', 'value', 'checked', 'disabled', 'name', 'htmlType'])}
 		/>
 	</div>
 	<div class="ml-3 text-sm">
