@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.11-next](https://github.com/N00nDay/stwui/compare/v0.18.10-next...v0.18.11-next) (2023-11-18)
+
+
+### Bug Fixes
+
+* **Checkbox:** added event forwarding and use directive support ([#192](https://github.com/N00nDay/stwui/issues/192)) ([d6700d8](https://github.com/N00nDay/stwui/commit/d6700d8153bc708288a1e47334802284c74254b2))
+
 ## [0.18.10-next](https://github.com/N00nDay/stwui/compare/v0.18.9-next...v0.18.10-next) (2023-11-14)
 
 
