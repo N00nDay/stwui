@@ -46,7 +46,21 @@
 	])}
 >
 	<svg xmlns="http://www.w3.org/2000/svg" {width} {height} {viewBox} {stroke} {fill} {color}>
-		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-		{@html elements}
+		{#if $$slots.icon}
+			<slot name="icon" />
+		{:else if $$slots.leading}
+			<slot name="leading" />
+		{:else if $$slots.trailing}
+			<slot name="trailing" />
+		{:else}
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+			{@html elements}
+		{/if}
 	</svg>
 </dd>
+
+<style>
+	:global(.stwui-statistic-icon svg) {
+		stroke: currentColor;
+	}
+</style>

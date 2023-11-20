@@ -22,10 +22,13 @@
 		if (!res) return '0 0 24 24'; // default value
 		return res[1];
 	}
+
+	const defaultClass = 'stwui-icon';
+	$: finalClass = [defaultClass, $$props.class].join(' ');
 </script>
 
 <svg
-	class="stwui-icon"
+	class={finalClass}
 	xmlns="http://www.w3.org/2000/svg"
 	{width}
 	{height}
@@ -37,6 +40,20 @@
 	use:forwardEvents
 	{...exclude($$props, ['use', 'data', 'fill', 'viewBox', 'width', 'height', 'stroke'])}
 >
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html elements}
+	{#if $$slots.icon}
+		<slot name="icon" />
+	{:else if $$slots.leading}
+		<slot name="leading" />
+	{:else if $$slots.trailing}
+		<slot name="trailing" />
+	{:else}
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+		{@html elements}
+	{/if}
 </svg>
+
+<style>
+	:global(.stwui-icon svg) {
+		stroke: currentColor;
+	}
+</style>

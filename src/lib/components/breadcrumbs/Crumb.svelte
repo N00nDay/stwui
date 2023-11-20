@@ -25,7 +25,7 @@
 		{:else}
 			<Divider />
 		{/if}
-		<a {href} class="flex items-center">
+		<a {href} class="flex items-center {$$slots.icon ? 'pl-3' : ''}">
 			<slot name="icon" />
 			<slot name="label" />
 			<slot />

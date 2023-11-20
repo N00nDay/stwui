@@ -51,7 +51,21 @@
 			'style'
 		])}
 	>
-		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-		{@html elements}
+		{#if $$slots.icon}
+			<slot name="icon" />
+		{:else if $$slots.leading}
+			<slot name="leading" />
+		{:else if $$slots.trailing}
+			<slot name="trailing" />
+		{:else}
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+			{@html elements}
+		{/if}
 	</svg>
 </span>
+
+<style>
+	:global(.stwui-divider-icon svg) {
+		stroke: currentColor;
+	}
+</style>
