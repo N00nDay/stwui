@@ -28,9 +28,9 @@
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
 
-	function onlyNumeric(e: KeyboardEvent) {
-		if (!e.key.match(/^[0-9]+$/)) e.preventDefault();
-	}
+	// function onlyNumeric(e: KeyboardEvent) {
+	// 	if (!e.key.match(/^[0-9]+$/)) e.preventDefault();
+	// }
 
 	function handleClear() {
 		input.value = '';
@@ -105,7 +105,6 @@
 			bind:value
 			{step}
 			on:input
-			on:keypress={onlyNumeric}
 			{min}
 			{max}
 		/>
