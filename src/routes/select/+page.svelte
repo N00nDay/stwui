@@ -34,6 +34,22 @@
 		{
 			value: 'option_3',
 			label: 'Option 3'
+		},
+		{
+			value: 'option_4',
+			label: 'Option 4'
+		},
+		{
+			value: 'option_5',
+			label: 'Option 5'
+		},
+		{
+			value: 'option_6',
+			label: 'Option 6'
+		},
+		{
+			value: 'option_7',
+			label: 'Option 7'
 		}
 	];
 	const multipleOptions = [

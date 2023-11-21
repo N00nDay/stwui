@@ -34,10 +34,10 @@
 
 	let defaultClass = 'w-full bg-surface stwui-select-options';
 	$: if ($mobile) {
-		defaultClass += ' h-full p-3 space-y-1';
+		defaultClass += ' h-full p-3 space-y-1 overflow-y-auto';
 	} else {
 		defaultClass +=
-			' p-1 shadow-xl border border-border rounded-md origin-top-right absolute z-10 left-0 right-0';
+			' p-1 shadow-xl border border-border rounded-md origin-top-right absolute z-10 left-0 right-0 max-h-[256px] overflow-y-auto';
 	}
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
