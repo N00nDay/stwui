@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.18.12-next](https://github.com/N00nDay/stwui/compare/v0.18.11-next...v0.18.12-next) (2023-11-21)
+
+
+### Bug Fixes
+
+* **Icon:** allow icon packages to be easily used ([d26db97](https://github.com/N00nDay/stwui/commit/d26db97e5c8076891a670faecb32fe4bb8edf7c4))
+* **InputNumber:** allow float numbers ([e1d56f9](https://github.com/N00nDay/stwui/commit/e1d56f9276c7a55eae48ff6286836da2cec6cbd4))
+
 ## [0.18.11-next](https://github.com/N00nDay/stwui/compare/v0.18.10-next...v0.18.11-next) (2023-11-18)
 
 
