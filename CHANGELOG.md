@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.18.13-next](https://github.com/N00nDay/stwui/compare/v0.18.12-next...v0.18.13-next) (2023-11-22)
+
+
+### Bug Fixes
+
+* **Autocomplete:** add max height to autocomplete options ([a5992d2](https://github.com/N00nDay/stwui/commit/a5992d24b654627947951f18685b414246333f56))
+* **Dropdown:** added max height to Items ([11965b1](https://github.com/N00nDay/stwui/commit/11965b19eb264066d2672e76a24120e0ca39ed5a))
+* **Select:** long options need to have max height with overflow ([85578cb](https://github.com/N00nDay/stwui/commit/85578cbfe017353782a4f845424e98a5b466bd39))
+
 ## [0.18.12-next](https://github.com/N00nDay/stwui/compare/v0.18.11-next...v0.18.12-next) (2023-11-21)
 
 
