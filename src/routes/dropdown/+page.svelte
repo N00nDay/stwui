@@ -112,6 +112,10 @@
 				<Dropdown.Items.Item on:click={closeDropdown2} label="Notifications">
 					<Badge type="info" slot="extra">+99</Badge>
 				</Dropdown.Items.Item>
+				<Dropdown.Items.Item on:click={closeDropdown2} label="Item 4" />
+				<Dropdown.Items.Item on:click={closeDropdown2} label="Item 5" />
+				<Dropdown.Items.Item on:click={closeDropdown2} label="Item 6" />
+				<Dropdown.Items.Item on:click={closeDropdown2} label="Item 7" />
 				<Dropdown.Items.Divider />
 				<Button type="danger" class="w-full justify-between">
 					<Button.Leading slot="leading" data={home} />
