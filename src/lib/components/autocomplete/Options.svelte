@@ -53,7 +53,7 @@
 		defaultClass += ' h-full px-3 space-y-1';
 	} else {
 		defaultClass +=
-			' p-1 shadow-xl border border-border rounded-md origin-top-right absolute z-10 left-0 right-0 transition transform duration-150';
+			' p-1 shadow-xl border border-border rounded-md origin-top-right absolute z-10 left-0 right-0 max-h-[256px] overflow-y-auto';
 	}
 	$: finalClass = twMerge(defaultClass, $$props.class);
 

@@ -28,16 +28,88 @@
 	let value6 = 'I am not in the options!';
 	let value7: string;
 
-	let options = ['Option 1', 'Option 2', 'Option 3'];
-	let filtered7Options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6'];
+	let options = [
+		'Option 1',
+		'Option 2',
+		'Option 3',
+		'Option 4',
+		'Option 5',
+		'Option 6',
+		'Option 7'
+	];
+	let filtered7Options = [
+		'Option 1',
+		'Option 2',
+		'Option 3',
+		'Option 4',
+		'Option 5',
+		'Option 6',
+		'Option 7'
+	];
 
-	let filtered1 = ['Option 1', 'Option 2', 'Option 3'];
-	let filtered2 = ['Option 1', 'Option 2', 'Option 3'];
-	let filtered3 = ['Option 1', 'Option 2', 'Option 3'];
-	let filtered4 = ['Option 1', 'Option 2', 'Option 3'];
-	let filtered5 = ['Option 1', 'Option 2', 'Option 3'];
-	let filtered6 = ['Option 1', 'Option 2', 'Option 3'];
-	let filtered7 = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6'];
+	let filtered1 = [
+		'Option 1',
+		'Option 2',
+		'Option 3',
+		'Option 4',
+		'Option 5',
+		'Option 6',
+		'Option 7'
+	];
+	let filtered2 = [
+		'Option 1',
+		'Option 2',
+		'Option 3',
+		'Option 4',
+		'Option 5',
+		'Option 6',
+		'Option 7'
+	];
+	let filtered3 = [
+		'Option 1',
+		'Option 2',
+		'Option 3',
+		'Option 4',
+		'Option 5',
+		'Option 6',
+		'Option 7'
+	];
+	let filtered4 = [
+		'Option 1',
+		'Option 2',
+		'Option 3',
+		'Option 4',
+		'Option 5',
+		'Option 6',
+		'Option 7'
+	];
+	let filtered5 = [
+		'Option 1',
+		'Option 2',
+		'Option 3',
+		'Option 4',
+		'Option 5',
+		'Option 6',
+		'Option 7'
+	];
+	let filtered6 = [
+		'Option 1',
+		'Option 2',
+		'Option 3',
+		'Option 4',
+		'Option 5',
+		'Option 6',
+		'Option 7'
+	];
+	let filtered7 = [
+		'Option 1',
+		'Option 2',
+		'Option 3',
+		'Option 4',
+		'Option 5',
+		'Option 6',
+		'Option 7'
+	];
 
 	function filter1(e: Event) {
 		const target = e.target as HTMLInputElement;
