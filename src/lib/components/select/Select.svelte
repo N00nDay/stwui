@@ -16,7 +16,8 @@
 	export let name: string = nanoid();
 	export let error: string | undefined = undefined;
 	export let placeholder: string | undefined = undefined;
-	export let value: SelectOption | SelectOption[] | undefined = undefined;
+	// export let value: SelectOption | SelectOption[] | undefined = undefined;
+	export let value: string | string[] | undefined = undefined;
 	export let visible = false;
 	export let optionLabel = 'label';
 	export let optionValue = 'value';
@@ -24,13 +25,15 @@
 	export let closeOnSelect = true;
 	export let disabled = false;
 	export let mobile = false;
+	export let options: SelectOption[];
 
-	$: stringifyValues = multiple
-		? JSON.stringify(value)
-		: value && value instanceof Object && !Array.isArray(value)
-		? value[optionValue]
-		: '';
-	let selectedValue: Writable<SelectOption | SelectOption[] | undefined> = writable(value);
+	// $: stringifyValues = multiple
+	// 	? JSON.stringify(value)
+	// 	: value && value instanceof Object && !Array.isArray(value)
+	// 	? value[optionValue]
+	// 	: '';
+	// let selectedValue: Writable<SelectOption | SelectOption[] | undefined> = writable(value);
+	let selectedValue: Writable<string | string[] | undefined> = writable(value);
 	$: selectedValue.set(value);
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
@@ -51,20 +54,24 @@
 
 	function handleSelect(option: SelectOption) {
 		if (multiple) {
-			const tempSelectedValues = ($selectedValue as SelectOption[]) || [];
-			const selectedIndex = tempSelectedValues.findIndex((sv) => sv.value === option.value);
+			// const tempSelectedValues = ($selectedValue as SelectOption[]) || [];
+			const tempSelectedValues = ($selectedValue as string[]) || [];
+			// const selectedIndex = tempSelectedValues.findIndex((sv) => sv.value === option.value);
+			const selectedIndex = tempSelectedValues.findIndex((sv) => sv === option.value);
 			if (selectedIndex !== -1) {
 				tempSelectedValues.splice(selectedIndex, 1);
 				$selectedValue = tempSelectedValues;
 			} else {
-				tempSelectedValues.push(option);
+				// tempSelectedValues.push(option);
+				tempSelectedValues.push(option.value);
 				$selectedValue = tempSelectedValues;
 			}
 			input.value = JSON.stringify($selectedValue);
 			input.dispatchEvent(new Event('change', { bubbles: true }));
 			value = $selectedValue;
 		} else {
-			if (value && !Array.isArray(value) && value[optionValue] === option[optionValue]) {
+			// if (value && !Array.isArray(value) && value[optionValue] === option[optionValue]) {
+			if (value && !Array.isArray(value) && value === option[optionValue]) {
 				input.value = '';
 				input.dispatchEvent(new Event('change', { bubbles: true }));
 				value = undefined;
@@ -72,8 +79,10 @@
 			} else {
 				input.value = option[optionValue];
 				input.dispatchEvent(new Event('change', { bubbles: true }));
-				value = option;
-				$selectedValue = option;
+				// value = option;
+				value = option[optionValue];
+				// $selectedValue = option;
+				$selectedValue = option[optionValue];
 			}
 		}
 		if (closeOnSelect) {
@@ -84,7 +93,8 @@
 	function handleRemoveOption(e: Event, index: number) {
 		e.stopPropagation();
 		e.preventDefault();
-		const tempSelectedValues = $selectedValue as SelectOption[];
+		// const tempSelectedValues = $selectedValue as SelectOption[];
+		const tempSelectedValues = $selectedValue as string[];
 		tempSelectedValues.splice(index, 1);
 		$selectedValue = tempSelectedValues;
 		input.value = JSON.stringify($selectedValue);
@@ -146,8 +156,12 @@
 					{#if value && value.length > 0 && Array.isArray(value)}
 						{#each value as item, index (item)}
 							<span animate:flip={{ duration: 250 }} in:scale|local>
-								<Badge>
+								<!-- <Badge>
 									{item[optionLabel] || item.value}
+									<Badge.Close slot="close" on:click={(e) => handleRemoveOption(e, index)} />
+								</Badge> -->
+								<Badge>
+									{options.find((o) => o[optionValue] === item)?.label}
 									<Badge.Close slot="close" on:click={(e) => handleRemoveOption(e, index)} />
 								</Badge>
 							</span>
@@ -156,8 +170,10 @@
 						{placeholder}
 					{/if}
 				{:else if !Array.isArray(value)}
-					{#if value && value[optionValue]}
-						{value[optionLabel]}
+					<!-- {#if value && value[optionValue]}
+						{value[optionLabel]} -->
+					{#if value && options.find((o) => o[optionValue] === value) && options.find((o) => o[optionValue] === value)?.label}
+						{options.find((o) => o[optionValue] === value)?.label}
 					{:else if placeholder}
 						{placeholder}
 					{/if}
@@ -168,7 +184,7 @@
 				id={name}
 				{disabled}
 				bind:this={input}
-				bind:value={stringifyValues}
+				bind:value
 				on:change
 				class="h-0 w-0 hidden invisible"
 				readonly

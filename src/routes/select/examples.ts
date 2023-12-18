@@ -22,7 +22,7 @@ export const props: Prop[] = [
 	{
 		id: '4',
 		prop: 'value',
-		type: '<a href="/types#SelectOption" class="link">SelectOption</a> | undefined',
+		type: 'string | string[] | undefined',
 		default: ''
 	},
 	{
@@ -66,6 +66,18 @@ export const props: Prop[] = [
 		prop: 'mobile',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '12',
+		prop: 'options',
+		type: '<a href="/types#SelectOption" class="link">SelectOption</a>[]',
+		default: ''
+	},
+	{
+		id: '13',
+		prop: 'on:change',
+		type: '(e: Event) => void',
+		default: ''
 	}
 ];
 
@@ -227,9 +239,13 @@ export const example = `
 			label: 'Option 3'
 		}
 	];
+
+	function handleChange(e: Event) {
+		console.log(e.target.value);
+	}
 </script>
 
-<Select name="select-1" placeholder="Basic">
+<Select name="select-1" placeholder="Basic" on:change={handleChange} {options}>
 	<Select.Options slot="options">
 		{#each options as option}
 			<Select.Options.Option {option} />
@@ -258,7 +274,7 @@ export const exampleLabel = `
 	];
 </script>
 
-<Select name="select-2">
+<Select name="select-2" {options}>
 	<Select.Label slot="label">Label</Select.Label>
 	<Select.Options slot="options">
 		{#each options as option}
@@ -289,7 +305,7 @@ export const exampleLeading = `
 	];
 </script>
 
-<Select name="select-3">
+<Select name="select-3" {options}>
 	<Select.Label slot="label">Label</Select.Label>
 	<Select.Leading slot="leading" data={email} />
 	<Select.Options slot="options">
@@ -329,7 +345,7 @@ export const exampleError = `
 	}
 </script>
 
-<Select name="select-4" {error} bind:value>
+<Select name="select-4" {error} bind:value {options}>
 	<Select.Label slot="label">Label</Select.Label>
 	<Select.Leading slot="leading" data={email} />
 	<Select.Options slot="options">
@@ -361,7 +377,7 @@ export const exampleDisabled = `
 	];
 </script>
 
-<Select name="select-5" disabled>
+<Select name="select-5" disabled {options}>
 	<Select.Label slot="label">Label</Select.Label>
 	<Select.Leading slot="leading" data={email} />
 	<Select.Options slot="options">
@@ -405,7 +421,7 @@ export const exampleMultiple = `
 	];
 </script>
 
-<Select name="select-4" placeholder="Basic" multiple>
+<Select name="select-4" placeholder="Basic" multiple {options}>
 	<Select.Label slot="label">Label</Select.Label>
 	<Select.Options slot="options">
 		{#each multipleOptions as option}
@@ -436,7 +452,7 @@ export const exampleMobile = `
 	];
 </script>
 
-<Select name="select" mobile>
+<Select name="select" mobile {options}>
 	<Select.Label slot="label">Label</Select.Label>
 	<Select.Options slot="options">
 		{#each options as option}
@@ -466,7 +482,7 @@ export const exampleMultipleMobile = `
 	];
 </script>
 
-<Select name="select" mobile multiple>
+<Select name="select" mobile multiple {options}>
 	<Select.Label slot="label">Label</Select.Label>
 	<Select.Options slot="options">
 		{#each options as option}
