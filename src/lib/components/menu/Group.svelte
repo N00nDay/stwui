@@ -14,6 +14,7 @@
 
 	export let label: string;
 	export let key: string;
+	export let itemsPanelClass = '';
 
 	let active = false;
 	let collapsable: HTMLButtonElement;
@@ -63,6 +64,7 @@
 
 	const defaultClass = 'transition-all duration-300 stwui-menu-group';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+	$: itemsPanelFinalClass = twMerge('space-y-1 pt-1', itemsPanelClass);
 
 	setContext('menu-group-key', key);
 </script>
@@ -119,7 +121,7 @@
 			out:transition|local={{}}
 		>
 			<div
-				class="space-y-1 pt-1"
+				class={itemsPanelFinalClass}
 				class:p-1={$menuCollapse}
 				class:border={$menuCollapse}
 				class:border-border={$menuCollapse}
