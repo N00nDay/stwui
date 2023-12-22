@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.0-next](https://github.com/N00nDay/stwui/compare/v0.19.0-next...v0.20.0-next) (2023-12-22)
+
+
+### Features
+
+* **Menu:** add itemsPanelClass prop for Group ([#197](https://github.com/N00nDay/stwui/issues/197)) ([cdcb863](https://github.com/N00nDay/stwui/commit/cdcb863e40b3f0579ac3857e633b2c0b7725b5e2))
+
 ## [0.19.0-next](https://github.com/N00nDay/stwui/compare/v0.18.13-next...v0.19.0-next) (2023-12-22)
 
 

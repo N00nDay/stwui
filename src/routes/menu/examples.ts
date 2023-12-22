@@ -126,6 +126,12 @@ export const groupProps: Prop[] = [
 		prop: 'label',
 		type: 'string',
 		default: ''
+	},
+	{
+		id: '3',
+		prop: 'itemsPanelClass',
+		type: 'string',
+		default: ''
 	}
 ];
 
