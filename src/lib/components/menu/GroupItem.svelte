@@ -38,7 +38,7 @@
 	{#if !$menuCollapse}
 		<span class="w-6 mr-2" />
 	{/if}
-	<span class="truncate flex-grow">{label}</span>
+	<span class="truncate flex justify-start flex-grow">{label}</span>
 	<slot name="extra" />
 	<HoverBackground class="rounded-md" />
 </a>
