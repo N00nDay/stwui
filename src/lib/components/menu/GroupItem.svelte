@@ -20,7 +20,7 @@
 	$: active = $activeItem === `${groupKey}-${key}`;
 
 	const defaultClass =
-		'group relative flex items-center min-w-full h-10 px-3 py-2 text-sm font-medium rounded-md stwui-menu-group-item';
+		'group relative flex flex-row items-center min-w-full h-10 px-3 py-2 text-sm font-medium rounded-md stwui-menu-group-item';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -38,7 +38,7 @@
 	{#if !$menuCollapse}
 		<span class="w-6 mr-2" />
 	{/if}
-	<span class="truncate flex justify-start flex-grow">{label}</span>
+	<span class="truncate flex-grow">{label}</span>
 	<slot name="extra" />
 	<HoverBackground class="rounded-md" />
 </a>
