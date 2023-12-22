@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 	import { calendar } from '../../lib/icons';
-	import { home, account_multiple, folder, file_document, poll } from '../../docs/icons';
+	import { home, account_multiple, folder, file_document, poll, favorite } from '../../docs/icons';
 
 	interface GroupMenuItem {
 		key: string;
@@ -19,7 +19,7 @@
 </script>
 
 <script lang="ts">
-	import { Badge, Button, Card, Menu } from '../../lib';
+	import { Badge, Button, Card, Icon, Menu } from '../../lib';
 	import {
 		example,
 		props,
@@ -31,7 +31,8 @@
 		groupSlots,
 		groupItemsProps,
 		usage,
-		classList
+		classList,
+		groupItemSlots
 	} from './examples';
 	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 
@@ -124,7 +125,14 @@
 											label={child.label}
 											href={child.href}
 											on:click={() => (active = `${item.key}-${child.key}`)}
-										/>
+										>
+											<Button
+												slot="extra"
+												shape="circle"
+												on:click={() => alert('extra' + child.key)}
+												><Icon slot="icon" data={favorite} /></Button
+											>
+										</Menu.Group.Item>
 									{/each}
 								</Menu.Group>
 							{:else}
@@ -199,5 +207,7 @@
 <SlotsTable component="Menu.Group" slots={groupSlots} />
 
 <PropsTable component="Menu.Group.Item" props={groupItemsProps} />
+
+<SlotsTable component="Menu.Group.Item" slots={groupItemSlots} />
 
 <ClassTable component="Menu" {classList} />

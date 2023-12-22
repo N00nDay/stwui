@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.19.0-next](https://github.com/N00nDay/stwui/compare/v0.18.13-next...v0.19.0-next) (2023-12-22)
+
+
+### Features
+
+* **Menu:** added extra slot for GroupItem ([#196](https://github.com/N00nDay/stwui/issues/196)) ([8cabc25](https://github.com/N00nDay/stwui/commit/8cabc2552a99904c6bb46e8e7f837ef4a1d68d71))
+
 ## [0.18.13-next](https://github.com/N00nDay/stwui/compare/v0.18.12-next...v0.18.13-next) (2023-11-22)
 
 
