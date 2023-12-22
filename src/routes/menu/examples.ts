@@ -158,6 +158,14 @@ export const groupItemsProps: Prop[] = [
 	}
 ];
 
+export const groupItemSlots: Slot[] = [
+	{
+		id: '1',
+		slot: 'extra',
+		component: '<Menu.Group.Item.Extra slot="extra" />'
+	}
+];
+
 export const classList: IClass[] = [
 	{
 		id: '1',
@@ -197,6 +205,7 @@ export const example = `
 	const calendar = "svg-path";
 	const file_document = "svg-path";
 	const poll = "svg-path";
+	const favorite = "svg-path";
 
 	interface GroupMenuItem {
 		key: string;
@@ -285,12 +294,19 @@ export const example = `
             <Menu.Group key={item.key} label={item.label} href={item.href}>
                <Menu.Item.Icon slot="icon" data={item.data} />
                {#each item.children as child}
-                  <Menu.Group.Item
-                     key={child.key}
-                     label={child.label}
-                     href={child.href}
-                     on:click={() => (active = \`{item.key}-{child.key}\`)}
-                  />
+						<Menu.Group.Item
+						key={child.key}
+						label={child.label}
+						href={child.href}
+						on:click={() => (active = \`{item.key}-{child.key}\`)}
+					>
+						<Button
+							slot="extra"
+							shape="circle"
+							on:click={() => alert('extra' + child.key)}
+							><Icon slot="icon" data={favorite} /></Button
+						>
+					</Menu.Group.Item>
                {/each}
             </Menu.Group>
          {:else}
