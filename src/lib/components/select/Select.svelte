@@ -57,13 +57,13 @@
 			// const tempSelectedValues = ($selectedValue as SelectOption[]) || [];
 			const tempSelectedValues = ($selectedValue as string[]) || [];
 			// const selectedIndex = tempSelectedValues.findIndex((sv) => sv.value === option.value);
-			const selectedIndex = tempSelectedValues.findIndex((sv) => sv === option.value);
+			const selectedIndex = tempSelectedValues.findIndex((sv) => sv === option[optionValue]);
 			if (selectedIndex !== -1) {
 				tempSelectedValues.splice(selectedIndex, 1);
 				$selectedValue = tempSelectedValues;
 			} else {
 				// tempSelectedValues.push(option);
-				tempSelectedValues.push(option.value);
+				tempSelectedValues.push(option[optionValue]);
 				$selectedValue = tempSelectedValues;
 			}
 			input.value = JSON.stringify($selectedValue);
