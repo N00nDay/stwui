@@ -48,6 +48,36 @@ export const props: Prop[] = [
 		prop: 'mobile',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '9',
+		prop: 'optionLabel',
+		type: 'string',
+		default: 'label'
+	},
+	{
+		id: '10',
+		prop: 'optionValue',
+		type: 'string',
+		default: 'value'
+	},
+	{
+		id: '11',
+		prop: 'options',
+		type: '<a href="/types#SelectOption" class="link">SelectOption</a>[]',
+		default: ''
+	},
+	{
+		id: '12',
+		prop: 'on:change',
+		type: '(e: Event) => void',
+		default: ''
+	},
+	{
+		id: '13',
+		prop: 'on:input',
+		type: '(e: Event) => void',
+		default: ''
 	}
 ];
 
@@ -232,19 +262,54 @@ export const basicExample = `
    import { Autocomplete } from 'stwui';
 
    let value: string;
-   let options = ['Option 1', 'Option 2', 'Option 3'];
+   let options = [
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
+	];
+	let filtered = options;
 
    function filter(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered = options.filter((opt) => opt.value.toLowerCase().includes(target.value.toLowerCase()));
 	}
 
-   function filterOptions(option: string) {
-      if (option) {
-         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+   function filterOptions(newValue: string) {
+      if (newValue) {
+         filtered = options.filter((opt) => opt.value.toLowerCase().includes(newValue.toLowerCase()));
       } else {
          filtered = options;
       }
+	}
+
+	function handleChange(event: Event) {
+		const target = event.target as HTMLSelectElement;
+		console.log('event', target.value);
 	}
 
 	$: filterOptions(value);
@@ -255,6 +320,7 @@ export const basicExample = `
 	placeholder="Basic"
 	bind:value={value}
 	on:input={filter}
+	on:change={handleChange}
 	{options}
 >
 	<Autocomplete.Options slot="options">
@@ -273,16 +339,46 @@ export const withLabelExample = `
    import { Autocomplete } from 'stwui';
 
    let value: string;
-   let options = ['Option 1', 'Option 2', 'Option 3'];
+   let options = [
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
+	];
+	let filtered = options;
 
-   function filter(e: Event) {
+	function filter(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered = options.filter((opt) => opt.value.toLowerCase().includes(target.value.toLowerCase()));
 	}
 
-   function filterOptions(option: string) {
-      if (option) {
-         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+   function filterOptions(newValue: string) {
+      if (newValue) {
+         filtered = options.filter((opt) => opt.value.toLowerCase().includes(newValue.toLowerCase()));
       } else {
          filtered = options;
       }
@@ -315,17 +411,47 @@ export const withLeadingExample = `
    import { Autocomplete } from 'stwui';
 
    let value: string;
-   let options = ['Option 1', 'Option 2', 'Option 3'];
+   let options = [
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
+	];
+	let filtered = options;
 	let email = 'svg-path';
 
    function filter(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered = options.filter((opt) => opt.value.toLowerCase().includes(target.value.toLowerCase()));
 	}
 
-   function filterOptions(option: string) {
-      if (option) {
-         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+   function filterOptions(newValue: string) {
+      if (newValue) {
+         filtered = options.filter((opt) => opt.value.toLowerCase().includes(newValue.toLowerCase()));
       } else {
          filtered = options;
       }
@@ -358,17 +484,47 @@ export const withErrorExample = `
    import { Autocomplete } from 'stwui';
 
    let value: string;
-   let options = ['Option 1', 'Option 2', 'Option 3'];
+   let options = [
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
+	];
+	let filtered = options;
 	let email = 'svg-path';
 
    function filter(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered = options.filter((opt) => opt.value.toLowerCase().includes(target.value.toLowerCase()));
 	}
 
-   function filterOptions(option: string) {
-      if (option) {
-         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+   function filterOptions(newValue: string) {
+      if (newValue) {
+         filtered = options.filter((opt) => opt.value.toLowerCase().includes(newValue.toLowerCase()));
       } else {
          filtered = options;
       }
@@ -409,17 +565,47 @@ export const disabledExample = `
    import { Autocomplete } from 'stwui';
 
    let value: string;
-   let options = ['Option 1', 'Option 2', 'Option 3'];
+   let options = [
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
+	];
+	let filtered = options;
 	let email = 'svg-path';
 
    function filter(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered = options.filter((opt) => opt.value.toLowerCase().includes(target.value.toLowerCase()));
 	}
 
-   function filterOptions(option: string) {
-      if (option) {
-         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+   function filterOptions(newValue: string) {
+      if (newValue) {
+         filtered = options.filter((opt) => opt.value.toLowerCase().includes(newValue.toLowerCase()));
       } else {
          filtered = options;
       }
@@ -454,16 +640,46 @@ export const allowNonOptionExample = `
 
    let value = 'I am not in the list!';
 
-   let options = ['Option 1', 'Option 2', 'Option 3'];
+   let options = [
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
+	];
+	let filtered = options;
 
    function filter(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered = options.filter((opt) => opt.value.toLowerCase().includes(target.value.toLowerCase()));
 	}
 
-   function filterOptions(option: string) {
-      if (option) {
-         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+   function filterOptions(newValue: string) {
+      if (newValue) {
+         filtered = options.filter((opt) => opt.value.toLowerCase().includes(newValue.toLowerCase()));
       } else {
          filtered = options;
       }
@@ -495,16 +711,46 @@ export const withMobileExample = `
    import { Autocomplete } from 'stwui';
 
    let value: string;
-   let options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6'];
+   let options = [
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
+	];
+	let filtered = options;
 
    function filter(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered = options.filter((opt) => opt.value.toLowerCase().includes(target.value.toLowerCase()));
 	}
 
-   function filterOptions(option: string) {
-      if (option) {
-         filtered = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+   function filterOptions(newValue: string) {
+      if (newValue) {
+         filtered = options.filter((opt) => opt.value.toLowerCase().includes(newValue.toLowerCase()));
       } else {
          filtered = options;
       }
