@@ -78,6 +78,12 @@ export const props: Prop[] = [
 		prop: 'on:change',
 		type: '(e: Event) => void',
 		default: ''
+	},
+	{
+		id: '14',
+		prop: 'on:input',
+		type: '(e: Event) => void',
+		default: ''
 	}
 ];
 
