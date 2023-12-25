@@ -10,6 +10,7 @@
 	// import { breakpoints } from '$lib/stores';
 	import type { DatePickerAction } from '../../types';
 
+	export let allowUserInput = false;
 	export let value: Dayjs | null = null;
 	export let handleSelect: (d: Dayjs) => void;
 	export let min: Dayjs | undefined = undefined;
@@ -39,6 +40,15 @@
 	// let hourScroll: HTMLDivElement;
 	// let minuteScroll: HTMLDivElement;
 	// let meridianScroll: HTMLDivElement;
+
+	$: value && allowUserInput, updateBrowseDateFromInput(value);
+
+	function updateBrowseDateFromInput(value: Dayjs | null) {
+		if (!value) return;
+		browseDate = value;
+
+		updateCalendarDays();
+	}
 
 	function setValue(d: Dayjs) {
 		if (!dayjs(d).isSame(value, 'day')) {
@@ -186,6 +196,8 @@
 	}
 
 	function keydown(e: KeyboardEvent) {
+		if (allowUserInput) return;
+
 		e.preventDefault();
 		e.stopPropagation();
 		let shift = e.shiftKey || e.altKey;

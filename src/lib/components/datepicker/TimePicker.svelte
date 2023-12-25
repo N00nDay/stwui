@@ -29,6 +29,8 @@
 	let minutesVisible = false;
 	let meridianVisible = false;
 
+	$: browseDate, updateHoursAndMinutes();
+
 	function toggleHoursVisibility() {
 		hoursVisible = !hoursVisible;
 
@@ -166,41 +168,43 @@
 		return `${n}`;
 	}
 
+	function updateHoursAndMinutes() {
+		if (format.includes('h')) {
+			hourSelected = browseDate.format('h');
+		} else if (format.includes('H')) {
+			hourSelected = browseDate.format('H');
+		}
+
+		minuteSelected = convertNumberToMinuteString(
+			findClosestNumber(parseInt(browseDate.format('mm')), minutesArray)
+		);
+
+		if (format.includes('A')) {
+			meridianSelected = browseDate.format('A');
+		} else if (format.includes('a')) {
+			meridianSelected = browseDate.format('a');
+		}
+
+		const hourEl = document.getElementById(`hour-${hourSelected}`);
+		const minuteEl = document.getElementById(`minute-${minuteSelected}`);
+		const meridianEl = document.getElementById(`meridian-${meridianSelected}`);
+
+		if (hourEl) {
+			scrollIfNeeded(hourEl, hourScroll);
+		}
+
+		if (minuteEl) {
+			scrollIfNeeded(minuteEl, minuteScroll);
+		}
+
+		if (meridianEl) {
+			scrollIfNeeded(meridianEl, meridianScroll);
+		}
+	}
 	onMount(() => {
 		if (showTime) {
 			closeOnSelect = false;
-
-			if (format.includes('h')) {
-				hourSelected = browseDate.format('h');
-			} else if (format.includes('H')) {
-				hourSelected = browseDate.format('H');
-			}
-
-			minuteSelected = convertNumberToMinuteString(
-				findClosestNumber(parseInt(browseDate.format('mm')), minutesArray)
-			);
-
-			if (format.includes('A')) {
-				meridianSelected = browseDate.format('A');
-			} else if (format.includes('a')) {
-				meridianSelected = browseDate.format('a');
-			}
-
-			const hourEl = document.getElementById(`hour-${hourSelected}`);
-			const minuteEl = document.getElementById(`minute-${minuteSelected}`);
-			const meridianEl = document.getElementById(`meridian-${meridianSelected}`);
-
-			if (hourEl) {
-				scrollIfNeeded(hourEl, hourScroll);
-			}
-
-			if (minuteEl) {
-				scrollIfNeeded(minuteEl, minuteScroll);
-			}
-
-			if (meridianEl) {
-				scrollIfNeeded(meridianEl, meridianScroll);
-			}
+			updateHoursAndMinutes();
 		}
 	});
 </script>
