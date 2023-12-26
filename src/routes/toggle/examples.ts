@@ -52,7 +52,7 @@ export const contentLeftSlots: Slot[] = [
 	},
 	{
 		id: '2',
-		slot: 'left-icon',
+		slot: 'description',
 		component: '<Toggle.ContentLeft.Description slot="description" />'
 	}
 ];
@@ -65,7 +65,7 @@ export const contentRightSlots: Slot[] = [
 	},
 	{
 		id: '2',
-		slot: 'left-icon',
+		slot: 'description',
 		component: '<Toggle.ContentRight.Description slot="description" />'
 	}
 ];
@@ -181,24 +181,33 @@ export const classList: IClass[] = [
 ];
 
 export const usage = `
-import { Toggle } from 'stwui';
-// OR
-import Toggle from 'stwui/toggle'; // for tree shaking
-`;
+<script>
+	import { Toggle } from 'stwui';
+	// OR
+	import Toggle from 'stwui/toggle'; // for tree shaking
+
+	let toggled = false;
+</script>
+
+<Toggle bind:on={toggled}> />`;
 
 export const example1 = `
 <script lang="ts">
 	import { Toggle } from 'stwui';
+
+	let toggled = false;
 </script>
 
-<Toggle name="toggle-1" />`;
+<Toggle bind:on={toggled} />`;
 
 export const example2 = `
 <script lang="ts">
 	import { Toggle } from 'stwui';
+
+	let toggled = false;
 </script>
 
-<Toggle name="toggle-2">
+<Toggle bind:on={toggled}>
 	<Toggle.ContentLeft slot="content-left">
 		<Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
 	</Toggle.ContentLeft>
@@ -207,9 +216,11 @@ export const example2 = `
 export const example3 = `
 <script lang="ts">
 	import { Toggle } from 'stwui';
+
+	let toggled = false;
 </script>
 
-<Toggle name="toggle-4">
+<Toggle bind:on={toggled}>
 	<Toggle.ContentLeft slot="content-left">
 		<Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
 	</Toggle.ContentLeft>
@@ -221,9 +232,11 @@ export const example3 = `
 export const example4 = `
 <script lang="ts">
 	import { Toggle } from 'stwui';
+
+	let toggled = false;
 </script>
 
-<Toggle name="toggle-5">
+<Toggle bind:on={toggled}>
 	<Toggle.ContentRight slot="content-right">
 		<Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
 		<Toggle.ContentRight.Description slot="description"
@@ -236,23 +249,26 @@ export const example5 = `
 <script lang="ts">
 	import { Toggle } from 'stwui';
 
-	let on = false;
+	let toggled = false;
 	let error: string | undefined = 'Here is an error!';
-	$: if (on) {
+
+	$: if (toggled) {
 		error = undefined;
 	} else {
 		error = 'Here is an error!';
 	}
 </script>
 
-<Toggle name="toggle" {error} bind:on />`;
+<Toggle {error} bind:on={toggled} />`;
 
 export const example6 = `
 <script lang="ts">
 	import { Toggle } from 'stwui';
+
+	let toggled = false;
 </script>
 
-<Toggle name="toggle">
+<Toggle bind:on={toggled}>
 	<Toggle.LeftIcon slot="left-icon" data={brightness_5} class="text-white" />
 	<Toggle.RightIcon slot="right-icon" data={brightness_4} />
 </Toggle>`;
