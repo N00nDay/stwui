@@ -304,7 +304,7 @@
 <Menu {active}>
 	<Menu.Item key="/types" label="Types" href="/types" on:click={handleClick} />
 </Menu>
-<div class="flex flex-row gap-2 mt-4 sm:hidden flex">
+<div class="flex flex-row gap-2 mt-4 sm:hidden">
 	<Button
 		ariaLabel="open discord"
 		href="https://discord.gg/YVgwp48Tcm"
