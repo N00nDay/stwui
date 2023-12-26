@@ -8,7 +8,7 @@
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const name: string = getContext('toggle-name');
-	const toggleOff: () => void = getContext('toggle-off');
+	const click: () => void = getContext('toggle-click-content-left');
 
 	const defaultClass = 'mr-3 cursor-pointer stwui-toggle-content-left';
 	$: finalClass = twMerge(defaultClass, $$props.class);
@@ -19,7 +19,7 @@
 	tabindex="-1"
 	id="{name}-label-left"
 	class={finalClass}
-	on:click={toggleOff}
+	on:click={click}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class', 'id', 'on:click'])}
