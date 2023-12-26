@@ -11,6 +11,7 @@ delete pkg.scripts['package'];
 delete pkg.scripts['coverage'];
 delete pkg.scripts['publish'];
 delete pkg.scripts['prepare'];
+delete pkg.scripts['prepublishOnly'];
 delete pkg.scripts['pack'];
 delete pkg.files;
 
