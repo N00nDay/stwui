@@ -25,20 +25,20 @@
 		on = !on;
 	}
 
-	function toggleOn() {
-		on = true;
+	function clickContentLeft() {
+		on = $$slots['content-right'] ? false : !on;
 	}
 
-	function toggleOff() {
-		on = false;
+	function clickContentRight() {
+		on = $$slots['content-left'] ? true : !on;
 	}
 
 	const defaultClass = 'stwui-toggle-wrapper flex flex-col';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 
 	setContext('toggle-name', name);
-	setContext('toggle-on', toggleOn);
-	setContext('toggle-off', toggleOff);
+	setContext('toggle-click-content-left', clickContentLeft);
+	setContext('toggle-click-content-right', clickContentRight);
 </script>
 
 <div
