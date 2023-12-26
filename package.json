@@ -20,7 +20,7 @@
 	"scripts": {
 		"dev": "vite dev --open --host",
 		"build": "vite build",
-		"package": "svelte-package -o package",
+		"package": "svelte-package --output ./package && publint --strict",
 		"preview": "vite preview",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
@@ -29,7 +29,6 @@
 		"lint": "prettier --check . && eslint .",
 		"lint:fix": "eslint --fix .",
 		"format": "prettier --write .",
-		"prepublishOnly": "publint --strict",
 		"publish": "npm publish ./package",
 		"prepare": "husky install && svelte-kit sync",
 		"pack": "node ./scripts/pack"
