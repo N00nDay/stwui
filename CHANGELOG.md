@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.21.0-next](https://github.com/N00nDay/stwui/compare/v0.20.0-next...v0.21.0-next) (2024-01-03)
+
+
+### Features
+
+* **DatePicker:** allow user input (desktop version) ([#201](https://github.com/N00nDay/stwui/issues/201)) ([55dae78](https://github.com/N00nDay/stwui/commit/55dae78cae43a093e170eb7bf575297e25b88c3a))
+
+
+### Bug Fixes
+
+* Fix publint error and add prepublishOnly command ([#202](https://github.com/N00nDay/stwui/issues/202)) ([1143b64](https://github.com/N00nDay/stwui/commit/1143b641b9062cdd487113b22677945fe559df96))
+* **Toggle:** if content on one side only then clicking toggles ([#205](https://github.com/N00nDay/stwui/issues/205)) ([fadbd5b](https://github.com/N00nDay/stwui/commit/fadbd5b11d6dbf17b55bb9441e327eef8ccc99ec))
+
 ## [0.20.0-next](https://github.com/N00nDay/stwui/compare/v0.19.0-next...v0.20.0-next) (2023-12-22)
 
 
