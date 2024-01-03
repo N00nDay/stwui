@@ -2,6 +2,10 @@
 
 ## [0.21.0-next](https://github.com/N00nDay/stwui/compare/v0.20.0-next...v0.21.0-next) (2024-01-03)
 
+### Breaking
+
+* **Autocomplete:** converted api to be more in line with the `Select` component. `options` prop must be provided and now the `value` prop is `string | undefined` as apposed to passing an entire `SelectOption` as you would expect.
+
 
 ### Features
 
