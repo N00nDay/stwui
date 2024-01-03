@@ -15,7 +15,8 @@
 
 	export let option: SelectOption;
 
-	const value: Writable<SelectOption | SelectOption[] | undefined> = getContext('select-value');
+	// const value: Writable<SelectOption | SelectOption[] | undefined> = getContext('select-value');
+	const value: Writable<string | string[] | undefined> = getContext('select-value');
 	const optionLabel: string = getContext('select-option-label');
 	const optionValue: string = getContext('select-option-value');
 	const handleSelect: (option: SelectOption) => void = getContext('select-handleSelect');
@@ -25,14 +26,16 @@
 
 	$: {
 		if ($value && multiple && Array.isArray($value)) {
-			const isSelected = $value.find((v) => v[optionValue] === option[optionValue]);
+			// const isSelected = $value.find((v) => v[optionValue] === option[optionValue]);
+			const isSelected = $value.find((v) => v === option[optionValue]);
 			if (isSelected) {
 				optionIsSelected = true;
 			} else {
 				optionIsSelected = false;
 			}
 		} else if ($value && !Array.isArray($value)) {
-			if ($value[optionValue] === option[optionValue]) {
+			// if ($value[optionValue] === option[optionValue]) {
+			if ($value === option[optionValue]) {
 				optionIsSelected = true;
 			} else {
 				optionIsSelected = false;

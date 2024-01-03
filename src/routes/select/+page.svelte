@@ -20,7 +20,6 @@
 	} from './examples';
 	import { PropsTable, SlotsTable, ClassTable, CodeBlock, ExampleContainer } from '../../docs';
 	import { email } from '../../docs/icons';
-	import type { SelectOption } from '$lib/types';
 
 	const options = [
 		{
@@ -79,9 +78,16 @@
 		}
 	];
 
-	let value: SelectOption | undefined;
+	function handleChange(event: Event) {
+		const target = event.target as HTMLSelectElement;
+		console.log('event', target.value);
+	}
+
+	// let value: SelectOption | undefined;
+	let value: string | undefined;
 	let error: string | undefined = "You're doing it wrong!";
-	$: if (value && value.value) {
+	// $: if (value && value.value) {
+	$: if (value) {
 		error = undefined;
 	} else {
 		error = "You're doing it wrong!";
@@ -95,7 +101,7 @@
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<Select name="select-1" placeholder="Basic">
+			<Select name="select-1" placeholder="Basic" on:change={handleChange} {options}>
 				<Select.Options slot="options">
 					{#each options as option}
 						<Select.Options.Option {option} />
@@ -110,7 +116,7 @@
 <ExampleContainer title="With Label">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<Select name="select-2">
+			<Select name="select-2" {options}>
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Options slot="options">
 					{#each options as option}
@@ -126,7 +132,7 @@
 <ExampleContainer title="With Leading">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<Select name="select-3">
+			<Select name="select-3" {options}>
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Leading slot="leading" data={email} />
 				<Select.Options slot="options">
@@ -143,7 +149,7 @@
 <ExampleContainer title="With Error">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<Select name="select-4" {error} bind:value>
+			<Select name="select-4" {error} bind:value {options}>
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Leading slot="leading" data={email} />
 				<Select.Options slot="options">
@@ -160,7 +166,7 @@
 <ExampleContainer title="Disabled">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<Select name="select-5" disabled>
+			<Select name="select-5" disabled {options}>
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Leading slot="leading" data={email} />
 				<Select.Options slot="options">
@@ -177,7 +183,7 @@
 <ExampleContainer title="Multi-Select">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<Select name="select-6" placeholder="Multiple" multiple>
+			<Select name="select-6" placeholder="Multiple" multiple {options}>
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Options slot="options">
 					{#each multipleOptions as option}
@@ -193,7 +199,7 @@
 <ExampleContainer title="With Mobile">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<Select name="select-2" mobile>
+			<Select name="select-2" mobile {options}>
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Options slot="options">
 					{#each options as option}
@@ -209,7 +215,7 @@
 <ExampleContainer title="Multi-Select With Mobile">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<Select name="select-2" mobile multiple>
+			<Select name="select-2" mobile multiple {options}>
 				<Select.Label slot="label">Label</Select.Label>
 				<Select.Options slot="options">
 					{#each options as option}

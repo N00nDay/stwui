@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Autocomplete } from '../../lib';
 	import {
+		basicExample,
 		withLabelExample,
 		withLeadingExample,
 		withErrorExample,
@@ -29,164 +30,378 @@
 	let value7: string;
 
 	let options = [
-		'Option 1',
-		'Option 2',
-		'Option 3',
-		'Option 4',
-		'Option 5',
-		'Option 6',
-		'Option 7'
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
 	];
-	let filtered7Options = [
-		'Option 1',
-		'Option 2',
-		'Option 3',
-		'Option 4',
-		'Option 5',
-		'Option 6',
-		'Option 7'
-	];
-
 	let filtered1 = [
-		'Option 1',
-		'Option 2',
-		'Option 3',
-		'Option 4',
-		'Option 5',
-		'Option 6',
-		'Option 7'
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
 	];
 	let filtered2 = [
-		'Option 1',
-		'Option 2',
-		'Option 3',
-		'Option 4',
-		'Option 5',
-		'Option 6',
-		'Option 7'
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
 	];
 	let filtered3 = [
-		'Option 1',
-		'Option 2',
-		'Option 3',
-		'Option 4',
-		'Option 5',
-		'Option 6',
-		'Option 7'
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
 	];
 	let filtered4 = [
-		'Option 1',
-		'Option 2',
-		'Option 3',
-		'Option 4',
-		'Option 5',
-		'Option 6',
-		'Option 7'
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
 	];
 	let filtered5 = [
-		'Option 1',
-		'Option 2',
-		'Option 3',
-		'Option 4',
-		'Option 5',
-		'Option 6',
-		'Option 7'
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
 	];
 	let filtered6 = [
-		'Option 1',
-		'Option 2',
-		'Option 3',
-		'Option 4',
-		'Option 5',
-		'Option 6',
-		'Option 7'
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
 	];
 	let filtered7 = [
-		'Option 1',
-		'Option 2',
-		'Option 3',
-		'Option 4',
-		'Option 5',
-		'Option 6',
-		'Option 7'
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
+	];
+	let filtered7Options = [
+		{
+			label: 'Option 1',
+			value: 'option_1'
+		},
+		{
+			label: 'Option 2',
+			value: 'option_2'
+		},
+		{
+			label: 'Option 3',
+			value: 'option_3'
+		},
+		{
+			label: 'Option 4',
+			value: 'option_4'
+		},
+		{
+			label: 'Option 5',
+			value: 'option_5'
+		},
+		{
+			label: 'Option 6',
+			value: 'option_6'
+		},
+		{
+			label: 'Option 7',
+			value: 'option_7'
+		}
 	];
 
 	function filter1(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered1 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered1 = options.filter((opt) =>
+			opt.value.toLowerCase().includes(target.value.toLowerCase())
+		);
 	}
 
 	function filter2(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered2 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered2 = options.filter((opt) =>
+			opt.value.toLowerCase().includes(target.value.toLowerCase())
+		);
 	}
 
 	function filter3(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered3 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered3 = options.filter((opt) =>
+			opt.value.toLowerCase().includes(target.value.toLowerCase())
+		);
 	}
 
 	function filter4(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered4 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered4 = options.filter((opt) =>
+			opt.value.toLowerCase().includes(target.value.toLowerCase())
+		);
 	}
 
 	function filter5(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered5 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered5 = options.filter((opt) =>
+			opt.value.toLowerCase().includes(target.value.toLowerCase())
+		);
 	}
 
 	function filter6(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered6 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered6 = options.filter((opt) =>
+			opt.value.toLowerCase().includes(target.value.toLowerCase())
+		);
 	}
 
 	function filter7(e: Event) {
 		const target = e.target as HTMLInputElement;
-		filtered7 = options.filter((opt) => opt.toLowerCase().includes(target.value.toLowerCase()));
+		filtered7 = options.filter((opt) =>
+			opt.value.toLowerCase().includes(target.value.toLowerCase())
+		);
 	}
 
-	function filterOptions(option: string, key: 1 | 2 | 3 | 4 | 5 | 6 | 7) {
+	function filterOptions(newValue: string, key: 1 | 2 | 3 | 4 | 5 | 6 | 7) {
 		if (key === 1) {
-			if (option) {
-				filtered1 = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+			if (newValue) {
+				filtered1 = options.filter((opt) =>
+					opt.value.toLowerCase().includes(newValue.toLowerCase())
+				);
 			} else {
 				filtered1 = options;
 			}
 		} else if (key === 2) {
-			if (option) {
-				filtered2 = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+			if (newValue) {
+				filtered2 = options.filter((opt) =>
+					opt.value.toLowerCase().includes(newValue.toLowerCase())
+				);
 			} else {
 				filtered2 = options;
 			}
 		} else if (key === 3) {
-			if (option) {
-				filtered3 = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+			if (newValue) {
+				filtered3 = options.filter((opt) =>
+					opt.value.toLowerCase().includes(newValue.toLowerCase())
+				);
 			} else {
 				filtered3 = options;
 			}
 		} else if (key === 4) {
-			if (option) {
-				filtered4 = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+			if (newValue) {
+				filtered4 = options.filter((opt) =>
+					opt.value.toLowerCase().includes(newValue.toLowerCase())
+				);
 			} else {
 				filtered4 = options;
 			}
 		} else if (key === 5) {
-			if (option) {
-				filtered5 = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+			if (newValue) {
+				filtered5 = options.filter((opt) =>
+					opt.value.toLowerCase().includes(newValue.toLowerCase())
+				);
 			} else {
 				filtered5 = options;
 			}
 		} else if (key === 6) {
-			if (option) {
-				filtered6 = options.filter((opt) => opt.toLowerCase().includes(option.toLowerCase()));
+			if (newValue) {
+				filtered6 = options.filter((opt) =>
+					opt.value.toLowerCase().includes(newValue.toLowerCase())
+				);
 			} else {
 				filtered6 = options;
 			}
 		} else if (key === 7) {
-			if (option) {
+			if (newValue) {
 				filtered7 = filtered7Options.filter((opt) =>
-					opt.toLowerCase().includes(option.toLowerCase())
+					opt.value.toLowerCase().includes(newValue.toLowerCase())
 				);
 			} else {
 				filtered7 = filtered7Options;
@@ -208,6 +423,11 @@
 	} else {
 		error = "You're doing it wrong!";
 	}
+
+	function handleChange(event: Event) {
+		const target = event.target as HTMLSelectElement;
+		console.log('event', target.value);
+	}
 </script>
 
 <h4 class="text-content pb-2">Usage</h4>
@@ -221,6 +441,7 @@
 			placeholder="Basic"
 			bind:value={value1}
 			on:input={filter1}
+			on:change={handleChange}
 			{options}
 			class="w-full max-w-lg mx-auto"
 		>
@@ -236,7 +457,7 @@
 		</Autocomplete>
 	</div>
 
-	<CodeBlock slot="code" language="svelte" code={withLabelExample} />
+	<CodeBlock slot="code" language="svelte" code={basicExample} />
 </ExampleContainer>
 
 <ExampleContainer title="With Label">

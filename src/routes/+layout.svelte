@@ -22,12 +22,10 @@
 	$: darkTheme = $theme === 'dark';
 	$: if (BROWSER && darkTheme) {
 		const htmlElement = document.documentElement;
-		// htmlElement.classList.add('dark');
 		htmlElement.dataset.theme = 'dark';
 		theme.set('dark');
 	} else if (BROWSER) {
 		const htmlElement = document.documentElement;
-		// htmlElement.classList.remove('dark');
 		htmlElement.dataset.theme = 'light';
 		theme.set('light');
 	}
@@ -116,7 +114,7 @@
 	{/if}
 	<title>{$page.data.title}</title>
 	<meta name="description" content={$page.data.description} />
-	<!-- TODO:  figure out canonical rel -->
+	<!-- TODO:  update canonical rel to all page load functions -->
 	<!-- <link rel="canonical" href="https://madewithsvelte.com/ui-library"> -->
 	<meta name="og:title" content={$page.data.title} />
 	<meta property="og:description" content={$page.data.description} />

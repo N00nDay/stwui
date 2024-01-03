@@ -13,6 +13,7 @@
 	import Drawer from '../drawer';
 	import { twMerge } from 'tailwind-merge';
 	import { nanoid } from 'nanoid';
+	import type { SelectOption } from '$lib/types';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	const defaultClass = 'stwui-autocomplete';
@@ -22,13 +23,27 @@
 	export let placeholder: string | undefined = undefined;
 	export let value: string | undefined = undefined;
 	export let allowNonListValue = false;
-	export let options: string[] = [];
 	export let disabled = false;
 	export let mobile = false;
+	export let options: SelectOption[] = [];
+	export let optionLabel = 'label';
+	export let optionValue = 'value';
 
 	let visible = false;
 	let input: HTMLInputElement;
-	let selectedOption: Writable<string | undefined> = writable(value);
+	let labelInput: HTMLInputElement;
+	let mobileLabelInput: HTMLInputElement;
+
+	let selectedOption: Writable<SelectOption | undefined> = writable(
+		options.find((o) => o[optionValue] === value)
+	);
+	$: selectedOption.set(options.find((o) => o[optionValue] === value));
+	let selectedValue: Writable<string | string[] | undefined> = writable(value);
+	$: selectedValue.set(value);
+	let selectedLabel: Writable<string | string[] | undefined> = writable(
+		$selectedOption ? $selectedOption[optionLabel] : value
+	);
+	$: selectedLabel.set($selectedOption ? $selectedOption[optionLabel] : value);
 	let currentError: Writable<string | undefined> = writable(error);
 	$: currentError.set(error);
 	let isMobile: Writable<boolean> = writable(mobile);
@@ -48,7 +63,12 @@
 		if (visible) {
 			if (value === undefined) {
 				visible = false;
-			} else if (options.includes(value)) {
+				return;
+			}
+
+			const optionExists = options.find((o) => o[optionValue] === value);
+
+			if (optionExists && optionExists.length > 0) {
 				visible = false;
 			} else if (allowNonListValue) {
 				visible = false;
@@ -58,27 +78,43 @@
 					inputMobile.value = '';
 				}
 				input.value = '';
+				labelInput.value = '';
+				mobileLabelInput.value = '';
 				input.dispatchEvent(new Event('change', { bubbles: true }));
 				value = undefined;
-				$selectedOption = undefined;
+				// $selectedOption = undefined;
+				$selectedValue = undefined;
+				$selectedLabel = undefined;
 				visible = false;
 			}
 		}
 	}
 
-	function handleSelect(option: string) {
-		value = option;
-		input.value = option;
+	function handleSelect(newValue: string) {
+		$selectedValue = newValue;
+		$selectedOption = options.find((o) => o[optionValue] === newValue);
+		$selectedLabel = $selectedOption ? $selectedOption[optionLabel] : newValue;
+		value = newValue;
+		input.value = newValue;
 		input.dispatchEvent(new Event('change', { bubbles: true }));
-		$selectedOption = option;
+
 		visible = false;
 	}
 
 	function handleClear() {
 		input.value = '';
+		labelInput.value = '';
+		if (mobileLabelInput) mobileLabelInput.value = '';
 		input.dispatchEvent(new Event('change', { bubbles: true }));
 		value = undefined;
-		$selectedOption = undefined;
+		$selectedValue = undefined;
+	}
+
+	function handleKeyUp(e: KeyboardEvent) {
+		const target = e.target as HTMLInputElement;
+		if (target) {
+			value = target.value;
+		}
 	}
 
 	$: if ($isMobile && visible) {
@@ -93,10 +129,12 @@
 	setContext('autocomplete-handleSelect', handleSelect);
 	setContext('autocomplete-name', name);
 	setContext('autocomplete-error', currentError);
-	setContext('autocomplete-value', selectedOption);
+	setContext('autocomplete-value', selectedValue);
 	setContext('autocomplete-handleClose', handleClose);
 	setContext('autocomplete-mobile', isMobile);
 	setContext('autocomplete-actual-value', value);
+	setContext('autocomplete-option-label', optionLabel);
+	setContext('autocomplete-option-value', optionValue);
 
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
@@ -130,14 +168,15 @@
 		>
 			<!-- svelte-ignore a11y-no-interactive-element-to-noninteractive-role -->
 			<input
-				{name}
-				id={name}
-				bind:this={input}
-				bind:value
+				name={name + '-label'}
+				id={name + '-label'}
+				bind:this={labelInput}
+				bind:value={$selectedLabel}
 				{placeholder}
 				{disabled}
 				on:input
 				on:change
+				on:keyup={handleKeyUp}
 				on:focus={handleOpen}
 				autocomplete="off"
 				role="presentation"
@@ -152,6 +191,16 @@
 				class:bg-default={disabled}
 				class:pl-10={$$slots.leading}
 				class:pl-3={!$$slots.leading}
+			/>
+			<input
+				hidden
+				{name}
+				id={name}
+				bind:this={input}
+				bind:value
+				{placeholder}
+				{disabled}
+				class="hidden"
 			/>
 
 			{#if $$slots.leading}
@@ -205,11 +254,13 @@
 						<input
 							name={`${name}-mobile`}
 							id={`${name}-mobile`}
-							bind:value
+							bind:this={mobileLabelInput}
+							bind:value={$selectedLabel}
 							{placeholder}
 							{disabled}
 							on:input
 							on:change
+							on:keyup={handleKeyUp}
 							on:focus={handleOpen}
 							autocomplete="off"
 							role="presentation"

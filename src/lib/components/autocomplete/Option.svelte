@@ -10,18 +10,21 @@
 	import { exclude } from '../../utils/exclude';
 	import type { Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
+	import type { SelectOption } from '$lib/types';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
-	export let option: string;
+	export let option: SelectOption;
 
-	const handleSelect: (option: string) => void = getContext('autocomplete-handleSelect');
+	const handleSelect: (value: string) => void = getContext('autocomplete-handleSelect');
 	const value: Writable<string | undefined> = getContext('autocomplete-value');
+	const optionValue: string = getContext('autocomplete-option-value');
+	const optionLabel: string = getContext('autocomplete-option-label');
 
 	function handleKeydown(e: KeyboardEvent) {
 		if (e.key === 'Enter') {
 			e.preventDefault();
 			e.stopPropagation();
-			handleSelect(option);
+			handleSelect(option[optionValue]);
 		}
 	}
 
@@ -39,20 +42,20 @@
 	on:keydown={handleKeydown}
 	{...exclude($$props, ['use', 'class'])}
 	role="option"
-	aria-selected={$value === option}
+	aria-selected={$value === option[optionValue]}
 >
 	<button
 		type="button"
 		aria-label="autocomplete option"
-		on:click={() => handleSelect(option)}
+		on:click={() => handleSelect(option[optionValue])}
 		class="w-full text-left"
 	>
 		<div class="relative py-1.5 pl-2.5 pr-7 w-full rounded-md overflow-hidden">
-			<span class="font-normal block truncate" class:font-semibold={$value === option}>
-				{option}
+			<span class="font-normal block truncate" class:font-semibold={$value === option[optionValue]}>
+				{option[optionLabel]}
 			</span>
 
-			{#if $value === option}
+			{#if $value === option[optionValue]}
 				<span
 					transition:scale|local
 					class="text-primary absolute inset-y-0 right-0 flex items-center pr-2.5"
