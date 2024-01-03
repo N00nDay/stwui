@@ -36,6 +36,8 @@ module.exports = {
 - Start your dev server with ``npm run dev``
 - Make changes, and submit your pull request.
 
+📖 The docs are included in this repo which is itself a SvelteKit app. You'll find the pages for each component within `src/routes/`.
+
 ## Useful Resources
 
 * [Contribution Guide](https://github.com/N00nDay/stwui/tree/main/.github/CONTRIBUTING.md)

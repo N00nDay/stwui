@@ -20,7 +20,9 @@
 		withMobileAndTimeExample,
 		localeExample,
 		usage,
-		classList
+		classList,
+		withUserInputExample,
+		withUserInputTimeExample
 	} from './examples';
 	import {
 		PropsTable,
@@ -191,6 +193,39 @@
 	</div>
 
 	<CodeBlock slot="code" language="svelte" code={withActionExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With user input">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<DatePicker
+				name="date-10"
+				placeholder="MM/DD/YYYY"
+				class="w-full"
+				allowUserInput
+				format="MM/DD/YYYY"
+			/>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withUserInputExample} />
+</ExampleContainer>
+
+<ExampleContainer title="With user input (with time)">
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<DatePicker
+				name="date-11"
+				placeholder="MM/DD/YYYY HH:mm"
+				class="w-full"
+				allowUserInput
+				showTime
+				format="MM/DD/YYYY HH:mm"
+			/>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withUserInputTimeExample} />
 </ExampleContainer>
 
 <ExampleContainer title="Mobile">

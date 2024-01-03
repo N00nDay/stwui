@@ -35,7 +35,7 @@
 
 <ExampleContainer title="Basic">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
-		<Toggle name="toggle-1" />
+		<Toggle />
 	</div>
 
 	<CodeBlock slot="code" language="svelte" code={example1} />
@@ -43,7 +43,7 @@
 
 <ExampleContainer title="With Left Label">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
-		<Toggle name="toggle-2">
+		<Toggle>
 			<Toggle.ContentLeft slot="content-left">
 				<Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
 			</Toggle.ContentLeft>
@@ -55,7 +55,7 @@
 
 <ExampleContainer title="With Both Labels">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
-		<Toggle name="toggle-4">
+		<Toggle>
 			<Toggle.ContentLeft slot="content-left">
 				<Toggle.ContentLeft.Label slot="label">Left Label</Toggle.ContentLeft.Label>
 			</Toggle.ContentLeft>
@@ -70,7 +70,7 @@
 
 <ExampleContainer title="With Description">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
-		<Toggle name="toggle-5">
+		<Toggle>
 			<Toggle.ContentRight slot="content-right">
 				<Toggle.ContentRight.Label slot="label">Right Label</Toggle.ContentRight.Label>
 				<Toggle.ContentRight.Description slot="description"
@@ -85,7 +85,7 @@
 
 <ExampleContainer title="With Error">
 	<div slot="preview" class="w-full flex flex-col gap-2 items-center justify-center">
-		<Toggle name="toggle" {error} bind:on />
+		<Toggle {error} bind:on />
 	</div>
 
 	<CodeBlock slot="code" language="svelte" code={example5} />
@@ -93,7 +93,7 @@
 
 <ExampleContainer title="With Icons">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
-		<Toggle name="toggle">
+		<Toggle>
 			<Toggle.LeftIcon slot="left-icon" data={brightness_5} class="text-white" />
 			<Toggle.RightIcon slot="right-icon" data={brightness_4} />
 		</Toggle>

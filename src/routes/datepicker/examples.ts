@@ -84,6 +84,12 @@ export const props: Prop[] = [
 		prop: 'mobile',
 		type: 'boolean',
 		default: 'false'
+	},
+	{
+		id: '16',
+		prop: 'allowUserInput',
+		type: 'boolean',
+		default: 'false'
 	}
 ];
 
@@ -467,3 +473,30 @@ import 'dayjs/locale/de';
 
 dayjs.locale('de');
 `;
+
+export const withUserInputExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker
+		name="date-10"
+		placeholder="MM/DD/YYYY"
+		class="w-full"
+		allowUserInput
+		format="MM/DD/YYYY"
+	/>`;
+
+export const withUserInputTimeExample = `
+<script lang="ts">
+	import { DatePicker } from 'stwui';
+</script>
+
+<DatePicker
+		name="date-11"
+		placeholder="MM/DD/YYYY HH:mm"
+		class="w-full"
+		allowUserInput
+		showTime
+		format="MM/DD/YYYY HH:mm"
+	/>`;

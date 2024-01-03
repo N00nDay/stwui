@@ -104,7 +104,7 @@
 	function handleClear() {
 		input.value = '';
 		labelInput.value = '';
-		mobileLabelInput.value = '';
+		if (mobileLabelInput) mobileLabelInput.value = '';
 		input.dispatchEvent(new Event('change', { bubbles: true }));
 		value = undefined;
 		$selectedValue = undefined;

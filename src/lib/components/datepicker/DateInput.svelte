@@ -4,6 +4,7 @@
 	import DatePicker from './DatePicker.svelte';
 	import { writable, type Writable } from 'svelte/store';
 	import dayjs, { type Dayjs } from 'dayjs';
+	import customParseFormat from 'dayjs/plugin/customParseFormat';
 	import Dropdown from '../dropdown';
 	import Icon from '../icon';
 	import { error as errorIcon, close } from '../../icons';
@@ -18,10 +19,12 @@
 	import { twMerge } from 'tailwind-merge';
 	import { nanoid } from 'nanoid';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
+	dayjs.extend(customParseFormat);
 
 	let input: HTMLInputElement;
 	let valueInput: HTMLInputElement;
 
+	export let allowUserInput = false;
 	export let showTime = false;
 	export let name: string = nanoid();
 	export let error: string | undefined = undefined;
@@ -44,16 +47,18 @@
 	let valueDayJS: Dayjs | null;
 	let text: string | undefined;
 
-	$: {
+	$: valueDayJS, updateInputValues();
+
+	let currentError: Writable<string | undefined> = writable(error);
+	$: currentError.set(error);
+
+	function updateInputValues() {
 		valueDayJS = value === null ? null : dayjs(value);
 		text = valueDayJS?.format(format);
 		if (input && input.value) {
 			input.value = text || '';
 		}
 	}
-
-	let currentError: Writable<string | undefined> = writable(error);
-	$: currentError.set(error);
 
 	function onFocusOut(event: unknown) {
 		const e = event as FocusEvent;
@@ -81,6 +86,7 @@
 		if (e.key === 'Escape' && visible) {
 			visible = false;
 		} else if (e.key === 'Tab') {
+			handleChange();
 			visible = !visible;
 		}
 	}
@@ -96,6 +102,20 @@
 		valueInput.dispatchEvent(new Event('change', { bubbles: true }));
 		// if (handleSelect) handleSelect(value);
 		if (closeOnSelect && !showTime) {
+			visible = false;
+		}
+	}
+
+	function handleChange() {
+		if (!allowUserInput) return;
+
+		valueDayJS = dayjs(text, format);
+		if (valueInput && valueDayJS.isValid()) {
+			valueInput.value = valueDayJS.toISOString();
+			value = new Date(valueDayJS.toISOString());
+			valueInput.dispatchEvent(new Event('change', { bubbles: true }));
+		} else if (text === '') {
+			handleClear();
 			visible = false;
 		}
 	}
@@ -164,7 +184,7 @@
 					/>
 					<input
 						bind:this={input}
-						readonly={true}
+						readonly={!allowUserInput}
 						autocomplete="off"
 						name="{name}-visual"
 						id="{name}-visual"
@@ -176,6 +196,7 @@
 						on:focus={handleOpen}
 						on:mousedown={handleOpen}
 						on:keydown={keydown}
+						on:change={handleChange}
 						class="block h-[2.5rem] w-full px-3 border outline-none focus:outline-none sm:text-sm rounded-md bg-surface placeholder-secondary-content placeholder-opacity-80 stwui-datepicker-input"
 						class:border-border={!error}
 						class:border-danger={error}
@@ -262,6 +283,7 @@
 					step={minuteStep}
 					{actions}
 					{format}
+					{allowUserInput}
 				/>
 			</div>
 		</Dropdown>
