@@ -41,10 +41,10 @@
 	// let minuteScroll: HTMLDivElement;
 	// let meridianScroll: HTMLDivElement;
 
-	$: value && allowUserInput, updateBrowseDateFromInput(value);
+	$: value, updateBrowseDateFromInput(value);
 
 	function updateBrowseDateFromInput(value: Dayjs | null) {
-		if (!value) return;
+		if (!allowUserInput || !value) return;
 		browseDate = value;
 
 		updateCalendarDays();
@@ -53,7 +53,6 @@
 	function setValue(d: Dayjs) {
 		if (!dayjs(d).isSame(value, 'day')) {
 			browseDate = clamp(d);
-			value = browseDate;
 		}
 	}
 
