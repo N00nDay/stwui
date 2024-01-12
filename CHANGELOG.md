@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.2-next](https://github.com/N00nDay/stwui/compare/v0.21.1-next...v0.21.2-next) (2024-01-12)
+
+
+### Bug Fixes
+
+* **date-utils:** dayjs import error ([9a3e19c](https://github.com/N00nDay/stwui/commit/9a3e19ca66b5ec51e38c6c0a50cf8da155dc3552))
+
 ## [0.21.1-next](https://github.com/N00nDay/stwui/compare/v0.21.0-next...v0.21.1-next) (2024-01-12)
 
 
