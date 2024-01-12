@@ -1,18 +1,15 @@
-import vercel from '@sveltejs/adapter-vercel';
-import preprocess from 'svelte-preprocess';
-
+import adapter from '@sveltejs/adapter-vercel';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: [
-		preprocess({
-			postcss: true,
-			sourceMap: true
-		})
-	],
-
 	kit: {
-		adapter: vercel()
-	}
+		adapter: adapter(),
+		alias: {
+			$lib: './src/lib'		}
+	},
+	preprocess: vitePreprocess({
+		postcss: true,
+		sourceMap: true
+	})
 };
-
 export default config;
