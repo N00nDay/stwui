@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.1-next](https://github.com/N00nDay/stwui/compare/v0.21.0-next...v0.21.1-next) (2024-01-12)
+
+
+### Bug Fixes
+
+* **DatePicker:** unable to set another date after it has been set once ([#209](https://github.com/N00nDay/stwui/issues/209)) ([d2f6c0b](https://github.com/N00nDay/stwui/commit/d2f6c0b814db0c04f1cdcb3d3d5ee874b35ae12e))
+
 ## [0.21.0-next](https://github.com/N00nDay/stwui/compare/v0.20.0-next...v0.21.0-next) (2024-01-03)
 
 ### Breaking
