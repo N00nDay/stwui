@@ -143,12 +143,14 @@
 		if (!minDate && !maxDate) {
 			return true;
 		}
+        const tempMinCalendarDay = calendarDay.set('day', 31);
+        const tempMaxCalendarDay = calendarDay.set('day', 1);
 		if (minDate && maxDate) {
-			return calendarDay.isAfter(minDate) && calendarDay.isBefore(maxDate);
+			return tempMinCalendarDay.isAfter(minDate, 'days') && tempMaxCalendarDay.isBefore(maxDate, 'days');
 		} else if (minDate) {
-			return calendarDay.isAfter(minDate);
+			return tempMinCalendarDay.isAfter(minDate, 'days');
 		} else if (maxDate) {
-			return calendarDay.isBefore(maxDate);
+			return tempMaxCalendarDay.isBefore(maxDate, 'days');
 		}
 		return true;
 	}
@@ -263,17 +265,22 @@
 	}
 
 	function handleArrow(unit: 'year' | 'month', operation: 'add' | 'subtract') {
-		if (unit === 'year') {
-			const newBrowseDate = browseDate[operation](1, 'year');
-			if (dayIsInRange(newBrowseDate)) {
-				setYear(browseDate, operation);
-			}
-		} else if (unit === 'month') {
-			const newBrowseDate = browseDate[operation](1, 'month');
-			if (dayIsInRange(newBrowseDate)) {
-				setMonth(browseDate, operation);
-			}
-		}
+        switch (unit) {
+            case 'year': {
+                const newBrowseDate = browseDate[operation](1, 'year');
+                if (dayIsInRange(newBrowseDate)) {
+                    setYear(browseDate, operation);
+                }
+                break;
+            }
+            case 'month': {
+                const newBrowseDate = browseDate[operation](1, 'month');
+                if (dayIsInRange(newBrowseDate)) {
+                    setMonth(browseDate, operation);
+                }
+                break;
+            }
+        }
 	}
 
 	updateCalendarDays();

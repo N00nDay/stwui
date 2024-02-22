@@ -85,10 +85,22 @@
 	<CodeBlock slot="code" language="svelte" code={withLabelExample} />
 </ExampleContainer>
 
+<ExampleContainer title={`With day limit (min: ${new Date().toLocaleDateString()})`}>
+	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
+		<div class="w-full max-w-lg mx-auto">
+			<DatePicker name="date-3" min={new Date()} allowClear class="w-full">
+				<DatePicker.Label slot="label">Date</DatePicker.Label>
+			</DatePicker>
+		</div>
+	</div>
+
+	<CodeBlock slot="code" language="svelte" code={withLabelExample} />
+</ExampleContainer>
+
 <ExampleContainer title="With Leading">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<DatePicker name="date-3" allowClear class="w-full">
+			<DatePicker name="date-4" allowClear class="w-full">
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Leading slot="leading" data={calendar} />
 			</DatePicker>
@@ -101,7 +113,7 @@
 <ExampleContainer title="With Trailing">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<DatePicker name="date-4" label="Date" class="w-full">
+			<DatePicker name="date-5" label="Date" class="w-full">
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Trailing slot="trailing" data={calendar} />
 			</DatePicker>
@@ -114,7 +126,7 @@
 <ExampleContainer title="With Error">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<DatePicker name="date-5" label="Date" bind:value {error} class="w-full">
+			<DatePicker name="date-6" label="Date" bind:value {error} class="w-full">
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Trailing slot="trailing" data={calendar} />
 			</DatePicker>
@@ -127,7 +139,7 @@
 <ExampleContainer title="Disabled">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<DatePicker name="date-6" label="Date" disabled class="w-full">
+			<DatePicker name="date-7" label="Date" disabled class="w-full">
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Trailing slot="trailing" data={calendar} />
 			</DatePicker>
@@ -140,7 +152,7 @@
 <ExampleContainer title="With Time">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<DatePicker name="date-7" label="Date" class="w-full" showTime>
+			<DatePicker name="date-8" label="Date" class="w-full" showTime>
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Trailing slot="trailing" data={calendar} />
 			</DatePicker>
@@ -153,7 +165,7 @@
 <ExampleContainer title="With Time (24 hour)">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<DatePicker name="date-7" label="Date" class="w-full" showTime format="MMMM D, YYYY @ H:mm">
+			<DatePicker name="date-9" label="Date" class="w-full" showTime format="MMMM D, YYYY @ H:mm">
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Trailing slot="trailing" data={calendar} />
 			</DatePicker>
@@ -166,7 +178,7 @@
 <ExampleContainer title="With Time And Step">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<DatePicker name="date-7" label="Date" class="w-full" showTime minuteStep={15}>
+			<DatePicker name="date-10" label="Date" class="w-full" showTime minuteStep={15}>
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Trailing slot="trailing" data={calendar} />
 			</DatePicker>
@@ -181,7 +193,7 @@
 		<div class="w-full max-w-lg mx-auto">
 			<DatePicker
 				bind:value
-				name="date-8"
+				name="date-11"
 				label="Date"
 				class="w-full"
 				actions={[{ label: 'Today', action: handleToday }]}
@@ -199,7 +211,7 @@
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
 			<DatePicker
-				name="date-10"
+				name="date-12"
 				placeholder="MM/DD/YYYY"
 				class="w-full"
 				allowUserInput
@@ -215,7 +227,7 @@
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
 			<DatePicker
-				name="date-11"
+				name="date-13"
 				placeholder="MM/DD/YYYY HH:mm"
 				class="w-full"
 				allowUserInput
@@ -231,7 +243,7 @@
 <ExampleContainer title="Mobile">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<DatePicker name="date-9" label="Date" class="w-full" mobile>
+			<DatePicker name="date-14" label="Date" class="w-full" mobile>
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Trailing slot="trailing" data={calendar} />
 			</DatePicker>
@@ -246,7 +258,7 @@
 		<div class="w-full max-w-lg mx-auto">
 			<DatePicker
 				bind:value
-				name="date-9"
+				name="date-14"
 				label="Date"
 				class="w-full"
 				mobile
@@ -264,7 +276,7 @@
 <ExampleContainer title="Mobile With Time">
 	<div slot="preview" class="w-full flex flex-row gap-2 items-center justify-center">
 		<div class="w-full max-w-lg mx-auto">
-			<DatePicker name="date-9" label="Date" class="w-full" mobile showTime>
+			<DatePicker name="date-15" label="Date" class="w-full" mobile showTime>
 				<DatePicker.Label slot="label">Date</DatePicker.Label>
 				<DatePicker.Trailing slot="trailing" data={calendar} />
 			</DatePicker>
