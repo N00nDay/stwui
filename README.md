@@ -1,9 +1,15 @@
 <img src="logo.png" align="left" width="192px" height="192px"/>
 <img align="left" width="0" height="192px" hspace="10"/>
 
-[![Under Development](https://img.shields.io/badge/under-development-orange.svg)](https://stwui.vercel.app/) [![npm version](https://img.shields.io/npm/v/stwui?logo=npm&color=cb3837)](https://www.npmjs.com/package/stwui) [![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/YVgwp48Tcm) [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/N00nDay/stwui/blob/main/LICENSE)
+[![Svelte 4](https://img.shields.io/badge/svelte-4-FF3E00.svg?logo=svelte)](https://svelte.dev/) [![GitHub stars](https://img.shields.io/github/stars/N00nDay/stwui?logo=github)](https://github.com/N00nDay/stwui/stargazers) [![npm version](https://img.shields.io/npm/v/stwui?logo=npm&color=cb3837)](https://www.npmjs.com/package/stwui) [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/N00nDay/stwui/blob/main/LICENSE)
 
-Svelte-TailwindCSS UI (STWUI) is currently in pre-release. There has been a lot work already but a lot of work still needs to be done. Most of my inspiration comes from TawilwindUI with a desire to create a component library similar to React component libraries that are less reliant on remembering class names. Contributors and collaborators welcome!
+Svelte-TailwindCSS UI (stwui) is an opinionated, customizable component library for Svelte and TailwindCSS. Inspired by Tailwind UI, it aims for a component API you compose with props instead of memorizing class names. A live showcase of all 49 components is at [stwui.vercel.app](https://stwui.vercel.app/).
+
+## Status
+
+stwui is stable and feature-complete for **Svelte 4 + TailwindCSS**, with 49 components. It grew to 450+ stars and is still installed from npm regularly.
+
+It is no longer under active development and has not been migrated to Svelte 5, but it remains usable as-is for Svelte 4 projects. Issues and pull requests are still welcome.
 
 <br />
 <br />
