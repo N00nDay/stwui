@@ -21,13 +21,13 @@ export default function formatNumber(
 		minimumFractionDigits: minimumFractionDigits
 			? minimumFractionDigits
 			: style === 'currency'
-			? 2
-			: minimumFractionDigits,
+				? 2
+				: minimumFractionDigits,
 		maximumFractionDigits: maximumFractionDigits
 			? maximumFractionDigits
 			: style === 'currency'
-			? 2
-			: maximumFractionDigits
+				? 2
+				: maximumFractionDigits
 	});
 	return formatter.format(number);
 }
