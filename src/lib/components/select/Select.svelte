@@ -2,7 +2,7 @@
 	import { setContext } from 'svelte';
 	import { scale, slide } from 'svelte/transition';
 	import { clickOutside } from '../../actions';
-	import { Icon } from '../../';
+	import Icon from '../icon';
 	import { unfold_more_horizontal, error as errorIcon } from '../../icons';
 	import { writable, type Writable } from 'svelte/store';
 	import type { SelectOption } from '../../types/select-option';
