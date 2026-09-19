@@ -1,11 +1,13 @@
 <script lang="ts">
+	import { onDestroy } from 'svelte';
 	import { scale } from 'svelte/transition';
 	import { twMerge } from 'tailwind-merge';
 	import { get_current_component, onMount, getContext } from 'svelte/internal';
 	import { floatingUI, forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
-	import type { Writable } from 'svelte/store';
+	import { writable, type Writable } from 'svelte/store';
+	import { portal } from '../portal/Portal.svelte';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	let list: HTMLUListElement;
@@ -15,6 +17,8 @@
 
 	const handleClose: () => void = getContext('select-handleClose');
 	const mobile: Writable<boolean> = getContext('select-mobile');
+	const floatingEl: Writable<HTMLElement | null> =
+		getContext('select-floating-el') ?? writable(null);
 
 	function handleKeydown(e: KeyboardEvent) {
 		e.preventDefault();
@@ -32,18 +36,22 @@
 		}
 	}
 
-	let defaultClass = 'w-full bg-surface stwui-select-options';
-	$: if ($mobile) {
-		defaultClass += ' h-full p-3 space-y-1 overflow-y-auto';
-	} else {
-		defaultClass +=
-			' p-1 shadow-xl border border-border rounded-md origin-top-right absolute z-10 left-0 right-0 max-h-[256px] overflow-y-auto';
-	}
+	$: defaultClass = $mobile
+		? 'w-full bg-surface stwui-select-options h-full p-3 space-y-1 overflow-y-auto'
+		: 'w-full bg-surface stwui-select-options p-1 shadow-xl border border-border rounded-md origin-top-right fixed z-50 max-h-[256px] overflow-y-auto';
 	$: finalClass = twMerge(defaultClass, $$props.class);
+
+	$: if (list) {
+		$floatingEl = list;
+	}
 
 	onMount(() => {
 		items = list.querySelectorAll('li');
 		// items[focusIndex].focus();
+	});
+
+	onDestroy(() => {
+		$floatingEl = null;
 	});
 </script>
 
@@ -68,7 +76,8 @@
 		out:scale={{ start: 0.95, duration: 75 }}
 		use:useActions={use}
 		use:forwardEvents
-		use:floatingUI={{ placement: 'bottom-start', offset: 8 }}
+		use:floatingUI={{ placement: 'bottom-start', offset: 8, strategy: 'fixed', matchWidth: true }}
+		use:portal={'body'}
 		{...exclude($$props, ['use', 'class'])}
 		role="listbox"
 	>

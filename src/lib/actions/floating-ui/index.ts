@@ -51,6 +51,10 @@ interface IConfig {
 	offset?: TOffsetOptions;
 	shift?: IShiftOptions;
 	flip?: IFlipOptions;
+	/** Explicit reference; defaults to the node's previous sibling (pre-portal). */
+	reference?: ReferenceElement | null;
+	/** Size the floating node to the reference width (needed after portaling). */
+	matchWidth?: boolean;
 }
 
 export default function floatingUI(
@@ -59,25 +63,62 @@ export default function floatingUI(
 		placement: 'bottom-start',
 		strategy: 'absolute'
 	}
-): { destroy: () => void } {
-	const referenceEl = node.previousElementSibling as ReferenceElement;
+): { update: (config: IConfig) => void; destroy: () => void } {
+	// Capture before any portal action moves the node out of its original parent.
+	const fallbackReference = node.previousElementSibling as ReferenceElement | null;
+	let cleanup: () => void = () => {};
+
+	function getReference(): ReferenceElement | null {
+		return config?.reference ?? fallbackReference;
+	}
+
+	function applyMatchWidth(referenceEl: ReferenceElement) {
+		if (config?.matchWidth) {
+			node.style.width = `${referenceEl.getBoundingClientRect().width}px`;
+		}
+	}
 
 	function updatePosition() {
+		const referenceEl = getReference();
+		if (!referenceEl) return;
+
+		applyMatchWidth(referenceEl);
+
 		computePosition(referenceEl, node, {
 			placement: config?.placement,
 			strategy: config?.strategy,
 			middleware: [offset(config.offset), flip()]
 		}).then(({ x, y }) => {
 			Object.assign(node.style, {
+				position: config?.strategy ?? 'absolute',
 				left: `${x}px`,
 				top: `${y}px`
 			});
+			applyMatchWidth(referenceEl);
 		});
 	}
 
-	const cleanup = autoUpdate(referenceEl, node, updatePosition, config?.autoUpdate);
+	function bind() {
+		cleanup();
+		const referenceEl = getReference();
+		if (!referenceEl) {
+			cleanup = () => {};
+			return;
+		}
+		if (config?.strategy) {
+			node.style.position = config.strategy;
+		}
+		applyMatchWidth(referenceEl);
+		cleanup = autoUpdate(referenceEl, node, updatePosition, config?.autoUpdate);
+	}
+
+	bind();
 
 	return {
+		update(newConfig: IConfig) {
+			config = newConfig;
+			bind();
+		},
 		destroy() {
 			cleanup();
 		}

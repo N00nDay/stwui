@@ -5,6 +5,7 @@
 	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
 	export let use: ActionArray = [];
 	import { exclude } from '../../utils/exclude';
+	import { writable, type Writable } from 'svelte/store';
 	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let visible = false;
@@ -15,13 +16,16 @@
 
 	setContext('dropdown-handleClose', handleClose);
 
+	const floatingEl: Writable<HTMLElement | null> = writable(null);
+	setContext('dropdown-floating-el', floatingEl);
+
 	const defaultClass = 'relative inline-block stwui-dropdown';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
 <div
 	class={finalClass}
-	use:clickOutside={handleClose}
+	use:clickOutside={{ handler: handleClose, extra: $floatingEl }}
 	use:useActions={use}
 	use:forwardEvents
 	{...exclude($$props, ['use', 'class'])}
