@@ -3,9 +3,13 @@
 	import { setContext } from 'svelte';
 	import Icon from '../icon';
 	import { error as errorIcon, close } from '../../icons';
+	import { get_current_component } from 'svelte/internal';
+	import { forwardEventsBuilder, useActions, type ActionArray } from '../../actions';
+	export let use: ActionArray = [];
 	import { writable, type Writable } from 'svelte/store';
 	import { twMerge } from 'tailwind-merge';
 	import { nanoid } from 'nanoid';
+	const forwardEvents = forwardEventsBuilder(get_current_component());
 
 	export let name: string = nanoid();
 	export let error: string | undefined = undefined;
@@ -104,7 +108,8 @@
 			{placeholder}
 			bind:value
 			{step}
-			on:input
+			use:useActions={use}
+			use:forwardEvents
 			{min}
 			{max}
 		/>
