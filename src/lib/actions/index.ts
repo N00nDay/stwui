@@ -1,5 +1,10 @@
 export { default as tooltip, type TooltipConfig as TooltipConfig } from './tooltip';
-export { default as clickOutside } from './click-outside';
+export {
+	default as clickOutside,
+	type ClickOutsideHandler,
+	type ClickOutsideConfig,
+	type ClickOutsideParameter
+} from './click-outside';
 export { default as forwardEventsBuilder } from './forward-events-builder';
 export {
 	default as useActions,

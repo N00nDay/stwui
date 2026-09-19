@@ -113,6 +113,9 @@
 	setContext('select-multiple', multiple);
 	setContext('select-handleClose', handleClose);
 	setContext('select-mobile', isMobile);
+
+	const floatingEl: Writable<HTMLElement | null> = writable(null);
+	setContext('select-floating-el', floatingEl);
 </script>
 
 <div
@@ -122,7 +125,7 @@
 		? () => {
 				return;
 		  }
-		: handleClose}
+		: { handler: handleClose, extra: $floatingEl }}
 >
 	<slot name="label" />
 	<div class="mt-1 relative rounded-md" class:text-danger={error} class:opacity-50={disabled}>
